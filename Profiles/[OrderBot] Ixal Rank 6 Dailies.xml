@@ -1,0 +1,1787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile>
+  <Name>[OrderBot] Ixal Rank 6 Daily Quests v2.1.1</Name>
+  <KillRadius>80</KillRadius>
+  <GrindAreas>
+    <GrindArea name="67102">
+      <Hotspots>
+        <HotSpot Radius="45" XYZ="681.8679, 299.0426, -344.1425" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2918" />
+      </TargetMobs>
+      <MinLevel>49</MinLevel>
+      <MaxLevel>61</MaxLevel>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <RegisterDailies QuestIds="67030,67031,67032,67033,67034,67035,67036,67037,67038,67039,67040,67041,67042,67043,67044,67045,67046,67047,67048,67049,67050,67051,67052,67053,67054,67055,67056,67057,67058,67059,67102,67103,67104" />
+    <If Condition="not HasAtLeastOneQuest(Array[int]([67056,67057,67058,67059,67102,67103,67104]))">
+      <If Condition="not IsOnMap(154)">
+        <TeleportTo AetheryteId="7" Name="154" />
+      </If>
+      <If Condition="IsOnMap(154)">
+        <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641" />
+        <RunCode Name="CraftClass" />
+      </If>
+      <!-- West For Fishing -->
+      <If Condition="IsQuestAcceptQualified(67056)">
+        <PickupDailyQuest QuestId="67056" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- Your Gil's No Good Here -->
+      <If Condition="IsQuestAcceptQualified(67057)">
+        <PickupDailyQuest QuestId="67057" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- Mining For Compliments -->
+      <If Condition="IsQuestAcceptQualified(67058)">
+        <PickupDailyQuest QuestId="67058" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- A High Wind In Ishgard -->
+      <If Condition="IsQuestAcceptQualified(67059)">
+        <PickupDailyQuest QuestId="67059" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- Bring Your Own Ectoplasm -->
+      <If Condition="IsQuestAcceptQualified(67102)">
+        <PickupDailyQuest QuestId="67102" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- In Case Of Emergency -->
+      <If Condition="IsQuestAcceptQualified(67103)">
+        <PickupDailyQuest QuestId="67103" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <!-- We Fly High (Squawkin') -->
+      <If Condition="IsQuestAcceptQualified(67104)">
+        <PickupDailyQuest QuestId="67104" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      </If>
+      <RunCode Name="CombatClass" />
+    </If>
+    <!-- TalkTos Tataru -->
+    <!-- A High Wind in Ishgard -->
+    <If Condition="HasQuest(67059)">
+      <If Condition="GetQuestStep(67059) == 1">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TalkTo InteractDistance="3.0" NpcId="1009204" QuestId="67047" StepId="1" XYZ="152.2728, -18.41936, 100.4052" />
+        </If>
+      </If>
+    </If>
+    <!-- HandOvers/Gathering -->
+    <!-- A High Wind In Ishgard -->
+    <If Condition="HasQuest(67059)">
+      <If Condition="GetQuestStep(67059) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="-174.2105, 304.1538, -322.508" />
+          <HandOver ItemIds="2001428" QuestId="67059" StepId="2" NpcId="1009648" XYZ="-174.2105, 304.1538, -322.508" />
+        </If>
+      </If>
+    </If>
+    <!-- Your Gil's No Good Here -->
+    <If Condition="HasQuest(67057)">
+      <If Condition="GetQuestStep(67057) == 1">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="261.161, 295.114777, -106.829414" />
+          <RunCode Name="BTN" />
+          <Gather while="GetQuestStepGtLt(67057,0,2)">
+            <GatherObject>Mature Tree</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="75" XYZ="261.161, 295.114777, -106.829414" />
+            </HotSpots>
+            <ItemNames>
+              <ItemName>Ruby Spruce Log</ItemName>
+              <ItemName>Ruby Spruce Branch</ItemName>
+              <ItemName>Ice Shard</ItemName>
+            </ItemNames>
+            <GatheringSkillOrder />
+          </Gather>
+        </If>
+      </If>
+    </If>
+    <!-- Mining for Compliments-->
+    <If Condition="HasQuest(67058)">
+      <If Condition="GetQuestStep(67058) == 1">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="314.8685, 301, -244.0696" />
+          <RunCode Name="MIN" />
+          <Gather while="GetQuestStepGtLt(67058,0,2)">
+            <GatherObject>Mineral Deposit</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="60" XYZ="314.8685, 301, -244.0696" />
+            </HotSpots>
+            <ItemNames>
+              <ItemName>High-quality Furite</ItemName>
+              <ItemName>Furite</ItemName>
+              <ItemName>Ice Shard</ItemName>
+            </ItemNames>
+            <GatheringSkillOrder />
+          </Gather>
+        </If>
+      </If>
+    </If>
+    <!-- West for Fishing -->
+    <If Condition="HasQuest(67056)">
+      <If Condition="GetQuestStep(67056) == 1">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="303.5594, 301.962, -258.2455" />
+          <RunCode Name="FSH" />
+          <Fish Mooch="0" Condition="GetQuestStepGtLt(67056,0,2)">
+            <FishSpots>
+              <FishSpot XYZ="303.5594, 301.962, -258.2455" Heading="0.3151579" />
+            </FishSpots>
+          </Fish>
+        </If>
+      </If>
+    </If>
+    <!-- Switch to Combat Class -->
+    <If Condition="GetQuestStep(67056) == 2 or GetQuestStep(67057) == 2 or GetQuestStep(67058) == 2 or GetQuestStep(67102) == 1 or GetQuestStep(67103) == 1 or GetQuestStep(67104) == 1">
+      <RunCode Name="CombatClass" />
+    </If>
+    <!-- Combat Objectives/HanOvers -->
+    <!-- In Case Of Emergency -->
+    <If Condition="HasQuest(67103)">
+      <If Condition="GetQuestStep(67103) == 1">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="643.7579, 302.985, -45.44253" />
+          <UseObject NpcIds="2004492,2004484,2004494,2004486,2004493,2004485,2004491,2004483,2004487,2004490,2004482,2004496,2004488,2004497,2004489" QuestId="67103" StepId="1">
+            <HotSpots>
+              <HotSpot XYZ="643.7579, 302.985, -45.44253" Radius="80" />
+            </HotSpots>
+          </UseObject>
+        </If>
+      </If>
+    </If>
+    <!-- We Fly High (Squawkin') -->
+    <If Condition="HasQuest(67104)">
+      <If Condition="GetQuestStep(67104) == 1">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="627.7654, 300.5547, -16.27912" />
+          <If Condition="Core.Player.InCombat">
+            <WaitWhile Condition="Core.Player.InCombat" />
+          </If>
+          <If Condition="not Core.Player.InCombat">
+            <MoveTo XYZ="627.7654, 300.5547, -16.27912" />
+            <RunCode Name="AmidTheFlowers" />
+          </If>
+          <TalkTo InteractDistance="3.0" QuestId="67104" StepId="1" NpcId="1009649" XYZ="627.7654, 300.5547, -16.27912" />
+        </If>
+      </If>
+    </If>
+    <!-- Bring Your Own Ectoplasm -->
+    <If Condition="HasQuest(67102)">
+      <If Condition="GetQuestStepGtLt(67102,0,2)">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="681.8679, 299.0426, -344.1425" />
+          <Grind grindref="67102" While="GetQuestStep(67102) == 1" />
+        </If>
+      </If>
+    </If>
+    <!-- Your Gil's No Good Here -->
+    <If Condition="HasQuest(67057)">
+      <If Condition="GetQuestStep(67057) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="246.7305, 302, -256.653" />
+          <HandOver ItemIds="2001424,2001425" QuestId="67058" StepId="2" NpcId="1009646" XYZ="246.7305, 302, -256.653" />
+        </If>
+      </If>
+    </If>
+    <!-- West for Fishing -->
+    <If Condition="HasQuest(67056)">
+      <If Condition="GetQuestStep(67056) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="238.3306, 302, -254.1391" />
+          <HandOver ItemId="2001422" QuestId="67056" StepId="2" NpcId="1009645" XYZ="238.3306, 302, -254.1391" />
+        </If>
+      </If>
+    </If>
+    <!-- Mining For Compliments -->
+    <If Condition="HasQuest(67058)">
+      <If Condition="GetQuestStep(67058) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <NoCombatMoveTo XYZ="205.2207, 302.265, -250.9366" />
+          <HandOver ItemIds="2001426,2001427" QuestId="67058" StepId="2" NpcId="1009647" XYZ="205.2207, 302.265, -250.9366" />
+        </If>
+      </If>
+    </If>
+    <!-- Switch to Craft Class -->
+    <If Condition="GetQuestStep(67056) == 3 or GetQuestStep(67057) == 3 or GetQuestStep(67058) == 3 or GetQuestStep(67059) == 3 or GetQuestStep(67102) == 2 or GetQuestStep(67103) == 2 or GetQuestStep(67104) == 2">
+      <NoCombatMoveTo XYZ="202.2286, 301.9998, -253.7029" Name="Norbettaux" />
+      <RunCode Name="CraftClass" />
+    </If>
+    <!-- Crafting under Specialization II -->
+    <!-- West for Fishing -->
+    <If Condition="HasQuest(67056)">
+      <If Condition="GetQuestStep(67056) == 3">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemId="2001423" QuestId="67056" StepId="3" NpcId="1009221" XYZ="202.1362, 301.9998, -253.5593" />
+        </If>
+      </If>
+      <!-- Escape Flyer Component -->
+      <While Condition="GetQuestStep(67056) == 255 and not HqHasAtLeast(8120,1)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30537" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="244" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100001" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="260" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100008" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30576" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="245" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100015" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="261" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100022" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30615" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="246" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100030" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="262" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100038" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30654" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="247" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100075" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="263" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100081" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30693" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="249" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100045" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="265" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100052" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30732" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="248" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100060" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="264" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100068" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30771" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="250" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100090" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="266" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100097" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30810" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="251" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Basic Synthesis" ActionId="100105" />
+            </If>
+            <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Great Strides" ActionId="267" />
+            </If>
+            <If Condition="not CraftingManager.HQPercent &gt; 80">
+              <CraftAction Name="Advanced Touch" ActionId="100112" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8120,1)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <!-- Your Gil's No Good Here -->
+    <If Condition="HasQuest(67057)">
+      <If Condition="GetQuestStep(67057) == 3">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001435" QuestId="67057" StepId="3" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Spare Tank Component -->
+      <While Condition="GetQuestStep(67057) == 255 and not HqHasAtLeast(8121,2)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30538" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="244" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100003" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100001" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100004" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30577" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="245" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100017" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100015" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100018" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30616" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="246" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100032" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100030" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100034" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30655" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="247" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100077" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100075" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100078" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30694" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="249" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100047" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100045" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100048" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30733" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="248" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100062" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100060" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100064" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30772" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="250" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100092" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100090" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100093" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30811" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="251" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100107" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100105" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100109" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8121,2)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <!-- Mining For Compliments -->
+    <If Condition="HasQuest(67058)">
+      <If Condition="GetQuestStep(67058) == 3">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001434" QuestId="67058" StepId="3" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Refabrication Component -->
+      <While Condition="GetQuestStep(67058) == 255 and not HqHasAtLeast(8122,2)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30539" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="244" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100003" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100001" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100004" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30578" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="245" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100017" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100015" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100018" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30617" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="246" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100032" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100030" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100034" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30656" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="247" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100077" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100075" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100078" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30695" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="249" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100047" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100045" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100048" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30734" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="248" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100062" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100060" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100064" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30773" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="250" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100092" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100090" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100093" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30812" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="251" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100107" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100105" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100109" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8122,2)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <If Condition="Core.Me.HasAura(552)">
+      <LogMessage Message="Waiting for Specialization II to end, or is cancelled." />
+      <WaitWhile Condition="Core.Me.HasAura(552)" />
+    </If>
+    <!-- Crafting under Detailing II -->
+    <!-- A High Wind In Ishgard -->
+    <If Condition="HasQuest(67059)">
+      <If Condition="GetQuestStep(67059) == 3">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001429" QuestId="67059" StepId="3" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Isolator Component -->
+      <While Condition="GetQuestStep(67059) == 255 and not HqHasAtLeast(8123,3)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30540" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="252" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30579" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="253" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30618" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="254" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30657" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="255" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10 or CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 10 and not CraftingManager.HQPercent == 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30696" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="257" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30735" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="256" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30774" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="258" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30813" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="259" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8123,3)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <!-- Bring Your Own Ectoplasm -->
+    <If Condition="HasQuest(67102)">
+      <If Condition="GetQuestStep(67102) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001430" QuestId="67102" StepId="2" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Hyperconductor Component -->
+      <While Condition="GetQuestStep(67102) == 255 and not HqHasAtLeast(8125,2)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30541" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="244" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100003" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100001" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100004" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30580" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="245" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100017" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100015" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100018" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30619" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="246" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100032" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100030" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100034" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30658" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="247" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100077" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100075" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100078" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30697" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="249" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100047" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100045" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100048" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30736" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="248" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100062" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100060" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100064" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30775" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="250" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100092" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100090" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100093" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30814" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Steady Hand" ActionId="251" />
+            </If>
+            <If Condition="CraftingManager.Durability == 10">
+              <CraftAction Name="Master's Mend" ActionId="100107" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Basic Synthesis" ActionId="100105" />
+            </If>
+            <If Condition="CraftingManager.HQPercent &lt; 100">
+              <CraftAction Name="Standard Touch" ActionId="100109" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8125,2)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <If Condition="Core.Me.HasAura(553)">
+      <LogMessage Message="Waiting for Detailing II to end, or is cancelled." />
+      <WaitWhile Condition="Core.Me.HasAura(553)" />
+    </If>
+    <!-- Crafting under Finishing II -->
+    <!-- In Case Of Emergency  -->
+    <If Condition="HasQuest(67103)">
+      <If Condition="GetQuestStep(67103) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001431" QuestId="67103" StepId="2" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Auxiliary Aerodynamo Component -->
+      <While Condition="GetQuestStep(67103) == 255 and not HqHasAtLeast(8126,1)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30542" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="252" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30581" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="253" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30620" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="254" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30659" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="255" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30698" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="257" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30737" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="256" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30776" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="258" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30815" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="259" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8126,1)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <!-- We Fly High (Squawkin') -->
+    <If Condition="HasQuest(67104)">
+      <If Condition="GetQuestStep(67104) == 2">
+        <If Condition="not IsOnMap(155)">
+          <TeleportTo AetheryteId="23" Name="155" />
+        </If>
+        <If Condition="IsOnMap(155)">
+          <HandOver ItemIds="2001432" QuestId="67104" StepId="2" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" />
+        </If>
+      </If>
+      <!-- Decorative Plating Component -->
+      <While Condition="GetQuestStep(67104) == 255 and not HqHasAtLeast(8127,2)">
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <Synthesize RecipeId="30543" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="252" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <Synthesize RecipeId="30582" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="253" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <Synthesize RecipeId="30621" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="254" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <Synthesize RecipeId="30660" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="255" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <Synthesize RecipeId="30699" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="257" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <Synthesize RecipeId="30738" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="256" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <Synthesize RecipeId="30777" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="258" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <Synthesize RecipeId="30816" />
+          <While Condition="CraftingManager.IsCrafting">
+            <If Condition="Core.Player.CurrentCPPercent == 100">
+              <CraftAction Name="Inner Quiet" ActionId="259" />
+              <CraftAction Name="Steady Hand II" ActionId="281" />
+              <CraftAction Name="Waste Not" ActionId="279" />
+            </If>
+            <If Condition="CraftingManager.HQPercent == 100">
+              <CraftAction Name="Careful Synthesis II" ActionId="100069" />
+            </If>
+            <If Condition="CraftingManager.Durability == 20 or (CraftingManager.Condition == Enums.CraftingCondition.Excellent and Core.Me.CharacterAuras.GetAuraStacksById(251) &gt; 2)">
+              <CraftAction Name="Byregot's Blessing" ActionId="100009" />
+            </If>
+            <If Condition="CraftingManager.Durability &gt; 20 and CraftingManager.HQPercent != 100">
+              <CraftAction Name="Hasty Touch" ActionId="100108" />
+            </If>
+          </While>
+        </If>
+      </While>
+      <If Condition="HqHasAtLeast(8127,2)">
+        <RunCode Name="StopCraft" />
+      </If>
+    </If>
+    <!-- Switch to Combat Class for return, then Hand In Class when arrived -->
+    <If Condition="HqHasAtLeast(8120,1) or HqHasAtLeast(8121,2) or HqHasAtLeast(8122,2) or HqHasAtLeast(8123,3) or HqHasAtLeast(8125,2) or HqHasAtLeast(8126,1) or HqHasAtLeast(8127,2)">
+      <If Condition="not IsOnMap(154)">
+        <RunCode Name="CombatClass" />
+        <TeleportTo AetheryteId="7" Name="154" />
+      </If>
+      <If Condition="IsOnMap(154)">
+        <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641" />
+        <RunCode Name="HandInClass" />
+      </If>
+    </If>
+    <!-- TurnIns -->
+    <!-- West for Fishing -->
+    <If Condition="HasQuest(67056)">
+      <If Condition="GetQuestStep(67056) == 255 and HqHasAtLeast(8120,1)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8120" QuestId="67056" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- Your Gil's No Good Here -->
+    <If Condition="HasQuest(67057)">
+      <If Condition="GetQuestStep(67057) == 255 and HqHasAtLeast(8121,2)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8121" QuestId="67057" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- Mining For Compliments -->
+    <If Condition="HasQuest(67058)">
+      <If Condition="GetQuestStep(67058) == 255 and HqHasAtLeast(8122,2)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8122" QuestId="67058" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- A High Wind In Ishgard -->
+    <If Condition="HasQuest(67059)">
+      <If Condition="GetQuestStep(67059) == 255 and HqHasAtLeast(8123,3)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8123" QuestId="67059" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- Bring Your Own Ectoplasm -->
+    <If Condition="HasQuest(67102)">
+      <If Condition="GetQuestStep(67102) == 255 and HqHasAtLeast(8125,2)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8125" QuestId="67102" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- In Case Of Emergency  -->
+    <If Condition="HasQuest(67103)">
+      <If Condition="GetQuestStep(67103) == 255 and HqHasAtLeast(8126,1)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8126" QuestId="67103" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- We Fly High (Squawkin') -->
+    <If Condition="HasQuest(67104)">
+      <If Condition="GetQuestStep(67104) == 255 and HqHasAtLeast(8127,2)">
+        <If Condition="not IsOnMap(154)">
+          <TeleportTo AetheryteId="7" Name="154" />
+        </If>
+        <If Condition="IsOnMap(154)">
+          <TurnIn ItemId="8127" QuestId="67104" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+    </If>
+    <!-- Call of the Wild (Immortal Flames) -->
+    <If Condition="not IsQuestCompleted(67003) or not IsQuestCompleted(67004) or not IsQuestAcceptQualified(67005) or not IsQuestAcceptQualified(67006) or not IsQuestAcceptQualified(67007) or not IsQuestAcceptQualified(67008) or not IsQuestAcceptQualified(67009)">
+      <If Condition="IsQuestAcceptQualified(67003) and not HasQuest(67003)">
+        <TeleportTo AetheryteId="9" Name="Ul'dah" />
+        <NoCombatMoveTo Name="Mimio Mio" XYZ="-130.9377, 4.099995, -91.02008" />
+        <PickupQuest QuestId="67003" NpcId="1001634" />
+      </If>
+      <If Condition="HasQuest(67003)">
+        <If Condition="GetQuestStep(67003) == 255">
+          <TeleportTo AetheryteId="2" Name="New Gridania" />
+          <TurnIn QuestId="67003" StepId="255" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+        </If>
+      </If>
+      <!-- Little Sylphs Lost -->
+      <If Condition="IsQuestAcceptQualified(67004) and not HasQuest(67004)">
+        <PickupQuest QuestId="67004" NpcId="1009216" />
+      </If>
+      <If Condition="HasQuest(67004)">
+        <If Condition="GetQuestStep(67004) == 1">
+          <TeleportTo AetheryteId="4" Name="The Hawethorne Hut" />
+          <NoCombatMoveTo Name="Voyce" XYZ="22.47644, -6.21051, 252.552" />
+          <TalkTo InteractDistance="3.0" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67004) == 2">
+        <NoCombatMoveTo Name="Destination" XYZ="260.8224, -9.10968, -77.40906" />
+        <UseObject NpcIds="2004254" QuestId="67004" StepId="2">
+          <HotSpots>
+            <HotSpot XYZ="260.8224, -9.10968, -77.40906" Radius="5" />
+          </HotSpots>
+        </UseObject>
+      </If>
+      <If Condition="GetQuestStep(67004) == 255">
+        <NoCombatMoveTo Name="Voyce" XYZ="22.47644, -6.21051, 252.552" />
+        <TurnIn QuestId="67004" NpcId="1005565" ItemId="2001361" XYZ="22.47644, -6.21051, 252.552" />
+      </If>
+      <!-- Clutching at Straws -->
+      <If Condition="IsQuestAcceptQualified(67005) and not HasQuest(67005)">
+        <PickupQuest NpcId="1005565" QuestId="67005" />
+      </If>
+      <If Condition="HasQuest(67005)">
+        <If Condition="GetQuestStep(67005) == 1">
+          <TeleportTo AetheryteId="8" Name="129" />
+          <NoCombatMoveTo Name="Limsa Lominsa Upper Decks" Distance="0" XYZ="-7.13642, 20.84274, 27.17651" />
+          <HandOver ItemId="2001316" QuestId="67005" StepId="1" NpcId="1009197" XYZ="-3.433289, 39.51757, 11.45953" />
+        </If>
+        <If Condition="GetQuestStep(67005) == 2">
+          <NoCombatMoveTo Name="Limsa Lominsa Lower Decks" Distance="0" XYZ="-9.65393, 42.99996, -25.46598" />
+          <TalkTo InteractDistance="3.0" NpcId="1009154" XYZ="-239.704, 5.999995, 175.9823" />
+        </If>
+        <If Condition="GetQuestStep(67005) == 3">
+          <TeleportTo AetheryteId="14" Name="138" />
+          <NoCombatMoveTo Name="Novv" XYZ="-238.0255, -40.82826, 68.28406" />
+          <HandOver ItemId="2001317" QuestId="67005" StepId="3" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" />
+        </If>
+        <If Condition="GetQuestStep(67005) == 4">
+          <UseTransport NpcId="1005946" InteractDistance="3.5" XYZ="-239.2767, -42.13019, 15.2132" />
+          <If Condition="IsOnSubMap(946)">
+            <NoCombatMoveTo Name="Destination" XYZ="-822.6597, -40.05493, 666.5292" />
+            <UseObject NpcIds="2004255" QuestId="67005" StepId="4">
+              <HotSpots>
+                <HotSpot XYZ="-822.6597, -40.05493, 666.5292" Radius="15" />
+              </HotSpots>
+            </UseObject>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67005) == 255">
+          <UseTransport NpcId="1008802" InteractDistance="3.5" XYZ="-814.847, -42.15457, 694.3312" />
+          <TurnIn QuestId="67005" NpcId="1005937" ItemId="2001361" XYZ="-238.0255, -40.82826, 68.28406" />
+        </If>
+      </If>
+      <!-- Digging for Answers -->
+      <If Condition="IsQuestAcceptQualified(67006) and not HasQuest(67006)">
+        <PickupQuest NpcId="1005937" QuestId="67006" />
+      </If>
+      <If Condition="HasQuest(67006)">
+        <If Condition="GetQuestStep(67006) == 1">
+          <NoCombatMoveTo Name="Skiff" XYZ="301.8386, -41.30621, 373.3119" />
+          <UseObject NpcIds="2004255,2004280,2004278" QuestId="67006" StepId="1" BlacklistAfter="True">
+            <HotSpots>
+              <HotSpot XYZ="301.8386, -41.30621, 373.3119" Radius="5" />
+              <HotSpot XYZ="298.2986, -40.87891, 383.3523" Radius="5" />
+              <HotSpot XYZ="294.0565, -41.18414, 371.4198" Radius="5" />
+            </HotSpots>
+          </UseObject>
+        </If>
+        <If Condition="GetQuestStep(67006) == 2">
+          <TeleportTo AetheryteId="8" Name="129" />
+          <NoCombatMoveTo Name="Limsa Lominsa Upper Decks" Distance="0" XYZ="-7.13642, 20.84274, 27.17651" />
+          <TalkTo InteractDistance="3.0" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958" />
+        </If>
+        <If Condition="GetQuestStep(67006) == 3">
+          <TalkTo InteractDistance="3.0" NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597" />
+        </If>
+        <If Condition="GetQuestStep(67006) == 4">
+          <TeleportTo AetheryteId="16" Name="180" />
+          <TalkTo InteractDistance="3.0" NpcId="1005931" XYZ="0.7781982, 16.1593, -171.4962" />
+        </If>
+        <If Condition="GetQuestStep(67006) == 5">
+          <NoCombatMoveTo Name="175th Order Quarryman" XYZ="164.2633, 66.94427, -270.7409" />
+          <UseObject NpcIds="1009155,1009156,1009157" QuestId="67006" StepId="5">
+            <HotSpots>
+              <HotSpot XYZ="164.2633, 66.94427, -270.7409" Radius="5" />
+              <HotSpot XYZ="228.4427, 58.11453, -249.3478" Radius="5" />
+              <HotSpot XYZ="213.2448, 61.81511, -226.2455" Radius="5" />
+            </HotSpots>
+          </UseObject>
+        </If>
+        <If Condition="GetQuestStep(67006) == 6">
+          <NoCombatMoveTo Name="Sylvie" XYZ="190.9971, 59.85626, -147.448" />
+          <UseObject NpcIds="1009299" QuestId="67006" StepId="6">
+            <HotSpots>
+              <HotSpot XYZ="190.9971, 59.85626, -147.448" Radius="5" />
+            </HotSpots>
+          </UseObject>
+        </If>
+        <If Condition="GetQuestStep(67006) == 255">
+          <NoCombatMoveTo Name="Skaetswys" XYZ="0.7781982, 16.1593, -171.4962" />
+          <TurnIn QuestId="67006" NpcId="1005931" ItemId="2001361" XYZ="0.7781982, 16.1593, -171.4962" />
+        </If>
+      </If>
+      <!-- Rattled in Ehcatl -->
+      <If Condition="IsQuestAcceptQualified(67007) and not HasQuest(67007)">
+        <PickupQuest NpcId="1005931" QuestId="67007" />
+      </If>
+      <If Condition="HasQuest(67007)">
+        <If Condition="GetQuestStep(67007) == 1">
+          <NoCombatMoveTo Name="Bloeidin" XYZ="-141.558, 64.59769, -212.2683" />
+          <TalkTo InteractDistance="3.0" NpcId="1006325" XYZ="-141.558, 64.59769, -212.2683" />
+        </If>
+        <If Condition="GetQuestStep(67007) == 2">
+          <UseObject NpcIds="2004257" QuestId="67007" StepId="2">
+            <HotSpots>
+              <HotSpot XYZ="-113.6035, 67.39905, -240.7416" Radius="5" />
+            </HotSpots>
+          </UseObject>
+        </If>
+        <If Condition="GetQuestStep(67007) == 3">
+          <TeleportTo AetheryteId="7" Name="154" />
+          <NoCombatMoveTo Name="Sezul Totoloc" XYZ="149.4315, -18.1403, 99.22937" />
+          <TalkTo InteractDistance="3.0" NpcId="1009199" XYZ="149.4315, -18.1403, 99.22937" />
+        </If>
+        <If Condition="GetQuestStep(67007) == 4">
+          <UseObject NpcIds="2004261" QuestId="67007" StepId="4">
+            <HotSpots>
+              <HotSpot XYZ="322.1942, -6.363098, 18.29553" Radius="5" />
+            </HotSpots>
+          </UseObject>
+        </If>
+        <If Condition="GetQuestStep(67007) == 255">
+          <TurnIn QuestId="67007" NpcId="1009204" ItemId="2001318" XYZ="151.9341, -18.41936, 100.7247" />
+        </If>
+      </If>
+      <!-- Ash Not What Your Brotherhood Can Do for You -->
+      <If Condition="IsQuestAcceptQualified(67008) and not HasQuest(67008)">
+        <PickupQuest NpcId="1009204" QuestId="67008" />
+      </If>
+      <If Condition="HasQuest(67008)">
+        <If Condition="GetQuestStep(67008) == 1">
+          <TeleportTo AetheryteId="9" Name="130" />
+          <UseTransport NpcId="1001834" DialogOption="0" InteractDistance="3.5" XYZ="-23.33112, 10, -43.44244" />
+          <TalkTo InteractDistance="3.0" NpcId="1009230" XYZ="-12.83289, 82.99996, -11.70367" />
+        </If>
+        <If Condition="GetQuestStep(67008) == 2">
+          <UseTransport NpcId="1004339" DialogOption="1" InteractDistance="3.5" XYZ="-25.98621, 81.8, -31.99823" />
+          <TalkTo InteractDistance="3.0" NpcId="1009159" XYZ="3.860474, 4.099893, -132.7383" />
+        </If>
+        <If Condition="GetQuestStep(67008) == 255">
+          <TeleportTo AetheryteId="19" Name="146" />
+          <TurnIn QuestId="67008" NpcId="1005553" ItemId="2001361" XYZ="122.6062, 16.40265, -362.1119" />
+        </If>
+      </If>
+      <!-- Friends Forever -->
+      <If Condition="IsQuestAcceptQualified(67009) and not HasQuest(67009)">
+        <PickupQuest NpcId="1005553" QuestId="67009" />
+      </If>
+      <If Condition="HasQuest(67009)">
+        <If Condition="GetQuestStep(67009) == 1">
+          <TalkTo InteractDistance="3.0" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 2">
+          <TeleportTo AetheryteId="9" Name="130" />
+          <TalkTo InteractDistance="3.0" NpcId="1009192" XYZ="39.90234, 4, -131.7922" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 3">
+          <NoCombatMoveTo Name="Ul'dah - Steps of Thal" Distance="0" XYZ="64.4148, 8, -82.87477" />
+          <TalkTo InteractDistance="3.0" NpcId="1009166" XYZ="129.3812, 4.100004, 29.40417" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 4">
+          <NoCombatMoveTo Name="Ul'dah - Steps of Nald" Distance="0" XYZ="61.08195, 8, -85.77306" />
+          <TalkTo InteractDistance="3.0" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 5">
+          <TalkTo InteractDistance="3.0" NpcId="1009169" XYZ="-147.1733, 4.1, -99.90088" />
+          <TalkTo InteractDistance="3.0" NpcId="1009170" XYZ="-88.7923, 5.001688, -77.3175" />
+          <UseTransport NpcId="1001834" DialogOption="0" InteractDistance="3.5" XYZ="-23.33112, 10, -43.44244" />
+          <TalkTo InteractDistance="3.0" NpcId="1009167" XYZ="-10.45245, 82.99999, -3.646973" />
+          <UseTransport NpcId="1004339" DialogOption="0" InteractDistance="3.5" XYZ="-25.98621, 81.8, -31.99823" />
+          <TalkTo InteractDistance="3.0" NpcId="1009168" XYZ="-111.0399, 41.5, 126.3905" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 6">
+          <UseTransport NpcId="1001854" DialogOption="1" InteractDistance="3.5" XYZ="-19.36377, 34, -42.58801" />
+          <NoCombatMoveTo Name="Ul'dah - Steps of Thal" Distance="0" XYZ="64.4148, 8, -82.87477" />
+          <TalkTo InteractDistance="3.0" NpcId="1009166" XYZ="129.3812, 4.100004, 29.40417" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 7">
+          <NoCombatMoveTo Name="Ul'dah - Steps of Nald" Distance="0" XYZ="61.08195, 8, -85.77306" />
+          <HandOver ItemId="2001336" QuestId="67009" StepId="7" NpcId="1009170" XYZ="-88.7923, 5.001688, -77.3175" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 8">
+          <NoCombatMoveTo Name="Silbexio" XYZ="-352.7428, -10.17917, -216.2051" />
+          <TalkTo InteractDistance="3.0" NpcId="1009194" XYZ="-352.7428, -10.17917, -216.2051" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 9">
+          <UseItem NpcId="2004283" ItemId="2001319" XYZ="-323.506, -9.724042, -248.4465" Radius="10" QuestId="67009" StepId="9" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 10">
+          <TalkTo InteractDistance="3.0" NpcId="1009195" XYZ="-340.2, -12.02409, -246.9368" />
+        </If>
+        <If Condition="GetQuestStep(67009) == 255">
+          <TeleportTo AetheryteId="9" Name="130" />
+          <NoCombatMoveTo Name="Ul'dah - Steps of Thal" Distance="0" XYZ="64.4148, 8, -82.87477" />
+          <TurnIn QuestId="67009" NpcId="1009166" ItemId="2001361" XYZ="129.3812, 4.100004, 29.40417" />
+        </If>
+      </If>
+    </If>
+    <RunCode Name="CombatClass" />
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="MIN">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 1");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="BTN">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 2");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="FSH">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(2000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 6");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="CombatClass">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        if(Core.Player.CurrentJob == ClassJobType.Fisher)
+        {
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 3");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="CraftClass">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 4");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="HandInClass">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/gs change 5");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="AmidTheFlowers">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          ff14bot.Managers.Actionmanager.Dismount();
+          await Buddy.Coroutines.Coroutine.Sleep(3000);
+        }
+
+        ff14bot.Managers.ChatManager.SendChat("/say Amid the Flowers");
+        await Buddy.Coroutines.Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="StopCraft">
+      <![CDATA[
+        if(ff14bot.RemoteWindows.CraftingLog.IsOpen)
+        {
+          ff14bot.RemoteWindows.CraftingLog.Close();
+          await Buddy.Coroutines.Coroutine.Sleep(4000);
+        }
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

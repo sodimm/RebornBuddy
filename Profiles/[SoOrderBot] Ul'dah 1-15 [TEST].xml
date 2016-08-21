@@ -1,0 +1,848 @@
+<Profile>
+  <Order>
+    <BotSettings AutoEquip="1" />
+    <!-- Coming to Ul'dah -->
+    <If Condition="Core.Me.CurrentJob == Enums.ClassJobType.Pugilist or Core.Me.CurrentJob == Enums.ClassJobType.Thaumaturge or Core.Me.CurrentJob == Enums.ClassJobType.Gladiator">
+      <SoPickUpQuest QuestId="66130" NpcId="1003987" XYZ="33.37146, 4.099995, -151.9952" MapId="130" />
+      <SoTurnIn QuestId="66130" NpcId="1003988" XYZ="21.07263, 7.45, -78.84338" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Thaumaturge">
+      <!-- Close to Home -->
+      <SoPickUpQuest QuestId="66106" NpcId="1003988" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <SoUseObject NpcIds="9" XYZ="-141.9508, -3.154888, -166.4268" Radius="10" Distance="10" Condition="not Managers.WorldManager.HasAetheryteId(9)" MapId="130" />
+      <SoTalkTo NpcId="1002279" XYZ="-196.8872, 18.46, 59.95264" QuestId="66106" Step="1" Objective="1" MapId="130" />
+      <SoHandOver ItemIds="2000388" NpcId="1003908" XYZ="137.9568, 4.041112, -41.09259" QuestId="66106" StepId="1" MapId="131" />
+      <SoTurnIn QuestId="66106" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <!-- Way of the Thaumaturge -->
+      <SoPickUpQuest QuestId="65881" NpcId="1002279" XYZ="-196.8872, 18.46, 59.95264" MapId="130" />
+      <SoTalkTo NpcId="1001709" XYZ="-240.4975, 18.7, 85.58777" QuestId="65881" Stepid="1" MapId="130" />
+      <SoGrind NpcIds="262" XYZ="-124.5378, 8.191166, 263.1792" Radius="90" QuestId="65881" StepId="2" Objective="0" MapId="141" />
+      <SoGrind NpcIds="632" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="65881" StepId="2" Objective="1" MapId="141" />
+      <SoGrind NpcIds="318" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="65881" StepId="2" Objective="2" MapId="141" />
+      <SoTurnIn QuestId="65881" NpcId="1001708" XYZ="-250.3548, 18, 80.88806" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Pugilist">
+      <!-- Close to Home -->
+      <SoPickUpQuest QuestId="66105" NpcId="1003988" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <SoUseObject NpcIds="9" XYZ="-141.9508, -3.154888, -166.4268" Radius="10" Distance="10" Condition="not Managers.WorldManager.HasAetheryteId(9)" MapId="130" />
+      <SoTalkTo NpcId="1001286" XYZ="-88.9754, 2.55, -51.16351" QuestId="66105" StepId="1" Objective="1" MapId="130" />
+      <SoHandOver ItemIds="2000387" NpcId="1003908" XYZ="137.9568, 4.041112, -41.09259" QuestId="66105" StepId="1" MapId="131" />
+      <SoTurnIn QuestId="66105" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <!-- Way of the Pugilist -->
+      <SoPickUpQuest QuestId="66069" NpcId="1001286" XYZ="-88.9754, 2.55, -51.16351" MapId="130" />
+      <SoTalkTo NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" QuestId="66069" StepId="1" MapId="130" />
+      <SoGrind NpcIds="262" XYZ="-124.5378, 8.191166, 263.1792" Radius="90" QuestId="66069" StepId="2" Objective="0" MapId="141" />
+      <SoGrind NpcIds="632" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="66069" StepId="2" Objective="1" MapId="141" />
+      <SoGrind NpcIds="318" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="66069" StepId="2" Objective="2" MapId="141" />
+      <SoTurnIn QuestId="66069" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Gladiator">
+      <!-- Close to Home -->
+      <SoPickUpQuest QuestId="66104" NpcId="1003988" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <SoUseObject NpcIds="9" XYZ="-141.9508, -3.154888, -166.4268" Radius="10" Distance="10" Condition="not Managers.WorldManager.HasAetheryteId(9)" MapId="130" />
+      <SoTalkTo NpcId="1002277" XYZ="-97.55096, 7.050001, 23.60565" QuestId="66104" StepId="1" Objective="1" MapId="131" />
+      <SoHandOver ItemIds="2000386" NpcId="1003908" XYZ="137.9568, 4.041112, -41.09259" QuestId="66104" StepId="1" MapId="131" />
+      <!-- Way of the Gladiator -->
+      <SoPickUpQuest QuestId="65789" NpcId="1002277" XYZ="-97.55096, 7.050001, 23.60565" MapId="131" />
+      <SoTalkTo NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" QuestId="65789" StepId="1" MapId="131" />
+      <SoGrind NpcIds="262" XYZ="-124.5378, 8.191166, 263.1792" Radius="90" QuestId="65789" StepId="2" Objective="0" MapId="141" />
+      <SoGrind NpcIds="632" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="65789" StepId="2" Objective="1" MapId="141" />
+      <SoGrind NpcIds="318" XYZ="47.77102, 4.473118, 298.6426" Radius="90" QuestId="65789" StepId="2" Objective="2" MapId="141" />
+      <!-- Close to Home -->
+      <SoTurnIn QuestId="66104" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+      <!-- Way of the Gladiator -->
+      <SoTurnIn QuestId="65789" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+    </If>
+    <!-- Motivational Speaking -->
+    <SoPickUpQuest QuestId="65686" NpcId="1001287" XYZ="-77.53113, 0.7028755, -50.94995" MapId="130" />
+    <!-- Due Diligence -->
+    <SoPickUpQuest QuestId="65685" NpcId="1001285" XYZ="-68.77246, 4.041112, -126.5126" MapId="130" />
+    <!-- Tougher than Leather -->
+    <SoPickUpQuest QuestId="65699" NpcId="1003898" XYZ="-109.9108, 4.500089, -73.80792" MapId="130" />
+    <!-- Due Diligence -->
+    <SoTurnIn QuestId="65685" ItemIds="2000136" NpcId="1002278" XYZ="-90.0741, 2.099913, -53.69653" MapId="130" />
+    <!-- Motivational Speaking -->
+    <SoTurnIn QuestId="65686" NpcId="1001288" XYZ="-151.5984, 12, 16.22028" MapId="130" />
+    <!-- Gil for Gold -->
+    <SoPickUpQuest QuestId="65687" NpcId="1001288" XYZ="-151.5984, 12, 16.22028" MapId="130" />
+    <SoTurnIn QuestId="65687" ItemIds="2000245" NpcId="1001289" XYZ="-207.9042, 18.5, 70.7865" MapId="130" />
+    <!-- In the Name of Science -->
+    <SoPickUpQuest QuestId="66108" NpcId="1003897" XYZ="-195.4528, 18, 60.53247" MapId="130" />
+    <!-- Unholy Matrimony -->
+    <SoPickUpQuest QuestId="65689" NpcId="1001291" XYZ="-164.2939, 14.005, 41.94702" MapId="130" />
+    <SoTalkTo NpcId="1001292" XYZ="-124.5594, 10, 1.205444" QuestId="65689" StepId="1" MapId="130" />
+    <SoUseItem ItemId="2000137" NpcIds="2000693,2000692,2000691" QuestId="65689" StepId="2" MapId="131">
+      <HotSpots>
+        <HotSpot XYZ="-86.86963, 8.651855, -18.6618" Radius="10" />
+        <HotSpot XYZ="-68.61987, 8.438171, 0.1067505" Radius="10" />
+        <HotSpot XYZ="-85.67944, 8.46875, 18.53967" Radius="10" />
+      </HotSpots>
+    </SoUseItem>
+    <SoTurnIn QuestId="65689" NpcId="1003896" XYZ="-96.17767, 6.599968, 21.28632" MapId="131" />
+    <!-- Beet-red Beetles Beat Red -->
+    <SoPickUpQuest QuestId="66107" NpcId="1003896" XYZ="-96.17767, 6.599968, 21.28632" MapId="131" />
+    <!-- The Great Gladiator -->
+    <SoPickUpQuest QuestId="65701" NpcId="1001295" XYZ="-90.83698, 6.500004, 29.28198" MapId="131" />
+    <!-- No Lady Is an Island -->
+    <SoPickUpQuest QuestId="65932" NpcId="1001675" XYZ="-89.49426, 7.008114, 10.84912" MapId="131" />
+    <SoUseObject NpcIds="2000695,2001089,2000697,2001090,2000696" QuestId="65932" StepId="1" MapId="131">
+      <HotSpots>
+        <HotSpot XYZ="-93.61414, 6.973328, 11.24585" Radius="10" />
+        <HotSpot XYZ="-91.69153, 6.973328, 13.53473" Radius="10" />
+        <HotSpot XYZ="-88.27344, 7.003784, 11.52051" Radius="10" />
+        <HotSpot XYZ="-85.70996, 6.973328, 12.25293" Radius="10" />
+        <HotSpot XYZ="-87.26642, 6.973328, 14.9386" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65932" ItemIds="2000198" NpcId="1001675" XYZ="-89.49426, 7.008114, 10.84912" MapId="131" />
+    <!-- The Great Gladiator -->
+    <SoHandOver NpcId="1002280" ItemIds="2000201" XYZ="-35.38574, 13.59997, 97.24573" QuestId="65701" StepId="1" MapId="131"/>
+    <SoTurnIn QuestId="65701" NpcId="1001299" XYZ="-18.02094, 6.2, 154.5281" MapId="131" />
+    <!-- Decisions, Decisions -->
+    <SoPickUpQuest QuestId="65928" NpcId="1001680" XYZ="31.20471, 12, 99.32092" MapId="131" />
+    <SoTurnIn QuestId="65928" NpcId="1001691" XYZ="142.1682, 7.492003, 104.7227" MapId="131" />
+    <!-- With Open Arms -->
+    <SoPickUpQuest QuestId="65703" NpcId="1007621" XYZ="144.3046, 6.392003, 89.12781" MapId="131" />
+    <SoEmoteNpc Emote="welcome" NpcIds="1007621" XYZ="144.3046, 6.392003, 89.12781" Radius="5" QuestId="65703" StepId="1" MapId="131" />
+    <!-- Vox Populi -->
+    <SoPickUpQuest QuestId="65929" NpcId="1001685" XYZ="142.7175, 7.500003, 94.19385" MapId="131" />
+    <!-- With Open Arms -->
+    <SoEmoteNpc Emote="welcome" NpcIds="1001692" XYZ="124.2847, 7.992012, 89.55518" Radius="10" PersistentObject="True" QuestId="65703" StepId="2" Objective="0" Count="1" MapId="131" />
+    <SoEmoteNpc Emote="welcome" NpcIds="1001693" XYZ="123.3386, 7.992012, 88.91431" Radius="10" PersistentObject="True" QuestId="65703" StepId="2" Objective="0" Count="2" MapId="131" />
+    <SoEmoteNpc Emote="welcome" NpcIds="1001698" XYZ="86.44226, 12.27927, 67.85681" Radius="10" PersistentObject="True" QuestId="65703" StepId="2" Objective="0" Count="3" MapId="131" />
+    <SoEmoteNpc Emote="welcome" NpcIds="1001697" XYZ="98.55798, 12.27927, 54.79517" Radius="10" PersistentObject="True" QuestId="65703" StepId="2" Objective="0" Count="4" MapId="131" />
+    <SoEmoteNpc Emote="welcome" NpcIds="1001297" XYZ="98.34436, 12.27927, 54.06262" Radius="10" PersistentObject="True" QuestId="65703" StepId="2" Objective="0" Count="5" MapId="131" />
+    <SoTurnIn QuestId="65703" NpcId="1007621" XYZ="144.3046, 6.392003, 89.12781" MapId="131" />
+    <!-- Vox Populi -->
+    <SoTalkTo NpcId="1001914" XYZ="71.03064, 12.99592, 37.46082" QuestId="65929" StepId="1" Objective="1" Count="1" MapId="131" />
+    <SoTalkTo NpcId="1003899" XYZ="79.60632, 18.99738, 12.22241" QuestId="65929" StepId="1" Objective="1" MapId="131" />
+    <SoTalkTo NpcId="1001940" XYZ="70.87805, 28.92092, -40.36017" QuestId="65929" StepId="1" Objective="0" Count="1" MapId="131" />
+    <SoTalkTo NpcId="1001937" XYZ="38.59009, 34.02289, -38.52911" QuestId="65929" StepId="1" Objective="0" Count="2" MapId="131" />
+    <SoTalkTo NpcId="1001939" XYZ="7.156433, 34, -39.78033" QuestId="65929" StepId="1" Objective="0" Count="3" MapId="131" />
+    <SoTalkTo NpcId="1001942" XYZ="-31.84564, 33.49998, -11.58167" QuestId="65929" StepId="1" Objective="0" Count="4" MapId="131" />
+    <SoTalkTo NpcId="1003902" XYZ="-75.73059, 37.99201, -20.46234" QuestId="65929" StepId="1" Objective="0" Count="5" MapId="131" />
+    <SoTalkTo NpcId="1001949" XYZ="-84.21454, 41.05148, 83.32947" QuestId="65929" StepId="1" MapId="131" />
+    <SoTurnIn QuestId="65929" NpcId="1001945" XYZ="-107.1947, 40.2, 132.0057" MapId="131" />
+    <!-- A Luxury Long Lost -->
+    <SoPickUpQuest QuestId="65930" NpcId="1001766" XYZ="-99.32104, 40.2, 134.1115" MapId="131" />
+    <SoTurnIn QuestId="65930" ItemIds="2000196" NpcId="1001657" XYZ="94.83472, 7.980469, -34.01245" MapId="131" />
+    <!-- The Wealth of Nations -->
+    <SoPickUpQuest QuestId="65931" NpcId="1001657" XYZ="94.83472, 7.980469, -34.01245" MapId="131" />
+    <SoTurnIn QuestId="65931" ItemIds="2000197" NpcId="1001679" XYZ="140.4897, 4.009998, -59.80017" MapId="131" />
+    <!-- Tougher than Leather -->
+    <SoGrind NpcIds="318" XYZ="134.6623, 6.521761, 573.8167" Radius="90" QuestId="65699" StepId="1" MapId="141" />
+    <!-- In the Name of Science -->
+    <SoGrind NpcIds="262" XYZ="87.03191, 5.910412, 531.8345" Radius="90" QuestId="66108" StepId="1" MapId="141" />
+    <!-- Fantastic Voyage -->
+    <SoPickUpQuest QuestId="65925" NpcId="1001678" XYZ="22.32391, 7.766785, -108.8732" MapId="130" />
+    <!-- Catch Your Breath -->
+    <SoPickUpQuest QuestId="65926" NpcId="1001313" XYZ="16.37286, 7.999979, -106.2181" MapId="130" />
+    <!-- Tougher than Leather -->
+    <SoTurnIn QuestId="65699" ItemIds="2000138" NpcId="1003898" XYZ="-109.9108, 4.500089, -73.80792" MapId="130" />
+    <!-- In the Name of Science -->
+    <SoTurnIn QuestId="66108" ItemIds="2000385" NpcId="1003897" XYZ="-195.4528, 18, 60.53247" MapId="130" />
+    <!-- Catch Your Breath -->
+    <SoTalkTo NpcId="1001390" XYZ="-175.5551, 14, -8.438293" QuestId="65926" StepId="1" MapId="130" />
+    <!-- Beet-red Beetles Beat Red -->
+    <SoGrind NpcIds="49" XYZ="358.7247, 74.74335, 173.7084" Radius="90" QuestId="66107" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="66107" NpcId="1003896" XYZ="-96.17767, 6.599968, 21.28632" MapId="131" />
+    <!-- We Must Rebuild -->
+    <SoPickUpQuest QuestId="66131" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <SoTurnIn QuestId="66131" NpcId="1003995" XYZ="75.33374, 2.135708, 316.3347" MapId="141" />
+    <!-- Attune -->
+    <SoUseObject NpcIds="53" XYZ="-18.04058, -1.875892, -161.8386" Radius="10" UseTimes="1" Distance="10" Condition="not Managers.WorldManager.HasAetheryteId(53)" MapId="141" />
+    <!-- Nothing to See Here -->
+    <SoPickUpQuest QuestId="66207" NpcId="1003995" XYZ="75.33374, 2.135708, 316.3347" MapId="141" />
+    <!-- Fantastic Voyage -->
+    <SoTurnIn QuestId="65925" ItemIds="2000241" NpcId="1001497" XYZ="87.17468, 2.137739, 324.361" MapId="141" />
+    <!-- Nothing to See Here -->
+    <SoHandOver NpcId="1004600" ItemIds="2000463" XYZ="125.9938, 14.4622, 278.4313" QuestId="66207" StepId="1" Objective="0" Count="1" MapId="141" />
+    <SoHandOver NpcId="1004601" ItemIds="2000463" XYZ="-62.42468, 4.642519, 261.2802" QuestId="66207" StepId="1" Objective="0" Count="2" MapId="141" />
+    <SoHandOver NpcId="1004599" ItemIds="2000463" XYZ="89.86035, 4.63615, 425.4063" QuestId="66207" StepId="1" MapId="141" />
+    <SoTurnIn QuestId="66207" NpcId="1003995" XYZ="75.33374, 2.135708, 316.3347" MapId="141" />
+    <!-- Underneath the Sultantree -->
+    <SoPickUpQuest QuestId="66086" NpcId="1003995" XYZ="75.33374, 2.135708, 316.3347" MapId="141" />
+    <SimpleDuty InteractNpcId="1003996" XYZ="202.655, 14.13686, 536.8885" QuestId="66086" Step="1">
+      <HotSpots>
+        <HotSpot XYZ="174.3953, 9.110283, 545.4642" Radius="10" />
+      </HotSpots>
+      <TargetMobs>
+        <TargetMob Id="942" />
+        <TargetMob Id="945" />
+      </TargetMobs>
+    </SimpleDuty>
+    <WaitWhile Condition="GetQuestStep(66086) == 2" />
+    <SoTurnIn QuestId="66086" NpcId="1003995" XYZ="75.33374, 2.135708, 316.3347" MapId="141" />
+    <!-- Step Nine -->
+    <SoPickUpQuest QuestId="65839" NpcId="1001500" XYZ="81.77307, 1.051391, 311.2383" MapId="141" />
+    <SoHandOver NpcId="1001455" ItemIds="2000199" XYZ="59.95264, 0.9917603, 255.8479" QuestId="65839" StepId="1" MapId="141" />
+    <!-- The Slaying of the Shrews -->
+    <SoPickUpQuest QuestId="65857" NpcId="1001457" XYZ="67.06335, 0.9387207, 255.6344" MapId="141" />
+    <SoUseObject NpcIds="2000372,2000374,2000373" QuestId="65857" StepId="1" MapId="141">
+      <HotSpots>
+        <HotSpot XYZ="57.29761, 0.9917603, 247.1503" Radius="10" />
+        <HotSpot XYZ="60.19678, 1.174927, 239.5513" Radius="10" />
+        <HotSpot XYZ="68.0094, 1.083313, 245.0751" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65857" NpcId="1001457" XYZ="67.06335, 0.9387207, 255.6344" MapId="141" />
+    <!-- Listen to Your Fish -->
+    <SoPickUpQuest QuestId="65858" NpcId="1001457" XYZ="67.06335, 0.9387207, 255.6344" MapId="141" />
+    <SoGrind NpcIds="308" XYZ="-1.64098, -7, 162.0013" Radius="90" QuestId="65858" StepId="1" MapId="141" />
+    <SoTurnIn QuestId="65858" ItemIds="2000214" NpcId="1001460" XYZ="-97.06268, -11.35, -48.69159" MapId="141" />
+    <!-- The Tasting of the Shrews -->
+    <SoPickUpQuest QuestId="65840" NpcId="1001460" XYZ="-97.06268, -11.35, -48.69159" MapId="141" />
+    <!-- Step Nine -->
+    <SoTurnIn QuestId="65839" ItemIds="2000238" NpcId="1001541" XYZ="-99.4126, -11.39856, -41.73346" MapId="141" />
+    <!-- Disorderly Conduct -->
+    <SoPickUpQuest QuestId="65860" NpcId="1001541" XYZ="-99.4126, -11.39856, -41.73346" MapId="141" />
+    <SoTalkTo NpcId="1001462" XYZ="-93.33948, -11.36798, -41.39777" QuestId="65860" StepId="1" Objective="0" Count="1" MapId="141" />
+    <SoTalkTo NpcId="1001466" XYZ="-89.7384, -11.36798, -51.56024" QuestId="65860" StepId="1" Objective="0" Count="2" MapId="141" />
+    <SoTalkTo NpcId="1001465" XYZ="-90.04352, -11.42908, -53.66602" QuestId="65860" StepId="1" Objective="0" Count="3" MapId="141" />
+    <SoTalkTo NpcId="1001463" XYZ="-72.83136, -12.66785, -54.09332" QuestId="65860" StepId="1" MapId="141" />
+    <!-- The Tasting of the Shrews -->
+    <SoUseObject NpcIds="2000741,2000742" QuestId="65840" StepId="1" MapId="141">
+      <HotSpots>
+        <HotSpot XYZ="15.79303, 0.6866455, -59.40338" Radius="10" />
+        <HotSpot XYZ="10.23871, 2.639771, -28.15289" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65840" ItemIds="2000211" NpcId="1001460" XYZ="-97.06268, -11.35, -48.69159" MapId="141" />
+    <!-- Disorderly Conduct -->
+    <SoTurnIn QuestId="65860" ItemIds="2000234" NpcId="1001541" XYZ="-99.4126, -11.39856, -41.73346" MapId="141" />
+    <!-- Until a Quieter Time -->
+    <SoPickUpQuest QuestId="65841" NpcId="1001541" XYZ="-99.4126, -11.39856, -41.73346" MapId="141" />
+    <SoGrind NpcIds="294" XYZ="-0.8581453, -2.050993, -86.73469" Radius="90" QuestId="65841" StepId="1" MapId="141" />
+    <SoTurnIn QuestId="65841" ItemIds="2000168" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <!-- Prudence at This Junction -->
+    <SoPickUpQuest QuestId="65842" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <If Condition="GetQuestStep(65842) == 255">
+      <!-- Buy and equip items -->
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Pugilist">
+        <If Condition="not HasAtLeast(2999,1)">
+          <BuyItem ItemIds="2999,3311" ItemCounts="1,1" DialogOption="0" InteractDistance="3.0" NpcId="1001564" XYZ="-9.689575, -2.04808, -145.0981" />
+        </If>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Thaumaturge">
+        <If Condition="not HasAtLeast(3010,1)">
+          <BuyItem ItemIds="3010,3312" ItemCounts="1,1" DialogOption="0" InteractDistance="3.0" NpcId="1001564" XYZ="-9.689575, -2.04808, -145.0981" />
+        </If>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Gladiator">
+        <If Condition="not HasAtLeast(2999,1)">
+          <BuyItem ItemIds="2999,3311" ItemCounts="1,1" DialogOption="0" InteractDistance="3.0" NpcId="1001564" XYZ="-9.689575, -2.04808, -145.0981" />
+        </If>
+      </If>
+      <LogMessage Message="Waiting for AutoEquip to do its job..." />
+      <WaitTimer WaitTime="20" />
+      <SoTurnIn QuestId="65842" ItemIds="2000410" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    </If>
+    <!-- Out of House and Home -->
+    <SoPickUpQuest QuestId="65843" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <!-- Bloodied and Bowed -->
+    <SoPickUpQuest QuestId="65924" NpcId="1001434" XYZ="-34.62274, -1.033258, -148.7908" MapId="141" />
+    <If Condition="GetQuestStep(65924) == 255">
+      <If Condition="not HasAtLeast(4552,1)">
+        <BuyItem ItemIds="4552" ItemCounts="1" DialogOption="1" InteractDistance="3.0" NpcId="1001563" XYZ="-8.346741, -2.04808, -149.3401" />
+      </If>
+      <SoTurnIn QuestId="65924" ItemIds="4552" NpcId="1001445" XYZ="-13.04651, -2.090576, -184.4053" MapId="141" />
+    </If>
+    <!-- Out of House and Home -->
+    <SoUseItem ItemId="2000212" NpcIds="2000268" XYZ="25.68091, 13.0769, 47.80652" Radius="10" QuestId="65843" StepId="1" MapId="141" />
+    <SoTurnIn QuestId="65843" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <!-- Spriggan Cleaning -->
+    <SoPickUpQuest QuestId="65863" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <!-- Sometimes the Old Ways Are Best -->
+    <SoPickUpQuest QuestId="65862" NpcId="1001439" XYZ="-40.11603, -1.434406, -153.2464" MapId="141" />
+    <!-- Spriggan Cleaning -->
+    <SoUseObject NpcIds="2000380,2000378,2000379,2000377" QuestId="65863" StepId="1" MapId="141">
+      <HotSpots>
+        <HotSpot XYZ="-1.175049, -1.327576, -111.2841" Radius="10" />
+        <HotSpot XYZ="-95.96399, -1.022339, -163.7446" Radius="10" />
+        <HotSpot XYZ="-103.9598, 0.4729614, -213.7027" Radius="10" />
+        <HotSpot XYZ="-134.722, 6.149353, -116.5942" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <!-- Sometimes the Old Ways Are Best -->
+    <SoGrind NpcIds="282" XYZ="-130.4737, 10.56988, -64.88229" Radius="90" QuestId="65862" StepId="1" MapId="141" />
+    <SoTurnIn QuestId="65862" ItemIds="2000177" NpcId="1001436" XYZ="-40.4212, -2.033629, -201.7091" MapId="141" />
+    <!-- In the Court of the Rat King -->
+    <SoPickUpQuest QuestId="65844" NpcId="1001439" XYZ="-40.11603, -1.434406, -153.2464" MapId="141" />
+    <!-- Spriggan Cleaning -->
+    <SoTurnIn QuestId="65863" NpcId="1001447" XYZ="-32.6391, -1.033258, -148.5161" MapId="141" />
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Thaumaturge">
+      <!-- The Threat of Intimacy -->
+      <SoPickUpQuest QuestId="65883" NpcId="1001708" XYZ="-250.3548, 18, 80.88806" MapId="130" />
+      <SoTalkTo NpcId="1001709" XYZ="-240.4975, 18.7, 85.58777" QuestId="65883" StepId="1" MapId="130" />
+      <SoUseItem ItemId="2000414" NpcIds="2001468" XYZ="-87.38843, 50.61414, 315.6023" Radius="10" QuestId="65883" StepId="2" MapId="140" />
+      <SoUseObject NpcIds="2001469" XYZ="-74.96759, 53.23865, 336.7819" Radius="10" QuestId="65883" StepId="3" MapId="140" />
+      <SoHandOver ItemIds="2000415" NpcId="1002027" XYZ="-255.2377, 33.23877, 407.2786" QuestId="65883" StepId="4" MapId="140" />
+      <SoTurnIn QuestId="65883" NpcId="1001709" XYZ="-240.4975, 18.7, 85.58777" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Pugilist">
+      <!-- Harder than Rock -->
+      <SoPickUpQuest QuestId="66090" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" MapId="130" />
+      <SoUseObject NpcIds="2001285,2001281,2001282,2001283,2001280" Distance="4" QuestId="66090" StepId="1" MapId="130">
+        <HotSpots>
+          <HotSpot XYZ="-80.36932, 0.6866455, -59.55603" Radius="10" />
+          <HotSpot XYZ="-162.4628, 17.47156, 60.19678" Radius="10" />
+          <HotSpot XYZ="-254.7494, 17.99036, 67.33801" Radius="10" />
+          <HotSpot XYZ="-21.74414, 9.994568, -78.50769" Radius="10" />
+          <HotSpot XYZ="37.03357, 7.248047, -98.8938" Radius="10" />
+        </HotSpots>
+      </SoUseObject>
+      <SoHandOver ItemIds="2000423" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" QuestId="66090" StepId="2" MapId="130" />
+      <SoUseSpell SpellId="53" NpcIds="2001541,2001542,2001543,2001544" IgnoreCombat="False" QuestId="66090" StepId="3" MapId="140">
+        <HotSpots>
+          <HotSpot XYZ="224.7196, 52.04846, 79.45361" Radius="10" />
+          <HotSpot XYZ="245.7159, 52.47571, 58.09106" Radius="10" />
+          <HotSpot XYZ="224.0176, 52.23157, 41.36719" Radius="10" />
+          <HotSpot XYZ="259.0524, 53.42175, 25.40625" Radius="10" />
+        </HotSpots>
+      </SoUseSpell>
+      <SoTurnIn QuestId="66090" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Gladiator">
+      <!-- Kicking the Hornet's Nest -->
+      <SoPickUpQuest QuestId="65792" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+      <SoEmoteNpc Emote="me" NpcIds="1003984,1003990,1003992,1003994" QuestId="65792" StepId="1" MapId="130" >
+        <HotSpots>
+          <HotSpot XYZ="45.0293, 4, -128.1606" Radius="3" />
+          <HotSpot XYZ="77.25635, 4.099995, -138.6282" Radius="3" />
+          <HotSpot XYZ="12.19196, 4.099995, -155.5353" Radius="3" />
+          <HotSpot XYZ="15.97614, 8, -124.0711" Radius="3" />
+        </HotSpots>
+      </SoEmoteNpc>
+      <SoEmoteNpc Emote="me" NpcIds="1004222" XYZ="21.92719, 7.199997, -97.39838" Radius="10" QuestId="65792" StepId="2" MapId="130" />
+      <SoTalkTo NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" QuestId="65792" StepId="3" MapId="130" />
+      <SoTalkTo NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" QuestId="65792" StepId="4" MapId="131" />
+      <SoTalkTo NpcId="1003985" XYZ="201.5259, 52.03812, 149.4011" QuestId="65792" StepId="5" MapId="140" />
+      <SoUseObject NpcIds="2001408,2001409" QuestId="65792" StepId="6" MapId="140">
+        <HotSpots>
+          <HotSpot XYZ="154.3755, 52.53674, 200.9155" Radius="10" />
+          <HotSpot XYZ="141.8325, 52.99451, 221.5457" Radius="10" />
+        </HotSpots>
+      </SoUseObject>
+      <SoHandOver ItemIds="2000524" NpcId="1003985" XYZ="201.5259, 52.03812, 149.4011" QuestId="65792" StepId="7" MapId="140" />
+      <SoTurnIn QuestId="65792" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+    </If>
+    <!-- Catch Your Breath -->
+    <SoTurnIn QuestId="65926" ItemIds="2000410" NpcId="1001992" XYZ="223.1632, 52.03812, 141.2222" MapId="140" />
+    <!-- Ticked Off -->
+    <SoPickUpQuest QuestId="65767" NpcId="1002001" XYZ="228.4733, 52.03812, 133.1654" MapId="140" />
+    <SoTalkTo NpcId="1002005" XYZ="230.9148, 52.03812, 136.7056" QuestId="65767" StepId="1" MapId="140" />
+    <SoTalkTo NpcId="1002005" XYZ="230.9148, 52.03812, 136.7056" QuestId="65767" StepId="2" MapId="140" />
+    <SoTurnIn QuestId="65767" NpcId="1002001" XYZ="228.4733, 52.03812, 133.1654" MapId="140" />
+    <!-- Nor Rain nor Heat nor Gloom of Night -->
+    <SoPickUpQuest QuestId="65758" NpcId="1001992" XYZ="223.1632, 52.03812, 141.2222" MapId="140" />
+    <!-- A Dab'll Do Ya -->
+    <SoPickUpQuest QuestId="65759" NpcId="1002006" XYZ="221.3015, 52.78683, 142.3208" MapId="140" />
+    <SoGrind NpcIds="287" XYZ="270.9808, 53.37484, 151.5483" Radius="90" QuestId="65759" StepId="1" MapId="140" />
+    <!-- Nor Rain nor Heat nor Gloom of Night -->
+    <SoUseObject NpcIds="2000740,2000739,2000738" Distance="4" QuestId="65758" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="228.4427, 55.55798, 172.0759" Radius="10" />
+        <HotSpot XYZ="212.9396, 52.8114, 147.9972" Radius="10" />
+        <HotSpot XYZ="217.0901, 60.44092, 121.5076" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65758" ItemIds="2000148" NpcId="1001992" XYZ="223.1632, 52.03812, 141.2222" MapId="140" />
+    <!-- A Dab'll Do Ya -->
+    <SoTurnIn QuestId="65759" ItemIds="2000149" NpcId="1002006" XYZ="221.3015, 52.78683, 142.3208" MapId="140" />
+    <!-- I Believe You Can Fly -->
+    <SoPickUpQuest QuestId="65760" NpcId="1001992" XYZ="223.1632, 52.03812, 141.2222" MapId="140" />
+    <SoGrind NpcIds="282" XYZ="52.93665, 51.49824, 219.5425" Radius="90" QuestId="65760" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="65760" ItemIds="2000354,2000355" NpcId="1002014" XYZ="-253.4371, 33.23899, 404.0436" MapId="140" />
+    <!-- Reasonable /Doubt -->
+    <SoPickUpQuest QuestId="65762" NpcId="1002014" XYZ="-253.4371, 33.23899, 404.0436" MapId="140" />
+    <!-- Greasing the Cogs -->
+    <SoPickUpQuest QuestId="65763" NpcId="1002027" XYZ="-255.2377, 33.23877, 407.2786" MapId="140" />
+    <!-- Getting Your Bearings -->
+    <SoPickUpQuest QuestId="65764" NpcId="1002030" XYZ="-296.315, 16.96413, 334.1573" MapId="140" />
+    <!-- Reasonable /Doubt -->
+    <SoEmoteNpc Emote="doubt" NpcIds="1003683,1003682,1003684,1003681" QuestId="65762" StepId="1" MapId="140">
+      <HotSpots>
+        <EmoteNPC XYZ="-301.0758, 13.98375, 316.2737" Radius="10" />
+        <EmoteNPC XYZ="-277.2717, 32.95282, 412.3445" Radius="10" />
+        <EmoteNPC XYZ="-312.8558, 33.25, 387.3807" Radius="10" />
+        <EmoteNPC XYZ="-315.1751, 33.92572, 387.0449" Radius="10" />
+      </HotSpots>
+    </SoEmoteNpc>
+    <SoTurnIn QuestId="65762" NpcId="1002014" XYZ="-253.4371, 33.23899, 404.0436" MapId="140" />
+    <!-- Getting Your Bearings -->
+    <!-- Sort the Navigable areas of the Mesh out Mastahg!! -->
+    <SoMoveTo XYZ="-92.99211, 54.89891, 380.949" Distance="1" QuestId="65764" MapId="140"/>
+    <SoMoveTo XYZ="-98.36139, 59.07268, 387.2209" Distance="1" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoMoveTo XYZ="-99.99133, 59.20954, 389.0367" Distance="1" QuestId="65764" MapId="140" />
+    <SoUseObject NpcIds="2001357" XYZ="-99.90088, 59.09814, 389.0896" Radius="10" QuestId="65764" StepId="1" Objective="0" Count="1" MapId="140" />
+    <SoMoveTo XYZ="-113.0894, 51.64666, 401.3718" Distance="1" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoMoveTo XYZ="-114.3082, 53.4128, 406.3411" Distance="1.4" QuestId="65764" MapId="140" />
+    <RunCode Name="65764" />
+    <SoMoveTo XYZ="-118.5474, 56.19897, 411.1238" Distance="1" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoUseObject NpcIds="2001356" XYZ="-118.5474, 56.19897, 411.1238" Radius="10" QuestId="65764" StepId="1" Objective="0" Count="2" MapId="140" />
+    <SoMoveTo XYZ="-118.1042, 49.53513, 397.9385" Distance="3" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoMoveTo XYZ="-154.9789, 45.34105, 318.2863" Distance="1.5"  QuestId="65764" MapId="140" />
+    <SoMoveTo XYZ="-156.2714, 47.44688, 314.4476" Distance="1" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoMoveTo XYZ="-162.8901, 49.8512, 312.3064" Distance="1" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoUseObject NpcIds="2001276" XYZ="-162.8901, 49.8512, 312.3064" Radius="10" QuestId="65764" StepId="1" Objective="0" Count="3" MapId="140" />
+    <SoMoveTo XYZ="-171.4051, 39.88088, 331.1897" UseMesh="False" QuestId="65764" MapId="140" />
+    <SoTurnIn QuestId="65764" ItemIds="2000153" NpcId="1002044" XYZ="-253.4982, 33.24354, 409.964" MapId="140" />
+    <!-- Tackle the Problem -->
+    <SoPickUpQuest QuestId="65765" NpcId="1002044" XYZ="-253.4982, 33.24354, 409.964" MapId="140" />
+    <SoGrind NpcIds="283" XYZ="-121.625, 50.54717, 229.0903" Radius="90" QuestId="65765" StepId="1" MapId="140" />
+    <!-- Greasing the Cogs -->
+    <SoGrind NpcIds="276" XYZ="-8.265548, 53.99019, 257.9491" QuestId="65763" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="65763" ItemIds="2000164" NpcId="1002049" XYZ="-56.07697, 55.42117, 322.4382" MapId="140" />
+    <!-- Tackle the Problem -->
+    <SoTurnIn QuestId="65765" ItemIds="2000154" NpcId="1002044" XYZ="-253.4982, 33.24354, 409.964" MapId="140" />
+    <!-- So Close Yet So Far -->
+    <SoPickUpQuest QuestId="65761" NpcId="1002027" XYZ="-255.2377, 33.23877, 407.2786" MapId="140" />
+    <!-- Search and Seizure -->
+    <SoPickUpQuest QuestId="65766" NpcId="1002014" XYZ="-253.4371, 33.23899, 404.0436" MapId="140" />
+    <SoUseObject NpcIds="2001456,2001457,2001458,2001459" QuestId="65766" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="-246.6011, 35.172, 383.2914" Radius="10" />
+        <HotSpot XYZ="-218.0362, 35.81287, 426.0165" Radius="10" />
+        <HotSpot XYZ="-282.0936, 35.172, 438.8342" Radius="10" />
+        <HotSpot XYZ="-306.9963, 34.3175, 396.9634" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoHandOver ItemIds="2000413" NpcId="1003685" XYZ="-218.4025, 31.71736, 365.9265" QuestId="65766" StepId="2" MapId="140" />
+    <!-- So Close Yet So Far -->
+    <SoUseObject NpcIds="2001273,2001275,2001274" QuestId="65761" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="-210.8644, 31.66235, 370.5653" Radius="10" />
+        <HotSpot XYZ="-218.8907, 31.78455, 365.1636" Radius="10" />
+        <HotSpot XYZ="-215.6863, 31.96765, 361.3489" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <!-- Search and Seizure -->
+    <SoTalkTo NpcId="1002014" XYZ="-253.4371, 33.23899, 404.0436" QuestId="65766" StepId="3" MapId="140" />
+    <!-- So Close Yet So Far -->
+    <SoTurnIn QuestId="65761" ItemIds="2000150" NpcId="1002027" XYZ="-255.2377, 33.23877, 407.2786" MapId="140" />
+    <!-- Way Down in the Hole -->
+    <SoPickUpQuest QuestId="65856" NpcId="1001578" XYZ="-35.44672, -2.057617, -154.9554" MapId="141" />
+    <SoTalkTo NpcId="1002947" XYZ="-95.71985, -11.35, -44.44952" QuestId="65856" StepId="1" MapId="141" />
+    <SoHandOver ItemIds="2000239" NpcId="1002949" XYZ="-82.71924, -11.35, -36.66742" QuestId="65856" StepId="2" Objective="0" Count="1" MapId="141" />
+    <SoHandOver ItemIds="2000239" NpcId="1002948" XYZ="-80.46088, -12.78596, -39.44464" QuestId="65856" StepId="2" Objective="0" Count="2" MapId="141" />
+    <SoHandOver ItemIds="2000239" NpcId="1002950" XYZ="-80.76605, -12.81977, -34.43964" QuestId="65856" StepId="2" Objective="0" Count="3" MapId="141" />
+    <SoHandOver ItemIds="2000239" NpcId="1002951" XYZ="-80.0946, -12.79077, -33.46307" QuestId="65856" StepId="2" Objective="0" Count="4" MapId="141" />
+    <SoTalkTo NpcId="1002947" XYZ="-95.71985, -11.35, -44.44952" QuestId="65856" StepId="3" MapId="141" />
+    <SimpleDuty InteractNpcId="1002955" XYZ="-228.4734, -30.85365, 117.296" QuestId="65856" Step="4">
+      <HotSpots>
+        <HotSpot XYZ="-224.7553, -31.75006, 111.4229" Radius="30" />
+      </HotSpots>
+      <TargetMobs>
+        <TargetMob Id="30" />
+      </TargetMobs>
+    </SimpleDuty>
+    <WaitWhile Condition="GetQuestStep(65856) == 5" />
+    <SoTalkTo NpcId="1002947" XYZ="-95.71985, -11.35, -44.44952" QuestId="65856" StepId="6" MapId="141" />
+    <!-- Way Down in the Hole -->
+    <SoTurnIn QuestId="65856" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <!-- Search and Seizure -->
+    <SoTurnIn QuestId="65766" ItemIds="2000165" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <!-- Takin' What They're Givin' -->
+    <SoPickUpQuest QuestId="66159" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <!-- Quest bo longer available ?? -->
+    <!-- Lend Me Your Ears Already -->
+    <!--If Condition="0">
+    <SoPickUpQuest QuestId="66965" NpcId="1001301" XYZ="14.1756, 6.973328, -83.87885" MapId="130" />
+    <SoTalkTo NpcId="1001313" XYZ="16.37286, 7.999979, -106.2181" QuestId="66965" StepId="1" MapId="130" />
+    <SoEmoteNpc Emote="say Well met!" NpcIds="1001313" XYZ="16.37286, 7.999979, -106.2181" Radius="10" QuestId="66965" StepId="2" MapId="130" />
+    <RunCode Name="66965a" />
+    <WaitWhile Condition="GetQuestStep(66965) == 3" />
+    <SoTalkTo NpcId="1001313" XYZ="16.37286, 7.999979, -106.2181" QuestId="66965" StepId="4" MapId="130" />
+    <SoEmoteNpc Emote="say You misunderstand." NpcIds="1001313" XYZ="16.37286, 7.999979, -106.2181" Radius="10" QuestId="66965" StepId="5" MapId="130" />
+    <RunCode Name="66965b" />
+    <SoTurnIn QuestId="66965" NpcId="1001313" XYZ="16.37286, 7.999979, -106.2181" MapId="130" />
+    </If-->
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Thaumaturge">
+      <!-- The Threat of Paucity -->
+      <SoPickUpQuest QuestId="65884" NpcId="1001708" XYZ="-250.3548, 18, 80.88806" MapId="130" />
+      <SoTalkTo NpcId="1001710" XYZ="-240.2533, 18.8, 86.90002" QuestId="65884" StepId="1" MapId="130" />
+      <SoGrind NpcIds="289" XYZ="142.1916, -2, -212.3101" Radius="60" QuestId="65884" StepId="2" MapId="141" />
+      <SoTalkTo NpcId="1001710" DialogOption="0" XYZ="-240.2533, 18.8, 86.90002" QuestId="65884" StepId="3" MapId="130" />
+      <SoUseObject NpcIds="2001511" XYZ="-366.2928, -34.98901, 293.5682" Radius="10" QuestId="65884" StepId="4" MapId="145" />
+      <SoUseObject NpcIds="2001498" XYZ="-366.2928, -34.98901, 293.5682" Radius="10" QuestId="65884" StepId="5" MapId="145" />
+      <SoHandOver ItemIds="2000416,2000417" NpcId="1001710" XYZ="-240.2533, 18.8, 86.90002" QuestId="65884" StepId="6" MapId="130" />
+      <SoTurnIn QuestId="65884" NpcId="1001708" XYZ="-250.3548, 18, 80.88806" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Pugilist">
+      <!-- Burning Up The Quarter Malm -->
+      <SoPickUpQuest QuestId="66091" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" MapId="130" />
+      <SoUseSpell SpellId="53" NpcIds="2001718,2001719,2001720,2001721,2001722" IgnoreCombat="False" QuestId="66091" StepId="1" MapId="130">
+        <HotSpots>
+          <HotSpot XYZ="-108.2017, 4.989685, -105.7603" Radius="10" />
+          <HotSpot XYZ="-105.9365, 4.9655, -107.8618" Radius="10" />
+          <HotSpot XYZ="-77.89734, 5.020142, -129.1981" Radius="10" />
+          <HotSpot XYZ="-74.90656, 4.898132, -130.9988" Radius="10" />
+          <HotSpot XYZ="-71.73267, 5.020142, -132.6467" Radius="10" />
+        </HotSpots>
+      </SoUseSpell>
+      <SoTalkTo NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" QuestId="66091" StepId="2" MapId="130" />
+      <SoGrind NpcIds="266" XYZ="-198.4631, 19.70896, -90.45122" Radius="90" QuestId="66091" StepId="3" MapId="141" />
+      <SoTurnIn QuestId="66091" NpcId="1003817" XYZ="-74.57086, 2.000005, -42.40485" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Gladiator">
+      <!-- Ul'dah's Most Wanted -->
+      <SoPickUpQuest QuestId="65797" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+      <SoTalkTo NpcId="1002296" XYZ="-139.4218, 4.019726, 205.0354" QuestId="65797" StepId="1" MapId="141" />
+      <SoTalkTo NpcId="1002296" XYZ="-139.4218, 4.019726, 205.0354" QuestId="65797" StepId="2" MapId="141" />
+      <SoTalkTo NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" QuestId="65797" StepId="3" MapId="131" />
+      <SoMoveTo XYZ="27.20679, 12.98535, 51.83484" QuestId="65797" StepId="4" MapId="141" />
+      <SimpleDuty InteractNpcId="2001426" XYZ="27.20679, 12.98535, 51.83484" QuestId="65797" StepId="4">
+        <HotSpots>
+          <HotSpot XYZ="27.34683, 13, 51.79217" Radius="30" />
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="923" />
+          <TargetMob Id="944" />
+        </TargetMobs>
+      </SimpleDuty>
+      <SoTalkTo NpcId="1003945" XYZ="24.91797, 13, 50.15637" QuestId="65797" StepId="5" MapId="141" />
+      <SoTurnIn QuestId="65797" NpcId="1001739" DialogOption="0" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+    </If>
+    <!-- Takin' What They're Givin' -->
+    <SoTurnIn QuestId="66159" NpcId="1002065" XYZ="60.9292, 45.14532, -205.005" MapId="140" />
+    <!-- Attune -->
+    <SoUseObject NpcIds="17" XYZ="68.0094, 48.20313, -227.039" Radius="10" UseTimes="1" Distance="10" Condition="not Managers.WorldManager.HasAetheryteId(17)" MapId="140" />
+    <!-- Supply and Demands -->
+    <SoPickUpQuest QuestId="65864" NpcId="1002065" XYZ="60.9292, 45.14532, -205.005" MapId="140" />
+    <!-- For Their Eyes Only -->
+    <SoPickUpQuest QuestId="65875" NpcId="1002056" XYZ="56.71765, 45.65808, -207.4464" MapId="140" />
+    <!-- By the Toe -->
+    <SoPickUpQuest QuestId="65873" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <SoUseItem ItemId="2000373" NpcIds="2001376,2001375,2001377,2001374" QuestId="65873" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="115.1903, 49.11877, -183.032" Radius="10" />
+        <HotSpot XYZ="111.4366, 49.14929, -177.9965" Radius="10" />
+        <HotSpot XYZ="106.8589, 49.3324, -173.724" Radius="10" />
+        <HotSpot XYZ="101.8539, 49.36292, -171.1299" Radius="10" />
+      </HotSpots>
+    </SoUseItem>
+    <SoTurnIn QuestId="65873" NpcId="1002064" XYZ="83.78723, 45.1469, -211.841" MapId="140" />
+    <!-- For Their Eyes Only -->
+    <SoGrind NpcIds="305" XYZ="151.7196, 51.12836, -91.45236" Radius="90" QuestId="65875" StepId="1" MapId="140" />
+    <!-- Supply and Demands -->
+    <SoTurnIn QuestId="65864" ItemIds="2000368" NpcId="1002061" XYZ="240.9857, 58.35799, -160.998" MapId="140" />
+    <!-- Give It to Me Raw -->
+    <SoPickUpQuest QuestId="66039" NpcId="1002061" XYZ="240.9857, 58.35799, -160.998" MapId="140" />
+    <!-- No Tool Gets Left Behind -->
+    <SoPickUpQuest QuestId="66040" NpcId="1002062" XYZ="240.589, 58.02814, -159.5026" MapId="140" />
+    <SoUseObject NpcIds="2001373,2001371,2001372" QuestId="66040" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="291.432, 62.54675, -228.5649" Radius="10" />
+        <HotSpot XYZ="315.2665, 62.91284, -202.9603" Radius="10" />
+        <HotSpot XYZ="324.422, 64.0116, -247.0588" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <!-- Give It to Me Raw -->
+    <SoUseObject NpcIds="2001369,2001368,2001735" QuestId="66039" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="293.0189, 63.46228, -236.1639" Radius="10" />
+        <HotSpot XYZ="297.5662, 62.54675, -194.049" Radius="10" />
+        <HotSpot XYZ="318.3184, 63.52332, -200.9461" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="66039" ItemIds="2000369" NpcId="1002061" XYZ="240.9857, 58.35799, -160.998" MapId="140" />
+    <!-- No Tool Gets Left Behind -->
+    <SoTurnIn QuestId="66040" ItemIds="2000370,2000371,2000372" NpcId="1002062" XYZ="240.589, 58.02814, -159.5026" MapId="140" />
+    <!-- The Perfect Swarm -->
+    <SoPickUpQuest QuestId="65865" NpcId="1002061" XYZ="240.9857, 58.35799, -160.998" MapId="140" />
+    <SoGrind NpcIds="298" XYZ="166.7881, 49.49792, -137.0374" Radius="90" QuestId="65865" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="65865" NpcId="1002058" XYZ="59.61694, 45.20513, -215.9" MapId="140" />
+    <!-- For Their Eyes Only -->
+    <SoTurnIn QuestId="65875" ItemIds="2000374" NpcId="1002056" XYZ="56.71765, 45.65808, -207.4464" MapId="140" />
+    <!-- Last Letter to Lost Hope -->
+    <SoPickUpQuest QuestId="65866" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <!-- The Scent of a Mongrel -->
+    <SoPickUpQuest QuestId="65877" NpcId="1002064" XYZ="83.78723, 45.1469, -211.841" MapId="140" />
+    <SoGrind NpcIds="302" XYZ="77.06657, 57.4274, -11.42549" Radius="90" QuestId="65877" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="65877" ItemIds="2000376" NpcId="1003814" XYZ="264.2098, 53.08137, -5.844238" MapId="140" />
+    <!-- Last Letter to Lost Hope -->
+    <SoTalkTo NpcId="1001604" XYZ="-257.6486, -0.2835324, 25.22314" QuestId="65866" StepId="1" MapId="141" />
+    <!-- In the Court of the Rat King -->
+    <SoUseObject NpcIds="2000753,2000300,2000754" QuestId="65844" StepId="1" MapId="141">
+      <HotSpots>
+        <HotSpot XYZ="-225.1164, 16.73914, -57.72491" Radius="10" />
+        <HotSpot XYZ="-265.7664, 22.90375, -69.59644" Radius="10" />
+        <HotSpot XYZ="-262.5925, 29.00732, -118.4558" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65844" ItemIds="2000216" NpcId="1001439" XYZ="-40.11603, -1.434406, -153.2464" MapId="141" />
+    <!-- Last Letter to Lost Hope -->
+    <SoTurnIn QuestId="65866" ItemIds="2000377" NpcId="1001605" XYZ="94.46863, 0.3407532, -272.6024" MapId="141" />
+    <!-- Heir Today, Gone Tomorrow -->
+    <SoPickUpQuest QuestId="65867" NpcId="1001605" XYZ="94.46863, 0.3407532, -272.6024" MapId="141" />
+    <!-- Fringe Benefits -->
+    <SoPickUpQuest QuestId="66109" NpcId="1001484" XYZ="93.24792, 0.3407532, -272.6024" MapId="141" />
+    <!-- Alternative Medicine -->
+    <SoPickUpQuest QuestId="66066" NpcId="1001602" XYZ="96.26917, 0.340753, -270.6188" MapId="141" />
+    <!-- Need Not Apply in Person -->
+    <SoPickUpQuest QuestId="66067" NpcId="1001603" XYZ="90.04346, 0.3407541, -258.4116" MapId="141" />
+    <SoTurnIn QuestId="66067" ItemIds="2000380" NpcId="1001436" XYZ="-40.4212, -2.033629, -201.7091" MapId="141" />
+    <!-- Heir Today, Gone Tomorrow -->
+    <SoGrind NpcIds="328" XYZ="127.3671, 28.58008, -22.78174" Radius="60" QuestId="65867" StepId="1" Objective="0" MapId="141" />
+    <SoGrind NpcIds="326" XYZ="127.3671, 28.58008, -22.78174" Radius="60" QuestId="65867" StepId="1" Objective="1" MapId="141" />
+    <SoGrind NpcIds="330" XYZ="127.3671, 28.58008, -22.78174" Radius="60" QuestId="65867" StepId="1" Objective="2" MapId="141" />
+    <!-- Fringe Benefits -->
+    <SoUseObject NpcIds="2001379,2001380,2001378" QuestId="66109" StepId="1" MapId="141">
+      <HotSpots>
+        <HotSpot XYZ="143.7552, 28.6106, -17.86841" Radius="10" />
+        <HotSpot XYZ="122.0874, 28.70215, -13.44324" Radius="10" />
+        <HotSpot XYZ="127.3671, 28.58008, -22.78174" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <!-- Alternative Medicine -->
+    <SoGrind NpcIds="216" XYZ="268.003, -19.71835, -145.0586" Radius="90" QuestId="66066" StepId="1" MapId="141" />
+    <!-- Heir Today, Gone Tomorrow -->
+    <SoTurnIn QuestId="65867" NpcId="1001605" XYZ="94.46863, 0.3407532, -272.6024" MapId="141" />
+    <!-- Alternative Medicine -->
+    <SoTurnIn QuestId="66066" ItemIds="2000379" NpcId="1001602" XYZ="96.26917, 0.340753, -270.6188" MapId="141" />
+    <!-- Fringe Benefits -->
+    <SoTurnIn QuestId="66109" ItemIds="2000378" NpcId="1001484" XYZ="93.24792, 0.3407532, -272.6024" MapId="141" />
+    <!-- Passing the Blade -->
+    <SoPickUpQuest QuestId="65868" NpcId="1001605" XYZ="94.46863, 0.3407532, -272.6024" MapId="141" />
+    <SoTurnIn QuestId="65868" ItemIds="2000381" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <!-- Following Footfalls -->
+    <SoPickUpQuest QuestId="65869" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <SoTurnIn QuestId="65869" NpcId="1002066" XYZ="-176.9589, 15.65209, -270.985" MapId="140" />
+    <!-- Angling Ankle-biters -->
+    <SoPickUpQuest QuestId="66041" NpcId="1002066" XYZ="-176.9589, 15.65209, -270.985" MapId="140" />
+    <!-- Storms on the Horizon -->
+    <SoPickUpQuest QuestId="65870" NpcId="1002067" XYZ="-178.9426, 15.63209, -269.9779" MapId="140" />
+    <!-- Angling Ankle-biters -->
+    <SoGrind NpcIds="308" XYZ="-161.6367, 14.51385, -273.3343" Radius="90" QuestId="66041" StepId="1" MapId="140" />
+    <SoTurnIn QuestId="66041" NpcId="1002066" XYZ="-176.9589, 15.65209, -270.985" MapId="140" />
+    <!-- Storms on the Horizon -->
+    <SoTurnIn QuestId="65870" NpcId="1002068" XYZ="-284.5045, 13.48067, -144.9455" MapId="140" />
+    <!-- Lominsan Rubbish -->
+    <SoPickUpQuest QuestId="65878" NpcId="1002069" XYZ="-284.4435, 13.48067, -146.8986" MapId="140" />
+    <SoUseObject NpcIds="2001383,2001382,2001384,2001478,2001477,2001475,2001479,2001476" QuestId="65878" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="-283.1922, 13.47363, -145.861" Radius="10" />
+        <HotSpot XYZ="-282.5208, 13.47363, -145.9526" Radius="10" />
+        <HotSpot XYZ="-278.0652, 13.47363, -146.5629" Radius="10" />
+        <HotSpot XYZ="-324.9714, 13.96191, -108.5985" Radius="10" />
+        <HotSpot XYZ="-325.3682, 13.96191, -109.0868" Radius="10" />
+        <HotSpot XYZ="-353.9636, 13.90094, -102.6475" Radius="10" />
+        <HotSpot XYZ="-355.4284, 13.90094, -101.6404" Radius="10" />
+        <HotSpot XYZ="-356.0388, 13.90094, -100.3892" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="65878" NpcId="1002069" XYZ="-284.4435, 13.48067, -146.8986" MapId="140" />
+    <!-- Compulsory Catering -->
+    <SoPickUpQuest QuestId="65871" NpcId="1002071" XYZ="-324.7883, 17.58331, -127.6113" MapId="140" />
+    <!-- This Fishwife's Life -->
+    <SoPickUpQuest QuestId="66042" NpcId="1002070" XYZ="-290.3945, 17.75621, -165.6062" MapId="140" />
+    <SoUseObject NpcIds="2001387,2001385,2001386" QuestId="66042" StepId="1" MapId="140">
+      <HotSpots>
+        <HotSpot XYZ="-293.2327, 19.48578, -164.3549" Radius="10" />
+        <HotSpot XYZ="-285.2369, 19.82141, -165.8199" Radius="10" />
+        <HotSpot XYZ="-282.887, 18.99738, -166.6743" Radius="10" />
+      </HotSpots>
+    </SoUseObject>
+    <SoTurnIn QuestId="66042" NpcId="1002070" XYZ="-290.3945, 17.75621, -165.6062" MapId="140" />
+    <!-- Compulsory Catering -->
+    <SoGrind NpcIds="13" XYZ="-280.2797, 15.58687, -242.2037" Radius="180" QuestId="65871" StepId="1" Objective="0" MapId="140" />
+    <SoGrind NpcIds="636" XYZ="-280.2797, 15.58687, -242.2037" Radius="180" QuestId="65871" StepId="1" Objective="1" MapId="140" />
+    <SoGrind NpcIds="635" XYZ="-280.2797, 15.58687, -242.2037" Radius="180" QuestId="65871" StepId="1" Objective="2" MapId="140" />
+    <SoTurnIn QuestId="65871" ItemIds="2000382,2000383,2000384" NpcId="1002071" XYZ="-324.7883, 17.58331, -127.6113" MapId="140" />
+    <!-- Oh Captain, My Captain -->
+    <SoPickUpQuest QuestId="65872" NpcId="1002071" XYZ="-324.7883, 17.58331, -127.6113" MapId="140" />
+    <SimpleDuty InteractNpcId="1003816" XYZ="-235.2178, 15.91047, -293.1411" QuestId="65872" StepId="1">
+      <HotSpots>
+        <HotSpot XYZ="-238.4305, 15.1995, -270.3536" Radius="30" />
+      </HotSpots>
+      <TargetMobs>
+        <TargetMob Id="1277" Weight="3000" />
+        <TargetMob Id="1380" Weight="2000" />
+        <TargetMob Id="1381" Weight="1000" />
+      </TargetMobs>
+    </SimpleDuty>
+    <WaitWhile Condition="GetQuestStep(65872) == 2" />
+    <SoTurnIn QuestId="65872" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <!-- Secrets and Lies -->
+    <SoPickUpQuest QuestId="66164" NpcId="1002058" XYZ="59.61694, 45.14532, -215.9" MapId="140" />
+    <SoTurnIn QuestId="66164" ItemIds="2000396" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <!-- Duty, Honor, Country -->
+    <SoPickUpQuest QuestId="66087" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <SoHandOver ItemIds="2000398" NpcId="1004002" XYZ="1.052795, 0.01480777, -1.66333" QuestId="66087" StepId="1" MapId="210" />
+    <SoMoveTo XYZ="246.9366, -17.10541, -131.4871" QuestId="66087" StepId="2" MapId="141" />
+    <SimpleDuty InteractNpcId="2001427" XYZ="246.9366, -17.10541, -131.4871" QuestId="66087" StepId="2">
+      <HotSpots>
+        <HotSpot XYZ="259.9012, -19.71835, -129.405" Radius="30" />
+      </HotSpots>
+      <TargetMobs>
+        <TargetMob Id="972" Weight="80000" />
+        <TargetMob Id="971" Weight="70000" />
+        <TargetMob Id="974" Weight="60000" />
+        <TargetMob Id="973" Weight="50000" />
+        <TargetMob Id="949" Weight="40000" />
+        <TargetMob Id="945" Weight="30000" />
+        <TargetMob Id="980" Weight="20000" />
+        <TargetMob Id="617" Weight="10000" />
+      </TargetMobs>
+    </SimpleDuty>
+    <WaitWhile Condition="GetQuestStep(66087) == 3" />
+    <SoTurnIn QuestId="66087" NpcId="1004003" XYZ="0.01519775, 0.01480777, -1.693787" MapId="210" />
+    <!-- A Matter of Tradition -->
+    <SoPickUpQuest QuestId="66177" NpcId="1004002" XYZ="1.052795, 0.01480778, -1.66333" MapId="210" />
+    <SoTalkTo NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" QuestId="66177" StepId="1" MapId="130" />
+    <SoTalkTo NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957" QuestId="66177" StepId="2" MapId="131" />
+    <SoTurnIn QuestId="66177" ItemIds="2000405" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <!--If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Thaumaturge"-->
+      <!-- The Threat of Superiority -->
+      <!--SoPickUpQuest QuestId="65886" NpcId="1001708" XYZ="-250.3548, 18, 80.88806" MapId="130" />
+      <SoTalkTo NpcId="1001711" XYZ="-241.6266, 18.8, 83.32947" QuestId="65886" StepId="1" MapId="130" />
+      <SoEmoteNpc Emote="cry" NpcIds="1002300,1002301,1002302" QuestId="65886" StepId="2" MapId="130">
+        <HotSpots>
+          <HotSpot XYZ="-176.9284, 18, 62.36353" Radius="10" />
+          <HotSpot XYZ="-178.2102, 18, 61.41748" Radius="10" />
+          <HotSpot XYZ="-176.7148, 18, 64.34729" Radius="10" />
+        </HotSpots>
+      </SoEmoteNpc>
+      <SoTalkTo NpcId="1001711" XYZ="-241.6266, 18.8, 83.32947" QuestId="65886" StepId="3" MapId="130" />
+      <SoMoveTo XYZ="-24.88751, -25.34528, 321.95" QuestId="65886" StepId="4" MapId="145" />
+      <SoSimpleDuty InteractNpcId="2001470" XYZ="-24.88751, -25.34528, 321.95" QuestId="65886" StepId="4">
+        <HotSpots>
+          <HotSpot XYZ="85.95137, -24.13868, 282.4504" Radius="50" />
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="1306" Weight="1" />
+        </TargetMobs>
+      </SoSimpleDuty>
+      <SoTurnIn QuestId="65886" ItemIds="2001545" NpcId="1001711" XYZ="-241.6266, 18.8, 83.32947" MapId="130" />
+    </If-->
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Pugilist">
+      <!-- The Spirit Is Willing -->
+      <SoPickUpQuest QuestId="66094" XYZ="-74.57086, 2.000005, -42.40485" NpcId="1003817" MapId="130" />
+      <SoGrind NpcIds="216" XYZ="297.1484, -19.71835, -134.486" Radius="90" QuestId="66094" StepId="1" MapId="141" />
+      <SoHandOver ItemIds="2000408" NpcId="1003822" XYZ="-27.39001, -2.056931, -146.9291" QuestId="66094" StepId="2" MapId="141" />
+      <SoTalkTo NpcId="1001578" XYZ="-35.44672, -2.057617, -154.9554" QuestId="66094" StepId="3" Objective="0" Count="1" MapId="141" />
+      <SoTalkTo NpcId="1001445" XYZ="-13.04651, -2.090576, -184.4053" QuestId="66094" StepId="3" Objective="0" Count="2" MapId="141" />
+      <SoTalkTo NpcId="1004148" XYZ="5.722107, -1.985179, -172.7779" QuestId="66094" StepId="3" Objective="0" Count="3" MapId="141" />
+      <SoTalkTo NpcId="1003822" XYZ="-27.39001, -2.056931, -146.9291" QuestId="66094" StepId="4" MapId="141" />
+      <SimpleDuty InteractNpcId="2001349" XYZ="-241.413, 8.072021, -32.24237" QuestId="66094" StepId="5">
+        <HotSpots>
+          <HotSpot XYZ="-243.5387, 6.434249, -24.07663" Radius="90" />
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="262" Weight="2000" />
+          <TargetMob Id="1305" Weight="2000" />
+          <TargetMob Id="932" Weight="1000" />
+        </TargetMobs>
+      </SimpleDuty>
+      <SoTalkTo NpcId="1004149" XYZ="-242.8474, 7.405224, -29.31262" QuestId="66094" StepId="6" MapId="141" />
+      <SoTurnIn QuestId="66094" NpcId="1003827" XYZ="-65.65961, 0.9482077, -51.98755" MapId="130" />
+    </If>
+    <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Gladiator">
+      <!-- That Old Familiar Feeling -->
+      <SoPickUpQuest QuestId="65798" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+      <SoTalkTo NpcId="1004224" XYZ="-220.9354, -38.40747, 63.91992" QuestId="65798" StepId="1" MapId="145" />
+      <SoTalkTo NpcId="1004224" XYZ="-220.9354, -38.40747, 63.91992" QuestId="65798" StepId="2" MapId="145" />
+      <SoTalkTo NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" QuestId="65798" StepId="3" MapId="131" />
+      <SoMoveTo XYZ="24.12439, 7.199998, -102.7695" QuestId="65798" StepId="4" MapId="130" />
+      <SimpleDuty InteractNpcId="1004091" XYZ="24.12439, 7.199998, -102.7695" GuardianNPCId="690" QuestId="65798" StepId="4">
+        <HotSpots>
+          <HotSpot XYZ="28.63875, 7.209999, -100.7327" Radius="90" />
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="1220" Weight="3000" />
+          <TargetMob Id="925" Weight="2000" />
+          <TargetMob Id="943" Weight="1000" />
+        </TargetMobs>
+      </SimpleDuty>
+      <SoTurnIn QuestId="65798" NpcId="1001739" XYZ="-94.52972, 6.500001, 39.81079" MapId="131" />
+    </If>
+    <!-- A Royal Reception -->
+    <SoPickUpQuest QuestId="66088" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" MapId="130" />
+    <BotSettings AutoEquip="0" />
+    <RunCode Name="66088" />
+    <SoTalkTo NpcId="1001821" XYZ="-24.12457, 38, 85.31323" QuestId="66088" StepId="1" MapId="131" />
+    <WaitWhile Condition="GetQuestStep(66088) == 2" />
+    <BotSettings AutoEquip="1" />
+    <SoTurnIn QuestId="66088" NpcId="1004004" XYZ="-139.2996, 4.1, -113.4814" MapId="130" />
+    <!-- The Ul'dahn Envoy -->
+    <SoPickUpQuest QuestId="66064" NpcId="1004004" XYZ="-139.2996, 4.1, -113.4814" MapId="130" />
+    <!-- Help Me, Lord of the Dance -->
+    <SoPickUpQuest QuestId="66963" NpcId="1007799" XYZ="-21.04224, 10.02065, -70.60352" MapId="130" />
+    <SoTalkTo NpcId="1007801" XYZ="50.24792, 34, -35.56885" QuestId="66963" StepId="1" Objective="0" Count="1" MapId="131" />
+    <SoTalkTo NpcId="1001697" XYZ="98.55798, 12.27927, 54.79517" QuestId="66963" StepId="1" Objective="0" Count="2" MapId="131" />
+    <SoTalkTo NpcId="1007800" XYZ="6.546082, 15.00001, -1.327576" QuestId="66963" StepId="1" Objective="0" Count="3" MapId="131" />
+    <SoTalkTo NpcId="1007798" XYZ="-13.7179, 34.02289, -51.86548" QuestId="66963" StepId="2" MapId="131" />
+    <SoSendCommand Raw="targetnpc" QuestId="66963" />
+    <SoSendCommand Raw="dance" QuestId="66963" />
+    <SoTurnIn QuestId="66963" NpcId="1007798" XYZ="-13.7179, 34.02289, -51.86548" MapId="131" />
+    <!-- The Ul'dahn Envoy -->
+    <SoTalkTo NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" QuestId="66064" StepId="1" MapId="130" />
+    <SoTalkTo NpcId="1004433" XYZ="-23.60571, 83.19999, -2.304138" QuestId="66064" StepId="2" MapId="654" />
+    <SoUseTransport Condition="GetQuestStep(66064) == 3 and IsOnSubMap(654)" NpcId="2001667" XYZ="-45.36511, 84.09241, -0.8087769" QuestId="66064" MapId="654" />
+    <If Condition="GetQuestStep(66064) == 4">
+      <SoUseTransport NpcId="1002703" XYZ="-12.37512, 91.49999, -0.5340576" QuestId="66064" MapId="725" />
+      <SoTalkTo NpcId="1002693" XYZ="-6.515625, 91.49997, -13.65692" QuestId="66064" StepId="4" MapId="725" />
+    </If>
+    <SoUseObject Condition="not Managers.WorldManager.HasAetheryteId(8)" NpcIds="8" XYZ="-79.90813, 18.90033, 0.6400635" Radius="10" Distance="10" UseTimes="1" MapId="129" />
+    <SoHandOver ItemIds="2000445" NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="66064" StepId="5" MapId="129" />
+    <SoTalkTo NpcId="1002695" XYZ="-21.95008, 91.99995, -3.318819" QuestId="66064" StepId="6" MapId="725" />
+    <SoUseTransport Condition="GetQuestStep(66064) == 7 and IsOnSubMap(725)" NpcId="2001670" XYZ="-11.12384, 92.0271, 17.16638" MapId="725" />
+    <If Condition="GetQuestStep(66064) == 8">
+      <SoUseTransport NpcId="1000109" XYZ="29.77026, -19, 114.1222" MapId="132" />
+      <SoTalkTo NpcId="1002830" XYZ="36.63684, -18.8, 89.64673" QuestId="66064" StepId="8" MapId="132" />
+    </If>
+    <SoUseObject Condition="not Managers.WorldManager.HasAetheryteId(2)" NpcIds="2" Distance="10" XYZ="32.9137, 2.670288, 30.0144" Radius="10" UseTimes="1" MapId="132" />
+    <SoTurnIn QuestId="66064" ItemIds="2000446" NpcId="1000460" XYZ="-159.411, 4.054098, -4.104736" MapId="133" />
+    <!-- Call of the Sea -->
+    <SoPickUpQuest QuestId="66209" NpcId="1002829" XYZ="-157.0306, 4.049258, -2.731445" MapId="133" />
+    <SoTurnIn QuestId="66209" NpcId="1000972" XYZ="18.06211, 40.21601, -5.313304" MapId="128" />
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="65764">
+      <![CDATA[
+        if(ff14bot.NeoProfiles.ConditionParser.HasQuest(65764))
+        {
+          ff14bot.Managers.MovementManager.SetFacing(6.08418f);
+          ff14bot.Managers.MovementManager.MoveForwardStart();
+          await Buddy.Coroutines.Coroutine.Sleep(1000);
+          ff14bot.Managers.MovementManager.Jump();
+          await Buddy.Coroutines.Coroutine.Sleep(200);
+          ff14bot.Managers.MovementManager.MoveForwardStop();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="66965a">
+      <![CDATA[
+        if(ff14bot.NeoProfiles.ConditionParser.HasQuest(66965))
+        {
+          await Buddy.Coroutines.Coroutine.Sleep(2000);
+          ff14bot.Managers.ChatManager.SendHello();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="66965b">
+      <![CDATA[
+        if(ff14bot.NeoProfiles.ConditionParser.HasQuest(66965))
+        {
+          await Buddy.Coroutines.Coroutine.Sleep(2000);
+          ff14bot.Managers.ChatManager.SendGoodbye();
+        }
+      ]]>
+    </CodeChunk>
+      <CodeChunk Name="66088">
+        <![CDATA[
+          if (ff14bot.NeoProfiles.ConditionParser.HasQuest(66088))
+          {
+            foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+            {
+              BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring];
+              if(slot.RawItemId == 4196)
+              {
+                slot.Move(EquipSlot);
+              }
+            }
+          }
+        ]]>
+      </CodeChunk>
+  </CodeChunks>
+ </Profile>

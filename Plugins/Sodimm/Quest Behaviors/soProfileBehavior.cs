@@ -297,9 +297,12 @@ namespace OrderBotTags.Behaviors
                             }
                         }
                         thisZone = ZoneId;
-                        await InteractWith(thisNpcId);
-                        //await Coroutine.Wait(3000, () => Me.HasTarget && WindowsOpen());
-                        await HandleWindows();
+                        await Coroutine.Sleep(500);
+                        GameObjectManager.GetObjectByNPCId(thisNpcId).Interact();
+                        await Coroutine.Wait(3000, () => Me.HasTarget && WindowsOpen());
+                        await Coroutine.Sleep(500);
+                        if (WindowsOpen())
+                            await HandleWindows();
                         await Coroutine.Wait(Timeout.InfiniteTimeSpan, () => thisZone != ZoneId);
                     }
                 }

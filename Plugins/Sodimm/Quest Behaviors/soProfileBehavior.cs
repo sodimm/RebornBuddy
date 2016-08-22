@@ -25,8 +25,21 @@ namespace OrderBotTags.Behaviors
     public abstract class SoProfileBehavior : ProfileBehavior
     {
         #region Status Text
+
         private string Status;
-        public override sealed string StatusText { get { return string.Concat(GetType().Name, ": ", Status); } set { Status = value; } }
+
+        public override sealed string StatusText
+        {
+            get
+            {
+                return string.Concat(GetType().Name, ": ", Status);
+            }
+            set
+            {
+                Status = value;
+            }
+        }
+
         #endregion
 
         #region Defaults
@@ -49,7 +62,15 @@ namespace OrderBotTags.Behaviors
         }
 
         private uint[] CurativePotions = new[] { 4554u, 4553u, 4552u, 4551u };
-        private BagSlot Potion { get { return InventoryManager.FilledInventoryAndArmory.FirstOrDefault(r => CurativePotions.Contains(r.RawItemId)); } }
+
+        private BagSlot Potion
+        {
+            get
+            {
+                return InventoryManager.FilledInventoryAndArmory.FirstOrDefault(r => CurativePotions.Contains(r.RawItemId));
+            }
+        }
+
         protected async Task UsePotions()
         {
             if (Potion != null)
@@ -73,11 +94,30 @@ namespace OrderBotTags.Behaviors
 
         #endregion
 
-       #region Get Quest Data
+        #region Get Quest Data
 
         private QuestResult ThisQuest;
-        internal string NpcName { get { if (NpcId != 0) return DataManager.GetLocalizedNPCName(NpcId); return null; } }
-        internal string QuestGiver { get { if (QuestId != 0) return DataManager.GetLocalizedNPCName((int)ThisQuest.PickupNPCId); return null; } }
+
+        internal string NpcName
+        {
+            get
+            {
+                if (NpcId != 0)
+                    return DataManager.GetLocalizedNPCName(NpcId);
+                return null;
+            }
+        }
+
+        internal string QuestGiver
+        {
+            get
+            {
+                if (QuestId != 0)
+                    return DataManager.GetLocalizedNPCName((int)ThisQuest.PickupNPCId);
+                return null;
+            }
+        }
+
         internal bool hasRewards = false;
 
         private HashSet<BagSlot> usedSlots;
@@ -136,11 +176,13 @@ namespace OrderBotTags.Behaviors
                 }
             }
         }
+
         #endregion
 
         #region Movement
 
         #region Flight Check
+
         protected void FlightCheck()
         {
             if (NoFlight)
@@ -160,9 +202,11 @@ namespace OrderBotTags.Behaviors
                 }
             }
         }
+
         #endregion
 
         #region Path Navigation
+
         private readonly HashSet<uint> SupportedNpcs = new HashSet<uint>()
         {
             1000106,1000541,1000868,1001263,1001834,1002039,1002695,
@@ -228,6 +272,7 @@ namespace OrderBotTags.Behaviors
         }
 
         static Graph graph = new Graph();
+
         static void PopulateGraph()
         {
             CreateGraph(graph);
@@ -252,7 +297,9 @@ namespace OrderBotTags.Behaviors
         }
 
         public int SSO = -1;
+
         public string thisZone = null;
+
         private uint thisNpcId { get; set; }
 
         public async Task GoThere()
@@ -310,10 +357,19 @@ namespace OrderBotTags.Behaviors
                 await Coroutine.Yield();
             }
         }
+
         #endregion
 
         #region Teleport
-        private static bool CanTeleport { get { return !Me.IsDead && !Me.InCombat; } }
+
+        private static bool CanTeleport
+        {
+            get
+            {
+                return !Me.IsDead && !Me.InCombat;
+            }
+        }
+
         public async Task<bool> Teleport()
         {
             Poi.Clear("Teleporting to the correct Map.");
@@ -342,6 +398,7 @@ namespace OrderBotTags.Behaviors
         }
 
         #region Aetheryte Id
+
         private uint aeId
         {
             get
@@ -361,11 +418,20 @@ namespace OrderBotTags.Behaviors
                 else return 0;
             }
         }
+
         #endregion
+
         #endregion
 
         #region MoveAndStop
-        public bool InPosition(Vector3 where, float distance) { if (where != null && distance != 0) return Me.Location.Distance(where) <= distance; else return Me.Location.Distance(Destination) <= Distance; }
+
+        public bool InPosition(Vector3 where, float distance)
+        {
+            if (where != null && distance != 0)
+                return Me.Location.Distance(where) <= distance;
+            else return Me.Location.Distance(Destination) <= Distance;
+        }
+
         public async Task MoveAndStop(Vector3 location, float distance, string status, bool ignoreLanding = false)
         {
             if (aeId > 0 && ZoneId != MapId && WorldManager.CanTeleport())
@@ -397,11 +463,13 @@ namespace OrderBotTags.Behaviors
                 }
             }
         }
+
         #endregion
 
         #endregion
 
         #region Interact
+
         private async Task InteractWith(uint npcId)
         {
             await Coroutine.Sleep(500);
@@ -491,13 +559,12 @@ namespace OrderBotTags.Behaviors
 
                 await Coroutine.Yield();
             }
-
-            //if (!WindowsOpen())
-            //    return;
         }
+
         #endregion
 
         #region Conditional
+
         protected void SetupConditional()
         {
             try
@@ -512,11 +579,23 @@ namespace OrderBotTags.Behaviors
                 throw;
             }
         }
+
         #endregion
 
         #region IsDone Overriders
+
         internal bool _done;
-        internal bool HasQuest { get { if (QuestId > 0) return ConditionParser.HasQuest(QuestId); else return true; } }
+
+        internal bool HasQuest
+        {
+            get
+            {
+                if (QuestId > 0)
+                    return ConditionParser.HasQuest(QuestId);
+                else return true;
+            }
+        }
+
         internal bool HasItems
         {
             get
@@ -537,13 +616,47 @@ namespace OrderBotTags.Behaviors
                 return true;
             }
         }
-        internal bool IsOnTurnInStep { get { return ConditionParser.GetQuestStep(QuestId) == 255; } }
-        internal bool IsObjectiveCountComplete { get { if (Objective > -1 && Count > -1) return ConditionParser.GetQuestById(QuestId).GetTodoArgs(Objective).Item1 >= Count; else return false; } }
-        internal bool IsObjectiveComplete { get { if (QuestId > 0 && StepId > 0 && Objective > -1) return ConditionParser.IsTodoChecked(QuestId, (int)StepId, Objective); else return false; } }
-        internal bool IsQuestAcceptQualified { get { return ConditionParser.IsQuestAcceptQualified(QuestId); } }
+
+        internal bool IsOnTurnInStep
+        {
+            get
+            {
+                return ConditionParser.GetQuestStep(QuestId) == 255;
+            }
+        }
+
+        internal bool IsObjectiveCountComplete
+        {
+            get
+            {
+                if (Objective > -1 && Count > -1)
+                    return ConditionParser.GetQuestById(QuestId).GetTodoArgs(Objective).Item1 >= Count;
+                else return false;
+            }
+        }
+
+        internal bool IsObjectiveComplete
+        {
+            get
+            {
+                if (QuestId > 0 && StepId > 0 && Objective > -1)
+                    return ConditionParser.IsTodoChecked(QuestId, (int)StepId, Objective);
+                else return false;
+            }
+        }
+
+        internal bool IsQuestAcceptQualified
+        {
+            get
+            {
+                return ConditionParser.IsQuestAcceptQualified(QuestId);
+            }
+        }
+
         #endregion
 
         #region Attributes
+
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
@@ -594,11 +707,26 @@ namespace OrderBotTags.Behaviors
         [DefaultValue(false)]
         [XmlAttribute("NoFlight")]
         public bool NoFlight { get; set; }
+
         #endregion
 
         #region Misc
-        protected static LocalPlayer Me { get { return GameObjectManager.LocalPlayer; } }
-        protected CharacterSettings Settings { get { return CharacterSettings.Instance; } }
+
+        protected static LocalPlayer Me
+        {
+            get
+            {
+                return GameObjectManager.LocalPlayer;
+            }
+        }
+
+        protected CharacterSettings Settings
+        {
+            get
+            {
+                return CharacterSettings.Instance;
+            }
+        }
 
         protected static async Task Dismount()
         {
@@ -612,8 +740,11 @@ namespace OrderBotTags.Behaviors
         }
 
         #region Zone Switch
+
         private bool ZoneSet;
+
         private uint CurrentSubZone;
+
         protected void LogSubZone()
         {
             CurrentSubZone = WorldManager.SubZoneId;
@@ -630,10 +761,13 @@ namespace OrderBotTags.Behaviors
             else
                 return false;
         }
+
         #endregion
+
         #endregion
 
         #region Window Check
+
         internal bool WindowsOpen()
         {
             while ((Me.HasTarget && (CraftingLog.IsOpen || HousingGardening.IsOpen || JournalAccept.IsOpen || JournalResult.IsOpen
@@ -645,11 +779,18 @@ namespace OrderBotTags.Behaviors
 
             return false;
         }
+
         #endregion
 
         #region Behavior
+
         protected abstract Task Main();
-        protected override Composite CreateBehavior() { return new ActionRunCoroutine(ctx => Main()); }
+
+        protected override Composite CreateBehavior()
+        {
+            return new ActionRunCoroutine(ctx => Main());
+        }
+
         #endregion
 
         #region Pathfinding
@@ -1264,56 +1405,56 @@ namespace OrderBotTags.Behaviors
             // La Noscea
 
             // Outer La Noscea
-            //areas.Add("180-139_West", new AreaInfo { XYZ = new Vector3(-320.6279f, 51.65852f, -75.99368f), Name = ">Outer La Noscea-->Upper La Noscea-", Communicationlocalindex = -1 });
-            //areas.Add("180-139_East", new AreaInfo { XYZ = new Vector3(240.5355f, 54.22388f, -252.5956f), Name = ">Outer La Noscea-->Upper La Noscea-", Communicationlocalindex = -1 });
+            Node OuterLNToUpperLNWest = new Node("Outer La Noscea > Upper La Noscea West", new Vector3(-320.6279f, 51.65852f, -75.99368f), -1); graph.AddNode(OuterLNToUpperLNWest); OuterLaNoscea.AddDirected(OuterLNToUpperLNWest); OuterLNToUpperLNWest.AddDirected(UpperLaNosceaWest);
+            Node OuterLNToUpperLNEast = new Node("Outer La Noscea > Upper La Noscea East", new Vector3(240.5355f, 54.22388f, -252.5956f), -1); graph.AddNode(OuterLNToUpperLNEast); OuterLaNoscea.AddDirected(OuterLNToUpperLNEast); OuterLNToUpperLNEast.AddDirected(UpperLaNosceaEast);
             // Upper La Noscea West
-            //areas.Add("139_East-139_West", new AreaInfo { XYZ = new Vector3(221.7828f, -0.9591975f, 258.2541f), Name = "Upper La Noscea East-->Upper La Noscea West", Communicationlocalindex = 1 });
-            //areas.Add("139_West-139_East", new AreaInfo { XYZ = new Vector3(-340.5905f, -1.024988f, 111.8383f), Name = "Upper La Noscea West-->Upper La Noscea East", Communicationlocalindex = 1 });
+            Node UpperLNWestToUpperLNEast = new Node("Upper La Noscea West > Upper La Noscea East", new Vector3(-340.5905f, -1.024988f, 111.8383f), 1); graph.AddNode(UpperLNWestToUpperLNEast); UpperLaNosceaWest.AddDirected(UpperLNWestToUpperLNEast); UpperLNWestToUpperLNEast.AddDirected(UpperLaNosceaEast);
+            Node UpperLNWestToWestLN = new Node("Upper La Noscea West > Western La Noscea", new Vector3(-476.706177f, 1.921210f, 287.913330f), -1); graph.AddNode(UpperLNWestToWestLN); UpperLaNosceaWest.AddDirected(UpperLNWestToWestLN); UpperLNWestToWestLN.AddDirected(WesternLaNoscea);
+            Node UpperLNWestToOuterLN = new Node("Upper La Noscea West > Upper La Noscea", new Vector3(-344.8658f, 48.09458f, -17.46293f), -1); graph.AddNode(UpperLNWestToOuterLN); UpperLaNosceaWest.AddDirected(UpperLNWestToOuterLN); UpperLNWestToOuterLN.AddDirected(OuterLaNoscea);
             // Upper La Noscea East
-            //areas.Add("139_East-137_West", new AreaInfo { XYZ = new Vector3(719.070007f, 0.217405f, 214.217957f), Name = ">Upper La Noscea-->Eastern La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("139_West-138", new AreaInfo { XYZ = new Vector3(-476.706177f, 1.921210f, 287.913330f), Name = "Upper La Noscea-->Western La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("139_West-180", new AreaInfo { XYZ = new Vector3(-344.8658f, 48.09458f, -17.46293f), Name = ">Upper La Noscea-->Outer La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("139_East-180", new AreaInfo { XYZ = new Vector3(286.4225f, 41.63181f, -201.1194f), Name = ">Upper La Noscea-->Outer La Noscea", Communicationlocalindex = -1 });
+            Node UpperLNEastToUpperLNWest = new Node("Upper La Noscea East > Upper La Noscea West", new Vector3(221.7828f, -0.9591975f, 258.2541f), 1); graph.AddNode(UpperLNEastToUpperLNWest); UpperLaNosceaEast.AddDirected(UpperLNEastToUpperLNWest); UpperLNEastToUpperLNWest.AddDirected(UpperLaNosceaWest);
+            Node UpperLNEastToEasternLNWest = new Node("Upper La Noscea East > Eastern La Noscea West", new Vector3(719.070007f, 0.217405f, 214.217957f), -1); graph.AddNode(UpperLNEastToEasternLNWest); UpperLaNosceaEast.AddDirected(UpperLNEastToEasternLNWest); UpperLNEastToEasternLNWest.AddDirected(EasternLaNosceaWest);
+            Node UpperLNEastToOuterLN = new Node("Upper La Noscea East > Outer La Noscea", new Vector3(286.4225f, 41.63181f, -201.1194f), -1); graph.AddNode(UpperLNEastToOuterLN); UpperLaNosceaEast.AddDirected(UpperLNEastToOuterLN); UpperLNEastToOuterLN.AddDirected(OuterLaNoscea);
             // Western La Noscea
-            //areas.Add("138-129", new AreaInfo { XYZ = new Vector3(318.314f, -36f, 351.376f), Name = ">Western La Noscea-->Limsa (Lower)", Communicationlocalindex = 1 });
-            //areas.Add("138-135", new AreaInfo { XYZ = new Vector3(318.314f, -36f, 351.376f), Name = ">Western La Noscea-->Lower La Noscea", Communicationlocalindex = 2 });
-            //areas.Add("138-134", new AreaInfo { XYZ = new Vector3(811.963623f, 49.586365f, 390.644775f), Name = ">Western La Noscea-->Middle La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("138-139_West", new AreaInfo { XYZ = new Vector3(410.657715f, 30.619648f, -10.786478f), Name = ">Western La Noscea-->Upper La Noscea", Communicationlocalindex = -1 });
+            Node WestLNToLimsaLower = new Node("Western La Noscea > Limsa Lominsa Lower Decks", new Vector3(318.314f, -36f, 351.376f), 1); graph.AddNode(WestLNToLimsaLower); WesternLaNoscea.AddDirected(WestLNToLimsaLower); WestLNToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
+            Node WestLNToLowerLN = new Node("Western La Noscea > Lower La Noscea", new Vector3(318.314f, -36f, 351.376f), 2); graph.AddNode(WestLNToLowerLN); WesternLaNoscea.AddDirected(WestLNToLowerLN); WestLNToLowerLN.AddDirected(LowerLaNoscea);
+            Node WestLNToMiddleLN = new Node("Western La Noscea > Middle La Noscea", new Vector3(811.963623f, 49.586365f, 390.644775f), -1); graph.AddNode(WestLNToMiddleLN); WesternLaNoscea.AddDirected(WestLNToMiddleLN); WestLNToMiddleLN.AddDirected(MiddleLaNoscea);
+            Node WestLNToUpperLNWest = new Node("Western La Noscea > Upper La Noscea West", new Vector3(410.657715f, 30.619648f, -10.786478f), -1); graph.AddNode(WestLNToUpperLNWest); WesternLaNoscea.AddDirected(WestLNToUpperLNWest); WestLNToUpperLNWest.AddDirected(UpperLaNosceaWest);
             // Eastern La Noscea West
-            //areas.Add("137_West-134", new AreaInfo { XYZ = new Vector3(-113.323311f, 70.324112f, 47.165649f), Name = "Eastern La Noscea-->Middle La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("137_West-137_East", new AreaInfo { XYZ = new Vector3(21.74548f, 34.07887f, 223.4946f), Name = "Eastern La Noscea Costa Del Sol-->Eastern La Noscea Wineport", Communicationlocalindex = 1 });
-            //areas.Add("137_West-139_East", new AreaInfo { XYZ = new Vector3(78.965446f, 80.393074f, -119.879181f), Name = "Eastern La Noscea-->Upper La Noscea", Communicationlocalindex = -1 });
+            Node EastLNWestToMiddleLN = new Node("Eastern La Noscea West > Middle La Noscea", new Vector3(-113.323311f, 70.324112f, 47.165649f), -1); graph.AddNode(EastLNWestToMiddleLN); EasternLaNosceaWest.AddDirected(EastLNWestToMiddleLN); EastLNWestToMiddleLN.AddDirected(MiddleLaNoscea);
+            Node EastLNWestToEastLNEast = new Node("Eastern La Noscea West > Eastern La Noscea East", new Vector3(21.74548f, 34.07887f, 223.4946f), 1); graph.AddNode(EastLNWestToEastLNEast); EasternLaNosceaWest.AddDirected(EastLNWestToEastLNEast); EastLNWestToEastLNEast.AddDirected(EasternLaNosceaEast);
+            Node EastLNWestToUpperLNEast = new Node("Eastern La Noscea West > Upper La Noscea East", new Vector3(78.965446f, 80.393074f, -119.879181f), -1); graph.AddNode(EastLNWestToUpperLNEast); EasternLaNosceaWest.AddDirected(EastLNWestToUpperLNEast); EastLNWestToUpperLNEast.AddDirected(UpperLaNosceaEast);
             // Eastern La Noscea East
-            //areas.Add("137_East-129", new AreaInfo { XYZ = new Vector3(606.901f, 11.6f, 391.991f), Name = "Eastern La Noscea-->Limsa (Lower)", Communicationlocalindex = 1 });
-            //areas.Add("137_East-135", new AreaInfo { XYZ = new Vector3(246.811844f, 56.341099f, 837.507141f), Name = "Eastern La Noscea-->Lower La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("137_East-137_West", new AreaInfo { XYZ = new Vector3(345.3907f, 32.77044f, 91.39402f), Name = "Eastern La Noscea Costa Del Sol-->Eastern La Noscea Wineport", Communicationlocalindex = 1 });
+            Node EastLNEastToLimsaLower = new Node("Eastern La Noscea East > Limsa Lominsa Lower Decks", new Vector3(606.901f, 11.6f, 391.991f), 1); graph.AddNode(EastLNEastToLimsaLower); EasternLaNosceaEast.AddDirected(EastLNEastToLimsaLower); EastLNEastToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
+            Node EastLNEastToLowerLN = new Node("Eastern La Noscea East > Lower La Noscea", new Vector3(246.811844f, 56.341099f, 837.507141f), -1); graph.AddNode(EastLNEastToLowerLN); EasternLaNosceaEast.AddDirected(EastLNEastToLowerLN); EastLNEastToLowerLN.AddDirected(LowerLaNoscea);
+            Node EastLNEastToEastLNWest = new Node("Eastern La Noscea East > Eastern La Noscea West", new Vector3(345.3907f, 32.77044f, 91.39402f), 1); graph.AddNode(EastLNEastToEastLNWest); EasternLaNosceaEast.AddDirected(EastLNEastToEastLNWest); EastLNEastToEastLNWest.AddDirected(EasternLaNosceaWest);
             // Middle La Noscea
-            //areas.Add("134-129", new AreaInfo { XYZ = new Vector3(-43.422066f, 35.445602f, 153.802917f), Name = "Middle La Noscea-->Limsa (Lower)", Communicationlocalindex = -1 });
-            //areas.Add("134-135", new AreaInfo { XYZ = new Vector3(203.290405f, 65.182816f, 285.331512f), Name = "Middle La Noscea-->Lower La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("134-137_West", new AreaInfo { XYZ = new Vector3(-163.673187f, 35.884563f, -734.864807f), Name = "Middle La Noscea-->Eastern La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("134-138", new AreaInfo { XYZ = new Vector3(-375.221436f, 33.130100f, -603.032593f), Name = "Middle La Noscea-->Western La Noscea", Communicationlocalindex = -1 });
+            Node MiddleLNToLimsaLower = new Node("Middle La Noscea > Limsa Lominsa Lower Decks", new Vector3(-43.422066f, 35.445602f, 153.802917f), -1); graph.AddNode(MiddleLNToLimsaLower); MiddleLaNoscea.AddDirected(MiddleLNToLimsaLower); MiddleLNToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
+            Node MiddleLNToLowerLN = new Node("Middle La Noscea > Lower La Noscea", new Vector3(203.290405f, 65.182816f, 285.331512f), -1); graph.AddNode(MiddleLNToLowerLN); MiddleLaNoscea.AddDirected(MiddleLNToLimsaLower); MiddleLNToLimsaLower.AddDirected(LowerLaNoscea);
+            Node MiddleLNToEastLNWest = new Node("Middle La Noscea > Eastern La Noscea West", new Vector3(-163.673187f, 35.884563f, -734.864807f), -1); graph.AddNode(MiddleLNToEastLNWest); MiddleLaNoscea.AddDirected(MiddleLNToEastLNWest); MiddleLNToEastLNWest.AddDirected(EasternLaNosceaWest);
+            Node MiddleLNToWestLN = new Node("Middle La Noscea > Western La Noscea", new Vector3(-375.221436f, 33.130100f, -603.032593f), -1); graph.AddNode(MiddleLNToWestLN); MiddleLaNoscea.AddDirected(MiddleLNToWestLN); MiddleLNToWestLN.AddDirected(WesternLaNoscea);
             // Lower La Noscea
-            //areas.Add("135-128", new AreaInfo { XYZ = new Vector3(-52.436810f, 75.830246f, 116.130196f), Name = "Lower La Noscea-->Limsa (Upper)", Communicationlocalindex = -1 });
-            //areas.Add("135-134", new AreaInfo { XYZ = new Vector3(230.518661f, 74.490341f, -342.391663f), Name = "Lower La Noscea-->Middle La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("135-137_East", new AreaInfo { XYZ = new Vector3(694.988586f, 79.927017f, -387.720428f), Name = "Lower La Noscea-->Eastern La Noscea", Communicationlocalindex = -1 });
-            //areas.Add("135-339", new AreaInfo { XYZ = new Vector3(598.555847f, 61.519623f, -108.400681f), Name = "Lower La Noscea-->???", Communicationlocalindex = -1 });
+            Node LowerLNToLimsaLower = new Node("Lower La Noscea > Limsa Lominsa Lower Decks", new Vector3(-52.436810f, 75.830246f, 116.130196f), -1); graph.AddNode(LowerLNToLimsaLower); LowerLaNoscea.AddDirected(LowerLNToLimsaLower); LowerLNToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
+            Node LowerLNToMiddleLN = new Node("Lower La Noscea > Middle La Noscea", new Vector3(230.518661f, 74.490341f, -342.391663f), -1); graph.AddNode(LowerLNToMiddleLN); LowerLaNoscea.AddDirected(LowerLNToMiddleLN); LowerLNToMiddleLN.AddDirected(MiddleLaNoscea);
+            Node LowerLNToEastLNEast = new Node("Lower La Noscea > Eastern La Noscea East", new Vector3(694.988586f, 79.927017f, -387.720428f), -1); graph.AddNode(LowerLNToEastLNEast); LowerLaNoscea.AddDirected(LowerLNToEastLNEast); LowerLNToEastLNEast.AddDirected(EasternLaNosceaEast);
             // Limsa Lominsa Lower Decks
             Node LimsaLowerToLimsaUpper = new Node("Limsa Lominsa Lower Decks > Limsa Lominsa Upper Decks", new Vector3(-83.549187f, 17.999935f, -25.898380f), -1); graph.AddNode(LimsaLowerToLimsaUpper); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToLimsaUpper); LimsaLowerToLimsaUpper.AddDirected(LimsaLominsaUpperDecks);
-            Node LimsaLowerToMiddleLaNoscea = new Node("Limsa Lominsa Lower Decks > Middle La Noscea", new Vector3(63.212173f, 19.999994f, 0.221235f), -1); graph.AddNode(LimsaLowerToMiddleLaNoscea); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToMiddleLaNoscea); LimsaLowerToMiddleLaNoscea.AddDirected(MiddleLaNoscea);
+            Node LimsaLowerToMiddleLN = new Node("Limsa Lominsa Lower Decks > Middle La Noscea", new Vector3(63.212173f, 19.999994f, 0.221235f), -1); graph.AddNode(LimsaLowerToMiddleLN); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToMiddleLN); LimsaLowerToMiddleLN.AddDirected(MiddleLaNoscea);
             Node LimsaLowerToWestThan = new Node("Limsa Lominsa Lower Decks > Western Thanalan", new Vector3(-360.9217f, 8.000013f, 38.92566f), 0); graph.AddNode(LimsaLowerToWestThan); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToWestThan); LimsaLowerToWestThan.AddDirected(WesternThanalan);
-            Node LimsaLowerToWestLaNoscea = new Node("Limsa Lominsa Lower Decks > Western La Noscea", new Vector3(-191.834f, 1f, 210.829f), 1); graph.AddNode(LimsaLowerToWestLaNoscea); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToWestLaNoscea); LimsaLowerToWestLaNoscea.AddDirected(WesternLaNoscea);
-            Node LimsaLowerToEastLaNosceaE = new Node("Limsa Lominsa Lower Decks > Eastern La Noscea East", new Vector3(-190.834f, 1f, 210.829f), 2); graph.AddNode(LimsaLowerToEastLaNosceaE); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToEastLaNosceaE); LimsaLowerToEastLaNosceaE.AddDirected(EasternLaNosceaEast);
+            Node LimsaLowerToWestLN = new Node("Limsa Lominsa Lower Decks > Western La Noscea", new Vector3(-191.834f, 1f, 210.829f), 1); graph.AddNode(LimsaLowerToWestLN); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToWestLN); LimsaLowerToWestLN.AddDirected(WesternLaNoscea);
+            Node LimsaLowerToEastLNEast = new Node("Limsa Lominsa Lower Decks > Eastern La Noscea East", new Vector3(-190.834f, 1f, 210.829f), 2); graph.AddNode(LimsaLowerToEastLNEast); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToEastLNEast); LimsaLowerToEastLNEast.AddDirected(EasternLaNosceaEast);
             Node LimsaLowerToLimsaAirShip = new Node("Limsa Lominsa Lower Decks > Limsa Lominsa AirShip", new Vector3(9.781006f, 20.99925f, 15.09113f), 0); graph.AddNode(LimsaLowerToLimsaAirShip); LimsaLominsaLowerDecks.AddDirected(LimsaLowerToLimsaAirShip); LimsaLowerToLimsaAirShip.AddDirected(LimsaAirShip);
             // Limsa Lominsa Upper Decks
             Node LimsaAirShipToUldahAirShip = new Node("Limsa Lominsa AirShip > Ul'dah Steps of Thal", new Vector3(-25.92511f, 91.99995f, -3.677429f), 0); graph.AddNode(LimsaAirShipToUldahAirShip); LimsaAirShip.AddDirected(LimsaAirShipToUldahAirShip); LimsaAirShipToUldahAirShip.AddDirected(UldahAirShip);
             Node LimsaAirShipToNewGridania = new Node("Limsa Lominsa AirShip > New Gridania", new Vector3(-25.92511f, 91.99995f, -3.677429f), 1); graph.AddNode(LimsaAirShipToNewGridania); LimsaAirShip.AddDirected(LimsaAirShipToNewGridania); LimsaAirShipToNewGridania.AddDirected(NewGridania);
             Node LimsaUpperToLimsaLower = new Node("Limsa Lominsa Upper Decks > Limsa Lominsa Lower Decks", new Vector3(-5.868670f, 43.095970f, -27.703053f), -1); graph.AddNode(LimsaUpperToLimsaLower); LimsaLominsaUpperDecks.AddDirected(LimsaUpperToLimsaLower); LimsaUpperToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
-            Node LimsaUpperToLowerLaNoscea = new Node("Limsa Lominsa Upper Decks > Lower La Noscea", new Vector3(24.692057f, 44.499928f, 180.197906f), -1); graph.AddNode(LimsaUpperToLowerLaNoscea); LimsaLominsaUpperDecks.AddDirected(LimsaUpperToLowerLaNoscea); LimsaUpperToLowerLaNoscea.AddDirected(LowerLaNoscea);
+            Node LimsaUpperToLowerLN = new Node("Limsa Lominsa Upper Decks > Lower La Noscea", new Vector3(24.692057f, 44.499928f, 180.197906f), -1); graph.AddNode(LimsaUpperToLowerLN); LimsaLominsaUpperDecks.AddDirected(LimsaUpperToLowerLN); LimsaUpperToLowerLN.AddDirected(LowerLaNoscea);
             Node LimsaAirShipToLimsaUpper = new Node("Limsa Lominsa Airship Landing > Limsa Lominsa Upper Decks", new Vector3(-7.248047f, 91.49999f, -16.12885f), 0); graph.AddNode(LimsaAirShipToLimsaUpper); LimsaAirShip.AddDirected(LimsaAirShipToLimsaUpper); LimsaAirShipToLimsaUpper.AddDirected(LimsaLominsaUpperDecks);
             Node LimsaAirShipToLimsaLower = new Node("Limsa Lominsa Airship Landing > Limsa Lominsa Lower Decks", new Vector3(-7.248047f, 91.49999f, -16.12885f), 1); graph.AddNode(LimsaAirShipToLimsaLower); LimsaAirShip.AddDirected(LimsaAirShipToLimsaLower); LimsaAirShipToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
 
             // unknown
 
+            //areas.Add("135-339", new AreaInfo { XYZ = new Vector3(598.555847f, 61.519623f, -108.400681f), Name = "Lower La Noscea-->???", Communicationlocalindex = -1 });
             //areas.Add("130-178", new AreaInfo { XYZ = new Vector3(29.635f, 7.000f, -80.346f), Name = "ul'dah-Ul dah -Ul dah - Inn", Communicationlocalindex = 1 });
             //areas.Add("140-341", new AreaInfo { XYZ = new Vector3(316.839722f, 67.180557f, 236.260666f), Name = "Western Thanalan-Cutterscry??", Communicationlocalindex = -1 });
             //areas.Add("156-351", new AreaInfo { XYZ = new Vector3(21.124185562134f, 21.252725601196f, -631.37310791016f), Name = "Mor Dhona-Ini ??? ", Communicationlocalindex = -1 });

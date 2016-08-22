@@ -2,10 +2,10 @@
 <!DOCTYPE Profile [
   <!ENTITY Version "2.34.22">
   <!-- Do What? -->
-  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "1">
+  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "0">
   <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "1">
-  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "1">
-  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "1">
+  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "0">
+  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "0">
   <!-- Rank 3 Materia Quest Rewards (Choose at most 4) -->
   <!-- If multiple choice exists, first slot that returns true will be chosen -->
   <!ENTITY DEX "1"> <!ENTITY MND "0"> <!ENTITY PIE "0"> <!ENTITY BDNC "1">
@@ -1132,9 +1132,7 @@
         <SoTalkTo NpcId="1007946" XYZ="220.6606, 21.48178, -592.6451" QuestId="66860" StepId="9" />
         <SoTalkTo NpcId="1007947" XYZ="150.866, 26.38281, -551.751" DialogOption="0" QuestId="66860" StepId="10" />
         <SoTalkTo NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66860" StepId="11" MapId="180" />
-        <SoMoveTo XYZ="-39.96983, 20, 0.5583001" QuestId="66860" StepId="255" AetheryteId="8" />
-        <SoTravel To="128" QuestId="66860" />
-        <SoTurnIn QuestId="66860" NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597" />
+        <SoTurnIn QuestId="66860" NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597" MapId="128" />
       </If>
     </If>
     <If Condition="&doSylphRank1;">

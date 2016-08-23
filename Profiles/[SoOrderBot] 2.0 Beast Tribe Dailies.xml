@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Profile [
-  <!ENTITY Version "2.34.22">
+  <!ENTITY Version "2.35.0">
   <!-- Do What? -->
-  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "0">
-  <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "1">
+  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "1"> <!ENTITY doSahaginRank3 "0">
+  <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "0">
   <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "0">
   <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "0">
   <!-- Rank 3 Materia Quest Rewards (Choose at most 4) -->
@@ -12,7 +12,7 @@
   <!ENTITY QARM "0"> <!ENTITY VIT "1"> <!ENTITY SAIM "0"> <!ENTITY SMGHT "0"> 
   <!ENTITY QTNG "0"> <!ENTITY STR "1"> <!ENTITY INT "0"> <!ENTITY HEYE "0">
   <!-- Debug -->
-  <!ENTITY doCompleteQuests "1">
+  <!ENTITY doCompleteQuests "0">
 ]>
 <Profile>
   <Name>[SoOrderBot] 2.0 Beast Tribe Dailies</Name>
@@ -21,31 +21,28 @@
       <SoRegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924]))">
         <!-- A Killer Strategy -->
-        <SoPickUpQuest QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Standard Procedure -->
-        <SoPickUpQuest QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Enemy at the Gates -->
-        <SoPickUpQuest QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Taste for Paste -->
-        <SoPickUpQuest QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Spawning Ground Salvation -->
-        <SoPickUpQuest QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Quick Snip -->
-        <SoPickUpQuest QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Violence of the Clams -->
-        <SoPickUpQuest QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Wind from their Sails -->
-        <SoPickUpQuest QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Crate-ful Response -->
-        <SoPickUpQuest QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Skullduggery -->
-        <SoPickUpQuest QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
       </If>
-      <!-- A Quick Snip -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" SubMapId="946" QuestId="66920" StepId="1" AetheryteId="14" />
       <!-- Violence of the Clams -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" SubMapId="946" QuestId="66921" StepId="1" AetheryteId="14" />
-      <SoUseObject NpcIds="2003845,2003853,2003847,2003854,2003855,2003846,2003848" QuestId="66921" StepId="1">
+      <SoUseObject NpcIds="2003845,2003853,2003847,2003854,2003855,2003846,2003848" QuestId="66921" StepId="1" MapId="946">
         <HotSpots>
           <HotSpot XYZ="-813.2296, -41.76398, 670.3745" Radius="15" />
           <HotSpot XYZ="-810.2388, -41.76398, 662.1652" Radius="15" />
@@ -57,7 +54,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- A Quick Snip -->
-      <SoGrind NpcIds="2533" QuestId="66920" StepId="1">
+      <SoGrind NpcIds="2533" QuestId="66920" StepId="1" MapId="946">
         <HotSpots>
           <HotSpot XYZ="-783.3903, -40.90863, 693.5721" Radius="80" />
         </HotSpots>
@@ -65,7 +62,7 @@
           <BlackSpot XYZ="-787.2772, -41.10418, 671.0389" Radius="25" />
         </BlackSpots>
       </SoGrind>
-      <SoUseItem ItemId="2001267" NpcIds="2003840,2003841,2003842,2003843,2003844" QuestId="66920" StepId="2">
+      <SoUseItem ItemId="2001267" NpcIds="2003840,2003841,2003842,2003843,2003844" QuestId="66920" StepId="2" MapId="946">
         <HotSpots>
           <HotSpot XYZ="-753.7894, -38.51268, 684.6206" Radius="5" />
           <HotSpot XYZ="-757.1093, -38.98314, 676.7407" Radius="5" />
@@ -74,18 +71,8 @@
           <HotSpot XYZ="-770.5521, -38.20312, 651.3601" Radius="5" />
         </HotSpots>
       </SoUseItem>
-      <!-- Exit -->
-      <If Condition="IsOnSubMap(946)">
-        <!-- A Quick Snip -->
-        <SoUseTransport NpcId="1008802" XYZ="-813.1559, -42.11157, 694.0052" SubMapId="945" DialogOption="0" QuestId="66920" />
-        <!-- Violence of the Clams -->
-        <SoUseTransport NpcId="1008802" XYZ="-813.1559, -42.11157, 694.0052" SubMapId="945" DialogOption="0" QuestId="66921" />
-      </If>
-      <!-- Wind from their Sails -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" QuestId="66922" StepId="1" AetheryteId="14" />
       <!-- A Crate-ful Response -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" QuestId="66923" StepId="1" AetheryteId="14" />
-      <SoUseObject NpcIds="2004003,2004002,2004006" QuestId="66923" StepId="1" Distance="1">
+      <SoUseObject NpcIds="2004003,2004002,2004006" QuestId="66923" StepId="1" Distance="1" MapId="947">
         <HotSpots>
           <HotSpot XYZ="-882.8412, -20.67603, 874.7234" Radius="15" />
           <HotSpot XYZ="-887.8157, -20.67603, 886.4728" Radius="15" />
@@ -93,125 +80,110 @@
         </HotSpots>
       </SoUseObject>
       <!-- Wind from their Sails -->
-      <SoGrind NpcIds="2724,2534,2535,2536" XYZ="-839.1937, -25.64775, 888.4031" Radius="25" QuestId="66922" StepId="1" />
-      <!-- Exit -->
-      <If Condition="IsOnSubMap(947)">
-        <SoUseTransport NpcId="2004012" XYZ="-848.7661, -29.99572, 886.8063" DialogOption="0" QuestId="66922" />
-        <SoUseTransport NpcId="2004012" XYZ="-848.7661, -29.99572, 886.8063" DialogOption="0" QuestId="66923" />
-      </If>
+      <SoGrind NpcIds="2724,2534,2535,2536" XYZ="-839.1937, -25.64775, 888.4031" Radius="25" QuestId="66922" StepId="1" MapId="947" />
       <!-- Skullduggery -->
-      <SoUseObject NpcIds="1008793,1008794,1008795,1008796" QuestId="66924" StepId="1" AetheryteId="14">
+      <SoUseObject NpcIds="1008793,1008794,1008795,1008796" QuestId="66924" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-82.16387, -25.21706, 69.22531" Radius="80" />
           <HotSpot XYZ="74.53024, -14.20646, 58.27721" Radius="80" />
         </HotSpots>
       </SoUseObject>
       <!-- Standard Procedure -->
-      <SoUseItem ItemId="2001273" NpcIds="2003871,2003872" QuestId="66916" StepId="1" AetheryteId="14">
+      <SoUseItem ItemId="2001273" NpcIds="2003871,2003872" QuestId="66916" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-127.3437, -26.71313, 32.80767" Radius="25" />
           <HotSpot XYZ="-21.4084, -14.9906, -103.0699" Radius="25" />
         </HotSpots>
       </SoUseItem>
       <!-- A Taste for Paste -->
-      <SoUseObject NpcIds="2003897,2003898,2003899,2003900,2003901" XYZ="-91.12939, -30.13769, -130.3292" Radius="80" QuestId="66918" StepId="1" AetheryteId="14" />
+      <SoUseObject NpcIds="2003897,2003898,2003899,2003900,2003901" XYZ="-91.12939, -30.13769, -130.3292" Radius="80" QuestId="66918" StepId="1" MapId="138" />
       <!-- Enemy at the Gates -->
-      <SoGrind NpcIds="2530" XYZ="-79.80782, -28.62298, -130.6078" Radius="80" QuestId="66917" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2530" XYZ="-79.80782, -28.62298, -130.6078" Radius="80" QuestId="66917" StepId="1" MapId="138" />
       <!-- Spawning Ground Salvation -->
-      <SoUseObject NpcIds="1008816,1008817,1008818,1008819,1008820,1008821,1008822" XYZ="-191.7454, -40.80593, -72.13324" Radius="80" QuestId="66919" StepId="1" AetheryteId="14" />
-      <SoUseItem ItemId="2001254" NpcIds="1008823,1008824,1008825" XYZ="-214.0919, -40.03904, -103.8377" Radius="25" QuestId="66919" StepId="2" AetheryteId="14" />
+      <SoUseObject NpcIds="1008816,1008817,1008818,1008819,1008820,1008821,1008822" XYZ="-191.7454, -40.80593, -72.13324" Radius="80" QuestId="66919" StepId="1" MapId="138" />
+      <SoUseItem ItemId="2001254" NpcIds="1008823,1008824,1008825" XYZ="-214.0919, -40.03904, -103.8377" Radius="25" QuestId="66919" StepId="2" MapId="138" />
       <!-- A Killer Strategy -->
-      <SoFate FateId="572" ItemIds="7798" XYZ="-146.1263, -33.84797, -123.5874" QuestId="66915" AetheryteId="14" />
+      <SoFate FateId="572" ItemIds="7798" XYZ="-146.1263, -33.84797, -123.5874" QuestId="66915" MapId="138" />
       <If Condition="&doCompleteQuests;">
         <!-- A Killer Strategy -->
-        <SoTurnIn ItemIds="7798" QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn ItemIds="7798" QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Standard Procedure -->
-        <SoTurnIn QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Enemy at the Gates -->
-        <SoTurnIn QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Taste for Paste -->
-        <SoTurnIn ItemIds="2001277" QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn ItemIds="2001277" QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Spawning Ground Salvation -->
-        <SoTurnIn QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Quick Snip -->
-        <SoTurnIn ItemIds="2001268" QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn ItemIds="2001268" QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Violence of the Clams -->
-        <SoTurnIn ItemIds="2001269" QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn ItemIds="2001269" QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Wind from their Sails -->
-        <SoTurnIn QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- A Crate-ful Response -->
-        <SoTurnIn ItemIds="2001291" QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn ItemIds="2001291" QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
         <!-- Skullduggery -->
-        <SoTurnIn QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" AetheryteId="14" />
+        <SoTurnIn QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793" MapId="138" />
       </If>
     </If>
     <If Condition="&doSahaginRank2;">
       <If Condition="not IsQuestCompleted(66912)">
         <!-- The Scarlet Bloodletter -->
-        <SoPickUpQuest QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" AetheryteId="14" />
-        <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66912" StepId="1" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+        <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66912" StepId="1" MapId="138" />
         <SoTalkTo NpcId="1008917" XYZ="-889.0669, -27.47113, 929.6559" QuestId="66912" StepId="2" />
         <SoGrind NpcIds="2537,2538" XYZ="-862.6383, -25.64775, 931.4564" Radius="60" QuestId="66912" StepId="3" />
         <SoUseTransport NpcId="1008917" XYZ="-889.0669, -27.47113, 929.6559" QuestId="66912" StepId="4" />
-        <SoTalkTo NpcId="1008918" XYZ="317.1892, -31.89867, 273.7316" QuestId="66912" StepId="5" AetheryteId="14" />
-        <SoTurnIn QuestId="66912" ItemIds="2001293" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" AetheryteId="14" />
+        <SoTalkTo NpcId="1008918" XYZ="317.1892, -31.89867, 273.7316" QuestId="66912" StepId="5" MapId="138" />
+        <SoTurnIn QuestId="66912" ItemIds="2001293" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
       </If>
       <SoRegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935]))">
         <!-- Move Along, Nothing to Heal Here -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66926" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66926" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Aint Got Time to Breed -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66927" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66927" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Get a Lode of This -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66928" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66928" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Ballista Bust-up -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66929" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66929" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Better Ash Than Blood -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66930" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66930" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Put a Shhhock in It -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66931" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66931" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Clutchfather Knows Best -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66932" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66932" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- A Nap Before Drowning -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66933" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66933" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- In the Shadow of the Moon -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66934" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66934" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Learn by Destroying -->
-        <SoPickUpQuest NpcId="1005939" QuestId="66935" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoPickUpQuest NpcId="1005939" QuestId="66935" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
       </If>
       <!-- In the Shadow of the Moon -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" QuestId="66934" StepId="1" AetheryteId="14" />
-      <If Condition="IsOnSubMap(946)">
+      <If Condition="GetQuestStep(66934) == 1">
         <RunCode Name="DisableMount" />
       </If>
       <While Condition="GetQuestStep(66934) == 1">
-        <SoMoveTo XYZ="-803.2051, -40.69403, 654.8434" Distance="2" />
-        <SoMoveTo XYZ="-802.9698, -40.72558, 649.9328" Distance="2" />
-        <SoMoveTo XYZ="-803.0165, -40.51761, 644.6306" Distance="2" />
-        <SoMoveTo XYZ="-797.8507, -40.20263, 649.5412" Distance="2" />
-        <SoMoveTo XYZ="-808.7948, -40.66103, 649.4343" Distance="2" />
-        <SoMoveTo XYZ="-765.3834, -36.81837, 705.5732" Distance="2" />
-        <SoMoveTo XYZ="-771.2515, -38.13315, 705.5508" Distance="2" />
-        <SoMoveTo XYZ="-766.3175, -37.90235, 699.8101" Distance="2" />
-        <SoMoveTo XYZ="-760.2322, -37.41692, 705.9405" Distance="2" />
-        <SoMoveTo XYZ="-766.0171, -38.09329, 711.1499" Distance="2" />
+        <SoMoveTo XYZ="-803.2051, -40.69403, 654.8434" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-802.9698, -40.72558, 649.9328" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-803.0165, -40.51761, 644.6306" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-797.8507, -40.20263, 649.5412" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-808.7948, -40.66103, 649.4343" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-765.3834, -36.81837, 705.5732" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-771.2515, -38.13315, 705.5508" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-766.3175, -37.90235, 699.8101" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-760.2322, -37.41692, 705.9405" Distance="2" MapId="946" />
+        <SoMoveTo XYZ="-766.0171, -38.09329, 711.1499" Distance="2" MapId="946" />
       </While>
       <If Condition="GetQuestStep(66934) == 255">
         <RunCode Name="EnableMount" />
       </If>
-      <!-- Exit -->
-      <If Condition="IsOnSubMap(946)">
-        <SoUseTransport NpcId="1008802" XYZ="-813.1559, -42.11157, 694.0052" DialogOption="0" QuestId="66934" />
-      </If>
       <!-- Learn by Destroying -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" QuestId="66935" StepId="1" AetheryteId="14" />
-      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" />
-      <!-- Exit -->
-      <If Condition="IsOnSubMap(947)">
-        <SoUseTransport NpcId="2004013" XYZ="-883.3192, -30.14775, 929.2879" DialogOption="0" QuestId="66935" />
-      </If>
+      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" MapId="947" />
       <!-- Get a Lode of This -->
-      <SoUseObject NpcIds="2003765,2003766,2003767,2003768" QuestId="66928" StepId="1" AetheryteId="14">
+      <SoUseObject NpcIds="2003765,2003766,2003767,2003768" QuestId="66928" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-236.6029, -41.18776, -175.5754" Radius="10" />
           <HotSpot XYZ="-223.3158, -41.60957, -185.6941" Radius="10" />
@@ -220,7 +192,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- A Nap Before Drowning -->
-      <SoUseItem ItemId="2001265" NpcIds="2003828,2003829,2003830,2003831" QuestId="66933" StepId="1" AetheryteId="14">
+      <SoUseItem ItemId="2001265" NpcIds="2003828,2003829,2003830,2003831" QuestId="66933" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-192.9365, -40.71842, -211.4385" Radius="10" />
           <HotSpot XYZ="-159.7222, -41.39574, -269.5787" Radius="10" />
@@ -229,7 +201,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- Put a Shhhock in It -->
-      <SoUseItem ItemId="2001264" NpcIds="2003821,2003822,2003823,2003824,2003825" QuestId="66931" StepId="1" AetheryteId="14">
+      <SoUseItem ItemId="2001264" NpcIds="2003821,2003822,2003823,2003824,2003825" QuestId="66931" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-190.8022, -41.43997, -241.1754" Radius="10" />
           <HotSpot XYZ="-212.9717, -41.79998, -218.6509" Radius="10" />
@@ -239,11 +211,11 @@
         </HotSpots>
       </SoUseItem>
       <!-- Move Along, Nothing to Heal Here -->
-      <SoGrind NpcIds="2526" XYZ="-217.6353, -41.59435, -281.9161" Radius="50" QuestId="66926" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2526" XYZ="-217.6353, -41.59435, -281.9161" Radius="50" QuestId="66926" StepId="1" MapId="138" />
       <!-- Aint Got Time to Breed -->
-      <SoGrind NpcIds="2527,2727" ItemId="2001271" ItemTarget="2727" LacksAura="22" XYZ="-221.7993, -41.81548, -300.9028" Radius="50" QuestId="66927" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2527,2727" ItemId="2001271" ItemTarget="2727" LacksAura="22" XYZ="-221.7993, -41.81548, -300.9028" Radius="50" QuestId="66927" StepId="1" MapId="138" />
       <!-- Better Ash Than Blood -->
-      <SoUseItem ItemId="2001263" NpcIds="2003815,2003816,2003817,2003818" QuestId="66930" StepId="1" AetheryteId="14">
+      <SoUseItem ItemId="2001263" NpcIds="2003815,2003816,2003817,2003818" QuestId="66930" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-153.5634, -41.11999, -228.8062" Radius="10" />
           <HotSpot XYZ="-134.7744, -40.6506, -235.2413" Radius="10" />
@@ -252,77 +224,71 @@
         </HotSpots>
       </SoUseItem>
       <!-- Ballista Bust-up -->
-      <SoGrind NpcIds="2531" XYZ="-287.1251, -41.68895, -359.7451" Radius="25" QuestId="66929" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2531" XYZ="-287.1251, -41.68895, -359.7451" Radius="25" QuestId="66929" StepId="1" MapId="138" />
       <!-- Clutchfather Knows Best -->
-      <SoFate FateId="574" ItemIds="7804" XYZ="-199.192, -42.00003, -277.2983" QuestId="66932" AetheryteId="14" />
+      <SoFate FateId="574" ItemIds="7804" XYZ="-199.192, -42.00003, -277.2983" QuestId="66932" MapId="138" />
       <If Condition="&doCompleteQuests;">
         <!-- Move Along, Nothing to Heal Here -->
-        <SoTurnIn QuestId="66926" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66926" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Aint Got Time to Breed -->
-        <SoTurnIn QuestId="66927" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66927" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Get a Lode of This -->
-        <SoTurnIn QuestId="66928" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66928" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Ballista Bust-up -->
-        <SoTurnIn QuestId="66929" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66929" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Better Ash Than Blood -->
-        <SoTurnIn QuestId="66930" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66930" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Put a Shhhock in It -->
-        <SoTurnIn QuestId="66931" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66931" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Clutchfather Knows Best -->
-        <SoTurnIn QuestId="66932" ItemIds="7804" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66932" ItemIds="7804" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- A Nap Before Drowning -->
-        <SoTurnIn QuestId="66933" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66933" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- In the Shadow of the Moon -->
-        <SoTurnIn QuestId="66934" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66934" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Learn by Destroying -->
-        <SoTurnIn QuestId="66935" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" AetheryteId="14" />
+        <SoTurnIn QuestId="66935" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
       </If>
     </If>
     <If Condition="&doSahaginRank3;">
       <If Condition="not IsQuestCompleted(66913)">
       <!-- Watching the Spawn -->
-        <SoPickUpQuest QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" AetheryteId="14" />
-        <SoTalkTo NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="1" AetheryteId="14" />
-        <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" SubZoneId="946" QuestId="66913" StepId="2" AetheryteId="14" />
-        <SoHandOver ItemIds="2001290" NpcId="1008904" XYZ="-792.2637, -39.01226, 716.2126" QuestId="66913" StepId="2" Objective="0" Count="1" />
-        <SoUseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312" SubZoneId="945" QuestId="66913" DialogOption="0" />
-        <SoHandOver ItemIds="2001290" NpcId="1008902" XYZ="-150.2251, -41.3787, -295.5825" QuestId="66913" StepId="2" Objective="0" Count="2" AetheryteId="14" />
-        <SoHandOver ItemIds="2001290" NpcId="1008903" XYZ="-357.5647, -35.2375, -425.2232" QuestId="66913" StepId="2" AetheryteId="14" />
-        <SoHandOver ItemIds="2001290" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="3" AetheryteId="14" />
-        <SoUseObject NpcIds="2003989" XYZ="-364.9806, -38.25439, -242.8168" Radius="10" QuestId="66913" StepId="4" AetheryteId="14" />
-        <SoTurnIn QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+        <SoTalkTo NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="1" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1008904" XYZ="-792.2637, -39.01226, 716.2126" QuestId="66913" StepId="2" Objective="0" Count="1" MapId="946" />
+        <SoHandOver ItemIds="2001290" NpcId="1008902" XYZ="-150.2251, -41.3787, -295.5825" QuestId="66913" StepId="2" Objective="0" Count="2" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1008903" XYZ="-357.5647, -35.2375, -425.2232" QuestId="66913" StepId="2" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="3" MapId="138" />
+        <SoUseObject NpcIds="2003989" XYZ="-364.9806, -38.25439, -242.8168" Radius="10" QuestId="66913" StepId="4" MapId="138" />
+        <SoTurnIn QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
       </If>
       <SoRegisterDailies QuestIds="66936,66937,66938,66939,66940,66941,66942,66943,66944,66945" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66936,66937,66938,66939,66940,66941,66942,66943,66944,66945]))">
         <!-- Tines of the Trident -->
-        <SoPickUpQuest QuestId="66936" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66936" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Shellfish Schemes -->
-        <SoPickUpQuest QuestId="66937" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66937" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- An Enthralling Engagement -->
-        <SoPickUpQuest QuestId="66938" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66938" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Up in Shhhmoke  -->
-        <SoPickUpQuest QuestId="66939" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66939" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Reaving in a Hurry -->
-        <SoPickUpQuest QuestId="66940" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66940" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- The Tail's the Best Part -->
-        <SoPickUpQuest QuestId="66941" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66941" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Unfair Trading -->
-        <SoPickUpQuest QuestId="66942" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66942" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Sea Scraps -->
-        <SoPickUpQuest QuestId="66943" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66943" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Plunder Fire -->
-        <SoPickUpQuest QuestId="66944" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66944" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
         <!-- Removing the Stain -->
-        <SoPickUpQuest QuestId="66945" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" AetheryteId="14" />
+        <SoPickUpQuest QuestId="66945" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
       </If>
       <!-- Unfair Trading -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" SubMapId="947" QuestId="66942" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" MapId="947" />
       <!-- Sea Scraps -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" SubMapId="647" QuestId="66943" StepId="1" AetheryteId="14" />
-      <!-- Unfair Trading -->
-      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" />
-      <!-- Sea Scraps -->
-      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5">
+      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" MapId="947">
         <HotSpots>
           <HotSpot XYZ="-846.8605, -25.65275, 962.0354" Radius="20" />
           <HotSpot XYZ="-862.8214, -20.65275, 966.308" Radius="20" />
@@ -330,12 +296,8 @@
           <HotSpot XYZ="-795.4986, -23.64963, 972.3506" Radius="20" />
         </HotSpots>
       </SoUseObject>
-      <!-- Exit -->
-      <SoUseTransport NpcId="2004014" XYZ="-826.7552, -30.14775, 971.434" SubMapId="945" QuestId="66942" DialogOption="0" Distance="1" />
-      <SoUseTransport NpcId="2004014" XYZ="-826.7552, -30.14775, 971.434" SubMapId="945" QuestId="66943" DialogOption="0" Distance="1" />
       <!-- Plunder Fire -->
-      <SoUseTransport NpcId="1005946" XYZ="-237.5193, -41.68077, 17.41498" QuestId="66944" StepId="1" AetheryteId="14" />
-      <SoUseItem ItemId="2001292" NpcIds="2004017,2004018,2004019,2004016" QuestId="66944" StepId="1" Distance="1">
+      <SoUseItem ItemId="2001292" NpcIds="2004017,2004018,2004019,2004016" QuestId="66944" StepId="1" Distance="1" MapId="948">
         <HotSpots>
           <HotSpot XYZ="-931.6091, -30.28925, 829.3431" Radius="5" />
           <HotSpot XYZ="-917.5707, -31.75409, 823.1479" Radius="5" />
@@ -343,40 +305,38 @@
           <HotSpot XYZ="-939.1165, -31.78455, 846.0364" Radius="5" />
         </HotSpots>
       </SoUseItem>
-      <!-- Exit -->
-      <SoMoveTo XYZ="-925.9974, -31.75006, 848.4453" Distance="1" QuestId="66944" />
-      <SoUseTransport NpcId="2004015" XYZ="-924.4068, -33.43262, 842.3132" SubMapId="945" QuestId="66944" DialogOption="0" Distance="2" />
+      <SoMoveTo XYZ="-925.9974, -31.75006, 848.4453" Distance="1" QuestId="66944" MapId="948" />
       <!-- Reaving in a Hurry -->
-      <SoGrind NpcIds="347,2738" QuestId="66940" StepId="1" Objective="0" AetheryteId="14">
+      <SoGrind NpcIds="347,2738" QuestId="66940" StepId="1" Objective="0" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
           <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="559,2739" QuestId="66940" StepId="1" Objective="1" AetheryteId="14">
+      <SoGrind NpcIds="559,2739" QuestId="66940" StepId="1" Objective="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
           <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="345,2740" QuestId="66940" StepId="1" Objective="2" AetheryteId="14">
+      <SoGrind NpcIds="345,2740" QuestId="66940" StepId="1" Objective="2" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
           <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
         </HotSpots>
       </SoGrind>
       <!-- The Tail's the Best Part -->
-      <SoGrind NpcIds="1831" XYZ="-375.5726, -37.31264, -295.6156" Radius="25" QuestId="66941" StepId="1" AetheryteId="14" />
-      <SoUseObject NpcIds="2003837" XYZ="-503.8682, -29.89246, -387.3198" Radius="20" QuestId="66941" StepId="2" AetheryteId="14" />
-      <SoUseItem ItemId="2001272" NpcIds="2003868" XYZ="-503.8682, -29.89246, -387.3198" Radius="20" QuestId="66941" StepId="3" AetheryteId="14" />
+      <SoGrind NpcIds="1831" XYZ="-375.5726, -37.31264, -295.6156" Radius="25" QuestId="66941" StepId="1" MapId="138" />
+      <SoUseObject NpcIds="2003837" XYZ="-503.8682, -29.89246, -387.3198" Radius="20" QuestId="66941" StepId="2" MapId="138" />
+      <SoUseItem ItemId="2001272" NpcIds="2003868" XYZ="-503.8682, -29.89246, -387.3198" Radius="20" QuestId="66941" StepId="3" MapId="138" />
       <!-- Tines of the Trident -->
-      <SoGrind NpcIds="1827,2734" XYZ="-341.5732, -39.4828, -357.9309" Radius="40" QuestId="66936" StepId="1" Objective="0" AetheryteId="14" />
-      <SoGrind NpcIds="1828,2735" XYZ="-317.9305, -39.35455, -298.3956" Radius="40" QuestId="66936" StepId="1" Objective="1" AetheryteId="14" />
-      <SoGrind NpcIds="1830,2736" XYZ="-317.9305, -39.35455, -298.3956" Radius="40" QuestId="66936" StepId="1" Objective="2" AetheryteId="14" />
+      <SoGrind NpcIds="1827,2734" XYZ="-341.5732, -39.4828, -357.9309" Radius="40" QuestId="66936" StepId="1" Objective="0" MapId="138" />
+      <SoGrind NpcIds="1828,2735" XYZ="-317.9305, -39.35455, -298.3956" Radius="40" QuestId="66936" StepId="1" Objective="1" MapId="138" />
+      <SoGrind NpcIds="1830,2736" XYZ="-317.9305, -39.35455, -298.3956" Radius="40" QuestId="66936" StepId="1" Objective="2" MapId="138" />
       <!-- Shellfish Schemes -->
-      <SoGrind NpcIds="2532" XYZ="-391.4412, -38.67535, -342.0912" Radius="20" QuestId="66937" StepId="1" AetheryteId="14" />
+      <SoGrind NpcIds="2532" XYZ="-391.4412, -38.67535, -342.0912" Radius="20" QuestId="66937" StepId="1" MapId="138" />
       <!-- Up in Shhhmoke  -->
-      <SoUseItem ItemId="2001270" NpcIds="2003856,2003857,2003858,2003859" QuestId="66939" StepId="1" AetheryteId="14">
+      <SoUseItem ItemId="2001270" NpcIds="2003856,2003857,2003858,2003859" QuestId="66939" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-360.0367, -35.50775, -399.1302" Radius="10" />
           <HotSpot XYZ="-364.4923, -35.26361, -437.2778" Radius="10" />
@@ -385,7 +345,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- An Enthralling Engagement -->
-      <SoUseObject NpcIds="1008808,1008809,1008810,1008811,1008812,1008813,1008814" QuestId="66938" StepId="1" AetheryteId="14">
+      <SoUseObject NpcIds="1008808,1008809,1008810,1008811,1008812,1008813,1008814" QuestId="66938" StepId="1" MapId="138">
         <HotSpots>
           <HotSpot XYZ="-374.5016, -39.46256, -351.3618" Radius="10" />
           <HotSpot XYZ="-368.517, -39.64428, -356.6625" Radius="10" />
@@ -395,167 +355,167 @@
         </HotSpots>
       </SoUseObject>
       <!-- Removing the Stain -->
-      <SoFate FateId="575" ItemIds="7805" QuestId="66945" XYZ="-383.4808, -39.69724, -232.7178" AetheryteId="14" />
+      <SoFate FateId="575" ItemIds="7805" QuestId="66945" XYZ="-383.4808, -39.69724, -232.7178" MapId="138" />
       <If Condition="&doCompleteQuests;">
         <!-- Tines of the Trident -->
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Shellfish Schemes -->
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- An Enthralling Engagement -->
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Up in Shhhmoke  -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Reaving in a Hurry -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- The Tail's the Best Part -->
         <If Condition="&STR;">
-          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn ItemIds="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Unfair Trading -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Sea Scraps -->
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Plunder Fire -->
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
         <!-- Removing the Stain -->
         <If Condition="&INT;">
-          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" AetheryteId="14" />
+          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="0" MapId="138" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" AetheryteId="14" />
+          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="1" MapId="138" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" AetheryteId="14" />
+          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="2" MapId="138" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" AetheryteId="14" />
+          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="3" MapId="138" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" AetheryteId="14" />
+          <SoTurnIn ItemIds="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531" RewardSlot="4" MapId="138" />
         </If>
       </If>
     </If>
@@ -739,23 +699,13 @@
           <HotSpot XYZ="78.44666, 55.61914, -470.0542" Radius="15" />
         </HotSpots>
       </SoUseItem>
-      <!-- Operation Riffraff -->
-      <SoUseTransport NpcId="1005960" XYZ="95.53953, 55.3514, -500.218" SubMapId="238" QuestId="66875" MapId="180" />
-      <!-- The Sly Savages -->
-      <SoUseTransport NpcId="1005960" XYZ="95.53953, 55.3514, -500.218" SubMapId="238" QuestId="66876" MapId="180" />
-      <!-- Belles of the Ball -->
-      <SoUseTransport NpcId="1005960" XYZ="95.53953, 55.3514, -500.218" SubMapId="238" QuestId="66877" MapId="180" />
-      <!-- Contents Unknown -->
-      <SoUseTransport NpcId="1005960" XYZ="95.53953, 55.3514, -500.218" SubMapId="238" QuestId="66878" MapId="180" />
-      <!-- Brain Buster -->
-      <SoUseTransport NpcId="1005960" XYZ="95.53953, 55.3514, -500.218" SubMapId="238" QuestId="66879" MapId="180" />
       <!-- Contents Unknown -->
       <If Condition="GetQuestStep(66878) == 1">
-        <SoUseObject NpcIds="2003729" XYZ="142.626, 23.91083, -536.1563" Radius="5" QuestId="66878" StepId="1" Objective="0" Count="1" />
-        <SoUseObject NpcIds="2003733" XYZ="217.4868, 27.66455, -534.6304" Radius="5" QuestId="66878" StepId="1" Objective="0" Count="2" />
-        <SoMoveTo XYZ="204.2545, 26.87644, -532.4223" Distance="1" />
+        <SoUseObject NpcIds="2003729" XYZ="142.626, 23.91083, -536.1563" Radius="5" QuestId="66878" StepId="1" Objective="0" Count="1" MapId="238" />
+        <SoUseObject NpcIds="2003733" XYZ="217.4868, 27.66455, -534.6304" Radius="5" QuestId="66878" StepId="1" Objective="0" Count="2" MapId="238" />
+        <SoMoveTo XYZ="204.2545, 26.87644, -532.4223" Distance="1" MapId="238" />
         <RunCode Name="66878a"/>
-        <SoUseObject NpcId="2003732" XYZ="184.1306, 27.63403, -534.1726" Radius="5" QuestId="66878" StepId="1" />
+        <SoUseObject NpcId="2003732" XYZ="184.1306, 27.63403, -534.1726" Radius="5" QuestId="66878" StepId="1" MapId="238" />
       </If>
       <If Condition="GetQuestStep(66878) == 255">
         <RunCode Name="66878b" />
@@ -764,27 +714,27 @@
       <If Condition="GetQuestStep(66879) == 1">
         <If Condition="GetQuestById(66879).QuestI8AH == 0">
             <ClimbHill Start="231.6208, 21.49146, -597.1638" End="241.1375, 26.21208, -599.0491" />
-            <SoTalkTo NpcId="1008783" XYZ="240.8025, 26.19751, -598.5046" QuestId="66879" StepId="1" Objective="0" Count="1" />
-            <SoMoveTo UseMesh="false" XYZ="231.6208, 21.49146, -597.1638" />
+            <SoTalkTo NpcId="1008783" XYZ="240.8025, 26.19751, -598.5046" QuestId="66879" StepId="1" Objective="0" Count="1" MapId="238" />
+            <SoMoveTo UseMesh="false" XYZ="231.6208, 21.49146, -597.1638" QuestId="66879" MapId="238" />
         </If>
-        <SoUseObject NpcIds="1008782,1008784,1008786,1008781,1008785" XYZ="221.8474, 21.49385, -603.677" Radius="175" QuestId="66879" StepId="1" />
+        <SoUseObject NpcIds="1008782,1008784,1008786,1008781,1008785" XYZ="221.8474, 21.49385, -603.677" Radius="175" QuestId="66879" StepId="1" MapId="238" />
       </If>
       <!-- Belles of the Ball -->
-      <SoUseItem ItemId="2001274" NpcIds="2003885,2003886,2003887" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="2" />
-      <SoUseItem ItemId="2001275" NpcIds="2003888" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="3" />
-      <SoUseObject NpcIds="2003889,2003890,2003891,2003892,2003893,2003894" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="4" />
+      <SoUseItem ItemId="2001274" NpcIds="2003885,2003886,2003887" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="2" MapId="238" />
+      <SoUseItem ItemId="2001275" NpcIds="2003888" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="3" MapId="238" />
+      <SoUseObject NpcIds="2003889,2003890,2003891,2003892,2003893,2003894" XYZ="170.9118, 21.51321, -558.4543" Radius="25" QuestId="66877" StepId="4" MapId="238" />
       <!-- The Sly Savages -->
       <While Condition="GetQuestStep(66876) == 2">
-        <SoMoveTo XYZ="216.4787, 21.42557, -604.0132" Distance="2" />
-        <SoMoveTo XYZ="230.9013, 21.41145, -600.5241" Distance="2" />
-        <SoMoveTo XYZ="214.0057, 22.60328, -621.0079" Distance="2" />
-        <SoMoveTo XYZ="206.3938, 26.13782, -610.8929" Distance="2" />
+        <SoMoveTo XYZ="216.4787, 21.42557, -604.0132" Distance="2" MapId="238" />
+        <SoMoveTo XYZ="230.9013, 21.41145, -600.5241" Distance="2" MapId="238" />
+        <SoMoveTo XYZ="214.0057, 22.60328, -621.0079" Distance="2" MapId="238" />
+        <SoMoveTo XYZ="206.3938, 26.13782, -610.8929" Distance="2" MapId="238" />
       </While>
-      <SoUseItem NpcIds="2003647" ItemId="2001222" XYZ="223.4377, 21.46942, -612.3293" Radius="25" QuestId="66876" StepId="3" />
+      <SoUseItem NpcIds="2003647" ItemId="2001222" XYZ="223.4377, 21.46942, -612.3293" Radius="25" QuestId="66876" StepId="3" MapId="238" />
       <!-- Operation Riffraff -->
-      <SoUseObject NpcIds="2003743" XYZ="227.0084, 22.75116, -582.8184" Radius="10" QuestId="66875" StepId="2" />
-      <SoUseItem NpcIds="2003744" ItemId="2001244" XYZ="227.0084, 22.75116, -582.8184" Radius="10" QuestId="66875" StepId="3" />
-      <SoUseObject NpcIds="2003749,2003748,2003750,2003751,2003747,2003745,2003746" QuestId="66875" StepId="4">
+      <SoUseObject NpcIds="2003743" XYZ="227.0084, 22.75116, -582.8184" Radius="10" QuestId="66875" StepId="2" MapId="238" />
+      <SoUseItem NpcIds="2003744" ItemId="2001244" XYZ="227.0084, 22.75116, -582.8184" Radius="10" QuestId="66875" StepId="3" MapId="238" />
+      <SoUseObject NpcIds="2003749,2003748,2003750,2003751,2003747,2003745,2003746" QuestId="66875" StepId="4" MapId="238">
         <HotSpots>
           <HotSpot XYZ="215.8694, 22.41547, -577.5997" Radius="15" />
           <HotSpot XYZ="214.7706, 22.96472, -590.9362" Radius="15" />
@@ -795,7 +745,7 @@
           <HotSpot XYZ="239.3071, 22.32391, -577.2946" Radius="15" />
         </HotSpots>
       </SoUseObject>
-      <SoUseObject NpcIds="2003749,2003748,2003750,2003751,2003747,2003745,2003746" QuestId="66875" StepId="5">
+      <SoUseObject NpcIds="2003749,2003748,2003750,2003751,2003747,2003745,2003746" QuestId="66875" StepId="5" MapId="238">
         <HotSpots>
           <HotSpot XYZ="215.8694, 22.41547, -577.5997" Radius="15" />
           <HotSpot XYZ="214.7706, 22.96472, -590.9362" Radius="15" />
@@ -806,10 +756,6 @@
           <HotSpot XYZ="239.3071, 22.32391, -577.2946" Radius="15" />
         </HotSpots>
       </SoUseObject>
-      <!-- Exit -->
-      <If Condition="IsOnSubMap(238)">
-        <SoUseTransport NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782" SubMapId="176" DialogOption="0" />
-      </If>
       <!-- The Lode Warrior -->
       <SoFate FateId="586" ItemIds="7797" XYZ="77.13886, 55.61008, -480.5801" QuestId="66872" MapId="180" />
       <!-- Operation Riffraff -->
@@ -1129,8 +1075,8 @@
         </SoUseItem>
         <SoTalkTo NpcId="1007943" XYZ="176.9894, 24.79578, -688.5328" QuestId="66860" StepId="7" MapId="180" />
         <SoTalkTo NpcId="1007944" XYZ="178.4542, 23.48358, -641.0162" DialogOption="0" QuestId="66860" StepId="8" MapId="180" />
-        <SoTalkTo NpcId="1007946" XYZ="220.6606, 21.48178, -592.6451" QuestId="66860" StepId="9" />
-        <SoTalkTo NpcId="1007947" XYZ="150.866, 26.38281, -551.751" DialogOption="0" QuestId="66860" StepId="10" />
+        <SoTalkTo NpcId="1007946" XYZ="220.6606, 21.48178, -592.6451" QuestId="66860" StepId="9" MapId="238" />
+        <SoTalkTo NpcId="1007947" XYZ="150.866, 26.38281, -551.751" DialogOption="0" QuestId="66860" StepId="10" MapId="238" />
         <SoTalkTo NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66860" StepId="11" MapId="180" />
         <SoTurnIn QuestId="66860" NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597" MapId="128" />
       </If>
@@ -1801,28 +1747,28 @@
       <SoRegisterDailies QuestIds="66758,66759,66760,66761,66762,66763,66764,66765,66766,66767" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66758,66759,66760,66761,66762,66763,66764,66765,66766,66767]))">
       	<!-- A Shell to Scry On -->
-        <SoPickUpQuest QuestId="66758" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66758" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Borderline Slaughter -->
-        <SoPickUpQuest QuestId="66759" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66759" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- A Sappy Ending -->
-        <SoPickUpQuest QuestId="66760" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66760" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Luring Lacovie -->
-        <SoPickUpQuest QuestId="66761" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66761" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Fighting Firesand with Fire -->
-        <SoPickUpQuest QuestId="66762" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66762" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Smothering Instinct -->
-        <SoPickUpQuest QuestId="66763" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66763" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Losing One's Tempered -->
-        <SoPickUpQuest QuestId="66764" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66764" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Ravage the Ravagers -->
-        <SoPickUpQuest QuestId="66765" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66765" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Arms of the U -->
-        <SoPickUpQuest QuestId="66766" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66766" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Blitzing the Beacons -->
-        <SoPickUpQuest QuestId="66767" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66767" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
       </If>
       <!-- Fighting Firesand with Fire -->
-      <SoTalkTo NpcId="1008327" XYZ="45.28565, 4, -346.8275" QuestId="66762" StepId="1" AetheryteId="19" />
+      <SoTalkTo NpcId="1008327" XYZ="45.28565, 4, -346.8275" QuestId="66762" StepId="1" MapId="146" />
       <SoUseSpell SpellId="1764" NpcIds="2003133,2003128,2003133,2003127,2003129,2003130,2003131,2003132" QuestId="66762" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-69.0166, -2.792419, -17.77679" Radius="15" />
@@ -1838,7 +1784,7 @@
         </HotSpots>
       </SoUseSpell>
       <!-- A Sappy Ending -->
-      <SoUseObject NpcIds="2002981,2002982,2002983,2002984,2002985,2002986,2002980" QuestId="66760" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2002981,2002982,2002983,2002984,2002985,2002986,2002980" QuestId="66760" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-30.6554, 8.651855, -87.02222" Radius="75" />
           <HotSpot XYZ="-116.4417, -0.3204956, -34.40918" Radius="75" />
@@ -1847,19 +1793,19 @@
         </HotSpots>
       </SoUseObject>
       <!-- Luring Lacovie -->
-      <SoGrind NpcIds="2511" XYZ="-92.56057, -2.561409, 4.272702" Radius="75" QuestId="66761" StepId="1" AetheryteId="19" />
+      <SoGrind NpcIds="2511" XYZ="-92.56057, -2.561409, 4.272702" Radius="75" QuestId="66761" StepId="1" MapId="146" />
       <!-- A Shell to Scry On -->
-      <SoGrind NpcIds="912" XYZ="-94.40759,-1.235935,-19.72992" Radius="75" QuestId="66758" StepId="1" Objective="1" AetheryteId="19" />
-      <SoGrind NpcIds="243" XYZ="-263.2667,7.091238,165.6543" Radius="75" QuestId="66758" StepId="1" Objective="0" AetheryteId="19" />
+      <SoGrind NpcIds="912" XYZ="-94.40759,-1.235935,-19.72992" Radius="75" QuestId="66758" StepId="1" Objective="1" MapId="146" />
+      <SoGrind NpcIds="243" XYZ="-263.2667,7.091238,165.6543" Radius="75" QuestId="66758" StepId="1" Objective="0" MapId="146" />
       <!-- Borderline Slaughter -->
-      <SoGrind NpcIds="245" QuestId="66759" StepId="1" Objective="0" AetheryteId="19">
+      <SoGrind NpcIds="245" QuestId="66759" StepId="1" Objective="0" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-157.6409,7.115156,31.99805" Radius="75" />
           <HotSpot XYZ="-144.8484,6.592727,-36.24023" Radius="75" />
           <HotSpot XYZ="-68.65039,-1.989275,-63.9201" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="258" QuestId="66759" StepId="1" Objective="1" AetheryteId="19">
+      <SoGrind NpcIds="258" QuestId="66759" StepId="1" Objective="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-157.6409,7.115156,31.99805" Radius="75" />
           <HotSpot XYZ="-144.8484,6.592727,-36.24023" Radius="75" />
@@ -1867,7 +1813,7 @@
         </HotSpots>
       </SoGrind>
       <!-- Smothering Instinct -->
-      <SoUseItem ItemId="2001164" NpcIds="2003066,2003060,2003061,2003062,2003063,2003064,2003065" QuestId="66763" StepId="1" AetheryteId="19">
+      <SoUseItem ItemId="2001164" NpcIds="2003066,2003060,2003061,2003062,2003063,2003064,2003065" QuestId="66763" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-131.2429,18.2345,109.6971" Radius="75" />
           <HotSpot XYZ="-112.9626,-0.1679077,-125.9327" Radius="75" />
@@ -1878,7 +1824,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- Ravage the Ravagers -->
-      <SoUseObject NpcIds="2003013,2002992,2002993,2002994,2002995,2002996" QuestId="66765" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003013,2002992,2002993,2002994,2002995,2002996" QuestId="66765" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-19.11963, -0.5036011, -225.3605" Radius="75" />
           <HotSpot XYZ="-24.61285, -0.6867676, -181.1398" Radius="75" />
@@ -1900,11 +1846,11 @@
         </HotSpots>
       </SoUseItem>
       <!-- Arms of the U -->
-      <SoUseObject NpcIds="2003136,2003140,2003141,2003147,2003148" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="0" AetheryteId="19" />
-      <SoGrind NpcIds="1388" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="1" AetheryteId="19" />
-      <SoGrind NpcIds="1389" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="2" AetheryteId="19" />
+      <SoUseObject NpcIds="2003136,2003140,2003141,2003147,2003148" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="0" MapId="146" />
+      <SoGrind NpcIds="1388" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="1" MapId="146" />
+      <SoGrind NpcIds="1389" XYZ="-13.62687,0.02612245,-1.374997" Radius="300" QuestId="66766" StepId="1" Objective="2" MapId="146" />
       <!-- Blitzing the Beacons -->
-      <SoGrind NpcIds="1390" QuestId="66767" StepId="1" AetheryteId="19">
+      <SoGrind NpcIds="1390" QuestId="66767" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-20.30981,4.201371,-48.3559" Radius="75" />
           <HotSpot XYZ="-108.5086,-1.658285,50.82776" Radius="75" />
@@ -1913,74 +1859,74 @@
       </SoGrind>
       <If Condition="&doCompleteQuests;">
       	<!-- A Shell to Scry On -->
-        <SoTurnIn ItemIds="2001113,2001114" QuestId="66758" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn ItemIds="2001113,2001114" QuestId="66758" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Borderline Slaughter -->
-        <SoTurnIn QuestId="66759" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66759" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- A Sappy Ending -->
-        <SoTurnIn ItemIds="2001138" QuestId="66760" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn ItemIds="2001138" QuestId="66760" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Luring Lacovie -->
-        <SoTurnIn QuestId="66761" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66761" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Fighting Firesand with Fire -->
-        <SoTurnIn QuestId="66762" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66762" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Smothering Instinct -->
-        <SoTurnIn QuestId="66763" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66763" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Losing One's Tempered -->
-        <SoTurnIn QuestId="66764" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66764" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Ravage the Ravagers -->
-        <SoTurnIn QuestId="66765" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66765" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Arms of the U -->
-        <SoTurnIn ItemIds="2001172,2001173,2001174" QuestId="66766" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn ItemIds="2001172,2001173,2001174" QuestId="66766" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
         <!-- Blitzing the Beacons -->
-        <SoTurnIn QuestId="66767" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" AetheryteId="19" />
+        <SoTurnIn QuestId="66767" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687" MapId="146" />
       </If>
     </If>
     <If Condition="&doAmaalJaRank2;">
       <!-- Ranger Rescue -->
-      <SoPickUpQuest QuestId="66755" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" AetheryteId="19" />
-      <SoTalkTo NpcId="1005581" XYZ="-55.98541, -1.655451, -47.56244" QuestId="66755" StepId="1" AetheryteId="19" />
-      <SoUseSpell SpellId="1764" NpcIds="2002949,2002950,2002956" QuestId="66755" StepId="2" AetheryteId="19">
+      <SoPickUpQuest QuestId="66755" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" MapId="146" />
+      <SoTalkTo NpcId="1005581" XYZ="-55.98541, -1.655451, -47.56244" QuestId="66755" StepId="1" MapId="146" />
+      <SoUseSpell SpellId="1764" NpcIds="2002949,2002950,2002956" QuestId="66755" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-70.17627, 11.36792, 97.0625" Radius="15" />
           <HotSpot XYZ="-118.0896, 27.69507, 126.9703" Radius="15" />
           <HotSpot XYZ="-199.9695, 5.661072, 101.8234" Radius="15" />
         </HotSpots>
       </SoUseSpell>
-      <SoTalkTo NpcId="1005585" XYZ="-114.6411, 7.539109, 308.8273" QuestId="66755" StepId="3" AetheryteId="19" />
-      <SoTalkTo NpcId="1005583" XYZ="-114.2748, 7.658776, 310.0175" QuestId="66755" StepId="4" AetheryteId="19" />
-      <SoTalkTo NpcId="1005584" XYZ="-261.5549, 7.084492, 412.2834" QuestId="66755" StepId="5" AetheryteId="19" />
-      <SoTalkTo NpcId="1008284" XYZ="-306.447, 6.321288, 392.5078" QuestId="66755" StepId="6" Objective="0" Count="1" AetheryteId="19" />
-      <SoTalkTo NpcId="1008287" XYZ="-366.1097, 6.909548, 394.644" QuestId="66755" StepId="6" Objective="0" Count="2" AetheryteId="19" />
-      <SoTalkTo NpcId="1008285" XYZ="-319.5087, 8.285583, 428.1833" QuestId="66755" StepId="6" Objective="0" Count="3" AetheryteId="19" />
-      <SoTalkTo NpcId="1008286" XYZ="-330.5562, 8.096842, 480.0641" QuestId="66755" StepId="6" Objective="0" Count="4" AetheryteId="19" />
-      <SoTalkTo NpcId="1005578" XYZ="89.00586, 14.43948, -387.7775" QuestId="66755" StepId="7" AetheryteId="19" />
-      <SoTurnIn QuestId="66755" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" AetheryteId="19" />
+      <SoTalkTo NpcId="1005585" XYZ="-114.6411, 7.539109, 308.8273" QuestId="66755" StepId="3" MapId="146" />
+      <SoTalkTo NpcId="1005583" XYZ="-114.2748, 7.658776, 310.0175" QuestId="66755" StepId="4" MapId="146" />
+      <SoTalkTo NpcId="1005584" XYZ="-261.5549, 7.084492, 412.2834" QuestId="66755" StepId="5" MapId="146" />
+      <SoTalkTo NpcId="1008284" XYZ="-306.447, 6.321288, 392.5078" QuestId="66755" StepId="6" Objective="0" Count="1" MapId="146" />
+      <SoTalkTo NpcId="1008287" XYZ="-366.1097, 6.909548, 394.644" QuestId="66755" StepId="6" Objective="0" Count="2" MapId="146" />
+      <SoTalkTo NpcId="1008285" XYZ="-319.5087, 8.285583, 428.1833" QuestId="66755" StepId="6" Objective="0" Count="3" MapId="146" />
+      <SoTalkTo NpcId="1008286" XYZ="-330.5562, 8.096842, 480.0641" QuestId="66755" StepId="6" Objective="0" Count="4" MapId="146" />
+      <SoTalkTo NpcId="1005578" XYZ="89.00586, 14.43948, -387.7775" QuestId="66755" StepId="7" MapId="146" />
+      <SoTurnIn QuestId="66755" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" MapId="146" />
       <SoRegisterDailies QuestIds="66768,66769,66770,66771,66772,66773,66774,66775,66776,66777" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66768,66769,66770,66771,66772,66773,66774,66775,66776,66777]))">
         <!-- Rite Where it Hurts -->
-        <SoPickUpQuest QuestId="66768" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66768" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Thinning the Ranks -->
-        <SoPickUpQuest QuestId="66769" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66769" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Forged in Flame -->
-        <SoPickUpQuest QuestId="66770" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66770" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Beacon Keepers -->
-        <SoPickUpQuest QuestId="66771" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66771" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Singed Fur Their Own Good -->
-        <SoPickUpQuest QuestId="66772" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66772" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- The Gland that Feeds You -->
-        <SoPickUpQuest QuestId="66773" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66773" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Douse them whilst they're Down -->
-        <SoPickUpQuest QuestId="66774" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66774" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Before they are Tempered -->
-        <SoPickUpQuest QuestId="66775" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66775" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- Hard to Port -->
-        <SoPickUpQuest QuestId="66776" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66776" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
         <!-- This Infernal Heat -->
-        <SoPickUpQuest QuestId="66777" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66777" NpcId="1005551" XYZ="99.8955, 15.29447, -352.5363" MapId="146" />
       </If>
       <!-- Hard to Port -->
-      <SoTalkTo NpcId="1005745" XYZ="22.72058, 4.240737, -443.0762" QuestId="66776" StepId="1" AetheryteId="19" />
+      <SoTalkTo NpcId="1005745" XYZ="22.72058, 4.240737, -443.0762" QuestId="66776" StepId="1" MapId="146" />
       <!-- Before they are Tempered -->
-      <SoUseObject NpcIds="2003111,2003112,2003113,2003114,2003115,2003116,2003118" QuestId="66775" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003111,2003112,2003113,2003114,2003115,2003116,2003118" QuestId="66775" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-50.00385,8.712891,51.52966" Radius="75" />
           <HotSpot XYZ="-84.39771,12.46655,94.59058" Radius="75" />
@@ -1991,7 +1937,7 @@
           <HotSpot XYZ="-174.8837,4.806519,83.7262" Radius="75" />
           </HotSpots>
       </SoUseObject>
-      <SoUseItem ItemId="2001171" NpcIds="2003119,2003120,2003121,2003122,2003123,2003124" QuestId="66775" StepId="2" AetheryteId="19">
+      <SoUseItem ItemId="2001171" NpcIds="2003119,2003120,2003121,2003122,2003123,2003124" QuestId="66775" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-71.5191,45.76172,185.5955" Radius="75" />
           <HotSpot XYZ="-97.0321,45.70081,221.6982" Radius="75" />
@@ -2002,7 +1948,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- Beacon Keepers -->
-      <SoUseItem ItemId="2001190" NpcIds="2003323,2003324,2003325,2003326,2003327,2003328,2003329" QuestId="66771" StepId="1" AetheryteId="19">
+      <SoUseItem ItemId="2001190" NpcIds="2003323,2003324,2003325,2003326,2003327,2003328,2003329" QuestId="66771" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="55.77173,34.80579,149.0653" Radius="75" />
           <HotSpot XYZ="85.43518,26.50488,223.9872" Radius="75" />
@@ -2014,7 +1960,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- Douse them whilst they're Down -->
-      <SoUseObject NpcIds="2003189,2003190,2003191,2003192,2003193,2003194,2003195" ItemId="2001193" ItemTarget="2300" QuestId="66774" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003189,2003190,2003191,2003192,2003193,2003194,2003195" ItemId="2001193" ItemTarget="2300" QuestId="66774" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-65.04926,9.414734,53.02502" Radius="10" />
           <HotSpot XYZ="-123.6439,14.02301,90.31812" Radius="10" />
@@ -2026,7 +1972,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Forged in Flame -->
-      <SoUseObject NpcIds="2003015,2003016,2003017,2003018,2003019,2003020,2003021,2003022" QuestId="66770" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003015,2003016,2003017,2003018,2003019,2003020,2003021,2003022" QuestId="66770" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="133.6232,13.96191,152.2698" Radius="75" />
           <HotSpot XYZ="185.1987,13.99249,231.8914" Radius="75" />
@@ -2039,7 +1985,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Hard to Port -->
-      <SoUseObject NpcIds="2003048,2003049,2003050,2003051,2003052,2003053,2003054,2003055,2003056" QuestId="66776" StepId="2" AetheryteId="19">
+      <SoUseObject NpcIds="2003048,2003049,2003050,2003051,2003052,2003053,2003054,2003055,2003056" QuestId="66776" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="6.668152,36.9115,207.0192" Radius="75" />
           <HotSpot XYZ="73.31958,31.78455,153.7651" Radius="75" />
@@ -2053,29 +1999,29 @@
         </HotSpots>
       </SoUseObject>
       <!-- Thinning the Ranks -->
-      <SoGrind NpcIds="2297" QuestId="66769" StepId="1" Objective="0" AetheryteId="19">
+      <SoGrind NpcIds="2297" QuestId="66769" StepId="1" Objective="0" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-169.8482,40,158.3428" Radius="75" />
           <HotSpot XYZ="-93.82776,45.81123,199.1454" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="249" XYZ="-65.09077,10.71464,100.6854" Radius="300" QuestId="66769" StepId="1" Objective="1" AetheryteId="19" />
+      <SoGrind NpcIds="249" XYZ="-65.09077,10.71464,100.6854" Radius="300" QuestId="66769" StepId="1" Objective="1" MapId="146" />
       <!-- This Infernal Heat -->
-      <SoGrind NpcIds="1877" QuestId="66777" StepId="1" AetheryteId="19">
+      <SoGrind NpcIds="1877" QuestId="66777" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-114.458,7.8163,222.3391" Radius="75" />
           <HotSpot XYZ="-24.15509,7.581429,120.1953" Radius="75" />
         </HotSpots>
       </SoGrind>
       <!-- Rite Where it Hurts -->
-      <SoGrind NpcIds="1879" QuestId="66768" StepId="1" Objective="0" AetheryteId="19">
+      <SoGrind NpcIds="1879" QuestId="66768" StepId="1" Objective="0" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-174.0292,40,155.3521" Radius="75" />
           <HotSpot XYZ="-136.8277,36.82132,172.8389" Radius="75" />
           <HotSpot XYZ="-81.10175,45.81123,193.0723" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="1880" QuestId="66768" StepId="1" Objective="1" AetheryteId="19">
+      <SoGrind NpcIds="1880" QuestId="66768" StepId="1" Objective="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-174.0292,40,155.3521" Radius="75" />
           <HotSpot XYZ="-136.8277,36.82132,172.8389" Radius="75" />
@@ -2083,7 +2029,7 @@
         </HotSpots>
       </SoGrind>
       <!-- The Gland that Feeds You -->
-      <SoUseObject NpcIds="2003173,2003174,2003175,2003176,2003177" QuestId="66773" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003173,2003174,2003175,2003176,2003177" QuestId="66773" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="87.75464,8.804443,229.6024" Radius="75" />
           <HotSpot XYZ="102.9832,8.8349,202.1667" Radius="75" />
@@ -2101,7 +2047,7 @@
           <HotSpot XYZ="-51.28564, 10.66602, 169.6649" Radius="10" />
         </HotSpots>
       </SoUseObject>
-      <SoUseItem ItemId="2001195" NpcIds="1005838,1005839,1005840" QuestId="66773" StepId="3" AetheryteId="19">
+      <SoUseItem ItemId="2001195" NpcIds="1005838,1005839,1005840" QuestId="66773" StepId="3" MapId="146">
         <HotSpots>
           <HotSpot XYZ="92.14917, 14.43948, -381.6129" Radius="75" />
           <HotSpot XYZ="99.50403, 14.97906, -377.9813" Radius="75" />
@@ -2109,8 +2055,8 @@
         </HotSpots>
       </SoUseItem>
       <!-- Singed Fur Their Own Good -->
-      <SoTalkTo NpcId="1005848" XYZ="-101.4879, 8.097177, 403.2806" QuestId="66772" StepId="1" AetheryteId="19" />
-      <SoUseSpell SpellId="1764" NpcIds="2003356,2003354,2003357,2003355,2003353,2003352" QuestId="66772" StepId="2" AetheryteId="19">
+      <SoTalkTo NpcId="1005848" XYZ="-101.4879, 8.097177, 403.2806" QuestId="66772" StepId="1" MapId="146" />
+      <SoUseSpell SpellId="1764" NpcIds="2003356,2003354,2003357,2003355,2003353,2003352" QuestId="66772" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="78.44666, 14.32819, 589.9595" Radius="15" />
           <HotSpot XYZ="-132.0364, -1.449646, 778.8052" Radius="15" />
@@ -2121,40 +2067,40 @@
         </HotSpots>
       </SoUseSpell>
       <!-- Hard to Port -->
-      <SoHandOver NpcId="1005745" ItemIds="2001161,2001162" XYZ="22.72058, 4.240737, -443.0762" QuestId="66776" StepId="3" AetheryteId="19" />
+      <SoHandOver NpcId="1005745" ItemIds="2001161,2001162" XYZ="22.72058, 4.240737, -443.0762" QuestId="66776" StepId="3" MapId="146" />
       <If Condition="&doCompleteQuests;">
         <!-- Rite Where it Hurts -->
-        <SoTurnIn QuestId="66768" ItemIds="2001115,2001116" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66768" ItemIds="2001115,2001116" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Thinning the Ranks -->
-        <SoTurnIn QuestId="66769" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66769" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Forged in Flame -->
-        <SoTurnIn QuestId="66770" ItemIds="2001151" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66770" ItemIds="2001151" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Beacon Keepers -->
-        <SoTurnIn QuestId="66771" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66771" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Singed Fur Their Own Good -->
-        <SoTurnIn QuestId="66772" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66772" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- The Gland that Feeds You -->
-        <SoTurnIn QuestId="66773" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66773" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Douse them whilst they're Down -->
-        <SoTurnIn QuestId="66774" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66774" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Before they are Tempered -->
-        <SoTurnIn QuestId="66775" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66775" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- Hard to Port -->
-        <SoTurnIn QuestId="66776" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66776" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
         <!-- This Infernal Heat -->
-        <SoTurnIn QuestId="66777" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" AetheryteId="19" />
+        <SoTurnIn QuestId="66777" NpcId="1005551" XYZ="98.92419, 15.29447, -349.4469" MapId="146" />
       </If>
     </If>
     <If Condition="&doAmaalJaRank3;">
       <!-- An Eye on the Inside -->
-      <SoPickUpQuest QuestId="66756" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" AetheryteId="19" />
-      <SoTalkTo NpcId="1006217" XYZ="-181.0483, 28.21407, -402.0295" QuestId="66756" StepId="1" AetheryteId="19" />
-      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="2" AetheryteId="19" />
-      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="3" AetheryteId="19" />
-      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="4" AetheryteId="19" />
-      <SoTalkTo NpcId="1006217" XYZ="-181.0483, 28.21407, -402.0295" QuestId="66756" StepId="5" AetheryteId="19" />
-      <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66756" StepId="6" AetheryteId="19" />
-      <SoUseObject NpcIds="2002968,2002969,2002970,2002971" QuestId="66756" StepId="7" AetheryteId="19">
+      <SoPickUpQuest QuestId="66756" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" MapId="146" />
+      <SoTalkTo NpcId="1006217" XYZ="-181.0483, 28.21407, -402.0295" QuestId="66756" StepId="1" MapId="146" />
+      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="2" MapId="146" />
+      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="3" MapId="146" />
+      <SoTalkTo NpcId="1005587" XYZ="-74.14362, -1.652889, -88.85327" QuestId="66756" StepId="4" MapId="146" />
+      <SoTalkTo NpcId="1006217" XYZ="-181.0483, 28.21407, -402.0295" QuestId="66756" StepId="5" MapId="146" />
+      <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66756" StepId="6" MapId="146" />
+      <SoUseObject NpcIds="2002968,2002969,2002970,2002971" QuestId="66756" StepId="7" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-41.39777, 9.933594, 62.974" Radius="15" />
           <HotSpot XYZ="-23.54474, 8.407715, 146.1661" Radius="15" />
@@ -2162,7 +2108,7 @@
           <HotSpot XYZ="-206.5614, 5.966248, 116.9298" Radius="15" />
         </HotSpots>
       </SoUseObject>
-      <SoUseItem ItemId="2001136" NpcIds="2002972,2002975,2002973,2002974" QuestId="66756" StepId="8" AetheryteId="19">
+      <SoUseItem ItemId="2001136" NpcIds="2002972,2002975,2002973,2002974" QuestId="66756" StepId="8" MapId="146">
         <HotSpots>
           <HotSpot XYZ="51.68225, 19.21106, 30.38074" Radius="15" />
           <HotSpot XYZ="269.6726, 11.27637, -6.088379" Radius="15" />
@@ -2170,29 +2116,29 @@
           <HotSpot XYZ="149.0043, 7.766785, 158.7396" Radius="15" />
         </HotSpots>
       </SoUseItem>
-      <SoTurnIn QuestId="66756" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" AetheryteId="19" />
+      <SoTurnIn QuestId="66756" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" MapId="146" />
       <SoRegisterDailies QuestIds="66778,66779,66780,66781,66782,66783,66784,66785,66786,66787" />
       <If Condition="not HasAtLeastOneQuest(Array[int]([66778,66779,66780,66781,66782,66783,66784,66785,66786,66787]))">
         <!-- Elite Beating -->
-        <SoPickUpQuest QuestId="66778" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66778" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Unholier than Thou -->
-        <SoPickUpQuest QuestId="66779" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66779" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Raiding the Cache -->
-        <SoPickUpQuest QuestId="66780" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66780" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Pulling Fangs -->
-        <SoPickUpQuest QuestId="66781" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66781" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Demolition Drake -->
-        <SoPickUpQuest QuestId="66782" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66782" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Fire-spitting Image -->
-        <SoPickUpQuest QuestId="66783" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66783" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Nothing Sacred -->
-        <SoPickUpQuest QuestId="66784" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66784" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Fodder for the Flamefangs -->
-        <SoPickUpQuest QuestId="66785" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66785" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- Hatchling Humiliation -->
-        <SoPickUpQuest QuestId="66786" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66786" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
         <!-- The Beacon that Burns You -->
-        <SoPickUpQuest QuestId="66787" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" AetheryteId="19" />
+        <SoPickUpQuest QuestId="66787" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
       </If>
       <!-- Demolition Drake -->
       <SoTalkTo NpcId="1005860" XYZ="-123.7355, -1.773061, 2.334595" QuestId="66782" StepId="1" />
@@ -2203,7 +2149,7 @@
         </HotSpots>
       </SoUseSpell>
       <!-- Fodder for the Flamefangs -->
-      <SoUseObject NpcIds="2003087,2003088,2003089,2003090,2003091,2003092,2003093" QuestId="66785" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003087,2003088,2003089,2003090,2003091,2003092,2003093" QuestId="66785" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="429.1599,17.80725,-76.76813" Radius="75" />
           <HotSpot XYZ="417.2273,12.52765,-128.008" Radius="75" />
@@ -2215,7 +2161,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Raiding the Cache -->
-      <SoUseObject NpcIds="2003024,2003025,2003026,2003027,2003028,2003029,2003030,2003031" QuestId="66780" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003024,2003025,2003026,2003027,2003028,2003029,2003030,2003031" QuestId="66780" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="345.2657,8.621277,-24.39923" Radius="75" />
           <HotSpot XYZ="361.1046,11.00171,-48.93573" Radius="75" />
@@ -2228,7 +2174,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Hatchling Humiliation -->
-      <SoUseObject NpcIds="2003213,2003214,2003215,2003216,2003217,2003218,2003219" ItemId="2001196" ItemTarget="2305" QuestId="66786" StepId="1" AetheryteId="19">
+      <SoUseObject NpcIds="2003213,2003214,2003215,2003216,2003217,2003218,2003219" ItemId="2001196" ItemTarget="2305" QuestId="66786" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="211.1085,8.010925,92.45435" Radius="10" />
           <HotSpot XYZ="186.3889,8.132996,122.0874" Radius="10" />
@@ -2240,7 +2186,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Nothing Sacred -->
-      <SoUseItem ItemId="2001194" NpcIds="2003205,2003206,2003207,2003208,2003209,2003210" QuestId="66784" StepId="1" AetheryteId="19">
+      <SoUseItem ItemId="2001194" NpcIds="2003205,2003206,2003207,2003208,2003209,2003210" QuestId="66784" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="493.8583,7.583679,-147.57" Radius="75" />
           <HotSpot XYZ="531.3649,7.583679,-119.707" Radius="75" />
@@ -2251,7 +2197,7 @@
         </HotSpots>
       </SoUseItem>
       <!-- Unholier than Thou -->
-      <SoGrind NpcIds="1840" QuestId="66779" StepId="1" Objective="0" AetheryteId="19">
+      <SoGrind NpcIds="1840" QuestId="66779" StepId="1" Objective="0" MapId="146">
         <HotSpots>
           <HotSpot XYZ="103.1051,15.03463,20.46234" Radius="75" />
           <HotSpot XYZ="357.0764,10.20456,-40.97052" Radius="75" />
@@ -2260,7 +2206,7 @@
           <HotSpot XYZ="534.6503,7.599616,-75.78497" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="1839" QuestId="66779" StepId="1" Objective="1" AetheryteId="19">
+      <SoGrind NpcIds="1839" QuestId="66779" StepId="1" Objective="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="103.1051,15.03463,20.46234" Radius="75" />
           <HotSpot XYZ="357.0764,10.20456,-40.97052" Radius="75" />
@@ -2270,7 +2216,7 @@
         </HotSpots>
       </SoGrind>
       <!-- Elite Beating -->
-      <SoGrind NpcIds="1837" QuestId="66778" StepId="1" Objective="0" AetheryteId="19">
+      <SoGrind NpcIds="1837" QuestId="66778" StepId="1" Objective="0" MapId="146">
         <HotSpots>
           <HotSpot XYZ="103.1051,15.03463,20.46234" Radius="75" />
           <HotSpot XYZ="357.0764,10.20456,-40.97052" Radius="75" />
@@ -2279,7 +2225,7 @@
           <HotSpot XYZ="534.6503,7.599616,-75.78497" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoGrind NpcIds="1838" QuestId="66778" StepId="1" Objective="1" AetheryteId="19">
+      <SoGrind NpcIds="1838" QuestId="66778" StepId="1" Objective="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="103.1051,15.03463,20.46234" Radius="75" />
           <HotSpot XYZ="357.0764,10.20456,-40.97052" Radius="75" />
@@ -2289,22 +2235,22 @@
         </HotSpots>
       </SoGrind>
       <!-- The Beacon that Burns You -->
-      <SoGrind NpcIds="1878" QuestId="66787" StepId="1" AetheryteId="19">
+      <SoGrind NpcIds="1878" QuestId="66787" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="291.6729,8,-42.94824" Radius="75" />
           <HotSpot XYZ="349.712,9.28671,-45.32585" Radius="75" />
         </HotSpots>
       </SoGrind>
       <!-- Fire-spitting Image -->
-      <SoGrind NpcIds="2303" QuestId="66783" StepId="1" AetheryteId="19">
+      <SoGrind NpcIds="2303" QuestId="66783" StepId="1" MapId="146">
         <HotSpots>
           <HotSpot XYZ="318.7428,8,-35.43503" Radius="75" />
           <HotSpot XYZ="399.5419,16.41637,-70.13579" Radius="75" />
         </HotSpots>
       </SoGrind>
-      <SoHandOver ItemIds="2001123" NpcId="2002918" XYZ="483.8177, 11.1543, -164.2024" QuestId="66783" StepId="2" AetheryteId="19" />
+      <SoHandOver ItemIds="2001123" NpcId="2002918" XYZ="483.8177, 11.1543, -164.2024" QuestId="66783" StepId="2" MapId="146" />
       <!-- Fodder for the Flamefangs -->
-      <SoUseItem ItemId="2001170" NpcIds="2003083,2003084,2003085,2003086,2003094,2003095,2003096" QuestId="66785" StepId="2" AetheryteId="19">
+      <SoUseItem ItemId="2001170" NpcIds="2003083,2003084,2003085,2003086,2003094,2003095,2003096" QuestId="66785" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="-170.0008,41.2146,175.0057" Radius="75" />
           <HotSpot XYZ="-159.8077,41.15356,174.4564" Radius="75" />
@@ -2316,186 +2262,186 @@
         </HotSpots>
       </SoUseItem>
       <!-- Pulling Fangs -->
-      <SoFate FateId="557" ItemIds="7001" XYZ="543.8109, 10.06467, -17.24093" QuestId="66781" AetheryteId="19" />
+      <SoFate FateId="557" ItemIds="7001" XYZ="543.8109, 10.06467, -17.24093" QuestId="66781" MapId="146" />
       <If Condition="&doCompleteQuests;">
         <!-- Elite Beating -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66778" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Unholier than Thou -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66779" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Raiding the Cache -->
         <If Condition="&VIT;">
-          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn ItemIds="2001152" QuestId="66780" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Pulling Fangs -->
         <If Condition="&VIT;">
-          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn ItemIds="7001" QuestId="66781" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Demolition Drake -->
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&PIE;">
-          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66782" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Fire-spitting Image -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QTNG;">
-          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66783" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Nothing Sacred -->
         <If Condition="&STR;">
-          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66784" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Fodder for the Flamefangs -->
         <If Condition="&VIT;">
-          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&SMGHT;">
-          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66785" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- Hatchling Humiliation -->
         <If Condition="&DEX;">
-          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&HEYE;">
-          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66786" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
         <!-- The Beacon that Burns You -->
         <If Condition="&INT;">
-          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" AetheryteId="19" />
+          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="0" MapId="146" />
         </If>
         <If Condition="&MND;">
-          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" AetheryteId="19" />
+          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="1" MapId="146" />
         </If>
         <If Condition="&SAIM;">
-          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" AetheryteId="19" />
+          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="2" MapId="146" />
         </If>
         <If Condition="&BDNC;">
-          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" AetheryteId="19" />
+          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="3" MapId="146" />
         </If>
         <If Condition="&QARM;">
-          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" AetheryteId="19" />
+          <SoTurnIn QuestId="66787" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" RewardSlot="4" MapId="146" />
         </If>
       </If>
+      <!-- Martial Perfection -->
+      <SoPickUpQuest QuestId="66757" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" MapId="146" />
+      <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66757" StepId="1" MapId="146" />
+      <SoTalkTo NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" QuestId="66757" StepId="2" MapId="146" />
+      <SoTalkTo NpcId="1008371" XYZ="208.1788, 6.057431, 2.39563" QuestId="66757" StepId="3" MapId="146" />
+      <SoUseObject NpcIds="2002978" XYZ="405.5695, 16.52545, -71.39697" Radius="15" QuestId="66757" StepId="4" MapId="146" />
+      <SoUseItem ItemId="2001137" NpcIds="2002976" XYZ="541.5884, 12.06982, -134.3557" Radius="15" QuestId="66757" StepId="5" MapId="146" />
+      <SoGrind NpcIds="1878" QuestId="66757" StepId="6" MapId="146">
+        <HotSpots>
+          <HotSpot XYZ="291.6729,8,-42.94824" Radius="75" />
+          <HotSpot XYZ="349.712,9.28671,-45.32585" Radius="75" />
+        </HotSpots>
+      </SoGrind>
+      <SoUseObject NpcIds="2002977" XYZ="463.5844, 18.53967, -98.00879" Radius="15" QuestId="66757" StepId="7" MapId="146" />
+      <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66757" StepId="8" MapId="146" />
+      <SoTurnIn QuestId="66757" NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" MapId="130" />
     </If>
-    <!-- Martial Perfection -->
-    <SoPickUpQuest QuestId="66757" NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" AetheryteId="19" />
-    <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66757" StepId="1" AetheryteId="19" />
-    <SoTalkTo NpcId="1005552" XYZ="85.61829, 15.28719, -355.7031" QuestId="66757" StepId="2" AetheryteId="19" />
-    <SoTalkTo NpcId="1008371" XYZ="208.1788, 6.057431, 2.39563" QuestId="66757" StepId="3" AetheryteId="19" />
-    <SoUseObject NpcIds="2002978" XYZ="405.5695, 16.52545, -71.39697" Radius="15" QuestId="66757" StepId="4" AetheryteId="19" />
-    <SoUseItem ItemId="2001137" NpcIds="2002976" XYZ="541.5884, 12.06982, -134.3557" Radius="15" QuestId="66757" StepId="5" AetheryteId="19" />
-    <SoGrind NpcIds="1878" QuestId="66757" StepId="6" AetheryteId="19">
-      <HotSpots>
-        <HotSpot XYZ="291.6729,8,-42.94824" Radius="75" />
-        <HotSpot XYZ="349.712,9.28671,-45.32585" Radius="75" />
-      </HotSpots>
-    </SoGrind>
-    <SoUseObject NpcIds="2002977" XYZ="463.5844, 18.53967, -98.00879" Radius="15" QuestId="66757" StepId="7" AetheryteId="19" />
-    <SoTalkTo NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" QuestId="66757" StepId="8" AetheryteId="19" />
-    <SoTurnIn QuestId="66757" NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" AetheryteId="9" />
   </Order>
   <CodeChunks>
     <CodeChunk Name="DisableMount">

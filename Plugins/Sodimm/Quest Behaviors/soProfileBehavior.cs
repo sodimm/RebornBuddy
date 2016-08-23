@@ -210,33 +210,51 @@ namespace OrderBotTags.Behaviors
         private readonly HashSet<uint> SupportedNpcs = new HashSet<uint>()
         {
             1000106,1000541,1000868,1001263,1001834,1002039,1002695,
-            1003540,1003583,1003584,1003585,1003586,1003587,1003588,
-            1003589,1003597,1003611,1004005,1004037,1004339,1004433,
-            1005238,1011211,1011212,1011224,1011946,1011949,1012149,
-            1012153,1012331,2001011,2001695,2005370,2005371,2005372
+            2002888,1003540,1003583,1003584,1003585,1003586,1003587,
+            1003588,1003589,1003597,1003611,1004005,2004012,1004037,
+            1004339,1004433,1005238,1005946,1005960,1008802,1011211,
+            1011212,1011224,1011946,1011949,1012149,1012153,1012331,
+            2001011,2001695,2004015,2005370,2005371,2005372
         };
 
         public string ZoneId
         {
             get
             {
-                if (WorldManager.ZoneId.ToString() == "128")
+                if (WorldManager.ZoneId == 128)
                 {
                     if (WorldManager.SubZoneId == 725)
                         return "725";
                     else
                         return "128";
                 }
-
-                if (WorldManager.ZoneId.ToString() == "130")
+                else if (WorldManager.ZoneId == 130)
                 {
                     if (WorldManager.SubZoneId == 654)
                         return "654";
                     else
                         return "130";
                 }
-
-                return WorldManager.ZoneId.ToString();
+                else if (WorldManager.ZoneId == 138)
+                {
+                    if (WorldManager.SubZoneId == 946)
+                        return "946";
+                    else if (WorldManager.SubZoneId == 947)
+                        return "947";
+                    else if (WorldManager.SubZoneId == 948)
+                        return "948";
+                    else
+                        return "138";
+                }
+                else if (WorldManager.ZoneId == 180)
+                {
+                    if (WorldManager.SubZoneId == 238)
+                        return "238";
+                    else
+                        return "180";
+                }
+                else
+                    return WorldManager.ZoneId.ToString();
             }
         }
 
@@ -339,7 +357,7 @@ namespace OrderBotTags.Behaviors
                         {
                             foreach (var id in SupportedNpcs)
                             {
-                                if (id == unit.NpcId && unit.Distance2D(Me.Location) < 5)
+                                if (id == unit.NpcId && unit.Distance2D(Me.Location) < 10)
                                     thisNpcId = id;
                             }
                         }
@@ -403,8 +421,10 @@ namespace OrderBotTags.Behaviors
         {
             get
             {
+                if ((ZoneId == "946" && MapId == "138") || (ZoneId == "947" && MapId == "138") || (ZoneId == "948" && MapId == "138"))
+                    return 0;
                 if ((ZoneId == "178" && MapId == " 131") || (ZoneId == "178" && MapId == "130"))
-                    return 0; 
+                    return 0;
                 if ((ZoneId == "210" && MapId == "131") || (ZoneId == "210" && MapId == "130"))
                     return 0;
                 if (ZoneId == "131" && MapId == "130")
@@ -1265,9 +1285,13 @@ namespace OrderBotTags.Behaviors
             Node UldahAirShip = new Node("654"); graph.AddNode(UldahAirShip);
             Node UldahStepsOfThal = new Node("131"); graph.AddNode(UldahStepsOfThal);
             Node OuterLaNoscea = new Node("180"); graph.AddNode(OuterLaNoscea);
+            Node OrderWorkshop = new Node("238"); graph.AddNode(OrderWorkshop);
             Node UpperLaNosceaWest = new Node("139_West"); graph.AddNode(UpperLaNosceaWest);
             Node UpperLaNosceaEast = new Node("139_East"); graph.AddNode(UpperLaNosceaEast);
             Node WesternLaNoscea = new Node("138"); graph.AddNode(WesternLaNoscea);
+            Node MoonshadeIsle = new Node("946"); graph.AddNode(MoonshadeIsle);
+            Node Merchantman = new Node("947"); graph.AddNode(Merchantman);
+            Node PirateVessel = new Node("948"); graph.AddNode(PirateVessel);
             Node EasternLaNosceaWest = new Node("137_West"); graph.AddNode(EasternLaNosceaWest);
             Node EasternLaNosceaEast = new Node("137_East"); graph.AddNode(EasternLaNosceaEast);
             Node MiddleLaNoscea = new Node("134"); graph.AddNode(MiddleLaNoscea);
@@ -1407,6 +1431,8 @@ namespace OrderBotTags.Behaviors
             // Outer La Noscea
             Node OuterLNToUpperLNWest = new Node("Outer La Noscea > Upper La Noscea West", new Vector3(-320.6279f, 51.65852f, -75.99368f), -1); graph.AddNode(OuterLNToUpperLNWest); OuterLaNoscea.AddDirected(OuterLNToUpperLNWest); OuterLNToUpperLNWest.AddDirected(UpperLaNosceaWest);
             Node OuterLNToUpperLNEast = new Node("Outer La Noscea > Upper La Noscea East", new Vector3(240.5355f, 54.22388f, -252.5956f), -1); graph.AddNode(OuterLNToUpperLNEast); OuterLaNoscea.AddDirected(OuterLNToUpperLNEast); OuterLNToUpperLNEast.AddDirected(UpperLaNosceaEast);
+            Node OuterLNToOrderWorkshop = new Node("Outer La Noscea > 13th Order Workshop", new Vector3(95.53953f, 55.3514f, -500.218f), 0); graph.AddNode(OuterLNToOrderWorkshop); OuterLaNoscea.AddDirected(OuterLNToOrderWorkshop); OuterLNToOrderWorkshop.AddDirected(OrderWorkshop);
+            Node OrderWorkshopToOuterLN = new Node("13th Order Workshop > Outer La Noscea", new Vector3(150.4692f, 27.69507f, -552.1782f), 0); graph.AddNode(OrderWorkshopToOuterLN); OrderWorkshop.AddDirected(OrderWorkshopToOuterLN); OrderWorkshopToOuterLN.AddDirected(OuterLaNoscea);
             // Upper La Noscea West
             Node UpperLNWestToUpperLNEast = new Node("Upper La Noscea West > Upper La Noscea East", new Vector3(-340.5905f, -1.024988f, 111.8383f), 1); graph.AddNode(UpperLNWestToUpperLNEast); UpperLaNosceaWest.AddDirected(UpperLNWestToUpperLNEast); UpperLNWestToUpperLNEast.AddDirected(UpperLaNosceaEast);
             Node UpperLNWestToWestLN = new Node("Upper La Noscea West > Western La Noscea", new Vector3(-476.706177f, 1.921210f, 287.913330f), -1); graph.AddNode(UpperLNWestToWestLN); UpperLaNosceaWest.AddDirected(UpperLNWestToWestLN); UpperLNWestToWestLN.AddDirected(WesternLaNoscea);
@@ -1416,6 +1442,12 @@ namespace OrderBotTags.Behaviors
             Node UpperLNEastToEasternLNWest = new Node("Upper La Noscea East > Eastern La Noscea West", new Vector3(719.070007f, 0.217405f, 214.217957f), -1); graph.AddNode(UpperLNEastToEasternLNWest); UpperLaNosceaEast.AddDirected(UpperLNEastToEasternLNWest); UpperLNEastToEasternLNWest.AddDirected(EasternLaNosceaWest);
             Node UpperLNEastToOuterLN = new Node("Upper La Noscea East > Outer La Noscea", new Vector3(286.4225f, 41.63181f, -201.1194f), -1); graph.AddNode(UpperLNEastToOuterLN); UpperLaNosceaEast.AddDirected(UpperLNEastToOuterLN); UpperLNEastToOuterLN.AddDirected(OuterLaNoscea);
             // Western La Noscea
+            Node WestLNToMoonshade = new Node("Western La Noscea > Moonshade Isle", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMoonshade); WesternLaNoscea.AddDirected(WestLNToMoonshade); WestLNToMoonshade.AddDirected(MoonshadeIsle);
+            Node MoonshadeToWestLN = new Node("Moonshade Isle > Western La Noscea", new Vector3(-813.1559f, -42.11157f, 694.0052f), 0); graph.AddNode(MoonshadeToWestLN); MoonshadeIsle.AddDirected(MoonshadeToWestLN); MoonshadeToWestLN.AddDirected(WesternLaNoscea);
+            Node WestLNToMerchantman = new Node("Western La Noscea > Deck of the Merchantman", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMerchantman); WesternLaNoscea.AddDirected(WestLNToMerchantman); WestLNToMerchantman.AddDirected(Merchantman);
+            Node MerchantmanToWestLN = new Node("Deck of the Merchantman > Western La Noscea", new Vector3(-848.7661f, -29.99572f, 886.8063f), 0); graph.AddNode(MerchantmanToWestLN); Merchantman.AddDirected(MerchantmanToWestLN); MerchantmanToWestLN.AddDirected(WesternLaNoscea);
+            Node WestLNToPirateVessel = new Node("Western La Noscea > Pirate Vessel", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToPirateVessel); WesternLaNoscea.AddDirected(WestLNToPirateVessel); WestLNToPirateVessel.AddDirected(PirateVessel);
+            Node PirateVesselToWestLN = new Node("Pirate Vessel > Western La Noscea", new Vector3(-924.4068f, -33.43262f, 842.3132f), 0); graph.AddNode(PirateVesselToWestLN); PirateVessel.AddDirected(PirateVesselToWestLN); PirateVesselToWestLN.AddDirected(WesternLaNoscea);
             Node WestLNToLimsaLower = new Node("Western La Noscea > Limsa Lominsa Lower Decks", new Vector3(318.314f, -36f, 351.376f), 1); graph.AddNode(WestLNToLimsaLower); WesternLaNoscea.AddDirected(WestLNToLimsaLower); WestLNToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
             Node WestLNToLowerLN = new Node("Western La Noscea > Lower La Noscea", new Vector3(318.314f, -36f, 351.376f), 2); graph.AddNode(WestLNToLowerLN); WesternLaNoscea.AddDirected(WestLNToLowerLN); WestLNToLowerLN.AddDirected(LowerLaNoscea);
             Node WestLNToMiddleLN = new Node("Western La Noscea > Middle La Noscea", new Vector3(811.963623f, 49.586365f, 390.644775f), -1); graph.AddNode(WestLNToMiddleLN); WesternLaNoscea.AddDirected(WestLNToMiddleLN); WestLNToMiddleLN.AddDirected(MiddleLaNoscea);

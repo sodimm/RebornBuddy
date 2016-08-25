@@ -2,17 +2,17 @@
 <!DOCTYPE Profile [
   <!ENTITY Version "2.35.0">
   <!-- Do What? -->
-  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "1"> <!ENTITY doSahaginRank3 "0">
-  <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "0">
-  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "0">
-  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "0">
+  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "1">
+  <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "1">
+  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "1">
+  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "1">
   <!-- Rank 3 Materia Quest Rewards (Choose at most 4) -->
   <!-- If multiple choice exists, first slot that returns true will be chosen -->
   <!ENTITY DEX "1"> <!ENTITY MND "0"> <!ENTITY PIE "0"> <!ENTITY BDNC "1">
   <!ENTITY QARM "0"> <!ENTITY VIT "1"> <!ENTITY SAIM "0"> <!ENTITY SMGHT "0"> 
   <!ENTITY QTNG "0"> <!ENTITY STR "1"> <!ENTITY INT "0"> <!ENTITY HEYE "0">
   <!-- Debug -->
-  <!ENTITY doCompleteQuests "0">
+  <!ENTITY doCompleteQuests "1">
 ]>
 <Profile>
   <Name>[SoOrderBot] 2.0 Beast Tribe Dailies</Name>
@@ -80,7 +80,7 @@
         </HotSpots>
       </SoUseObject>
       <!-- Wind from their Sails -->
-      <SoGrind NpcIds="2724,2534,2535,2536" XYZ="-839.1937, -25.64775, 888.4031" Radius="25" QuestId="66922" StepId="1" MapId="947" />
+      <SoGrind NpcIds="2724,2534,2535,2536" XYZ="-839.1937, -25.64775, 888.4031" Radius="25" QuestId="66922" StepId="1" MapId="9471" />
       <!-- Skullduggery -->
       <SoUseObject NpcIds="1008793,1008794,1008795,1008796" QuestId="66924" StepId="1" MapId="138">
         <HotSpots>
@@ -138,8 +138,8 @@
         <SoTalkTo NpcId="1008918" XYZ="317.1892, -31.89867, 273.7316" QuestId="66912" StepId="5" MapId="138" />
         <SoTurnIn QuestId="66912" ItemIds="2001293" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
       </If>
-      <SoRegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935" />
-      <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935]))">
+      <SoRegisterDailies QuestIds="66926,66927,66928,66929,66930,66931,66932,66933,66934,66935" />
+      <If Condition="not HasAtLeastOneQuest(Array[int]([66926,66927,66928,66929,66930,66931,66932,66933,66934,66935]))">
         <!-- Move Along, Nothing to Heal Here -->
         <SoPickUpQuest NpcId="1005939" QuestId="66926" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
         <!-- Aint Got Time to Breed -->
@@ -181,7 +181,7 @@
         <RunCode Name="EnableMount" />
       </If>
       <!-- Learn by Destroying -->
-      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" MapId="947" />
+      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" MapId="9472" />
       <!-- Get a Lode of This -->
       <SoUseObject NpcIds="2003765,2003766,2003767,2003768" QuestId="66928" StepId="1" MapId="138">
         <HotSpots>
@@ -286,9 +286,9 @@
         <SoPickUpQuest QuestId="66945" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" MapId="138" />
       </If>
       <!-- Unfair Trading -->
-      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" MapId="947" />
+      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" MapId="9473" />
       <!-- Sea Scraps -->
-      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" MapId="947">
+      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" MapId="9473">
         <HotSpots>
           <HotSpot XYZ="-846.8605, -25.65275, 962.0354" Radius="20" />
           <HotSpot XYZ="-862.8214, -20.65275, 966.308" Radius="20" />
@@ -647,16 +647,16 @@
       <SoTalkTo NpcId="1007936" XYZ="-89.12799, 64.1947, -246.8453" QuestId="66858" StepId="1" MapId="180" />
       <SoTalkTo NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66858" StepId="2" MapId="180" />
       <SoTalkTo NpcId="1005932" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66858" StepId="3" MapId="180" />
-      <SoUseTransport NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66858" StepId="4" MapId="180" />
+      <SoTalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66858" StepId="4" MapId="180" />
       <SoTalkTo NpcId="1007937" XYZ="221.8203, 21.48438, -580.6516" QuestId="66858" StepId="5" />
       <SoUseObject NpcId="2003719" XYZ="182.5741, 24.73486, -622.3392" Radius="15" QuestId="66858" StepId="6" />
       <SoTalkTo NpcId="1007937" XYZ="221.8203, 21.48438, -580.6516" QuestId="66858" StepId="7" />
       <SoUseItem ItemId="2001234" NpcId="2003720" XYZ="224.7806, 23.94141, -580.9568" Radius="15" QuestId="66858" StepId="8" />
       <SoTalkTo NpcId="1008883" XYZ="150.1945, 26.48923, -555.1385" QuestId="66858" StepId="9" />
-      <SoUseTransport NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782" QuestId="66858" />
+      <!--SoUseTransport NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782" QuestId="66858" /-->
       <SoTurnIn QuestId="66858" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" MapId="180" />
-      <SoRegisterDailies QuestIds="66861,66862,66863,66864,66865,66866,66867,66868,66869,66870,66871,66872,66873,66874,66875,66876,66877,66878,66879,66880" />
-      <If Condition="not HasAtLeastOneQuest(Array[int]([66861,66862,66863,66864,66865,66866,66867,66868,66869,66870,66871,66872,66873,66874,66875,66876,66877,66878,66879,66880]))">
+      <SoRegisterDailies QuestIds="66871,66872,66873,66874,66875,66876,66877,66878,66879,66880" />
+      <If Condition="not HasAtLeastOneQuest(Array[int]([66871,66872,66873,66874,66875,66876,66877,66878,66879,66880]))">
         <!-- Ambushing the Assessors -->
         <SoPickUpQuest QuestId="66871" NpcId="1005929" XYZ="21.56091, 16.34241, -183.7645" MapId="180" />
         <!-- The Lode Warrior -->
@@ -686,7 +686,7 @@
       <SoTalkTo NpcId="1005932" DialogOption="0" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66880" StepId="1" MapId="180" />
       <SoCarriage NpcId="2003963" XYZ="91.20313, 55.74109, -483.299" SafeSpot="78.20218, 55.61008, -480.1956" QuestId="66880" StepId="2" />
       <!-- Armed and Dangerous -->
-      <SoUseItem NpcIds="2003685,2003686,2003687,2003688,2003689,2003771" ItemId="2001226" XYZ="61.06852, 48.13433, -386.6737" Radius="75" QuestId="66873" StepId="2" />
+      <SoUseItem NpcIds="2003685,2003686,2003687,2003688,2003689,2003771" ItemId="2001226" XYZ="61.06852, 48.13433, -386.6737" Radius="75" QuestId="66873" StepId="2" MapId="180" />
       <!-- The Sly Savages -->
       <SoTalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66876" StepId="1" MapId="180" />
       <!-- Too Hot to Handle -->
@@ -1113,11 +1113,9 @@
       <SoUseItem ItemId="2001117" NpcIds="2003162" QuestId="66793" StepId="1" Objective="0" Count="5" XYZ="-229.3864, 1.35255, 292.3704" Radius="10" MapId="152" />
       <SoUseItem ItemId="2001117" NpcIds="2003156" QuestId="66793" StepId="1" Objective="0" Count="6" XYZ="-227.4747, 3.545222, 277.5918" Radius="10" MapId="152" />
       <SoUseItem ItemId="2001117" NpcIds="2003155" QuestId="66793" StepId="1" Objective="0" Count="7" XYZ="-247.1746, 3.54502, 280.7344" Radius="10" MapId="152" />
-      <If Condition="GetQuestById(66793).QuestI8B == 16">
-        <SoMoveTo XYZ="-249.6594, 13.03623, 272.8004" QuestId="66793" StepId="1" MapId="152" />
-        <SoMoveTo UseMesh="False" XYZ="-248.6197, 16.03416, 294.312" QuestId="66793" StepId="1" MapId="152" />
-        <SoMoveTo UseMesh="False" XYZ="-242.4806, 8.002699, 295.2348" QuestId="66793" StepId="1" MapId="152" />
-      </If>
+      <SoMoveTo XYZ="-249.6594, 13.03623, 272.8004" QuestId="66793" StepId="1" MapId="152" />
+      <SoMoveTo UseMesh="False" XYZ="-248.6197, 16.03416, 294.312" QuestId="66793" StepId="1" MapId="152" />
+      <SoMoveTo UseMesh="False" XYZ="-242.4806, 8.002699, 295.2348" QuestId="66793" StepId="1" MapId="152" />
       <SoUseItem ItemId="2001117" NpcIds="2003160" QuestId="66793" StepId="1" Objective="0" Count="8" XYZ="-242.4806, 8.002699, 295.2348" Radius="10" MapId="152" />
       <SoMoveTo QuestId="66793" StepId="2" UseMesh="False" XYZ="-242.1537, 1.439728, 301.0934" MapId="152" />
       <SoTalkTo NpcId="1000540" QuestId="66793" StepId="2" XYZ="-238.1172, 3.543448, 284.0251" MapId="152" />
@@ -1228,8 +1226,8 @@
         <SoCarriage NpcId="2003035" XYZ="21.34735, -6.240967, 251.5449" QuestId="66790" StepId="4" MapId="152" />
       </While>
       <SoTurnIn QuestId="66790" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552" MapId="152" />
-      <SoRegisterDailies QuestIds="66793,66794,66795,66796,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812"/>
-      <If Condition="not HasAtLeastOneQuest(Array[int]([66793,66794,66795,66796,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812]))">
+      <SoRegisterDailies QuestIds="66803,66804,66805,66806,66807,66808,66809,66810,66811,66812"/>
+      <If Condition="not HasAtLeastOneQuest(Array[int]([66803,66804,66805,66806,66807,66808,66809,66810,66811,66812]))">
         <!-- With One Stone -->
         <SoPickUpQuest QuestId="66803" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951" MapId="152" />
         <!-- I Dream of Slimy -->
@@ -1391,9 +1389,7 @@
           <HotSpot XYZ="364.1294, -25.76053, -439.6538" Radius="10" />
           <HotSpot XYZ="395.1959, -34.68225, -458.1268" Radius="10" />
         </HotSpots>
-      </SoUseItem>
-	  
-	  
+      </SoUseItem>  
       <If Condition="&doCompleteQuests;">
         <!-- With One Stone -->
         <SoTurnIn QuestId="66803" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951" MapId="152" />
@@ -1458,11 +1454,11 @@
           <SoCarriage NpcId="2003279" XYZ="271.9614, -19.88251, -278.1567" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003437" XYZ="259.9069, -23.51416, -361.5015" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" />
+          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" MapId="152" />
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003439" XYZ="197.0397, -21.43903, -407.0039" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003446" XYZ="97.24573, -26.35236, -356.4355" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003282" XYZ="121.2938, -25.28424, -348.3788" Radius="10" QuestId="66817" StepId="2" />
+          <SoUseItem ItemId="2001183" NpcIds="2003282" XYZ="121.2938, -25.28424, -348.3788" Radius="10" QuestId="66817" StepId="2" MapId="152" />
         </If>
         <If Condition="GetQuestById(66817).QuestI8D == 32">
           <SoCarriage NpcId="2003276" XYZ="276.1119, -12.28351, -131.3955" BlacklistAfter="True" MapId="152" />
@@ -1471,13 +1467,13 @@
           <SoCarriage NpcId="2003279" XYZ="271.9614, -19.88251, -278.1567" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003437" XYZ="259.9069, -23.51416, -361.5015" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" />
+          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" MapId="152" />
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003439" XYZ="197.0397, -21.43903, -407.0039" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003446" XYZ="97.24573, -26.35236, -356.4355" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003442" XYZ="90.2876, -27.78674, -267.1093" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003444" XYZ="148.8517, -29.67883, -206.653" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" />
+          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" MapId="152" />
         </If>
         <If Condition="GetQuestById(66817).QuestI8D == 48">
           <SoCarriage NpcId="2003276" XYZ="276.1119, -12.28351, -131.3955" BlacklistAfter="True" MapId="152" />
@@ -1488,28 +1484,28 @@
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003439" XYZ="197.0397, -21.43903, -407.0039" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003446" XYZ="97.24573, -26.35236, -356.4355" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003282" XYZ="121.2938, -25.28424, -348.3788" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" />
+          <SoUseItem ItemId="2001183" NpcIds="2003282" XYZ="121.2938, -25.28424, -348.3788" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" MapId="152" />
           <SoCarriage NpcId="2003446" XYZ="97.24573, -26.35236, -356.4355" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003442" XYZ="90.2876, -27.78674, -267.1093" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003444" XYZ="148.8517, -29.67883, -206.653" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" />
+          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" MapId="152" />
         </If>
         <If Condition="GetQuestById(66817).QuestI8D == 64">
           <SoCarriage NpcId="2003276" XYZ="276.1119, -12.28351, -131.3955" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003277" XYZ="351.8578, -20.61505, -184.741" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003278" XYZ="348.9586, -17.28851, -230.7622" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003280" XYZ="364.4313, -16.76971, -238.4833" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" />
+          <SoUseItem ItemId="2001183" NpcIds="2003280" XYZ="364.4313, -16.76971, -238.4833" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" MapId="152" />
           <SoCarriage NpcId="2003278" XYZ="348.9586, -17.28851, -230.7622" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003279" XYZ="271.9614, -19.88251, -278.1567" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003437" XYZ="259.9069, -23.51416, -361.5015" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003438" XYZ="228.9615, -23.08698, -421.2253" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" />
+          <SoUseItem ItemId="2001183" NpcIds="2003281" XYZ="218.4939, -19.66895, -404.7761" Radius="10" QuestId="66817" StepId="2" MapId="152" />
         </If>
         <If Condition="GetQuestById(66817).QuestI8D == 80">
           <SoCarriage NpcId="2003276" XYZ="276.1119, -12.28351, -131.3955" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003277" XYZ="351.8578, -20.61505, -184.741" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003278" XYZ="348.9586, -17.28851, -230.7622" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003280" XYZ="364.4313, -16.76971, -238.4833" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" />
+          <SoUseItem ItemId="2001183" NpcIds="2003280" XYZ="364.4313, -16.76971, -238.4833" Radius="10" QuestId="66817" StepId="2" Objective="0" Count="1" MapId="152" />
           <SoCarriage NpcId="2003278" XYZ="348.9586, -17.28851, -230.7622" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003279" XYZ="271.9614, -19.88251, -278.1567" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003437" XYZ="259.9069, -23.51416, -361.5015" BlacklistAfter="True" MapId="152" />
@@ -1518,7 +1514,7 @@
           <SoCarriage NpcId="2003446" XYZ="97.24573, -26.35236, -356.4355" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003442" XYZ="90.2876, -27.78674, -267.1093" BlacklistAfter="True" MapId="152" />
           <SoCarriage NpcId="2003444" XYZ="148.8517, -29.67883, -206.653" BlacklistAfter="True" MapId="152" />
-          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" />
+          <SoUseItem ItemId="2001183" NpcIds="2003283" XYZ="144.8844, -28.30554, -224.9333" Radius="10" QuestId="66817" StepId="2" MapId="152" />
         </If>
       </If>
       <!-- Bane of the Barbs -->
@@ -2141,8 +2137,8 @@
         <SoPickUpQuest QuestId="66787" NpcId="1005552" XYZ="88.16546,15.2326,-357.0342" MapId="146" />
       </If>
       <!-- Demolition Drake -->
-      <SoTalkTo NpcId="1005860" XYZ="-123.7355, -1.773061, 2.334595" QuestId="66782" StepId="1" />
-      <SoUseSpell SpellId="1764" NpcIds="2003197,2003199" Distance="5" QuestId="66782" StepId="2">
+      <SoTalkTo NpcId="1005860" XYZ="-123.7355, -1.773061, 2.334595" QuestId="66782" StepId="1" MapId="146"/>
+      <SoUseSpell SpellId="1764" NpcIds="2003197,2003199" Distance="5" QuestId="66782" StepId="2" MapId="146">
         <HotSpots>
           <HotSpot XYZ="45.5481, 22.04926, 34.40906" Radius="5" />
           <HotSpot XYZ="361.0742, 13.38208, -35.69086" Radius="5" />

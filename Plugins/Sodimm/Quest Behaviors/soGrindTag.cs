@@ -29,24 +29,20 @@ namespace ff14bot.NeoProfiles
         [XmlElement("HotSpots")]
         public IndexedList<HotSpot> Hotspots { get; set; }
 
-        [XmlAttribute("ItemId")]
-        public uint ItemId { get; set; }
-
         [XmlAttribute("Radius")]
         [DefaultValue(50f)]
         public float Radius { get; set; }
-
-        [XmlAttribute("ItemTarget")]
-        [DefaultValue(0)]
-        public int ItemTarget { get; set; }
 
         [XmlAttribute("LacksAura")]
         [DefaultValue(0)]
         public int LacksAuraId { get; set; }
 
-        [XmlAttribute("UseHealthPercent")]
-        [DefaultValue(20)]
-        public float UseHealthPercent { get; set; }
+        [XmlAttribute("ItemTarget")]
+        [DefaultValue(0)]
+        public int ItemTarget { get; set; }
+
+        [XmlAttribute("ItemId")]
+        public uint ItemId { get; set; }
 
         [XmlAttribute("KillCount")]
         [DefaultValue(0)]
@@ -86,47 +82,41 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        private GrindArea GrindArea;
-        private void CreateGrindArea()
+        public HotSpot Position
         {
-            if (NeoProfileManager.CurrentGrindArea == null)
+            get
             {
-                Log("Creating GrindArea");
+                return Hotspots.CurrentOrDefault;
+            }
+        }
+
+        private void CreateHotSpot()
+        {
+            if (Hotspots.Count == 0)
+            {
                 Hotspots.Add(new HotSpot(XYZ, Radius));
                 Hotspots.IsCyclic = true;
                 Hotspots.Index = 0;
-
-                GrindArea = new GrindArea()
-                {
-                    Hotspots = Hotspots.ToList(),
-                    TargetMobs = NpcIds.Select(r => new TargetMob() { Id = r }).ToList(),
-                    Name = "SoGrindTag generated GrindArea"
-                };
-
-                NeoProfileManager.CurrentProfile.KillRadius =  (Me.CombatReach * Me.CombatReach);
-                NeoProfileManager.UpdateGrindArea();
                 NeoProfileManager.UpdateCurrentProfileBehavior();
+
             }
+            else return;
         }
 
         protected override void OnTagStart()
         {
-            GameEvents.OnPlayerDied += onPlayerDied;
-            HotspotManager.Clear();
-            NeoProfileManager.CurrentGrindArea = null;
-
             if (ItemTarget != 0 && LacksAuraId > 0)
                 TreeHooks.Instance.AddHook("Combat", new ActionRunCoroutine(cr => UseItem()));
 
+            HotspotManager.Clear();
+            CreateHotSpot();
             Log("Started");
         }
 
-        void onPlayerDied(object sender, EventArgs e)
-        {
-            NeoProfileManager.CurrentGrindArea = null;
-        }
+        #region UseItem In Combat
 
-        internal GameObject _obj
+        private BagSlot Item { get { return InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemId); } }
+        private GameObject TargetForUseItem
         {
             get
             {
@@ -146,9 +136,9 @@ namespace ff14bot.NeoProfiles
         {
             get
             {
-                if (_obj != null && _obj.IsValid)
+                if (TargetForUseItem != null && TargetForUseItem.IsValid)
                 {
-                    if (Poi.Current.BattleCharacter.NpcId == _obj.NpcId && Poi.Current.BattleCharacter.HasAura(LacksAuraId))
+                    if (LacksAuraId > 0 && Poi.Current.BattleCharacter.NpcId == TargetForUseItem.NpcId && Poi.Current.BattleCharacter.HasAura(LacksAuraId))
                         return false;
                     else
                         return true;
@@ -157,27 +147,36 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        private BagSlot Item { get { return InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemId); } }
-        internal async Task UseItem()
+        private async Task UseItem()
         {
-            if (_obj != null)
+            if (TargetForUseItem != null)
             {
                 while (CanUseItem)
                 {
                     if (Item != null)
                     {
-                        if (Poi.Current.BattleCharacter.NpcId == ItemTarget)
+                        if (TargetForUseItem.NpcId == ItemTarget)
                         {
                             Navigator.Stop();
-                            Log("Using {0} on {1}", Item.Name, _obj.Name);
-                            Item.UseItem(_obj);
+
+                            if (Me.IsMounted)
+                                await Dismount();
+
+                            if (!Actionmanager.DoAction(Item.ActionType, Item.RawItemId, TargetForUseItem) && Item.CanUse(TargetForUseItem))
+                            {
+                                Log("Using {0} on {1}.", Item.Name, TargetForUseItem.Name);
+                                Item.UseItem(TargetForUseItem);
+                                await Coroutine.Wait(6000, () => !Me.IsCasting && (TargetForUseItem as BattleCharacter).HasAura(LacksAuraId));
+                            }
                         }
                     }
                     await Coroutine.Yield();
                 }
             }
             else return;
-         }
+        }
+
+        #endregion
 
         protected override async Task Main()
         {
@@ -185,45 +184,74 @@ namespace ff14bot.NeoProfiles
 
             await GoThere();
 
-            if (NeoProfileManager.CurrentGrindArea == null)
+            if (Target != null && Poi.Current.Type == PoiType.None)
             {
-                CreateGrindArea();
-
-                NeoProfileManager.CurrentGrindArea = GrindArea;
-
-                // Debug
-                foreach (var mob in GrindArea.TargetMobs)
-                    Log("Added NpcId {0} with Weight {1} to the GrindArea.", mob.Id, mob.Weight);
+                //await MoveAndStop(Target.Location, Me.CombatReach, "Found " + Target.EnglishName);
+                Poi.Current = new Poi(Target, PoiType.Kill);
             }
+            else
+            {
+                if (!Position.WithinHotSpot2D(Me.Location, 5f))
+                    await MoveAndStop(Position, Distance, "Searching for a Target for " + QuestName);
 
-            if (!Hotspots.Current.WithinHotSpot(Me.Location))
-                await MoveAndStop(XYZ, Radius / 5f, "Moving to HotSpot");
-
-            await DoHook();
+                //if (Hotspots.Count != 0 && Position.WithinHotSpot2D(Me.Location, 5f))
+                //    Hotspots.Next();
+            }
         }
 
-        protected Task DoHook()
+        private BattleCharacter _target;
+        public BattleCharacter Target
         {
-           return CommonTasks.ExecuteCoroutine(Hook());
+            get
+            {
+                if (_target != null && _target.IsAlive)
+                    return _target;
+
+                _target = GetTarget();
+                return _target;
+            }
         }
 
-        protected Composite Hook()
+        protected BattleCharacter GetTarget()
         {
-            return new PrioritySelector(
-                new HookExecutor("HotspotPoi"),
-                new HookExecutor("SetCombatPoi"),
-                new ActionAlwaysSucceed()
-            );
+            var possible = GameObjectManager.GetObjectsOfType<BattleCharacter>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.CanAttack && !obj.IsDead && !obj.TappedByOther && NpcIds.Contains((int)obj.NpcId)).OrderBy(obj => obj.DistanceSqr(Me.Location));
+
+            float closest = float.MaxValue;
+            foreach (var obj in possible)
+            {
+                if (obj.DistanceSqr() < 1)
+                    return obj;
+
+                HotSpot target = null;
+                foreach (var hotspot in Hotspots)
+                {
+                    if (hotspot.WithinHotSpot2D(obj.Location))
+                    {
+                        var dist = hotspot.Position.DistanceSqr(obj.Location);
+                        if (dist < closest)
+                        {
+                            closest = dist;
+                            target = hotspot;
+                        }
+                    }
+                }
+
+                if (target != null)
+                {
+                    while (Hotspots.Current != target)
+                    {
+                        Hotspots.Next();
+                    }
+                    return obj;
+                }
+            }
+            return null;
         }
 
         protected override void OnTagDone()
         {
             if (ItemTarget != 0 && LacksAuraId > 0)
                 TreeHooks.Instance.RemoveHook("Combat", new ActionRunCoroutine(cr => UseItem()));
-
-            GameEvents.OnPlayerDied -= onPlayerDied;
-
-            NeoProfileManager.CurrentGrindArea = null;
 
             KillCounter = 0;
         }

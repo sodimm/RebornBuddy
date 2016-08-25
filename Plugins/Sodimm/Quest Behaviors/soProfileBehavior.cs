@@ -211,10 +211,11 @@ namespace OrderBotTags.Behaviors
         {
             1000106,1000541,1000868,1001263,1001834,1002039,1002695,
             2002888,1003540,1003583,1003584,1003585,1003586,1003587,
-            1003588,1003589,1003597,1003611,1004005,2004012,1004037,
-            1004339,1004433,1005238,1005946,1005960,1008802,1011211,
-            1011212,1011224,1011946,1011949,1012149,1012153,1012331,
-            2001011,2001695,2004015,2005370,2005371,2005372
+            1003588,1003589,1003597,1003611,1004005,2004012,2004013,
+            2004014,1004037,1004339,1004433,1005238,1005946,1005960,
+            1008802,1011211,1011212,1011224,1011946,1011949,1012149,
+            1012153,1012331,2001011,2001695,2004015,2005370,2005371,
+            2005372
         };
 
         public string ZoneId
@@ -239,8 +240,15 @@ namespace OrderBotTags.Behaviors
                 {
                     if (WorldManager.SubZoneId == 946)
                         return "946";
-                    else if (WorldManager.SubZoneId == 947)
-                        return "947";
+                    // Rank 1 quests go to Merchantman 1
+                    else if (WorldManager.SubZoneId == 947 && GameObjectManager.GetObjectByNPCId(2004012).Location.Distance(Me.Location) < 35)
+                        return "9471";
+                    // Rank 2 quests go to Merchantman 2
+                    else if (WorldManager.SubZoneId == 947 && GameObjectManager.GetObjectByNPCId(2004013).Location.Distance(Me.Location) < 35)
+                        return "9472";
+                    // Rank 3 quests go to Merchantman 3
+                    else if (WorldManager.SubZoneId == 947 && GameObjectManager.GetObjectByNPCId(2004014).Location.Distance(Me.Location) < 35)
+                        return "9473";
                     else if (WorldManager.SubZoneId == 948)
                         return "948";
                     else
@@ -248,8 +256,14 @@ namespace OrderBotTags.Behaviors
                 }
                 else if (WorldManager.ZoneId == 180)
                 {
+                    // the entirety of U'Ghamaro mines is 238
                     if (WorldManager.SubZoneId == 238)
-                        return "238";
+                    {
+                        if (ConditionParser.HasQuest(66878) || ConditionParser.HasQuest(66879) || ConditionParser.HasQuest(66877) || ConditionParser.HasQuest(66876) || ConditionParser.HasQuest(66875) || ConditionParser.HasQuest(66860))
+                            return "238";
+                        else
+                            return "180";
+                    }
                     else
                         return "180";
                 }
@@ -421,7 +435,7 @@ namespace OrderBotTags.Behaviors
         {
             get
             {
-                if ((ZoneId == "946" && MapId == "138") || (ZoneId == "947" && MapId == "138") || (ZoneId == "948" && MapId == "138"))
+                if ((ZoneId == "946" && MapId == "138") || (ZoneId == "9471" && MapId == "138") || (ZoneId == "9472" && MapId == "138") || (ZoneId == "9473" && MapId == "138") || (ZoneId == "948" && MapId == "138"))
                     return 0;
                 if ((ZoneId == "178" && MapId == " 131") || (ZoneId == "178" && MapId == "130"))
                     return 0;
@@ -1290,7 +1304,9 @@ namespace OrderBotTags.Behaviors
             Node UpperLaNosceaEast = new Node("139_East"); graph.AddNode(UpperLaNosceaEast);
             Node WesternLaNoscea = new Node("138"); graph.AddNode(WesternLaNoscea);
             Node MoonshadeIsle = new Node("946"); graph.AddNode(MoonshadeIsle);
-            Node Merchantman = new Node("947"); graph.AddNode(Merchantman);
+            Node Merchantman1 = new Node("9471"); graph.AddNode(Merchantman1);
+            Node Merchantman2 = new Node("9472"); graph.AddNode(Merchantman2);
+            Node Merchantman3 = new Node("9473"); graph.AddNode(Merchantman3);
             Node PirateVessel = new Node("948"); graph.AddNode(PirateVessel);
             Node EasternLaNosceaWest = new Node("137_West"); graph.AddNode(EasternLaNosceaWest);
             Node EasternLaNosceaEast = new Node("137_East"); graph.AddNode(EasternLaNosceaEast);
@@ -1444,8 +1460,12 @@ namespace OrderBotTags.Behaviors
             // Western La Noscea
             Node WestLNToMoonshade = new Node("Western La Noscea > Moonshade Isle", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMoonshade); WesternLaNoscea.AddDirected(WestLNToMoonshade); WestLNToMoonshade.AddDirected(MoonshadeIsle);
             Node MoonshadeToWestLN = new Node("Moonshade Isle > Western La Noscea", new Vector3(-813.1559f, -42.11157f, 694.0052f), 0); graph.AddNode(MoonshadeToWestLN); MoonshadeIsle.AddDirected(MoonshadeToWestLN); MoonshadeToWestLN.AddDirected(WesternLaNoscea);
-            Node WestLNToMerchantman = new Node("Western La Noscea > Deck of the Merchantman", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMerchantman); WesternLaNoscea.AddDirected(WestLNToMerchantman); WestLNToMerchantman.AddDirected(Merchantman);
-            Node MerchantmanToWestLN = new Node("Deck of the Merchantman > Western La Noscea", new Vector3(-848.7661f, -29.99572f, 886.8063f), 0); graph.AddNode(MerchantmanToWestLN); Merchantman.AddDirected(MerchantmanToWestLN); MerchantmanToWestLN.AddDirected(WesternLaNoscea);
+            Node WestLNToMerchantman1 = new Node("Western La Noscea > Deck of the Merchantman1", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMerchantman1); WesternLaNoscea.AddDirected(WestLNToMerchantman1); WestLNToMerchantman1.AddDirected(Merchantman1);
+            Node Merchantman1ToWestLN = new Node("Deck of the Merchantman1 > Western La Noscea", new Vector3(-848.7661f, -29.99572f, 886.8063f), 0); graph.AddNode(Merchantman1ToWestLN); Merchantman1.AddDirected(Merchantman1ToWestLN); Merchantman1ToWestLN.AddDirected(WesternLaNoscea);
+            Node WestLNToMerchantman2 = new Node("Western La Noscea > Deck of the Merchantman2", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMerchantman2); WesternLaNoscea.AddDirected(WestLNToMerchantman2); WestLNToMerchantman1.AddDirected(Merchantman2);
+            Node Merchantman2ToWestLN = new Node("Deck of the Merchantman2 > Western La Noscea", new Vector3(-883.36f, -29.25159f, 929.2285f), 0); graph.AddNode(Merchantman2ToWestLN); Merchantman2.AddDirected(Merchantman2ToWestLN); Merchantman2ToWestLN.AddDirected(WesternLaNoscea);
+            Node WestLNToMerchantman3 = new Node("Western La Noscea > Deck of the Merchantman3", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToMerchantman3); WesternLaNoscea.AddDirected(WestLNToMerchantman3); WestLNToMerchantman1.AddDirected(Merchantman3);
+            Node Merchantman3ToWestLN = new Node("Deck of the Merchantman3 > Western La Noscea", new Vector3(-826.8406f, -29.34314f, 971.4656f), 0); graph.AddNode(Merchantman3ToWestLN); Merchantman3.AddDirected(Merchantman3ToWestLN); Merchantman3ToWestLN.AddDirected(WesternLaNoscea);
             Node WestLNToPirateVessel = new Node("Western La Noscea > Pirate Vessel", new Vector3(-237.5193f, -41.68077f, 17.41498f), 0); graph.AddNode(WestLNToPirateVessel); WesternLaNoscea.AddDirected(WestLNToPirateVessel); WestLNToPirateVessel.AddDirected(PirateVessel);
             Node PirateVesselToWestLN = new Node("Pirate Vessel > Western La Noscea", new Vector3(-924.4068f, -33.43262f, 842.3132f), 0); graph.AddNode(PirateVesselToWestLN); PirateVessel.AddDirected(PirateVesselToWestLN); PirateVesselToWestLN.AddDirected(WesternLaNoscea);
             Node WestLNToLimsaLower = new Node("Western La Noscea > Limsa Lominsa Lower Decks", new Vector3(318.314f, -36f, 351.376f), 1); graph.AddNode(WestLNToLimsaLower); WesternLaNoscea.AddDirected(WestLNToLimsaLower); WestLNToLimsaLower.AddDirected(LimsaLominsaLowerDecks);
@@ -1526,7 +1546,6 @@ namespace OrderBotTags.Behaviors
             //areas.Add("177-128", new AreaInfo { XYZ = new Vector3(-0.113f, 0.007f, 7.086f), Name = "Gridania - Inn-->Limsa (Upper)", Communicationlocalindex = -1 });
             //areas.Add("339-135", new AreaInfo { XYZ = new Vector3(-9.653202f, 48.346123f, -169.488068f), Name = ">???-->Lower La Noscea-", Communicationlocalindex = -1 });
         }
-
         #endregion
     }
 }

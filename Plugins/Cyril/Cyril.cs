@@ -57,6 +57,8 @@ namespace Cyril
             if (Debug)
             {
                 Debug = false;
+                if (Poi.Current.Type == PoiType.Vendor)
+                    Poi.Clear("[Cyril] Exiting Debug Mode");
                 Log("Exiting Debug Mode");
             }
             else
@@ -137,7 +139,9 @@ namespace Cyril
                     {
                         if (Vector3.Distance(Core.Player.Location, Poi.Current.Location) > 3.24f)
                         {
-                            await Mount();
+                            if (!Core.Player.IsMounted)
+                                await CommonTasks.MountUp();
+
                             Navigator.MoveTo(Poi.Current.Location, "[Cyril] Legging it");
                         }
 
@@ -150,6 +154,7 @@ namespace Cyril
                             {
                                 if (Core.Player.IsMounted)
                                     await CommonTasks.StopAndDismount();
+
                                 Npc.Target();
                                 await Coroutine.Sleep(100);
                             }
@@ -206,7 +211,9 @@ namespace Cyril
                     {
                         if (Vector3.Distance(Core.Player.Location, Poi.Current.Location) >= 3.24f)
                         {
-                            await Mount();
+                            if (!Core.Player.IsMounted)
+                                await CommonTasks.MountUp();
+
                             Navigator.MoveTo(Poi.Current.Location, "[Cyril] Legging it back...");
                         }
 
@@ -259,15 +266,6 @@ namespace Cyril
 
                     return false;
                 }
-            }
-        }
-
-        private static async Task Mount()
-        {
-            if (!WorldManager.InSanctuary && Actionmanager.CanMount == 0)
-            {
-                await CommonTasks.MountUp();
-                await Coroutine.Wait(3000, () => Core.Player.IsMounted);
             }
         }
 

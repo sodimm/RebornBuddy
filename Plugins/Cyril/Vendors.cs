@@ -108,15 +108,14 @@ namespace Cyril
         {
             get
             {
-                Vector3 Location = Vector3.Zero;
+                List<Vector3> Locs = new List<Vector3>();
 
-                foreach (Vendor vendor in Locations.Where(r => r.LocationId == WorldManager.ZoneId))
+                foreach (Vendor v in Locations.Where(r => r.LocationId == WorldManager.ZoneId))
                 {
-                    if (Vector3.Distance(Core.Player.Location, vendor.XYZ) < Vector3.Distance(Core.Player.Location, Location))
-                        Location = vendor.XYZ;
+                    Locs.Add(v.XYZ);
                 }
 
-                return Location;
+                return Locs.OrderBy(r => r.Distance(Core.Player.Location)).First();
             }
         }
     }

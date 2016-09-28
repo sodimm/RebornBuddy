@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Profile [
-  <!ENTITY Version "1.9.0">
+  <!ENTITY Version "1.9.1">
   <!ENTITY doVanu "1"> <!ENTITY doSanuwa "1">
   <!ENTITY doVath "1"> <!ENTITY doKongamato "1">
   <!-- Debug -->
@@ -10,83 +10,106 @@
   <Name>[SoOrderBot] 3.0 Beast Tribe Dailies</Name>
   <Order>
     <If Condition="&doVanu;">
-    <SoPickUpQuest QuestId="67700" NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-    <SoUseObject NpcIds="2006621" QuestId="67700" StepId="1" XYZ="-428.275, 201.3427, -229.0532" Radius="5" MapId="401" />
-    <WaitWhile Condition="GetQuestStep(67700) == 2" />
-    <SoTalkTo NpcId="1016150" QuestId="67700" StepId="3" XYZ="-429.5262, 167.9683, -224.445" MapId="401" />
-    <SoTalkTo NpcId="1012064" QuestId="67700" StepId="4" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-    <SoTalkTo NpcId="1016087" QuestId="67700" StepId="5" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoUseSpell Distance="5" SpellId="4931" NpcIds="1016158,1016157,1016156" QuestId="67700" StepId="6" MapId="401">
-      <HotSpots>
-        <HotSpot XYZ="-779.263, -117.9065, -393.5455" Radius="10" />
-        <HotSpot XYZ="-813.2906, -110.4907, -434.1955" Radius="10" />
-        <HotSpot XYZ="-860.5936, -122.9114, -378.3475" Radius="10" />
-      </HotSpots>
-    </SoUseSpell>
-    <SoTurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoPickUpQuest QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoTalkTo NpcId="1016159" QuestId="67701" StepId="1" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-    <SoTalkTo NpcId="1016161" QuestId="67701" StepId="2" XYZ="108.0491, -147.8377, 495.1704" MapId="401" />
-    <SoTalkTo NpcId="1016159" QuestId="67701" StepId="3" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-    <WaitWhile Condition="GetQuestStep(67701) == 4" />
-    <SoTalkTo NpcId="1016463" QuestId="67701" StepId="5" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-    <SoTalkTo NpcId="1012064" QuestId="67701" StepId="6" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-    <SoTurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoPickUpQuest QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoTalkTo NpcId="1016166" QuestId="67702" StepId="1" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
-    <SoUseItem NpcIds="2006627,2006628,2006629,2006630,2006631" ItemId="2001901" QuestId="67702" StepId="2" PostCombatDelay="2" MapId="401">
-      <HotSpots>
-        <HotSpot XYZ="583.5201, -126.8177, 268.0857" Radius="5" />
-        <HotSpot XYZ="632.9594, -111.6808, 157.8545" Radius="5" />
-        <HotSpot XYZ="688.5939, -95.99457, 101.274" Radius="5" />
-        <HotSpot XYZ="709.8647, -85.19116, 29.89246" Radius="5" />
-        <HotSpot XYZ="722.8656, -65.84277, -57.93854" Radius="5" />
-      </HotSpots>
-    </SoUseItem>
-    <SoTalkTo NpcId="1016166" QuestId="67702" StepId="3" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
-    <SoEmoteNpc Emote="dance" NpcIds="1016166" XYZ="557.885, -126.2324, 283.0701" QuestId="67702" StepId="4" MapId="401" />
-    <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67702" StepId="5" MapId="401" />
-    <SoTurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoPickUpQuest QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoMoveTo XYZ="-306.1723, 93.99152, -226.4287" Distance="1" QuestId="67703" StepId="1" MapId="401" />
-    <WaitWhile Condition="Core.Player.InCombat or GetQuestStep(67703) == 1" />
-    <SoTalkTo NpcId="1016168" XYZ="-306.1723, 93.99152, -226.4287" QuestId="67703" StepId="2" MapId="401" />
-    <SoHandOver NpcId="1016172" ItemIds="2001902" XYZ="-314.7173, -7.663834, -230.6096" QuestId="67703" StepId="3" MapId="401" />
-    <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67703" StepId="4" MapId="401" />
-    <SoTurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoPickUpQuest NpcId="1016087" QuestId="67704" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoUseObject NpcIds="2006633" XYZ="-15.12177, 168.017, -100.4502" Radius="5" QuestId="67704" StepId="1" MapId="401" />
-    <SoHandOver NpcId="1016088" ItemIds="2001903" XYZ="-818.143, -129.9326, -414.0231" QuestId="67704" StepId="2" MapId="401" />
-    <SoMoveTo XYZ="205.3101, -118.3452, 422.2018" Distance="1" QuestId="67704" />
-    <SoTalkTo NpcId="1016173" XYZ="205.3101, -118.3452, 422.2018" QuestId="67704" StepId="4" MapId="401" />
-    <SoTurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoPickUpQuest QuestId="67705" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67705" StepId="1" MapId="401" />
-    <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="2" MapId="401" />
-    <If Condition="GetQuestStep(67705) == 3">
-      <NoCombatMoveTo XYZ="-589.0587, -1.12088, -340.6529" />
-      <RunCode Name="Dismount" />
-      <RunCode Name="67705" />
-      <WaitWhile Condition="GetQuestStep(67705) == 3" />
+    <If Condition="not IsQuestCompleted(67700)">
+      <!-- Three Beaks to the Wind -->
+      <SoPickUpQuest QuestId="67700" NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
+      <SoUseObject NpcIds="2006621" QuestId="67700" StepId="1" XYZ="-428.275, 201.3427, -229.0532" Radius="5" MapId="401" />
+      <WaitWhile Condition="GetQuestStep(67700) == 2" />
+      <SoTalkTo NpcId="1016150" QuestId="67700" StepId="3" XYZ="-429.5262, 167.9683, -224.445" MapId="401" />
+      <SoTalkTo NpcId="1012064" QuestId="67700" StepId="4" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
+      <SoTalkTo NpcId="1016087" QuestId="67700" StepId="5" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoUseSpell Distance="5" SpellId="4931" NpcIds="1016158,1016157,1016156" QuestId="67700" StepId="6" MapId="401">
+        <HotSpots>
+          <HotSpot XYZ="-779.263, -117.9065, -393.5455" Radius="10" />
+          <HotSpot XYZ="-813.2906, -110.4907, -434.1955" Radius="10" />
+          <HotSpot XYZ="-860.5936, -122.9114, -378.3475" Radius="10" />
+        </HotSpots>
+      </SoUseSpell>
+      <SoTurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
     </If>
-    <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="4" MapId="401" />
-    <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="5" MapId="401" />
-    <If Condition="GetQuestStep(67705) == 6">
-      <NoCombatMoveTo XYZ="702.5201, -60.77912, 145.6018" />
-      <RunCode Name="Dismount" />
-      <RunCode Name="67705" />
-      <WaitWhile Condition="GetQuestStep(67705) == 6" />
+    <If Condition="not IsQuestCompleted(67701)">
+      <!-- A Tribal Reunion -->
+      <SoPickUpQuest QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoTalkTo NpcId="1016159" QuestId="67701" StepId="1" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
+      <SoTalkTo NpcId="1016161" QuestId="67701" StepId="2" XYZ="108.0491, -147.8377, 495.1704" MapId="401" />
+      <SoTalkTo NpcId="1016159" QuestId="67701" StepId="3" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
+      <WaitWhile Condition="GetQuestStep(67701) == 4" />
+      <SoTalkTo NpcId="1016463" QuestId="67701" StepId="5" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
+      <SoTalkTo NpcId="1012064" QuestId="67701" StepId="6" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
+      <SoTurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
     </If>
-    <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="7" MapId="401" />
-    <SoTurnIn QuestId="67705" NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" MapId="401" />
-    <SoPickUpQuest QuestId="67706" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoEmoteNpc Emote="sundance" NpcIds="2006623" XYZ="-761.7457, -132.6162, -422.1714" Radius="5" QuestId="67706" StepId="1" MapId="401" />
-    <SoTalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67706" StepId="2" MapId="401" />
-    <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67706" StepId="3" MapId="401" />
-    <SoTurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301" MapId="401" />
-    <SoPickUpQuest QuestId="67761" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-    <SoTurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" MapId="401" />
-
+    <If Condition="not IsQuestCompleted(67702)">
+      <!-- Linu's Lovely Bones -->
+      <SoPickUpQuest QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoTalkTo NpcId="1016166" QuestId="67702" StepId="1" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
+      <SoUseItem NpcIds="2006627,2006628,2006629,2006630,2006631" ItemId="2001901" QuestId="67702" StepId="2" PostCombatDelay="2" MapId="401">
+        <HotSpots>
+          <HotSpot XYZ="583.5201, -126.8177, 268.0857" Radius="5" />
+          <HotSpot XYZ="632.9594, -111.6808, 157.8545" Radius="5" />
+          <HotSpot XYZ="688.5939, -95.99457, 101.274" Radius="5" />
+          <HotSpot XYZ="709.8647, -85.19116, 29.89246" Radius="5" />
+          <HotSpot XYZ="722.8656, -65.84277, -57.93854" Radius="5" />
+        </HotSpots>
+      </SoUseItem>
+      <SoTalkTo NpcId="1016166" QuestId="67702" StepId="3" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
+      <SoEmoteNpc Emote="dance" NpcIds="1016166" XYZ="557.885, -126.2324, 283.0701" QuestId="67702" StepId="4" MapId="401" />
+      <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67702" StepId="5" MapId="401" />
+      <SoTurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+    </If>
+    <If Condition="not IsQuestCompleted(67703)">
+      <!-- In The Skycage Over The Sea -->
+      <SoPickUpQuest QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoMoveTo XYZ="-306.1723, 93.99152, -226.4287" Distance="1" QuestId="67703" StepId="1" MapId="401" />
+      <WaitWhile Condition="Core.Player.InCombat or GetQuestStep(67703) == 1" />
+      <SoTalkTo NpcId="1016168" XYZ="-306.1723, 93.99152, -226.4287" QuestId="67703" StepId="2" MapId="401" />
+      <SoHandOver NpcId="1016172" ItemIds="2001902" XYZ="-314.7173, -7.663834, -230.6096" QuestId="67703" StepId="3" MapId="401" />
+      <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67703" StepId="4" MapId="401" />
+      <SoTurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+    </If>
+    <If Condition="not IsQuestCompleted(67704)">
+      <!-- Fishing for Friendship -->
+      <SoPickUpQuest NpcId="1016087" QuestId="67704" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoUseObject NpcIds="2006633" XYZ="-15.12177, 168.017, -100.4502" Radius="5" QuestId="67704" StepId="1" MapId="401" />
+      <SoHandOver NpcId="1016088" ItemIds="2001903" XYZ="-818.143, -129.9326, -414.0231" QuestId="67704" StepId="2" MapId="401" />
+      <SoMoveTo XYZ="205.3101, -118.3452, 422.2018" Distance="1" QuestId="67704" />
+      <SoTalkTo NpcId="1016173" XYZ="205.3101, -118.3452, 422.2018" QuestId="67704" StepId="4" MapId="401" />
+      <SoTurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+    </If>
+    <If Condition="not IsQuestCompleted(67705)">
+      <!-- Sundrop the Beat -->
+      <SoPickUpQuest QuestId="67705" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67705" StepId="1" MapId="401" />
+      <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="2" MapId="401" />
+      <If Condition="GetQuestStep(67705) == 3">
+        <NoCombatMoveTo XYZ="-589.0587, -1.12088, -340.6529" />
+        <RunCode Name="Dismount" />
+        <RunCode Name="67705" />
+        <WaitWhile Condition="GetQuestStep(67705) == 3" />
+      </If>
+      <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="4" MapId="401" />
+      <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="5" MapId="401" />
+      <If Condition="GetQuestStep(67705) == 6">
+        <NoCombatMoveTo XYZ="702.5201, -60.77912, 145.6018" />
+        <RunCode Name="Dismount" />
+        <RunCode Name="67705" />
+        <WaitWhile Condition="GetQuestStep(67705) == 6" />
+      </If>
+      <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="7" MapId="401" />
+      <SoTurnIn QuestId="67705" NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" MapId="401" />
+    </If>
+    <If Condition="not IsQuestCompleted(67706)">
+      <!-- Nest Side Story -->
+      <SoPickUpQuest QuestId="67706" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoEmoteNpc Emote="sundance" NpcIds="2006623" XYZ="-761.7457, -132.6162, -422.1714" Radius="5" QuestId="67706" StepId="1" MapId="401" />
+      <SoTalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67706" StepId="2" MapId="401" />
+      <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67706" StepId="3" MapId="401" />
+      <SoTurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301" MapId="401" />
+    </If>
+    <If Condition="not IsQuestCompleted(67761)">
+      <!-- The Nest of Honor -->
+      <SoPickUpQuest QuestId="67761" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      <SoTurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" MapId="401" />
+    </If>
     <SoRegisterDailies QuestIds="67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736" />
 
     <If Condition="not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
@@ -273,8 +296,8 @@
         <HotSpot XYZ="282.887, -82.26141, 366.0792" Radius="5" />
       </HotSpots>
     </SoUseObject>
-    <SoTalkTo NpcId="1016223" XYZ="834.3785, -97.83405, -738.1857" QuestId="67719" StepId="2" MapId="401" />
-    <SoTalkTo NpcId="1016223" XYZ="834.3785, -97.83405, -738.1857" QuestId="67719" StepId="3" MapId="401" />
+    <SoTalkTo NpcId="1016223" XYZ="833.827, -97.81962, -734.51" QuestId="67719" StepId="2" MapId="401" />
+    <SoTalkTo NpcId="1016223" XYZ="834.3785, -97.81962, -734.51" QuestId="67719" StepId="3" MapId="401" />
     <SoUseObject NpcIds="2006762" XYZ="-781.5214, -13.93152, -114.3054" Radius="10" QuestId="67721" StepId="2" MapId="401" />
     <SoUseItem NpcIds="2006675" ItemId="2001912" XYZ="-642.298, -207.2938, 211.1085" Radius="10" QuestId="67721" StepId="3" MapId="401" />
     <SoHandOver NpcId="1012054" ItemIds="2001913" QuestId="67721" StepId="4" XYZ="-640.1007, -119.5621, 469.5963" MapId="401" />

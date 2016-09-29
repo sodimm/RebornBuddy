@@ -1,6 +1,6 @@
 # RebornBuddy
 
-All my profiles require the custom behaviors, Please make sure you Checkout to a seperate folder named "Sodimm", and place it into the Plugins directory of your RebornBuddy folder. 
+All my profiles (bar Ixal; for now) require the custom behaviors. 
 
 These behaviors will work on both x86 and x64 versions of RebornBuddy.
 
@@ -12,12 +12,12 @@ Its worth noting that; Yes, I could add custom hops for the flight to be more sm
 
 The Uldah 1-15 profile is to test the Custom Behaviors ability to Auto Navigate maps. Please be advised that this functionality is as the profile states, IN TESTING. I would appreciate reports of when and if it gets stuck. I have tested the profile on 6 new characters before releasing to public, and where there can be an issue or 2, the navigation is sound.
 
-Cyril Plugin
+What is Cyril Plugin?
 
-Cyril is a Repair Plugin, enable and it will run to a vendor and repair when your gear gets below 5%. There is an option to self repair, but this is in testing atm.
+Cyril is a Repair Plugin, enable and it will run to a vendor and repair when your gear gets below 5%. There is an option to self repair, but this is in testing. Cyril will only work on Autonomous BotBases i.e OrderBot or FateBot.
 
-Sparrow Plugin
+What is Sparrow Plugin?
 
-Sparrow is a Companion plugin, specify your Chocobos name, feed, and stance required in settings, and Sparrow will keep them enabled.
+Sparrow is a Companion plugin. Specify your Chocobos Name, stance required and Feed in settings, and Sparrow will keep your companion summoned, in the correct stance, and fed your chosen feed if available. I will be adding an automatic stance selection at a later date. Please disable any UseChocobo features of your Combat Routines when using Sparrow, as this  will intefere. Sparrow will only work on Autonomous BotBases i.e OrderBot or FateBot.
 
-Any issues, please raise pull requests. or DM/PM me.
+Any issues, please raise Pull Requests or Issues via GIT, DM via Discord, or PM me via the Official Forum.

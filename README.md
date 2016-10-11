@@ -20,4 +20,8 @@ What is Sparrow Plugin?
 
 Sparrow is a Companion plugin. Specify your Chocobos Name, stance required and Feed in settings, and Sparrow will keep your companion summoned, in the correct stance, and fed your chosen feed if available. I will be adding an automatic stance selection at a later date. Please disable any UseChocobo features of your Combat Routines when using Sparrow, as this  will intefere. Sparrow will only work on Autonomous BotBases i.e OrderBot or FateBot.
 
+What is Artemis?
+
+Artemis is a Hunt Bill BotBase. Specify your marks via the UI, and amount required, and hit start, and Artemis will Hunt them down for you. Please note that Artemis does use ExBuddy, so please be mindful when submitting errors that ExFlight can and will crash from time to time. But's it's what's available, see above. The Botbase still has a few bugs, with 3 mobs omitted due to pathing issues, and it will stop, regardless of combat when the marks are complete, but these are being worked on.
+
 Any issues, please raise Pull Requests or Issues via GIT, DM via Discord, or PM me via the Official Forum.

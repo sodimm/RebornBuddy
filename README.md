@@ -30,9 +30,10 @@ If done correctly, a simple batch file will have them updated in a few seconds.
 ###### Batch file?
 Make a new text document. Name it whatever you like. Then open it up for editing.
 
-Make it look like this:
+Make it look like this (thanks to @Nab on the HonorBuddy forums):
 
 ```
+
 @echo off
 FOR %%A IN (
 "E:\rb\RebornBuddy\BotBases\Artemis"
@@ -40,7 +41,14 @@ FOR %%A IN (
 "E:\rb\RebornBuddy\Plugins\Sparrow"
 "E:\rb\RebornBuddy\Plugins\Sodimm"
 "E:\rb\Rebornbuddy\Profiles\Sodimm"
-) DO START TortoiseProc.exe /command:update /path:%%A /closeonend:0
+) DO CALL :CONCAT %%project
+TortoiseProc.exe /command:update /path:"%projects:"=%" /closeonend:0;
+goto :eof
+
+:CONCAT
+set projects=%projects%%1*
+goto :eof
+
 ```
 
 Wherein the Drive and folders reflect where you have the individual checkouts. Once you're done, save and rename the file to .bat, instead of .txt. And that's it. Double click the file and it'll update all the folders (assuming you have TortoiseSvn of course).

@@ -1,5 +1,31 @@
 # RebornBuddy
 
+Regarding Installation:
+
+The GitHub is structured exactly as it should be inside your RebornBuddy Folder.
+
+Want Artemis?
+Make a folder called Artemis in your BotBases folder, and SVN Checkout to 
+https://github.com/sodimm/RebornBuddy/trunk/BotBases/Artemis
+
+Want Cyril?
+Make a folder called Cyril in your Plugins folder, and SVN Checkout to
+https://github.com/sodimm/RebornBuddy/trunk/Plugins/Cyril
+
+Want Sparrow?
+Make a folder called Sparrow in your Plugins folder, and SVN Checkout to
+https://github.com/sodimm/RebornBuddy/trunk/Plugins/Sparrow
+
+Want the Behaviors?
+Make a folder called Sodimm in your Plugins folder, and SVN Checkout to
+https://github.com/sodimm/RebornBuddy/trunk/Plugins/Sodimm
+
+Want the Profiles?
+Make a folder called Sodimm in your Profiles folder, and SVN Checkout to
+https://github.com/sodimm/RebornBuddy/trunk/Profiles
+
+The Alternative to multiple checkouts, is to download or checkout the entire repo, and manually move them yourself. But if you're unsure as to where things go, just navigate to the GitHub Page. It's layout is exaclty as it should be in your local folder.
+
 All my profiles (bar Ixal; for now) require the custom behaviors. 
 
 These behaviors will work on both x86 and x64 versions of RebornBuddy.

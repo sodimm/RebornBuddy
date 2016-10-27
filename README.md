@@ -35,18 +35,21 @@ Make it look like this (thanks to @Nab on the HonorBuddy forums):
 ```
 
 @echo off
+SET A=""
 FOR %%A IN (
-"E:\rb\RebornBuddy\BotBases\Artemis"
-"E:\rb\RebornBuddy\Plugins\Cyril"
-"E:\rb\RebornBuddy\Plugins\Sparrow"
-"E:\rb\RebornBuddy\Plugins\Sodimm"
-"E:\rb\Rebornbuddy\Profiles\Sodimm"
-) DO CALL :CONCAT %%project
-TortoiseProc.exe /command:update /path:"%projects:"=%" /closeonend:0;
+"C:\XXXX\XXXX\XXXX\RebornBuddy\BotBases\Artemis"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\BotBases\ExFateBot"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\Plugins\Cyril"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\Plugins\ExBuddy"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\Plugins\Sodimm"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\Plugins\Sparrow"
+"C:\XXXX\XXXX\XXXX\RebornBuddy\Profiles\Sodimm"
+) DO CALL :CONCAT %%A
+TortoiseProc.exe /command:update /path:"%A:"=%" /closeonend:1;
 goto :eof
 
 :CONCAT
-set projects=%projects%%1*
+set A=%A%%1*
 goto :eof
 
 ```

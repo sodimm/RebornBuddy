@@ -1,5 +1,4 @@
-﻿using Buddy.Coroutines;
-using Clio.XmlEngine;
+﻿using Clio.XmlEngine;
 using ff14bot.Behavior;
 using OrderBotTags.Behaviors;
 using System.Threading.Tasks;
@@ -7,14 +6,19 @@ using System.Threading.Tasks;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoPickUpQuest")]
-    [XmlElement("SoPickUpDailyQuest")]
     public class SoPickUpQuest : SoProfileBehavior
     {
-        public override bool HighPriority { get { return true; } }
+        public override bool HighPriority
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         protected override void OnTagStart()
         {
-            Log("Picking up {0} from {1}.", QuestName, QuestGiver);
+            Log($"Picking up {QuestName} from {QuestGiver}.");
         }
 
         public override bool IsDone
@@ -23,29 +27,25 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 if (HasQuest)
                     return true;
+
                 if (IsQuestComplete)
                     return true;
+
                 return _done;
             }
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await GoThere();
+            if (await MoveAndStop(Destination, Distance, $"Moving to {NpcName}", true, (ushort)MapId, MountDistance)) return true;
 
-            await MoveAndStop(Destination, Distance, "Moving to pick up " + QuestName + ".");
+            if (!IsQuestAcceptQualified) { _done = true; return false; }
 
-            if (InPosition(Destination, Distance))
-            {
-                if (!HasQuest && !IsQuestAcceptQualified)
-                    _done = true;
-                else
-                    await Interact();
-            }
+            if (await Interact()) return true;
 
-            await Coroutine.Yield();
+            return false;
         }
 
         protected override void OnResetCachedDone() { _done = false; }

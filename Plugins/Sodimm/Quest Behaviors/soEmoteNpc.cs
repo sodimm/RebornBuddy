@@ -1,5 +1,6 @@
 ﻿using Clio.XmlEngine;
 using ff14bot.Managers;
+using ff14bot.Objects;
 using OrderBotTags.Behaviors;
 using System.Threading.Tasks;
 
@@ -8,14 +9,6 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoEmoteNpc")]
     public class SoEmoteNpc : SoHuntBehavior
     {
-        public override bool HighPriority
-        {
-            get
-            {
-                return false;
-            }
-        }
-
         #region Attributes
 
         [XmlAttribute("Emote")]
@@ -25,34 +18,38 @@ namespace ff14bot.NeoProfiles.Tags
 
         protected override void OnHuntStart()
         {
-            Log("Started");
+            Log($"Started for {QuestName}.");
         }
 
         protected override void OnHuntDone()
         {
-            Log("Done");
+            Log($"Objectives completed for {QuestName}.");
+        }
+
+        private async Task<bool> DoEmote(GameObject obj, string emote)
+        {
+            if (obj.IsTargetable && obj.IsVisible)
+            {
+                if (!Core.Player.HasTarget)
+                    obj.Target();
+
+                ChatManager.SendChat("/" + emote);
+            }
+
+            return !await ShortCircuit(obj);
         }
 
         protected override async Task<bool> CustomLogic()
         {
             if (Target != null)
             {
-                await MoveAndStop(Target.Location, Distance, "Moving to " + Target.EnglishName);
+                if (await MoveAndStop(Target.Location, Distance, $"Moving to {Target.Name}", true, 0, MountDistance)) return true;
 
-                if (InPosition(Target.Location, Distance))
-                {
-                    if (Target.IsTargetable && Target.IsVisible)
-                    {
-                        await Dismount();
-                       // StatusText = "Using emote [" + Emote + "] on " + Target.Name;
-                        Log("Emoting {0} on {1}.", Emote, Target.Name);
-                        if (!Me.HasTarget)
-                            Target.Target();
-                        ChatManager.SendChat("/" + Emote);
-                        await ShortCircuit(Target, persistentObject: PersistentObject, mSecsPassed: 10000);
-                    }
-                }
+                if (await Dismount()) return true;
+
+                if (await DoEmote(Target, Emote)) return true;
             }
+
             return false;
         }
     }

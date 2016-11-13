@@ -68,15 +68,13 @@ Heavensward based profiles (3.0 & Moogle Dailies) Require ExMatts ExBuddy to fun
 
 Its worth noting that; Yes, I could add custom hops for the flight to be more smooth in the Heavensward profiles; yet,  without knowing the exact combination or 3 quests you're likely to get, ExFlight will still run into problems. Please be mindful when submitting bugs, that anything involving the flight is beyond my control. Also please understand that although every effort is made to ensure a good experience, there are some things RebornBuddy just can not do. Without ExMatts efforts these profiles wouldn't even exsist, please respect that.
 
-The Uldah 1-15 profile is to test the Custom Behaviors ability to Auto Navigate maps. Please be advised that this functionality is as the profile states, IN TESTING. I would appreciate reports of when and if it gets stuck. I have tested the profile on 6 new characters before releasing to public, and where there can be an issue or 2, the navigation is sound.
-
 ###### What is Cyril Plugin?
 
 Cyril is a Repair Plugin, enable and it will run to a vendor and repair when your gear gets below 5%. There is an option to self repair, but this is in testing. Cyril will only work on Autonomous BotBases i.e OrderBot or FateBot.
 
 ###### What is Sparrow Plugin?
 
-Sparrow is a Companion plugin. Specify your Chocobos Name, stance required and Feed in settings, and Sparrow will keep your companion summoned, in the correct stance, and fed your chosen feed if available. I will be adding an automatic stance selection at a later date. Please disable any UseChocobo features of your Combat Routines when using Sparrow, as this  will intefere. Sparrow will only work on Autonomous BotBases i.e OrderBot or FateBot.
+Sparrow is a Companion plugin. Specify your Stance and Feed requirements in settings, and Sparrow will keep your companion summoned, in the correct stance, and fed your chosen feed if available. I will be adding an automatic stance selection at a later date. Please disable any UseChocobo features of your Combat Routines when using Sparrow, as this  will intefere. Sparrow will only work on Autonomous BotBases i.e OrderBot or FateBot.
 
 ###### What is Artemis?
 

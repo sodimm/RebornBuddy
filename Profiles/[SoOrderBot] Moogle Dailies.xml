@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Profile [
   <!ENTITY Version "1.0.2">
-  <!ENTITY craftGearSet "11">
+  <!ENTITY doRepQuests "0">
+  <!ENTITY craftGearSet "14">
   <!ENTITY combatGearSet "1">
   <!-- Debug -->
   <!ENTITY doTurnIn "1">
@@ -10,7 +11,8 @@
   <Name>[SoOrderBot] Moogle Dailies</Name>
   <Order>
     <SoRegisterDailies QuestIds="67826,67827,67828,67829,67830,67831,67832,67833,67834,67835,67836,67837,67838,67839,67840,67841,67842,67843,67844,67845,67846,67847,67848,67849,67850,67851,67852,67853,67854,67855" />
-    <If Condition="not IsQuestCompleted(67856)">
+    <If Condition="&doRepQuests;">
+      <If Condition="not IsQuestCompleted(67856)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!-- Tricks and Stones -->
       <SoPickUpQuest QuestId="67856" NpcId="1017328" XYZ="234.3328, -42.20274, 601.007" MapId="400" />
@@ -79,7 +81,7 @@
         <SoTurnIn QuestId="67856" NpcId="1017335" XYZ="-370.9926, 60.86112, 309.8954" DialogOption="0" MapId="400" />
       </If>
     </If>
-    <If Condition="not IsQuestCompleted(67857)">
+      <If Condition="not IsQuestCompleted(67857)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!-- The Milk of Moogle Kindness -->
       <SoPickUpQuest QuestId="67857" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -99,7 +101,7 @@
         <SoTurnIn QuestId="67857" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" /> 
       </If>
     </If>
-    <If Condition="not IsQuestCompleted(67858)">
+      <If Condition="not IsQuestCompleted(67858)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!-- Trying Times -->
       <SoPickUpQuest QuestId="67858" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -256,7 +258,7 @@
         <SoTurnIn QuestId="67858" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" MapId="400" />
       </If>
     </If>
-    <If Condition="not IsQuestCompleted(67859)">
+      <If Condition="not IsQuestCompleted(67859)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!-- A Crystalline Solution -->
       <SoPickUpQuest QuestId="67859" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -272,7 +274,7 @@
         <SoTurnIn QuestId="67859" ItemIds="2001886" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
       </If>
     </If>
-    <If Condition="not IsQuestCompleted(67860)">
+      <If Condition="not IsQuestCompleted(67860)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!-- The Tools Make the Moogle -->
       <SoPickUpQuest QuestId="67860" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -424,7 +426,7 @@
       </If>
       <SoTurnIn QuestId="67860" ItemIds="15722" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" MapId="400" />
     </If>
-    <If Condition="not IsQuestCompleted(67861)">
+      <If Condition="not IsQuestCompleted(67861)">
       <!-- A Monumental Task -->
       <SoSendCommand GearSet="&craftGearSet;" />
       <SoPickUpQuest QuestId="67861" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -577,7 +579,7 @@
       </If>
       <SoTurnIn ItemIds="15723" QuestId="67861" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
     </If>
-    <If Condition="not IsQuestCompleted(67862)">
+      <If Condition="not IsQuestCompleted(67862)">
       <!-- Piecing Together the Past -->
       <SoSendCommand GearSet="&craftGearSet;" />
       <SoPickUpQuest QuestId="67862" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -732,13 +734,14 @@
       </If>
       <SoTurnIn ItemIds="15724" QuestId="67862" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" MapId="400" />
     </If>
-    <If Condition="not IsQuestCompleted(67863)">
+      <If Condition="not IsQuestCompleted(67863)">
       <!-- The Zenith of Craftsmanship -->
       <SoSendCommand GearSet="&craftGearSet;" />
       <SoPickUpQuest QuestId="67863" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
       <SoTalkTo NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" QuestId="67863" StepId="1" Objective="0" MapId="400" />
       <SoTalkTo NpcId="1017173" XYZ="-363.8209, 60.89619, 306.3859" QuestId="67863" StepId="1" MapId="400" />
       <SoTurnIn QuestId="67863" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
+    </If>
     </If>
     <If Condition="not HasAtLeastOneQuest(Array[int]([67826,67827,67828,67829,67830,67831,67832,67833,67834,67835,67836,67837,67838,67839,67840,67841,67842,67843,67844,67845,67846,67847,67848,67849,67850,67851,67852,67853,67854,67855]))">
       <SoSendCommand GearSet="&craftGearSet;" />
@@ -897,13 +900,10 @@
     <!-- From Lax to Max -->
     <SoUseObject NpcIds="1017457,1017458,1017459" XYZ="-618.7381, 70, 207.9347" Radius="25" QuestId="67851" StepId="1" MapId="400" />
     <SoTalkTo NpcId="1017352" XYZ="-56.80939, -8.866012, 161.8219" QuestId="67851" StepId="2" MapId="400" />
-    <SoUseObject NpcIds="1017460,1017461,1017462" PersistentObject="True" QuestId="67851" StepId="3" MapId="400">
-      <HotSpots>
-        <HotSpot XYZ="79.9115, -22.83803, -123.6744" Radius="10" />
-        <HotSpot XYZ="-479.0875, 106.9268, -112.0775" Radius="10" />
-        <HotSpot XYZ="-689.0516, 78.99983, 266.0105" Radius="10" />
-      </HotSpots>
-    </SoUseObject>
+    <!-- Moogles are persistent objects -->
+    <SoUseObject NpcIds="1017461" XYZ="79.9115, -22.83803, -123.6744" Radius="10" QuestId="67851" StepId="3" Objective="0" Count="1" MapId="400" />
+    <SoUseObject NpcIds="1017462" XYZ="-479.0875, 106.9268, -112.0775" Radius="10" QuestId="67851" StepId="3" Objective="0" Count="2" MapId="400" />
+    <SoUseObject NpcIds="1017460" XYZ="-689.0516, 78.99983, 266.0105" Radius="10" QuestId="67851" StepId="3" Objective="0" Count="3" MapId="400" />
     <SoHandOver ItemIds="2001997,2001998,2001999" NpcId="1017352" XYZ="-56.80939, -8.866012, 161.8219" QuestId="67851" StepId="4" MapId="400" />
     <!-- A Fish for His Favors -->
     <SoTalkTo NpcId="1017455" XYZ="3.433307, -23.61804, 144.0993" QuestId="67850" StepId="1" MapId="400" />
@@ -1259,7 +1259,7 @@
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(15745,1)">
       <StopCrafting />
     </If>
-    <SoHandOver ItemIds="15745" NpcId="1017625" XYZ="-46.76892, 10.7652, 243.1219" QuestId="67854" StepId="6" MapId="400" />
+    <SoHandOver ItemIds="15745" NpcId="1017625" XYZ="-46.76892, 10.7652, 243.1219" Distance="1" QuestId="67854" StepId="6" MapId="400" />
     <!-- Ship of Dreams -->
     <SoTalkTo NpcId="1017422" XYZ="-8.804504, 81.8406, -312.0013" QuestId="67847" StepId="1" MapId="400" />
     <SoTalkTo NpcId="1017424" XYZ="7.431091, 81.8406, -321.1872" QuestId="67847" StepId="2" MapId="400" />

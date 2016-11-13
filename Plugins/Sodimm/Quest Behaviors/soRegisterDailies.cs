@@ -9,7 +9,13 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoRegisterDailies")]
     public class SoRegisterDailiesTag : SoProfileBehavior
     {
-        public override bool HighPriority { get { return true; } }
+        public override bool HighPriority
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         public override bool IsDone
         {
@@ -19,23 +25,32 @@ namespace ff14bot.NeoProfiles.Tags
             }
         }
 
+        #region Attributes
+
         [XmlAttribute("QuestIds")]
         public int[] QuestIds { get; set; }
+
+        #endregion
 
         protected override void OnTagStart()
         {
             Log("Registering Daily Quests");
         }
 
-        protected override async Task Main()
+        protected override async Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
             QuestLogManager.RegisterDailies(QuestIds);
 
-            Log("Registration Complete");
-
             _done = true;
+
+            return false;
+        }
+
+        protected override void OnTagDone()
+        {
+            Log("Registration Complete");
         }
 
         protected override void OnResetCachedDone()

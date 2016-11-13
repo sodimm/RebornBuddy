@@ -276,7 +276,7 @@ namespace ff14bot.NeoProfiles.Tags
             NeoProfileManager.CurrentGrindArea = null;
         }
 
-        protected override Task Main()
+        protected override Task<bool> Main()
         {
             throw new NotImplementedException();
         }

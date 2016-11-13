@@ -21,12 +21,16 @@ namespace ff14bot.NeoProfiles
             {
                 if (!HasQuest)
                     return true;
+
                 if (IsQuestComplete)
                     return true;
+
                 if (IsStepComplete)
                     return true;
+
                 if (IsObjectiveCountComplete)
                     return true;
+
                 if (IsObjectiveComplete)
                     return true;
 
@@ -34,25 +38,27 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await GoThere();
-
             if (UseMesh)
             {
-                await MoveAndStop(Destination, Distance, "Moving to Location", true);
-                if (InPosition(Destination, Distance))
-                    _done = true;
+                if (await MoveAndStop(Destination, Distance, "Moving to Destination", true, (ushort)MapId, MountDistance)) return true;
+                _done = true;
             }
             else
             {
-                Me.Face(Destination);
+                Core.Player.Face(Destination);
                 MovementManager.MoveForwardStart();
-                if (InPosition(Destination, Distance))
+
+                if (!Navigator.InPosition(Core.Player.Location, Destination, Distance))
+                    return true;
+                else
                     _done = true;
             }
+
+            return false;
         }
 
         protected override void OnTagDone()
@@ -60,6 +66,9 @@ namespace ff14bot.NeoProfiles
             Navigator.PlayerMover.MoveStop();
         }
 
-        protected override void OnResetCachedDone() { _done = false; }
+        protected override void OnResetCachedDone()
+        {
+            _done = false;
+        }
     }
 }

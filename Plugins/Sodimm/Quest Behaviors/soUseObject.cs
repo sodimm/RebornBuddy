@@ -1,4 +1,6 @@
 ﻿using Clio.XmlEngine;
+using ff14bot.Behavior;
+using ff14bot.Objects;
 using OrderBotTags.Behaviors;
 using System.Threading.Tasks;
 
@@ -7,45 +9,42 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoUseObject")]
     public class SoUseObject : SoHuntBehavior
     {
-        public override bool HighPriority
-        {
-            get
-            {
-                return false;
-            }
-        }
-
         protected override void OnHuntStart()
         {
-            Log("Started");
+            Log($"Started for {QuestName}.");
         }
 
         protected override void OnHuntDone()
         {
-            Log("Done");
+            Log($"Objectives completed for {QuestName}.");
+        }
+
+        private async Task<bool> DoUseObject(GameObject obj)
+        {
+            if (obj.IsTargetable && obj.IsVisible)
+            /*{
+                if (!Core.Player.HasTarget)
+                    obj.Target();*/
+
+                obj.Interact();
+            //}
+
+            return !await ShortCircuit(obj);
         }
 
         protected override async Task<bool> CustomLogic()
         {
             if (Target != null)
             {
-                await MoveAndStop(Target.Location, Distance, "Moving to " + Target.Name);
+                if (await MoveAndStop(Target.Location, Distance, $"Moving to {Target.Name}", true, 0, MountDistance)) return true;
 
-                if (ItemId > 0)
-                    await UseItem();
+                if (await Dismount()) return true;
 
-                if (InPosition(Target.Location, Distance))
-                {
-                    if (Target.IsTargetable && Target.IsVisible)
-                    {
-                        await Dismount();
-                      //  StatusText = "Using " + Target.Name;
-                        Log("Using {0}", Target.Name);
-                        Target.Interact();
-                        await ShortCircuit(Target, persistentObject: PersistentObject, mSecsPassed: 10000);
-                    }
-                }
+                if (ItemId > 0 && await UseItem()) return true;
+
+                if (await DoUseObject(Target)) return true;
             }
+
             return false;
         }
     }

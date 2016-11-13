@@ -2,7 +2,6 @@
 using Clio.XmlEngine;
 using ff14bot.Behavior;
 using OrderBotTags.Behaviors;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace ff14bot.NeoProfiles.Tags
@@ -10,14 +9,6 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoUseTransport")]
     public class SoUseTransport : SoProfileBehavior
     {
-        public override bool HighPriority
-        {
-            get
-            {
-                return true;
-            }
-        }
-
         protected override void OnTagStart()
         {
             Log("Moving to Use Transport.");
@@ -37,25 +28,22 @@ namespace ff14bot.NeoProfiles.Tags
             }
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
             if (!IsDone)
             {
-                await GoThere();
+                if (await MoveAndStop(Destination, Distance, $"Moving to use transport option {DialogOption} at {NpcName}", true, (ushort)MapId, MountDistance)) return true;
 
-                await MoveAndStop(Destination, Distance, "Moving to Use Transport");
+                if (await Interact()) return true;
 
-                if (InPosition(Destination, Distance))
-                {
-                    await Interact();
+                await Coroutine.Sleep(5000);
 
-                    await Coroutine.Wait(Timeout.InfiniteTimeSpan, () => !WindowsOpen());
-
-                    _done = true;
-                }
+                _done = true;
             }
+
+            return false;
         }
 
         protected override void OnResetCachedDone()

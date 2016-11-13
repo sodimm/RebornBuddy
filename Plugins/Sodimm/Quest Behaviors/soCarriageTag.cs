@@ -1,7 +1,7 @@
-﻿using Buddy.Coroutines;
-using Clio.Utilities;
+﻿using Clio.Utilities;
 using Clio.XmlEngine;
 using ff14bot.Behavior;
+using ff14bot.Navigation;
 using OrderBotTags.Behaviors;
 using System.Threading.Tasks;
 
@@ -20,13 +20,19 @@ namespace ff14bot.NeoProfiles.Tags
 
         #region Attributes
 
-        [XmlAttribute("EvacXYZ")]
         [XmlAttribute("SafeSpot")]
-        public Vector3 SafeSpot { get { return _evac; } set { _evac = value; } }
+        public Vector3 SafeSpot
+        {
+            get
+            {
+                return _evac;
+            }
+            set
+            {
+                _evac = value;
+            }
+        }
         private Vector3 _evac;
-
-        [XmlAttribute("BlacklistAfter")]
-        public bool BlacklistAfter { get; set; }
 
         #endregion
 
@@ -36,9 +42,8 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 if (!HasQuest)
                     return true;
+
                 if (IsStepComplete)
-                    return true;
-                if (_done)
                     return true;
 
                 return false;
@@ -50,39 +55,22 @@ namespace ff14bot.NeoProfiles.Tags
             Log("Moving to Destination.");
         }
 
-        private bool doneInteract = false;
-
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await MoveAndStop(Destination, Distance, "Moving to Destination.");
+            if (await MoveAndStop(Destination, Distance, $"Moving to {NpcName}", true)) return true;
 
-            if (!doneInteract && InPosition(Destination, Distance))
-            {
-                await Interact();
+            if (await Interact()) return true;
 
-                doneInteract = true;
+            if (SafeSpot != Vector3.Zero && await MoveAndStop(SafeSpot, Distance, "Moving to Safe Spot")) return true;
 
-                if (BlacklistAfter)
-                    _done = true;
-            }
-
-            if (SafeSpot != Vector3.Zero && doneInteract)
-            {
-                await MoveAndStop(SafeSpot, Distance, "Moving to Safe Spot");
-
-                if (InPosition(SafeSpot, Distance))
-                    _done = true;
-            }
-
-            await Coroutine.Yield();
+            return false;
         }
 
-        protected override void OnResetCachedDone()
+        protected override void OnTagDone()
         {
-            _done = false;
-            doneInteract = false;
+            Navigator.PlayerMover.MoveStop();
         }
     }
 }

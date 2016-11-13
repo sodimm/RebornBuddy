@@ -1,6 +1,7 @@
 using Clio.XmlEngine;
 using ff14bot.Behavior;
 using ff14bot.Managers;
+using ff14bot.Navigation;
 using ff14bot.Objects;
 using OrderBotTags.Behaviors;
 using System.ComponentModel;
@@ -15,10 +16,7 @@ namespace ff14bot.NeoProfiles.Tags
         {
             get
             {
-                if (!IgnoreCombat)
-                    return false;
-                else
-                    return true;
+                return !IgnoreCombat ? false : true;
             }
         }
 
@@ -43,7 +41,7 @@ namespace ff14bot.NeoProfiles.Tags
 
         protected override void OnHuntStart()
         {
-            Log("Started");
+            Log($"Started for {QuestName}.");
         }
 
         protected override void OnHuntDone()
@@ -51,33 +49,36 @@ namespace ff14bot.NeoProfiles.Tags
             if (DismountAfter)
                 CommonTasks.StopAndDismount();
 
-            Log("Done");
+            Log($"Objectives completed for {QuestName}.");
+        }
+
+        private async Task<bool> DoSpellCast(GameObject obj, SpellData sp)
+        {
+            if (obj.IsTargetable && obj.IsVisible)
+            {
+                Navigator.Stop();
+
+                obj.Face();
+
+                if (!Actionmanager.DoAction(sp.Id, obj) && Actionmanager.CanCast(sp, obj))
+                    Actionmanager.DoAction(sp.Id, obj);
+                else if (!Actionmanager.DoActionLocation(sp.Id, obj.Location) && Actionmanager.CanCastLocation(sp, obj.Location))
+                    Actionmanager.DoActionLocation(sp.Id, obj.Location);
+            }
+
+            return !await ShortCircuit(obj);
         }
 
         protected override async Task<bool> CustomLogic()
         {
             if (Target != null)
             {
-                await MoveAndStop(Target.Location, Distance, "Moving to " + Target.Name, true);
+                if (await MoveAndStop(Target.Location, Distance, $"Moving to {Target.Name}", true)) return true;
 
-                if (InPosition(Target.Location, Distance))
-                {
-                    if (Target.IsTargetable && Target.IsVisible)
-                    {
-                        Target.Face();
-                        Log("Using {0} on {1}.", Spell.LocalizedName, Target.Name);
-                        StatusText = "Using " + Spell.LocalizedName + " on " + Target.Name;
-
-                        if (!Actionmanager.DoAction(Spell.Id, Target) && Actionmanager.CanCast(Spell, Target))
-                            Actionmanager.DoAction(Spell.Id, Target);
-                        else
-                            if (!Actionmanager.DoActionLocation(Spell.Id, Target.Location) && Actionmanager.CanCastLocation(Spell, Target.Location))
-                            Actionmanager.DoActionLocation(Spell.Id, Target.Location);
-
-                        await ShortCircuit(Target, PersistentObject, IgnoreCombat, 5000);
-                    }
-                }
+                if (await DoSpellCast(Target, Spell)) return true;
             }
+
+            //if (DismountAfter && await Dismount()) return true;
 
             return false;
         }

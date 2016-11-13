@@ -8,17 +8,9 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoTalkTo")]
     public class SoTalkTo : SoProfileBehavior
     {
-        public override bool HighPriority
-        {
-            get
-            {
-                return false;
-            }
-        }
-
         protected override void OnTagStart()
         {
-            Log("Talking to {0} for {1}", NpcName, QuestName);
+            Log($"Talking to {NpcName} for {QuestName}.");
         }
 
         public override bool IsDone
@@ -27,28 +19,32 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 if (!HasQuest)
                     return true;
+
                 if (IsQuestComplete)
                     return true;
+
                 if (IsStepComplete)
                     return true;
+
                 if (IsObjectiveCountComplete)
                     return true;
+
                 if (IsObjectiveComplete)
                     return true;
+
                 return false;
             }
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await GoThere();
+            if (await MoveAndStop(Destination, Distance, $"Moving to {NpcName}", true, (ushort)MapId, MountDistance)) return true;
 
-            await MoveAndStop(Destination, Distance, "Moving to Talk to " + NpcName);
+            if (await Interact()) return true;
 
-            if (InPosition(Destination, Distance))
-                await Interact();
+            return false;
         }
     }
 }

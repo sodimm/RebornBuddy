@@ -96,7 +96,7 @@ namespace ff14bot.NeoProfiles
 
         private GrindArea FateGrindArea;
 
-        private async Task CreateGrindArea()
+        private async Task<bool> CreateGrindArea()
         {
             if (NeoProfileManager.CurrentGrindArea == null)
             {
@@ -108,7 +108,7 @@ namespace ff14bot.NeoProfiles
                     await WaitDelay();
                 }
 
-                Log("Creating GrindArea for " + ThisFate.Name);
+                Log($"Creating GrindArea for {ThisFate.Name}.");
 
                 GetBoss();
 
@@ -130,10 +130,18 @@ namespace ff14bot.NeoProfiles
                     FateGrindArea.TargetMobs.Add(new TargetMob() { Id = BossId, Weight = 1 });
                 }
 
+                NeoProfileManager.CurrentGrindArea = FateGrindArea;
+
+                // Debug
+                foreach (var mob in FateGrindArea.TargetMobs)
+                    Log("Added NpcId {0} with Weight {1} to the GrindArea.", mob.Id, mob.Weight);
+
                 NeoProfileManager.CurrentProfile.KillRadius = 80f;
 
                 NeoProfileManager.UpdateGrindArea();
             }
+
+            return false;
         }
 
         private bool ShouldWait
@@ -153,48 +161,30 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        private static Task HookExecutor()
-        {
-            return CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi", null, new HookExecutor("SetCombatPoi")));
-        }
-
-        protected override async Task Main()
+        protected override async Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await GoThere();
-
             if (FateActive)
             {
-                if (NeoProfileManager.CurrentGrindArea == null)
-                {
-                    if (ThisFate.Within2D(Me.Location))
-                    {
-                        await CreateGrindArea();
+                if (NeoProfileManager.CurrentGrindArea == null && ThisFate.Within2D(Core.Player.Location) && await CreateGrindArea()) return true;
 
-                        NeoProfileManager.CurrentGrindArea = FateGrindArea;
-
-                        // Debug
-                        foreach (var mob in FateGrindArea.TargetMobs)
-                            Log("Added NpcId {0} with Weight {1} to the GrindArea.", mob.Id, mob.Weight);
-                    }
-                    else
-                        await MoveAndStop(ThisFate.Location, ThisFate.Radius / 5f, "Moving to " + ThisFate.Name);
-                }
-                else
+                if (NeoProfileManager.CurrentGrindArea != null)
                 {
-                    if (ThisFate.Within2D(Me.Location) && !Me.IsLevelSynced && ThisFate.MaxLevel < Me.ClassLevel)
+                    if (await MoveAndStop(ThisFate.Location, ThisFate.Radius / 5f, $"Moving to {ThisFate.Name}.", true)) return true;
+
+                    if (ThisFate.Within2D(Core.Player.Location) && !Core.Player.IsLevelSynced && ThisFate.MaxLevel < Core.Player.ClassLevel)
                     {
                         RemoteWindows.ToDoList.LevelSync();
-                        await Coroutine.Wait(1000, () => Me.IsLevelSynced);
+                        await Coroutine.Wait(1000, () => Core.Player.IsLevelSynced);
                     }
 
-                    if (NeoProfileManager.CurrentGrindArea == FateGrindArea)
-                        await HookExecutor();
+                    if (await CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi"))) return true;
                 }
             }
-            else
-                await MoveAndStop(Destination, Distance * Distance, "Moving to Hotspot");
+            else if (await MoveAndStop(Destination, Distance * Distance, "Moving to Hotspot", true, (ushort)MapId, MountDistance)) return true;
+
+            return false;
         }
 
         protected override void OnTagDone() { NeoProfileManager.CurrentGrindArea = null; }

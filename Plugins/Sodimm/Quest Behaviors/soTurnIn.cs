@@ -1,5 +1,4 @@
-﻿using Buddy.Coroutines;
-using Clio.XmlEngine;
+﻿using Clio.XmlEngine;
 using ff14bot.Behavior;
 using OrderBotTags.Behaviors;
 using System.Threading.Tasks;
@@ -36,21 +35,18 @@ namespace ff14bot.NeoProfiles
 
         protected override void OnTagStart()
         {
-            Log("Completing {0}.", QuestName);
+            Log($"Completing {QuestName}.");
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
 
-            await GoThere();
+            if (await MoveAndStop(Destination, Distance, $"Moving to {NpcName}", true, (ushort)MapId, MountDistance)) return true;
 
-            await MoveAndStop(Destination, Distance, "Moving to Turn In " + QuestName);
+            if (await Interact()) return true;
 
-            if (InPosition(Destination, Distance))
-                await Interact();
-
-            await Coroutine.Yield();
+            return false;
         }
     }
 }

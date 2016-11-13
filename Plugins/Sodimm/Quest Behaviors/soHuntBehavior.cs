@@ -3,16 +3,17 @@ namespace OrderBotTags.Behaviors
     using Buddy.Coroutines;
     using Clio.Utilities;
     using Clio.XmlEngine;
+    using ff14bot;
     using ff14bot.Behavior;
     using ff14bot.Helpers;
     using ff14bot.Managers;
     using ff14bot.Navigation;
     using ff14bot.NeoProfiles;
     using ff14bot.Objects;
+    using ff14bot.RemoteAgents;
     using ff14bot.RemoteWindows;
     using System;
     using System.ComponentModel;
-    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using TreeSharp;
@@ -43,10 +44,6 @@ namespace OrderBotTags.Behaviors
         [XmlAttribute("Radius")]
         [DefaultValue(50f)]
         public float Radius { get; set; }
-
-        [XmlAttribute("PersistentObject")]
-        [DefaultValue(false)]
-        public bool PersistentObject { get; set; }
 
         [XmlAttribute("ItemTarget")]
         [DefaultValue(0)]
@@ -117,7 +114,7 @@ namespace OrderBotTags.Behaviors
             Hotspots.IsCyclic = true;
             Hotspots.Index = 0;
 
-            if (ItemTarget !=0 && LacksAuraId > 0)
+            if (ItemTarget != 0 && LacksAuraId > 0)
                 TreeHooks.Instance.AddHook("Combat", new ActionRunCoroutine(cr => UseItem()));
 
             OnHuntStart();
@@ -157,32 +154,12 @@ namespace OrderBotTags.Behaviors
             }
         }
 
-        protected static async Task<bool> ShortCircuit(GameObject obj, bool persistentObject = false, bool ignoreCombat = false, int mSecsPassed = 0)
+        protected async Task<bool> ShortCircuit(GameObject obj)
         {
-            var Timer = new Stopwatch();
-
-            Timer.Start();
-
             while (obj.IsTargetable && obj.IsVisible || QuestLogManager.InCutscene)
             {
-                if (mSecsPassed > 0 && Timer.ElapsedMilliseconds >= mSecsPassed)
-                {
-                    Timer.Stop();
+                if (IsDone)
                     return false;
-                }
-
-                if (persistentObject && !Me.IsCasting)
-                {
-                    Blacklist.Add(Me.CurrentTarget.ObjectId, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(30), "Persistent Object");
-                    await Coroutine.Sleep(1000);
-                    return false;
-                }
-
-                if (!ignoreCombat && Me.InCombat)
-                {
-                    await Coroutine.Sleep(1000);
-                    return false;
-                }
 
                 if (Talk.DialogOpen)
                 {
@@ -190,44 +167,55 @@ namespace OrderBotTags.Behaviors
                     await Coroutine.Sleep(100);
                 }
 
+                if (QuestLogManager.InCutscene)
+                {
+                    if (AgentCutScene.Instance.CanSkip && !SelectString.IsOpen)
+                    {
+                        AgentCutScene.Instance.PromptSkip();
+                        if (await Coroutine.Wait(600, () => SelectString.IsOpen))
+                        {
+                            SelectString.ClickSlot(0);
+                            await Coroutine.Sleep(1000);
+                        }
+                    }
+                }
+
                 await Coroutine.Yield();
             }
 
-            Timer.Stop();
             return false;
         }
 
         protected abstract Task<bool> CustomLogic();
 
-        private BagSlot Item { get { return InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemId); } }
-        protected sealed override async Task Main()
+        protected sealed override async Task<bool> Main()
         {
-            if (!IsDone)
-            {
-                await CommonTasks.HandleLoading();
+            await CommonTasks.HandleLoading();
 
-                await GoThere();
+            if (Target != null && await CustomLogic()) return true;
 
-                if (Target != null && !Blacklist.Contains(Target.ObjectId))
-                    await CustomLogic();
-                else
-                {
-                    if (ItemTarget != 0)
-                        await UseItem();
+            if (ItemTarget != 0 && await UseItem()) return true;
 
-                    if (!Position.WithinHotSpot2D(Me.Location, 5f))
-                        await MoveAndStop(Position, Distance, "Searching for a Target for " + QuestName);
+            if (!Position.WithinHotSpot2D(Core.Player.Location, Distance * Distance) && 
+                await MoveAndStop(Position, Distance, "Moving to HotSpot", true, (ushort)MapId, MountDistance)) return true;
 
-                    if (Hotspots.Count != 0 && Position.WithinHotSpot2D(Me.Location, 5f))
-                        Hotspots.Next();
-                }
+            if (Hotspots.Count != 0 && Navigator.InPosition(Position, Core.Player.Location, 5f))
+                Hotspots.Next();
 
-                await Coroutine.Yield();
-            }
+            return false;
         }
 
         #region UseItem In Combat
-        internal GameObject _obj
+
+        private BagSlot Item
+        {
+            get
+            {
+                return InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemId);
+            }
+        }
+
+        private GameObject _obj
         {
             get
             {
@@ -258,7 +246,7 @@ namespace OrderBotTags.Behaviors
             }
         }
 
-        internal async Task UseItem()
+        public async Task<bool> UseItem()
         {
             if (_obj != null)
             {
@@ -268,24 +256,24 @@ namespace OrderBotTags.Behaviors
                     {
                         if (_obj.NpcId == ItemTarget)
                         {
-                            Navigator.Stop();
+                            Navigator.PlayerMover.MoveStop();
 
-                            if (Me.IsMounted)
-                                await Dismount();
+                            if (await Dismount()) return true;
 
                             if (!Actionmanager.DoAction(Item.ActionType, Item.RawItemId, _obj) && Item.CanUse(_obj))
                             {
                                 Log("Using {0} on {1}.", Item.Name, _obj.Name);
                                 Item.UseItem(_obj);
-                                await ShortCircuit(_obj, false, false, 5000);
                             }
                         }
+                        return await ShortCircuit(_obj);
                     }
-                    await Coroutine.Yield();
                 }
             }
-            else return;
+
+            return false;
         }
+
         #endregion
 
         protected sealed override Composite CreateBehavior() { return new ActionRunCoroutine(cr => Main()); }
@@ -293,7 +281,7 @@ namespace OrderBotTags.Behaviors
         private BlacklistFlags SoHuntBehaviorFlag = (BlacklistFlags)0x200000;
         protected virtual GameObject GetObject()
         {
-            var possible = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && NpcIds.Contains((int)obj.NpcId) && !Blacklist.Contains(obj.ObjectId)).OrderBy(obj => obj.DistanceSqr(Me.Location));
+            var possible = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && NpcIds.Contains((int)obj.NpcId) && !Blacklist.Contains(obj.ObjectId)).OrderBy(obj => obj.DistanceSqr(Core.Player.Location));
 
             float closest = float.MaxValue;
             foreach (var obj in possible)

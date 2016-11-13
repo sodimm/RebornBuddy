@@ -10,15 +10,7 @@ namespace ff14bot.NeoProfiles
     [XmlElement("SoSendCommand")]
     public class SoSendCommand : SoProfileBehavior
     {
-        public override bool HighPriority
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        #region 
+        #region Attributes
 
         [XmlAttribute("GearSet")]
         [DefaultValue(0)]
@@ -49,11 +41,11 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        protected async override Task Main()
+        protected async override Task<bool> Main()
         {
             if (GearSet > 0)
             {
-                Log("Changing Gear Set in {0} ms.", Delay);
+                Log($"Changing Gear Set in {Delay} ms.");
 
                 await Coroutine.Sleep(Delay);
 
@@ -61,26 +53,25 @@ namespace ff14bot.NeoProfiles
 
                 await Coroutine.Sleep(500);
 
-                Log("Changed Gear Set to {0}.", Me.CurrentJob.ToString());
+                Log($"Changed Gear Set to {Core.Player.CurrentJob.ToString()}");
 
                 _done = true;
             }
 
             if (Aura > 0)
             {
-                var auraId = Me.GetAuraById((uint)Aura);
+                var auraId = Core.Player.GetAuraById((uint)Aura);
 
                 string thisAura = null;
 
-                if (Me.HasAura(Aura))
+                if (Core.Player.HasAura(Aura))
                     thisAura = auraId.LocalizedName.ToString();
                 else
                     _done = true;
 
-                Log("Clearing Aura {0}in {1} ms.", thisAura, Delay);
+                Log($"Clearing {thisAura} in {Delay} ms.");
 
                 await Coroutine.Sleep(Delay);
-
 
                 ChatManager.SendChat("/statusoff \"" + thisAura + "\"");
 
@@ -91,7 +82,7 @@ namespace ff14bot.NeoProfiles
 
             if (Raw != null)
             {
-                Log("Sending command [{0}] in {1} ms.", Raw, Delay);
+                Log($"Sending command [{Raw}] in {Delay} ms.");
 
                 await Coroutine.Sleep(Delay);
 
@@ -101,6 +92,8 @@ namespace ff14bot.NeoProfiles
 
                 _done = true;
             }
+
+            return false;
         }
     }
 }

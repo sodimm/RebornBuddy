@@ -109,24 +109,21 @@ namespace ff14bot.NeoProfiles
             };
 
             NeoProfileManager.CurrentGrindArea = grindArea;
+            NeoProfileManager.UpdateGrindArea();
         }
 
         protected override void OnTagStart()
         {
             HotspotManager.Clear();
             CreateGrindArea();
-            Log($"Started for {QuestName}.");
+            //Log($"Started for {QuestName}.");
         }
 
         protected override async Task<bool> Main()
         {
             await CommonTasks.HandleLoading();
-
-            if (await MoveAndStop(Position, Radius, "Moving to HotSpot", true, (ushort)MapId, MountDistance)) return true;
-
-            if (await CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi"))) return true;
-
-            return false;
+            if (MapId > 0 && WorldManager.ZoneId != MapId && await CreateTeleportBehavior(0, (ushort)MapId)) return true;
+            return await CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi"));
         }
 
         protected override void OnTagDone()

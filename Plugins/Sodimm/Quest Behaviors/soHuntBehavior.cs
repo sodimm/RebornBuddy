@@ -14,6 +14,7 @@ namespace OrderBotTags.Behaviors
     using ff14bot.RemoteWindows;
     using System;
     using System.ComponentModel;
+    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using TreeSharp;

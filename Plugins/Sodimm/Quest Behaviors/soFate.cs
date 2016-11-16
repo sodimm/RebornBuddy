@@ -179,7 +179,7 @@ namespace ff14bot.NeoProfiles
                         await Coroutine.Wait(1000, () => Core.Player.IsLevelSynced);
                     }
 
-                    if (await CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi"))) return true;
+                    return await CommonTasks.ExecuteCoroutine(new HookExecutor("HotspotPoi"));
                 }
             }
             else if (await MoveAndStop(Destination, Distance * Distance, "Moving to Hotspot", true, (ushort)MapId, MountDistance)) return true;

@@ -1,4 +1,5 @@
-﻿using Clio.XmlEngine;
+﻿using Buddy.Coroutines;
+using Clio.XmlEngine;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using OrderBotTags.Behaviors;
@@ -39,6 +40,11 @@ namespace ff14bot.NeoProfiles.Tags
                     item.UseItem(obj.Location);
                 else
                     item.UseItem(obj);
+
+                await Coroutine.Wait(3000, () => Core.Player.IsCasting);
+
+                if (!Core.Player.IsCasting) return false;
+
             }
 
             return !await ShortCircuit(obj);

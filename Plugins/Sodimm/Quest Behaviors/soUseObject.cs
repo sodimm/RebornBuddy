@@ -1,4 +1,5 @@
-﻿using Clio.XmlEngine;
+﻿using Buddy.Coroutines;
+using Clio.XmlEngine;
 using ff14bot.Behavior;
 using ff14bot.Objects;
 using OrderBotTags.Behaviors;
@@ -22,12 +23,12 @@ namespace ff14bot.NeoProfiles.Tags
         private async Task<bool> DoUseObject(GameObject obj)
         {
             if (obj.IsTargetable && obj.IsVisible)
-            /*{
-                if (!Core.Player.HasTarget)
-                    obj.Target();*/
-
+            {
                 obj.Interact();
-            //}
+                await Coroutine.Wait(3000, () => Core.Player.IsCasting);
+
+                if (!Core.Player.IsCasting) return false;
+            }
 
             return !await ShortCircuit(obj);
         }

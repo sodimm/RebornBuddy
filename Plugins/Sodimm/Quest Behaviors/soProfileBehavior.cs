@@ -26,7 +26,6 @@ namespace OrderBotTags.Behaviors
         protected SoProfileBehavior() { }
 
         #region Attributes
-
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
@@ -92,13 +91,10 @@ namespace OrderBotTags.Behaviors
         [DefaultValue(50f)]
         [XmlAttribute("MountDistance")]
         public float MountDistance { get; set; }
-
         #endregion
 
-        protected virtual void OnTagStart() { }
 
         #region IsDone Overriders
-
         internal bool _done;
 
         internal bool HasQuest { get { return QuestId > 0 ? ConditionParser.HasQuest(QuestId) : true; } }
@@ -133,10 +129,7 @@ namespace OrderBotTags.Behaviors
         internal bool IsObjectiveComplete { get { return QuestId > 0 && StepId > 0 && Objective > -1 ? ConditionParser.IsTodoChecked(QuestId, (int)StepId, Objective) : false; } }
 
         internal bool IsQuestAcceptQualified { get { return ConditionParser.IsQuestAcceptQualified(QuestId); } }
-
         #endregion
-
-        protected virtual void OnTagDone() { }
 
         protected void FlightCheck()
         {
@@ -159,7 +152,6 @@ namespace OrderBotTags.Behaviors
         }
 
         #region Quest Data
-
         private QuestResult ThisQuest;
 
         internal string NpcName { get { return NpcId != 0 ? DataManager.GetLocalizedNPCName(NpcId) : null; } }
@@ -224,7 +216,6 @@ namespace OrderBotTags.Behaviors
                 }
             }
         }
-
         #endregion
 
         protected void SetupConditional()
@@ -242,6 +233,10 @@ namespace OrderBotTags.Behaviors
             }
         }
 
+        protected virtual void OnTagStart() { }
+
+        protected virtual void OnTagDone() { }
+
         protected sealed override void OnStart()
         {
             FlightCheck();
@@ -252,7 +247,7 @@ namespace OrderBotTags.Behaviors
 
         protected sealed override void OnDone()
         {
-            doneInteract = false;
+            //doneInteract = false;
             OnTagDone();
         }
 
@@ -374,30 +369,30 @@ namespace OrderBotTags.Behaviors
 
         public async Task<bool> Interact()
         {
-            if (!doneInteract && !MovementManager.IsFlying && await InteractWith((uint)NpcId)) return true;
+            if (!MovementManager.IsFlying && await InteractWith((uint)NpcId)) return true;
 
             if (await HandleWindows()) return true;
 
             return false;
         }
 
-        // need better redundancy
-        private static bool doneInteract;
+        private static bool DoneInteract()
+        {
+            if (Core.Player.HasTarget && WindowsOpen())
+                return true;
+            return false;
+        }
+
         private static async Task<bool> InteractWith(uint npcId)
         {
-            if (!QuestLogManager.InCutscene && !Core.Player.HasTarget)
-            {
-                await Coroutine.Sleep(500);
-                GameObjectManager.GetObjectByNPCId(npcId).Interact();
-                await Coroutine.Wait(3000, () => Core.Player.HasTarget && WindowsOpen());
-
-                if (Core.Player.HasTarget && WindowsOpen())
-                    doneInteract = true;
-                else
-                    doneInteract = false;
-            }
-
-            return false;
+            // small delay before interact
+            await Coroutine.Sleep(100);
+            // interact
+            GameObjectManager.GetObjectByNPCId(npcId).Interact();
+            // wait for windows open
+            await Coroutine.Wait(3000, () => Core.Player.HasTarget && WindowsOpen());
+            // ensure windows open
+            return !DoneInteract();
         }
 
         private async Task<bool> HandleWindows()

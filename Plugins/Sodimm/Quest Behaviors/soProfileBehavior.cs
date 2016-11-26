@@ -93,7 +93,6 @@ namespace OrderBotTags.Behaviors
         public float MountDistance { get; set; }
         #endregion
 
-
         #region IsDone Overriders
         internal bool _done;
 
@@ -247,7 +246,6 @@ namespace OrderBotTags.Behaviors
 
         protected sealed override void OnDone()
         {
-            //doneInteract = false;
             OnTagDone();
         }
 

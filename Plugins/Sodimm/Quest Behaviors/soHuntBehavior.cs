@@ -200,7 +200,7 @@ namespace OrderBotTags.Behaviors
             if (!Position.WithinHotSpot2D(Core.Player.Location, Distance * Distance) && 
                 await MoveAndStop(Position, Distance, "Moving to HotSpot", true, (ushort)MapId, MountDistance)) return true;
 
-            if (Hotspots.Count != 0 && Navigator.InPosition(Position, Core.Player.Location, 5f))
+            if (Hotspots.Count != 0 && Position.WithinHotSpot2D(Core.Player.Location, Radius))
                 Hotspots.Next();
 
             return false;

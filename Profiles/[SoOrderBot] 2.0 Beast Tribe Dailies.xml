@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Profile [
-  <!ENTITY Version "2.35.0">
+  <!ENTITY Version "2.43.4">
   <!-- Do What? -->
-  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "0">
-  <!ENTITY doKoboldRank1 "1"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "0">
-  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "0">
-  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "0">
+  <!ENTITY doSahaginRank1 "0"> <!ENTITY doSahaginRank2 "0"> <!ENTITY doSahaginRank3 "1">
+  <!ENTITY doKoboldRank1 "0"> <!ENTITY doKoboldRank2 "0"> <!ENTITY doKoboldRank3 "1">
+  <!ENTITY doSylphRank1 "0"> <!ENTITY doSylphRank2 "0"> <!ENTITY doSylphRank3 "1">
+  <!ENTITY doAmaalJaRank1 "0"> <!ENTITY doAmaalJaRank2 "0"> <!ENTITY doAmaalJaRank3 "1">
   <!-- Rank 3 Materia Quest Rewards (Choose at most 4) -->
   <!-- If multiple choice exists, first slot that returns true will be chosen -->
   <!ENTITY DEX "1"> <!ENTITY MND "0"> <!ENTITY PIE "0"> <!ENTITY BDNC "1">
   <!ENTITY QARM "0"> <!ENTITY VIT "1"> <!ENTITY SAIM "0"> <!ENTITY SMGHT "0"> 
   <!ENTITY QTNG "0"> <!ENTITY STR "1"> <!ENTITY INT "0"> <!ENTITY HEYE "0">
   <!-- Debug -->
-  <!ENTITY doCompleteQuests "0">
+  <!ENTITY doCompleteQuests "1">
 ]>
 <Profile>
   <Name>[SoOrderBot] 2.0 Beast Tribe Dailies</Name>
@@ -83,6 +83,8 @@
       <!-- Wind from their Sails -->
       <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66922" StepId="1" MapId="138" />
       <SoGrind NpcIds="2724,2534,2535,2536" XYZ="-839.1937, -25.64775, 888.4031" Radius="25" QuestId="66922" StepId="1" />
+      <SoUseTransport NpcId="2004012" XYZ="-847.5013, -29.34314, 887.0526" QuestId="66922" StepId="255" />
+
 
       <!-- Skullduggery -->
       <SoUseObject NpcIds="1008793,1008794,1008795,1008796" QuestId="66924" StepId="1" MapId="138">
@@ -164,7 +166,8 @@
         <!-- Learn by Destroying -->
         <SoPickUpQuest NpcId="1005939" QuestId="66935" XYZ="-247.4205, -42.14037, 52.06385" MapId="138" />
       </If>
-      <!-- Transport Quests (Moonshade Isle B -->
+
+      <!-- Transport Quests (Moonshade Isle B) -->
       <!-- In the Shadow of the Moon -->
       <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66934" MapId="138" />
       <If Condition="GetQuestStep(66934) == 1">
@@ -186,8 +189,12 @@
         <RunCode Name="EnableMount" />
       </If>
 
+      <!-- Transport Quests (Merchantman B) -->
       <!-- Learn by Destroying -->
-      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" MapId="9472" />
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66935" StepId="1" MapId="138" />
+      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" />
+      <SoUseTransport NpcId="2004013" XYZ="-883.36, -29.25159, 929.2285" QuestId="66935" StepId="255" />
+
       <!-- Get a Lode of This -->
       <SoUseObject NpcIds="2003765,2003766,2003767,2003768" QuestId="66928" StepId="1" MapId="138">
         <HotSpots>
@@ -295,9 +302,10 @@
       <!-- Unfair Trading -->
       <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66942" MapId="138" />
       <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" />
-      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66942" />
+      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66942" StepId="255" />
       <!-- Sea Scraps -->
-      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" MapId="9473">
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66943" MapId="138" />
+      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" >
         <HotSpots>
           <HotSpot XYZ="-846.8605, -25.65275, 962.0354" Radius="20" />
           <HotSpot XYZ="-862.8214, -20.65275, 966.308" Radius="20" />
@@ -305,8 +313,11 @@
           <HotSpot XYZ="-795.4986, -23.64963, 972.3506" Radius="20" />
         </HotSpots>
       </SoUseObject>
+      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66943" StepId="255" />
       <!-- Plunder Fire -->
-      <SoUseItem ItemId="2001292" NpcIds="2004017,2004018,2004019,2004016" QuestId="66944" StepId="1" Distance="1" MapId="948">
+      <!-- Transport Quests () -->
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66944" MapId="138" />
+      <SoUseItem ItemId="2001292" NpcIds="2004017,2004018,2004019,2004016" QuestId="66944" StepId="1" Distance="1">
         <HotSpots>
           <HotSpot XYZ="-931.6091, -30.28925, 829.3431" Radius="5" />
           <HotSpot XYZ="-917.5707, -31.75409, 823.1479" Radius="5" />
@@ -695,7 +706,7 @@
       <SoTalkTo NpcId="1005932" DialogOption="0" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66880" StepId="1" MapId="180" />
       <SoCarriage NpcId="2003963" XYZ="91.20313, 55.74109, -483.299" SafeSpot="78.20218, 55.61008, -480.1956" QuestId="66880" StepId="2" />
       <!-- Armed and Dangerous -->
-      <SoUseItem NpcIds="2003685,2003686,2003687,2003688,2003689,2003771" ItemId="2001226" XYZ="61.06852, 48.13433, -386.6737" Radius="75" QuestId="66873" StepId="2" MapId="180" />
+      <SoUseItem NpcIds="2003685" ItemId="2001226" XYZ="61.06852, 48.13433, -386.6737" Radius="20" QuestId="66873" StepId="2" MapId="180" />
       <!-- The Sly Savages -->
       <SoTalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66876" StepId="1" MapId="180" />
       <!-- Too Hot to Handle -->

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Profile [
-  <!ENTITY Version "1.12.3">
+  <!ENTITY Version "1.13.4">
   <!ENTITY doRepQuests "0">
   <!ENTITY doVanu "1"> <!ENTITY doSanuwa "1">
   <!ENTITY doVath "1"> <!ENTITY doKongamato "1">
@@ -399,7 +399,12 @@
       <SoTalkTo NpcId="1016223" XYZ="833.827, -97.81962, -734.51" QuestId="67719" StepId="2" MapId="401" />
       <SoTalkTo NpcId="1016223" XYZ="834.3785, -97.81962, -734.51" QuestId="67719" StepId="3" MapId="401" />
       <!-- Nailed Down -->
-      <SoUseObject NpcIds="2006762" XYZ="-781.5214, -13.93152, -114.3054" Radius="10" QuestId="67721" StepId="2" MapId="401" />
+      <SoUseObject NpcIds="2006762,2006676" QuestId="67721" StepId="2" MapId="401">
+        <HotSpots>
+          <HotSpot XYZ="-781.5214, -13.93152, -114.3054" Radius="10" />
+          <HotSpot XYZ="-717.0062, -13.90106, -101.4879" Radius="10" />
+        </HotSpots>
+      </SoUseObject>
       <SoUseItem NpcIds="2006675" ItemId="2001912" XYZ="-642.298, -207.2938, 211.1085" Radius="10" QuestId="67721" StepId="3" MapId="401" />
       <SoHandOver NpcId="1012054" ItemIds="2001913" QuestId="67721" StepId="4" XYZ="-640.1007, -119.5621, 469.5963" MapId="401" />
       <!-- The House That Ginu Built -->

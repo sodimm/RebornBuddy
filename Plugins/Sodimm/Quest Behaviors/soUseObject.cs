@@ -27,10 +27,10 @@ namespace ff14bot.NeoProfiles.Tags
                 obj.Interact();
                 await Coroutine.Wait(3000, () => Core.Player.IsCasting);
 
-                if (!Core.Player.IsCasting) return false;
+                //if (!Core.Player.IsCasting) return false;
             }
 
-            return !await ShortCircuit(obj);
+            return !await ShortCircuit(obj, 10000);
         }
 
         protected override async Task<bool> CustomLogic()

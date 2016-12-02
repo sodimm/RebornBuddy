@@ -106,10 +106,10 @@ namespace OrderBotTags.Behaviors
                 {
                     var items = InventoryManager.FilledInventoryAndArmory.ToArray();
 
-                    for (int i = 0; i < ItemIds?.Length; i++)
+                    for (int i = 0; i < ItemIds.Length; i++)
                     {
                         BagSlot item;
-                        item = items.FirstOrDefault(z => z.RawItemId == ItemIds?[i]);
+                        item = items.FirstOrDefault(z => z.RawItemId == ItemIds[i]);
 
                         if (item != null) return true;
                     }
@@ -250,37 +250,55 @@ namespace OrderBotTags.Behaviors
         }
 
         #region Common Tasks
+        /// <summary>
+        /// Stops the player and summons the mount.
+        /// </summary>
+        /// <returns>true if not mounted, false otherwise.</returns>
         public static async Task<bool> MountUp()
         {
+            // errorcode 0 = can mount.
             if (Actionmanager.CanMount != 0)
                 return false;
 
             if (!Core.Player.IsMounted)
             {
+                // stop if moving.
                 if (MovementManager.IsMoving)
                     Navigator.PlayerMover.MoveStop();
 
                 Actionmanager.Mount();
-                await Coroutine.Sleep(1000);
+                // wait 5s or until mounted
+                await Coroutine.Wait(5000, () => !Core.Player.IsCasting && Core.Player.IsMounted);
             }
 
             return !Core.Player.IsMounted;
         }
 
+        /// <summary>
+        /// Dismounts the player.
+        /// </summary>
+        /// <returns>true if Mounted, false otherwise.</returns>
         public static async Task<bool> Dismount()
         {
             if (Core.Player.IsMounted)
             {
+                // wait to land
                 if (await CommonTasks.Land())
                     await Coroutine.Wait(5000, () => !MovementManager.IsFlying);
 
                 Actionmanager.Dismount();
-                await Coroutine.Sleep(2000);
+                await Coroutine.Sleep(3000);
             }
 
             return Core.Player.IsMounted;
         }
 
+        /// <summary>
+        /// Teleports the player to the first available location on their teleport list. Location will be derived via either Aetheryte Id -OR- Zone Id.
+        /// </summary>
+        /// <param name="aetheryteid">If stipulated, will teleport to the zone associated to the aetheryte</param>
+        /// <param name="zoneid">If stipulated, will teleport to the first available aetheryte associated with the zone.</param>
+        /// <returns>true if not on requested zone, false otherwise.</returns>
         public static async Task<bool> CreateTeleportBehavior(uint aetheryteid = 0, uint zoneid = 0)
         {
             IEnumerable<uint> id = WorldManager.AvailableLocations.Where(x => x.ZoneId == zoneid).Select(r => r.AetheryteId);
@@ -476,10 +494,10 @@ namespace OrderBotTags.Behaviors
                     }
                 }
 
-                return true;
+                await Coroutine.Yield();
             }
 
-            return false;
+            return QuestLogManager.InCutscene || Core.Player.HasTarget;
         }
 
         #endregion

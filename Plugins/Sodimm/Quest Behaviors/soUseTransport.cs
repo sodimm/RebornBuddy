@@ -23,6 +23,9 @@ namespace ff14bot.NeoProfiles.Tags
                 if (!HasQuest)
                     return true;
 
+                if (IsStepComplete)
+                    return true;
+
                 if (Conditional != null)
                 {
                     var cond = !Conditional();

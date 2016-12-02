@@ -97,7 +97,7 @@ namespace ff14bot.NeoProfiles
             if (Hotspots.Count == 0)
             {
                 Hotspots.Add(new HotSpot(XYZ, Radius));
-                Hotspots.IsCyclic = true;
+                Hotspots.IsCyclic = false;
                 Hotspots.Index = 0;
             }
 

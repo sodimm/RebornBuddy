@@ -155,10 +155,20 @@ namespace OrderBotTags.Behaviors
             }
         }
 
-        protected async Task<bool> ShortCircuit(GameObject obj)
+        protected async Task<bool> ShortCircuit(GameObject obj, int timeout = 0)
         {
+            var Timer = new Stopwatch();
             while (obj.IsTargetable && obj.IsVisible || QuestLogManager.InCutscene)
             {
+                if (timeout > 0)
+                    Timer.Start();
+
+                if (!QuestLogManager.InCutscene && timeout > 0 && Timer.ElapsedMilliseconds >= timeout)
+                {
+                    Timer.Stop();
+                    return false;
+                }
+
                 if (IsDone)
                     return false;
 

@@ -183,7 +183,6 @@ namespace OrderBotTags.Behaviors
                     DataManager.QuestCache.TryGetValue((ushort)QuestId, out ThisQuest);
 
                 usedSlots = new HashSet<BagSlot>();
-
                 if (RewardSlot == -1)
                 {
                     if (ThisQuest != null && ThisQuest.Rewards.Any())
@@ -258,6 +257,14 @@ namespace OrderBotTags.Behaviors
         {
             // errorcode 0 = can mount.
             if (Actionmanager.CanMount != 0)
+                return false;
+
+            // transparent
+            if (Core.Player.HasAura(416))
+                return false;
+
+            // transporting
+            if (Core.Player.HasAura(404))
                 return false;
 
             if (!Core.Player.IsMounted)

@@ -13,12 +13,12 @@ namespace Loader
     public class ArtemisLoader : BotBase
     {
         private const string BotBaseName = "Artemis";
-        private const string BotBaseClass = "Artemis.ArtemisBot";
+        private const string BotBaseClass = "Artemis.Artemis";
         private static readonly object ObjectLock = new object();
         private static readonly string botBaseAssembly = Path.Combine(Environment.CurrentDirectory, @"BotBases\Artemis\Artemis.dll");
         private static readonly string botBaseDir = Path.Combine(Environment.CurrentDirectory, @"BotBases\Artemis");
         private static readonly string botBaseTypeFolder = Path.Combine(Environment.CurrentDirectory, @"BotBases");
-        private static readonly Color logColor = Colors.Teal;
+        private static readonly Color logColor = Colors.Cyan;
         private static volatile bool _loaded;
 
         public ArtemisLoader() { }

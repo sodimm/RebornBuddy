@@ -13,7 +13,7 @@ namespace Loader
     {
         #region Meta Data
 
-        private const string PluginClass = "Cyril.CyrilPlugin";
+        private const string PluginClass = "Cyril.Cyril";
         private static readonly string PluginAssembly = Path.Combine(Environment.CurrentDirectory, @"Plugins\Cyril\Cyril.dll");
         private static readonly object ObjLock = new object();
         private static volatile bool _loaded;
@@ -268,7 +268,7 @@ namespace Loader
 
         private static void Log(string message)
         {
-            Logging.Write(Colors.Teal, $"[Cyril] {message}");
+            Logging.Write(Colors.Cyan, $"[Cyril] {message}");
         }
 
         private static void RedirectAssembly()

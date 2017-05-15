@@ -7,14 +7,14 @@ using ff14bot.AClasses;
 using ff14bot.Helpers;
 using ff14bot.Managers;
 
-namespace SparrowLoader
+namespace Loader
 {
     public class SparrowLoader : BotPlugin
     {
         #region Meta Data
 
-        private const string PluginClass = "Sparrow.Sparrow";
-        private static readonly string PluginAssembly = Path.Combine(Environment.CurrentDirectory, @"Plugins\Sparrow\Sparrow.dll");
+        private const string SparrowClass = "Sparrow.Sparrow";
+        private static readonly string SparrowAssembly = Path.Combine(Environment.CurrentDirectory, @"Plugins\Sparrow\Sparrow.dll");
         private static readonly object ObjLock = new object();
         private static volatile bool _loaded;
 
@@ -173,7 +173,7 @@ namespace SparrowLoader
         {
             RedirectAssembly();
 
-            var assembly = LoadAssembly(PluginAssembly);
+            var assembly = LoadAssembly(SparrowAssembly);
             if (assembly == null)
             {
                 return null;
@@ -182,7 +182,7 @@ namespace SparrowLoader
             Type baseType;
             try
             {
-                baseType = assembly.GetType(PluginClass);
+                baseType = assembly.GetType(SparrowClass);
             }
             catch (Exception e)
             {

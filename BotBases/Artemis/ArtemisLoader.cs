@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ff14bot.AClasses;
+using ff14bot.Behavior;
+using ff14bot.Helpers;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Media;
-using ff14bot.AClasses;
-using ff14bot.Behavior;
-using ff14bot.Helpers;
 using TreeSharp;
 using Action = TreeSharp.Action;
 
@@ -35,27 +35,32 @@ namespace Loader
 
         public override string Name
         {
-            get { return "Artemis"; }
+            get
+            { return "Artemis"; }
         }
 
         public override PulseFlags PulseFlags
         {
-            get { return PulseFlags.All; }
+            get
+            { return PulseFlags.All; }
         }
 
         public override bool IsAutonomous
         {
-            get { return true; }
+            get
+            { return true; }
         }
 
         public override bool WantButton
         {
-            get { return true; }
+            get
+            { return true; }
         }
 
         public override bool RequiresProfile
         {
-            get { return false; }
+            get
+            { return false; }
         }
 
         public override Composite Root
@@ -63,7 +68,9 @@ namespace Loader
             get
             {
                 if (!_loaded && BotBase == null)
+                {
                     LoadBotBase();
+                }
 
                 return BotBase != null ? (Composite)BotBaseRoot.Invoke(BotBase, null) : new Action();
             }
@@ -72,37 +79,47 @@ namespace Loader
         public override void OnButtonPress()
         {
             if (!_loaded && BotBase == null)
+            {
                 LoadBotBase();
+            }
 
             if (BotBase != null)
+            {
                 BotBaseButton.Invoke(BotBase, null);
+            }
         }
 
         public override void Start()
         {
             if (!_loaded && BotBase == null)
+            {
                 LoadBotBase();
+            }
 
             if (BotBase != null)
+            {
                 BotBaseStart.Invoke(BotBase, null);
+            }
         }
 
         public override void Stop()
         {
             if (!_loaded && BotBase == null)
+            {
                 LoadBotBase();
+            }
 
             if (BotBase != null)
+            {
                 BotBaseStop.Invoke(BotBase, null);
+            }
         }
 
         public static void RedirectAssembly()
         {
             ResolveEventHandler handler = (sender, args) =>
             {
-                string name = Assembly.GetEntryAssembly().GetName().Name;
-                var requestedAssembly = new AssemblyName(args.Name);
-                return requestedAssembly.Name != name ? null : Assembly.GetEntryAssembly();
+                return new AssemblyName(args.Name).Name != Assembly.GetEntryAssembly().GetName().Name ? null : Assembly.GetEntryAssembly();
             };
 
             AppDomain.CurrentDomain.AssemblyResolve += handler;
@@ -110,24 +127,37 @@ namespace Loader
 
         private static Assembly LoadAssembly(string path)
         {
-            if (!File.Exists(path)) { return null; }
+            if (!File.Exists(path))
+            {
+                return null;
+            }
 
-            Assembly assembly = null;
-            try { assembly = Assembly.LoadFrom(path); }
-            catch (Exception e) { Logging.WriteException(e); }
+            try
+            {
+                Assembly assembly = Assembly.LoadFrom(path);
+            }
+            catch (Exception e)
+            {
+                Logging.WriteException(e);
+            }
 
-            return assembly;
+            return null;
         }
 
         private static object Load()
         {
             RedirectAssembly();
 
-            var assembly = LoadAssembly(botBaseAssembly);
-            if (assembly == null) { return null; }
+            if (LoadAssembly(botBaseAssembly) == null)
+            {
+                return null;
+            }
 
             Type baseType;
-            try { baseType = assembly.GetType(BotBaseClass); }
+            try
+            {
+                baseType = LoadAssembly(botBaseAssembly).GetType(BotBaseClass);
+            }
             catch (Exception e)
             {
                 Log(e.ToString());
@@ -135,15 +165,24 @@ namespace Loader
             }
 
             object _botBase;
-            try { _botBase = Activator.CreateInstance(baseType); }
+            try
+            {
+                _botBase = Activator.CreateInstance(baseType);
+            }
             catch (Exception e)
             {
                 Log(e.ToString());
                 return null;
             }
 
-            if (_botBase != null) { Log(BotBaseName + " was loaded successfully."); }
-            else { Log("Could not load " + BotBaseName + ". This can be due to a new version of Rebornbuddy being released. An update should be ready soon."); }
+            if (_botBase != null)
+            {
+                Log($"{BotBaseName} was loaded successfully.");
+            }
+            else
+            {
+                Log($"Could not load {BotBaseName}. This can be due to a new version of Rebornbuddy being released. An update should be ready soon.");
+            }
 
             return _botBase;
         }
@@ -153,14 +192,18 @@ namespace Loader
             lock (ObjectLock)
             {
                 if (BotBase != null)
+                {
                     return;
+                }
 
                 BotBase = Load();
 
                 _loaded = true;
 
                 if (BotBase == null)
+                {
                     return;
+                }
 
                 BotBaseStart = BotBase.GetType().GetMethod("Start");
                 BotBaseStop = BotBase.GetType().GetMethod("Stop");
@@ -171,7 +214,7 @@ namespace Loader
 
         private static void Log(string message)
         {
-            message = "[" + BotBaseName + "] " + message;
+            message = $"[{BotBaseName}] {message}";
             Logging.Write(logColor, message);
         }
     }

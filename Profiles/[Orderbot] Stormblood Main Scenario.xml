@@ -1151,7 +1151,9 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <NoCombatMoveTo XYZ="-33.20004, 0.0298152, -68.53907"/>
       <TurnIn QuestId="68009" InteractDistance="3.0" NpcId="1020472" XYZ="-33.20004, 0.0298152, -68.53907" />
     </If>
+    <!-- Not everyone is eligible for this quest, will make the profile head to Kugane everytime it's started after this point -->
     <!-- One-star Veteran Clan Hunts -->
+    <!--
     <If Condition="not HasQuest(68472) and not IsQuestCompleted(68472)">
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-42.66527, -2.9, -50.00008"/>
@@ -1165,6 +1167,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <TurnIn QuestId="68472" NpcId="1019009" XYZ="-29.16003, 0.09999965, -46.18909" />
       </If> 
     </If>
+    -->
     <!-- It's Probably a Trap -->
     <If Condition="not HasQuest(68010) and not IsQuestCompleted(68010)">
       <If Condition="not IsOnMap(628)">

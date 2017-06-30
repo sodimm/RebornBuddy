@@ -1154,11 +1154,11 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- One-star Veteran Clan Hunts -->
     <If Condition="not HasQuest(68472) and not IsQuestCompleted(68472)">
       <If Condition="not IsOnMap(628)">
-        <GetTo ZoneId="628" XYZ="-42.52698, -2.9, -47.95917"/>
+        <GetTo ZoneId="628" XYZ="-42.31637, -2.9, -50.70857"/>
       </If>
       <If Condition="IsQuestAcceptQualified(68472)">
-        <NoCombatMoveTo XYZ="-42.52698, -2.9, -47.95917"/>
-        <PickupQuest QuestId="68472" InteractDistance="3.0" NpcId="1019007" XYZ="-42.52698, -2.9, -47.95917"/>
+        <NoCombatMoveTo XYZ="-42.31637, -2.9, -50.70857"/>
+        <PickupQuest QuestId="68472" InteractDistance="3.0" NpcId="1019007" XYZ="-42.31637, -2.9, -50.70857"/>
       </If>
       <If Condition="HasQuest (68472) and not IsQuestCompleted(68472) and GetQuestStep(68472) == 255">
         <GetTo ZoneId="628" XYZ="-29.16003, 0.09999965, -46.18909" />

@@ -4709,13 +4709,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 70 -->
     <LogMessage Message="[Stormblood Main Scenario] Checking level 70 quests." />
     <!-- The Measure of His Reach -->
-    <If Condition="not HasQuest(67651) and not IsQuestCompleted(67651)">
+    <If Condition="not HasQuest(68088) and not IsQuestCompleted(68088)">
       <If Condition="not IsOnMap(621)">
-        <GetTo ZoneId="621" XYZ="-671.0838, 49.99977, 16.50207" />
+        <GetTo ZoneId="621" XYZ="-672.7422, 49.99974, 15.24539" />
       </If>
-      <NoCombatMoveTo XYZ="-671.0838, 49.99977, 16.50207" />
-      <If Condition="IsQuestAcceptQualified(67651)" >
-        <PickupQuest QuestId="67651" NpcId="1021698" XYZ="-671.0838, 49.99977, 16.50207" />
+      <NoCombatMoveTo XYZ="-672.7422, 49.99974, 15.24539" />
+      <If Condition="IsQuestAcceptQualified(68088)" >
+        <PickupQuest QuestId="68088" NpcId="1021698" XYZ="-672.7422, 49.99974, 15.24539" />
       </If>
     </If>
     <If Condition="HasQuest(68088) and not IsQuestCompleted(68088) and GetQuestStep(68088) == 1">

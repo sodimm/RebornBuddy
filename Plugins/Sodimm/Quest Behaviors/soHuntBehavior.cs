@@ -248,7 +248,7 @@ namespace OrderBotTags.Behaviors
             {
                 if (_obj != null && _obj.IsValid)
                 {
-                    if (LacksAuraId > 0 && Poi.Current.BattleCharacter.NpcId == _obj.NpcId && Poi.Current.BattleCharacter.HasAura(LacksAuraId))
+                    if (LacksAuraId > 0 && Poi.Current.BattleCharacter.NpcId == _obj.NpcId && Poi.Current.BattleCharacter.HasAura((uint)LacksAuraId))
                         return false;
                     else
                         return true;
@@ -271,7 +271,7 @@ namespace OrderBotTags.Behaviors
 
                             if (await Dismount()) return true;
 
-                            if (!Actionmanager.DoAction(Item.ActionType, Item.RawItemId, _obj) && Item.CanUse(_obj))
+                            if (!ActionManager.DoAction(Item.ActionType, Item.RawItemId, _obj) && Item.CanUse(_obj))
                             {
                                 Log("Using {0} on {1}.", Item.Name, _obj.Name);
                                 Item.UseItem(_obj);

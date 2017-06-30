@@ -134,10 +134,10 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 foreach (var potion in Potions)
                 {
-                    if (Actionmanager.ItemUseable(potion, null))
+                    if (ActionManager.ItemUseable(potion, null))
                     {
                         Logging.Write("[SimpleDuty] Player below 30% heath using potion id {0}",potion);
-                        Actionmanager.DoAction(ActionType.Item, potion, null);
+                        ActionManager.DoAction(ActionType.Item, potion, null);
                         break;
                     }
                 }
@@ -185,7 +185,7 @@ namespace ff14bot.NeoProfiles.Tags
                         new ActionAlwaysSucceed()
                     )
                 ),
-                new Decorator(r=> Chocobo.Summoned,new ActionRunCoroutine(r => Chocobo.DismissChocobo())),
+                new Decorator(r=> ChocoboManager.Summoned,new ActionRunCoroutine(r => ChocoboManager.DismissChocobo())),
                 CommonBehaviors.MoveAndStop(r => XYZ, InteractDistance, true),
                 CreateUseObject(),
                 new ActionAlwaysSucceed()
@@ -248,7 +248,7 @@ namespace ff14bot.NeoProfiles.Tags
         }
         protected override void OnTagStart()
         {
-            Chocobo.BlockSummon = true;
+            ChocoboManager.BlockSummon = true;
             LeashSquared = LeashDistance * LeashDistance;
             StaticGuardianNPCId = GuardianNPCId;
             StaticSearchDistance = SearchDistance;
@@ -269,7 +269,7 @@ namespace ff14bot.NeoProfiles.Tags
 
         protected override void OnTagDone()
         {
-            Chocobo.BlockSummon = false;
+            ChocoboManager.BlockSummon = false;
             GameEvents.OnPlayerDied -= GameEvents_OnPlayerDied;
             CombatTargeting.Instance.Locked = false;
             CombatTargeting.Instance.Provider = CachedProvider;

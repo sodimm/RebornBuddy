@@ -64,7 +64,7 @@ namespace ff14bot.NeoProfiles
 
                 string thisAura = null;
 
-                if (Core.Player.HasAura(Aura))
+                if (Core.Player.HasAura((uint)Aura))
                     thisAura = auraId.LocalizedName.ToString();
                 else
                     _done = true;

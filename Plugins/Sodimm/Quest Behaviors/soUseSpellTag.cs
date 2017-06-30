@@ -60,10 +60,10 @@ namespace ff14bot.NeoProfiles.Tags
 
                 obj.Face();
 
-                if (!Actionmanager.DoAction(sp.Id, obj) && Actionmanager.CanCast(sp, obj))
-                    Actionmanager.DoAction(sp.Id, obj);
-                else if (!Actionmanager.DoActionLocation(sp.Id, obj.Location) && Actionmanager.CanCastLocation(sp, obj.Location))
-                    Actionmanager.DoActionLocation(sp.Id, obj.Location);
+                if (!ActionManager.DoAction(sp.Id, obj) && ActionManager.CanCast(sp, obj))
+                    ActionManager.DoAction(sp.Id, obj);
+                else if (!ActionManager.DoActionLocation(sp.Id, obj.Location) && ActionManager.CanCastLocation(sp, obj.Location))
+                    ActionManager.DoActionLocation(sp.Id, obj.Location);
             }
 
             return !await ShortCircuit(obj);

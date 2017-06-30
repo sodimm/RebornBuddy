@@ -2953,9 +2953,10 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     </If>
     <If Condition="HasQuest(68046) and not IsQuestCompleted(68046) and GetQuestStep(68046) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-31.29899, 114.905, -37.57225" />
+        <GetTo ZoneId="622" XYZ="62.23388, 8.799959, 40.96981" />
       </If>
-      <NoCombatMoveTo XYZ="-31.29899, 114.905, -37.57225" QuestId="68046" StepId="1"/>
+      <NoCombatMoveTo XYZ="62.23388, 8.799959, 40.96981" />
+      <UseTransport NpcId="1019423" XYZ="62.23388, 8.799959, 40.96981" />
       <TalkTo InteractDistance="3.0" NpcId="1019426" XYZ="-31.29899, 114.905, -37.57225" QuestId="68046" StepId="1" />
     </If>
     <If Condition="HasQuest(68046) and not IsQuestCompleted(68046) and GetQuestStep(68046) == 2">
@@ -3010,8 +3011,10 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <NoCombatMoveTo XYZ="63.24969, 114.905, 72.44996" QuestId="68047" StepId="1"/>
       <TalkTo InteractDistance="3.0" NpcId="1021605" XYZ="63.24969, 114.905, 72.44996" QuestId="68047" StepId="1" />
     </If>
-    <!-- TODO :: USETRANSPORT TO GROUND LEVEL -->
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 2">
+      <If Condition="IsOnMap(622)">
+        <UseTransport NpcId="1019424" XYZ="66.02814, 114.905, -8.501314" />
+      </If>
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-136.8699, 15.55881, 580.166" />
       </If>
@@ -3024,14 +3027,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="622" XYZ="-291.5847, 10.65852, 602.0142" />
       </If>
       <NoCombatMoveTo XYZ="-291.5847, 10.65852, 602.0142" />
-      <NoCombatMoveTo XYZ="-291.5847, 10.65852, 602.0142" QuestId="68047" StepId="3"/>
       <UseObject NpcIds="1021608" XYZ="-291.5847, 10.65852, 602.0142" QuestId="68047" StepId="3" />
     </If>
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 255">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-290.1876, 10.36397, 598.705" />
       </If>
-      <NoCombatMoveTo XYZ="-290.1876, 10.36397, 598.705"/>
+      <NoCombatMoveTo XYZ="-290.1876, 10.36397, 598.705" />
       <TurnIn QuestId="68047" InteractDistance="3.0" NpcId="1021625" XYZ="-290.1876, 10.36397, 598.705" />
     </If>
     <!-- The Undying Ones -->

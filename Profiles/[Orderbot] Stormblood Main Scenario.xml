@@ -2906,25 +2906,25 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <UseTransport InteractDistance="3.0" NpcId="1023089" XYZ="66.20763, 114.905, -8.062243" QuestId="68045" StepId="2" />
     </If>
     <If Condition="HasQuest(68045) and not IsQuestCompleted(68045) and GetQuestStep(68045) == 3">
+      <!-- These Objectives are Underwater -->
+      <!--
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="61.0015, -73.53041, 11.13224" />
       </If>
-      <!-- These Objectives are Underwater -->
-      <!--
-  <UseObject NpcIds="2008250,2008251,2008252,2008253,2008254,2008255,2008256,2008257" QuestId="68045" StepId="3">
-      <HotSpots>
-        <HotSpot XYZ="61.0015, -73.53041, 11.13224" Radius="20" />
-        <HotSpot XYZ="135.1228, -62.65467, -18.12578" Radius="20" />
-        <HotSpot XYZ="109.4597, -52.0721, -41.05727" Radius="20" />
-        <HotSpot XYZ="166.873, -63.23409, 27.40122" Radius="20" />
-        <HotSpot XYZ="166.873, -63.23409, 27.40122" Radius="20" />
-        <HotSpot XYZ="-124.9766, -56.6727, 92.98186" Radius="20" />
-        <HotSpot XYZ="-193.2319, -58.81292, 106.2575" Radius="20" />
-        <HotSpot XYZ="-74.08949, -59.9917, 59.57987" Radius="20" />
-        <HotSpot XYZ="-78.39314, -61.45512, 6.063428" Radius="20" />
-      </HotSpots>
-    </UseObject>
-    -->
+      <UseObject NpcIds="2008250,2008251,2008252,2008253,2008254,2008255,2008256,2008257" QuestId="68045" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="61.0015, -73.53041, 11.13224" Radius="20" />
+          <HotSpot XYZ="135.1228, -62.65467, -18.12578" Radius="20" />
+          <HotSpot XYZ="109.4597, -52.0721, -41.05727" Radius="20" />
+          <HotSpot XYZ="166.873, -63.23409, 27.40122" Radius="20" />
+          <HotSpot XYZ="166.873, -63.23409, 27.40122" Radius="20" />
+          <HotSpot XYZ="-124.9766, -56.6727, 92.98186" Radius="20" />
+          <HotSpot XYZ="-193.2319, -58.81292, 106.2575" Radius="20" />
+          <HotSpot XYZ="-74.08949, -59.9917, 59.57987" Radius="20" />
+          <HotSpot XYZ="-78.39314, -61.45512, 6.063428" Radius="20" />
+        </HotSpots>
+      </UseObject>
+      -->
       <LogMessage Message="[Stormblood Main Scenario] Please complete these objectives manually." />
       <WaitWhile Condition="GetQuestStep(68045) == 3" />
     </If>

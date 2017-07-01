@@ -1411,7 +1411,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(613)">
         <GetTo ZoneId="613" XYZ="-436.6342, 1.563397, -547.983" />
       </If>
-      <MoveTo XYZ="-436.6342, 1.563397, -547.983" QuestId="68015" StepId="5" />
+      <MoveTo XYZ="-436.6342, 1.563397, -547.983" QuestId="68015" StepId="6" />
+      <WaitWhile Condition="GetQuestStep(68015) == 6" />
     </If>
     <If Condition="HasQuest(68015) and not IsQuestCompleted(68015) and GetQuestStep(68015) == 7">
       <If Condition="not IsOnMap(613)">
@@ -3068,15 +3069,15 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="622" XYZ="-435.3593, 2.261327, 582.2807" />
       </If>
       <While Condition="GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 0">
-        <NoCombatMoveTo XYZ="-435.3593, 2.261327, 582.2807" QuestId="68048"/>
+        <NoCombatMoveTo XYZ="-435.3593, 2.261327, 582.2807" />
         <TalkTo InteractDistance="3.0" NpcId="1019320" XYZ="-435.3593, 2.261327, 582.2807" QuestId="68048" />
       </While>
       <While Condition="GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 1">
-        <NoCombatMoveTo XYZ="-411.8313, 2.24758, 616.9207" QuestId="68048"/>
+        <NoCombatMoveTo XYZ="-411.8313, 2.24758, 616.9207" />
         <TalkTo InteractDistance="3.0" NpcId="1019322" XYZ="-411.8313, 2.24758, 616.9207" QuestId="68048" />
       </While>
       <While Condition="GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 2">
-        <NoCombatMoveTo XYZ="-472.9873, 2.320035, 616.9202" QuestId="68048"/>
+        <NoCombatMoveTo XYZ="-472.9873, 2.320035, 616.9202" />
         <TalkTo InteractDistance="3.0" NpcId="1019321" XYZ="-472.9873, 2.320035, 616.9202" QuestId="68048" />
       </While>
     </If>
@@ -3084,7 +3085,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-398.9695, 2.25768, 599.2399" />
       </If>
-      <NoCombatMoveTo XYZ="-398.9695, 2.25768, 599.2399"/>
+      <NoCombatMoveTo XYZ="-398.9695, 2.25768, 599.2399" />
       <TurnIn QuestId="68048" InteractDistance="3.0" NpcId="1021615" XYZ="-398.9695, 2.25768, 599.2399" />
     </If>
     <!-- A Final Peace -->
@@ -3101,7 +3102,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-447.6122, 2.277143, 631.8716" />
       </If>
-      <NoCombatMoveTo XYZ="-447.6122, 2.277143, 631.8716" QuestId="68049" StepId="1"/>
+      <NoCombatMoveTo XYZ="-447.6122, 2.277143, 631.8716" />
       <TalkTo InteractDistance="3.0" NpcId="1020280" XYZ="-447.6122, 2.277143, 631.8716" QuestId="68049" StepId="1" />
     </If>
     <If Condition="HasQuest(68049) and not IsQuestCompleted(68049) and GetQuestStep(68049) == 2">
@@ -3109,14 +3110,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="622" XYZ="-704.3717, 6.362976, 615.0759" />
       </If>
       <NoCombatMoveTo XYZ="-704.3717, 6.362976, 615.0759" />
-      <NoCombatMoveTo XYZ="-704.3717, 6.362976, 615.0759" QuestId="68049" StepId="2"/>
       <UseObject NpcIds="2008484" XYZ="-704.3717, 6.362976, 615.0759" QuestId="68049" StepId="2" />
     </If>
     <If Condition="HasQuest(68049) and not IsQuestCompleted(68049) and GetQuestStep(68049) == 255">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-705.5469, 6.556923, 613.1005" />
       </If>
-      <NoCombatMoveTo XYZ="-705.5469, 6.556923, 613.1005"/>
+      <NoCombatMoveTo XYZ="-705.5469, 6.556923, 613.1005" />
       <TurnIn QuestId="68049" InteractDistance="3.0" NpcId="1021628" XYZ="-705.5469, 6.556923, 613.1005" />
     </If>
     <!-- As the Gods Will -->
@@ -3147,6 +3147,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="498.3662, 40.8361, -508.3227" />
       </If>
+      <TeleportTo AetheryteId="109" Name="Reunion" Force="True" />
       <NoCombatMoveTo XYZ="498.3662, 40.8361, -508.3227"/>
       <TurnIn QuestId="68050" InteractDistance="3.0" NpcId="1020539" XYZ="498.3662, 40.8361, -508.3227" />
     </If>

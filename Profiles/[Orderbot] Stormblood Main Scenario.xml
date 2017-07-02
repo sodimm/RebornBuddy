@@ -1954,12 +1954,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <TalkTo InteractDistance="3.0" NpcId="1019992" XYZ="-792.3248, 21.37379, -479.1701" />
       </While>
       <NoCombatMoveTo XYZ="-794.0064, 4.993313, -373.0058"/>
-      <UseObject NpcIds="1019990,1019991" QuestId="68026" StepId="1" UseTimes="1">
-        <HotSpots>
-          <HotSpot XYZ="-794.0064, 4.993313, -373.0058" Radius="20" />
-          <HotSpot XYZ="-806.6144, 8.520734, -419.4321" Radius="20" />
-        </HotSpots>
-      </UseObject>
+      <While Condition="GetQuestById(68026).GetTodoArgs(1, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="-794.0064, 4.993313, -373.0058"/>
+        <UseObject NpcId="1019990" XYZ="-794.0064, 4.993313, -373.0058" QuestId="68026" StepId="1" UseTimes="1"/>
+      </While>
+      <While Condition="GetQuestById(68026).GetTodoArgs(1, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="-806.6144, 8.520734, -419.4321"/>
+        <UseObject NpcId="1019991" XYZ="-806.6144, 8.520734, -419.4321" QuestId="68026" StepId="1" UseTimes="1"/>
+      </While>
     </If>
     <If Condition="HasQuest(68026) and not IsQuestCompleted(68026) and GetQuestStep(68026) == 255">
       <If Condition="not IsOnMap(613)">
@@ -2005,10 +2007,10 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- Namai Aetheryte Attunement -->
     <If Condition="IsOnMap(614) and not Managers.WorldManager.HasAetheryteId(107)">
       <LogMessage Message="[Stormblood] Attuning to the Namai Aetheryte..."/>
-      <MoveTo Name="Aetheryte" XYZ="438.2271, 68.73728, -91.54288"/>
-      <UseObject UseDistance="8.0" NpcId="107" XYZ="432.6696, 73.07532, -90.74542" Radius="10" UseTimes="1" BlacklistAfter="True"/>
+      <MoveTo Name="Aetheryte" XYZ="437.9302, 68.74809, -92.55511"/>
+      <UseObject UseDistance="8.0" NpcId="107" XYZ="437.9302, 68.74809, -92.55511" Radius="10" UseTimes="1" BlacklistAfter="True"/>
       <LogMessage Message="[Stormblood] Setting Namai as your Home Point..."/>
-      <UseTransport NpcId="107" UseTimes="1" DialogOption="0" BlacklistAfter="True" InteractDistance="10" XYZ="432.6696, 73.07532, -90.74542" Radius="10" WaitTime="5000"/>
+      <UseTransport NpcId="107" UseTimes="1" DialogOption="0" BlacklistAfter="True" InteractDistance="10" XYZ="437.9302, 68.74809, -92.55511" Radius="10" WaitTime="5000"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Level 63 quests completed." />
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 64 -->
@@ -2542,7 +2544,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <TurnIn QuestId="68166" InteractDistance="3.0" NpcId="1020079" XYZ="560.5419, -19.50564, 408.5474" />
     </If>
     <!-- Reunion Aetheryte Attunement -->
-    <If Condition="IsOnMap(622) and not Managers.WorldManager.HasAetheryteId(109)">
+    <If Condition="IsOnMap(614) and not Managers.WorldManager.HasAetheryteId(108)">
       <LogMessage Message="[Stormblood] Attuning to the Reunion Aetheryte..."/>
       <NoCombatMoveTo XYZ="557.6298, -19.50564, 346.3931"/>
       <UseObject UseDistance="8.0" NpcId="109" XYZ="556.1454, -16.80023, 340.1083" Radius="10" UseTimes="1" BlacklistAfter="True"/>

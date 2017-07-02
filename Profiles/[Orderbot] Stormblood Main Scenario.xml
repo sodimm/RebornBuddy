@@ -528,7 +528,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="-200.6809, 95.1935, -448.9891" />
       </If>
-      <NoCombatMoveTo XYZ="-200.6809, 95.1935, -448.9891" QuestId="67995" StepId="1"/>
+      <NoCombatMoveTo XYZ="-200.6809, 95.1935, -448.9891" />
       <UseObject NpcIds="2008684" XYZ="-200.6809, 95.1935, -448.9891" QuestId="67995" StepId="1" />
     </If>
     <If Condition="HasQuest(67995) and not IsQuestCompleted(67995) and GetQuestStep(67995) == 2">
@@ -1164,7 +1164,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <If Condition="HasQuest (68472) and not IsQuestCompleted(68472) and GetQuestStep(68472) == 255">
         <GetTo ZoneId="628" XYZ="-29.16003, 0.09999965, -46.18909" />
-        <TurnIn QuestId="68472" NpcId="1019009" XYZ="-29.16003, 0.09999965, -46.18909" />
+        <TurnIn QuestId="68472" InteractDistance="3.0" NpcId="1019009" XYZ="-29.16003, 0.09999965, -46.18909" />
       </If> 
     </If>
     -->
@@ -3374,13 +3374,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
         <UseTransport Name="East Aldenard Trading Company Aide" InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
       </If>
-      <HandOver ItemIds="2002174" NpcId="1023084" XYZ="-1.482813, 0, -1.259722" QuestId="68482" StepId="2" />
+      <HandOver ItemIds="2002174" InteractDistance="3.0" NpcId="1023084" XYZ="-1.482813, 0, -1.259722" QuestId="68482" StepId="2" />
     </If>
     <If Condition="HasQuest(68482) and not IsQuestCompleted(68482) and GetQuestStep(68482) == 255">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="173.8902, 5.16971, -417.3837" />
       </If>
-      <TurnIn ItemIds="2002175" QuestId="68482" NpcId="1020519" XYZ="173.8902, 5.16971, -417.3837" />
+      <TurnIn ItemIds="2002175" QuestId="68482" InteractDistance="3.0" NpcId="1020519" XYZ="173.8902, 5.16971, -417.3837" />
     </If>
     <!-- Seeds of Despair -->
     <If Condition="not HasQuest(68056) and not IsQuestCompleted(68056)">
@@ -3388,14 +3388,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="173.8902, 5.16971, -417.3837" />
       </If>
       <If Condition="IsQuestAcceptQualified(68056)" >
-        <PickupQuest QuestId="68056" NpcId="1020519" XYZ="173.8902, 5.16971, -417.3837" />
+        <PickupQuest QuestId="68056" InteractDistance="3.0" NpcId="1020519" XYZ="173.8902, 5.16971, -417.3837" />
       </If>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 1">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="235.8714, 4.454769, -382.8048" />
       </If>
-      <TalkTo NpcId="1020520" XYZ="235.8714, 4.454769, -382.8048" QuestId="68056" StepId="1" />
+      <TalkTo NpcId="1020520" InteractDistance="3.0" XYZ="235.8714, 4.454769, -382.8048" QuestId="68056" StepId="1" />
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 2">
       <If Condition="not IsOnMap(614)">
@@ -3416,14 +3416,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="462.7841, -3.451473, -799.2636" />
       </If>
       <NoCombatMoveTo XYZ="462.7841, -3.451473, -799.2636"/>
-      <UseTransport NpcId="1020228" XYZ="462.7841, -3.451473, -799.2636" DialogOption="0" QuestId="68056" StepId="4" />
+      <UseTransport NpcId="1020228" InteractDistance="3.0" XYZ="462.7841, -3.451473, -799.2636" DialogOption="0" QuestId="68056" StepId="4" />
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 5">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="552.0418, 23.15463, -690.6907" />
       </If>
       <NoCombatMoveTo XYZ="552.0418, 23.15463, -690.6907"/>
-      <TalkTo NpcId="1020230" XYZ="552.0418, 23.15463, -690.6907" QuestId="68056" StepId="5" />
+      <TalkTo NpcId="1020230" InteractDistance="3.0" XYZ="552.0418, 23.15463, -690.6907" QuestId="68056" StepId="5" />
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 6">
       <If Condition="not IsOnMap(614)">
@@ -3437,14 +3437,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="498.9214, 11.84389, -838.2575" />
       </If>
       <NoCombatMoveTo XYZ="498.9214, 11.84389, -838.2575"/>
-      <TalkTo NpcId="1020273" XYZ="498.9214, 11.84389, -838.2575" QuestId="68056" StepId="7" />
+      <TalkTo NpcId="1020273" InteractDistance="3.0" XYZ="498.9214, 11.84389, -838.2575" QuestId="68056" StepId="7" />
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 255">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="235.8236, 4.471331, -382.6911" />
       </If>
       <NoCombatMoveTo XYZ="235.8236, 4.471331, -382.6911"/>
-      <TurnIn QuestId="68056" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911" />
+      <TurnIn QuestId="68056" InteractDistance="3.0" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911" />
     </If>
     <!-- The Limits of Our Endurance -->
     <If Condition="not HasQuest(68057) and not IsQuestCompleted(68057)">
@@ -3453,14 +3453,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <If Condition="IsQuestAcceptQualified(68057)" >
         <NoCombatMoveTo XYZ="235.8236, 4.471331, -382.6911"/>
-        <PickupQuest QuestId="68057" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911" />
+        <PickupQuest QuestId="68057" InteractDistance="3.0" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911" />
       </If>
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 1">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="188.1972, 5.069492, -414.9248" />
       </If>
-      <TalkTo NpcId="1020521" XYZ="188.1972, 5.069492, -414.9248" QuestId="68057" StepId="1" />
+      <TalkTo NpcId="1020521" InteractDistance="3.0" XYZ="188.1972, 5.069492, -414.9248" QuestId="68057" StepId="1" />
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 2">
       <If Condition="not IsOnMap(614)">
@@ -3468,14 +3468,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
 	  <TeleportTo Name="Namai" AetheryteId="107" Force="True"/>
       <NoCombatMoveTo XYZ="442.5113, 58.87671, -171.2374" />
-      <TalkTo NpcId="1023092" XYZ="442.5113, 58.87671, -171.2374" QuestId="68057" StepId="2" />
+      <TalkTo NpcId="1023092" InteractDistance="3.0" XYZ="442.5113, 58.87671, -171.2374" QuestId="68057" StepId="2" />
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 255">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="337.0003, 31.08492, 207.016" />
       </If>
       <NoCombatMoveTo XYZ="337.0003, 31.08492, 207.016" />
-      <TurnIn QuestId="68057" NpcId="1020232" XYZ="337.0003, 31.08492, 207.016" />
+      <TurnIn QuestId="68057" InteractDistance="3.0" NpcId="1020232" XYZ="337.0003, 31.08492, 207.016" />
     </If>
     <!-- Broken Steel, Broken Men -->
     <If Condition="not HasQuest(68483) and not IsQuestCompleted(68483)">
@@ -3484,7 +3484,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="337.4386, 31.01581, 206.7066" />
       <If Condition="IsQuestAcceptQualified(68483)" >
-        <PickupQuest QuestId="68483" NpcId="1020232" XYZ="337.4386, 31.01581, 206.7066" />
+        <PickupQuest QuestId="68483" InteractDistance="3.0" NpcId="1020232" XYZ="337.4386, 31.01581, 206.7066" />
       </If>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 1">
@@ -3535,7 +3535,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="337.4832, 31.012, 206.576" />
       </If>
       <NoCombatMoveTo XYZ="337.4832, 31.012, 206.576" />
-      <TurnIn ItemIds="2002177" QuestId="68483" NpcId="1020232" XYZ="337.4832, 31.012, 206.576" />
+      <TurnIn ItemIds="2002177" InteractDistance="3.0" QuestId="68483" NpcId="1020232" XYZ="337.4832, 31.012, 206.576" />
     </If>
     <!-- The Doma Within -->
     <If Condition="not HasQuest(68058) and not IsQuestCompleted(68058)">
@@ -3544,7 +3544,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="336.9681, 31.11511, 203.6284" />
       <If Condition="IsQuestAcceptQualified(68058)" >
-        <PickupQuest QuestId="68058" NpcId="1020234" XYZ="336.9681, 31.11511, 203.6284" />
+        <PickupQuest QuestId="68058" InteractDistance="3.0" NpcId="1020234" XYZ="336.9681, 31.11511, 203.6284" />
       </If>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 1">
@@ -3554,13 +3554,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
 	  <TeleportTo Name="House of the Fierce" AetheryteId="108" Force="True"/>
       <NoCombatMoveTo XYZ="233.5597, 5.242018, -425.2724" />
       <While Condition="GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 0">
-        <TalkTo NpcId="1019286" XYZ="233.5597, 5.242018, -425.2724" QuestId="68058"  />
+        <TalkTo NpcId="1019286" InteractDistance="3.0" XYZ="233.5597, 5.242018, -425.2724" QuestId="68058"  />
       </While>
       <While Condition="GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 1">
-        <TalkTo NpcId="1019287" XYZ="196.7047, 5.167062, -411.3493" QuestId="68058" />
+        <TalkTo NpcId="1019287" InteractDistance="3.0" XYZ="196.7047, 5.167062, -411.3493" QuestId="68058" />
       </While>
       <While Condition="GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 2">
-        <TalkTo NpcId="1019285" XYZ="195.8469, 5.169701, -437.7425" QuestId="68058" />
+        <TalkTo NpcId="1019285" InteractDistance="3.0" XYZ="195.8469, 5.169701, -437.7425" QuestId="68058" />
       </While>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 2">
@@ -3568,21 +3568,21 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="174.734, 5.196851, -432.5633" />
       </If>
       <NoCombatMoveTo XYZ="174.734, 5.196851, -432.5633" />
-      <TalkTo NpcId="1023083" XYZ="174.734, 5.196851, -432.5633" QuestId="68058" StepId="2" />
+      <TalkTo NpcId="1023083" InteractDistance="3.0" XYZ="174.734, 5.196851, -432.5633" QuestId="68058" StepId="2" />
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 3">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="-74.43459, 53.21751, -521.9879" />
       </If>
       <NoCombatMoveTo XYZ="-74.43459, 53.21751, -521.9879" />
-      <TalkTo NpcId="1020237" XYZ="-74.43459, 53.21751, -521.9879" QuestId="68058" StepId="3" />
+      <TalkTo NpcId="1020237" InteractDistance="3.0" XYZ="-74.43459, 53.21751, -521.9879" QuestId="68058" StepId="3" />
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 4">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="-155.6995, 53.21751, -622.0059" />
       </If>
       <NoCombatMoveTo XYZ="-155.6995, 53.21751, -622.0059" />
-      <TalkTo NpcId="1020238" XYZ="-155.6995, 53.21751, -622.0059" QuestId="68058" StepId="4" />
+      <TalkTo NpcId="1020238" InteractDistance="3.0" XYZ="-155.6995, 53.21751, -622.0059" QuestId="68058" StepId="4" />
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 5">
       <If Condition="not IsOnMap(614)">
@@ -3596,7 +3596,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="-291.6616, 53.21751, -614.3809" />
       </If>
       <NoCombatMoveTo XYZ="-291.6616, 53.21751, -614.3809" />
-      <TurnIn ItemIds="2002178" QuestId="68058" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809" />
+      <TurnIn ItemIds="2002178" InteractDistance="3.0" QuestId="68058" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809" />
     </If>
     <!-- On the Eve of Destiny -->
     <If Condition="not HasQuest(68059) and not IsQuestCompleted(68059)">
@@ -3605,7 +3605,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-291.6616, 53.21751, -614.3809" />
       <If Condition="IsQuestAcceptQualified(68059)" >
-        <PickupQuest QuestId="68059" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809" />
+        <PickupQuest QuestId="68059" InteractDistance="3.0" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809" />
       </If>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 1">
@@ -3613,7 +3613,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="173.7853, 5.16971, -417.5015" />
       </If>
       <NoCombatMoveTo XYZ="173.7853, 5.16971, -417.5015" />
-      <TalkTo NpcId="1020519" XYZ="173.7853, 5.16971, -417.5015" QuestId="68059" StepId="1" />
+      <TalkTo NpcId="1020519" InteractDistance="3.0" XYZ="173.7853, 5.16971, -417.5015" QuestId="68059" StepId="1" />
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 2">
       <If Condition="not IsOnMap(614)">
@@ -3621,13 +3621,13 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="177.1467, 5.169708, -416.186" />
       <While Condition="GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 0">
-        <TalkTo NpcId="1020523" XYZ="177.1467, 5.169708, -416.186" QuestId="68059" />
+        <TalkTo NpcId="1020523" InteractDistance="3.0" XYZ="177.1467, 5.169708, -416.186" QuestId="68059" />
       </While>
       <While Condition="GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 1">
-        <TalkTo NpcId="1020521" XYZ="188.0672, 5.069492, -415.0723" QuestId="68059" />
+        <TalkTo NpcId="1020521" InteractDistance="3.0" XYZ="188.0672, 5.069492, -415.0723" QuestId="68059" />
       </While>
       <While Condition="GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 2">
-        <TalkTo NpcId="1020240" XYZ="233.9404, 5.657917, -427.0182" QuestId="68059" />
+        <TalkTo NpcId="1020240" InteractDistance="3.0" XYZ="233.9404, 5.657917, -427.0182" QuestId="68059" />
       </While>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 255">
@@ -3635,7 +3635,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="173.8472, 5.16971, -417.3779" />
       </If>
       <NoCombatMoveTo XYZ="173.8472, 5.16971, -417.3779" />
-      <TurnIn QuestId="68059" NpcId="1020519" XYZ="173.8472, 5.16971, -417.3779" />
+      <TurnIn QuestId="68059" InteractDistance="3.0" NpcId="1020519" XYZ="173.8472, 5.16971, -417.3779" />
     </If>
     <!-- The Die Is Cast -->
     <If Condition="not HasQuest(68060) and not IsQuestCompleted(68060)">
@@ -3644,7 +3644,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="173.314, 5.19139, -433.3132" />
       <If Condition="IsQuestAcceptQualified(68060)" >
-        <PickupQuest QuestId="68060" NpcId="1020524" XYZ="173.314, 5.19139, -433.3132" />
+        <PickupQuest QuestId="68060" InteractDistance="3.0" NpcId="1020524" XYZ="173.314, 5.19139, -433.3132" />
       </If>
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 1">
@@ -3659,14 +3659,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="-241.9438, 53.21751, -653.1641" />
       </If>
       <NoCombatMoveTo XYZ="-241.9438, 53.21751, -653.1641" />
-      <TalkTo NpcId="1020244" XYZ="-241.9438, 53.21751, -653.1641" QuestId="68060" StepId="2" />
+      <TalkTo NpcId="1020244" InteractDistance="3.0" XYZ="-241.9438, 53.21751, -653.1641" QuestId="68060" StepId="2" />
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 3">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="-365.7232, 1.230045, -362.7906" />
       </If>
       <NoCombatMoveTo XYZ="-365.7232, 1.230045, -362.7906" />
-      <TalkTo NpcId="1020247" XYZ="-365.7232, 1.230045, -362.7906" QuestId="68060" StepId="3" />
+      <TalkTo NpcId="1020247" InteractDistance="3.0" XYZ="-365.7232, 1.230045, -362.7906" QuestId="68060" StepId="3" />
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 4">
       <LogMessage Message="[StormBlood Main Scenario] Please manually complete [Duty] Doma Castle." />
@@ -3677,7 +3677,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="-390.4628, 30.65187, -455.9088" />
       </If>
       <NoCombatMoveTo XYZ="-390.4628, 30.65187, -455.9088" />
-      <TurnIn QuestId="68060" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088" />
+      <TurnIn QuestId="68060" InteractDistance="3.0" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088" />
     </If>
     <!-- The World Turned Upside Down -->
     <If Condition="not HasQuest(68061) and not IsQuestCompleted(68061)">
@@ -3686,7 +3686,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-390.4628, 30.65187, -455.9088" />
       <If Condition="IsQuestAcceptQualified(68061)" >
-        <PickupQuest QuestId="68061" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088" />
+        <PickupQuest QuestId="68061" InteractDistance="3.0" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088" />
       </If>
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 1">
@@ -3694,7 +3694,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="614" XYZ="-348.3893, 1.230025, -343.7865" />
       </If>
       <NoCombatMoveTo XYZ="-348.3893, 1.230025, -343.7865" />
-      <UseTransport NpcId="1020255" XYZ="-348.3893, 1.230025, -343.7865" DialogOption="0" QuestId="68061" StepId="1" />
+      <UseTransport NpcId="1020255" InteractDistance="3.0" XYZ="-348.3893, 1.230025, -343.7865" DialogOption="0" QuestId="68061" StepId="1" />
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 2">
       <WaitWhile Condition="GetQuestStep(68061) == 2" />
@@ -3704,23 +3704,23 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="682" XYZ="147.5351, -4.178713, 50.60109" />
       </If>
       <NoCombatMoveTo XYZ="147.5351, -4.178713, 50.60109" />
-      <UseTransport NpcId="1020644" XYZ="147.5351, -4.178713, 50.60109" QuestId="68061" />
+      <UseTransport NpcId="1020644" InteractDistance="3.0" XYZ="147.5351, -4.178713, 50.60109" QuestId="68061" />
       <NoCombatMoveTo XYZ="-462.6106, 1.230005, 546.0444" />
-      <TalkTo NpcId="1020258" XYZ="-462.6106, 1.230005, 546.0444" QuestId="68061" StepId="3" />
+      <TalkTo NpcId="1020258" InteractDistance="3.0" XYZ="-462.6106, 1.230005, 546.0444" QuestId="68061" StepId="3" />
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 4">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="-471.848, 1.230624, 557.1023" />
       </If>
       <NoCombatMoveTo XYZ="-471.848, 1.230624, 557.1023" />
-      <UseTransport NpcId="1020263" XYZ="-471.848, 1.230624, 557.1023" DialogOption="0" QuestId="68061" StepId="4" />
+      <UseTransport NpcId="1020263" InteractDistance="3.0" XYZ="-471.848, 1.230624, 557.1023" DialogOption="0" QuestId="68061" StepId="4" />
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 255">
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-176.0217, -7.000111, 53.77894" />
       </If>
       <NoCombatMoveTo XYZ="-176.0217, -7.000111, 53.77894" />
-      <TurnIn QuestId="68061" NpcId="1020265" XYZ="-176.0217, -7.000111, 53.77894" />
+      <TurnIn QuestId="68061" InteractDistance="3.0" NpcId="1020265" XYZ="-176.0217, -7.000111, 53.77894" />
     </If>
     <!-- A Swift and Secret Departure -->
     <If Condition="not HasQuest(68062) and not IsQuestCompleted(68062)">
@@ -3729,7 +3729,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-171.6678, -7.000019, 55.64794" />
       <If Condition="IsQuestAcceptQualified(68062)" >
-        <PickupQuest QuestId="68062" NpcId="1020267" XYZ="-171.6678, -7.000019, 55.64794" />
+        <PickupQuest QuestId="68062" InteractDistance="3.0" NpcId="1020267" XYZ="-171.6678, -7.000019, 55.64794" />
       </If>
     </If>
     <If Condition="HasQuest(68062) and not IsQuestCompleted(68062) and GetQuestStep(68062) == 1">
@@ -3744,14 +3744,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="628" XYZ="-88.87798, -6.999999, -56.43304" />
       </If>
       <NoCombatMoveTo XYZ="-88.87798, -6.999999, -56.43304" />
-      <TalkTo NpcId="1020270" XYZ="-88.87798, -6.999999, -56.43304" QuestId="68062" StepId="2" />
+      <TalkTo NpcId="1020270" InteractDistance="3.0" XYZ="-88.87798, -6.999999, -56.43304" QuestId="68062" StepId="2" />
     </If>
     <If Condition="HasQuest(68062) and not IsQuestCompleted(68062) and GetQuestStep(68062) == 255">
       <If Condition="not IsOnMap(129)">
         <GetTo ZoneId="129" XYZ="-355.5707, 8.000014, 40.82682" />
       </If>
       <NoCombatMoveTo XYZ="-355.5707, 8.000014, 40.82682" />
-      <TurnIn QuestId="68062" NpcId="1020441" XYZ="-355.5707, 8.000014, 40.82682" />
+      <TurnIn QuestId="68062" InteractDistance="3.0" NpcId="1020441" XYZ="-355.5707, 8.000014, 40.82682" />
     </If>
     <!-- While You Were Away -->
     <If Condition="not HasQuest(68063) and not IsQuestCompleted(68063)">
@@ -3760,7 +3760,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-355.4084, 7.999914, 38.78555" />
       <If Condition="IsQuestAcceptQualified(68063)" >
-        <PickupQuest QuestId="68063" NpcId="1020439" XYZ="-355.4084, 7.999914, 38.78555" />
+        <PickupQuest QuestId="68063" InteractDistance="3.0" NpcId="1020439" XYZ="-355.4084, 7.999914, 38.78555" />
       </If>
     </If>
     <If Condition="HasQuest(68063) and not IsQuestCompleted(68063) and GetQuestStep(68063) == 1">
@@ -3768,21 +3768,21 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="-612.6423, 130.142, -480.5226" />
       </If>
       <NoCombatMoveTo XYZ="-612.6423, 130.142, -480.5226" />
-      <TalkTo NpcId="1020553" XYZ="-612.6423, 130.142, -480.5226" QuestId="68063" StepId="1" />
+      <TalkTo NpcId="1020553" InteractDistance="3.0" XYZ="-612.6423, 130.142, -480.5226" QuestId="68063" StepId="1" />
     </If>
     <If Condition="HasQuest(68063) and not IsQuestCompleted(68063) and GetQuestStep(68063) == 2">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="-473.5242, 98.60663, -349.3842" />
       </If>
       <NoCombatMoveTo XYZ="-473.5242, 98.60663, -349.3842" />
-      <TalkTo NpcId="1020401" XYZ="-473.5242, 98.60663, -349.3842" QuestId="68063" StepId="2" />
+      <TalkTo NpcId="1020401" InteractDistance="3.0" XYZ="-473.5242, 98.60663, -349.3842" QuestId="68063" StepId="2" />
     </If>
     <If Condition="HasQuest(68063) and not IsQuestCompleted(68063) and GetQuestStep(68063) == 255">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="-605.1679, 130, -506.1796" />
       </If>
       <NoCombatMoveTo XYZ="-605.1679, 130, -506.1796" />
-      <TurnIn QuestId="68063" NpcId="1020354" XYZ="-605.1679, 130, -506.1796" />
+      <TurnIn QuestId="68063" InteractDistance="3.0" NpcId="1020354" XYZ="-605.1679, 130, -506.1796" />
     </If>
     <!-- Rhalgr's Beacon -->
     <If Condition="not HasQuest(68064) and not IsQuestCompleted(68064)">
@@ -3791,7 +3791,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-606.7241, 130, -507.0247" />
       <If Condition="IsQuestAcceptQualified(68064)" >
-        <PickupQuest QuestId="68064" NpcId="1020304" XYZ="-606.7241, 130, -507.0247" />
+        <PickupQuest QuestId="68064" InteractDistance="3.0" NpcId="1020304" XYZ="-606.7241, 130, -507.0247" />
       </If>
     </If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 1">
@@ -3799,7 +3799,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="635" XYZ="171.6279, 13.02367, -91.43189" />
       </If>
       <NoCombatMoveTo XYZ="171.6279, 13.02367, -91.43189" />
-      <TalkTo NpcId="1019466" XYZ="171.6279, 13.02367, -91.43189" QuestId="68064" StepId="1" />
+      <TalkTo NpcId="1019466" InteractDistance="3.0" XYZ="171.6279, 13.02367, -91.43189" QuestId="68064" StepId="1" />
     </If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 2">1
       <If Condition="not IsOnMap(635)">
@@ -3807,15 +3807,15 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <If Condition="not IsTodoChecked(68064, 2, 1)">
         <NoCombatMoveTo XYZ="133.694, 0.6520414, 9.093788" />
-        <TalkTo NpcId="1023762" XYZ="133.694, 0.6520414, 9.093788" QuestId="68064" />
+        <TalkTo NpcId="1023762" InteractDistance="3.0" XYZ="133.694, 0.6520414, 9.093788" QuestId="68064" />
       </If>
       <If Condition="not IsTodoChecked(68064, 2, 0)">
         <NoCombatMoveTo XYZ="22.3196, -0.3299521, 3.904311" />
-        <TalkTo NpcId="1023298" XYZ="22.3196, -0.3299521, 3.904311" QuestId="68064" />
+        <TalkTo NpcId="1023298" InteractDistance="3.0" XYZ="22.3196, -0.3299521, 3.904311" QuestId="68064" />
       </If>
       <If Condition="not IsTodoChecked(68064, 2, 2)">
         <NoCombatMoveTo XYZ="13.60807, -0.4418265, 121.7515" />
-        <TalkTo NpcId="1023763" XYZ="13.60807, -0.4418265, 121.7515" QuestId="68064" />
+        <TalkTo NpcId="1023763" InteractDistance="3.0" XYZ="13.60807, -0.4418265, 121.7515" QuestId="68064" />
       </If>
     </If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 3">
@@ -3823,7 +3823,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="635" XYZ="170.9357, 13.02367, -91.10619" />
       </If>
       <NoCombatMoveTo XYZ="170.9357, 13.02367, -91.10619" />
-      <TalkTo NpcId="1019466" XYZ="170.9357, 13.02367, -91.10619" QuestId="68064" StepId="3" />
+      <TalkTo NpcId="1019466" InteractDistance="3.0" XYZ="170.9357, 13.02367, -91.10619" QuestId="68064" StepId="3" />
     </If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 4">
       <If Condition="not IsOnMap(612)">
@@ -3841,7 +3841,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="-91.20313, 50.00444, 188.0117" />
       </If>
       <NoCombatMoveTo XYZ="-91.20313, 50.00444, 188.0117" />
-      <TurnIn QuestId="68064" NpcId="1020567" XYZ="-91.20313, 50.00444, 188.0117" />
+      <TurnIn QuestId="68064" InteractDistance="3.0" NpcId="1020567" XYZ="-91.20313, 50.00444, 188.0117" />
     </If>
     <!-- The Fortunes of War -->
     <If Condition="not HasQuest(68065) and not IsQuestCompleted(68065)">
@@ -3850,7 +3850,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-92.33078, 50.00444, 185.6628" />
       <If Condition="IsQuestAcceptQualified(68065)" >
-        <PickupQuest QuestId="68065" NpcId="1020568" XYZ="-92.33078, 50.00444, 185.6628" />
+        <PickupQuest QuestId="68065" InteractDistance="3.0" NpcId="1020568" XYZ="-92.33078, 50.00444, 185.6628" />
       </If>
     </If>
     <If Condition="HasQuest(68065) and not IsQuestCompleted(68065) and GetQuestStep(68065) == 1">
@@ -3873,14 +3873,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="-386.2619, 54.22062, -27.14458" />
       </If>
       <NoCombatMoveTo XYZ="-386.2619, 54.22062, -27.14458" />
-      <TalkTo NpcId="1020574" XYZ="-386.2619, 54.22062, -27.14458" QuestId="68065" StepId="2" />
+      <TalkTo NpcId="1020574" InteractDistance="3.0" XYZ="-386.2619, 54.22062, -27.14458" QuestId="68065" StepId="2" />
     </If>
     <If Condition="HasQuest(68065) and not IsQuestCompleted(68065) and GetQuestStep(68065) == 255">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="-92.93881, 50.00444, 185.2649" />
       </If>
       <NoCombatMoveTo XYZ="-92.93881, 50.00444, 185.2649" />
-      <TurnIn QuestId="68065" NpcId="1020568" XYZ="-92.93881, 50.00444, 185.2649" />
+      <TurnIn QuestId="68065" InteractDistance="3.0" NpcId="1020568" XYZ="-92.93881, 50.00444, 185.2649" />
     </If>
     <!-- Rising Fortunes, Rising Spirits -->
     <If Condition="not HasQuest(68066) and not IsQuestCompleted(68066)">
@@ -3889,7 +3889,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-92.93881, 50.00444, 185.2649" />
       <If Condition="IsQuestAcceptQualified(68066)" >
-        <PickupQuest QuestId="68066" NpcId="1020568" XYZ="-92.93881, 50.00444, 185.2649" />
+        <PickupQuest QuestId="68066" InteractDistance="3.0" NpcId="1020568" XYZ="-92.93881, 50.00444, 185.2649" />
       </If>
     </If>
     <If Condition="HasQuest(68066) and not IsQuestCompleted(68066) and GetQuestStep(68066) == 1">
@@ -3897,21 +3897,21 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="-90.96184, 50.00444, 210.2179" />
       </If>
       <NoCombatMoveTo XYZ="-90.96184, 50.00444, 210.2179" />
-      <UseTransport NpcId="1020573" XYZ="-90.96184, 50.00444, 210.2179" QuestId="68066" StepId="1" />
+      <UseTransport NpcId="1020573" InteractDistance="3.0" XYZ="-90.96184, 50.00444, 210.2179" QuestId="68066" StepId="1" />
     </If>
     <If Condition="HasQuest(68066) and not IsQuestCompleted(68066) and GetQuestStep(68066) == 2">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="374.9816, 44.80276, 273.6657" />
       </If>
       <NoCombatMoveTo XYZ="374.9816, 44.80276, 273.6657" />
-      <TalkTo NpcId="1022327" XYZ="374.9816, 44.80276, 273.6657" QuestId="68066" StepId="2" />
+      <TalkTo NpcId="1022327" InteractDistance="3.0" XYZ="374.9816, 44.80276, 273.6657" QuestId="68066" StepId="2" />
     </If>
     <If Condition="HasQuest(68066) and not IsQuestCompleted(68066) and GetQuestStep(68066) == 255">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="426.6748, 114.5465, 221.7797" />
       </If>
       <NoCombatMoveTo XYZ="426.6748, 114.5465, 221.7797" />
-      <TurnIn QuestId="68066" NpcId="1020578" XYZ="426.6748, 114.5465, 221.7797" />
+      <TurnIn QuestId="68066" InteractDistance="3.0" NpcId="1020578" XYZ="426.6748, 114.5465, 221.7797" />
     </If>
     <!-- Peering Stones Aetheryte Attunement -->
     <If Condition="IsOnMap(612) and not Managers.WorldManager.HasAetheryteId(99) and IsQuestCompleted(68066)">
@@ -3928,7 +3928,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="451.5115, 114.3694, 236.3036" />
       <If Condition="IsQuestAcceptQualified(68067)" >
-        <PickupQuest QuestId="68067" NpcId="1020580" XYZ="451.5115, 114.3694, 236.3036" />
+        <PickupQuest QuestId="68067" InteractDistance="3.0" NpcId="1020580" XYZ="451.5115, 114.3694, 236.3036" />
       </If>
     </If>
     <If Condition="HasQuest(68067) and not IsQuestCompleted(68067) and GetQuestStep(68067) == 1">
@@ -3936,14 +3936,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="327.6615, 83.46748, -102.7383" />
       </If>
       <NoCombatMoveTo XYZ="327.6615, 83.46748, -102.7383" />
-      <TalkTo NpcId="1020817" XYZ="327.6615, 83.46748, -102.7383" QuestId="68067" StepId="1" />
+      <TalkTo NpcId="1020817" InteractDistance="3.0" XYZ="327.6615, 83.46748, -102.7383" QuestId="68067" StepId="1" />
     </If>
     <If Condition="HasQuest(68067) and not IsQuestCompleted(68067) and GetQuestStep(68067) == 255">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="334.1446, 82.94511, -100.8862" />
       </If>
       <NoCombatMoveTo XYZ="334.1446, 82.94511, -100.8862" />
-      <TurnIn QuestId="68067" NpcId="1020827" XYZ="334.1446, 82.94511, -100.8862" />
+      <TurnIn QuestId="68067" InteractDistance="3.0" NpcId="1020827" XYZ="334.1446, 82.94511, -100.8862" />
     </If>
     <!-- The Lady of Bliss -->
     <If Condition="not HasQuest(68068) and not IsQuestCompleted(68068)">
@@ -3952,7 +3952,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="334.1446, 82.94511, -100.8862" />
       <If Condition="IsQuestAcceptQualified(68068)" >
-        <PickupQuest QuestId="68068" NpcId="1020827" XYZ="334.1446, 82.94511, -100.8862" />
+        <PickupQuest QuestId="68068" InteractDistance="3.0" NpcId="1020827" XYZ="334.1446, 82.94511, -100.8862" />
       </If>
     </If>
     <If Condition="HasQuest(68068) and not IsQuestCompleted(68068) and GetQuestStep(68068) == 1">
@@ -3960,7 +3960,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="510.7569, 122.3039, -239.9731" />
       </If>
       <NoCombatMoveTo XYZ="510.7569, 122.3039, -239.9731" />
-      <TalkTo NpcId="1020589" XYZ="510.7569, 122.3039, -239.9731" QuestId="68068" StepId="1" />
+      <TalkTo NpcId="1020589" InteractDistance="3.0" XYZ="510.7569, 122.3039, -239.9731" QuestId="68068" StepId="1" />
     </If>
     <If Condition="HasQuest(68068) and not IsQuestCompleted(68068) and GetQuestStep(68068) == 2">
       <If Condition="not IsOnMap(612)">
@@ -3977,7 +3977,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="683" XYZ="2.322173, -5.169944, -13.20637" />
       </If>
       <NoCombatMoveTo XYZ="2.322173, -5.169944, -13.20637" />
-      <UseTransport NpcId="1020593" XYZ="2.322173, -5.169944, -13.20637" DialogOption="2" QuestId="68068" StepId="4" />
+      <UseTransport NpcId="1020593" InteractDistance="3.0" XYZ="2.322173, -5.169944, -13.20637" DialogOption="2" QuestId="68068" StepId="4" />
     </If>
     <If Condition="HasQuest(68068) and not IsQuestCompleted(68068) and GetQuestStep(68068) == 5">
       <LogMessage Message="[StormBlood Main Scenario] Please manually complete [Trial] Emanation." />
@@ -3991,7 +3991,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="509.4842, 122.1504, -242.1846" />
       </If>
       <NoCombatMoveTo XYZ="509.4842, 122.1504, -242.1846" />
-      <TurnIn QuestId="68068" NpcId="1020592" XYZ="509.4842, 122.1504, -242.1846" />
+      <TurnIn QuestId="68068" InteractDistance="3.0" NpcId="1020592" XYZ="509.4842, 122.1504, -242.1846" />
     </If>
     <!-- The Silence of the Gods -->
     <If Condition="not HasQuest(68069) and not IsQuestCompleted(68069)">
@@ -4000,7 +4000,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="510.7438, 122.2998, -239.5863" />
       <If Condition="IsQuestAcceptQualified(68069)" >
-        <PickupQuest QuestId="68069" NpcId="1020589" XYZ="510.7438, 122.2998, -239.5863" />
+        <PickupQuest QuestId="68069" InteractDistance="3.0" NpcId="1020589" XYZ="510.7438, 122.2998, -239.5863" />
       </If>
     </If>
     <If Condition="HasQuest(68069) and not IsQuestCompleted(68069) and GetQuestStep(68069) == 1">
@@ -4008,28 +4008,28 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="612" XYZ="327.1856, 83.48161, -102.7507" />
       </If>
       <NoCombatMoveTo XYZ="327.1856, 83.48161, -102.7507" />
-      <TalkTo NpcId="1020817" XYZ="327.1856, 83.48161, -102.7507" QuestId="68069" StepId="1" />
+      <TalkTo NpcId="1020817" InteractDistance="3.0" XYZ="327.1856, 83.48161, -102.7507" QuestId="68069" StepId="1" />
     </If>
     <If Condition="HasQuest(68069) and not IsQuestCompleted(68069) and GetQuestStep(68069) == 2">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="426.3543, 114.5578, 221.9131" />
       </If>
       <NoCombatMoveTo XYZ="426.3543, 114.5578, 221.9131" />
-      <TalkTo NpcId="1020578" XYZ="426.3543, 114.5578, 221.9131" QuestId="68069" StepId="2" />
+      <TalkTo NpcId="1020578" InteractDistance="3.0" XYZ="426.3543, 114.5578, 221.9131" QuestId="68069" StepId="2" />
     </If>
     <If Condition="HasQuest(68069) and not IsQuestCompleted(68069) and GetQuestStep(68069) == 3">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="426.3543, 114.5578, 221.9131" />
       </If>
       <NoCombatMoveTo XYZ="426.3543, 114.5578, 221.9131" />
-      <TalkTo NpcId="1020578" XYZ="426.3543, 114.5578, 221.9131" QuestId="68069" StepId="3" />
+      <TalkTo NpcId="1020578" InteractDistance="3.0" XYZ="426.3543, 114.5578, 221.9131" QuestId="68069" StepId="3" />
     </If>
     <If Condition="HasQuest(68069) and not IsQuestCompleted(68069) and GetQuestStep(68069) == 255">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="425.1044, 114.5985, 222.1449" />
       </If>
       <NoCombatMoveTo XYZ="425.1044, 114.5985, 222.1449" />
-      <TurnIn QuestId="68069" NpcId="1020596" XYZ="425.1044, 114.5985, 222.1449" />
+      <TurnIn QuestId="68069" InteractDistance="3.0" NpcId="1020596" XYZ="425.1044, 114.5985, 222.1449" />
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Level 67 quests completed." />
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 68 -->
@@ -4089,7 +4089,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-286.7323, 256.9996, 696.2233"/>
         <If Condition="IsQuestAcceptQualified(68071)">
-          <PickupQuest QuestId="68071" NpcId="1020600" XYZ="-286.7323, 256.9996, 696.2233"/>
+          <PickupQuest QuestId="68071" InteractDistance="3.0" NpcId="1020600" XYZ="-286.7323, 256.9996, 696.2233"/>
         </If>
       </If>
       <If Condition="HasQuest(68071)">
@@ -4099,7 +4099,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68071) == 255">
           <NoCombatMoveTo XYZ="-297.4747, 257.5265, 765.3162"/>
-          <TurnIn QuestId="68071" NpcId="1020630" XYZ="-297.4747, 257.5265, 765.3162" />
+          <TurnIn QuestId="68071" InteractDistance="3.0" NpcId="1020630" XYZ="-297.4747, 257.5265, 765.3162" />
         </If> 
       </If>
     </If>
@@ -4111,7 +4111,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-297.4747, 257.5265, 765.3162"/>
         <If Condition="IsQuestAcceptQualified(68072)">
-          <PickupQuest QuestId="68072" NpcId="1020630" XYZ="-297.4747, 257.5265, 765.3162"/>
+          <PickupQuest QuestId="68072" InteractDistance="3.0" NpcId="1020630" XYZ="-297.4747, 257.5265, 765.3162"/>
         </If>
       </If>
       <If Condition="HasQuest(68072)">
@@ -4132,7 +4132,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68072) == 255">
           <NoCombatMoveTo XYZ="-346.1509, 305.933, 149.0348"/>
-          <TurnIn QuestId="68072" NpcId="1020608" XYZ="-346.1509, 305.933, 149.0348" />
+          <TurnIn QuestId="68072" InteractDistance="3.0" NpcId="1020608" XYZ="-346.1509, 305.933, 149.0348" />
         </If> 
       </If>
     </If>
@@ -4144,7 +4144,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-346.1509, 305.933, 149.0348"/>
         <If Condition="IsQuestAcceptQualified(68073)">
-          <PickupQuest QuestId="68073" NpcId="1020608" XYZ="-346.1509, 305.933, 149.0348"/>
+          <PickupQuest QuestId="68073" InteractDistance="3.0" NpcId="1020608" XYZ="-346.1509, 305.933, 149.0348"/>
         </If>
       </If>
       <If Condition="HasQuest(68073)">
@@ -4188,7 +4188,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68073) == 255">
           <NoCombatMoveTo XYZ="7.827881, 317.5509, 112.4132"/>
-          <TurnIn QuestId="68073" NpcId="1020611" XYZ="7.827881, 317.5509, 112.4132" />
+          <TurnIn QuestId="68073" InteractDistance="3.0" NpcId="1020611" XYZ="7.827881, 317.5509, 112.4132" />
         </If> 
       </If>
     </If>
@@ -4200,7 +4200,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="7.827881, 317.5509, 112.4132"/>
         <If Condition="IsQuestAcceptQualified(68074)">
-          <PickupQuest QuestId="68074" NpcId="1020611" XYZ="7.827881, 317.5509, 112.4132"/>
+          <PickupQuest QuestId="68074" InteractDistance="3.0" NpcId="1020611" XYZ="7.827881, 317.5509, 112.4132"/>
         </If>
       </If>
       <If Condition="HasQuest(68074)">
@@ -4232,7 +4232,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68074) == 255">
           <NoCombatMoveTo XYZ="-286.5493, 256.8515, 693.1411"/>
-          <TurnIn QuestId="68074" NpcId="1020601" XYZ="-286.5493, 256.8515, 693.1411" />
+          <TurnIn QuestId="68074" InteractDistance="3.0" NpcId="1020601" XYZ="-286.5493, 256.8515, 693.1411" />
         </If> 
       </If>
     </If>
@@ -4244,7 +4244,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-286.5493, 256.8515, 693.1411"/>
         <If Condition="IsQuestAcceptQualified(68075)">
-          <PickupQuest QuestId="68075" NpcId="1020601" XYZ="-286.5493, 256.8515, 693.1411"/>
+          <PickupQuest QuestId="68075" InteractDistance="3.0" NpcId="1020601" XYZ="-286.5493, 256.8515, 693.1411"/>
         </If>
       </If>
       <If Condition="HasQuest(68075)">
@@ -4257,7 +4257,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68075) == 255">
           <NoCombatMoveTo XYZ="-300.496, 257.5265, 765.0415"/>
-          <TurnIn QuestId="68075" NpcId="1020631" XYZ="-300.496, 257.5265, 765.0415" />
+          <TurnIn QuestId="68075" InteractDistance="3.0" NpcId="1020631" XYZ="-300.496, 257.5265, 765.0415" />
         </If> 
       </If>
     </If>
@@ -4269,7 +4269,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-300.496, 257.5265, 765.0415"/>
         <If Condition="IsQuestAcceptQualified(68076)">
-          <PickupQuest QuestId="68076" NpcId="1020631" XYZ="-300.496, 257.5265, 765.0415"/>
+          <PickupQuest InteractDistance="3.0" QuestId="68076" NpcId="1020631" XYZ="-300.496, 257.5265, 765.0415"/>
         </If>
       </If>
       <If Condition="HasQuest(68076)">
@@ -4287,7 +4287,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68076) == 255">
           <NoCombatMoveTo XYZ="-113.4203, 263.7311, 655.7563"/>
-          <TurnIn QuestId="68076" NpcId="1020633" XYZ="-113.4203, 263.7311, 655.7563" />
+          <TurnIn QuestId="68076" InteractDistance="3.0" NpcId="1020633" XYZ="-113.4203, 263.7311, 655.7563" />
         </If> 
       </If>
     </If>
@@ -4299,7 +4299,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-113.4203, 263.7311, 655.7563"/>
         <If Condition="IsQuestAcceptQualified(68077)">
-          <PickupQuest QuestId="68077" NpcId="1020633" XYZ="-113.4203, 263.7311, 655.7563"/>
+          <PickupQuest QuestId="68077" InteractDistance="3.0" NpcId="1020633" XYZ="-113.4203, 263.7311, 655.7563"/>
         </If>
       </If>
       <If Condition="HasQuest(68077)">
@@ -4312,7 +4312,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68077) == 255">
           <NoCombatMoveTo XYZ="-298.5123, 257.5265, 764.9805"/>
-          <TurnIn QuestId="68077" NpcId="1020629" XYZ="-298.5123, 257.5265, 764.9805" />
+          <TurnIn QuestId="68077" InteractDistance="3.0" NpcId="1020629" XYZ="-298.5123, 257.5265, 764.9805" />
         </If> 
       </If>
     </If>
@@ -4324,7 +4324,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="-298.5123, 257.5265, 764.9805"/>
         <If Condition="IsQuestAcceptQualified(68078)">
-          <PickupQuest QuestId="68078" NpcId="1020629" XYZ="-298.5123, 257.5265, 764.9805"/>
+          <PickupQuest QuestId="68078" InteractDistance="3.0" NpcId="1020629" XYZ="-298.5123, 257.5265, 764.9805"/>
         </If>
       </If>
       <If Condition="HasQuest(68078)">
@@ -4353,7 +4353,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68078) == 255">
           <NoCombatMoveTo XYZ="353.7803, 323.7739, 273.3043"/>
-          <TurnIn QuestId="68078" NpcId="1022344" XYZ="353.7803, 323.7739, 273.3043" />
+          <TurnIn QuestId="68078" InteractDistance="3.0" NpcId="1022344" XYZ="353.7803, 323.7739, 273.3043" />
         </If> 
       </If>
     </If>
@@ -4365,7 +4365,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="353.7803, 323.7739, 273.3043"/>
         <If Condition="IsQuestAcceptQualified(68079)">
-          <PickupQuest QuestId="68079" NpcId="1022344" XYZ="353.7803, 323.7739, 273.3043"/>
+          <PickupQuest QuestId="68079" InteractDistance="3.0" NpcId="1022344" XYZ="353.7803, 323.7739, 273.3043"/>
         </If>
       </If>
       <If Condition="HasQuest(68079)">
@@ -4378,7 +4378,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68079) == 255">
           <NoCombatMoveTo XYZ="257.8011, 314.4075, 416.1592"/>
-          <TurnIn QuestId="68079" NpcId="1020645" XYZ="257.8011, 314.4075, 416.1592" />
+          <TurnIn QuestId="68079" InteractDistance="3.0" NpcId="1020645" XYZ="257.8011, 314.4075, 416.1592" />
         </If> 
       </If>
     </If>
@@ -4393,7 +4393,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <NoCombatMoveTo XYZ="257.1908, 314.2274, 418.2954"/>
         <If Condition="IsQuestAcceptQualified(68080)">
-          <PickupQuest QuestId="68080" NpcId="1023606" XYZ="257.1908, 314.2274, 418.2954"/>
+          <PickupQuest QuestId="68080" InteractDistance="3.0" NpcId="1023606" XYZ="257.1908, 314.2274, 418.2954"/>
         </If>
       </If>
       <If Condition="HasQuest(68080)">
@@ -4429,7 +4429,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68080) == 255">
           <NoCombatMoveTo XYZ="560.7165, 344.1177, 434.0271" />
-          <TurnIn QuestId="68080" NpcId="1020647" XYZ="560.7165, 344.1177, 434.0271" />
+          <TurnIn QuestId="68080" InteractDistance="3.0" NpcId="1020647" XYZ="560.7165, 344.1177, 434.0271" />
         </If>
       </If>
     </If>
@@ -4440,7 +4440,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="567.1078, 344.1177, 433.5196" />
       <If Condition="IsQuestAcceptQualified(68081)" >
-        <PickupQuest QuestId="68081" NpcId="1020648" XYZ="567.1078, 344.1177, 433.5196" />
+        <PickupQuest QuestId="68081" InteractDistance="3.0" NpcId="1020648" XYZ="567.1078, 344.1177, 433.5196" />
       </If>
     </If>
     <If Condition="HasQuest(68081) and not IsQuestCompleted(68081) and GetQuestStep(68081) == 255">
@@ -4448,7 +4448,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="620" XYZ="261.9254, 322.8362, 741.3718" />
       </If>
       <NoCombatMoveTo XYZ="261.9254, 322.8362, 741.3718" />
-      <TurnIn QuestId="68081" NpcId="1020656" XYZ="261.9254, 322.8362, 741.3718" />
+      <TurnIn QuestId="68081" InteractDistance="3.0" NpcId="1020656" XYZ="261.9254, 322.8362, 741.3718" />
     </If>
     <!-- Liberty or Death -->
     <If Condition="not HasQuest(68082) and not IsQuestCompleted(68082)">
@@ -4457,7 +4457,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="261.9254, 322.8362, 741.3718" />
       <If Condition="IsQuestAcceptQualified(68082)" >
-        <PickupQuest QuestId="68082" NpcId="1020656" XYZ="261.9254, 322.8362, 741.3718" />
+        <PickupQuest QuestId="68082" InteractDistance="3.0" NpcId="1020656" XYZ="261.9254, 322.8362, 741.3718" />
       </If>
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 1">
@@ -4465,28 +4465,28 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="620" XYZ="264.5871, 322.8362, 745.1855" />
       </If>
       <NoCombatMoveTo XYZ="264.5871, 322.8362, 745.1855" />
-      <TalkTo NpcId="1022370" XYZ="264.5871, 322.8362, 745.1855" QuestId="68082" StepId="1" />
+      <TalkTo NpcId="1022370" InteractDistance="3.0" XYZ="264.5871, 322.8362, 745.1855" QuestId="68082" StepId="1" />
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 2">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="261.5164, 322.8362, 741.5202" />
       </If>
       <NoCombatMoveTo XYZ="261.5164, 322.8362, 741.5202" />
-      <TalkTo NpcId="1022371" XYZ="261.5164, 322.8362, 741.5202" QuestId="68082" StepId="2" />
+      <TalkTo NpcId="1022371" InteractDistance="3.0" XYZ="261.5164, 322.8362, 741.5202" QuestId="68082" StepId="2" />
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 3">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="201.5947, 311.3322, 607.7837" />
       </If>
       <NoCombatMoveTo XYZ="201.5947, 311.3322, 607.7837" />
-      <TalkTo NpcId="1020653" XYZ="201.5947, 311.3322, 607.7837" QuestId="68082" StepId="3" />
+      <TalkTo NpcId="1020653" InteractDistance="3.0" XYZ="201.5947, 311.3322, 607.7837" QuestId="68082" StepId="3" />
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 4">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="141.9263, 298.1783, 401.5132" />
       </If>
       <NoCombatMoveTo XYZ="141.9263, 298.1783, 401.5132" />
-      <TalkTo NpcId="1020657" XYZ="141.9263, 298.1783, 401.5132" QuestId="68082" StepId="4" />
+      <TalkTo NpcId="1020657" InteractDistance="3.0" XYZ="141.9263, 298.1783, 401.5132" QuestId="68082" StepId="4" />
       <WaitWhile Condition="GetQuestStep(68082) == 4"/>
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 5">
@@ -4494,14 +4494,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="620" XYZ="406.0161, 334.3662, 484.1937" />
       </If>
       <NoCombatMoveTo XYZ="406.0161, 334.3662, 484.1937" />
-      <TalkTo NpcId="1020658" XYZ="406.0161, 334.3662, 484.1937" QuestId="68082" StepId="5" />
+      <TalkTo NpcId="1020658" InteractDistance="3.0" XYZ="406.0161, 334.3662, 484.1937" QuestId="68082" StepId="5" />
     </If>
     <If Condition="HasQuest(68082) and not IsQuestCompleted(68082) and GetQuestStep(68082) == 255">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="319.8036, 324.3033, 378.0804" />
       </If>
       <NoCombatMoveTo XYZ="319.8036, 324.3033, 378.0804" />
-      <TurnIn QuestId="68082" NpcId="1020660" XYZ="319.8036, 324.3033, 378.0804" />
+      <TurnIn QuestId="68082" InteractDistance="3.0" NpcId="1020660" XYZ="319.8036, 324.3033, 378.0804" />
     </If>
     <!-- The Lady in Red -->
     <If Condition="not HasQuest(68083) and not IsQuestCompleted(68083)">
@@ -4510,7 +4510,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="318.0805, 324.3033, 378.4715" />
       <If Condition="IsQuestAcceptQualified(68083)" >
-        <PickupQuest QuestId="68083" NpcId="1020661" XYZ="318.0805, 324.3033, 378.4715" />
+        <PickupQuest QuestId="68083" InteractDistance="3.0" NpcId="1020661" XYZ="318.0805, 324.3033, 378.4715" />
       </If>
     </If>
     <If Condition="HasQuest(68083) and not IsQuestCompleted(68083) and GetQuestStep(68083) == 1">
@@ -4518,21 +4518,21 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="635" XYZ="-117.438, 0.6342248, -57.15679" />
       </If>
       <NoCombatMoveTo XYZ="-117.438, 0.6342248, -57.15679" />
-      <TalkTo NpcId="1019486" XYZ="-117.438, 0.6342248, -57.15679" QuestId="68083" StepId="1" />
+      <TalkTo NpcId="1019486" InteractDistance="3.0" XYZ="-117.438, 0.6342248, -57.15679" QuestId="68083" StepId="1" />
     </If>
     <If Condition="HasQuest(68083) and not IsQuestCompleted(68083) and GetQuestStep(68083) == 2">
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-52.21874, 0, -22.88535" />
       </If>
       <NoCombatMoveTo XYZ="-52.21874, 0, -22.88535" />
-      <UseObject NpcId="2008216" XYZ="-52.21874, 0, -22.88535" QuestId="68083" StepId="2" BlacklistAfter="True"/>
+      <UseObject NpcId="2008216" InteractDistance="3.0" XYZ="-52.21874, 0, -22.88535" QuestId="68083" StepId="2" BlacklistAfter="True"/>
     </If>
     <If Condition="HasQuest(68083) and not IsQuestCompleted(68083) and GetQuestStep(68083) == 255">
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-53.08181, -0.1084372, -26.39401" />
       </If>
       <NoCombatMoveTo XYZ="-53.08181, -0.1084372, -26.39401" />
-      <TurnIn QuestId="68083" NpcId="1020665" XYZ="-53.08181, -0.1084372, -26.39401" />
+      <TurnIn QuestId="68083" InteractDistance="3.0" NpcId="1020665" XYZ="-53.08181, -0.1084372, -26.39401" />
     </If>
     <!-- Upon the Great Loch's Shore -->
     <If Condition="not HasQuest(68084) and not IsQuestCompleted(68084)">
@@ -4541,7 +4541,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-53.08181, -0.1084371, -26.39401" />
       <If Condition="IsQuestAcceptQualified(68084)" >
-        <PickupQuest QuestId="68084" NpcId="1020665" XYZ="-53.08181, -0.1084371, -26.39401" />
+        <PickupQuest QuestId="68084" InteractDistance="3.0" NpcId="1020665" XYZ="-53.08181, -0.1084371, -26.39401" />
       </If>
     </If>
     <If Condition="HasQuest(68084) and not IsQuestCompleted(68084) and GetQuestStep(68084) == 1">
@@ -4549,19 +4549,19 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="635" XYZ="-137.1405, 0.5980503, -80.38048" />
       </If>
       <NoCombatMoveTo XYZ="-137.1405, 0.5980503, -80.38048" />
-      <TalkTo NpcId="1020412" XYZ="-137.1405, 0.5980503, -80.38048" QuestId="68084" StepId="1" />
+      <TalkTo NpcId="1020412" InteractDistance="3.0" XYZ="-137.1405, 0.5980503, -80.38048" QuestId="68084" StepId="1" />
     </If>
     <If Condition="HasQuest(68084) and not IsQuestCompleted(68084) and GetQuestStep(68084) == 2">
       <TeleportTo Name="Ala Ghiri" AetheryteId="101" Force="True"/>
       <NoCombatMoveTo XYZ="-131.3548, 305.2344, 190.9416"/>
-      <UseTransport NpcId="1021557" XYZ="-131.3548, 305.2344, 190.9416" UseTimes="1" BlacklistAfter="True"/>
+      <UseTransport NpcId="1021557" InteractDistance="3.0" XYZ="-131.3548, 305.2344, 190.9416" UseTimes="1" BlacklistAfter="True"/>
     </If>
     <If Condition="HasQuest(68084) and not IsQuestCompleted(68084) and GetQuestStep(68084) == 2">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="569.7533, 344.1177, 422.1658" />
       </If>
       <NoCombatMoveTo XYZ="569.7533, 344.1177, 422.1658" />
-      <TalkTo NpcId="1020649" XYZ="569.7533, 344.1177, 422.1658" QuestId="68084" StepId="2" />
+      <TalkTo NpcId="1020649" InteractDistance="3.0" XYZ="569.7533, 344.1177, 422.1658" QuestId="68084" StepId="2" />
     </If>
     <If Condition="GetQuestStep(68084) == 3">
       <If Condition="not IsOnMap(620)">
@@ -4575,7 +4575,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="-653.1862, 50.00003, -2.387203" />
       </If>
       <NoCombatMoveTo XYZ="-653.1862, 50.00003, -2.387203" />
-      <TurnIn QuestId="68084" NpcId="1021704" XYZ="-653.1862, 50.00003, -2.387203" />
+      <TurnIn QuestId="68084" InteractDistance="3.0" NpcId="1021704" XYZ="-653.1862, 50.00003, -2.387203" />
     </If>
     <!-- Porta Praetoria Aetheryte Attunement -->
     <If Condition="IsOnMap(621) and not Managers.WorldManager.HasAetheryteId(102)">
@@ -4592,7 +4592,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-653.1862, 50.00003, -2.387203" />
       <If Condition="IsQuestAcceptQualified(68085)" >
-        <PickupQuest QuestId="68085" NpcId="1021704" XYZ="-653.1862, 50.00003, -2.387203" />
+        <PickupQuest QuestId="68085" InteractDistance="3.0" NpcId="1021704" XYZ="-653.1862, 50.00003, -2.387203" />
       </If>
     </If>
     <If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 1">
@@ -4607,7 +4607,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="65.57979, 45.41022, 764.3596" />
       </If>
       <NoCombatMoveTo XYZ="65.57979, 45.41022, 764.3596" />
-      <TurnIn QuestId="68085" NpcId="1021710" XYZ="65.57979, 45.41022, 764.3596" />
+      <TurnIn QuestId="68085" InteractDistance="3.0" NpcId="1021710" XYZ="65.57979, 45.41022, 764.3596" />
     </If>
     <!-- The Resonant -->
     <If Condition="not HasQuest(68086) and not IsQuestCompleted(68086)">
@@ -4616,7 +4616,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="65.57979, 45.41022, 764.3596" />
       <If Condition="IsQuestAcceptQualified(68086)" >
-        <PickupQuest QuestId="68086" NpcId="1021710" XYZ="65.57979, 45.41022, 764.3596" />
+        <PickupQuest QuestId="68086" InteractDistance="3.0" NpcId="1021710" XYZ="65.57979, 45.41022, 764.3596" />
       </If>
     </If>
     <If Condition="HasQuest(68086) and not IsQuestCompleted(68086) and GetQuestStep(68086) == 1">
@@ -4624,7 +4624,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="209.4245, -0.3, 340.6146" />
       </If>
       <NoCombatMoveTo XYZ="209.4245, -0.3, 340.6146" />
-      <TalkTo NpcId="1021712" XYZ="209.4245, -0.3, 340.6146" QuestId="68086" StepId="1" />
+      <TalkTo NpcId="1021712" InteractDistance="3.0" XYZ="209.4245, -0.3, 340.6146" QuestId="68086" StepId="1" />
     </If>
     <If Condition="GetQuestStep(68086) == 2">
       <LogMessage Message="[Stormblood] Please manually complete the next 2 quest objectives and the duty."/>
@@ -4653,7 +4653,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="757.0774, 70, 443.0225" />
       </If>
       <NoCombatMoveTo XYZ="757.0774, 70, 443.0225" />
-      <TurnIn QuestId="68086" NpcId="1021717" XYZ="757.0774, 70, 443.0225" />
+      <TurnIn QuestId="68086" InteractDistance="3.0" NpcId="1021717" XYZ="757.0774, 70, 443.0225" />
     </If>
     <!-- The Legacy of Our Fathers -->
     <If Condition="not HasQuest(68087) and not IsQuestCompleted(68087)">
@@ -4662,7 +4662,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="757.0774, 70, 443.3121" />
       <If Condition="IsQuestAcceptQualified(68087)" >
-        <PickupQuest QuestId="68087" NpcId="1021717" XYZ="757.0774, 70, 443.3121" />
+        <PickupQuest QuestId="68087" InteractDistance="3.0" NpcId="1021717" XYZ="757.0774, 70, 443.3121" />
       </If>
     </If>
     <!-- Ala Mhigan Quarter Attunement -->
@@ -4676,47 +4676,47 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="642.952, 80.00001, 655.2465" />
       </If>
       <NoCombatMoveTo XYZ="642.952, 80.00001, 655.2465" />
-      <TalkTo NpcId="1022733" XYZ="642.952, 80.00001, 655.2465" QuestId="68087" StepId="1" />
+      <TalkTo NpcId="1022733" InteractDistance="3.0" XYZ="642.952, 80.00001, 655.2465" QuestId="68087" StepId="1" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestStep(68087) == 2">
       <TeleportTo Name="Porta Praetoria" AetheryteId="102" Force="True"/>
       <NoCombatMoveTo XYZ="-670.9129, 50.00795, 16.61082" />
-      <TalkTo NpcId="1021698" XYZ="-670.9129, 50.00795, 16.61082" QuestId="68087" StepId="2" />
+      <TalkTo NpcId="1021698" InteractDistance="3.0" XYZ="-670.9129, 50.00795, 16.61082" QuestId="68087" StepId="2" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestStep(68087) == 3">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-670.9129, 50.00795, 16.61082" />
       </If>
       <NoCombatMoveTo XYZ="-670.9129, 50.00795, 16.61082" />
-      <TalkTo NpcId="1021719" XYZ="-670.9129, 50.00795, 16.61082" QuestId="68087" StepId="3" />
+      <TalkTo NpcId="1021719" InteractDistance="3.0" XYZ="-670.9129, 50.00795, 16.61082" QuestId="68087" StepId="3" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestById(68087).QuestI8AH == 0 and GetQuestStep(68087) == 4">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-633.012, 53.75, 13.90693" />
       </If>
       <NoCombatMoveTo XYZ="-633.012, 53.75, 13.90693" />
-      <TalkTo NpcId="1021703" XYZ="-633.012, 53.75, 13.90693" QuestId="68087" StepId="4" />
+      <TalkTo NpcId="1021703" InteractDistance="3.0" XYZ="-633.012, 53.75, 13.90693" QuestId="68087" StepId="4" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestById(68087).QuestI8AH == 1 and GetQuestStep(68087) == 4">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-600.6266, 33.99976, -0.1975617" />
       </If>
       <NoCombatMoveTo XYZ="-600.6266, 33.99976, -0.1975617" />
-      <TalkTo NpcId="1021701" XYZ="-600.6266, 33.99976, -0.1975617" QuestId="68087" StepId="4" />
+      <TalkTo NpcId="1021701" InteractDistance="3.0" XYZ="-600.6266, 33.99976, -0.1975617" QuestId="68087" StepId="4" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestById(68087).QuestI8AH == 2 and GetQuestStep(68087) == 4">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-591.4423, 33.99991, -4.065047" />
       </If>
       <NoCombatMoveTo XYZ="-591.4423, 33.99991, -4.065047" />
-      <TalkTo NpcId="1021702" XYZ="-591.4423, 33.99991, -4.065047" QuestId="68087" StepId="4" />
+      <TalkTo NpcId="1021702" InteractDistance="3.0" XYZ="-591.4423, 33.99991, -4.065047" QuestId="68087" StepId="4" />
     </If>
     <If Condition="HasQuest(68087) and not IsQuestCompleted(68087) and GetQuestStep(68087) == 255">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-671.1161, 49.99977, 16.38826" />
       </If>
       <NoCombatMoveTo XYZ="-671.1161, 49.99977, 16.38826" />
-      <TurnIn QuestId="68087" NpcId="1021698" XYZ="-671.1161, 49.99977, 16.38826" />
+      <TurnIn QuestId="68087" InteractDistance="3.0" NpcId="1021698" XYZ="-671.1161, 49.99977, 16.38826" />
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Level 69 quests completed." />
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 70 -->
@@ -4728,7 +4728,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-672.7422, 49.99974, 15.24539" />
       <If Condition="IsQuestAcceptQualified(68088)" >
-        <PickupQuest QuestId="68088" NpcId="1021698" XYZ="-672.7422, 49.99974, 15.24539" />
+        <PickupQuest QuestId="68088" InteractDistance="3.0" NpcId="1021698" XYZ="-672.7422, 49.99974, 15.24539" />
       </If>
     </If>
     <If Condition="HasQuest(68088) and not IsQuestCompleted(68088) and GetQuestStep(68088) == 1">
@@ -4736,7 +4736,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="335.3984, 78.00011, 45.70337" />
       </If>
       <NoCombatMoveTo XYZ="335.3984, 78.00011, 45.70337" />
-      <HandOver ItemIds="2002188" NpcId="1021722" XYZ="335.3984, 78.00011, 45.70337" QuestId="68088" StepId="1" />
+      <HandOver ItemIds="2002188" NpcId="1021722" InteractDistance="3.0" XYZ="335.3984, 78.00011, 45.70337" QuestId="68088" StepId="1" />
     </If>
     <If Condition="HasQuest(68088) and not IsQuestCompleted(68088) and GetQuestStep(68088) == 2">
       <If Condition="not IsOnMap(621)">
@@ -4751,14 +4751,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="510.0218, 111.1614, -108.1294" />
       </If>
       <NoCombatMoveTo XYZ="510.0218, 111.1614, -108.1294" />
-      <TalkTo NpcId="1022739" XYZ="510.0218, 111.1614, -108.1294" QuestId="68088" StepId="3" DialogOption="0" />
+      <TalkTo NpcId="1022739" InteractDistance="3.0" XYZ="510.0218, 111.1614, -108.1294" QuestId="68088" StepId="3" DialogOption="0" />
     </If>
     <If Condition="HasQuest(68088) and not IsQuestCompleted(68088) and GetQuestStep(68088) == 255">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="558.255, 162, 71.67701" />
       </If>
       <NoCombatMoveTo XYZ="558.255, 162, 71.67701" />
-      <TurnIn QuestId="68088" NpcId="1021724" XYZ="558.255, 162, 71.67701" />
+      <TurnIn QuestId="68088" InteractDistance="3.0" NpcId="1021724" XYZ="558.255, 162, 71.67701" />
     </If>
     <!-- Stormblood -->
     <If Condition="not HasQuest(68089) and not IsQuestCompleted(68089)">
@@ -4767,7 +4767,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="558.255, 162, 71.67701" />
       <If Condition="IsQuestAcceptQualified(68089)" >
-        <PickupQuest QuestId="68089" NpcId="1021724" XYZ="558.255, 162, 71.67701" />
+        <PickupQuest QuestId="68089" InteractDistance="3.0" NpcId="1021724" XYZ="558.255, 162, 71.67701" />
       </If>
     </If>
     <If Condition="GetQuestStep(68089) == 1">
@@ -4787,49 +4787,49 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <GetTo ZoneId="621" XYZ="-583.2907, 21.38314, -12.54968" />
       </If>
       <NoCombatMoveTo XYZ="-583.2907, 21.38314, -12.54968" />
-      <TalkTo NpcId="1020356" XYZ="-583.2907, 21.38314, -12.54968" QuestId="68089" StepId="5" />
+      <TalkTo NpcId="1020356" InteractDistance="3.0" XYZ="-583.2907, 21.38314, -12.54968" QuestId="68089" StepId="5" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestById(68089).QuestI8AH == 0 and GetQuestStep(68089) == 6">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-613.3071, 34.00001, -8.591082" />
       </If>
       <NoCombatMoveTo XYZ="-613.3071, 34.00001, -8.591082" />
-      <TalkTo NpcId="1021726" XYZ="-613.3071, 34.00001, -8.591082" QuestId="68089" StepId="6" />
+      <TalkTo NpcId="1021726" InteractDistance="3.0" XYZ="-613.3071, 34.00001, -8.591082" QuestId="68089" StepId="6" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestById(68089).QuestI8AH == 1 and GetQuestStep(68089) == 6">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-649.9515, 50.00002, -2.934071" />
       </If>
       <NoCombatMoveTo XYZ="-649.9515, 50.00002, -2.934071" />
-      <TalkTo NpcId="1021704" XYZ="-649.9515, 50.00002, -2.934071" QuestId="68089" StepId="6" />
+      <TalkTo NpcId="1021704" InteractDistance="3.0" XYZ="-649.9515, 50.00002, -2.934071" QuestId="68089" StepId="6" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestById(68089).QuestI8AH == 2 and GetQuestStep(68089) == 6">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-650.0149, 50.00002, -0.4596284" />
       </If>
       <NoCombatMoveTo XYZ="-650.0149, 50.00002, -0.4596284" />
-      <TalkTo NpcId="1022724" XYZ="-650.0149, 50.00002, -0.4596284" QuestId="68089" StepId="6" />
+      <TalkTo NpcId="1022724" InteractDistance="3.0" XYZ="-650.0149, 50.00002, -0.4596284" QuestId="68089" StepId="6" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestById(68089).QuestI8AH == 3 and GetQuestStep(68089) == 6">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-670.9637, 49.99977, 16.38842" />
       </If>
       <NoCombatMoveTo XYZ="-670.9637, 49.99977, 16.38842" />
-      <TalkTo NpcId="1021698" XYZ="-670.9637, 49.99977, 16.38842" QuestId="68089" StepId="6" />
+      <TalkTo NpcId="1021698" InteractDistance="3.0" XYZ="-670.9637, 49.99977, 16.38842" QuestId="68089" StepId="6" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 7">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-583.6536, 21.46666, -12.76944" />
       </If>
       <NoCombatMoveTo XYZ="-583.6536, 21.46666, -12.76944" />
-      <TalkTo NpcId="1020356" XYZ="-583.6536, 21.46666, -12.76944" QuestId="68089" StepId="7" />
+      <TalkTo NpcId="1020356" InteractDistance="3.0" XYZ="-583.6536, 21.46666, -12.76944" QuestId="68089" StepId="7" />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 255">
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="66.73691, -0.1209006, -78.55817" />
       </If>
       <NoCombatMoveTo XYZ="66.73691, -0.1209006, -78.55817" />
-      <TurnIn QuestId="68089" NpcId="1021728" XYZ="66.73691, -0.1209006, -78.55817" />
+      <TurnIn QuestId="68089" InteractDistance="3.0" NpcId="1021728" XYZ="66.73691, -0.1209006, -78.55817" />
       <WaitWhile Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 255"/>
     </If>
     <If Condition="IsQuestCompleted(68089)">

@@ -3131,10 +3131,11 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <PickupQuest QuestId="68050" InteractDistance="3.0" NpcId="1021628" XYZ="-705.5469, 6.556923, 613.1005" />
       </If>
     </If>
- <If Condition="HasQuest(68050) and not IsQuestCompleted(68050) and GetQuestStep(68050) == 1">
+	<If Condition="HasQuest(68050) and not IsQuestCompleted(68050) and GetQuestStep(68050) == 1">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-39.19804, 122.1, 63.62787" />
       </If>
+	  <TeleportTo Name="The Dawn Throne" AetheryteId="110" Force="True"/>
       <NoCombatMoveTo XYZ="-39.19804, 122.1, 63.62787" QuestId="68050" StepId="1"/>
       <TalkTo InteractDistance="3.0" NpcId="1019417" XYZ="-39.19804, 122.1, 63.62787" QuestId="68050" StepId="1" />
     </If>
@@ -3263,6 +3264,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-39.21331, 122.1, 63.56859" />
       </If>
+	  <TeleportTo Name="The Dawn Throne" AetheryteId="110" Force="True"/>
       <NoCombatMoveTo XYZ="-39.21331, 122.1, 63.56859" QuestId="68053" StepId="1"/>
       <TalkTo InteractDistance="3.0" NpcId="1019417" XYZ="-39.21331, 122.1, 63.56859" QuestId="68053" StepId="1" />
     </If>
@@ -3270,6 +3272,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-447.9425, 2.277143, 632.4543" />
       </If>
+	  <TeleportTo Name="Reunion" AetheryteId="109" Force="True"/>
       <NoCombatMoveTo XYZ="-447.9425, 2.277143, 632.4543" QuestId="68053" StepId="2"/>
       <TalkTo InteractDistance="3.0" NpcId="1020280" XYZ="-447.9425, 2.277143, 632.4543" QuestId="68053" StepId="2" />
     </If>
@@ -3463,6 +3466,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="442.5113, 58.87671, -171.2374" />
       </If>
+	  <TeleportTo Name="Namai" AetheryteId="107" Force="True"/>
       <NoCombatMoveTo XYZ="442.5113, 58.87671, -171.2374" />
       <TalkTo NpcId="1023092" XYZ="442.5113, 58.87671, -171.2374" QuestId="68057" StepId="2" />
     </If>
@@ -3547,6 +3551,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="233.5597, 5.242018, -425.2724" />
       </If>
+	  <TeleportTo Name="House of the Fierce" AetheryteId="108" Force="True"/>
       <NoCombatMoveTo XYZ="233.5597, 5.242018, -425.2724" />
       <While Condition="GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 0">
         <TalkTo NpcId="1019286" XYZ="233.5597, 5.242018, -425.2724" QuestId="68058"  />

@@ -4610,6 +4610,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="584.2803, 344.2705, 420.5493"/>
       <RunCode Name="Travel_To_The_Lochs"/>
+	  <WaitWhile Condition="GetQuestStep(68084) == 3"/>
     </If>
     <If Condition="HasQuest(68084) and not IsQuestCompleted(68084) and GetQuestStep(68084) == 255">
       <If Condition="not IsOnMap(621)">
@@ -4642,6 +4643,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="-651.2444, 50.00002, -1.255357"/>
       <LogMessage Message="[Stormblood] Please manually complete the duty."/>
+	  <WaitWhile Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 1"/>
     </If>
     <If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 255">
       <If Condition="not IsOnMap(621)">

@@ -432,19 +432,24 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 2">
         <If Condition="not IsOnMap(622)">
+		  <TeleportTo Name="Dawn Throne" AetheryteId="110" Force="True"/>
           <GetTo ZoneId="622" XYZ="25.26894, 114.905, -43.35295" />
         </If>
+		<NoCombatMoveTo XYZ="25.26894, 114.905, -43.35295" />
         <While Condition="GameObjectManager.GetObjectByNPCId(2008925).IsVisible">
           <NoCombatMoveTo XYZ="25.26894, 114.905, -43.35295" Distance="0.5"/>
           <UseObject NpcId="2008925" XYZ="25.26894, 114.905, -43.35295" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2008925).IsVisible"/>
         </While>
         <While Condition="GameObjectManager.GetObjectByNPCId(2008926).IsVisible">
           <NoCombatMoveTo XYZ="25.58389, 114.905, -49.25531" Distance="0.5"/>
           <UseObject NpcId="2008926" XYZ="25.58389, 114.905, -49.25531" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2008926).IsVisible"/>
         </While>
         <While Condition="GameObjectManager.GetObjectByNPCId(2008927).IsVisible">
           <NoCombatMoveTo XYZ="28.20823, 114.905, -51.37974" Distance="0.5"/>
           <UseObject NpcId="2008927" XYZ="28.20823, 114.905, -51.37974" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2008927).IsVisible"/>
         </While>
       </If>
       <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 255">

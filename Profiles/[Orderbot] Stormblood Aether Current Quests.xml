@@ -2,7 +2,7 @@
 <!--
 Profile:  [Orderbot] Stormblood Aether Current Quests
 Authors:  Sodimm, TuckMeIntoBread
-Version:  1.0.0
+Version:  1.1.0
 Level:    69+
 Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 -->
@@ -83,12 +83,14 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="GetQuestStep(68175) == 2">
         <LogMessage Message="Please manually complete the quest objectives."/>
+		<WaitWhile Condition="GetQuestStep(68175) == 2"/>
         <!--<NoCombatMoveTo XYZ="-458.9569, 107.2631, -414.2182" Distance="1.0"/>
         <WaitTimer WaitTime="5"/>
         <SoUseSpell SpellId="8624" NpcIds="5866" XYZ="-449.7487, 105.0807, -401.1845" Radius="10" QuestId="68175" StepId="2" DismountAfter="False"/>-->
       </If>
       <If Condition="GetQuestStep(68175) == 3">
         <LogMessage Message="Please manually complete the quest objective."/>
+		<WaitWhile Condition="GetQuestStep(68175) == 3"/>
       </If>
       <If Condition="HasQuest(68175) and not IsQuestCompleted(68175) and GetQuestStep(68175) == 255">
         <If Condition="not IsOnMap(612)">
@@ -112,6 +114,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="GetQuestStep(68357) == 1">
         <LogMessage Message="Please manually complete the quest objective."/>
+		<WaitWhile Condition="GetQuestStep(68357) == 1"/>
       </If>
       <If Condition="HasQuest(68357) and not IsQuestCompleted(68357) and GetQuestStep(68357) == 255">
         <If Condition="not IsOnMap(612)">
@@ -194,6 +197,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="not IsOnMap(620)">
           <GetTo ZoneId="620" XYZ="16.50958, 118.0358, -776.7533" />
         </If>
+		<TeleportTo Name="Ala Gannha" AetheryteId="100" Force="True"/>
         <NoCombatMoveTo XYZ="16.50958, 118.0358, -776.7533" />
         <TurnIn ItemIds="2002205" QuestId="68191" NpcId="1021752" XYZ="16.50958, 118.0358, -776.7533" />
       </If>
@@ -358,6 +362,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="GetQuestStep(68307) == 1">
         <NoCombatMoveTo XYZ="-83.73062, 33.52394, -212.7669"/>
         <LogMessage Message="Please manually complete the quest objective."/>
+		<WaitWhile Condition="GetQuestStep(68307) == 1"/>
       </If>
       <If Condition="HasQuest(68307) and not IsQuestCompleted(68307) and GetQuestStep(68307) == 2">
         <If Condition="not IsOnMap(622)">
@@ -412,7 +417,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="not IsOnMap(622)">
           <GetTo ZoneId="622" XYZ="78.13956, 114.905, 94.42142" />
         </If>
-        <UseTransport NpcId="1019423" XYZ="63.43557, 8.799971, 40.70242" />
+        <TeleportTo Name="Dawn Throne" AetheryteId="110" Force="True"/>
         <NoCombatMoveTo XYZ="78.13956, 114.905, 94.42142" />
         <If Condition="IsQuestAcceptQualified(68318)" >
           <PickupQuest QuestId="68318" NpcId="1023348" XYZ="78.13956, 114.905, 94.42142" />
@@ -429,17 +434,17 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="not IsOnMap(622)">
           <GetTo ZoneId="622" XYZ="25.26894, 114.905, -43.35295" />
         </If>
-        <While Condition="GetQuestById(68318).GetTodoArgs(2, 0).Item1 == 0">
+        <While Condition="GameObjectManager.GetObjectByNPCId(2008925).IsVisible">
           <NoCombatMoveTo XYZ="25.26894, 114.905, -43.35295" Distance="0.5"/>
-          <UseObject NpcId="2008925" XYZ="25.26894, 114.905, -43.35295" QuestId="68318" StepId="2" />
+          <UseObject NpcId="2008925" XYZ="25.26894, 114.905, -43.35295" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
         </While>
-        <While Condition="GetQuestById(68318).GetTodoArgs(2, 0).Item1 == 1">
+        <While Condition="GameObjectManager.GetObjectByNPCId(2008926).IsVisible">
           <NoCombatMoveTo XYZ="25.58389, 114.905, -49.25531" Distance="0.5"/>
-          <UseObject NpcId="2008926" XYZ="25.58389, 114.905, -49.25531" QuestId="68318" StepId="2" />
+          <UseObject NpcId="2008926" XYZ="25.58389, 114.905, -49.25531" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
         </While>
-        <While Condition="GetQuestById(68318).GetTodoArgs(2, 0).Item1 == 2">
+        <While Condition="GameObjectManager.GetObjectByNPCId(2008927).IsVisible">
           <NoCombatMoveTo XYZ="28.20823, 114.905, -51.37974" Distance="0.5"/>
-          <UseObject NpcId="2008927" XYZ="28.20823, 114.905, -51.37974" QuestId="68318" StepId="2" />
+          <UseObject NpcId="2008927" XYZ="28.20823, 114.905, -51.37974" QuestId="68318" StepId="2" UseTimes="1" BlacklistAfter="True"/>
         </While>
       </If>
       <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 255">
@@ -510,17 +515,19 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="GetQuestStep(68229) == 2">
         <NoCombatMoveTo XYZ="611.0259, -1.795426, -90.84206"/>
         <NoCombatMoveTo XYZ="612.9421, -1.754529, -92.88273" Distance="0.5" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="617.399, -18.49257, -113.8623" Distance="0.5" UseMesh="False"/>
+        <NoCombatMoveTo XYZ="617.4945, -19.1348, -116.245" Distance="0.25" UseMesh="False"/>
         <Dismount/>
         <RunCode Name="The_Sword_In_The_Stone_1"/>
+		<WaitWhile Condition="GetQuestStep(68229) == 2"/>
       </If>
       <If Condition="GetQuestStep(68229) == 3">
-        <NoCombatMoveTo XYZ="617.3243, -29.30963, -130.5825" Distance="0.5" UseMesh="False"/>
+        <NoCombatMoveTo XYZ="616.2009, -29.56922, -131.3559" Distance="0.25" UseMesh="False"/>
         <RunCode Name="The_Sword_In_The_Stone_2"/>
-        <NoCombatMoveTo XYZ="602.7103, -36.64109, -144.8547" Distance="0.5" UseMesh="False"/>
+        <NoCombatMoveTo XYZ="601.701, -37.3288, -145.7284" Distance="0.25" UseMesh="False"/>
         <Dismount/>
         <RunCode Name="The_Sword_In_The_Stone_3"/>
-        <NoCombatMoveTo XYZ="567.4005, -62.05959, -145.2847" Distance="1.0" UseMesh="False"/>
+        <NoCombatMoveTo XYZ="596.343, -43.55858, -157.2047" Distance="0.5" UseMesh="False"/>
+		<NoCombatMoveTo XYZ="567.4005, -62.05959, -145.2847" Distance="1.0" UseMesh="False"/>
       </If>
       <If Condition="HasQuest(68229) and not IsQuestCompleted(68229) and GetQuestStep(68229) == 255">
         <If Condition="not IsOnMap(613)">
@@ -652,28 +659,34 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="GetQuestStep(68260) == 1">
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 0">
           <NoCombatMoveTo XYZ="473.6745, 28.62518, -213.2056" />
-          <UseItem ItemId="2002241" NpcId="2008461" XYZ="473.6745, 28.62518, -213.2056" QuestId="68260" StepId="1" />
+          <UseItem ItemId="2002241" NpcId="2008461" XYZ="473.6745, 28.62518, -213.2056" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 0"/>
         </While>
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 1">
           <NoCombatMoveTo XYZ="568.6186, 43.71805, -144.9701" />
-          <UseItem ItemId="2002241" NpcId="2008462" XYZ="568.6186, 43.71805, -144.9701" QuestId="68260" StepId="1" />
+          <UseItem ItemId="2002241" NpcId="2008462" XYZ="568.6186, 43.71805, -144.9701" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 1"/>
         </While>
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 2">
           <NoCombatMoveTo XYZ="530.5948, 84.82678, -302.2884" />
-          <UseItem ItemId="2002241" NpcId="2008463" XYZ="530.5948, 84.82678, -302.2884" QuestId="68260" StepId="1" />
+          <UseItem ItemId="2002241" NpcId="2008463" XYZ="530.5948, 84.82678, -302.2884" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 2"/>
         </While>
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 3">
           <NoCombatMoveTo XYZ="486.4256, 65.75549, -24.494" />
-          <UseItem ItemId="2002241" NpcId="2008466" XYZ="486.4256, 65.75549, -24.494" QuestId="68260" StepId="1" />
+          <UseItem ItemId="2002241" NpcId="2008466" XYZ="486.4256, 65.75549, -24.494" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 3"/>
         </While>
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 4">
           <NoCombatMoveTo XYZ="537.121, 61.16649, -11.21327" />
-          <UseItem ItemId="2002241" NpcId="2008464" XYZ="537.121, 61.16649, -11.21327" QuestId="68260" StepId="1" />
+          <UseItem ItemId="2002241" NpcId="2008464" XYZ="537.121, 61.16649, -11.21327" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 4"/>
         </While>
         <While Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 5">
           <NoCombatMoveTo XYZ="382.3456, 41.04817, -30.65896" />
-          <UseItem ItemId="2002241" NpcId="2008465" XYZ="382.3456, 41.04817, -30.65896" QuestId="68260" StepId="1" />
-        </While>
+          <UseItem ItemId="2002241" NpcId="2008465" XYZ="382.3456, 41.04817, -30.65896" QuestId="68260" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68260).GetTodoArgs(1, 0).Item1 == 5"/>
+		</While>
       </If>
       <!-- Fly, My Pretties -->
       <If Condition="HasQuest(68264) and not IsQuestCompleted(68264) and GetQuestStep(68264) == 1">
@@ -686,15 +699,18 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="GetQuestStep(68264) == 2">
         <While Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 0">
           <NoCombatMoveTo XYZ="378.599, 90.70438, -135.6643" />
-          <UseObject NpcId="2008352" XYZ="378.599, 90.70438, -135.6643" QuestId="68264" StepId="2" />
+          <UseObject NpcId="2008352" XYZ="378.599, 90.70438, -135.6643" QuestId="68264" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 0"/>
         </While>
         <While Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 1">
           <NoCombatMoveTo XYZ="351.6993, 97.62133, -135.6582" />
-          <UseObject NpcId="2008353" XYZ="351.6993, 97.62133, -135.6582" QuestId="68264" StepId="2" />
+          <UseObject NpcId="2008353" XYZ="351.6993, 97.62133, -135.6582" QuestId="68264" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 1"/>
         </While>
         <While Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 2">
           <NoCombatMoveTo XYZ="369.0254, 97.62137, -103.822" />
-          <UseObject NpcId="2008354" XYZ="369.0254, 97.62137, -103.822" QuestId="68264" StepId="2" />
+          <UseObject NpcId="2008354" XYZ="369.0254, 97.62137, -103.822" QuestId="68264" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+		  <WaitWhile Condition="GetQuestById(68264).GetTodoArgs(2, 0).Item1 == 2"/>
         </While>
       </If>
       <If Condition="HasQuest(68264) and not IsQuestCompleted(68264) and GetQuestStep(68264) == 3">
@@ -785,6 +801,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
   </If> -->
       <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 5">
         <LogMessage Message="Please manually gather the waterweed."/>
+		<WaitWhile Condition="GetQuestStep(68269) == 5"/>
       </If>
       <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 6">
         <If Condition="not IsOnMap(614)">
@@ -908,6 +925,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="not IsOnMap(621)">
           <GetTo ZoneId="621" XYZ="-473.1273, 87.08347, -722.8254" />
         </If>
+		<NoCombatMoveTo XYZ="249.513, 9.820967, -472.1926"/>
         <NoCombatMoveTo XYZ="-473.1273, 87.08347, -722.8254" />
         <Grind While="GetQuestStep(68416) == 1" GrindRef="A_Rite_To_Rest" />
       </If>
@@ -916,6 +934,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="not IsOnMap(621)">
           <GetTo ZoneId="621" XYZ="-524.5329, 8.68931, -19.4433" />
         </If>
+		<TeleportTo Name="Porta Praetoria" AetheryteId="102" Force="True"/>
         <NoCombatMoveTo XYZ="-524.5329, 8.68931, -19.4433" />
         <TurnIn QuestId="68416" NpcId="1022990" XYZ="-524.5329, 8.68931, -19.4433" />
       </If>
@@ -996,7 +1015,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <![CDATA[
     ff14bot.Managers.MovementManager.SetFacing(3.5f);
     ff14bot.Managers.MovementManager.MoveForwardStart();
-    await Buddy.Coroutines.Coroutine.Sleep(250);
+    await Buddy.Coroutines.Coroutine.Sleep(180);
     ff14bot.Managers.MovementManager.Jump();
     await Buddy.Coroutines.Coroutine.Sleep(650);
     ff14bot.Managers.MovementManager.MoveForwardStop();

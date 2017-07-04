@@ -4251,19 +4251,19 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
           <While Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 0">
             <NoCombatMoveTo XYZ="-150.042, 305.7992, 82.8717"/>
             <TalkTo InteractDistance="3.0" QuestId="68074" StepId="2" NpcId="1023835" XYZ="-150.042, 305.7992, 82.8717" />
-            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(3, 0).Item1 == 0"/>
+            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 0"/>
           </While>
           <NoCombatMoveTo XYZ="-126.5432, 306.5079, 186.2668" UseTimes="1" BlacklistAfter="True"/>
           <UseTransport InteractDistance="3.0" QuestId="68074" StepId="2" NpcId="2008450" XYZ="-126.5432, 306.5079, 186.2668" UseTimes="1" BlacklistAfter="True" />
           <While Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 1">
             <NoCombatMoveTo XYZ="-148.4856, 300.3935, 265.7358"/>
             <TalkTo InteractDistance="3.0" QuestId="68074" StepId="2" NpcId="1023834" XYZ="-148.4856, 300.3935, 265.7358" />
-            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(3, 0).Item1 == 1"/>
+            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 1"/>
           </While>
           <While Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 2">
             <NoCombatMoveTo XYZ="-212.6345, 296.3733, 297.0474"/>
             <TalkTo InteractDistance="3.0" QuestId="68074" StepId="2" NpcId="1020623" XYZ="-212.6345, 296.3733, 297.0474" />
-            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(3, 0).Item1 == 2"/>
+            <WaitWhile Condition="GetQuestById(68074).GetTodoArgs(2, 0).Item1 == 2"/>
           </While>
         </If>
         <If Condition="GetQuestStep(68074) == 255">

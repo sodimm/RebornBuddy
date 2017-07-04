@@ -2,7 +2,7 @@
 <!--
 Profile:  [Orderbot] Stormblood Aether Currents
 Authors:  Sodimm, TuckMeintoBread
-Version:  1.0.0
+Version:  1.1.0
 Level:    69+
 Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 -->
@@ -95,6 +95,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="IsOnMap(612)">
         <NoCombatMoveTo XYZ="731.2742, 186.2449, -228.1943" Distance="1" />
+		<MoveTo XYZ="731.2741, 186.2448, -228.1942" Distance="0.5" />
         <RunCode Name="2007972" />
       </If>
       <If Condition="IsOnMap(612)">
@@ -130,10 +131,16 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="620" XYZ="-298.822, 157.9421, -279.6385" />
       </If>
       <If Condition="IsOnMap(620)">
-        <NoCombatMoveTo XYZ="-298.822, 157.9421, -279.6385" />
-        <ClimbHill Start="-298.822, 157.9421, -279.6385" End="-322.4819, 130.2899, -279.0992" />
-        <MoveTo XYZ="-279.407, 130.0357, -236.1821" />
-        <RunCode Name="2007978" />
+		<NoCombatMoveTo XYZ="-281.9031, 104.5053, -361.8653" Distance="0.5"/>
+		<NoCombatMoveTo XYZ="-282.1063, 157.9419, -279.173" UseMesh="False" Distance="0.5"/>
+		<NoCombatMoveTo XYZ="-253.4668, 143.303, -276.1974" UseMesh="False" Distance="0.5"/>
+		<NoCombatMoveTo XYZ="-252.6902, 143.3147, -251.0808" UseMesh="False" Distance="0.5"/>
+		<NoCombatMoveTo XYZ="-283.5474, 143.3108, -249.7684" UseMesh="False" Distance="0.5"/>
+		<NoCombatMoveTo XYZ="-280.5971, 127.1437, -228.6376" UseMesh="False" Distance="0.5"/>
+		<If Condition="GameObjectManager.GetObjectByNPCId(2007978).IsVisible">
+			<UseObject NpcIds="2007978" XYZ="-280.5971, 127.1437, -228.6376" UseTimes="1" BlacklistAfter="True"/>
+		</If>
+		<NoCombatMoveTo XYZ="-280.4504, 106.6676, -209.3894" UseMesh="False" Distance="0.5"/>
       </If>
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="-481.2112, 57.84619, -780.3814" />
@@ -149,7 +156,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="IsOnMap(620)">
         <NoCombatMoveTo ZoneId="620" XYZ="272.8755, 133.9292, -746.3962" Distance="1" />
-        <ClimbHill Start="272.8755, 133.9292, -746.3962" End="268.8016, 126.3302, -731.3122" />
+        <NoCombatMoveTo XYZ="268.8016, 126.3302, -731.3122" Distance="1" UseMesh="False"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007976).IsVisible">
           <UseObject NpcIds="2007976" XYZ="261.7257, 126.2511, -726.2002" UseTimes="1" BlacklistAfter="True" />
         </If>
@@ -231,7 +238,11 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="228.3774, 98.79747, -530.2931" Distance="1" />
         <RunCode Name="2008017a" />
         <NoCombatMoveTo XYZ="273.6664, 90.20409, -475.5069" Distance="1" />
-        <RunCode Name="2008017b" />
+		<NoCombatMoveTo XYZ="282.4987, 81.48897, -460.5905" Distance="1" UseMesh="False"/>
+        <If Condition="GameObjectManager.GetObjectByNPCId(2008017).IsVisible">
+          <UseObject NpcIds="2008017" XYZ="282.4987, 81.48897, -460.5905" UseTimes="1" BlacklistAfter="True" />
+        </If>
+		<NoCombatMoveTo XYZ="285.5352, 50.87238, -443.2186" Distance="1" UseMesh="False"/>
       </If>
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-265.579, 64.58141, -361.007" />
@@ -243,25 +254,27 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         </If>
       </If>
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="62.87601, 8.799965, 41.06477" />
+        <GetTo ZoneId="622" XYZ="103.7593, 116.043, -48.00158" />
       </If>
       <If Condition="IsOnMap(622)">
-        <NoCombatMoveTo XYZ="62.87601, 8.799965, 41.06477" />
-        <UseTransport NpcId="1019423" XYZ="62.87601, 8.799965, 41.06477" />
+        <TeleportTo Name="The Dawn Throne" AetheryteId="110" Force="True"/>
         <NoCombatMoveTo XYZ="103.7593, 116.043, -48.00158" />
         <If Condition="GameObjectManager.GetObjectByNPCId(2008019).IsVisible">
           <UseObject NpcIds="2008019" XYZ="103.7593, 116.043, -48.00158" UseTimes="1" BlacklistAfter="True" />
         </If>
       </If>
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="66.17054, 114.905, -7.909785" />
+        <GetTo ZoneId="622" XYZ="-317.0756, 7.288915, 649.5165" />
       </If>
       <If Condition="IsOnMap(622)">
-        <NoCombatMoveTo XYZ="66.17054, 114.905, -7.909785" />
-        <UseTransport NpcId="1019424" XYZ="66.17054, 114.905, -7.909785" />
+        <TeleportTo Name="Reunion" AetheryteId="109" Force="True"/>
         <NoCombatMoveTo XYZ="-317.0756, 7.288915, 649.5165" Distance="1" />
-        <NoCombatMoveTo XYZ="-295.0461, 9.798309, 680.2563" Distance="1" />
-        <RunCode Name="2008023" />
+        <NoCombatMoveTo XYZ="-297.9183, 10.00196, 674.5955" Distance="0.5" />
+		<If Condition="GameObjectManager.GetObjectByNPCId(2008023).IsVisible">
+		  <NoCombatMoveTo XYZ="-305.5691, 18.56014, 650.1381" Distance="0.5" UseMesh="False"/>
+          <UseObject NpcIds="2008023" XYZ="-305.5691, 18.56014, 650.1381" UseTimes="1" BlacklistAfter="True" />
+		</If>
+        <NoCombatMoveTo XYZ="-309.6238, 8.929112, 635.1984" UseMesh="False"/>
       </If>
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-640.5781, 6.119884, 702.3987" />
@@ -538,6 +551,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="672.2595, 111.8, -710.3323"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007988).IsVisible">
           <UseObject NpcIds="2007988" XYZ="672.2595, 111.8, -710.3323" UseTimes="1" BlacklistAfter="True"/>
+		  <NoCombatMoveTo XYZ="627.2355, 109, -630.8505" UseMesh="False" Distance="1"/>
         </If>
       </If>
       <If Condition="IsOnMap(621)">
@@ -546,14 +560,14 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="-584.0972, 70.2, -756.1089" UseMesh="False" Distance="0.5"/>
         <NoCombatMoveTo XYZ="-615.9011, 66.74895, -755.9983" UseMesh="False" Distance="1.0"/>
         <NoCombatMoveTo XYZ="-734.0758, 87.17221, -277.6457" Distance="1.0"/>
+		<MoveTo XYZ="-693.2354, 71.13995, -293.3412" UseMesh="False" Distance="1.0"/>
         <WaitTimer WaitTime="5"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007985).IsVisible">
-          <MoveTo XYZ="-693.2354, 71.13995, -293.3412" UseMesh="False" Distance="1.0"/>
           <MoveTo XYZ="-644.1132, 64.30769, -291.335" UseMesh="False" Distance="1.0"/>
           <UseObject NpcIds="2007985" XYZ="-644.1132, 64.30769, -291.335" UseTimes="1" BlacklistAfter="True"/>
           <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2007985).IsVisible"/>
-          <MoveTo XYZ="-644.9987, 38.91329, -277.5859" UseMesh="False"/>
         </If>
+		<MoveTo XYZ="-644.9987, 38.91329, -277.5859" UseMesh="False"/>
       </If>
     </While>
   </Order>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Profile:  [Orderbot] Stormblood Aether Currents
-Authors:  Sodimm, TuckMeintoBread
-Version:  1.1.0
+Authors:  Sodimm, TuckMeIntoBread
+Version:  1.1.1
 Level:    69+
 Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 -->
@@ -16,6 +16,10 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 <Profile>
   <Name>[OrderBot] Stormblood Aether Currents</Name>
   <Order>
+	<If Condition="&doFringesLower; == 0 and &doFringesUpper; == 0 and &doPeaksUpper; == 0 and &doPeaksLower; == 0 and &doAzimSteppe; == 0 and &doRubySea; == 0 and &doYanxia; == 0 and &doLochs; == 0">
+		<LogMessage Message="No areas are set. Make sure to set which area(s) you want to complete in the profile!"/>
+		<WaitWhile Condition="&doFringesLower; == 0 and &doFringesUpper; == 0 and &doPeaksUpper; == 0 and &doPeaksLower; == 0 and &doAzimSteppe; == 0 and &doRubySea; == 0 and &doYanxia; == 0 and &doLochs; == 0"/>
+	</If>
     <!-- Upper Fringes -->
     <While Condition="&doFringesUpper;">
       <If Condition="not IsOnMap(612)">

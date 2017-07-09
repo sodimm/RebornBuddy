@@ -69,6 +69,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </While>
     <!-- Lower Fringes -->
+	<If Condition="not WorldManager.HasAetheryteId(99) and &doFringesLower;">
+		<LogMessage Message="You can't do the Lower Fringes yet! Please advance further in the Main Scenario.">
+	</If>
     <While Condition="WorldManager.HasAetheryteId(99) and &doFringesLower;">
       <If Condition="not IsOnMap(612)">
         <GetTo ZoneId="612" XYZ="410.4248, 59.59851, 369.6308" />
@@ -110,6 +113,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </While>
     <!-- Upper Peaks -->
+	<If Condition="not WorldManager.HasAetheryteId(100) and &doPeaksUpper;">
+		<LogMessage Message="You can't do the Upper Peaks yet! Please advance further in the Main Scenario."/>
+	</If>
     <While Condition="WorldManager.HasAetheryteId(100) and &doPeaksUpper;">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="709.5867, 256.2775, -479.185" />
@@ -167,6 +173,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </While>
     <!-- Lower Peaks -->
+	<If Condition="not WorldManager.HasAetheryteId(101) and not IsQuestCompleted(68078) and &doPeaksLower;">
+		<LogMessage Message="You can't do the Lower Peaks yet! Please advance further in the Main Scenario."/>
+	</If>
     <While Condition="WorldManager.HasAetheryteId(101) and IsQuestCompleted(68078) and &doPeaksLower;">
       <If Condition="not IsOnMap(620)">
         <GetTo ZoneId="620" XYZ="-271.6064, 257.5265, 728.4514"/>
@@ -309,6 +318,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </While>
     <!-- Yanxia -->
+	<If Condition="not IsQuestCompleted(68060) and &doYanxia;">
+		<LogMessage Message="You can't do Yanxia yet! Please advance further in the Main Scenario."/>
+	</If>
     <While Condition="IsQuestCompleted(68060) and &doYanxia;">
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="447.1224, 68.00173, -93.75388"/>
@@ -485,6 +497,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </While>
     <!-- The Lochs -->
+	<If Condition="not WorldManager.HasAetheryteId(103) and &doLochs;">
+		<LogMessage Message="You can't do the Lochs yet! Please advance further in the Main Scenario.">
+	</If>
     <While Condition="WorldManager.HasAetheryteId(103) and &doLochs;">
       <If Condition="not IsOnMap(621)">
         <GetTo ZoneId="621" XYZ="-392.5773, 39.61606, -47.4309"/>

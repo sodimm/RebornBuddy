@@ -165,6 +165,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </If>
     <!-- Upper Peaks -->
+	<If Condition="not WorldManager.HasAetheryteId(100) and &doPeaksUpper;">
+		<LogMessage Message="You can't do the Upper Peaks yet! Please advance further in the Main Scenario."/>
+	</If>
     <If Condition="WorldManager.HasAetheryteId(100) and &doPeaksUpper;">
       <!-- Saint Sayer -->
       <If Condition="not HasQuest(68191) and not IsQuestCompleted(68191)">
@@ -207,6 +210,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
     </If>
     <!-- Lower Peaks -->
+	<If Condition="not WorldManager.HasAetheryteId(101) and not IsQuestCompleted(68078) and &doPeaksLower;">
+		<LogMessage Message="You can't do the Lower Peaks yet! Please advance further in the Main Scenario."/>
+	</If>
     <If Condition="WorldManager.HasAetheryteId(101) and IsQuestCompleted(68078) and &doPeaksLower;">
       <!-- Out of Sight -->
       <If Condition="not HasQuest(68378) and not IsQuestCompleted(68378)">
@@ -624,6 +630,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
   </If>-->
     </If>
     <!-- Yanxia -->
+	<If Condition="not IsQuestCompleted(68060) and &doYanxia;">
+		<LogMessage Message="You can't do Yanxia yet! Please advance further in the Main Scenario."/>
+	</If>
     <If Condition="IsQuestCompleted(68060) and &doYanxia;">
       <!-- Wolves and Weeds -->
       <If Condition="not HasQuest(68269) and not IsQuestCompleted(68269)">
@@ -837,6 +846,9 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 
     </If>
     <!-- The Lochs -->
+	<If Condition="not WorldManager.HasAetheryteId(103) and &doLochs;">
+		<LogMessage Message="You can't do the Lochs yet! Please advance further in the Main Scenario.">
+	</If>
     <If Condition="WorldManager.HasAetheryteId(103) and &doLochs;">
       <!-- If I Were a Fish -->
       <If Condition="not HasQuest(68417) and not IsQuestCompleted(68417)">

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net.Http;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using System.Windows.Threading;
-using ff14bot;
+﻿using ff14bot;
 using ff14bot.AClasses;
 using ff14bot.Behavior;
 using ff14bot.Helpers;
 using ICSharpCode.SharpZipLib.Zip;
-using TreeSharp;
-using Action = System.Action;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Windows.Media;
+using TreeSharp;
 
-namespace ArtemisLoader
+namespace Loader
 {
     public class ArtemisLoader : BotBase
     {
@@ -29,24 +27,22 @@ namespace ArtemisLoader
 
         private const string ZipUrl = "https://github.com/sodimm/RebornBuddy/blob/master/BotBases/Artemis/Artemis.zip?raw=true";
 
-        private static readonly Color _logColor = Colors.Cyan;
-
+        private static readonly Color LogColor = Colors.Red;
         public override PulseFlags PulseFlags => PulseFlags.All;
         public override bool IsAutonomous => true;
-        public override bool WantButton => false;
+        public override bool WantButton => true;
         public override bool RequiresProfile => false;
 
         #region Meta Data
 
         // Don't touch anything else below from here!
         private static readonly object Locker = new object();
-        private static readonly string VersionPath = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}\version.txt");
         private static readonly string ProjectAssembly = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}\{ProjectAssemblyName}");
         private static readonly string GreyMagicAssembly = Path.Combine(Environment.CurrentDirectory, @"GreyMagic.dll");
-        private static readonly string ProjectDirectory = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}");
+        private static readonly string VersionPath = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}\version.txt");
+        private static readonly string BaseDir = Path.Combine(Environment.CurrentDirectory, $@"BotBases\{ProjectName}");
         private static readonly string ProjectTypeFolder = Path.Combine(Environment.CurrentDirectory, @"BotBases");
         private static bool _updated;
-
         private static readonly Composite FailsafeRoot = new TreeSharp.Action(c =>
         {
             Log($"{ProjectName} is not loaded correctly.");
@@ -54,6 +50,8 @@ namespace ArtemisLoader
         });
 
         #endregion
+
+        #region Constructor
 
         public ArtemisLoader()
         {
@@ -66,6 +64,8 @@ namespace ArtemisLoader
             Task.Factory.StartNew(Update);
         }
 
+        #endregion
+
         #region Overrides
 
         public override string Name => "Artemis";
@@ -74,22 +74,22 @@ namespace ArtemisLoader
         {
             get
             {
-                if (Project == null) { Load(); }
-                return Project != null ? (Composite)RootFunc.Invoke(Project, null) : FailsafeRoot;
+                if (Plugin == null) { Load(); }
+                return Plugin != null ? (Composite)RootFunc.Invoke(Plugin, null) : FailsafeRoot;
             }
         }
 
-        public override void OnButtonPress() => ButtonFunc?.Invoke(Project, null);
+        public override void OnButtonPress() => ButtonFunc?.Invoke(Plugin, null);
 
-        public override void Start() => StartFunc?.Invoke(Project, null);
+        public override void Start() => StartFunc?.Invoke(Plugin, null);
 
-        public override void Stop() => StopFunc?.Invoke(Project, null);
+        public override void Stop() => StopFunc?.Invoke(Plugin, null);
 
         #endregion
 
         #region Injections
 
-        static object Project;
+        static object Plugin;
         private static MethodInfo StartFunc { get; set; }
         private static MethodInfo StopFunc { get; set; }
         private static MethodInfo ButtonFunc { get; set; }
@@ -123,7 +123,7 @@ namespace ArtemisLoader
 
             try
             {
-                Project = Activator.CreateInstance(baseType);
+                Plugin = Activator.CreateInstance(baseType);
             }
             catch (Exception e)
             {
@@ -131,17 +131,23 @@ namespace ArtemisLoader
                 return;
             }
 
-            if (Project == null)
+            if (Plugin == null)
             {
                 Log("[Error] Could not load main type.");
                 return;
             }
 
-            StartFunc = Project.GetType().GetMethod("Start");
-            StopFunc = Project.GetType().GetMethod("Stop");
-            ButtonFunc = Project.GetType().GetMethod("OnButtonPress");
-            RootFunc = Project.GetType().GetMethod("GetRoot");
-            InitFunc = Project.GetType().GetMethod("Initialize", new[] { typeof(int) });
+            StartFunc = Plugin.GetType().GetMethod("Start");
+            StopFunc = Plugin.GetType().GetMethod("Stop");
+            ButtonFunc = Plugin.GetType().GetMethod("OnButtonPress");
+            RootFunc = Plugin.GetType().GetMethod("get_Root");
+            InitFunc = Plugin.GetType().GetMethod("Initialize", new[] { typeof(int) });
+            if (InitFunc != null)
+            {
+                Log($"{ProjectName}64 loaded.");
+                InitFunc.Invoke(Plugin, new[] {(object)2});
+            }
+
         }
 
         [DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true)]
@@ -178,90 +184,147 @@ namespace ArtemisLoader
 
         #endregion
 
-        #region Automatic Updates
+        #region Automatic Update Methods
 
-        private static async Task Update()
+        private static void Update()
         {
+            var stopwatch = Stopwatch.StartNew();
             var local = GetLocalVersion();
-            var data = await TryUpdate(local);
-            if (data == null) { return; }
+            var responseMessage = GetLatestVersion().Result;
+            var latest = responseMessage;
 
-            try { Clean(ProjectDirectory); }
+            if (local == latest || latest == null)
+            {
+                Load();
+                return;
+            }
+
+            Log($"Updating to {latest}.");
+            var bytes = DownloadLatest(latest).Result;
+
+            if (bytes == null || bytes.Length == 0)
+            {
+                Log("[Error] Bad product data returned.");
+                return;
+            }
+
+            if (!Clean(BaseDir))
+            {
+                Log("[Error] Could not clean directory for update.");
+                return;
+            }
+
+            if (!Extract(bytes, ProjectTypeFolder))
+            {
+                Log("[Error] Could not extract new files.");
+                return;
+            }
+
+            if (File.Exists(VersionPath)) { File.Delete(VersionPath); }
+            try { File.WriteAllText(VersionPath, latest); }
             catch (Exception e) { Log(e.ToString()); }
 
-            try { Extract(data, ProjectTypeFolder); }
-            catch (Exception e) { Log(e.ToString()); }
+            stopwatch.Stop();
+            Log($"Update complete in {stopwatch.ElapsedMilliseconds} ms.");
+            Load();
         }
-
-        private static void Extract(byte[] files, string directory)
-        {
-            using (var stream = new MemoryStream(files))
-            {
-                var zip = new FastZip();
-                zip.ExtractZip(stream, directory, FastZip.Overwrite.Always, null, null, null, false, true);
-            }
-        }
-
-        private static void Clean(string directory)
-        {
-            foreach (var file in new DirectoryInfo(directory).GetFiles())
-            {
-                file.Delete();
-            }
-
-            foreach (var dir in new DirectoryInfo(directory).GetDirectories())
-            {
-                dir.Delete(true);
-            }
-        }
-
         private static string GetLocalVersion()
         {
             if (!File.Exists(VersionPath)) { return null; }
             try
             {
-                var version = File.ReadAllText(VersionPath);
-                return version;
+                return File.ReadAllText(VersionPath);
             }
             catch { return null; }
         }
 
-        public static async Task<byte[]> TryUpdate(string localVersion)
+        private static bool Clean(string directory)
         {
-            try
+            foreach (var file in new DirectoryInfo(directory).GetFiles())
             {
-                using (var client = new HttpClient())
+                try { file.Delete(); }
+                catch { return false; }
+            }
+
+            foreach (var dir in new DirectoryInfo(directory).GetDirectories())
+            {
+                try { dir.Delete(true); }
+                catch { return false; }
+            }
+
+            return true;
+        }
+        private static bool Extract(byte[] files, string directory)
+        {
+            using (var stream = new MemoryStream(files))
+            {
+                var zip = new FastZip();
+                try { zip.ExtractZip(stream, directory, FastZip.Overwrite.Always, null, null, null, false, true); }
+                catch (Exception e)
                 {
-                    var stopwatch = Stopwatch.StartNew();
-                    var version = await client.GetStringAsync(VersionUrl);
-                    if (string.IsNullOrEmpty(version) || version == localVersion) { return null; }
-
-                    Log($"Local: {localVersion} | Latest: {version}");
-                    using (var response = await client.GetAsync(ZipUrl))
-                    {
-                        if (!response.IsSuccessStatusCode)
-                        {
-                            Log($"[Error] Could not download {ProjectName}: {response.StatusCode}");
-                            return null;
-                        }
-
-                        using (var inputStream = await response.Content.ReadAsStreamAsync())
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            await inputStream.CopyToAsync(memoryStream);
-
-                            stopwatch.Stop();
-                            Log($"Download took {stopwatch.ElapsedMilliseconds} ms.");
-
-                            return memoryStream.ToArray();
-                        }
-                    }
+                    Log(e.ToString());
+                    return false;
                 }
             }
-            catch (Exception e)
+
+            return true;
+        }
+
+        private static async Task<string> GetLatestVersion()
+        {
+            using (var client = new HttpClient())
             {
-                Log($"[Error] {e}");
-                return null;
+                HttpResponseMessage response;
+                try { response = await client.GetAsync(VersionUrl); }
+                catch (Exception e)
+                {
+                    Log(e.Message);
+                    return null;
+                }
+                if (!response.IsSuccessStatusCode)
+                    return null;
+
+                string responseMessageBytes;
+                try { responseMessageBytes = await response.Content.ReadAsStringAsync(); }
+                catch (Exception e)
+                {
+                    Log(e.Message);
+                    return null;
+                }
+                return responseMessageBytes;
+            }
+        }
+
+        private static async Task<byte[]> DownloadLatest(string version)
+        {
+            using (var client = new HttpClient())
+            {
+
+                HttpResponseMessage response;
+                try
+                {
+                    response = await client.GetAsync(ZipUrl);
+                }
+                catch (Exception e)
+                {
+                    Log(e.Message);
+                    return null;
+                }
+                if (!response.IsSuccessStatusCode)
+                    return null;
+
+                byte[] responseMessageBytes;
+                try
+                {
+                    responseMessageBytes = await response.Content.ReadAsByteArrayAsync();
+                }
+                catch (Exception e)
+                {
+                    Log(e.Message);
+                    return null;
+                }
+
+                return responseMessageBytes;
             }
         }
 
@@ -271,10 +334,8 @@ namespace ArtemisLoader
 
         private static void Log(string message)
         {
-            message = $"[{ProjectName}] {message}";
-            Logging.Write(_logColor, message);
+            Logging.Write(LogColor, $"[Auto-Updater][{ProjectName}] {message}");
         }
-
         public static void RedirectAssembly()
         {
             ResolveEventHandler handler = (sender, args) =>
@@ -293,8 +354,9 @@ namespace ArtemisLoader
             };
 
             AppDomain.CurrentDomain.AssemblyResolve += greyMagicHandler;
-        }
 
+        }
         #endregion
+
     }
 }

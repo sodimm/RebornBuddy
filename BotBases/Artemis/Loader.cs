@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using TreeSharp;
 
-namespace Loader
+namespace ArtemisLoader
 {
     public class ArtemisLoader : BotBase
     {
@@ -27,10 +27,10 @@ namespace Loader
 
         private const string ZipUrl = "https://github.com/sodimm/RebornBuddy/blob/master/BotBases/Artemis/Artemis.zip?raw=true";
 
-        private static readonly Color LogColor = Colors.Red;
+        private static readonly Color LogColor = Colors.Cyan;
         public override PulseFlags PulseFlags => PulseFlags.All;
         public override bool IsAutonomous => true;
-        public override bool WantButton => true;
+        public override bool WantButton => false;
         public override bool RequiresProfile => false;
 
         #region Meta Data

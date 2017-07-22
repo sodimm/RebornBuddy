@@ -25,7 +25,7 @@ namespace ArtemisLoader
 
         private const string VersionUrl = "https://github.com/sodimm/RebornBuddy/blob/master/BotBases/Artemis/version.txt?raw=true";
 
-        private const string ZipUrl = "https://github.com/sodimm/RebornBuddy/blob/master/BotBases/Artemis/Artemis.zip?raw=true";
+        private const string ZipUrl = "https://github.com/sodimm/RebornBuddy/blob/master/Downloads/Latest/Artemis.zip?raw=true";
 
         private static readonly Color LogColor = Colors.Cyan;
         public override PulseFlags PulseFlags => PulseFlags.All;

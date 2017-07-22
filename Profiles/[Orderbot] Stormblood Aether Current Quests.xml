@@ -899,9 +899,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
           <GetTo ZoneId="621" XYZ="-156.9747, 2.799993, 196.0645"/>
         </If>
         <NoCombatMoveTo XYZ="-156.9747, 2.799993, 196.0645"/>
-        <!-- KillAndBag Objectives -->
-        <LogMessage Message="Please complete the next objective for quest Are They Ill Tempered manually."/>
-        <WaitWhile Condition="GetQuestStep(68419) == 1"/>
+        <UseItem NpcIds="5719" ItemId="2002315" UseHealthPercent="25" UseTimes="1" XYZ="-142.7926, -0.3, 136.9581" Radius="90" QuestId="68419" StepId="1" />
       </If>
       <If Condition="HasQuest(68419) and not IsQuestCompleted(68419) and GetQuestStep(68419) == 255">
         <If Condition="not IsOnMap(621)">

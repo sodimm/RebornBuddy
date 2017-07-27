@@ -52,7 +52,7 @@ namespace Sparrow
         public override string Name => PROJECT_NAME;
         public override string Author => "Sodimm";
         public override string ButtonText => "Settings";
-        public override Version Version => new Version(1, 2, 3, 2);
+        public override Version Version => new Version(1, 2, 3, 3);
         public override string Description => "Chocobo Manager.";
 
         public override void OnButtonPress() => _onButtonPress?.Invoke();

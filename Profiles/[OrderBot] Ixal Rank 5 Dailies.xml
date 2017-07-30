@@ -990,7 +990,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob != ff14bot.Enums.ClassJobType.Miner)
@@ -1004,7 +1004,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob != ff14bot.Enums.ClassJobType.Botanist)
@@ -1018,7 +1018,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob != ff14bot.Enums.ClassJobType.Fisher)
@@ -1032,7 +1032,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Carpenter || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Blacksmith || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Armorer || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Goldsmith || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Leatherworker || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Weaver || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Alchemist || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Culinarian || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Miner || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Botanist || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Fisher)
@@ -1046,7 +1046,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Paladin || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Monk || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Warrior || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Dragoon || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Bard || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.WhiteMage || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.BlackMage || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Summoner || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Scholar || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Ninja)
@@ -1060,7 +1060,7 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 		<![CDATA[
 			if(Core.Player.IsMounted)
 			{
-				ff14bot.Managers.Actionmanager.Dismount();
+				ff14bot.Managers.ActionManager.Dismount();
 				await Buddy.Coroutines.Coroutine.Sleep(2000);
 			}
 			if(Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Paladin || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Monk || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Warrior || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Dragoon || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Bard || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.WhiteMage || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.BlackMage || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Summoner || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Scholar || Core.Player.CurrentJob == ff14bot.Enums.ClassJobType.Ninja)
@@ -1073,9 +1073,9 @@ Profile Instructions:	Re-Number your MINER Gear Set to 1 (ONE).
 	<CodeChunk Name="UseStealth">
 		<![CDATA[
 			SpellData data;
-			if (!Core.Me.HasAura("Stealth") && Actionmanager.CurrentActions.TryGetValue("Stealth", out data) && Actionmanager.CanCast(data, Core.Me))
+			if (!Core.Me.HasAura("Stealth") && ActionManager.CurrentActions.TryGetValue("Stealth", out data) && ActionManager.CanCast(data, Core.Me))
 			{
-				Actionmanager.DoAction("Stealth", Core.Me);
+				ActionManager.DoAction("Stealth", Core.Me);
 				await Buddy.Coroutines.Coroutine.Sleep(500);
 			}
 		]]>

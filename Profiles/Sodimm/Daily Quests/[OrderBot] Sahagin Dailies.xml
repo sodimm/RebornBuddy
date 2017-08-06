@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Sahagin Dailies.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[SoOrderBot] Sahagin Dailies.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Register Dailies -->
+    <RegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945" />
+    <!-- Pick Ups -->
+    <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945]))">
+      <!-- Rank 3 -->
+      <!-- Tines of the Trident -->
+      <If Condition="not HasQuest(66936)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66936)">
+          <PickUpQuest QuestId="66936" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Shellfish Schemes -->
+      <If Condition="not HasQuest(66937)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66937)">
+          <PickUpQuest QuestId="66937" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- An Enthralling Engagement -->
+      <If Condition="not HasQuest(66938)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66938)">
+          <PickUpQuest QuestId="66938" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Up in Shhhmoke  -->
+      <If Condition="not HasQuest(66939)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66939)">
+          <PickUpQuest QuestId="66939" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Reaving in a Hurry -->
+      <If Condition="not HasQuest(66940)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66940)">
+          <PickUpQuest QuestId="66940" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- The Tail's the Best Part -->
+      <If Condition="not HasQuest(66941)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66941)">
+          <PickUpQuest QuestId="66941" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Unfair Trading -->
+      <If Condition="not HasQuest(66942)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66942)">
+          <PickUpQuest QuestId="66942" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Sea Scraps -->
+      <If Condition="not HasQuest(66943)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66943)">
+          <PickUpQuest QuestId="66943" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Plunder Fire -->
+      <If Condition="not HasQuest(66944)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66944)">
+          <PickUpQuest QuestId="66944" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Removing the Stain -->
+      <If Condition="not HasQuest(66945)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+        <NoCombatMoveTo XYZ="-226.1235, -40.48583, 57.08398"/>
+        <If Condition="IsQuestAcceptQualified(66945)">
+          <PickUpQuest QuestId="66945" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398"/>
+        </If>
+      </If>
+      <!-- Rank 2 -->
+      <!-- Move Along, Nothing to Heal Here -->
+      <If Condition="not HasQuest(66926)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66926)">
+          <PickUpQuest NpcId="1005939" QuestId="66926" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Aint Got Time to Breed -->
+      <If Condition="not HasQuest(66927)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66927)">
+          <PickUpQuest NpcId="1005939" QuestId="66927" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Get a Lode of This -->
+      <If Condition="not HasQuest(66928)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66928)">
+          <PickUpQuest NpcId="1005939" QuestId="66928" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Ballista Bust-up -->
+      <If Condition="not HasQuest(66929)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66929)">
+          <PickUpQuest NpcId="1005939" QuestId="66929" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Better Ash Than Blood -->
+      <If Condition="not HasQuest(66930)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66930)">
+          <PickUpQuest NpcId="1005939" QuestId="66930" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Put a Shhhock in It -->
+      <If Condition="not HasQuest(66931)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66931)">
+          <PickUpQuest NpcId="1005939" QuestId="66931" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Clutchfather Knows Best -->
+      <If Condition="not HasQuest(66932)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66932)">
+          <PickUpQuest NpcId="1005939" QuestId="66932" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- A Nap Before Drowning -->
+      <If Condition="not HasQuest(66933)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66933)">
+          <PickUpQuest NpcId="1005939" QuestId="66933" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- In the Shadow of the Moon -->
+      <If Condition="not HasQuest(66934)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66934)">
+          <PickUpQuest NpcId="1005939" QuestId="66934" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Learn by Destroying -->
+      <If Condition="not HasQuest(66935)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+        <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+        <If Condition="IsQuestAcceptQualified(66935)">
+          <PickUpQuest NpcId="1005939" QuestId="66935" XYZ="-247.4205, -42.14037, 52.06385"/>
+        </If>
+      </If>
+      <!-- Rank 1 -->
+      <!-- A Killer Strategy -->
+      <If Condition="not HasQuest(66915)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66915)">
+          <PickUpQuest QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Standard Procedure -->
+      <If Condition="not HasQuest(66916)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66916)">
+          <PickUpQuest QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Enemy at the Gates -->
+      <If Condition="not HasQuest(66917)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66917)">
+          <PickUpQuest QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- A Taste for Paste -->
+      <If Condition="not HasQuest(66918)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66918)">
+          <PickUpQuest QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Spawning Ground Salvation -->
+      <If Condition="not HasQuest(66919)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66919)">
+          <PickUpQuest QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- A Quick Snip -->
+      <If Condition="not HasQuest(66920)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66920)">
+          <PickUpQuest QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Violence of the Clams -->
+      <If Condition="not HasQuest(66921)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66921)">
+          <PickUpQuest QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Wind from their Sails -->
+      <If Condition="not HasQuest(66922)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66922)">
+          <PickUpQuest QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- A Crate-ful Response -->
+      <If Condition="not HasQuest(66923)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66923)">
+          <PickUpQuest QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+      <!-- Skullduggery -->
+      <If Condition="not HasQuest(66924)">
+        <If Condition="not IsOnMap(138)">
+          <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+        <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+        <If Condition="IsQuestAcceptQualified(66924)">
+          <PickUpQuest QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+        </If>
+      </If>
+    </If>
+    <!-- Rank 3 -->
+    <!-- Quests on The Merchantman C () -->
+<!--      <!{1}** Unfair Trading **{1}>
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66942" MapId="138" />
+      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" />
+      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66942" StepId="255" />
+      <!{1}** Sea Scraps **{1}>
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66943" MapId="138" />
+      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" >
+        <HotSpots>
+          <HotSpot XYZ="-846.8605, -25.65275, 962.0354" Radius="20" />
+          <HotSpot XYZ="-862.8214, -20.65275, 966.308" Radius="20" />
+          <HotSpot XYZ="-821.4084, -25.64775, 974.853" Radius="20" />
+          <HotSpot XYZ="-795.4986, -23.64963, 972.3506" Radius="20" />
+        </HotSpots>
+      </SoUseObject>
+      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66943" StepId="255" />
+-->
+    <!-- Quests on the Pirate Vessel (948) -->
+    <!-- Plunder Fire -->
+    <If Condition="HasQuest(66944) and GetQuestStep(66944) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(946)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66944"/>
+      </If>
+      <UseItem ItemId="2001292" NpcIds="2004017,2004018,2004019,2004016" QuestId="66944" StepId="1" UseDistance="1">
+        <HotSpots>
+          <HotSpot XYZ="-931.6091, -30.28925, 829.3431" Radius="5" />
+          <HotSpot XYZ="-917.5707, -31.75409, 823.1479" Radius="5" />
+          <HotSpot XYZ="-929.015, -29.77039, 842.8624" Radius="5" />
+          <HotSpot XYZ="-939.1165, -31.78455, 846.0364" Radius="5" />
+        </HotSpots>
+      </UseItem>
+      <MoveTo XYZ="-925.9974, -31.75006, 848.4453" Distance="1"/>
+      <UseTransport InteractDistance="2.0" NpcId="2004015" XYZ="-924.4068, -33.43262, 842.3132" />
+    </If>
+    <!-- Quests in the Open World -->
+    <!-- Reaving in a Hurry -->
+    <If Condition="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 0)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-393.2174, -38.58279, -243.4839"/>
+      </If>
+      <NoCombatMoveTo XYZ="-393.2174, -38.58279, -243.4839"/>
+      <Grind GrindRef="66940a" While="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 0)"/>
+    </If>
+    <If Condition="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 1)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-393.2174, -38.58279, -243.4839"/>
+      </If>
+      <NoCombatMoveTo XYZ="-393.2174, -38.58279, -243.4839"/>
+      <Grind GrindRef="66940b" While="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 1)"/>
+    </If>
+    <If Condition="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 2)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-393.2174, -38.58279, -243.4839"/>
+      </If>
+      <NoCombatMoveTo XYZ="-393.2174, -38.58279, -243.4839"/>
+      <Grind GrindRef="66940c" While="HasQuest(66940) and GetQuestStep(66940) == 1 and not IsTodoChecked(66940, 1, 2)"/>
+    </If>
+    <!-- The Tail's the Best Part -->
+    <If Condition="HasQuest(66941) and GetQuestStep(66941) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-375.5726, -37.31264, -295.6156"/>
+      </If>
+      <NoCombatMoveTo XYZ="-375.5726, -37.31264, -295.6156"/>
+      <Grind GrindRef="66941" While="HasQuest(66941) and GetQuestStep(66941) == 1"/>
+    </If>
+    <If Condition="HasQuest(66941) and GetQuestStep(66941) == 2">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-503.8682, -29.89246, -387.3198"/>
+      </If>
+      <NoCombatMoveTo XYZ="-503.8682, -29.89246, -387.3198"/>
+      <UseObject NpcIds="2003837" XYZ="-503.8682, -29.89246, -387.3198" QuestId="66941" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(66941) and GetQuestStep(66941) == 3">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-503.8682, -29.89246, -387.3198"/>
+      </If>
+      <NoCombatMoveTo XYZ="-503.8682, -29.89246, -387.3198"/>
+      <UseItem ItemId="2001272" NpcIds="2003868" XYZ="-503.8682, -29.89246, -387.3198" QuestId="66941" StepId="3"/>
+    </If>
+    <!-- Tines of the Trident -->
+    <If Condition="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 0)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-341.5732, -39.4828, -357.9309"/>
+      </If>
+      <NoCombatMoveTo XYZ="-341.5732, -39.4828, -357.9309"/>
+      <Grind GrindRef="66936a" While="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 0)"/>
+    </If>
+    <If Condition="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 1)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-341.5732, -39.4828, -357.9309"/>
+      </If>
+      <NoCombatMoveTo XYZ="-317.9305, -39.35455, -298.3956"/>
+      <Grind GrindRef="66936b" While="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 1)"/>
+    </If>
+    <If Condition="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 2)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-341.5732, -39.4828, -357.9309"/>
+      </If>
+      <NoCombatMoveTo XYZ="-317.9305, -39.35455, -298.3956"/>
+      <Grind GrindRef="66936c" While="HasQuest(66936) and GetQuestStep(66936) == 1 and not IsTodoChecked(66936, 1, 2)"/>
+    </If>
+    <!-- Shellfish Schemes -->
+    <If Condition="HasQuest(66937) and GetQuestStep(66937) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-391.4412, -38.67535, -342.0912"/>
+      </If>
+      <NoCombatMoveTo XYZ="-391.4412, -38.67535, -342.0912"/>
+      <Grind GrindRef="66937" While="HasQuest(66937) and GetQuestStep(66937) == 1"/>
+    </If>
+    <!-- Up in Shhhmoke  -->
+    <If Condition="HasQuest(66939) and GetQuestStep(66939) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-360.0367, -35.50775, -399.1302"/>
+      </If>
+      <NoCombatMoveTo XYZ="-360.0367, -35.50775, -399.1302"/>
+      <UseItem ItemId="2001270" NpcIds="2003856,2003857,2003858,2003859" QuestId="66939" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-360.0367, -35.50775, -399.1302" Radius="10" />
+          <HotSpot XYZ="-364.4923, -35.26361, -437.2778" Radius="10" />
+          <HotSpot XYZ="-367.6967, -38.62067, -388.632" Radius="10" />
+          <HotSpot XYZ="-350.576, -35.20258, -413.3516" Radius="10" />
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- An Enthralling Engagement -->
+    <If Condition="HasQuest(66938) and GetQuestStep(66938) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-374.5016, -39.46256, -351.3618"/>
+      </If>
+      <NoCombatMoveTo XYZ="-374.5016, -39.46256, -351.3618"/>
+      <UseObject NpcIds="1008808,1008809,1008810,1008811,1008812,1008813,1008814" QuestId="66938" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-374.5016, -39.46256, -351.3618" Radius="10" />
+          <HotSpot XYZ="-368.517, -39.64428, -356.6625" Radius="10" />
+          <HotSpot XYZ="-363.2968, -39.4221, -362.8401" Radius="10" />
+          <HotSpot XYZ="-360.147, -39.22201, -369.5142" Radius="10" />
+          <HotSpot XYZ="-355.1823, -38.5578, -378.3563" Radius="10" />
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- Removing the Stain -->
+    <If Condition="HasQuest(66945) and GetQuestStep(66945) == 255 and not HasItem(7805)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-413.8471, -28.38701, -241.937"/>
+      </If>
+      <NoCombatMoveTo XYZ="-413.8471, -28.38701, -241.937"/>
+      <WaitWhile Condition="not FateManager.WithinFate"/>
+      <RunCode Name="66945"/>
+      <Grind GrindRef="66945" While="not HasItem(7805)"/>
+    </If>
+    <!-- Rank 2 -->
+    <!-- Quests on Moonshade Isle (946) -->
+    <!-- In the Shadow of the Moon -->
+    <If Condition="HasQuest(66934) and GetQuestStep(66934) == 1">
+      <!-- Transport Quests (Merchantman B) -->
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(946)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66934"/>
+      </If>
+      <RunCode Name="DisableMount"/>
+      <While Condition="GetQuestStep(66934) == 1">
+        <MoveTo XYZ="-803.2051, -40.69403, 654.8434" Distance="2" />
+        <MoveTo XYZ="-802.9698, -40.72558, 649.9328" Distance="2" />
+        <MoveTo XYZ="-803.0165, -40.51761, 644.6306" Distance="2" />
+        <MoveTo XYZ="-797.8507, -40.20263, 649.5412" Distance="2" />
+        <MoveTo XYZ="-808.7948, -40.66103, 649.4343" Distance="2" />
+        <MoveTo XYZ="-765.3834, -36.81837, 705.5732" Distance="2" />
+        <MoveTo XYZ="-771.2515, -38.13315, 705.5508" Distance="2" />
+        <MoveTo XYZ="-766.3175, -37.90235, 699.8101" Distance="2" />
+        <MoveTo XYZ="-760.2322, -37.41692, 705.9405" Distance="2" />
+        <MoveTo XYZ="-766.0171, -38.09329, 711.1499" Distance="2" />
+      </While>
+      <RunCode Name="EnableMount" />
+      <If Condition="IsOnSubMap(946)">
+        <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
+      </If>
+    </If>
+    <!-- Quests on The Merchantman B () -->
+<!--      <!{1}** Learn by Destroying **{1}>
+      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66935" StepId="1" MapId="138" />
+      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" />
+      <SoUseTransport NpcId="2004013" XYZ="-883.36, -29.25159, 929.2285" QuestId="66935" StepId="255" />
+-->
+    <!-- Quests in the Open World -->
+    <!-- Get a Lode of This -->
+    <If Condition="HasQuest(66928) and GetQuestStep(66928) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-236.6029, -41.18776, -175.5754"/>
+      </If>
+      <NoCombatMoveTo XYZ="-236.6029, -41.18776, -175.5754"/>
+      <UseObject NpcIds="2003765,2003766,2003767,2003768" QuestId="66928" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-236.6029, -41.18776, -175.5754" Radius="10" />
+          <HotSpot XYZ="-223.3158, -41.60957, -185.6941" Radius="10" />
+          <HotSpot XYZ="-212.5918, -41.79627, -198.2214" Radius="10" />
+          <HotSpot XYZ="-219.281, -41.99377, -208.3302" Radius="10" />
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- A Nap Before Drowning -->
+    <If Condition="HasQuest(66933) and GetQuestStep(66933) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-192.9365, -40.71842, -211.4385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-192.9365, -40.71842, -211.4385"/>
+      <UseItem ItemId="2001265" NpcIds="2003828,2003829,2003830,2003831" QuestId="66933" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-192.9365, -40.71842, -211.4385" Radius="10" />
+          <HotSpot XYZ="-159.7222, -41.39574, -269.5787" Radius="10" />
+          <HotSpot XYZ="-217.946, -39.18172, -332.3576" Radius="10" />
+          <HotSpot XYZ="-270.4427, -43.12448, -259.4788" Radius="10" />
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- Put a Shhhock in It -->
+    <If Condition="HasQuest(66931) and GetQuestStep(66931) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-190.8022, -41.43997, -241.1754"/>
+      </If>
+      <NoCombatMoveTo XYZ="-190.8022, -41.43997, -241.1754"/>
+      <UseItem ItemId="2001264" NpcIds="2003821,2003822,2003823,2003824,2003825" QuestId="66931" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-190.8022, -41.43997, -241.1754" Radius="10" />
+          <HotSpot XYZ="-212.9717, -41.79998, -218.6509" Radius="10" />
+          <HotSpot XYZ="-179.4604, -40.67464, -215.8144" Radius="10" />
+          <HotSpot XYZ="-224.0954, -41.95926, -236.264" Radius="10" />
+          <HotSpot XYZ="-243.38, -42.11146, -214.8406" Radius="10" />
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- Move Along, Nothing to Heal Here -->
+    <If Condition="HasQuest(66926) and GetQuestStep(66926) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-217.6353, -41.59435, -281.9161"/>
+      </If>
+      <NoCombatMoveTo XYZ="-217.6353, -41.59435, -281.9161"/>
+      <Grind GrindRef="66926" While="HasQuest(66926) and GetQuestStep(66926) == 1"/>
+    </If>
+    <!-- Aint Got Time to Breed -->
+    <If Condition="HasQuest(66927) and GetQuestStep(66927) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.7993, -41.81548, -300.9028"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.7993, -41.81548, -300.9028"/>
+      <Grind GrindRef="66927" While="HasQuest(66927) and GetQuestStep(66927) == 1"/>
+    </If>
+    <!-- Better Ash Than Blood -->
+    <If Condition="HasQuest(66930) and GetQuestStep(66930) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-153.5634, -41.11999, -228.8062"/>
+      </If>
+      <NoCombatMoveTo XYZ="-153.5634, -41.11999, -228.8062"/>
+      <UseItem ItemId="2001263" NpcIds="2003815,2003816,2003817,2003818" QuestId="66930" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-153.5634, -41.11999, -228.8062" Radius="10" />
+          <HotSpot XYZ="-134.7744, -40.6506, -235.2413" Radius="10" />
+          <HotSpot XYZ="-142.1759, -40.81726, -249.3839" Radius="10" />
+          <HotSpot XYZ="-278.3907, -43.19227, -267.5327" Radius="10" />
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- Ballista Bust-up -->
+    <If Condition="HasQuest(66929) and GetQuestStep(66929) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-287.1251, -41.68895, -359.7451"/>
+      </If>
+      <NoCombatMoveTo XYZ="-287.1251, -41.68895, -359.7451"/>
+      <Grind GrindRef="66929" While="HasQuest(66929) and GetQuestStep(66929) == 1"/>
+    </If>
+    <!-- Clutchfather Knows Best -->
+    <If Condition="HasQuest(66932) and GetQuestStep(66932) == 255 and not HasItem(7804)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-199.192, -42.00003, -277.2983"/>
+      </If>
+      <NoCombatMoveTo XYZ="-199.192, -42.00003, -277.2983"/>
+      <WaitWhile Condition="not FateManager.WithinFate"/>
+      <RunCode Name="66932"/>
+      <Grind GrindRef="66932" While="not HasItem(7804)"/>
+    </If>
+    <!-- Rank 1 -->
+    <!-- Quests on Moonshade Isle (946) -->
+    <!-- Violence of the Clams -->
+    <If Condition="HasQuest(66921) and GetQuestStep(66921) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(946)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66921"/>
+      </If>
+      <UseObject NpcIds="2003845,2003853,2003847,2003854,2003855,2003846,2003848" QuestId="66921" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-813.2296, -41.76398, 670.3745" Radius="15" />
+          <HotSpot XYZ="-810.2388, -41.76398, 662.1652" Radius="15" />
+          <HotSpot XYZ="-803.9826, -41.21466, 675.2268" Radius="15" />
+          <HotSpot XYZ="-789.5781, -41.36731, 676.3561" Radius="15" />
+          <HotSpot XYZ="-790.1274, -41.79449, 708.5831" Radius="15" />
+          <HotSpot XYZ="-800.7782, -41.67242, 690.7606" Radius="15" />
+          <HotSpot XYZ="-797.7264, -41.703, 704.219" Radius="15" />
+        </HotSpots>
+      </UseObject>
+      <If Condition="not HasQuest(66920) and IsOnSubMap(946)">
+        <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
+      </If>
+    </If>
+    <!-- A Quick Snip -->
+    <If Condition="HasQuest(66920) and GetQuestStep(66920) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(946)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66920"/>
+      </If>
+      <Grind GrindRef="66920" While="HasQuest(66920) and GetQuestStep(66920) == 1"/>
+    </If>
+    <If Condition="HasQuest(66920) and GetQuestStep(66920) == 2">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(946)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66920"/>
+      </If>
+      <UseItem ItemId="2001267" NpcIds="2003840,2003841,2003842,2003843,2003844" QuestId="66920" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="-753.7894, -38.51268, 684.6206" Radius="5" />
+          <HotSpot XYZ="-757.1093, -38.98314, 676.7407" Radius="5" />
+          <HotSpot XYZ="-758.7206, -38.12919, 662.0962" Radius="5" />
+          <HotSpot XYZ="-765.1029, -38.10249, 658.0334" Radius="5" />
+          <HotSpot XYZ="-770.5521, -38.20312, 651.3601" Radius="5" />
+        </HotSpots>
+      </UseItem>
+      <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
+    </If>
+    <!-- Quests on The Merchantman A (947) -->
+    <!-- A Crate-ful Response -->
+    <If Condition="HasQuest(66923) and GetQuestStep(66923) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+      <If Condition="not IsOnSubMap(947)">
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66923"/>
+      </If>
+      <UseObject NpcIds="2004003,2004002,2004006" QuestId="66923" StepId="1" UseDistance="1">
+        <HotSpots>
+          <HotSpot XYZ="-882.8412, -20.67603, 874.7234" Radius="15" />
+          <HotSpot XYZ="-887.8157, -20.67603, 886.4728" Radius="15" />
+          <HotSpot XYZ="-845.7924, -25.65051, 887.6019" Radius="15" />
+        </HotSpots>
+      </UseObject>
+      <If Condition="not HasQuest(66922) and IsOnSubMap(947)">
+        <UseTransport InteractDistance="2" NpcId="2004012" XYZ="-847.5013, -29.34314, 887.0526"/>
+      </If>
+    </If>
+    <!-- Wind from their Sails -->
+    <If Condition="HasQuest(66922) and GetQuestStep(66922) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+      <If Condition="not IsOnSubMap(947)">
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66922"/>
+      </If>
+      <Grind GrindRef="66922" While="HasQuest(66922) and GetQuestStep(66922) == 1"/>
+      <UseTransport NpcId="2004012" XYZ="-847.5013, -29.34314, 887.0526"/>
+    </If>
+    <!-- Quests in the Open World -->
+    <!-- Skullduggery -->
+    <If Condition="HasQuest(66924) and GetQuestStep(66924) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-82.16387, -25.21706, 69.22531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-82.16387, -25.21706, 69.22531"/>
+      <UseObject NpcIds="1008793,1008794,1008795,1008796" QuestId="66924" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-82.16387, -25.21706, 69.22531" Radius="80" />
+          <HotSpot XYZ="74.53024, -14.20646, 58.27721" Radius="80" />
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- Standard Procedure -->
+    <If Condition="HasQuest(66916) and GetQuestStep(66916) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-127.3437, -26.71313, 32.80767"/>
+      </If>
+      <NoCombatMoveTo XYZ="-127.3437, -26.71313, 32.80767"/>
+      <UseItem ItemId="2001273" NpcIds="2003871,2003872" QuestId="66916" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-127.3437, -26.71313, 32.80767" Radius="25" />
+          <HotSpot XYZ="-21.4084, -14.9906, -103.0699" Radius="25" />
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- A Taste for Paste -->
+    <If Condition="HasQuest(66918) and GetQuestStep(66918) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-91.12939, -30.13769, -130.3292"/>
+      </If>
+      <NoCombatMoveTo XYZ="-91.12939, -30.13769, -130.3292"/>
+      <UseObject NpcIds="2003897,2003898,2003899,2003900,2003901" XYZ="-91.12939, -30.13769, -130.3292" QuestId="66918" StepId="1"/>
+    </If>
+    <!-- Enemy at the Gates -->
+    <If Condition="HasQuest(66917) and GetQuestStep(66917) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-79.80782, -28.62298, -130.6078"/>
+      </If>
+      <NoCombatMoveTo XYZ="-79.80782, -28.62298, -130.6078"/>
+      <Grind GrindRef="66917" While="HasQuest(66917) and GetQuestStep(66917) == 1"/>
+    </If>
+    <!-- Spawning Ground Salvation -->
+    <If Condition="HasQuest(66919) and GetQuestStep(66919) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-191.7454, -40.80593, -72.13324"/>
+      </If>
+      <NoCombatMoveTo XYZ="-191.7454, -40.80593, -72.13324"/>
+      <UseObject NpcIds="1008816,1008817,1008818,1008819,1008820,1008821,1008822" XYZ="-191.7454, -40.80593, -72.13324" QuestId="66919" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66919) and GetQuestStep(66919) == 2">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-214.0919, -40.03904, -103.8377"/>
+      </If>
+      <NoCombatMoveTo XYZ="-214.0919, -40.03904, -103.8377"/>
+      <UseItem ItemId="2001254" NpcIds="1008823,1008824,1008825" XYZ="-214.0919, -40.03904, -103.8377" QuestId="66919" StepId="2"/>
+    </If>
+    <!-- A Killer Strategy -->
+    <If Condition="HasQuest(66915) and GetQuestStep(66915) == 255 and not HasItem(7798)">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-146.1263, -33.84797, -123.5874"/>
+      </If>
+      <NoCombatMoveTo XYZ="-146.1263, -33.84797, -123.5874"/>
+      <WaitWhile Condition="not FateManager.WithinFate"/>
+      <RunCode Name="66915"/>
+      <Grind GrindRef="66915" While="not HasItem(7798)"/>
+    </If>
+    <!-- Turn Ins -->
+    <!-- Tines of the Trident -->
+    <If Condition="HasQuest(66936) and GetQuestStep(66936) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Shellfish Schemes -->
+    <If Condition="HasQuest(66937) and GetQuestStep(66937) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- An Enthralling Engagement -->
+    <If Condition="HasQuest(66938) and GetQuestStep(66938) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Up in Shhhmoke  -->
+    <If Condition="HasQuest(66939) and GetQuestStep(66939) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Reaving in a Hurry -->
+    <If Condition="HasQuest(66940) and GetQuestStep(66940) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- The Tail's the Best Part -->
+    <If Condition="HasQuest(66941) and GetQuestStep(66941) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn ItemId="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Unfair Trading -->
+    <If Condition="HasQuest(66942) and GetQuestStep(66942) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Sea Scraps -->
+    <If Condition="HasQuest(66943) and GetQuestStep(66943) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Plunder Fire -->
+    <If Condition="HasQuest(66944) and GetQuestStep(66944) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Removing the Stain -->
+    <If Condition="HasQuest(66945) and GetQuestStep(66945) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
+      </If>
+      <NoCombatMoveTo XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn ItemId="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+    </If>
+    <!-- Move Along, Nothing to Heal Here -->
+    <If Condition="HasQuest(66926) and GetQuestStep(66926) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66926" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Aint Got Time to Breed -->
+    <If Condition="HasQuest(66927) and GetQuestStep(66927) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66927" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Get a Lode of This -->
+    <If Condition="HasQuest(66928) and GetQuestStep(66928) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66928" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Ballista Bust-up -->
+    <If Condition="HasQuest(66929) and GetQuestStep(66929) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66929" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Better Ash Than Blood -->
+    <If Condition="HasQuest(66930) and GetQuestStep(66930) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66930" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Put a Shhhock in It -->
+    <If Condition="HasQuest(66931) and GetQuestStep(66931) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66931" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Clutchfather Knows Best -->
+    <If Condition="HasQuest(66932) and GetQuestStep(66932) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66932" ItemId="7804" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- A Nap Before Drowning -->
+    <If Condition="HasQuest(66933) and GetQuestStep(66933) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66933" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- In the Shadow of the Moon -->
+    <If Condition="HasQuest(66934) and GetQuestStep(66934) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66934" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- Learn by Destroying -->
+    <If Condition="HasQuest(66935) and GetQuestStep(66935) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66935" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+    </If>
+    <!-- A Killer Strategy -->
+    <If Condition="HasQuest(66915) and GetQuestStep(66915) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="7798" QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Standard Procedure -->
+    <If Condition="HasQuest(66916) and GetQuestStep(66916) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Enemy at the Gates -->
+    <If Condition="HasQuest(66917) and GetQuestStep(66917) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- A Taste for Paste -->
+    <If Condition="HasQuest(66918) and GetQuestStep(66918) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001277" QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Spawning Ground Salvation -->
+    <If Condition="HasQuest(66919) and GetQuestStep(66919) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- A Quick Snip -->
+    <If Condition="HasQuest(66920) and GetQuestStep(66920) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001268" QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Violence of the Clams -->
+    <If Condition="HasQuest(66921) and GetQuestStep(66921) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001269" QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Wind from their Sails -->
+    <If Condition="HasQuest(66922) and GetQuestStep(66922) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- A Crate-ful Response -->
+    <If Condition="HasQuest(66923) and GetQuestStep(66923) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001291" QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+    <!-- Skullduggery -->
+    <If Condition="HasQuest(66924) and GetQuestStep(66924) == 255">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
+      </If>
+      <NoCombatMoveTo XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+    </If>
+
+    <!-- Reputation and Unlock Quests -->
+<!--        <If Condition="not IsQuestCompleted(66913)">
+      <!{1}** Watching the Spawn **{1}>
+        <SoPickUpQuest QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+        <SoTalkTo NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="1" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1008904" XYZ="-792.2637, -39.01226, 716.2126" QuestId="66913" StepId="2" Objective="0" Count="1" MapId="946" />
+        <SoHandOver ItemIds="2001290" NpcId="1008902" XYZ="-150.2251, -41.3787, -295.5825" QuestId="66913" StepId="2" Objective="0" Count="2" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1008903" XYZ="-357.5647, -35.2375, -425.2232" QuestId="66913" StepId="2" MapId="138" />
+        <SoHandOver ItemIds="2001290" NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66913" StepId="3" MapId="138" />
+        <SoUseObject NpcIds="2003989" XYZ="-364.9806, -38.25439, -242.8168" Radius="10" QuestId="66913" StepId="4" MapId="138" />
+        <SoTurnIn QuestId="66913" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+      </If>
+
+      <If Condition="not IsQuestCompleted(66912)">
+        <!{1}** The Scarlet Bloodletter **{1}>
+        <SoPickUpQuest QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+        <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66912" StepId="1" MapId="138" />
+        <SoTalkTo NpcId="1008917" XYZ="-889.0669, -27.47113, 929.6559" QuestId="66912" StepId="2" />
+        <SoGrind NpcIds="2537,2538" XYZ="-862.6383, -25.64775, 931.4564" Radius="60" QuestId="66912" StepId="3" />
+        <SoUseTransport NpcId="1008917" XYZ="-889.0669, -27.47113, 929.6559" QuestId="66912" StepId="4" />
+        <SoTalkTo NpcId="1008918" XYZ="317.1892, -31.89867, 273.7316" QuestId="66912" StepId="5" MapId="138" />
+        <SoTurnIn QuestId="66912" ItemIds="2001293" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406" MapId="138" />
+      </If>
+-->
+  </Order>
+  <GrindAreas>
+    <GrindArea name="66915">
+      <Hotspots>
+        <HotSpot XYZ="-146.1263, -33.84797, -123.5874" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1518"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66917">
+      <Hotspots>
+        <HotSpot XYZ="-79.80782, -28.62298, -130.6078" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2530"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66920">
+      <Hotspots>
+        <HotSpot XYZ="-783.3903, -40.90863, 693.5721" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2533"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66922">
+      <Hotspots>
+        <HotSpot XYZ="-839.1937, -25.64775, 888.4031" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2724"/>
+        <TargetMob Id="2534"/>
+        <TargetMob Id="2535"/>
+        <TargetMob Id="2536"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66926">
+      <Hotspots>
+        <HotSpot XYZ="-217.6353, -41.59435, -281.9161" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2526"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66927">
+      <Hotspots>
+        <HotSpot XYZ="-221.7993, -41.81548, -300.9028" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2527"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66929">
+      <Hotspots>
+        <HotSpot XYZ="-287.1251, -41.68895, -359.7451" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2531"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66932">
+      <Hotspots>
+        <HotSpot XYZ="-199.192, -42.00003, -277.2983" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1704" Weight="2000"/>
+        <TargetMob Id="1705" Weight="1000"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66936a">
+      <Hotspots>
+        <HotSpot XYZ="-341.5732, -39.4828, -357.9309" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1827"/>
+        <TargetMob Id="2734"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66936b">
+      <Hotspots>
+        <HotSpot XYZ="-317.9305, -39.35455, -298.3956" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1828"/>
+        <TargetMob Id="2735"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66936c">
+      <Hotspots>
+        <HotSpot XYZ="-317.9305, -39.35455, -298.3956" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1830"/>
+        <TargetMob Id="2736"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66937">
+      <Hotspots>
+        <HotSpot XYZ="-391.4412, -38.67535, -342.0912" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2532"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66940a">
+      <Hotspots>
+        <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
+        <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="347"/>
+        <TargetMob Id="2738"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66940b">
+      <Hotspots>
+        <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
+        <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="559"/>
+        <TargetMob Id="2739"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66940c">
+      <Hotspots>
+        <HotSpot XYZ="-393.2174, -38.58279, -243.4839" Radius="50" />
+        <HotSpot XYZ="-426.6285, -40.92536, -216.842" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="345"/>
+        <TargetMob Id="2740"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66941">
+      <Hotspots>
+        <HotSpot XYZ="-375.5726, -37.31264, -295.6156" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1831"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66945">
+      <Hotspots>
+        <HotSpot XYZ="-393.2113, -38.58369, -243.6113" Radius="40" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="343" Weight="3000"/>
+        <TargetMob Id="1866" Weight="2000"/>
+        <TargetMob Id="559" Weight="1000"/>
+        <TargetMob Id="345" Weight="1000"/>
+        <TargetMob Id="347" Weight="1000"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="DisableMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+        await Coroutine.Sleep(100);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="EnableMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+        await Coroutine.Sleep(100);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="66915">
+      <![CDATA[
+        if (FateManager.WithinFate && FateManager.GetFateById(572).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
+        {
+          if (Core.Me.IsMounted)
+          {
+            await CommonTasks.StopAndDismount();
+          }
+
+          Logging.Write("Attempting to Level Sync");
+          await Coroutine.Sleep(3000);
+          ToDoList.LevelSync();
+          await Coroutine.Sleep(500);
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="66932">
+      <![CDATA[
+        if (FateManager.WithinFate && FateManager.GetFateById(574).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
+        {
+          if (Core.Me.IsMounted)
+          {
+            await CommonTasks.StopAndDismount();
+          }
+
+          Logging.Write("Attempting to Level Sync");
+          await Coroutine.Sleep(3000);
+          ToDoList.LevelSync();
+          await Coroutine.Sleep(500);
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="66945">
+      <![CDATA[
+        if (FateManager.WithinFate && FateManager.GetFateById(575).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
+        {
+          if (Core.Me.IsMounted)
+          {
+            await CommonTasks.StopAndDismount();
+          }
+
+          Logging.Write("Attempting to Level Sync");
+          await Coroutine.Sleep(3000);
+          ToDoList.LevelSync();
+          await Coroutine.Sleep(500);
+        }
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

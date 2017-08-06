@@ -1,0 +1,110 @@
+<Profile>
+	<Name>Shard/Crystal Topup</Name>
+	<KillRadius>50</KillRadius>
+	<Order>
+		<While Condition="True">
+			<!-- Fire -->
+			<If Condition="(ItemCount(8) &lt; 1000) or (ItemCount(2) &lt; 2500)">
+				<TeleportTo Name="Camp Drybone" AetheryteId="18" />
+				<Gather while ="(ItemCount(8) &lt; 1000) or (ItemCount(2) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="140.7642, 7.528731, -98.47753" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Fire Crystal</ItemName>
+					<ItemName>Fire Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Nald'thal's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+			<!-- Ice -->
+			<If Condition="(ItemCount(12) &lt; 1000) or (ItemCount(6) &lt; 2500)">
+				<TeleportTo Name="Aleport" AetheryteId="14" />
+				<Gather while ="(ItemCount(12) &lt; 1000) or (ItemCount(6) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="496.9813, 14.31586, 327.7469" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Ice Crystal</ItemName>
+					<ItemName>Ice Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Menphina's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+			<!-- Wind -->
+			<If Condition="(ItemCount(10) &lt; 1000) or (ItemCount(4) &lt; 2500)">
+			<TeleportTo Name="The Hawthorne Hut" AetheryteId="4" />
+				<Gather while ="(ItemCount(10) &lt; 1000) or (ItemCount(4) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="-57.55798, -10.11146, 288.4624" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Wind Crystal</ItemName>
+					<ItemName>Wind Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Llymlaen's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+			<!-- Earth -->
+			<If Condition="(ItemCount(11) &lt; 1000) or (ItemCount(5) &lt; 2500)">
+				<TeleportTo Name="Moraby Drydocks" AetheryteId="10" />
+				<Gather while ="(ItemCount(11) &lt; 1000) or (ItemCount(5) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="273.8181, 74.31756, -292.2603" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Earth Crystal</ItemName>
+					<ItemName>Earth Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Nophica's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+			<!-- Lightning -->
+			<If Condition="(ItemCount(12) &lt; 1000) or (ItemCount(6) &lt; 2500)">
+			<TeleportTo Name="Little Ala Mhigo" AetheryteId="19" />
+				<Gather while ="(ItemCount(12) &lt; 1000) or (ItemCount(6) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="-122.5412, 21.88736, -489.5768" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Lightning Crystal</ItemName>
+					<ItemName>Lightning Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Byregot's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+			<!-- Water -->
+			<If Condition="(ItemCount(13) &lt; 1000) or (ItemCount(7) &lt; 2500)">
+				<TeleportTo Name="Horizon" AetheryteId="17" />
+				<Gather while="(ItemCount(13) &lt; 1000) or (ItemCount(7) &lt; 2500)">
+					<GatherObject>Rocky Outcrop</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="105.9706, 19.30649, 85.6742" />
+				</HotSpots>
+				<ItemNames>
+					<ItemName>Water Crystal</ItemName>
+					<ItemName>Water Shard</ItemName>
+				</ItemNames>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Thaliak's Ward" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</Gather>
+			</If>
+		</While>
+	</Order>
+</Profile>

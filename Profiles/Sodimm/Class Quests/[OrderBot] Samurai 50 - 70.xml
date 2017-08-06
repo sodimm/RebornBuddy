@@ -475,5 +475,43 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="35.5108, 6.999999, -84.8291"/>
       <TurnIn QuestId="68102" NpcId="1021836" XYZ="36.85046, 6.999999, -83.78735"/>
     </If>
+    <!-- Trials of the Sekiseigumi (Level 63) -->
+    <If Condition="not HasQuest(68103) and not IsQuestCompleted(68103) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="not IsOnMap(130)">
+        <GetTo ZoneId="130" XYZ="35.86058, 7, -85.64166" />
+      </If>
+      <NoCombatMoveTo XYZ="35.86058, 7, -85.64166" />
+      <If Condition="IsQuestAcceptQualified(68103)" >
+        <PickupQuest QuestId="68103" NpcId="1021836" XYZ="36.85046, 6.999999, -83.78735" />
+      </If>
+    </If>
+    <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 1">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="128.1525, 15, -155.6997" />
+      </If>
+      <NoCombatMoveTo XYZ="128.1525, 15, -155.6997" />
+      <TalkTo NpcId="1022190" XYZ="128.6183, 15, -158.0378" QuestId="68103" StepId="1" />
+    </If>
+    <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="567.8645, 0.7330354, 755.1842" />
+      </If>
+      <NoCombatMoveTo XYZ="567.8645, 0.7330354, 755.1842" />
+      <WaitWhile Condition="GetQuestStep(68103) == 2"/>
+    </If>
+    <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 3">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="569.9222, 0.7330354, 756.4763" />
+      </If>
+      <NoCombatMoveTo XYZ="569.9222, 0.7330354, 756.4763" />
+      <UseObject NpcIds="1022191" XYZ="567.8645, 0.7330354, 755.1842" QuestId="68103" StepId="3" />
+    </If>
+    <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="128.3293, 15, -155.0481" />
+      </If>
+      <NoCombatMoveTo XYZ="128.3293, 15, -155.0481" />
+      <SoTurnIn QuestId="68103" NpcId="1022190" XYZ="128.6183, 15, -158.0378" />
+    </If>
   </Order>
 </Profile>

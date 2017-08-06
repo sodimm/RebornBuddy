@@ -316,30 +316,47 @@ Authors:  Sodimm.
       </If>
     </If>
     <!-- Rank 3 -->
-    <!-- Quests on The Merchantman C () -->
-<!--      <!{1}** Unfair Trading **{1}>
-      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66942" MapId="138" />
-      <SoGrind NpcIds="2539,2741" XYZ="-812.3429, -25.64775, 974.6636" Radius="25" QuestId="66942" StepId="1" />
-      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66942" StepId="255" />
-      <!{1}** Sea Scraps **{1}>
-      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66943" MapId="138" />
-      <SoUseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5" >
+    <!-- Quests on The Merchantman (947) -->
+    <!-- Unfair Trading -->
+    <If Condition="HasQuest(66942) and GetQuestStep(66942) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(947)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66942"/>
+      </If>
+      <Grind GrindRef="66942" While="HasQuest(66942) and GetQuestStep(66942) == 1"/>
+      <If Condition="not HasQuest(66943) and IsOnSubMap(947)">
+        <UseTransport InteractDistance="2.0" NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656"/>
+      </If>
+    </If>
+    <!-- Sea Scraps -->
+    <If Condition="HasQuest(66943) and GetQuestStep(66943) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(947)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66943"/>
+      </If>
+      <UseObject NpcIds="1008912,1008913,1008914,1008915" QuestId="66943" StepId="1" Distance="5">
         <HotSpots>
           <HotSpot XYZ="-846.8605, -25.65275, 962.0354" Radius="20" />
           <HotSpot XYZ="-862.8214, -20.65275, 966.308" Radius="20" />
           <HotSpot XYZ="-821.4084, -25.64775, 974.853" Radius="20" />
           <HotSpot XYZ="-795.4986, -23.64963, 972.3506" Radius="20" />
         </HotSpots>
-      </SoUseObject>
-      <SoUseTransport NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656" QuestId="66943" StepId="255" />
--->
+      </UseObject>
+      <UseTransport InteractDistance="2.0" NpcId="2004014" XYZ="-826.8406, -29.34314, 971.4656"/>
+    </If>
     <!-- Quests on the Pirate Vessel (948) -->
     <!-- Plunder Fire -->
     <If Condition="HasQuest(66944) and GetQuestStep(66944) == 1">
       <If Condition="not IsOnMap(138)">
         <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
       </If>
-      <If Condition="not IsOnSubMap(946)">
+      <If Condition="not IsOnSubMap(948)">
         <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
         <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66944"/>
       </If>
@@ -352,7 +369,9 @@ Authors:  Sodimm.
         </HotSpots>
       </UseItem>
       <MoveTo XYZ="-925.9974, -31.75006, 848.4453" Distance="1"/>
-      <UseTransport InteractDistance="2.0" NpcId="2004015" XYZ="-924.4068, -33.43262, 842.3132" />
+      <If Condition="IsOnSubMap(948)">
+        <UseTransport InteractDistance="2.0" NpcId="2004015" XYZ="-924.4068, -33.43262, 842.3132" />
+      </If>
     </If>
     <!-- Quests in the Open World -->
     <!-- Reaving in a Hurry -->
@@ -474,7 +493,6 @@ Authors:  Sodimm.
     <!-- Quests on Moonshade Isle (946) -->
     <!-- In the Shadow of the Moon -->
     <If Condition="HasQuest(66934) and GetQuestStep(66934) == 1">
-      <!-- Transport Quests (Merchantman B) -->
       <If Condition="not IsOnMap(138)">
         <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
       </If>
@@ -500,12 +518,21 @@ Authors:  Sodimm.
         <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
       </If>
     </If>
-    <!-- Quests on The Merchantman B () -->
-<!--      <!{1}** Learn by Destroying **{1}>
-      <SoUseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66935" StepId="1" MapId="138" />
-      <SoGrind NpcIds="2537" XYZ="-856.5391, -27.15275, 886.1654" Radius="80" QuestId="66935" StepId="1" />
-      <SoUseTransport NpcId="2004013" XYZ="-883.36, -29.25159, 929.2285" QuestId="66935" StepId="255" />
--->
+    <!-- Quests on The Merchantman (947) -->
+    <!-- Learn by Destroying -->
+    <If Condition="HasQuest(66935) and GetQuestStep(66935) == 1">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+      </If>
+      <If Condition="not IsOnSubMap(947)">
+        <NoCombatMoveTo XYZ="-239.2767, -42.13019, 15.2132"/>
+        <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66935"/>
+      </If>
+      <Grind GrindRef="66935" While="HasQuest(66935) and GetQuestStep(66935) == 1"/>
+      <If Condition="IsOnSubMap(947)">
+        <UseTransport InteractDistance="2.0" NpcId="2004013" XYZ="-883.36, -29.25159, 929.2285"/>
+      </If>
+    </If>
     <!-- Quests in the Open World -->
     <!-- Get a Lode of This -->
     <If Condition="HasQuest(66928) and GetQuestStep(66928) == 1">
@@ -656,9 +683,11 @@ Authors:  Sodimm.
           <HotSpot XYZ="-770.5521, -38.20312, 651.3601" Radius="5" />
         </HotSpots>
       </UseItem>
-      <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
+      <If Condition="IsOnSubMap(946)">
+        <UseTransport NpcId="1008802" XYZ="-814.847, -42.15457, 694.3312"/>
+      </If>
     </If>
-    <!-- Quests on The Merchantman A (947) -->
+    <!-- Quests on The Merchantman (947) -->
     <!-- A Crate-ful Response -->
     <If Condition="HasQuest(66923) and GetQuestStep(66923) == 1">
       <If Condition="not IsOnMap(138)">
@@ -689,7 +718,9 @@ Authors:  Sodimm.
         <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66922"/>
       </If>
       <Grind GrindRef="66922" While="HasQuest(66922) and GetQuestStep(66922) == 1"/>
-      <UseTransport NpcId="2004012" XYZ="-847.5013, -29.34314, 887.0526"/>
+      <If Condition="IsOnSubMap(947)">
+        <UseTransport InteractDistance="2.0" NpcId="2004012" XYZ="-847.5013, -29.34314, 887.0526"/>
+      </If>
     </If>
     <!-- Quests in the Open World -->
     <!-- Skullduggery -->
@@ -1111,6 +1142,16 @@ Authors:  Sodimm.
       <MinLevel/>
       <MaxLevel/>
     </GrindArea>
+    <GrindArea name="66935">
+      <Hotspots>
+        <HotSpot XYZ="-856.5391, -27.15275, 886.1654" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2537"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
     <GrindArea name="66936a">
       <Hotspots>
         <HotSpot XYZ="-341.5732, -39.4828, -357.9309" Radius="50" />
@@ -1196,6 +1237,17 @@ Authors:  Sodimm.
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="1831"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea name="66942">
+      <Hotspots>
+        <HotSpot XYZ="-812.3429, -25.64775, 974.6636" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2539"/>
+        <TargetMob Id="2741"/>
       </TargetMobs>
       <MinLevel/>
       <MaxLevel/>

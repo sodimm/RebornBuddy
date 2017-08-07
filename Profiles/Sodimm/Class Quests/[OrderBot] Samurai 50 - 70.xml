@@ -478,40 +478,112 @@ Authors:  Sodimm.
     <!-- Trials of the Sekiseigumi (Level 63) -->
     <If Condition="not HasQuest(68103) and not IsQuestCompleted(68103) and Core.Player.ClassLevel &gt; 62">
       <If Condition="not IsOnMap(130)">
-        <GetTo ZoneId="130" XYZ="35.86058, 7, -85.64166" />
+        <GetTo ZoneId="130" XYZ="35.86058, 7, -85.64166"/>
       </If>
-      <NoCombatMoveTo XYZ="35.86058, 7, -85.64166" />
-      <If Condition="IsQuestAcceptQualified(68103)" >
-        <PickupQuest QuestId="68103" NpcId="1021836" XYZ="36.85046, 6.999999, -83.78735" />
+      <NoCombatMoveTo XYZ="35.86058, 7, -85.64166"/>
+      <If Condition="IsQuestAcceptQualified(68103)">
+        <PickupQuest QuestId="68103" NpcId="1021836" XYZ="36.85046, 6.999999, -83.78735"/>
       </If>
     </If>
     <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 1">
       <If Condition="not IsOnMap(628)">
-        <GetTo ZoneId="628" XYZ="128.1525, 15, -155.6997" />
+        <GetTo ZoneId="628" XYZ="128.1525, 15, -155.6997"/>
       </If>
-      <NoCombatMoveTo XYZ="128.1525, 15, -155.6997" />
-      <TalkTo NpcId="1022190" XYZ="128.6183, 15, -158.0378" QuestId="68103" StepId="1" />
+      <NoCombatMoveTo XYZ="128.1525, 15, -155.6997"/>
+      <TalkTo NpcId="1022190" XYZ="128.6183, 15, -158.0378" QuestId="68103" StepId="1"/>
     </If>
     <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 2">
       <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="567.8645, 0.7330354, 755.1842" />
+        <GetTo ZoneId="613" XYZ="567.8645, 0.7330354, 755.1842"/>
       </If>
-      <NoCombatMoveTo XYZ="567.8645, 0.7330354, 755.1842" />
+      <NoCombatMoveTo XYZ="567.8645, 0.7330354, 755.1842"/>
       <WaitWhile Condition="GetQuestStep(68103) == 2"/>
     </If>
     <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 3">
       <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="569.9222, 0.7330354, 756.4763" />
+        <GetTo ZoneId="613" XYZ="569.9222, 0.7330354, 756.4763"/>
       </If>
-      <NoCombatMoveTo XYZ="569.9222, 0.7330354, 756.4763" />
-      <UseObject NpcIds="1022191" XYZ="567.8645, 0.7330354, 755.1842" QuestId="68103" StepId="3" />
+      <NoCombatMoveTo XYZ="569.9222, 0.7330354, 756.4763"/>
+      <UseObject NpcIds="1022191" XYZ="567.8645, 0.7330354, 755.1842" QuestId="68103" StepId="3"/>
     </If>
     <If Condition="HasQuest(68103) and not IsQuestCompleted(68103) and GetQuestStep(68103) == 255">
       <If Condition="not IsOnMap(628)">
-        <GetTo ZoneId="628" XYZ="128.3293, 15, -155.0481" />
+        <GetTo ZoneId="628" XYZ="128.3293, 15, -155.0481"/>
       </If>
-      <NoCombatMoveTo XYZ="128.3293, 15, -155.0481" />
-      <SoTurnIn QuestId="68103" NpcId="1022190" XYZ="128.6183, 15, -158.0378" />
+      <NoCombatMoveTo XYZ="128.3293, 15, -155.0481"/>
+      <SoTurnIn QuestId="68103" NpcId="1022190" XYZ="128.6183, 15, -158.0378"/>
+    </If>
+    <!-- Matsuba Mayhem -->
+    <If Condition="not HasQuest(68104) and not IsQuestCompleted(68104) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="128.986, 15, -155.642"/>
+      </If>
+      <NoCombatMoveTo XYZ="128.986, 15, -155.642"/>
+      <If Condition="IsQuestAcceptQualified(68104)">
+        <PickupQuest QuestId="68104" NpcId="1022184" XYZ="129.7169, 15, -157.6105"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 1">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-98.4631, -5.999997, 67.18184"/>
+      </If>
+      <NoCombatMoveTo XYZ="-98.4631, -5.999997, 67.18184"/>
+      <UseObject NpcIds="2008439" XYZ="-100.8774, -6.027344, 67.03284" QuestId="68104" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 2">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-138.7197, -7.050048, 78.25153"/>
+      </If>
+      <NoCombatMoveTo XYZ="-138.7197, -7.050048, 78.25153"/>
+      <UseObject NpcIds="2008440" XYZ="-140.3677, -7.064941, 78.3551" QuestId="68104" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 3">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-140.235, -7.000077, 74.02112"/>
+      </If>
+      <NoCombatMoveTo XYZ="-140.235, -7.000077, 74.02112"/>
+      <UseObject NpcIds="2008441" XYZ="-140.3373, -7.003906, 72.73975" QuestId="68104" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 4">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-20.48619, -3, 31.91337"/>
+      </If>
+      <NoCombatMoveTo XYZ="-20.48619, -3, 31.91337"/>
+      <SoHandOver ItemId="2002238" NpcId="1022196" XYZ="-22.29346, -3, 31.81494" QuestId="68104" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 5">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="44.3699, 8.02, 144.7319"/>
+      </If>
+      <NoCombatMoveTo XYZ="44.3699, 8.02, 144.7319"/>
+      <TalkTo NpcId="1022197" XYZ="46.21948, 8.02, 144.7928" QuestId="68104" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 6">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="35.8823, 5.94878, -135.6703"/>
+      </If>
+      <NoCombatMoveTo XYZ="35.8823, 5.94878, -135.6703"/>
+      <SimpleDuty InteractNpcId="1022201" XYZ="37.33875, 5.951231, -133.959" QuestId="68104" StepId="6">
+        <HotSpots>
+          <HotSpot XYZ="38.6677, 10.50397, -195.5638" Radius="90"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6110" Weight="2000"/>
+          <!-- Traitorous Sekiseigumi -->
+          <TargetMob Id="6095" Weight="1000"/>
+          <!-- Shiden Skyscream -->
+        </TargetMobs>
+      </SimpleDuty>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 7">
+      <WaitWhile Condition="GetQuestStep(68104) == 7"/>
+    </If>
+    <If Condition="HasQuest(68104) and not IsQuestCompleted(68104) and GetQuestStep(68104) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="127.7491, 15, -156.4464"/>
+      </If>
+      <NoCombatMoveTo XYZ="127.7491, 15, -156.4464"/>
+      <TurnIn QuestId="68104" NpcId="1022203" XYZ="128.5573, 15, -158.0988"/>
     </If>
   </Order>
 </Profile>

@@ -593,24 +593,33 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-597.0398, -51.05185, -387.0451"/>
       <HandOver NpcId="1012068" ItemId="2001909" XYZ="-597.0398, -51.05185, -387.0451" QuestId="67716" StepId="3"/>
     </If>
-
-<!--	<!{1}** The Binding Soil **{1}>
-      <SoUseObject NpcIds="2006706,2006704,2006705" QuestId="67717" StepId="2" Objective="1" MapId="401">
+    <!-- The Binding Soil -->
+    <If Condition="HasQuest(67717) and GetQuestStep(67717) == 2 and not IsTodoChecked(67717, 2, 1)">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-292.3477, -142.2904, 325.9174"/>
+      <UseObject NpcIds="2006706,2006704,2006705" QuestId="67717" UseTimes="1">
         <HotSpots>
           <HotSpot XYZ="-292.3477, -142.2904, 325.9174" Radius="5" />
           <HotSpot XYZ="-281.1169, -133.135, 345.2964" Radius="5" />
           <HotSpot XYZ="-356.1914, -153.2159, 246.2349" Radius="5" />
         </HotSpots>
-      </SoUseObject>
-      <SoUseObject NpcIds="2006670,2006668,2006669" QuestId="67717" StepId="2" Objective="0" MapId="401">
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67717) and GetQuestStep(67717) == 2 and not IsTodoChecked(67717, 2, 0)">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="165.8503, -86.13721, 415.9456"/>
+      <UseObject NpcIds="2006670,2006668,2006669" QuestId="67717" StepId="2">
         <HotSpots>
           <HotSpot XYZ="165.8503, -86.13721, 415.9456" Radius="5" />
           <HotSpot XYZ="281.9104, -82.16986, 282.7954" Radius="5" />
           <HotSpot XYZ="282.887, -82.26141, 366.0792" Radius="5" />
         </HotSpots>
-      </SoUseObject>
--->
-
+      </UseObject>
+    </If>
     <!-- Fishing In Troubled Waters -->
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 2">
       <If Condition="not IsOnMap(401)">
@@ -906,6 +915,13 @@ Authors:  Sodimm.
       </SoUseSpell>
       <RunCode Name="Dismount"/>
     </If>
+    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
+    </If>
     <!-- Endymion Disco -->
     <If Condition="HasQuest(67709) and GetQuestStep(67709) == 1">
       <If Condition="not IsOnMap(401)">
@@ -925,6 +941,13 @@ Authors:  Sodimm.
       </SoUseSpell>
       <RunCode Name="Dismount"/>
     </If>
+    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
+    </If>
     <!-- Chigoe Cha-Cha -->
     <If Condition="HasQuest(67711) and GetQuestStep(67711) == 1">
       <If Condition="not IsOnMap(401)">
@@ -942,6 +965,13 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67711) and GetQuestStep(67711) == 4">
       <SoUseSpell SpellId="4931" NpcIds="2006657" Distance="5" XYZ="205.8899, -6.912354, -785.7023" QuestId="67711" StepId="4"/>
       <RunCode Name="Dismount"/>
+    </If>
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Flight of the Midges -->
     <If Condition="HasQuest(67718) and GetQuestStep(67718) == 1">
@@ -968,6 +998,13 @@ Authors:  Sodimm.
       </SoUseSpell>
       <RunCode Name="Dismount"/>
     </If>
+    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
+      <TurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
+    </If>
     <!-- Reeling in the Vundu -->
     <If Condition="HasQuest(67720) and GetQuestStep(67720) == 1">
       <If Condition="not IsOnMap(401)">
@@ -991,6 +1028,13 @@ Authors:  Sodimm.
         </HotSpots>
       </SoUseSpell>
       <RunCode Name="Dismount"/>
+    </If>
+    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
+      <TurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
     </If>
     <!-- Vanish, Vile Vundu -->
     <If Condition="HasQuest(67736) and GetQuestStep(67736) == 1">
@@ -1016,6 +1060,13 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67736) and GetQuestStep(67736) == 5">
       <SoUseSpell SpellId="4931" NpcIds="1016379" Distance="5" XYZ="501.274, 112.649, -182.9709" QuestId="67736" StepId="5"/>
       <RunCode Name="Dismount"/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      </If>
+      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
+      <TurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
     </If>
     <!-- Turn Ins -->
     <!-- Gastornis Groove -->
@@ -1082,14 +1133,6 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
       <TurnIn QuestId="67708" NpcId="1016089" ItemId="2001906" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
-    <!-- Endymion Disco -->
-    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
     <!-- Pilfering Pots From The Pantry -->
     <If Condition="HasQuest(67710) and GetQuestStep(67710) == 255">
       <If Condition="not IsOnMap(401)">
@@ -1097,14 +1140,6 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
       <TurnIn QuestId="67710" NpcId="1016089" ItemId="2001907" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Chigoe Cha-Cha -->
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Water Crystal Waltz -->
     <If Condition="HasQuest(67712) and GetQuestStep(67712) == 255">
@@ -1121,14 +1156,6 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
       <TurnIn QuestId="67713" NpcId="1016089" ItemId="2001931" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Sanuwa Samba -->
-    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Bird Watching -->
     <If Condition="HasQuest(67715) and GetQuestStep(67715) == 255">
@@ -1161,14 +1188,6 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
       <TurnIn QuestId="67717" NpcId="1016091" ItemIds="2001911,2001926" XYZ="-804.2573, -133.2695, -390.8904"/>
-    </If>
-    <!-- Flight of the Midges -->
-    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
-      <TurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
     </If>
     <!-- Rotten To The Korrigan -->
     <If Condition="HasQuest(67729) and GetQuestStep(67729) == 255">
@@ -1234,14 +1253,6 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TurnIn QuestId="67735" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
     </If>
-    <!-- Vanish, Vile Vundu -->
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
     <!-- Fishing In Troubled Waters -->
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 255">
       <If Condition="not IsOnMap(401)">
@@ -1249,14 +1260,6 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
       <TurnIn QuestId="67719" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
-    </If>
-    <!-- Reeling in the Vundu -->
-    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
-      <TurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
     </If>
 
     <!-- Reputation & Unlock Quests -->

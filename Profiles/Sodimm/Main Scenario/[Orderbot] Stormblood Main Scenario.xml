@@ -3262,7 +3262,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="547.0349, 38.87275, -484.2224" QuestId="68052" StepId="2"/>
       <TalkTo InteractDistance="3.0" NpcId="1021634" XYZ="547.0349, 38.87275, -484.2224" QuestId="68052" StepId="2"/>
-      <WaitWhile Condition="GetQuestStep(68052) == 2)"/>
+      <WaitWhile Condition="GetQuestStep(68052) == 2"/>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 3">
       <If Condition="not IsOnMap(622)">

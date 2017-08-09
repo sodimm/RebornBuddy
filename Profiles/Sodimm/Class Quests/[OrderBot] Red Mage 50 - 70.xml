@@ -258,11 +258,122 @@ Authors:  Sodimm, TuckMeIntoBread.
       <NoCombatMoveTo XYZ="310.4938, -25.0028, 230.886"/>
       <TurnIn QuestId="68116" NpcId="1021473" XYZ="310.4938, -25.0028, 230.886"/>
     </If>
-
     <!-- On Lambard's Trail (Level 58) -->
-
+    <If Condition="not HasQuest(68117) and not IsQuestCompleted(68117) and Core.Player.ClassLevel &gt; 57">
+      <If Condition="not IsOnMap(138)">
+        <GetTo ZoneId="138" XYZ="310.3914, -25.00255, 232.0747"/>
+      </If>
+      <NoCombatMoveTo XYZ="310.3914, -25.00255, 232.0747"/>
+      <If Condition="IsQuestAcceptQualified(68117)">
+        <PickupQuest QuestId="68117" NpcId="1021473" XYZ="310.3914, -25.00255, 232.0747"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 1">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="129" XYZ="-197.669, 15.5, 38.48964"/>
+      </If>
+      <NoCombatMoveTo XYZ="-197.669, 15.5, 38.48964"/>
+      <SoTalkTo NpcId="1021475" XYZ="-197.669, 15.5, 38.48964" QuestId="68117" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 2">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="-16.58418, 40.00051, -5.481613"/>
+      </If>
+      <NoCombatMoveTo XYZ="-16.58418, 40.00051, -5.481613"/>
+      <TalkTo NpcId="1021478" XYZ="-16.58418, 40.00051, -5.481613" QuestId="68117" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 3">
+      <If Condition="not IsOnMap(147)">
+        <GetTo ZoneId="147" XYZ="-303.2962, 78.72779, -139.9201"/>
+      </If>
+      <NoCombatMoveTo XYZ="-303.2962, 78.72779, -139.9201"/>
+      <TalkTo NpcId="1021480" XYZ="-303.2962, 78.72779, -139.9201" QuestId="68117" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 4">
+      <If Condition="not IsOnMap(147)">
+        <GetTo ZoneId="147" XYZ="-292.7776, 84.42709, -358.1986"/>
+      </If>
+      <NoCombatMoveTo XYZ="-292.7776, 84.42709, -358.1986"/>
+      <UseObject NpcId="2008233" XYZ="-292.7776, 84.42709, -358.1986" QuestId="68117" StepId="4"/>
+      <WaitWhile Condition="GetQuestStep(68117) == 4"/>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 5">
+      <If Condition="not IsOnMap(147)">
+        <GetTo ZoneId="147" XYZ="-304.2655, 79.03839, -142.1894"/>
+      </If>
+      <NoCombatMoveTo XYZ="-304.2655, 79.03839, -142.1894"/>
+      <TalkTo NpcId="1021480" XYZ="-304.2655, 79.03839, -142.1894" QuestId="68117" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68117) and not IsQuestCompleted(68117) and GetQuestStep(68117) == 255">
+      <If Condition="not IsOnMap(147)">
+        <GetTo ZoneId="147" XYZ="-94.24516, 48.03017, -32.42078"/>
+      </If>
+      <NoCombatMoveTo XYZ="-94.24516, 48.03017, -32.42078"/>
+      <TurnIn QuestId="68117" NpcId="1021482" XYZ="-94.24516, 48.03017, -32.42078"/>
+    </If>
     <!-- Stained In Scarlet (Level 60) -->
-
+    <If Condition="not HasQuest(68118) and not IsQuestCompleted(68118) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsOnMap(147)">
+        <GetTo ZoneId="147" XYZ="-94.35096, 48.02853, -32.28881"/>
+      </If>
+      <NoCombatMoveTo XYZ="-94.35096, 48.02853, -32.28881"/>
+      <If Condition="IsQuestAcceptQualified(68118)">
+        <PickupQuest QuestId="68118" NpcId="1021482" XYZ="-94.35096, 48.02853, -32.28881"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 1">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="3.471539, 50.26623, -771.655"/>
+      </If>
+      <NoCombatMoveTo XYZ="3.471539, 50.26623, -771.655"/>
+      <TalkTo NpcId="1021484" XYZ="3.471539, 50.26623, -771.655" QuestId="68118" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 2">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="54.17825, 20.49495, -671.6812"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.17825, 20.49495, -671.6812"/>
+      <TalkTo NpcId="1021486" XYZ="54.17825, 20.49495, -671.6812" QuestId="68118" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 3">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="94.86323, 20.24992, -610.792"/>
+      </If>
+      <NoCombatMoveTo XYZ="94.86323, 20.24992, -610.792"/>
+      <TalkTo NpcId="1021487" XYZ="94.86323, 20.24992, -610.792" QuestId="68118" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 4">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="175.0027, 10.41258, -584.8594"/>
+      </If>
+      <NoCombatMoveTo XYZ="175.0027, 10.41258, -584.8594"/>
+      <TalkTo NpcId="1021489" XYZ="175.0027, 10.41258, -584.8594" QuestId="68118" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 5">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="211.8755, -17.45825, -470.7145"/>
+      </If>
+      <NoCombatMoveTo XYZ="211.8755, -17.45825, -470.7145"/>
+      <TalkTo NpcId="1021490" XYZ="211.8755, -17.45825, -470.7145" QuestId="68118" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 6">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="375.9993, -17.47429, -344.19"/>
+      </If>
+      <NoCombatMoveTo XYZ="375.9993, -17.47429, -344.19"/>
+      <LogMessage Message="Please complete the duty manually."/>
+      <WaitWhile Condition="GetQuestStep(68118) == 6"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 7">
+      <WaitWhile Condition="GetQuestStep(68118) == 7"/>
+    </If>
+    <If Condition="HasQuest(68118) and not IsQuestCompleted(68118) and GetQuestStep(68118) == 255">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="52.9323, 20.495, -671.9754"/>
+      </If>
+      <NoCombatMoveTo XYZ="52.9323, 20.495, -671.9754"/>
+      <TurnIn QuestId="68118" NpcId="1021493" XYZ="52.9323, 20.495, -671.9754"/>
+    </If>
     <!-- The Color of Her Hair (Level 60) -->
     <If Condition="not HasQuest(68119) and not IsQuestCompleted(68119) and Core.Player.ClassLevel &gt; 59">
       <If Condition="not IsOnMap(156)">

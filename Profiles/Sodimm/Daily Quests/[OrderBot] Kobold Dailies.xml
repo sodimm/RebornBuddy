@@ -392,9 +392,9 @@ Authors:  Sodimm.
     <!-- Wrath of the Roundsman -->
     <If Condition="HasQuest(66908) and GetQuestStep(66908) == 255 and not HasItem(7803)">
       <If Condition="not IsOnMap(180)">
-        <GetTo ZoneId="180" XYZ="23.94331, 28.1621, -776.2606"/>
+        <GetTo ZoneId="180" XYZ="33.44169, 21.48944, -767.6346"/>
       </If>
-      <NoCombatMoveTo XYZ="23.94331, 28.1621, -776.2606"/>
+      <NoCombatMoveTo XYZ="33.44169, 21.48944, -767.6346"/>
       <WaitWhile Condition="not FateManager.WithinFate"/>
       <RunCode Name="66908"/>
       <Grind GrindRef="66908" While="not HasItem(7803)"/>
@@ -424,14 +424,14 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <!-- A Meal Fit for a Fugleman -->
-    <If Condition="HasQuest(66905) and GetQuestStep(66905) == 1">
+    <If Condition="HasQuest(66905) and GetQuestStep(66905) == 2">
       <If Condition="not IsOnMap(180)">
         <GetTo ZoneId="180" XYZ="75.24219, 28.00024, -753.5668"/>
       </If>
       <NoCombatMoveTo XYZ="75.24219, 28.00024, -753.5668"/>
       <UseObject NpcIds="2003920" XYZ="75.24219, 28.00024, -753.5668" QuestId="66905" StepId="2"/>
     </If>
-    <If Condition="HasQuest(66905) and GetQuestStep(66905) == 2">
+    <If Condition="HasQuest(66905) and GetQuestStep(66905) == 3">
       <If Condition="not IsOnMap(180)">
         <GetTo ZoneId="180" XYZ="75.24219, 28.00024, -753.5668"/>
       </If>
@@ -473,7 +473,7 @@ Authors:  Sodimm.
         <GetTo ZoneId="180" XYZ="208.0155, 22.87118, -684.4028"/>
       </If>
       <NoCombatMoveTo XYZ="208.0155, 22.87118, -684.4028"/>
-      <Grind GrindRef="66907b" While="HasQuest(66907) and GetQuestStep(66907) == 2 and not IsTodoChecked(66907, 2, 0)"/>
+      <Grind GrindRef="66907b" While="HasQuest(66907) and GetQuestStep(66907) == 2 and not IsTodoChecked(66907, 2, 1)"/>
     </If>
     <!-- Friends in Low Places -->
     <If Condition="HasQuest(66901) and GetQuestStep(66901) == 1">
@@ -641,7 +641,7 @@ Authors:  Sodimm.
       <If Condition="GetQuestStep(66878) == 255">
         <RunCode Name="66878b"/>
       </If>
-      <If Condition="(not HasQuest(66879) or not HasQuest(66877) or not HasQuest(66876) or not HasQuest(66875)) and IsOnSubMap(238)">
+      <If Condition="(not HasQuest(66879) and not HasQuest(66877) and not HasQuest(66876) and not HasQuest(66875)) and IsOnSubMap(238)">
         <UseTransport InteractDistance="2.0" NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782"/>
       </If>
     </If>
@@ -662,7 +662,7 @@ Authors:  Sodimm.
         </If>
         <UseObject NpcIds="1008782,1008784,1008786,1008781,1008785" XYZ="221.8474, 21.49385, -603.677" QuestId="66879" StepId="1"/>
       </If>
-      <If Condition="(not HasQuest(66877) or not HasQuest(66876) or not HasQuest(66875)) and IsOnSubMap(238)">
+      <If Condition="(not HasQuest(66877) and not HasQuest(66876) and not HasQuest(66875)) and IsOnSubMap(238)">
         <UseTransport InteractDistance="2.0" NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782"/>
       </If>
     </If>
@@ -696,7 +696,7 @@ Authors:  Sodimm.
         <UseTransport NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66877"/>
       </If>
       <UseObject NpcIds="2003889,2003890,2003891,2003892,2003893,2003894" XYZ="170.9118, 21.51321, -558.4543" QuestId="66877" StepId="4"/>
-      <If Condition="(not HasQuest(66876) or not HasQuest(66875)) and IsOnSubMap(238)">
+      <If Condition="(not HasQuest(66876) and not HasQuest(66875)) and IsOnSubMap(238)">
         <UseTransport InteractDistance="2.0" NpcId="2002888" XYZ="150.4692, 27.69507, -552.1782"/>
       </If>
     </If>
@@ -1544,7 +1544,7 @@ Authors:  Sodimm.
     </GrindArea>
     <GrindArea name="66908">
       <Hotspots>
-        <HotSpot XYZ="23.94331, 28.1621, -776.2606" Radius="80"/>
+        <HotSpot XYZ="33.44169, 21.48944, -767.6346" Radius="80"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="2516"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Profile:  [Orderbot] Dark Knight Class Quests.
+Profile:  [OrderBot] Dark Knight Class Quests.
 Authors:  TuckMeIntoBread, Sodimm.
 -->
 <Profile>
@@ -85,13 +85,13 @@ Authors:  TuckMeIntoBread, Sodimm.
 			<TurnIn QuestId="68451" NpcId="1022866" XYZ="483.2981, 203.4332, 680.4833" />
 		</If>
 		<!-- The Widow and Her Love (Level 63) -->
-		<If Condition="not HasQuest(68451) and not IsQuestCompleted(68451) and Core.Player.ClassLevel &gt; 62">
+		<If Condition="not HasQuest(68452) and not IsQuestCompleted(68452) and Core.Player.ClassLevel &gt; 62">
 			<If Condition="not IsOnMap(397)">
 				<GetTo ZoneId="397" XYZ="483.2981, 203.4332, 680.4833" />
 			</If>
 			<NoCombatMoveTo XYZ="483.2981, 203.4332, 680.4833" />
-			<If Condition="IsQuestAcceptQualified(68451)" >
-				<PickupQuest QuestId="68451" NpcId="1022866" XYZ="483.2981, 203.4332, 680.4833" />
+			<If Condition="IsQuestAcceptQualified(68452)" >
+				<PickupQuest QuestId="68452" NpcId="1022866" XYZ="483.2981, 203.4332, 680.4833" />
 			</If>
 		</If>
 		<If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 1">

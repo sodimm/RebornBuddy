@@ -190,17 +190,17 @@ Authors:  TuckMeIntoBread, Sodimm.
       <If Condition="not IsOnMap(131)">
         <GetTo ZoneId="131" XYZ="81.04234, 8, -72.53278"/>
       </If>
-      <If Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 0">
         <NoCombatMoveTo XYZ="81.04234, 8, -72.53278"/>
         <TalkTo NpcId="1021379" XYZ="81.04234, 8, -72.53278" QuestId="68110"/>
         <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 0"/>
       </If>
-      <If Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 1">
         <NoCombatMoveTo XYZ="97.92914, 8, -12.58384"/>
         <TalkTo NpcId="1021378" XYZ="97.92914, 8, -12.58384" QuestId="68110"/>
         <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 1"/>
       </If>
-      <If Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 2">
         <NoCombatMoveTo XYZ="105.7962, 8, 4.050132"/>
         <TalkTo NpcId="1021380" XYZ="105.7962, 8, 4.050132" QuestId="68110"/>
         <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 2"/>

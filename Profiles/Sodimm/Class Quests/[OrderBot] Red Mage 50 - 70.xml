@@ -234,6 +234,10 @@ Authors:  Sodimm, TuckMeIntoBread.
       <If Condition="not IsOnMap(138)">
         <GetTo ZoneId="138" XYZ="-288.6154, -40.70719, 418.3087"/>
       </If>
+      <If Condition="IsOnMap(138) and not IsOnSubMap(461)">
+        <NoCombatMoveTo XYZ="317.4333, -36.325, 352.8649"/>
+        <UseTransport NpcId="1003584" XYZ="317.4333, -36.325, 352.8649" DialogOption="2"/>
+      </If>
       <NoCombatMoveTo XYZ="-288.6154, -40.70719, 418.3087"/>
       <LogMessage Message="Please complete the following duty manually."/>
     </If>

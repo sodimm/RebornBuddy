@@ -2,7 +2,7 @@
 <!--
 Profile:  [Orderbot] Ixal Dailies.
 Authors:  Sodimm.
-Required User Setup:  Set your Gear Set numbers below.
+Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear Set has the Echatl Wristglove attached. Ensure you have Moth Pupa bait.
 -->
 <!DOCTYPE Profile [
 <!ENTITY minerGearSet "4">
@@ -425,7 +425,7 @@ Required User Setup:  Set your Gear Set numbers below.
       <NoCombatMoveTo XYZ="303.5594, 301.962, -258.2455"/>
       <RunCode Name="Dismount"/>
       <SendChat GearSet="&fisherGearSet;"/>
-      <Fish Mooch="0" Condition="GetQuestStepGtLt(67056,0,2)">
+      <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67056,0,2)">
         <FishSpots>
           <FishSpot XYZ="303.5594, 301.962, -258.2455" Heading="0.3151579"/>
         </FishSpots>
@@ -948,6 +948,7 @@ Required User Setup:  Set your Gear Set numbers below.
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
+      <NoCombatMoveTo XYZ="202.2286, 301.9998, -253.7029"/>
       <SendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001429" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67059" StepId="3"/>
     </If>
@@ -1670,7 +1671,7 @@ Required User Setup:  Set your Gear Set numbers below.
       <RunCode Name="Dismount"/>  
       <SendChat GearSet="&fisherGearSet;"/>
       <SendChat DoAction="Stealth"/>
-      <Fish Mooch="0" Condition="GetQuestStepGtLt(67045,1,3)">
+      <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67045,1,3)">
         <FishSpots>
           <FishSpot XYZ="-374.701, -17.14841, -416.918" Heading="3.816963"/>
         </FishSpots>
@@ -3432,7 +3433,7 @@ Required User Setup:  Set your Gear Set numbers below.
       <NoCombatMoveTo XYZ="-56.94362, 197.8425, 488.5516"/>
       <RunCode Name="Dismount"/>
       <SendChat GearSet="&fisherGearSet;"/>
-      <Fish Mooch="0" Condition="GetQuestStepGtLt(67050,0,2)">
+      <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67050,0,2)">
         <FishSpots>
           <FishSpot XYZ="-56.94362, 197.8425, 488.5516" Heading="5.85653"/>
         </FishSpots>

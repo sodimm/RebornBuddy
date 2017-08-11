@@ -814,14 +814,35 @@ Authors:  Sodimm.
         </HotSpots>
       </UseObject>
     </If>
-
-<!--    <!{1}** The Cats Meow **{1}>
-      <SoHandOver NpcId="1011952" ItemIds="2001922" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67731" StepId="2" MapId="401" />
-      <SoHandOver NpcId="1016376" ItemIds="2001922" XYZ="702.9069, -126.0321, 392.0499" Objective="0" Count="1" QuestId="67731" StepId="3" MapId="401" />
-      <SoHandOver NpcId="1016377" ItemIds="2001922" XYZ="272.7854, -114.2413, 387.6859" Objective="0" Count="2" QuestId="67731" StepId="3" MapId="401" />
-      <SoHandOver NpcId="1016385" ItemIds="2001922" XYZ="-519.646, -152.4781, 280.3845" Objective="0" Count="3" QuestId="67731" StepId="3" MapId="401" />
--->
- 
+    <!-- The Cats Meow -->
+    <If Condition="HasQuest(67731) and GetQuestStep(67731) == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
+      </If>
+      <NoCombatMoveTo XYZ="-277.6379, -184.5974, 741.6038"/>
+      <SoHandOver NpcId="1011952" ItemIds="2001922" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67731" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 0">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="702.9069, -126.0321, 392.0499"/>
+      </If>
+      <NoCombatMoveTo XYZ="702.9069, -126.0321, 392.0499"/>
+      <HandOver NpcId="1016376" ItemId="2001922" XYZ="702.9069, -126.0321, 392.0499" QuestId="67731"/>
+    </If>
+    <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="272.7854, -114.2413, 387.6859"/>
+      </If>
+      <NoCombatMoveTo XYZ="272.7854, -114.2413, 387.6859"/>
+      <HandOver NpcId="1016377" ItemId="2001922" XYZ="272.7854, -114.2413, 387.6859" QuestId="67731"/>
+    </If>
+    <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-519.646, -152.4781, 280.3845"/>
+      </If>
+      <NoCombatMoveTo XYZ="-519.646, -152.4781, 280.3845"/>
+      <HandOver NpcId="1016385" ItemId="2001922" XYZ="-519.646, -152.4781, 280.3845" QuestId="67731"/>
+    </If>
     <!-- Easy As Paissa -->
     <If Condition="HasQuest(67732) and GetQuestStep(67732) == 1">
       <If Condition="not IsOnMap(401)">

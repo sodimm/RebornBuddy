@@ -645,7 +645,7 @@ Authors:  Sodimm.
       <TurnIn QuestId="68105" NpcId="1022184" XYZ="129.7169, 15, -157.6105"/>
     </If>
     <!-- The Battle on Bekko -->
-    <If Condition="not HasQuest(68106) and not IsQuestCompleted(68106)">
+    <If Condition="not HasQuest(68106) and not IsQuestCompleted(68106) and Core.Player.ClassLevel &gt; 69">
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="128.776, 15, -155.4813"/>
       </If>

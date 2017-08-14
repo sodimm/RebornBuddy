@@ -5,18 +5,19 @@
 The GitHub is structured exactly as it should be inside your RebornBuddy Folder.
 
 ###### Want Artemis?
-Make a folder called Artemis in your BotBases folder, and SVN Checkout to 
-https://github.com/sodimm/RebornBuddy/trunk/BotBases/Artemis
-
+Make a folder called Artemis in your BotBases folder, and place the Loader.cs found at https://github.com/sodimm/RebornBuddy/tree/master/BotBases/Artemis inside.
 The BotBase has an auto-updater, so you should only need to do this on new loader revisions.
+Do not SVN Checkout the Loader, as it will be unable to succesfully clean the hidden folders it creates.
 
 ###### Want Cyril?
 Make a folder called Cyril in your Plugins folder, and SVN Checkout to
 https://github.com/sodimm/RebornBuddy/trunk/Plugins/Cyril
 
 ###### Want Sparrow?
-Make a folder called Sparrow in your Plugins folder, and SVN Checkout to
-https://github.com/sodimm/RebornBuddy/trunk/Plugins/Sparrow
+Make a folder called Sparrow in your Plugins folder, and place the Loader.cs found at
+https://github.com/sodimm/RebornBuddy/tree//master/Plugins/Sparrow inside.
+The Plugin has an auto-updater, so you should only need to do this on new loader revisions.
+Do not SVN Checkout the Loader, as it will be unable to succesfully clean hidden folders it creates.
 
 ###### Want the Profiles?
 Make a folder called Sodimm in your Profiles folder, and SVN Checkout to

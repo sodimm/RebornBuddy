@@ -30,7 +30,7 @@ namespace ArtemisLoader
         private static readonly Color LogColor = Colors.Cyan;
         public override PulseFlags PulseFlags => PulseFlags.All;
         public override bool IsAutonomous => true;
-        public override bool WantButton => false;
+        public override bool WantButton => true;
         public override bool RequiresProfile => false;
 
         #region Meta Data

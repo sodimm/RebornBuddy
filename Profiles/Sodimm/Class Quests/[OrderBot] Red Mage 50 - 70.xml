@@ -7,9 +7,51 @@ Authors:  Sodimm, TuckMeIntoBread.
   <Name>[OrderBot] Red Mage Class Quests.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-
     <!-- Taking the Red (Unlock) -->
-
+    <If Condition="not HasQuest(68112) and not IsQuestCompleted(68112)">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="146.1051, 4, 25.22314"/>
+      </If>
+      <NoCombatMoveTo XYZ="146.1051, 4, 25.22314"/>
+      <If Condition="IsQuestAcceptQualified(68112)">
+        <SoPickUpQuest QuestId="68112" NpcId="1021425" XYZ="146.1051, 4, 25.22314"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 1">
+      <If Condition="not IsOnMap(141)">
+        <GetTo ZoneId="141" XYZ="124.0405, 5.292755, 559.6552"/>
+      </If>
+      <NoCombatMoveTo XYZ="124.0405, 5.292755, 559.6552"/>
+      <TalkTo NpcId="1021426" XYZ="124.0405, 5.292755, 559.6552" QuestId="68112" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 2">
+      <If Condition="not IsOnMap(141)">
+        <GetTo ZoneId="141" XYZ="125.719, 5.292949, 558.9531"/>
+      </If>
+      <NoCombatMoveTo XYZ="125.719, 5.292949, 558.9531"/>
+      <TalkTo NpcId="1021434" XYZ="125.719, 5.292949, 558.9531" QuestId="68112" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 3">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="146.1051, 4, 25.22314"/>
+      </If>
+      <NoCombatMoveTo XYZ="146.1051, 4, 25.22314"/>
+      <TalkTo NpcId="1021435" XYZ="146.1051, 4, 25.22314" QuestId="68112" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 4">
+      <If Condition="not IsOnMap(141)">
+        <GetTo ZoneId="141" XYZ="-96.84906, -11.35, -47.3183"/>
+      </If>
+      <NoCombatMoveTo XYZ="-96.84906, -11.35, -47.3183"/>
+      <TalkTo NpcId="1021438" XYZ="-96.84906, -11.35, -47.3183" QuestId="68112" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 255">
+      <If Condition="not IsOnMap(141)">
+        <GetTo ZoneId="141" XYZ="-96.84906, -11.35, -47.3183"/>
+      </If>
+      <NoCombatMoveTo XYZ="-96.84906, -11.35, -47.3183"/>
+      <SoTurnIn QuestId="68112" NpcId="1021438" XYZ="-96.84906, -11.35, -47.3183"/>
+    </If>
     <!-- The Crimson Duelist (Level 50) -->
     <If Condition="not HasQuest(68113) and not IsQuestCompleted(68113) and Core.Player.ClassLevel &gt; 49">
       <If Condition="not IsOnMap(141)">

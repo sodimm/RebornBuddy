@@ -2413,6 +2413,8 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
         <GetTo ZoneId="400" XYZ="233.2397, -42.46527, 611.4952"/>
       </If>
       <NoCombatMoveTo XYZ="233.2397, -42.46527, 611.4952"/>
+      <RunCode Name="Dismount"/>
+      <RunCode Name="DisableMount"/>
       <TalkTo NpcId="1017412" XYZ="402.4567, -74.34704, 636.6826" QuestId="67843" StepId="1"/>
     </If>
     <!-- Mogstew Miscellany -->
@@ -2475,6 +2477,8 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
       <NoCombatMoveTo XYZ="397.9705, -72.34406, 653.0403"/>
       <HandOver ItemId="15738" NpcId="1017413" XYZ="397.9705, -72.34406, 653.0403" QuestId="67843" StepId="2"/>
+      <NoCombatMoveTo XYZ="233.2397, -42.46527, 611.4952"/>
+      <RunCode Name="EnableMount"/>
     </If>
     <!-- A Stone's Throw Away  -->
     <If Condition="HasQuest(67844) and GetQuestStep(67844) == 1">
@@ -3932,6 +3936,18 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 -->
   </Order>
   <CodeChunks>
+    <CodeChunk Name="DisableMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+        await Coroutine.Sleep(100);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="EnableMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+        await Coroutine.Sleep(100);
+      ]]>
+    </CodeChunk>
     <CodeChunk Name="Dismount"><![CDATA[
         if(Core.Player.IsMounted)
         {

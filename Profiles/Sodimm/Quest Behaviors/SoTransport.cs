@@ -19,6 +19,7 @@ namespace ff14bot.NeoProfiles
     {
         public override bool HighPriority => true;
 
+        private bool _done;
         public override bool IsDone
         {
             get
@@ -26,7 +27,7 @@ namespace ff14bot.NeoProfiles
                 if (IsStepComplete)
                     return true;
 
-                return false;
+                return _done;
             }
         }
 
@@ -41,6 +42,11 @@ namespace ff14bot.NeoProfiles
 
         [XmlAttribute("XYZ")]
         public Vector3 XYZ { get; set; }
+
+        [XmlAttribute("BlacklistAfter")]
+        [DefaultValue(false)]
+        public bool BlacklistAfter { get; set; }
+
 
         public GameObject NPC
         {
@@ -80,7 +86,14 @@ namespace ff14bot.NeoProfiles
 
                 obj.Interact();
 
-                await Coroutine.Wait(5000, () => ShortCircuit(obj));
+                if (BlacklistAfter)
+                {
+                    _done = true;
+                }
+                else
+                {
+                    await Coroutine.Wait(5000, () => ShortCircuit(obj));
+                }
             }
 
             return false;
@@ -104,5 +117,14 @@ namespace ff14bot.NeoProfiles
         {
         }
 
+        protected override void OnDone()
+        {
+            BlacklistAfter = false;
+        }
+
+        protected override void OnResetCachedDone()
+        {
+            BlacklistAfter = false;
+        }
     }
 }

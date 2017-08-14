@@ -644,5 +644,82 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="128.3908, 15, -154.6677"/>
       <TurnIn QuestId="68105" NpcId="1022184" XYZ="129.7169, 15, -157.6105"/>
     </If>
+    <!-- The Battle on Bekko -->
+    <If Condition="not HasQuest(68106) and not IsQuestCompleted(68106)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="128.776, 15, -155.4813"/>
+      </If>
+      <NoCombatMoveTo XYZ="128.776, 15, -155.4813"/>
+      <If Condition="IsQuestAcceptQualified(68106)">
+        <PickupQuest QuestId="68106" NpcId="1022184" XYZ="129.7169, 15, -157.6105"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 1 and GetQuestById(68106).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="14.64194, 0, -65.13006"/>
+      </If>
+      <NoCombatMoveTo XYZ="14.64194, 0, -65.13006"/>
+      <TalkTo NpcId="1022208" XYZ="14.75543, 0, -66.88031" QuestId="68106"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 1 and GetQuestById(68106).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-58.33185, -2.900025, -63.23423"/>
+      </If>
+      <NoCombatMoveTo XYZ="-58.33185, -2.900025, -63.23423"/>
+      <TalkTo NpcId="1022207" XYZ="-59.86121, -2.900029, -64.80511" QuestId="68106"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 1 and GetQuestById(68106).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="40.87292, 4, 55.78067"/>
+      </If>
+      <NoCombatMoveTo XYZ="40.87292, 4, 55.78067"/>
+      <TalkTo NpcId="1022209" XYZ="42.64893, 4, 54.97815" QuestId="68106"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 2">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="124.6188, 15, -151.6227"/>
+      </If>
+      <NoCombatMoveTo XYZ="124.6188, 15, -151.6227"/>
+      <TalkTo NpcId="1022377" XYZ="124.6814, 15, -154.8333" QuestId="68106" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 3">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="785.7031, 1.556316, 79.06876"/>
+      </If>
+      <NoCombatMoveTo XYZ="785.7031, 1.556316, 79.06876"/>
+      <TalkTo NpcId="1022215" XYZ="787.1976, 1.587234, 80.03345" QuestId="68106" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 2">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="124.6188, 15, -151.6227"/>
+      </If>
+      <NoCombatMoveTo XYZ="124.6188, 15, -151.6227"/>
+      <TalkTo NpcId="1022377" XYZ="124.6814, 15, -154.8333" QuestId="68106" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 3">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="787.1976, 1.587234, 80.03345"/>
+      </If>
+      <NoCombatMoveTo XYZ="787.1976, 1.587234, 80.03345"/>
+      <SimpleDuty InteractNpcId="1022215" XYZ="787.1976, 1.587234, 80.03345" QuestId="68106" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="38.6677, 10.50397, -195.5638" Radius="50"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6096"/>
+          <!-- Ugetsu, Slayer of a Thousand Souls -->
+        </TargetMobs>
+      </SimpleDuty>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 4">
+      <WaitWhile Condition="GetQuestStep(68106) == 4"/>
+    </If>
+    <If Condition="HasQuest(68106) and not IsQuestCompleted(68106) and GetQuestStep(68106) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="128.3741, 15, -154.0298"/>
+      </If>
+      <NoCombatMoveTo XYZ="128.3741, 15, -154.0298"/>
+      <TurnIn QuestId="68106" NpcId="1022184" XYZ="129.7169, 15, -157.6105"/>
+    </If>
   </Order>
 </Profile>

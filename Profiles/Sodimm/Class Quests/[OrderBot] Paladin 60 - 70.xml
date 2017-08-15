@@ -193,17 +193,17 @@ Authors:  TuckMeIntoBread, Sodimm.
       <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 0">
         <NoCombatMoveTo XYZ="81.04234, 8, -72.53278"/>
         <TalkTo NpcId="1021379" XYZ="81.04234, 8, -72.53278" QuestId="68110"/>
-        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 0"/>
+        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 0"/>
       </If>
       <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 1">
         <NoCombatMoveTo XYZ="97.92914, 8, -12.58384"/>
         <TalkTo NpcId="1021378" XYZ="97.92914, 8, -12.58384" QuestId="68110"/>
-        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 1"/>
+        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 1"/>
       </If>
       <If Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 2">
         <NoCombatMoveTo XYZ="105.7962, 8, 4.050132"/>
         <TalkTo NpcId="1021380" XYZ="105.7962, 8, 4.050132" QuestId="68110"/>
-        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 2"/>
+        <WaitWhile Condition="GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 2"/>
       </If>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 5">

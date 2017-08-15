@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Bard Class Quests.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Bard Class Quests.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not HasQuest(68426) and not IsQuestCompleted(68426) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsOnMap(153)">
+        <GetTo ZoneId="153" XYZ="14.95943, 6.725382, -5.447864"/>
+      </If>
+      <NoCombatMoveTo XYZ="14.95943, 6.725382, -5.447864"/>
+      <If Condition="IsQuestAcceptQualified(68426)">
+        <PickupQuest QuestId="68426" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68426) and not IsQuestCompleted(68426) and GetQuestStep(68426) == 1">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="191.1455, -2.541352, 73.64996"/>
+      </If>
+      <NoCombatMoveTo XYZ="191.1455, -2.541352, 73.64996"/>
+      <TalkTo NpcId="1022505" XYZ="192.462, -2.545328, 73.74683" QuestId="68426" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68426) and not IsQuestCompleted(68426) and GetQuestStep(68426) == 2">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="-73.63943, -0.5021742, -3.359091"/>
+      </If>
+      <NoCombatMoveTo XYZ="-73.63943, -0.5021742, -3.359091"/>
+      <TalkTo NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299" QuestId="68426" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68426) and not IsQuestCompleted(68426) and GetQuestStep(68426) == 3">
+      <If Condition="not IsOnMap(152)">
+        <GetTo ZoneId="152" XYZ="-71.64895, -7.87786, 242.7038"/>
+      </If>
+      <NoCombatMoveTo XYZ="-71.64895, -7.87786, 242.7038"/>
+      <TalkTo NpcId="1022508" XYZ="-71.33594, -7.8771, 240.3448" QuestId="68426" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68426) and not IsQuestCompleted(68426) and GetQuestStep(68426) == 255">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-651.2002, 130, -523.884"/>
+      </If>
+      <NoCombatMoveTo XYZ="-651.2002, 130, -523.884"/>
+      <TurnIn QuestId="68426" NpcId="1022511" XYZ="-653.132, 130, -523.827"/>
+    </If>
+  </Order>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>
+<!-- Three's a Company -->

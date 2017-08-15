@@ -7,6 +7,7 @@ Authors:  Sodimm.
   <Name>[OrderBot] Bard Class Quests.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
+    <!-- Three's a Company (Level 60) -->
     <If Condition="not HasQuest(68426) and not IsQuestCompleted(68426) and Core.Player.ClassLevel &gt; 59">
       <If Condition="not IsOnMap(153)">
         <GetTo ZoneId="153" XYZ="14.95943, 6.725382, -5.447864"/>
@@ -44,8 +45,45 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-651.2002, 130, -523.884"/>
       <TurnIn QuestId="68426" NpcId="1022511" XYZ="-653.132, 130, -523.827"/>
     </If>
+    <!-- Masked Motives (Level 63) -->
+    <If Condition="not HasQuest(68427) and not IsQuestCompleted(68427) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-651.8002, 130, -523.7576"/>
+      </If>
+      <NoCombatMoveTo XYZ="-651.8002, 130, -523.7576"/>
+      <If Condition="IsQuestAcceptQualified(68427)">
+        <PickupQuest QuestId="68427" NpcId="1022512" XYZ="-653.0403, 130, -522.1485"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68427) and not IsQuestCompleted(68427) and GetQuestStep(68427) == 1">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-589.0306, 130.0425, -532.173"/>
+      </If>
+      <NoCombatMoveTo XYZ="-589.0306, 130.0425, -532.173"/>
+      <TalkTo NpcId="1022514" XYZ="-586.0533, 130.0406, -534.5999" QuestId="68427" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68427) and not IsQuestCompleted(68427) and GetQuestStep(68427) == 2">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-247.8218, 61.39512, -484.6418"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.8218, 61.39512, -484.6418"/>
+      <WaitWhile Condition="GetQuestStep(68427) == 2"/>
+    </If>
+    <If Condition="HasQuest(68427) and not IsQuestCompleted(68427) and GetQuestStep(68427) == 3">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-249.7246, 61.34939, -484.7493"/>
+      </If>
+      <NoCombatMoveTo XYZ="-249.7246, 61.34939, -484.7493"/>
+      <UseObject NpcIds="1022515" XYZ="-247.8218, 61.39512, -484.6418" QuestId="68427" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68427) and not IsQuestCompleted(68427) and GetQuestStep(68427) == 255">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-648.6161, 130, -520.6755"/>
+      </If>
+      <NoCombatMoveTo XYZ="-648.6161, 130, -520.6755"/>
+      <TurnIn QuestId="68427" NpcId="1022513" XYZ="-650.9041, 130, -520.8667"/>
+    </If>
   </Order>
   <CodeChunks>
   </CodeChunks>
 </Profile>
-<!-- Three's a Company -->

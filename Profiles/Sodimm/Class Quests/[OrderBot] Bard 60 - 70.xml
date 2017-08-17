@@ -83,6 +83,59 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-648.6161, 130, -520.6755"/>
       <TurnIn QuestId="68427" NpcId="1022513" XYZ="-650.9041, 130, -520.8667"/>
     </If>
+    <!-- One Autumn's Secret (Level 65) -->
+    <If Condition="not HasQuest(68428) and not IsQuestCompleted(68428) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-651.3519, 130, -523.7383"/>
+      </If>
+      <NoCombatMoveTo XYZ="-651.3519, 130, -523.7383"/>
+      <If Condition="IsQuestAcceptQualified(68428)">
+        <PickupQuest QuestId="68428" NpcId="1022512" XYZ="-653.0403, 130, -522.1485"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68428) and not IsQuestCompleted(68428) and GetQuestStep(68428) == 1">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-617.3558, 130.2108, -472.0057"/>
+      </If>
+      <NoCombatMoveTo XYZ="-617.3558, 130.2108, -472.0057"/>
+      <TalkTo NpcId="1022519" XYZ="-616.8155, 130.1435, -469.4133" QuestId="68428" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68428) and not IsQuestCompleted(68428) and GetQuestStep(68428) == 2">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-610.7005, 126.2287, -426.6295"/>
+      </If>
+      <NoCombatMoveTo XYZ="-610.7005, 126.2287, -426.6295"/>
+      <TalkTo NpcId="1022520" XYZ="-610.956, 125.9273, -424.5823" QuestId="68428" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68428) and not IsQuestCompleted(68428) and GetQuestStep(68428) == 3">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="216.3109, 45.88395, -362.4657"/>
+      </If>
+      <NoCombatMoveTo XYZ="216.3109, 45.88395, -362.4657"/>
+      <SimpleDuty InteractNpcId="1022522" XYZ="214.8622, 45.93671, -360.6165" QuestId="68428" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="187.2596, 43.96508, -324.5187" Radius="50"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6686" Weight="1000"/>
+          <!-- Nourval of the Branching Path -->
+          <TargetMob Id="6688" Weight="3000"/>
+          <!-- Old Guard Bow -->
+          <TargetMob Id="6687" Weight="2000"/>
+          <!-- Old Guard Spear -->
+        </TargetMobs>
+      </SimpleDuty>
+    </If>
+    <If Condition="HasQuest(68428) and not IsQuestCompleted(68428) and GetQuestStep(68428) == 4">
+      <WaitWhile Condition="GetQuestStep(68428) == 4"/>
+    </If>
+    <If Condition="HasQuest(68428) and not IsQuestCompleted(68428) and GetQuestStep(68428) == 255">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-650.7912, 130, -524.9886"/>
+      </If>
+      <NoCombatMoveTo XYZ="-650.7912, 130, -524.9886"/>
+      <TurnIn QuestId="68428" NpcId="1022523" XYZ="-653.0403, 130, -522.179"/>
+    </If>
   </Order>
   <CodeChunks>
   </CodeChunks>

@@ -8,8 +8,12 @@ Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
   <Name>[OrderBot] Miner Class Quests.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Gift of the Gob -->
-    <If Condition="not HasQuest(68090) and not IsQuestCompleted(68090)">
+      <If Condition="not IsQuestCompleted(67620)">
+      <LogMessage Message="You haven't finished all of the Heavensward Miner quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67620)"/>
+    </If>
+    <!-- Gift of the Gob (Level 60) -->
+    <If Condition="not HasQuest(68090) and not IsQuestCompleted(68090) and IsQuestCompleted(67620) and Core.Player.ClassLevel &gt; 59">
       <If Condition="not IsOnMap(131)">
         <GetTo ZoneId="131" XYZ="-17.52845, 6.2, 157.5762"/>
       </If>
@@ -45,9 +49,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
       </If>
       <NoCombatMoveTo XYZ="54.56663, 207.3399, -8.392662"/>
       <TurnIn QuestId="68090" NpcId="1019863" XYZ="54.56663, 207.3399, -8.392662"/>
+	  <WaitTimer WaitTime="3"/>
     </If>
-    <!-- Thick Skin -->
-    <If Condition="not HasQuest(68091) and not IsQuestCompleted(68091)">
+    <!-- Thick Skin (Level 63) -->
+    <If Condition="not HasQuest(68091) and not IsQuestCompleted(68091) and IsQuestCompleted(68090) and Core.Player.ClassLevel &gt; 62">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="54.56663, 207.3399, -8.392662"/>
       </If>
@@ -120,9 +125,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
       </If>
       <NoCombatMoveTo XYZ="54.85791, 207.3399, -8.434767"/>
       <TurnIn QuestId="68091" NpcId="1019863" XYZ="54.85791, 207.3399, -8.434767"/>
+	  <WaitTimer WaitTime="3"/>
     </If>
-    <!-- Pedal to the Metal -->
-    <If Condition="not HasQuest(68092) and not IsQuestCompleted(68092)">
+    <!-- Pedal to the Metal (Level 65) -->
+    <If Condition="not HasQuest(68092) and not IsQuestCompleted(68092) and IsQuestCompleted(68091) and Core.Player.ClassLevel &gt; 64">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="54.85791, 207.3399, -8.434767"/>
       </If>
@@ -206,9 +212,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
       </If>
       <NoCombatMoveTo XYZ="54.88151, 207.3399, -8.167487"/>
       <TurnIn QuestId="68092" NpcId="1019863" XYZ="54.88151, 207.3399, -8.167487"/>
+	  <WaitTimer WaitTime="3"/>
     </If>
-    <!-- Where the Money Takes You -->
-    <If Condition="not HasQuest(68093) and not IsQuestCompleted(68093)">
+    <!-- Where the Money Takes You (Level 68) -->
+    <If Condition="not HasQuest(68093) and not IsQuestCompleted(68093) and IsQuestCompleted(68092) and Core.Player.ClassLevel &gt; 67">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="54.88151, 207.3399, -8.167487"/>
       </If>
@@ -280,9 +287,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
       </If>
       <NoCombatMoveTo XYZ="54.71909, 207.3399, -7.805041"/>
       <TurnIn QuestId="68093" NpcId="1019863" XYZ="54.71909, 207.3399, -7.805041"/>
+	  <WaitTimer WaitTime="3"/>
     </If>
-    <!-- A Miner Success -->
-    <If Condition="not HasQuest(68094) and not IsQuestCompleted(68094)">
+    <!-- A Miner Success (Level 70) -->
+    <If Condition="not HasQuest(68094) and not IsQuestCompleted(68094) and IsQuestCompleted(68093) and Core.Player.ClassLevel &gt; 69">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="54.71909, 207.3399, -7.805041"/>
       </If>

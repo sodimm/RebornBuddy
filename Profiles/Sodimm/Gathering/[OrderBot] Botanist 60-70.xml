@@ -8,8 +8,12 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
   <Name>[OrderBot] Botanist Class Quests.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Never Meet Your Heroes -->
-    <If Condition="not HasQuest(68156) and not IsQuestCompleted(68156)">
+    <If Condition="not IsQuestCompleted(67588)">
+      <LogMessage Message="You haven't finished all of the Heavensward Botanist quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67588)"/>
+    </If>
+    <!-- Never Meet Your Heroes (Level 60) -->
+    <If Condition="not HasQuest(68156) and not IsQuestCompleted(68156) and IsQuestCompleted(67588) and Core.Player.ClassLevel &gt; 59">
       <If Condition="not IsOnMap(133)">
         <GetTo ZoneId="133" XYZ="-233.4523, 6.247627, -169.1969"/>
       </If>
@@ -31,9 +35,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
       </If>
       <NoCombatMoveTo XYZ="-44.56588, 209.2288, -90.81387"/>
       <TurnIn QuestId="68156" NpcId="1021349" XYZ="-44.56588, 209.2288, -90.81387"/>
+      <WaitTimer WaitTime="3"/>
     </If>
-    <!-- You Say Popoto, I Say... -->
-    <If Condition="not HasQuest(68157) and not IsQuestCompleted(68157)">
+    <!-- You Say Popoto, I Say... (Level 63) -->
+    <If Condition="not HasQuest(68157) and not IsQuestCompleted(68157) and IsQuestCompleted(68156) and Core.Player.ClassLevel &gt; 62">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="-44.56588, 209.2288, -90.81387"/>
       </If>
@@ -98,9 +103,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
       </If>
       <NoCombatMoveTo XYZ="-44.95714, 209.2252, -90.96803"/>
       <TurnIn QuestId="68157" NpcId="1021349" XYZ="-44.95714, 209.2252, -90.96803"/>
+      <WaitTimer WaitTime="3"/>
     </If>
-    <!-- Walking for Walker's -->
-    <If Condition="not HasQuest(68158) and not IsQuestCompleted(68158)">
+    <!-- Walking for Walker's (Level 65) -->
+    <If Condition="not HasQuest(68158) and not IsQuestCompleted(68158) and IsQuestCompleted(68157) and Core.Player.ClassLevel &gt; 64">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="-44.95714, 209.2252, -90.96803"/>
       </If>
@@ -184,9 +190,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
       </If>
       <NoCombatMoveTo XYZ="-44.67389, 209.2242, -90.67441"/>
       <TurnIn ItemIds="17946" RequiresHq="True" QuestId="68158" NpcId="1021349" XYZ="-44.67389, 209.2242, -90.67441"/>
+      <WaitTimer WaitTime="3"/>
     </If>
-    <!-- The White Death -->
-    <If Condition="not HasQuest(68159) and not IsQuestCompleted(68159)">
+    <!-- The White Death (Level 68) -->
+    <If Condition="not HasQuest(68159) and not IsQuestCompleted(68159) and IsQuestCompleted(68158) and Core.Player.ClassLevel &gt; 67">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="-44.67389, 209.2242, -90.67441"/>
       </If>
@@ -269,9 +276,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
       </If>
       <NoCombatMoveTo XYZ="-44.62869, 209.2269, -90.77264"/>
       <TurnIn ItemIds="2002168" QuestId="68159" NpcId="1021349" XYZ="-44.62869, 209.2269, -90.77264"/>
+      <WaitTimer WaitTime="3"/>
     </If>
-    <!-- Edgyth's Winning Streak -->
-    <If Condition="not HasQuest(68160) and not IsQuestCompleted(68160)">
+    <!-- Edgyth's Winning Streak (Level 70) -->
+    <If Condition="not HasQuest(68160) and not IsQuestCompleted(68160) and IsQuestCompleted(68159) and Core.Player.ClassLevel &gt; 69">
       <If Condition="not IsOnMap(478)">
         <GetTo ZoneId="478" XYZ="-44.62869, 209.2269, -90.77264"/>
       </If>

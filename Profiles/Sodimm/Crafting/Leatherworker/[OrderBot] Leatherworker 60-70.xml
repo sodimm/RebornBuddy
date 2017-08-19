@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Leatherworker Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+Required Botbases:  Lisbeth.
+Required Quest Completion:  A Realm Reborn & Heavensward Leatherworker Quests.
+-->
+<Profile>
+  <Name>[OrderBot] Leatherworker Class Quests.</Name>
+  <BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory>..\..\..\..\BotBases\Lisbeth</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(67615)">
+      <LogMessage Message="You haven't finished all of the Heavensward Leatherworker quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67615)"/>
+    </If>
+    <!-- A Taxing Request (Level 60) -->
+    <If Condition="not HasQuest(68145) and not IsQuestCompleted(68145) and IsQuestCompleted(67615) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="71.00392, 8, -165.2372"/>
+      </If>
+      <NoCombatMoveTo XYZ="71.00392, 8, -165.2372"/>
+      <If Condition="IsQuestAcceptQualified(68145)">
+        <PickupQuest QuestId="68145" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68145) and not IsQuestCompleted(68145) and GetQuestStep(68145) == 1">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="140.3047, 13.5714, -90.96258"/>
+      </If>
+      <NoCombatMoveTo XYZ="140.3047, 13.5714, -90.96258"/>
+      <TalkTo NpcId="1020929" XYZ="141.7106, 13.5714, -90.44025" QuestId="68145" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68145) and not IsQuestCompleted(68145) and GetQuestStep(68145) == 2">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="35.18242, -8, 109.1501"/>
+      </If>
+      <NoCombatMoveTo XYZ="35.18242, -8, 109.1501"/>
+      <TalkTo NpcId="1020930" XYZ="34.37854, -8, 109.6971" QuestId="68145" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68145) and not IsQuestCompleted(68145) and GetQuestStep(68145) == 255">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="140.9785, 13.5714, -91.07951"/>
+      </If>
+      <NoCombatMoveTo XYZ="140.9785, 13.5714, -91.07951"/>
+      <TurnIn QuestId="68145" NpcId="1020929" XYZ="141.7106, 13.5714, -90.44025"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Mounting Expectations (Level 63) -->
+    <If Condition="not HasQuest(68146) and not IsQuestCompleted(68146) and IsQuestCompleted(68145) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="140.9785, 13.5714, -91.07951"/>
+      </If>
+      <NoCombatMoveTo XYZ="140.9785, 13.5714, -91.07951"/>
+      <If Condition="IsQuestAcceptQualified(68146)">
+        <SoPickupQuest QuestId="68146" NpcId="1020929" XYZ="141.7106, 13.5714, -90.44025"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-626.8472, -57.21736, -331.8564"/>
+      </If>
+      <NoCombatMoveTo XYZ="-626.8472, -57.21736, -331.8564"/>
+      <TalkTo NpcId="1020932" XYZ="-626.3981, -57.42865, -331.014" QuestId="68146" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-540.9032, -37.13065, -386.4452"/>
+      </If>
+      <NoCombatMoveTo XYZ="-540.9032, -37.13065, -386.4452"/>
+      <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="68146" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-197.9598, -166.6103, 553.6044"/>
+      </If>
+      <NoCombatMoveTo XYZ="-197.9598, -166.6103, 553.6044"/>
+      <LogMessage Message="Please complete the quest objective manually."/>
+      <WaitWhile Condition="GetQuestStep(68146) == 3"/>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 4">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-616.1193, -52.48719, -451.478"/>
+      </If>
+      <NoCombatMoveTo XYZ="-616.1193, -52.48719, -451.478"/>
+      <TalkTo NpcId="1020937" XYZ="-616.7544, -52.48908, -452.6284" QuestId="68146" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 5">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="77.47551, 0, -123.9072"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.47551, 0, -123.9072"/>
+      <TalkTo NpcId="1020940" XYZ="76.15771, 0, -124.4068" QuestId="68146" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68146) and not IsQuestCompleted(68146) and GetQuestStep(68146) == 255">
+      <Lisbeth Orders="Profiles\Sodimm\Crafting\Leatherworker\[OrderBot] LTW 63.json"/>
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.32645, 0, -125.24"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.32645, 0, -125.24"/>
+      <TurnIn ItemIds="17910" QuestId="68146" NpcId="1020941" XYZ="75.7915, 0, -125.8107"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- The Value of Life (Level 65) -->
+    <If Condition="not HasQuest(68147) and not IsQuestCompleted(68147) and IsQuestCompleted(68146) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="77.00484, 0, -124.3662"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.00484, 0, -124.3662"/>
+      <If Condition="IsQuestAcceptQualified(68147)">
+        <PickupQuest QuestId="68147" NpcId="1020940" XYZ="76.15771, 0, -124.4068"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 1">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-660.6281, 130.0262, -521.8975"/>
+      </If>
+      <NoCombatMoveTo XYZ="-660.6281, 130.0262, -521.8975"/>
+      <TalkTo NpcId="1020942" XYZ="-661.3718, 130.1107, -521.4161" QuestId="68147" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 2">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-584.1187, 129.7733, -520.1554"/>
+      </If>
+      <NoCombatMoveTo XYZ="-584.1187, 129.7733, -520.1554"/>
+      <TalkTo NpcId="1021300" XYZ="-583.2761, 129.7278, -520.0732" QuestId="68147" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 3">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-660.7014, 130.0316, -521.8824"/>
+      </If>
+      <NoCombatMoveTo XYZ="-660.7014, 130.0316, -521.8824"/>
+      <TalkTo NpcId="1020942" XYZ="-661.3718, 130.1107, -521.4161" QuestId="68147" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 4">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-384.5639, 61.8182, -73.46337"/>
+      </If>
+      <NoCombatMoveTo XYZ="-384.5639, 61.8182, -73.46337"/>
+      <TalkTo NpcId="1023895" XYZ="-384.329, 61.92642, -74.14362" QuestId="68147" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 5">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-460.1606, 58.65234, -32.00116"/>
+      </If>
+      <NoCombatMoveTo XYZ="-460.1606, 58.65234, -32.00116"/>
+      <TalkTo NpcId="1020944" XYZ="-461.326, 58.42228, -31.81512" QuestId="68147" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 6">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.87234, 0, -124.0057"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.87234, 0, -124.0057"/>
+      <HandOver ItemIds="2002185" NpcId="1020940" XYZ="76.15771, 0, -124.4068" QuestId="68147" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68147) and not IsQuestCompleted(68147) and GetQuestStep(68147) == 255">
+      <Lisbeth Orders="Profiles\Sodimm\Crafting\Leatherworker\[OrderBot] LTW 65.json"/>
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.51757, 0, -125.0596"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.51757, 0, -125.0596"/>
+      <TurnIn ItemIds="17912" QuestId="68147" NpcId="1020941" XYZ="75.7915, 0, -125.8107"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- The Trouble with Taxidermy (Level 68) -->
+    <If Condition="not HasQuest(68150) and not IsQuestCompleted(68150) and IsQuestCompleted(68147) and Core.Player.ClassLevel &gt; 67">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.77622, 0, -124.2678"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.77622, 0, -124.2678"/>
+      <If Condition="IsQuestAcceptQualified(68150)">
+        <PickupQuest QuestId="68150" NpcId="1020940" XYZ="76.15771, 0, -124.4068"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 1">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.77622, 0, -124.2678"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.77622, 0, -124.2678"/>
+      <TalkTo NpcId="1020940" XYZ="76.15771, 0, -124.4068" QuestId="68150" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 2">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="71.33062, 8, -165.8792"/>
+      </If>
+      <NoCombatMoveTo XYZ="71.33062, 8, -165.8792"/>
+      <TalkTo NpcId="1000691" XYZ="71.97681, 8, -166.5217" QuestId="68150" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 3">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="63.60807, 8, -145.3537"/>
+      </If>
+      <NoCombatMoveTo XYZ="63.60807, 8, -145.3537"/>
+      <TalkTo NpcId="1000352" XYZ="65.69006, 8, -147.4174" QuestId="68150" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 4">
+      <Lisbeth Orders="Profiles\Sodimm\Crafting\Leatherworker\[OrderBot] LTW 68.json"/>
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="71.66022, 8, -165.9775"/>
+      </If>
+      <NoCombatMoveTo XYZ="71.66022, 8, -165.9775"/>
+      <HandOver ItemIds="17914" NpcId="1000691" XYZ="71.97681, 8, -166.5217" QuestId="68150" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 255">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.34505, 0, -123.2606"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.34505, 0, -123.2606"/>
+      <TurnIn QuestId="68150" NpcId="1020940" XYZ="76.15771, 0, -124.4068"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- True to Life (Level 70) -->
+    <If Condition="not HasQuest(68151) and not IsQuestCompleted(68151) and IsQuestCompleted(68150) and Core.Player.ClassLevel &gt; 69">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.80299, 0, -123.7812"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.80299, 0, -123.7812"/>
+      <If Condition="IsQuestAcceptQualified(68151)">
+        <PickupQuest QuestId="68151" NpcId="1020940" XYZ="76.15771, 0, -124.4068"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68151) and not IsQuestCompleted(68151) and GetQuestStep(68151) == 1">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-660.2399, 130.0069, -521.8766"/>
+      </If>
+      <NoCombatMoveTo XYZ="-660.2399, 130.0069, -521.8766"/>
+      <SoTalkTo NpcId="1023896" XYZ="-661.3108, 130.099, -521.5076" QuestId="68151" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68151) and not IsQuestCompleted(68151) and GetQuestStep(68151) == 2">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="495.0354, 126.2416, -214.2209"/>
+      </If>
+      <NoCombatMoveTo XYZ="495.0354, 126.2416, -214.2209"/>
+      <TalkTo NpcId="1020948" XYZ="495.6892, 126.6645, -212.8787" QuestId="68151" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68151) and not IsQuestCompleted(68151) and GetQuestStep(68151) == 3">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="443.0062, 112.0803, -218.4663"/>
+      </If>
+      <NoCombatMoveTo XYZ="443.0062, 112.0803, -218.4663"/>
+      <SoTalkTo NpcId="1020949" XYZ="442.191, 112.1311, -217.3343" QuestId="68151" StepId="3" DialogOption="1"/>
+    </If>
+    <If Condition="HasQuest(68151) and not IsQuestCompleted(68151) and GetQuestStep(68151) == 4">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="76.75292, 0, -123.9796"/>
+      </If>
+      <NoCombatMoveTo XYZ="76.75292, 0, -123.9796"/>
+      <TalkTo NpcId="1020940" XYZ="76.15771, 0, -124.4068" QuestId="68151" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68151) and not IsQuestCompleted(68151) and GetQuestStep(68151) == 255">
+      <Lisbeth Orders="Profiles\Sodimm\Crafting\Leatherworker\[OrderBot] LTW 70.json"/>
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="77.39965, 0, -125.1896"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.39965, 0, -125.1896"/>
+      <TurnIn ItemIds="17916" QuestId="68151" NpcId="1020947" XYZ="76.18823, 0, -126.1159"/>
+    </If>
+  </Order>
+</Profile>

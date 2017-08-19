@@ -86,6 +86,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Weaver Quests.
     </If>
     <If Condition="HasQuest(67968) and not IsQuestCompleted(67968) and GetQuestStep(67968) == 255">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Weaver\[OrderBot] WVR 63.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-6.986575, 5.910849, -146.845"/>
       </If>
@@ -126,6 +128,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Weaver Quests.
     </If>
     <If Condition="HasQuest(67969) and not IsQuestCompleted(67969) and GetQuestStep(67969) == 255">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Weaver\[OrderBot] WVR 65.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-6.788828, 5.912681, -146.9174"/>
       </If>
@@ -166,6 +170,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Weaver Quests.
     </If>
     <If Condition="HasQuest(67970) and not IsQuestCompleted(67970) and GetQuestStep(67970) == 4">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Weaver\[OrderBot] WVR 68.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-6.986744, 5.924851, -147.4718"/>
       </If>
@@ -233,6 +239,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Weaver Quests.
       <TalkTo NpcId="1019812" XYZ="-9.048645, 5.945387, -149.157" QuestId="67971" StepId="5"/>
     </If>
     <If Condition="HasQuest(67971) and not IsQuestCompleted(67971) and GetQuestStep(67971) == 6">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Weaver\[OrderBot] WVR 70.json"/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-7.305711, 5.908822, -146.7726"/>
       </If>

@@ -117,6 +117,9 @@ Required Quest Completion:  A Realm Reborn & Heavensward Goldsmith Quests.
       <SoTalkTo NpcId="1021131" XYZ="-77.95837, 0.01000099, 45.5481" QuestId="68136" StepId="4"/>
     </If>
     <If Condition="HasQuest(68136) and not IsQuestCompleted(68136) and GetQuestStep(68136) == 255">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Goldsmith\[OrderBot] GSM 63.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-76.9677, 0.01000077, 46.56393"/>
       </If>
@@ -173,6 +176,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Goldsmith Quests.
     </If>
     <If Condition="HasQuest(68137) and not IsQuestCompleted(68137) and GetQuestStep(68137) == 255">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Goldsmith\[OrderBot] GSM 65.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-77.05145, 0.01000082, 46.10489"/>
       </If>
@@ -243,6 +248,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Goldsmith Quests.
     </If>
     <If Condition="HasQuest(68138) and not IsQuestCompleted(68138) and GetQuestStep(68138) == 255">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Goldsmith\[OrderBot] GSM 68.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-76.95066, 0.01000094, 45.4845"/>
       </If>
@@ -292,6 +299,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Goldsmith Quests.
     </If>
     <If Condition="HasQuest(68139) and not IsQuestCompleted(68139) and GetQuestStep(68139) == 3">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Goldsmith\[OrderBot] GSM 70.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="-76.70981, 0.01000094, 45.12519"/>
       </If>

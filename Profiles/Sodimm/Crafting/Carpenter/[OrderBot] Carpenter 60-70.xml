@@ -119,6 +119,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Carpenter Quests.
     </If>
     <If Condition="HasQuest(67978) and not IsQuestCompleted(67978) and GetQuestStep(67978) == 5">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Carpenter\[OrderBot] CRP 63.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-47.7025, 3.013503, -74.11468"/>
       </If>
@@ -179,6 +181,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Carpenter Quests.
     </If>
     <If Condition="HasQuest(67979) and not IsQuestCompleted(67979) and GetQuestStep(67979) == 4">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Carpenter\[OrderBot] CRP 65.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(628)">
         <GetTo ZoneId="628" XYZ="-0.6076822, -1.192093E-07, -78.38664"/>
       </If>
@@ -245,7 +249,9 @@ Required Quest Completion:  A Realm Reborn & Heavensward Carpenter Quests.
       <SoTalkTo NpcId="1020913" XYZ="480.949, 57.51844, -168.4749" QuestId="67980" StepId="4" DialogOption="2"/>
     </If>
     <If Condition="HasQuest(67980) and not IsQuestCompleted(67980) and GetQuestStep(67980) == 5">
-    <Lisbeth Orders="\Profiles\Sodimm\Crafting\Carpenter\[OrderBot] CRP 68.json"/>
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Carpenter\[OrderBot] CRP 68.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(614)">
         <GetTo ZoneId="614" XYZ="466.6603, 68.22433, -119.884"/>
       </If>
@@ -305,6 +311,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Carpenter Quests.
     </If>
     <If Condition="HasQuest(67981) and not IsQuestCompleted(67981) and GetQuestStep(67981) == 5">
       <Lisbeth Orders="\Profiles\Sodimm\Crafting\Carpenter\[OrderBot] CRP 70.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
       <If Condition="not IsOnMap(132)">
         <GetTo ZoneId="132" XYZ="-46.23624, -1.250003, 54.72165"/>
       </If>

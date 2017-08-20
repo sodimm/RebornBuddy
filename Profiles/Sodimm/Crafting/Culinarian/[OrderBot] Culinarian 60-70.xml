@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Culinarian Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+Required Botbases:  Lisbeth.
+Required Quest Completion:  A Realm Reborn & Heavensward Culinarian Quests.
+-->
+<Profile>
+  <Name>[OrderBot] Culinarian Class Quests.</Name>
+  <BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory>..\..\..\..\BotBases\Lisbeth</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(67583)">
+      <LogMessage Message="You haven't finished all of the Heavensward Culinarian quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67583)"/>
+    </If>
+    <!-- Flavors of the Far East (Level 60) -->
+    <If Condition="not HasQuest(68140) and not IsQuestCompleted(68140) and IsQuestCompleted(67583) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="-54.43162, 44.17484, -148.676"/>
+      </If>
+      <NoCombatMoveTo XYZ="-54.43162, 44.17484, -148.676"/>
+      <If Condition="IsQuestAcceptQualified(68140)">
+        <PickupQuest QuestId="68140" NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68140) and not IsQuestCompleted(68140) and GetQuestStep(68140) == 1">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="-68.67906, 42.02002, -135.5598"/>
+      </If>
+      <NoCombatMoveTo XYZ="-68.67906, 42.02002, -135.5598"/>
+      <TalkTo NpcId="1020143" XYZ="-68.16211, 41.99949, -135.0271" QuestId="68140" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68140) and not IsQuestCompleted(68140) and GetQuestStep(68140) == 255">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="31.90068, 50.99996, -819.4875"/>
+      </If>
+      <NoCombatMoveTo XYZ="31.90068, 50.99996, -819.4875"/>
+      <TurnIn QuestId="68140" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Rice to the Occasion (Level 63) -->
+    <If Condition="not HasQuest(68141) and not IsQuestCompleted(68141) and IsQuestCompleted(68140) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="31.90068, 50.99996, -819.4875"/>
+      </If>
+      <NoCombatMoveTo XYZ="31.90068, 50.99996, -819.4875"/>
+      <If Condition="IsQuestAcceptQualified(68141)">
+        <PickupQuest QuestId="68141" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68141) and not IsQuestCompleted(68141) and GetQuestStep(68141) == 1">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="38.23156, 29.33916, -729.8356"/>
+      </If>
+      <If Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="38.23156, 29.33916, -729.8356"/>
+        <TalkTo NpcId="1020147" XYZ="39.96338, 29.62614, -730.1289" QuestId="68141" StepId="1"/>
+        <WaitWhile Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 0"/>
+      </If>
+      <If Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="57.31068, 20.90524, -683.5251"/>
+        <TalkTo NpcId="1020146" XYZ="58.54883, 20.97351, -683.6194" QuestId="68141" StepId="1"/>
+        <WaitWhile Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 2">
+        <NoCombatMoveTo XYZ="19.86762, 28.62071, -689.5173"/>
+        <TalkTo NpcId="1020145" XYZ="20.52332, 28.6207, -689.9672" QuestId="68141" StepId="1"/>
+        <WaitWhile Condition="GetQuestById(68141).GetTodoArgs(1, 0).Item1 == 2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68141) and not IsQuestCompleted(68141) and GetQuestStep(68141) == 2">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.37804, 50.99997, -820.4221"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.37804, 50.99997, -820.4221"/>
+      <TalkTo NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68141" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68141) and not IsQuestCompleted(68141) and GetQuestStep(68141) == 3">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Culinarian\[OrderBot] CUL 63.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="68.3251, 33.06653, -702.5699"/>
+      </If>
+      <NoCombatMoveTo XYZ="68.3251, 33.06653, -702.5699"/>
+      <HandOver ItemIds="17934" NpcId="1020149" XYZ="69.13855, 33.06653, -701.8082" QuestId="68141" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68141) and not IsQuestCompleted(68141) and GetQuestStep(68141) == 255">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.3839, 50.99997, -820.7322"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.3839, 50.99997, -820.7322"/>
+      <TurnIn QuestId="68141" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- A Broth from the Brine (Level 65) -->
+    <If Condition="not HasQuest(68142) and not IsQuestCompleted(68142) and IsQuestCompleted(68141) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.3839, 50.99997, -820.7322"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.3839, 50.99997, -820.7322"/>
+      <If Condition="IsQuestAcceptQualified(68142)">
+        <PickupQuest QuestId="68142" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 1">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="-55.29026, 44.17499, -148.9233"/>
+      </If>
+      <NoCombatMoveTo XYZ="-55.29026, 44.17499, -148.9233"/>
+      <TalkTo NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322" QuestId="68142" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 2">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="16.78167, 47.60001, -160.7489"/>
+      </If>
+      <NoCombatMoveTo XYZ="16.78167, 47.60001, -160.7489"/>
+      <TalkTo NpcId="1000915" XYZ="18.38708, 47.6, -162.1271" QuestId="68142" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 3">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="81.59174, 44.39997, 132.2122"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.59174, 44.39997, 132.2122"/>
+      <TalkTo NpcId="1000918" XYZ="84.09241, 44.39991, 132.3414" QuestId="68142" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 4">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.37473, 50.99997, -821.4847"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.37473, 50.99997, -821.4847"/>
+      <TalkTo NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68142" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 5">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Culinarian\[OrderBot] CUL 65.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.37473, 50.99997, -821.4847"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.37473, 50.99997, -821.4847"/>
+      <HandOver ItemIds="17936" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68142" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 255">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.37473, 50.99997, -821.4847"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.37473, 50.99997, -821.4847"/>
+      <TurnIn QuestId="68142" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Teach a Man to Make Fish (Lvel 68) -->
+    <If Condition="not HasQuest(68143) and not IsQuestCompleted(68143) and IsQuestCompleted(68142) and Core.Player.ClassLevel &gt; 67">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.37473, 50.99997, -821.4847"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.37473, 50.99997, -821.4847"/>
+      <If Condition="IsQuestAcceptQualified(68143)">
+        <SoPickupQuest QuestId="68143" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 1">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-83.34457, 18.05, -190.018"/>
+      </If>
+      <NoCombatMoveTo XYZ="-83.34457, 18.05, -190.018"/>
+      <TalkTo NpcId="1018982" XYZ="-83.08539, 18.04999, -191.1498" QuestId="68143" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 2">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <NoCombatMoveTo XYZ="327.994, -120.3422, -306.8709"/>
+      <RunCode Name="Move_Forward"/>
+      <NoCombatMoveTo XYZ="300.4709, -117.914, -376.2548" Distance="1"/>
+      <TalkTo NpcId="1020157" XYZ="300.2212, -117.2961, -378.2559" QuestId="68143" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 3">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-87.50599, 18.05, -186.1191"/>
+      </If>
+      <NoCombatMoveTo XYZ="-87.50599, 18.05, -186.1191"/>
+      <TalkTo NpcId="1020158" XYZ="-88.4566, 18.05, -187.4877" QuestId="68143" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 4">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.76991, 50.99997, -821.1919"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.76991, 50.99997, -821.1919"/>
+      <TalkTo NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68143" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 5">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Culinarian\[OrderBot] CUL 68.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.76991, 50.99997, -821.1919"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.76991, 50.99997, -821.1919"/>
+      <HandOver ItemIds="17938" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68143" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 6">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="49.12649, 50, -778.4787"/>
+      </If>
+      <NoCombatMoveTo XYZ="49.12649, 50, -778.4787"/>
+      <TalkTo NpcId="1020160" XYZ="49.60706, 50, -779.6597" QuestId="68143" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 7">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="50.45387, 50, -778.4848"/>
+      </If>
+      <NoCombatMoveTo XYZ="50.45387, 50, -778.4848"/>
+      <TalkTo NpcId="1020159" XYZ="51.31604, 50, -779.2935" QuestId="68143" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 255">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="34.23852, 50.99996, -821.674"/>
+      </If>
+      <NoCombatMoveTo XYZ="34.23852, 50.99996, -821.674"/>
+      <TurnIn QuestId="68143" NpcId="1020161" XYZ="33.98181, 50.99997, -823.0869"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- The Way to a Father's Heart (Level 70) -->
+    <If Condition="not HasQuest(68144) and not IsQuestCompleted(68144) and IsQuestCompleted(68143) and Core.Player.ClassLevel &gt; 69">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="34.23852, 50.99996, -821.674"/>
+      </If>
+      <NoCombatMoveTo XYZ="34.23852, 50.99996, -821.674"/>
+      <If Condition="IsQuestAcceptQualified(68144)">
+        <PickupQuest QuestId="68144" NpcId="1020161" XYZ="33.98181, 50.99997, -823.0869"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 1">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-298.8984, 257.5265, 733.9676"/>
+      </If>
+      <NoCombatMoveTo XYZ="-298.8984, 257.5265, 733.9676"/>
+      <TalkTo NpcId="1020162" XYZ="-299.5804, 257.5265, 733.4248" QuestId="68144" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 2">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-229.2122, 257.5265, 777.7189"/>
+      </If>
+      <If Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="-229.2122, 257.5265, 777.7189"/>
+        <TalkTo NpcId="1020163" XYZ="-228.5344, 257.5265, 778.7747" QuestId="68144" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 0"/>
+      </If>
+      <If Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="-215.1168, 257.5265, 776.5719"/>
+        <TalkTo NpcId="1020164" XYZ="-214.4656, 257.5265, 778.0728" QuestId="68144" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 2">
+        <NoCombatMoveTo XYZ="-207.0327, 257.8063, 747.6904"/>
+        <TalkTo NpcId="1020165" XYZ="-205.7374, 257.8063, 748.4702" QuestId="68144" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68144).GetTodoArgs(2, 0).Item1 == 2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 3">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-298.7448, 257.5265, 734.0599"/>
+      </If>
+      <NoCombatMoveTo XYZ="-298.7448, 257.5265, 734.0599"/>
+      <TalkTo NpcId="1020162" XYZ="-299.5804, 257.5265, 733.4248" QuestId="68144" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 4">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-334.747, 258.9065, 778.6182"/>
+      </If>
+      <NoCombatMoveTo XYZ="-334.747, 258.9065, 778.6182"/>
+      <TalkTo NpcId="1020167" XYZ="-335.9274, 258.9065, 777.7369" QuestId="68144" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 5">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-442.8228, 259.8879, 661.9426"/>
+      </If>
+      <NoCombatMoveTo XYZ="-442.8228, 259.8879, 661.9426"/>
+      <TalkTo NpcId="1020168" XYZ="-441.825, 260.0884, 662.1958" QuestId="68144" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 6">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-562.0519, 266.2191, 526.7198"/>
+      </If>
+      <NoCombatMoveTo XYZ="-562.0519, 266.2191, 526.7198"/>
+      <TalkTo NpcId="1020169" XYZ="-561.4557, 266.2381, 525.4443" QuestId="68144" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 7">
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.38362, 50.99997, -820.6827"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.38362, 50.99997, -820.6827"/>
+      <TalkTo NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798" QuestId="68144" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68144) and not IsQuestCompleted(68144) and GetQuestStep(68144) == 255">
+      <Lisbeth Orders="\Profiles\Sodimm\Crafting\Culinarian\[OrderBot] CUL 70.json"/>
+      <WaitTimer WaitTime="3"/>
+      <StopCrafting/>
+      <If Condition="not IsOnMap(156)">
+        <GetTo ZoneId="156" XYZ="32.38362, 50.99997, -820.6827"/>
+      </If>
+      <NoCombatMoveTo XYZ="32.38362, 50.99997, -820.6827"/>
+      <TurnIn ItemIds="17940" QuestId="68144" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Move_Forward"><![CDATA[
+        await Coroutine.Sleep(500);
+        MovementManager.SetFacing(3.76f);
+        await Coroutine.Sleep(500);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(3000);
+        MovementManager.MoveStop();
+        await Coroutine.Sleep(500);
+        ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

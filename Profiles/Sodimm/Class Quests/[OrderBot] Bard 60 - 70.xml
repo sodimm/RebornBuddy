@@ -136,6 +136,52 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-650.7912, 130, -524.9886"/>
       <TurnIn QuestId="68428" NpcId="1022523" XYZ="-653.0403, 130, -522.179"/>
     </If>
+    <!-- Sleeping Truths Lie (Level 68) -->
+    <If Condition="not HasQuest(68429) and not IsQuestCompleted(68429) and Core.Player.ClassLevel &gt; 67">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-651.4367, 130, -523.8279"/>
+      </If>
+      <NoCombatMoveTo XYZ="-651.4367, 130, -523.8279"/>
+      <If Condition="IsQuestAcceptQualified(68429)">
+        <SoPickupQuest QuestId="68429" NpcId="1022523" XYZ="-653.0403, 130, -522.179"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68429) and not IsQuestCompleted(68429) and GetQuestStep(68429) == 1">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-587.6614, 130.0412, -533.8226"/>
+      </If>
+      <NoCombatMoveTo XYZ="-587.6614, 130.0412, -533.8226"/>
+      <TalkTo NpcId="1022514" XYZ="-586.0533, 130.0406, -534.5999" QuestId="68429" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68429) and not IsQuestCompleted(68429) and GetQuestStep(68429) == 2">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-609.3419, 42.65545, 289.0403"/>
+      </If>
+      <NoCombatMoveTo XYZ="-609.3419, 42.65545, 289.0403"/>
+      <UseObject NpcIds="2008682" XYZ="-610.2846, 42.80151, 290.7911" QuestId="68429" StepId="2"/>
+      <WaitWhile Condition="GetQuestStep(68429) == 2"/>
+    </If>
+    <If Condition="HasQuest(68429) and not IsQuestCompleted(68429) and GetQuestStep(68429) == 3">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-588.2786, 130.0417, -533.2236"/>
+      </If>
+      <NoCombatMoveTo XYZ="-588.2786, 130.0417, -533.2236"/>
+      <TalkTo NpcId="1022514" XYZ="-586.0533, 130.0406, -534.5999" QuestId="68429" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68429) and not IsQuestCompleted(68429) and GetQuestStep(68429) == 4">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-548.1216, 84.65358, -132.5117"/>
+      </If>
+      <NoCombatMoveTo XYZ="-548.1216, 84.65358, -132.5117"/>
+      <SoTalkTo NpcId="1022527" XYZ="-549.7368, 84.99435, -133.0435" QuestId="68429" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68429) and not IsQuestCompleted(68429) and GetQuestStep(68429) == 255">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="-53.66818, -3.291288, 19.74985"/>
+      </If>
+      <NoCombatMoveTo XYZ="-53.66818, -3.291288, 19.74985"/>
+      <TurnIn QuestId="68429" NpcId="1022528" XYZ="-52.35376, -3.326972, 20.58435"/>
+    </If>
   </Order>
   <CodeChunks>
   </CodeChunks>

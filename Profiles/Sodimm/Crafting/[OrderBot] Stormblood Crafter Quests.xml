@@ -99,17 +99,17 @@ Required Quest Completion:  A Realm Reborn & Heavensward Crafter Quests.
       <If Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 0">
         <NoCombatMoveTo XYZ="31.49495, 4.000001, 52.55272"/>
         <TalkTo NpcId="1020906" XYZ="31.44885, 4.000001, 51.80432" QuestId="67978" StepId="3"/>
-        <WaitWhile Condition="GetQuestById(67977).GetTodoArgs(3, 0).Item1 == 0"/>
+        <WaitWhile Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 0"/>
       </If>
       <If Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 1">
         <NoCombatMoveTo XYZ="54.80767, 4, 69.25572"/>
         <TalkTo NpcId="1020907" XYZ="55.00867, 4.05, 69.84058" QuestId="67978" StepId="3"/>
-        <WaitWhile Condition="GetQuestById(67977).GetTodoArgs(3, 0).Item1 == 1"/>
+        <WaitWhile Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 1"/>
       </If>
       <If Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 2">
         <NoCombatMoveTo XYZ="74.19947, 4, 54.21334"/>
         <TalkTo NpcId="1020908" XYZ="75.45581, 4.05, 52.90295" QuestId="67978" StepId="3"/>
-        <WaitWhile Condition="GetQuestById(67977).GetTodoArgs(3, 0).Item1 == 2"/>
+        <WaitWhile Condition="GetQuestById(67978).GetTodoArgs(3, 0).Item1 == 2"/>
       </If>
     </If>
     <If Condition="HasQuest(67978) and not IsQuestCompleted(67978) and GetQuestStep(67978) == 4">

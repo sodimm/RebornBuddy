@@ -3402,10 +3402,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </If>
     <!-- A Long Way To The Top -->
     <If Condition="HasQuest(67054) and GetQuestStep(67054) == 1">
+      <SendChat GearSet="&combatGearSet;"/>
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
       <TalkTo NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67054" StepId="1"/>
     </If>
@@ -3890,6 +3890,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
+      <SendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001406,2001407" NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67054" StepId="3"/>
     </If>
     <!-- Aerodynamo Component -->

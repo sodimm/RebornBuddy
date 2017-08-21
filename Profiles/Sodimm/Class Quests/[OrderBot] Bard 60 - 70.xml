@@ -182,6 +182,84 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-53.66818, -3.291288, 19.74985"/>
       <TurnIn QuestId="68429" NpcId="1022528" XYZ="-52.35376, -3.326972, 20.58435"/>
     </If>
+    <!-- Sweet Dreams Are Made of Peace (Level 70) -->
+    <If Condition="not HasQuest(68430) and not IsQuestCompleted(68430) and Core.Player.ClassLevel &gt; 69">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="-53.5516, -3.308585, 19.05271"/>
+      </If>
+      <NoCombatMoveTo XYZ="-53.5516, -3.308585, 19.05271"/>
+      <If Condition="IsQuestAcceptQualified(68430)">
+        <PickupQuest QuestId="68430" NpcId="1022528" XYZ="-52.35376, -3.326972, 20.58435"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 1 and not IsTodoChecked(68430, 1, 0)">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="212.9507, 0.524303, 35.17013"/>
+      </If>
+      <NoCombatMoveTo XYZ="212.9507, 0.524303, 35.17013"/>
+      <TalkTo NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" QuestId="68430"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 1 and not IsTodoChecked(68430, 1, 1)">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="157.7802, 15.90039, -272.6907"/>
+      </If>
+      <NoCombatMoveTo XYZ="157.7802, 15.90039, -272.6907"/>
+      <TalkTo NpcId="1000254" XYZ="157.7019, 15.90038, -270.3442" QuestId="68430"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 2">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="-73.63072, -0.5022523, -3.092098"/>
+      </If>
+      <NoCombatMoveTo XYZ="-73.63072, -0.5022523, -3.092098"/>
+      <TalkTo NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299" QuestId="68430" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 3">
+      <If Condition="not IsOnMap(154)">
+        <GetTo ZoneId="154" XYZ="-250.0741, -75.01354, 424.5117"/>
+      </If>
+      <NoCombatMoveTo XYZ="-250.0741, -75.01354, 424.5117"/>
+      <SimpleDuty InteractNpcId="1022529" XYZ="-248.5237, -75.63651, 426.9015" QuestId="68430" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="-282.8396, 10.421, 41.26575" Radius="50"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6689" Weight="5000"/>
+          <!-- Binding -->
+          <TargetMob Id="6688" Weight="4000"/>
+          <!-- Old Guard Bow -->
+          <TargetMob Id="6685" Weight="3000"/>
+          <!-- Old Guard Staff -->
+          <TargetMob Id="6687" Weight="2000"/>
+          <!-- Old Guard Spear -->
+          <TargetMob Id="6686" Weight="1000"/>
+          <!-- Nourval of the Branching Path -->
+        </TargetMobs>
+      </SimpleDuty>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 4">
+      <WaitWhile Condition="GetQuestStep(68430) == 4"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 5">
+      <If Condition="not IsOnMap(154)">
+        <GetTo ZoneId="154" XYZ="-247.6045, -74.80659, 423.8764"/>
+      </If>
+      <NoCombatMoveTo XYZ="-247.6045, -74.80659, 423.8764"/>
+      <TalkTo NpcId="1022530" XYZ="-246.9368, -75.5425, 426.5354" QuestId="68430" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 6">
+      <If Condition="not IsOnMap(132)">
+        <GetTo ZoneId="132" XYZ="-73.67668, -0.502154, -3.407932"/>
+      </If>
+      <NoCombatMoveTo XYZ="-73.67668, -0.502154, -3.407932"/>
+      <TalkTo NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299" QuestId="68430" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68430) and not IsQuestCompleted(68430) and GetQuestStep(68430) == 255">
+      <If Condition="not IsOnMap(153)">
+        <GetTo ZoneId="153" XYZ="14.09638, 6.775601, -3.723213"/>
+      </If>
+      <NoCombatMoveTo XYZ="14.09638, 6.775601, -3.723213"/>
+      <TurnIn QuestId="68430" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
+    </If>
   </Order>
   <CodeChunks>
   </CodeChunks>

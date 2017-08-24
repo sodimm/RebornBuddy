@@ -75,6 +75,7 @@ Authors:  Sodimm, TuckMeIntoBread.
       </If>
       <NoCombatMoveTo XYZ="-505.9315, -17.83748, 27.58291"/>
       <LogMessage Message="Please complete the duty manually."/>
+      <WaitWhile Condition="GetQuestStep(68113) == 2"/>
     </If>
     <If Condition="HasQuest(68113) and not IsQuestCompleted(68113) and GetQuestStep(68113) == 3">
       <If Condition="not IsOnMap(145)">

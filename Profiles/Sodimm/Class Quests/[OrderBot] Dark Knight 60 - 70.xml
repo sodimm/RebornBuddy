@@ -241,10 +241,13 @@ Authors:  TuckMeIntoBread, Sodimm.
     </If>
     <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 2">
       <If Condition="not IsOnMap(612)">
-        <GetTo ZoneId="612" XYZ="-358.2802, 63.44955, -727.2344"/>
+        <GetTo ZoneId="612" XYZ="-621.9822, 130.0232, -500.1014"/>
       </If>
-      <NoCombatMoveTo XYZ="-358.2802, 63.44955, -727.2344"/>
+      <NoCombatMoveTo XYZ="-237.7092, 60.08292, -650.6895"/>
+      <NoCombatMoveTo XYZ="-285.1599, 73.91454, -693.4563"/>
+      <NoCombatMoveTo XYZ="-358.2802, 63.44955, -727.2344" UseMesh="False"/>
       <TalkTo NpcId="1022902" XYZ="-358.2802, 63.44955, -727.2344" QuestId="68454" StepId="2"/>
+      <NoCombatMoveTo XYZ="-285.1599, 73.91454, -693.4563" UseMesh="False"/>
     </If>
     <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 3">
       <If Condition="not IsOnMap(612)">
@@ -273,6 +276,13 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
       <NoCombatMoveTo XYZ="300.8202, 56.23291, -469.4166"/>
       <TalkTo NpcId="1022910" XYZ="300.8202, 56.23291, -469.4166" QuestId="68454" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 7">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="383.0529, 65.4362, -538.4774"/>
+      </If>
+      <NoCombatMoveTo XYZ="383.0529, 65.4362, -538.4774"/>
+      <TalkTo NpcId="1022911" XYZ="383.6575, 65.51434, -539.4217" QuestId="68454" StepId="7"/>
     </If>
     <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 8">
       <If Condition="not IsOnMap(612)">

@@ -49,12 +49,11 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.3983, 3.999996, 200.2688"/>
       <TurnIn QuestId="68431" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+	  <WaitTimer WaitTime="2"/>
     </If>
     <!-- A New Fishing Ex-spear-ience (Level 61) -->
     <If Condition="not HasQuest(68458) and not IsQuestCompleted(68458) and IsQuestCompleted(68020) and IsQuestCompleted(66643) and Core.Player.ClassLevel &gt; 60">
-      <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="373.4206, -120.0014, -276.3537"/>
-      </If>
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
       <NoCombatMoveTo XYZ="373.4206, -120.0014, -276.3537"/>
       <If Condition="IsQuestAcceptQualified(68458)">
         <PickupQuest QuestId="68458" NpcId="1021362" XYZ="374.7769, -119.9926, -277.058"/>
@@ -66,6 +65,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <RunCode Name="Move_Forward"/>
       <ExMoveTo XYZ="293.8948, -98.65965, -411.4322" Distance="1"/>
       <TurnIn QuestId="68458" NpcId="1023621" XYZ="294.1786, -98.43597, -413.3516"/>
+	  <WaitTimer WaitTime="2"/>
     </If>
     <!-- A Rousing Reunion (Level 63) -->
     <If Condition="not HasQuest(68432) and not IsQuestCompleted(68432) and IsQuestCompleted(68431) and Core.Player.ClassLevel &gt; 62">
@@ -85,7 +85,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <TalkTo NpcId="1021396" XYZ="-229.7856, 60.06992, -635.7367" QuestId="68432" StepId="1"/>
     </If>
     <If Condition="HasQuest(68432) and not IsQuestCompleted(68432) and GetQuestStep(68432) == 2">
-      <While Condition="not NqHasAtLeast(17949,3) or not HqHasAtLeast(17949,3)">
+      <While Condition="(not NqHasAtLeast(17949,3)) and (not HqHasAtLeast(17949,3))">
         <If Condition="not HasAtLeast(20613,30)">
           <If Condition="not IsOnMap(612)">
             <GetTo ZoneId="612" XYZ="-633.1337, 130.1206, -524.772"/>
@@ -97,19 +97,19 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
           <GetTo ZoneId="612" XYZ="-230.2826, 60.08427, -635.1107"/>
         </If>
         <NoCombatMoveTo XYZ="-230.2826, 60.08427, -635.1107"/>
-        <Fish Mooch="0" Bait="Salmon Roe" MinFish="10" MaxFish="30" ShuffleFishSpots="True" Condition="not NqHasAtLeast(17949,3) or not HqHasAtLeast(17949,3)">
+        <Fish Mooch="0" Bait="Salmon Roe" MinFish="5" MaxFish="10" ShuffleFishSpots="True" Condition="(not NqHasAtLeast(17949,3)) and (not HqHasAtLeast(17949,3))" Loops="0">
           <FishSpots>
             <FishSpot XYZ="-227.874, 58.57102, -631.8412" Heading="1.291"/>
             <FishSpot XYZ="-216.2178, 58.57102, -651.6249" Heading="1.315"/>
           </FishSpots>
         </Fish>
       </While>
-      <If Condition="NqHasAtLeast(17949,3) or HqHasAtLeast(17949,3)">
+      <If Condition="(NqHasAtLeast(17949,3)) or (HqHasAtLeast(17949,3))">
         <If Condition="not IsOnMap(612)">
           <GetTo ZoneId="612" XYZ="-228.8071, 60.00172, -635.4457"/>
         </If>
         <NoCombatMoveTo XYZ="-228.8071, 60.00172, -635.4457"/>
-        <HandOver ItemIds="17949" NpcId="1021396" XYZ="-229.7856, 60.06992, -635.7367" QuestId="68432" StepId="2"/>
+        <HandOver ItemIds="17949" RequiresHq="False" NpcId="1021396" XYZ="-229.7856, 60.06992, -635.7367" QuestId="68432" StepId="2"/>
       </If>
     </If>
     <If Condition="HasQuest(68432) and not IsQuestCompleted(68432) and GetQuestStep(68432) == 255">
@@ -118,6 +118,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.2569, 3.999995, 200.3749"/>
       <SoTurnIn QuestId="68432" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+	  <WaitTimer WaitTime="2"/>
     </If>
     <!-- Search for the Spawning Grounds (Level 65) -->
     <If Condition="not HasQuest(68433) and not IsQuestCompleted(68433) and IsQuestCompleted(68432) and Core.Player.ClassLevel &gt; 64">
@@ -137,18 +138,15 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <TalkTo NpcId="1021398" XYZ="31.50977, 3, -71.33594" QuestId="68433" StepId="1"/>
     </If>
     <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 2">
-      <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="369.4008, -120.0138, -280.4698"/>
-      </If>
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
       <NoCombatMoveTo XYZ="369.4008, -120.0138, -280.4698"/>
       <TalkTo NpcId="1021399" XYZ="370.0465, -120.0139, -281.9715" QuestId="68433" StepId="2"/>
     </If>
     <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 3">
-      <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="526.4575, 0.05002415, -244.5874"/>
-      </If>
+	  <TeleportTo Name="Onokoro" AetheryteId="106" Force="True"/>
       <NoCombatMoveTo XYZ="526.4575, 0.05002415, -244.5874"/>
       <TalkTo NpcId="1021402" XYZ="524.5593, -0.007716715, -244.8616" QuestId="68433" StepId="3"/>
+	  <NoCombatMoveTo XYZ="532.2314, 0.8364315, -230.2563" UseMesh="False"/>
     </If>
     <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 4">
       <While Condition="not HqHasAtLeast(17950,3)">
@@ -190,6 +188,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.1505, 3.999996, 200.1491"/>
       <TurnIn QuestId="68433" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+	  <WaitTimer WaitTime="2"/>
     </If>
     <!-- Always a Bigger Fish (Level 68) -->
     <If Condition="not HasQuest(68434) and not IsQuestCompleted(68434) and IsQuestCompleted(68433) and Core.Player.ClassLevel &gt; 67">
@@ -275,6 +274,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.8356, 3.999995, 199.8452"/>
       <TurnIn QuestId="68434" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+	  <WaitTimer WaitTime="2"/>
     </If>
     <!-- Farewell, and Thanks for the Fish (Level 70) -->
     <If Condition="not HasQuest(68435) and not IsQuestCompleted(68435) and IsQuestCompleted(68434) and Core.Player.ClassLevel &gt; 69">

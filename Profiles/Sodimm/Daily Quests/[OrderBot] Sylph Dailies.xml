@@ -415,11 +415,12 @@ Authors:  Sodimm.
         <GetTo ZoneId="152" XYZ="181.2641, -0.3595991, 68.23154"/>
       </If>
       <NoCombatMoveTo XYZ="181.2641, -0.3595991, 68.23154"/>
-      <UseObject NpcIds="2003070,2003071,2003072,2003073,2003067,2003068,2003069" QuestId="66795" StepId="1">
+      <UseObject NpcIds="2003070,2003071,2003072,2003073,2003074,2003067,2003068,2003069" QuestId="66795" StepId="1">
         <HotSpots>
           <HotSpot XYZ="181.2641, -0.3595991, 68.23154" Radius="10"/>
           <HotSpot XYZ="182.7974, -1.925483, 22.92671" Radius="10"/>
           <HotSpot XYZ="187.4486, -0.6636514, 75.99286" Radius="10"/>
+          <HotSpot XYZ="202.4653, -1.967853, 69.97076" Radius="10"/>
           <HotSpot XYZ="323.7595, -5.769746, -17.95248" Radius="10"/>
           <HotSpot XYZ="327.9944, -4.874423, -31.00731" Radius="10"/>
           <HotSpot XYZ="327.1713, -6.096162, -7.679922" Radius="10"/>
@@ -582,18 +583,76 @@ Authors:  Sodimm.
       <Grind GrindRef="66800" While="not HasItem(7002)"/>
     </If>
     <!-- Rank 2 -->
-    <!--    <!{1}** Milkroot in Moderation **{1}>
-    <SoUseObject NpcIds="2003380,2003381,2003382,2003383,2003384,2003385" ItemTarget="2312" ItemId="2001181" Distance="1" QuestId="66806" StepId="1" MapId="152">
-      <HotSpots>
-        <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
-        <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
-        <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
-        <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
-        <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
-        <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
-      </HotSpots>
-    </SoUseObject>
--->
+    <!-- Milkroot in Moderation -->
+    <If Condition="HasQuest(66806) and GetQuestStep(66806) == 1 and GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 0">
+      <UseObject NpcIds="2003380,2003381,2003382,2003383,2003384,2003385" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(66806) and GetQuestStep(66806) == 1 and GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 1">
+      <UseObject NpcIds="2003380,2003381,2003382,2003383,2003384,2003385" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(66806) and GetQuestStep(66806) == 1 and GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 2">
+      <UseObject NpcIds="2003380,2003381,2003382,2003383,2003384,2003385" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+        <HotSpots>
+          <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
+          <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
+          <HotSpot XYZ="58.18262, 0.9307861, 245.6854" Radius="10"/>
+          <HotSpot XYZ="-47.56244, -1.815857, 334.9203" Radius="10"/>
+          <HotSpot XYZ="-40.32965, -3.494385, 187.2434" Radius="10"/>
+          <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66806).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
     <!-- Something to Sneeze At -->
     <If Condition="HasQuest(66807) and GetQuestStep(66807) == 1">
       <If Condition="not IsOnMap(152)">
@@ -1001,12 +1060,39 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <!-- Clearing the Air -->
+    <If Condition="HasQuest(66818) and GetQuestStep(66818) == 1">
+      <If Condition="not IsOnMap(152)">
+        <GetTo ZoneId="152" XYZ="93.79712, -30.10614, -177.2946"/>
+      </If>
+      <NoCombatMoveTo XYZ="93.79712, -30.10614, -177.2946"/>
+      <WaitWhile Condition="GetQuestStep(66818) == 1"/>
+    </If>
     <If Condition="HasQuest(66818) and GetQuestStep(66818) == 2">
       <If Condition="not IsOnMap(152)">
         <GetTo ZoneId="152" XYZ="93.79712, -30.10614, -177.2946"/>
       </If>
       <NoCombatMoveTo XYZ="93.79712, -30.10614, -177.2946"/>
       <UseItem ItemId="2001184" NpcIds="2003285" XYZ="93.79712, -30.10614, -177.2946" QuestId="66818" StepId="2"/>
+    </If>
+    <!-- Podling Peril -->
+    <If Condition="HasQuest(66819) and GetQuestStep(66819) == 1">
+      <If Condition="not IsOnMap(152)">
+        <GetTo ZoneId="152" XYZ="-8.798338, -34.83314, -530.287"/>
+      </If>
+      <NoCombatMoveTo XYZ="-8.798338, -34.83314, -530.287"/>
+      <UseObject NpcIds="2003292" XYZ="-10.51355, -35.20258, -531.7311" QuestId="66819" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66819) and GetQuestStep(66819) == 2">
+      <RunCode Name="DisableMount"/>
+      <SoTransport NpcId="2003389" InteractDistance="2.0" XYZ="114.58, -20.30981, -501.7014" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003480" InteractDistance="2.0" XYZ="152.88, -24.27716, -451.9265" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003489" InteractDistance="2.0" XYZ="249.7444, -24.06354, -341.1155" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003482" InteractDistance="2.0" XYZ="302.6931, -18.93652, -290.6691" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003484" InteractDistance="2.0" XYZ="327.1992, -17.258, -191.0582" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003490" InteractDistance="2.0" XYZ="293.965, -13.87048, -152.6055" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003486" InteractDistance="2.0" XYZ="262.6229, -10.20831, -114.9157" QuestId="66819" BlacklistAfter="True"/>
+      <SoTransport NpcId="2003390" InteractDistance="2.0" XYZ="264.6066, -8.957031, -78.3551" QuestId="66819" StepId="2"/>
+      <RunCode Name="EnableMount"/>
     </If>
     <!-- Boar Wars -->
     <If Condition="HasQuest(66820) and GetQuestStep(66820) == 255 and not HasItem(7003)">

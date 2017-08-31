@@ -321,6 +321,7 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-202.0278, 1.011757, 280.7199"/>
       <UseItem ItemId="2001117" NpcIds="2003159" XYZ="-202.0278, 1.011757, 280.7199" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 1">
       <If Condition="not IsOnMap(152)">
@@ -328,6 +329,7 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-223.8762, 1, 269.0368"/>
       <UseItem ItemId="2001117" NpcIds="2003161" XYZ="-223.8762, 1, 269.0368" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 2">
       <If Condition="not IsOnMap(152)">
@@ -335,6 +337,7 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-234.1311, 1.061813, 269.5837"/>
       <UseItem ItemId="2001117" NpcIds="2003157" XYZ="-234.1311, 1.061813, 269.5837" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 3">
       <If Condition="not IsOnMap(152)">
@@ -342,13 +345,15 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-217.435, 1.06759, 286.712"/>
       <UseItem ItemId="2001117" NpcIds="2003158" XYZ="-217.435, 1.06759, 286.712" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 3"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 4">
       <If Condition="not IsOnMap(152)">
-        <GetTo ZoneId="152" XYZ="-229.3864, 1.35255, 292.3704"/>
+        <GetTo ZoneId="152" XYZ="-231.4453, 1.354015, 294.374"/>
       </If>
-      <NoCombatMoveTo XYZ="-229.3864, 1.35255, 292.3704"/>
-      <UseItem ItemId="2001117" NpcIds="2003162" XYZ="-229.3864, 1.35255, 292.3704" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <NoCombatMoveTo XYZ="-231.4453, 1.354015, 294.374"/>
+      <UseItem ItemId="2001117" NpcIds="2003162" XYZ="-231.4453, 1.354015, 294.374" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 4"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 5">
       <If Condition="not IsOnMap(152)">
@@ -356,6 +361,7 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-227.4747, 3.545222, 277.5918"/>
       <UseItem ItemId="2001117" NpcIds="2003156" XYZ="-227.4747, 3.545222, 277.5918" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 5"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 6">
       <If Condition="not IsOnMap(152)">
@@ -363,6 +369,7 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-247.1746, 3.54502, 280.7344"/>
       <UseItem ItemId="2001117" NpcIds="2003155" XYZ="-247.1746, 3.54502, 280.7344" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 6"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 1 and GetQuestById(66793).GetTodoArgs(1, 0).Item1 == 7">
       <If Condition="not IsOnMap(152)">
@@ -370,8 +377,9 @@ Authors:  Sodimm.
       </If>
       <NoCombatMoveTo XYZ="-249.6594, 13.03623, 272.8004"/>
       <MoveTo UseMesh="False" XYZ="-248.6197, 16.03416, 294.312"/>
+      <RunCode Name="Dismount"/>
       <MoveTo UseMesh="False" XYZ="-242.4806, 8.002699, 295.2348"/>
-      <UseItem ItemId="2001117" NpcIds="2003160" XYZ="-242.4806, 8.002699, 295.2348" QuestId="66793" UseTimes="1" BlacklistAfter="True"/>
+      <UseItem ItemId="2001117" NpcIds="2003160" XYZ="-242.4806, 8.002699, 295.2348" QuestId="66793" StepId="1"/>
     </If>
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 2">
       <If Condition="not IsOnMap(152)">

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using TreeSharp;
 using System;
+using System.Linq;
 
 namespace ff14bot.NeoProfiles
 {
@@ -66,11 +67,29 @@ namespace ff14bot.NeoProfiles
         {
             if (GearSet > 0)
             {
-                Log($"Sending /gearset chat command in {Delay}ms.");
+                if (Core.Player.InCombat)
+                {
+                    await Coroutine.Wait(5000, () => !Core.Player.InCombat);
+                    return false;
+                }
+
+                if (GearsetManager.ActiveGearset.Index == GearSet)
+                {
+                    Log("Desired Gearset is already active");
+                    _done = true;
+                    return false;
+                }
 
                 await Coroutine.Sleep(Delay);
 
-                ChatManager.SendChat("/gs change " + GearSet);
+                foreach (var gs in GearsetManager.GearSets)
+                {
+                    if (gs.Index == GearSet)
+                    {
+                        Log($"Changing your Gearset to {gs.Class}.");
+                        gs.Activate();
+                    }
+                }
 
                 await Coroutine.Sleep(Delay);
 

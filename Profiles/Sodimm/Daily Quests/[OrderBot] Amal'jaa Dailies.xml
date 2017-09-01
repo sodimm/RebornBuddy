@@ -326,6 +326,7 @@ Authors:  Sodimm.
           <HotSpot XYZ="361.0742, 13.38208, -35.69086" Radius="5"/>
         </HotSpots>
       </SoUseSpell>
+      <RunCode Name="Dismount"/>
     </If>
     <!-- Fodder for the Flamefangs -->
     <If Condition="HasQuest(66785) and GetQuestStep(66785) == 1">
@@ -946,6 +947,7 @@ Authors:  Sodimm.
           <HotSpot XYZ="-347.0054, 13.50421, 656.6414" Radius="15"/>
         </HotSpots>
       </SoUseSpell>
+      <RunCode Name="Dismount"/>
     </If>
     <!-- Hard to Port -->
     <If Condition="HasQuest(66772) and GetQuestStep(66772) == 1">
@@ -978,6 +980,7 @@ Authors:  Sodimm.
           <HotSpot XYZ="-153.3074, -0.2594604, 55.31384" Radius="15"/>
         </HotSpots>
       </SoUseSpell>
+      <RunCode Name="Dismount"/>
     </If>
     <!-- A Sappy Ending -->
     <If Condition="HasQuest(66760) and GetQuestStep(66760) == 1">
@@ -1414,6 +1417,15 @@ Authors:  Sodimm.
 
   </Order>
   <CodeChunks>
+    <CodeChunk Name="Dismount">
+      <![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          await CommonTasks.StopAndDismount();
+          await Coroutine.Sleep(500);
+        }
+      ]]>
+    </CodeChunk>
     <CodeChunk Name="66785">
       <![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(557).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)

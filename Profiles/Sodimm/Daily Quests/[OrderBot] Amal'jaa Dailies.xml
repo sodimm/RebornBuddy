@@ -607,14 +607,14 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <!-- Pulling Fangs -->
-    <If Condition="HasQuest(66785) and GetQuestStep(66785) == 255 and not HasItem(7001)">
+    <If Condition="HasQuest(66781) and GetQuestStep(66781) == 255 and not HasItem(7001)">
       <If Condition="not IsOnMap(146)">
         <GetTo ZoneId="146" XYZ="543.8109, 10.06467, -17.24093"/>
       </If>
       <NoCombatMoveTo XYZ="543.8109, 10.06467, -17.24093"/>
       <WaitWhile Condition="not FateManager.WithinFate"/>
-      <RunCode Name="66785"/>
-      <Grind GrindRef="66785" While="not HasItem(7001)"/>
+      <RunCode Name="66781"/>
+      <Grind GrindRef="66781" While="not HasItem(7001)"/>
     </If>
     <!-- Hard to Port -->
     <If Condition="HasQuest(66776) and GetQuestStep(66776) == 1">
@@ -1426,7 +1426,7 @@ Authors:  Sodimm.
         }
       ]]>
     </CodeChunk>
-    <CodeChunk Name="66785">
+    <CodeChunk Name="66781">
       <![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(557).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
@@ -1480,7 +1480,7 @@ Authors:  Sodimm.
 -->
   </CodeChunks>
   <GrindAreas>
-    <GrindArea name="66785">
+    <GrindArea name="66781">
       <Hotspots>
         <HotSpot XYZ="543.8109, 10.06467, -17.24093" Radius="75"/>
       </Hotspots>

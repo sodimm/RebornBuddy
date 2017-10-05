@@ -32,7 +32,9 @@ namespace ff14bot.NeoProfiles
                 return
                     new Decorator(r => (r as GameObject) != null,
                         new PrioritySelector(
-                            new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText)),
+                            new Decorator(r => Core.Player.Location.Distance(((GameObject)r).Location) > UseDistance,
+                                new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText))
+                            ),
                             new ActionRunCoroutine(r => CreateUseSpell(((GameObject)r), Spell))
                          )
                    );

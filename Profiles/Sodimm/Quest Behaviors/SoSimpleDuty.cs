@@ -1,4 +1,6 @@
+using Clio.Utilities;
 using Clio.XmlEngine;
+using ff14bot.Behavior;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using ff14bot.RemoteWindows;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using TreeSharp;
 using Action = TreeSharp.Action;
 
@@ -14,8 +17,14 @@ namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoSimpleDuty")]
 
-    class SoSimpleDuty : SimpleDutyTag
+    public class SoSimpleDuty : SimpleDutyTag
     {
+        protected SoSimpleDuty()
+        {
+            Interactobjects = new List<InteractObject>();
+            Checkpoints = new List<CheckPoint>();
+        }
+
         [XmlAttribute("ItemIds")]
         [XmlAttribute("ItemId")]
         public int[] ItemIds { get; set; }
@@ -24,22 +33,52 @@ namespace ff14bot.NeoProfiles.Tags
         [XmlAttribute("UseItem")]
         public bool UseItem { get; set; }
 
+        [XmlElement("InteractObjects")]
+        public List<InteractObject> Interactobjects { get; set; }
+
+        [XmlElement("CheckPoints")]
+        public List<CheckPoint> Checkpoints { get; set; }
+
         private string ItemNames;
+        private HashSet<uint> interactNpcIds;
+        private HashSet<BagSlot> usedSlots;
         protected override void OnStart()
         {
+            interactNpcIds = new HashSet<uint>();
             usedSlots = new HashSet<BagSlot>();
 
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < ItemIds.Length; i++)
+            if (Interactobjects != null)
             {
-                var item = DataManager.GetItem((uint)ItemIds[i]);
+                Log($"{Interactobjects.Count} InteractObjects.");
 
-                if (i == ItemIds.Length - 1)
+                if (Interactobjects.Count != 0)
                 {
-                    sb.Append($"{item.CurrentLocaleName}");
+                    foreach (var obj in Interactobjects)
+                    {
+                        interactNpcIds.Add((uint)obj.NpcId);
+                    }
                 }
             }
-            ItemNames = sb.ToString();
+
+            if (Checkpoints != null)
+            {
+                Log($"{Checkpoints.Count} CheckPoints.");
+            }
+
+            if (UseItem)
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < ItemIds.Length; i++)
+                {
+                    var item = DataManager.GetItem((uint)ItemIds[i]);
+
+                    if (i == ItemIds.Length - 1)
+                    {
+                        sb.Append($"{item.CurrentLocaleName}");
+                    }
+                }
+                ItemNames = sb.ToString();
+            }
 
             GameEvents.OnPlayerDied += OnPlayerDeathEvent;
 
@@ -47,12 +86,19 @@ namespace ff14bot.NeoProfiles.Tags
         }
 
         private bool doneUseItem;
-        private HashSet<BagSlot> usedSlots;
-        public GameObject Target => GameObjectManager.GetObjectByNPCId(InteractNpcId);
-        public BagSlot Item => InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemIds.FirstOrDefault());
+        private bool HasInteractObjects => Interactobjects.Count != 0;
+        private bool HasCheckpoints => Checkpoints.Count != 0;
+        private Vector3 CurrentCheckpoint => HasCheckpoints ? Checkpoints.First().XYZ : Vector3.Zero;
+        private GameObject InteractableTarget => GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && interactNpcIds.Contains(obj.NpcId)).FirstOrDefault();
+        private GameObject UseItemTarget => GameObjectManager.GetObjectByNPCId(InteractNpcId);
+        private BagSlot Item => UseItem ? InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemIds.FirstOrDefault()) : null;
         protected override Composite CreateBehavior()
         {
             return new PrioritySelector(
+                CommonBehaviors.HandleLoading,
+                new Decorator(ret => QuestLogManager.InCutscene,
+                    new ActionAlwaysSucceed()
+                ),
                 new Decorator(r => Request.IsOpen,
                     new Action(r =>
                     {
@@ -101,6 +147,34 @@ namespace ff14bot.NeoProfiles.Tags
                         }
                     })
                 ),
+                new Decorator(ret => HasInteractObjects && DutyManager.InInstance && !Core.Player.InCombat && InteractableTarget != null,
+                    new PrioritySelector(
+                        new Decorator(ret => Core.Player.Location.Distance(InteractableTarget.Location) <= 5,
+                            new Action(r =>
+                            {
+                                InteractableTarget.Interact();
+                            })
+                        ),
+                        new Decorator(ret => Core.Player.Location.Distance(InteractableTarget.Location) > 5,
+                            CommonBehaviors.MoveAndStop(ret => InteractableTarget.Location, 3)
+                        ),
+                        new ActionAlwaysSucceed()
+                    )
+                ),
+                new Decorator(ret => HasCheckpoints && DutyManager.InInstance,
+                    new PrioritySelector(
+                        new Decorator(ret => Core.Player.Location.Distance(CurrentCheckpoint) < 5,
+                            new Action(r =>
+                            {
+                                Checkpoints.Remove(Checkpoints.First());
+                            })
+                        ),
+                        new Decorator(ret => Core.Player.Location.Distance(CurrentCheckpoint) > 5,
+                            CommonBehaviors.MoveAndStop(ret => CurrentCheckpoint, 3)
+                        )
+                    )
+                ),
+
                 base.CreateBehavior()
             );
         }
@@ -112,7 +186,7 @@ namespace ff14bot.NeoProfiles.Tags
             base.OnDone();
         }
 
-        void OnPlayerDeathEvent(object sender, EventArgs e)
+        public void OnPlayerDeathEvent(object sender, EventArgs e)
         {
             doneUseItem = false;
         }
@@ -122,5 +196,30 @@ namespace ff14bot.NeoProfiles.Tags
             doneUseItem = false;
             base.OnResetCachedDone();
         }
+    }
+}
+
+namespace ff14bot.NeoProfiles
+{
+    [XmlElement("InteractObject")]
+    public class InteractObject
+    {
+        public InteractObject() { }
+
+        public string Name { get; set; }
+        [XmlAttribute("Name", true)]
+        public string ObjectName { get; set; }
+        [XmlAttribute("NpcId", true)]
+        public int NpcId { get; set; }
+    }
+
+    [XmlElement("CheckPoint")]
+    public class CheckPoint
+    {
+        public CheckPoint() { }
+
+        public string Name { get; set; }
+        [XmlAttribute("XYZ", true)]
+        public Vector3 XYZ { get; set; }
     }
 }

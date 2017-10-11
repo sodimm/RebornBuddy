@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Kojin Dailies.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Kojin Dailies.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Heaven-sent -->
+    <If Condition="not HasQuest(68509) and not IsQuestCompleted(68509)">
+      <GetTo ZoneId="613" XYZ="-728.2995, 0.1718476, -407.0521"/>
+      <If Condition="IsQuestAcceptQualified(68509)">
+        <PickupQuest QuestId="68509" NpcId="1024221" XYZ="-729.6101, 0.2552749, -404.9592"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 1">
+      <GetTo ZoneId="613" XYZ="312.6616, 0.8144541, 466.4121"/>
+      <SoTalkTo NpcId="1024222" XYZ="314.1068, 0.751186, 466.8802" QuestId="68509" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 2">
+      <GetTo ZoneId="613" XYZ="108.7367, 2.024746, 565.8908"/>
+      <WaitWhile Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 2"/>
+    </If>
+    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 3">
+      <GetTo ZoneId="613" XYZ="119.3332, 1.43602, 558.0864"/>
+      <UseObject NpcId="1024226" XYZ="117.296, 1.740206, 561.2419" QuestId="68509" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 255">
+      <GetTo ZoneId="613" XYZ="652.0712, 3.239789, -58.64638"/>
+      <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
+    </If>
+    <!-- Register Dailies -->
+    <RegisterDailies QuestIds="68515,68516,68517"/>
+    <!-- Pick Ups -->
+    <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517]))">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!-- A Real Pearler -->
+      <If Condition="not HasQuest(68516)">
+        <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+        <If Condition="IsQuestAcceptQualified(68516)">
+          <PickupQuest QuestId="68516" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+        </If>
+      </If>
+      <!-- You Have the Rite -->
+      <If Condition="not HasQuest(68517)">
+        <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+        <If Condition="IsQuestAcceptQualified(68517)">
+          <PickupQuest QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+        </If>
+      </If>
+      <!-- Best Served Foul -->
+      <If Condition="not HasQuest(68515)">
+        <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+        <If Condition="IsQuestAcceptQualified(68515)">
+          <PickupQuest QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+        </If>
+      </If>
+    </If>
+    <!-- Underwater -->
+    <!-- A Real Pearler -->
+    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <UseObject NpcIds="2009080,2009081,2009082,2009083,2009084,2009094,2009095,2009096" XYZ="180.3688, -130.5459, 72.92043" Radius="65" UseDistance="0.50" QuestId="68516" StepId="1"/>
+    </If>
+    <!-- You Have the Rite -->
+    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 1">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <If Condition="not IsOnSubMap(2772)">
+        <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <TalkTo NpcId="1024294" XYZ="-24.76544, -190.3894, -137.1024" QuestId="68517" StepId="1"/>
+    </If>
+    <!-- Main Land -->
+    <!-- A Real Pearler -->
+    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 2">
+      <GetTo ZoneId="613" XYZ="878.0482, 1.179207, 856.5481"/>
+      <HandOver ItemId="2002399" NpcId="1024460" XYZ="878.0803, 1.179207, 858.2742" QuestId="68516" StepId="2"/>
+    </If>
+    <!-- Best Served Foul -->
+    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 1">
+      <GetTo ZoneId="613" XYZ="702.0458, 0.7776591, -25.6705"/>
+      <TalkTo NpcId="1024538" XYZ="703.7003, 0.7387832, -26.0777" QuestId="68515" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
+      <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
+          <HotSpot XYZ="619.8792, 0.09893692, -316.2327" Radius="10"/>
+          <HotSpot XYZ="533.1212, 1, -201.3978" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2002398" UseDistance="1" NpcIds="6873,6874,6875" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
+        <HotSpots>
+          <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
+          <HotSpot XYZ="619.8792, 0.09893692, -316.2327" Radius="10"/>
+          <HotSpot XYZ="533.1212, 1, -201.3978" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
+      <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
+          <HotSpot XYZ="619.8792, 0.09893692, -316.2327" Radius="10"/>
+          <HotSpot XYZ="533.1212, 1, -201.3978" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2002398" UseDistance="1" NpcIds="6873,6874,6875" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
+        <HotSpots>
+          <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
+          <HotSpot XYZ="619.8792, 0.09893692, -316.2327" Radius="10"/>
+          <HotSpot XYZ="533.1212, 1, -201.3978" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- Tamamizu -->
+    <!-- You Have the Rite -->
+    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 2">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="367.4951, -119.9297, -291.9828"/>
+-->
+      <MoveTo XYZ="367.4951, -119.9297, -291.9828"/>
+      <SendChat QuestItem="2002400" XYZ="367.4951, -119.9297, -291.9828" QuestId="68517" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 3">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="367.4951, -119.9297, -291.9828"/>
+-->
+      <SoEmoteNpc Emote="pray" NpcIds="2009085" XYZ="368.3986, -116.6247, -291.3406" QuestId="68517" StepId="3"/>
+    </If>
+    <!-- TurnIn -->
+    <If Condition="not IsOnSubMap(2769)">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+    </If>
+    <!-- Best Served Foul -->
+    <If Condition="HasQuest(68515) and not IsQuestCompleted(68515) and GetQuestStep(68515) == 255">
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- A Real Pearler -->
+    <If Condition="HasQuest(68516) and not IsQuestCompleted(68516) and GetQuestStep(68516) == 255">
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn ItemIds="2002428" QuestId="68516" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- You Have the Rite -->
+    <If Condition="HasQuest(68517) and not IsQuestCompleted(68517) and GetQuestStep(68517) == 255">
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="MoveForward"><![CDATA[
+        await Coroutine.Sleep(1000);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(2000);
+        MovementManager.MoveStop();
+        await Coroutine.Sleep(1000);
+        ]]></CodeChunk>
+  </CodeChunks>
+  <GrindAreas>
+  </GrindAreas>
+</Profile>

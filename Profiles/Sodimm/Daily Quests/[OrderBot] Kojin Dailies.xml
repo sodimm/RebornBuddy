@@ -31,11 +31,20 @@ Authors:  Sodimm.
       <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
     </If>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517"/>
+    <RegisterDailies QuestIds="68515,68516,68517,68518"/>
     <!-- Pick Ups -->
-    <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517]))">
+    <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518]))">
       <If Condition="not IsOnSubMap(2769)">
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!-- Best Served Foul -->
+      <If Condition="not HasQuest(68515)">
+        <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+        <If Condition="IsQuestAcceptQualified(68515)">
+          <PickupQuest QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+        </If>
       </If>
       <!-- A Real Pearler -->
       <If Condition="not HasQuest(68516)">
@@ -55,16 +64,46 @@ Authors:  Sodimm.
           <PickupQuest QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
         </If>
       </If>
-      <!-- Best Served Foul -->
-      <If Condition="not HasQuest(68515)">
+      <!-- Krilled to Pieces -->
+      <If Condition="not HasQuest(68518)">
         <!--
         <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
 -->
-        <If Condition="IsQuestAcceptQualified(68515)">
-          <PickupQuest QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+        <If Condition="IsQuestAcceptQualified(68518)">
+          <PickupQuest QuestId="68518" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
         </If>
       </If>
     </If>
+	<!-- Striped Ray -->
+    <!-- Krilled to Pieces -->
+    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 1">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68518" StepId="1"/>
+	</If>
+    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 2">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+	  <SoUseSpell SpellId="10013" Distance="2" NpcIds="2009233,2009234,2009235,2009236,2009237" QuestId="68518" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="81.19324, -197.7722, -266.8651" Radius="10"/>
+          <HotSpot XYZ="195.056, -183.3066, -346.6087" Radius="10"/>
+          <HotSpot XYZ="50.98035, -139.4218, -280.9644" Radius="10"/>
+          <HotSpot XYZ="192.0653, -172.8085, -247.6387" Radius="10"/>
+          <HotSpot XYZ="173.9985, -161.8525, -190.2953" Radius="10"/>
+        </HotSpots>
+      </SoUseSpell>
+	  <RunCode Name="Dismount"/>
+	</If>
     <!-- Underwater -->
     <!-- A Real Pearler -->
     <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1">
@@ -187,6 +226,13 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Krilled to Pieces -->
+    <If Condition="HasQuest(68518) and not IsQuestCompleted(68518) and GetQuestStep(68518) == 255">
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68518" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
   </Order>
   <CodeChunks>
     <CodeChunk Name="MoveForward"><![CDATA[
@@ -196,6 +242,13 @@ Authors:  Sodimm.
         MovementManager.MoveStop();
         await Coroutine.Sleep(1000);
         ]]></CodeChunk>
+    <CodeChunk Name="Dismount"><![CDATA[
+        if(Core.Player.IsMounted)
+        {
+          await CommonTasks.StopAndDismount();
+          await Coroutine.Sleep(500);
+        }
+      ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
   </GrindAreas>

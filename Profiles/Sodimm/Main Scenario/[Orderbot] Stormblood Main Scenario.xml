@@ -8,13 +8,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
 -->
 <Profile>
   <Name>[OrderBot] Stormblood Main Scenario</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <BotSettings AutoEquip="1"/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 60 -->
     <LogMessage Message="[Stormblood Main Scenario] Checking level 60 quests."/>
     <If Condition="not IsQuestCompleted(67895)">
-        <LogMessage Message="You've not completed the Heavensward Main Scenario yet!"/>
-        <WaitWhile Condition="not IsQuestCompleted(67895)"/>
+      <LogMessage Message="You've not completed the Heavensward Main Scenario yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67895)"/>
     </If>
     <!-- Beyond the Great Wall -->
     <If Condition="not HasQuest(67982) and not IsQuestCompleted(67982)">
@@ -752,8 +753,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 60 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 61 -->
     <If Condition="Core.Player.ClassLevel &lt; 61">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 61 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 61"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 61 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 61"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 61 quests."/>
     <!-- Crossing the Velodyna -->
@@ -1277,8 +1278,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 61 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 62 -->
     <If Condition="Core.Player.ClassLevel &lt; 62">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 62 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 62"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 62 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 62"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 62 quests."/>
     <!-- Once More, to the Ruby Sea -->
@@ -1747,8 +1748,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 62 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 63 -->
     <If Condition="Core.Player.ClassLevel &lt; 63">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 63 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 63"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 63 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 63"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 63 quests."/>
     <!-- In Soroban We Trust -->
@@ -2032,8 +2033,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 64 -->
     <LogMessage Message="[Stormblood Main Scenario] Checking level 64 quests."/>
     <If Condition="Core.Player.ClassLevel &lt; 64">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 64 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 64"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 64 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 64"/>
     </If>
     <!-- Life after Doma -->
     <If Condition="not HasQuest(68028) and not IsQuestCompleted(68028)">
@@ -2522,8 +2523,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 64 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 65 -->
     <If Condition="Core.Player.ClassLevel &lt; 65">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 65 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 65"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 65 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 65"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 65 quests."/>
     <!-- Here There Be Xaela -->
@@ -2913,8 +2914,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 66 -->
     <LogMessage Message="[Stormblood Main Scenario] Checking level 66 quests."/>
     <If Condition="Core.Player.ClassLevel &lt; 66">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 66 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 66"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 66 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 66"/>
     </If>
     <!-- The Labors of Magnai -->
     <If Condition="not HasQuest(68045) and not IsQuestCompleted(68045)">
@@ -3262,7 +3263,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       </If>
       <NoCombatMoveTo XYZ="547.0349, 38.87275, -484.2224" QuestId="68052" StepId="2"/>
       <TalkTo InteractDistance="3.0" NpcId="1021634" XYZ="547.0349, 38.87275, -484.2224" QuestId="68052" StepId="2"/>
-      <WaitWhile Condition="GetQuestStep(68052) == 2"/>
+      <WaitWhile Condition="GetQuestStep(68052) == 2)"/>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 3">
       <If Condition="not IsOnMap(622)">
@@ -3355,8 +3356,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 67 -->
     <LogMessage Message="[Stormblood Main Scenario] Checking level 67 quests."/>
     <If Condition="Core.Player.ClassLevel &lt; 67">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 67 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 67"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 67 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 67"/>
     </If>
     <!-- The Room Where It Happened -->
     <If Condition="not HasQuest(68055) and not IsQuestCompleted(68055)">
@@ -3835,22 +3836,11 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
       <TalkTo NpcId="1019466" InteractDistance="3.0" XYZ="171.6279, 13.02367, -91.43189" QuestId="68064" StepId="1"/>
     </If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 2">1
-      <If Condition="not IsOnMap(635)">
-        <GetTo ZoneId="635" XYZ="133.694, 0.6520414, 9.093788"/>
-      </If>
-      <If Condition="not IsTodoChecked(68064, 2, 1)">
-        <NoCombatMoveTo XYZ="133.694, 0.6520414, 9.093788"/>
-        <TalkTo NpcId="1023762" InteractDistance="3.0" XYZ="133.694, 0.6520414, 9.093788" QuestId="68064"/>
-      </If>
-      <If Condition="not IsTodoChecked(68064, 2, 0)">
-        <NoCombatMoveTo XYZ="22.3196, -0.3299521, 3.904311"/>
-        <TalkTo NpcId="1023298" InteractDistance="3.0" XYZ="22.3196, -0.3299521, 3.904311" QuestId="68064"/>
-      </If>
-      <If Condition="not IsTodoChecked(68064, 2, 2)">
-        <NoCombatMoveTo XYZ="13.60807, -0.4418265, 121.7515"/>
-        <TalkTo NpcId="1023763" InteractDistance="3.0" XYZ="13.60807, -0.4418265, 121.7515" QuestId="68064"/>
-      </If>
-    </If>
+			<If Condition="not IsOnMap(635)"><GetTo ZoneId="635" XYZ="133.694, 0.6520414, 9.093788"/></If>
+			<If Condition="not IsTodoChecked(68064, 2, 1)"><NoCombatMoveTo XYZ="133.694, 0.6520414, 9.093788"/><TalkTo NpcId="1023762" InteractDistance="3.0" XYZ="133.694, 0.6520414, 9.093788" QuestId="68064"/></If>
+			<If Condition="not IsTodoChecked(68064, 2, 0)"><NoCombatMoveTo XYZ="22.3196, -0.3299521, 3.904311"/><TalkTo NpcId="1023298" InteractDistance="3.0" XYZ="22.3196, -0.3299521, 3.904311" QuestId="68064"/></If>
+			<If Condition="not IsTodoChecked(68064, 2, 2)"><NoCombatMoveTo XYZ="13.60807, -0.4418265, 121.7515"/><TalkTo NpcId="1023763" InteractDistance="3.0" XYZ="13.60807, -0.4418265, 121.7515" QuestId="68064"/></If>
+		</If>
     <If Condition="HasQuest(68064) and not IsQuestCompleted(68064) and GetQuestStep(68064) == 3">
       <If Condition="not IsOnMap(635)">
         <GetTo ZoneId="635" XYZ="170.9357, 13.02367, -91.10619"/>
@@ -4067,8 +4057,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 67 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 68 -->
     <If Condition="Core.Player.ClassLevel &lt; 68">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 68 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 68"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 68 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 68"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 68 quests."/>
     <!-- The First of Many -->
@@ -4107,7 +4097,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
           </If>
           <NoCombatMoveTo XYZ="-286.7323, 256.9996, 696.2233"/>
           <TurnIn QuestId="68070" NpcId="1020600" XYZ="-286.7323, 256.9996, 696.2233"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- Ala Ghiri Aetheryte Attunement -->
@@ -4137,7 +4127,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68071) == 255">
           <NoCombatMoveTo XYZ="-297.4747, 257.5265, 765.3162"/>
           <TurnIn QuestId="68071" InteractDistance="3.0" NpcId="1020630" XYZ="-297.4747, 257.5265, 765.3162"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- Hells Open -->
@@ -4170,7 +4160,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68072) == 255">
           <NoCombatMoveTo XYZ="-346.1509, 305.933, 149.0348"/>
           <TurnIn QuestId="68072" InteractDistance="3.0" NpcId="1020608" XYZ="-346.1509, 305.933, 149.0348"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- Heavens Weep -->
@@ -4226,7 +4216,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68073) == 255">
           <NoCombatMoveTo XYZ="7.827881, 317.5509, 112.4132"/>
           <TurnIn QuestId="68073" InteractDistance="3.0" NpcId="1020611" XYZ="7.827881, 317.5509, 112.4132"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- The Road Home -->
@@ -4270,7 +4260,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68074) == 255">
           <NoCombatMoveTo XYZ="-286.5493, 256.8515, 693.1411"/>
           <TurnIn QuestId="68074" InteractDistance="3.0" NpcId="1020601" XYZ="-286.5493, 256.8515, 693.1411"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- For the Living and the Dead -->
@@ -4290,12 +4280,12 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68075) == 1">
           <NoCombatMoveTo XYZ="-299.3973, 257.5265, 770.7484"/>
-          <TalkTo InteractDistance="3.0" QuestId="68075" StepId="1" NpcId="1020604" XYZ="-299.3973, 257.5265, 770.7484"/>  
+          <TalkTo InteractDistance="3.0" QuestId="68075" StepId="1" NpcId="1020604" XYZ="-299.3973, 257.5265, 770.7484"/>
         </If>
         <If Condition="GetQuestStep(68075) == 255">
           <NoCombatMoveTo XYZ="-300.496, 257.5265, 765.0415"/>
           <TurnIn QuestId="68075" InteractDistance="3.0" NpcId="1020631" XYZ="-300.496, 257.5265, 765.0415"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- Above the Churning Waters -->
@@ -4320,12 +4310,12 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         </If>
         <If Condition="GetQuestStep(68076) == 2">
           <NoCombatMoveTo XYZ="-75.48645, 262.4093, 661.86"/>
-          <UseObject InteractDistance="3.0" QuestId="68076" StepId="2" NpcId="2008211" XYZ="-75.48645, 262.4093, 661.86" BlacklistAfter="True"/> 
+          <UseObject InteractDistance="3.0" QuestId="68076" StepId="2" NpcId="2008211" XYZ="-75.48645, 262.4093, 661.86" BlacklistAfter="True"/>
         </If>
         <If Condition="GetQuestStep(68076) == 255">
           <NoCombatMoveTo XYZ="-113.4203, 263.7311, 655.7563"/>
           <TurnIn QuestId="68076" InteractDistance="3.0" NpcId="1020633" XYZ="-113.4203, 263.7311, 655.7563"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- The Path Forward -->
@@ -4350,7 +4340,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68077) == 255">
           <NoCombatMoveTo XYZ="-298.5123, 257.5265, 764.9805"/>
           <TurnIn QuestId="68077" InteractDistance="3.0" NpcId="1020629" XYZ="-298.5123, 257.5265, 764.9805"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- With Tired Hands We Toil -->
@@ -4377,7 +4367,7 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
           <UseTransport InteractDistance="3.0" QuestId="68078" StepId="2" NpcId="1021557" XYZ="-130.0222, 305.3815, 189.7153" UseTimes="1" BlacklistAfter="True"/>
           <NoCombatMoveTo XYZ="-115.404, 305.4703, 161.3031"/>
           <UseObject InteractDistance="3.0" QuestId="68078" StepId="2" NpcId="2009009" XYZ="-115.404, 305.4703, 161.3031" BlacklistAfter="True"/>
-          <WaitWhile Condition="GetQuestStep(68078) == 2"/> 
+          <WaitWhile Condition="GetQuestStep(68078) == 2"/>
         </If>
         <If Condition="GetQuestStep(68078) == 3">
           <NoCombatMoveTo XYZ="64.31665, 305.9266, 152.6665"/>
@@ -4386,12 +4376,12 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68078) == 4">
           <NoCombatMoveTo XYZ="148.8212, 308.7357, 166.5828"/>
           <UseObject InteractDistance="3.0" QuestId="68078" StepId="4" NpcId="2009010" XYZ="148.8212, 308.7357, 166.5828" BlacklistAfter="True"/>
-          <WaitWhile Condition="GetQuestStep(68078) == 4"/>  
+          <WaitWhile Condition="GetQuestStep(68078) == 4"/>
         </If>
         <If Condition="GetQuestStep(68078) == 255">
           <NoCombatMoveTo XYZ="353.7803, 323.7739, 273.3043"/>
           <TurnIn QuestId="68078" InteractDistance="3.0" NpcId="1022344" XYZ="353.7803, 323.7739, 273.3043"/>
-        </If> 
+        </If>
       </If>
     </If>
     <!-- Where Courage Endures -->
@@ -4416,14 +4406,14 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         <If Condition="GetQuestStep(68079) == 255">
           <NoCombatMoveTo XYZ="257.8011, 314.4075, 416.1592"/>
           <TurnIn QuestId="68079" InteractDistance="3.0" NpcId="1020645" XYZ="257.8011, 314.4075, 416.1592"/>
-        </If> 
+        </If>
       </If>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Level 68 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 69 -->
     <If Condition="Core.Player.ClassLevel &lt; 69">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 69 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 69"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 69 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 69"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 69 quests."/>
     <!-- The Price of Freedom -->
@@ -4765,8 +4755,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <LogMessage Message="[Stormblood Main Scenario] Level 69 quests completed."/>
     <!-- STORMBLOOD MAIN SCENARIO :: LEVEL 70 -->
     <If Condition="Core.Player.ClassLevel &lt; 70">
-        <LogMessage Message="[Stormblood Main Scenario] You need to be level 70 to accept the next Main Scenario Quest."/>
-        <WaitWhile Condition="Core.Player.ClassLevel &lt; 70"/>
+      <LogMessage Message="[Stormblood Main Scenario] You need to be level 70 to accept the next Main Scenario Quest."/>
+      <WaitWhile Condition="Core.Player.ClassLevel &lt; 70"/>
     </If>
     <LogMessage Message="[Stormblood Main Scenario] Checking level 70 quests."/>
     <!-- The Measure of His Reach -->
@@ -4883,6 +4873,350 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     <If Condition="IsQuestCompleted(68089)">
       <LogMessage Message="[Stormblood] You've completed the Stormblood questline!"/>
     </If>
+    <!-- Arenvald's Adventure -->
+    <If Condition="not HasQuest(68498) and not IsQuestCompleted(68498)">
+      <GetTo ZoneId="635" XYZ="172.2347, 13.02367, -91.97261"/>
+      <If Condition="IsQuestAcceptQualified(68498)">
+        <PickupQuest QuestId="68498" NpcId="1019468" XYZ="172.2347, 13.02367, -91.97261"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68498) and not IsQuestCompleted(68498) and GetQuestStep(68498) == 1">
+      <GetTo ZoneId="635" XYZ="-30.47658, -0.1616768, -123.6864"/>
+      <TalkTo NpcId="1024136" XYZ="-29.34314, -0.1424195, -124.5289" QuestId="68498" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68498) and not IsQuestCompleted(68498) and GetQuestStep(68498) == 255">
+      <GetTo ZoneId="635" XYZ="48.79282, 0, 57.01453"/>
+      <TurnIn QuestId="68498" NpcId="2009050" XYZ="49.66809, -0.01531982, 58.18262"/>
+    </If>
+    <!-- The Darkness Below -->
+    <If Condition="not HasQuest(68499) and not IsQuestCompleted(68499)">
+      <GetTo ZoneId="635" XYZ="49.05644, 0, 57.281"/>
+      <If Condition="IsQuestAcceptQualified(68499)">
+        <PickupQuest QuestId="68499" NpcId="1024137" XYZ="47.77588, 0, 58.64038"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68499) and not IsQuestCompleted(68499) and GetQuestStep(68499) == 1 and GetQuestById(68499).GetTodoArgs(1, 0).Item1 == 0">
+      <GetTo ZoneId="621" XYZ="614.8348, 80.00002, 625.7975"/>
+      <TalkTo NpcId="1024130" XYZ="614.618, 80.00002, 624.567" QuestId="68499"/>
+    </If>
+    <If Condition="HasQuest(68499) and not IsQuestCompleted(68499) and GetQuestStep(68499) == 1 and GetQuestById(68499).GetTodoArgs(1, 0).Item1 == 1">
+      <GetTo ZoneId="621" XYZ="585.1674, 70, 565.003"/>
+      <TalkTo NpcId="1024131" XYZ="585.3512, 70, 564.0801" QuestId="68499"/>
+    </If>
+    <If Condition="HasQuest(68499) and not IsQuestCompleted(68499) and GetQuestStep(68499) == 1 and GetQuestById(68499).GetTodoArgs(1, 0).Item1 == 2">
+      <GetTo ZoneId="621" XYZ="682.2259, 70, 539.9251"/>
+      <TalkTo NpcId="1024132" XYZ="683.7109, 70, 540.5508" QuestId="68499"/>
+    </If>
+    <If Condition="HasQuest(68499) and not IsQuestCompleted(68499) and GetQuestStep(68499) == 2">
+      <GetTo ZoneId="621" XYZ="745.0378, 69.99999, 491.8051"/>
+      <NoCombatMoveTo XYZ="745.0378, 69.99999, 491.8051"/>
+      <TalkTo NpcId="1024133" XYZ="745.2048, 69.99999, 489.7687" QuestId="68499" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68499) and not IsQuestCompleted(68499) and GetQuestStep(68499) == 255">
+      <GetTo ZoneId="621" XYZ="532.291, 70, 576.8517"/>
+      <NoCombatMoveTo XYZ="532.291, 70, 576.8517"/>
+      <TurnIn QuestId="68499" NpcId="1024103" XYZ="532.494, 70, 576.1653"/>
+    </If>
+    <!-- The Mad King's Trove -->
+    <If Condition="not HasQuest(68500) and not IsQuestCompleted(68500)">
+      <GetTo ZoneId="621" XYZ="530.9117, 70, 577.4987"/>
+      <If Condition="IsQuestAcceptQualified(68500)">
+        <PickupQuest QuestId="68500" NpcId="1024104" XYZ="530.8156, 70, 576.0128"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 1">
+      <GetTo ZoneId="621" XYZ="208.0513, -0.3, 339.9064"/>
+      <TalkTo NpcId="1024134" XYZ="207.8431, -0.3, 338.5519" QuestId="68500" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 2">
+      <GetTo ZoneId="621" XYZ="96.47099, 9.930986, -21.56549"/>
+      <RunCode Name="Descend_Into_Diving"/>
+      <UseObject NpcId="2009052" XYZ="144.976, -270.985, -12.28351" QuestId="68500" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 3">
+      <If Condition="not MovementManager.IsDiving">
+        <GetTo ZoneId="621" XYZ="96.47099, 9.930986, -21.56549"/>
+        <RunCode Name="Descend_Into_Diving"/>
+        <MoveTo XYZ="144.976, -270.985, -12.28351"/>
+      </If>
+      <RunCode Name="To_Skalla"/>
+      <MoveTo UseMesh="False" XYZ="250.4082, -273.6489, -16.25198"/>
+      <UseObject NpcId="2009054" XYZ="258.2283, -274.2809, -12.8634" QuestId="68500" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 4">
+      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="HasQuest(68500) and not IsQuestCompleted(68500) and not GetQuestStep(68500) == 255"/>
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 255">
+      <GetTo ZoneId="621" XYZ="530.8439, 70, 577.3964"/>
+      <TurnIn QuestId="68500" NpcId="1024104" XYZ="530.8156, 70, 576.0128"/>
+    </If>
+    <!-- The Butcher's Blood -->
+    <If Condition="not HasQuest(68501) and not IsQuestCompleted(68501)">
+      <GetTo ZoneId="621" XYZ="532.6429, 70, 577.4351"/>
+      <If Condition="IsQuestAcceptQualified(68501)">
+        <PickupQuest QuestId="68501" NpcId="1024103" XYZ="532.494, 70, 576.1653"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68501) and not IsQuestCompleted(68501) and GetQuestStep(68501) == 1">
+      <GetTo ZoneId="621" XYZ="739.2432, 70, 536.4403"/>
+      <TalkTo NpcId="1024105" XYZ="739.2233, 70, 537.6515" QuestId="68501" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68501) and not IsQuestCompleted(68501) and GetQuestStep(68501) == 2">
+      <GetTo ZoneId="621" XYZ="786.9625, 69.99992, 638.139"/>
+      <TalkTo NpcId="1024107" XYZ="788.3878, 69.99992, 637.3845" QuestId="68501" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68501) and not IsQuestCompleted(68501) and GetQuestStep(68501) == 255">
+      <GetTo ZoneId="621" XYZ="795.9786, 69.99991, 635.1949"/>
+      <SoTurnIn QuestId="68501" NpcId="1024112" XYZ="796.933, 69.9999, 634.76"/>
+    </If>
+    <!-- Echoes of an Echo -->
+    <If Condition="not HasQuest(68502) and not IsQuestCompleted(68502)">
+      <GetTo ZoneId="621" XYZ="776.2667, 69.99993, 640.3821"/>
+      <If Condition="IsQuestAcceptQualified(68502)">
+        <PickupQuest QuestId="68502" NpcId="1024125" XYZ="775.6007, 69.99993, 639.4292"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 1">
+      <GetTo ZoneId="621" XYZ="754.1917, 70, 426.0282"/>
+      <SoTalkTo NpcId="1024113" XYZ="754.2686, 70, 424.7043" QuestId="68502" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 2">
+      <If Condition="not IsOnMap(738)">
+        <GetTo ZoneId="621" XYZ="754.1917, 70, 426.0282"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024113" XYZ="754.2686, 70, 424.7043"/>
+      </If>
+      <MoveTo UseMesh="False" XYZ="3.189148, 0.05439672, -3.708008"/>
+      <TalkTo NpcId="1024114" XYZ="5.233826, 0.05439672, -3.341736" QuestId="68502" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 3 and GetQuestById(68502).GetTodoArgs(3, 0).Item1 == 0">
+      <If Condition="not IsOnMap(738)">
+        <GetTo ZoneId="621" XYZ="754.1917, 70, 426.0282"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024113" XYZ="754.2686, 70, 424.7043"/>
+      </If>
+      <MoveTo UseMesh="False" XYZ="3.189148, 0.05439672, -3.708008"/>
+      <MoveTo UseMesh="False" Distance="1" XYZ="0.5061507, -2, -36.99505"/>
+      <UseObject NpcId="2009058" XYZ="-0.04577637, 2.090454, -40.60431" UseDistance="7" UseTimes="1"/>
+      <WaitWhile Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 3 and GetQuestById(68502).GetTodoArgs(3, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 3 and GetQuestById(68502).GetTodoArgs(3, 0).Item1 == 1">
+      <If Condition="not IsOnMap(738)">
+        <GetTo ZoneId="621" XYZ="754.1917, 70, 426.0282"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024113" XYZ="754.2686, 70, 424.7043"/>
+      </If>
+      <MoveTo UseMesh="False" Distance="1" XYZ="0.5061507, -2, -36.99505"/>
+      <MoveTo UseMesh="False" Distance="1" XYZ="1.459139, -0.4500006, -23.22203"/>
+      <MoveTo UseMesh="False" Distance="1" XYZ="23.27359, -0.4500006, 2.66902"/>
+      <TalkTo NpcId="1024118" XYZ="24.61279, -0.3670061, 5.020142" QuestId="68502"/>
+      <WaitWhile Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 3 and GetQuestById(68502).GetTodoArgs(3, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 4">
+      <If Condition="not IsOnMap(738)">
+        <GetTo ZoneId="621" XYZ="754.1917, 70, 426.0282"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024113" XYZ="754.2686, 70, 424.7043"/>
+      </If>
+      <MoveTo UseMesh="False" XYZ="3.189148, 0.05439672, -3.708008"/>
+      <TalkTo NpcId="1024114" XYZ="5.233826, 0.05439672, -3.341736" QuestId="68502" StepId="4"/>
+      <WaitWhile Condition="HasQuest(68502) and not IsQuestCompleted(68502) and not GetQuestStep(68502) == 255"/>
+    </If>
+    <If Condition="HasQuest(68502) and not IsQuestCompleted(68502) and GetQuestStep(68502) == 255">
+      <GetTo ZoneId="621" XYZ="758.0281, 70, 445.3934"/>
+      <TurnIn QuestId="68502" NpcId="1024119" XYZ="758.6632, 70, 446.311"/>
+    </If>
+    <!-- A Sultana's Strings -->
+    <If Condition="not HasQuest(68503) and not IsQuestCompleted(68503)">
+      <GetTo ZoneId="621" XYZ="758.0281, 70, 445.3934"/>
+      <If Condition="IsQuestAcceptQualified(68503)">
+        <PickupQuest QuestId="68503" NpcId="1024120" XYZ="757.6866, 70, 444.3275"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 1">
+      <GetTo ZoneId="131" XYZ="-23.63278, 38.01001, 83.87378"/>
+      <TalkTo NpcId="1001821" XYZ="-24.12457, 38, 85.31323" QuestId="68503" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 2">
+      <GetTo ZoneId="130" XYZ="59.42756, 4, -121.4365"/>
+      <TalkTo NpcId="1024122" XYZ="57.96899, 4, -121.5381" QuestId="68503" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 3">
+      <GetTo ZoneId="141" XYZ="-132.7997, 4.675455, 240.0954"/>
+      <SoTalkTo NpcId="1024123" XYZ="-132.9519, 4.590748, 238.7273" QuestId="68503" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 4">
+      <GetTo ZoneId="141" XYZ="252.8268, -6.203038, -151.7768"/>
+      <TalkTo NpcId="1024124" XYZ="254.3525, -6.26633, -152.3613" QuestId="68503" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 5">
+      <GetTo ZoneId="131" XYZ="-105.6319, 6.98399, -2.596782"/>
+      <TalkTo NpcId="1024102" XYZ="-105.7298, 6.98399, -4.135254" QuestId="68503" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68503) and not IsQuestCompleted(68503) and GetQuestStep(68503) == 255">
+      <GetTo ZoneId="131" XYZ="-105.6319, 6.98399, -2.596782"/>
+      <TurnIn QuestId="68503" NpcId="1024102" XYZ="-105.7298, 6.98399, -4.135254"/>
+    </If>
+    <!-- A Sultana's Duty -->
+    <If Condition="not HasQuest(68504) and not IsQuestCompleted(68504)">
+      <GetTo ZoneId="131" XYZ="-105.6319, 6.98399, -2.596782"/>
+      <If Condition="IsQuestAcceptQualified(68504)">
+        <PickupQuest QuestId="68504" NpcId="1024102" XYZ="-105.7298, 6.98399, -4.135254"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 1">
+      <GetTo ZoneId="130" XYZ="-200.19, 18, 77.62858"/>
+      <TalkTo NpcId="1024040" XYZ="-201.0681, 18, 78.62964" QuestId="68504" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 2">
+      <GetTo ZoneId="130" XYZ="-21.51069, 83.19999, -8.082554"/>
+      <TalkTo NpcId="1024041" XYZ="-22.78174, 83.19999, -7.553223" QuestId="68504" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 3">
+      <GetTo ZoneId="144" XYZ="-52.81404, 0.04427993, 53.27386"/>
+      <TalkTo NpcId="1024042" XYZ="-51.68237, 0.04428005, 53.94055" QuestId="68504" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 255">
+      <GetTo ZoneId="144" XYZ="-12.34062, 20.99973, 46.46042"/>
+      <TurnIn QuestId="68504" NpcId="1024043" XYZ="-12.77179, 20.99973, 47.83704"/>
+    </If>
+    <!-- A Sultana's Resolve -->
+    <If Condition="not HasQuest(68505) and not IsQuestCompleted(68505)">
+      <GetTo ZoneId="144" XYZ="-12.34062, 20.99973, 46.46042"/>
+      <If Condition="IsQuestAcceptQualified(68505)">
+        <PickupQuest QuestId="68505" NpcId="1024043" XYZ="-12.77179, 20.99973, 47.83704"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 1">
+      <If Condition="not IsOnMap(639)">
+        <GetTo ZoneId="628" XYZ="151.1336, 14.77572, 93.61285"/>
+        <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
+      </If>
+      <TalkTo NpcId="1020622" XYZ="0.04577637, 0, -2.304138" QuestId="68505" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 2">
+      <GetTo ZoneId="130" XYZ="-111.2961, 4, -114.8115"/>
+      <TalkTo NpcId="1024044" XYZ="-110.3685, 4, -114.0002" QuestId="68505" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 3">
+      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <TalkTo NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644" QuestId="68505" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 255">
+      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <TurnIn QuestId="68505" NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644"/>
+    </If>
+    <!-- Securing the Saltery -->
+    <If Condition="not HasQuest(68506) and not IsQuestCompleted(68506)">
+      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <If Condition="IsQuestAcceptQualified(68506)">
+        <PickupQuest QuestId="68506" NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 1">
+      <GetTo ZoneId="621" XYZ="593.6444, 80.00001, 619.9985"/>
+      <TalkTo NpcId="1024046" XYZ="592.7061, 80.00001, 618.6465" QuestId="68506" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 2">
+      <GetTo ZoneId="621" XYZ="-285.47, 11.18326, 190.2811"/>
+      <TalkTo NpcId="1023036" XYZ="-285.2369, 11.18324, 188.8303" QuestId="68506" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 3">
+      <GetTo ZoneId="621" XYZ="-240.2812, 1.682302, 198.3816"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 3"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 4">
+      <GetTo ZoneId="621" XYZ="-208.9644, -0.3, 209.2617"/>
+      <TalkTo NpcId="1024340" XYZ="-208.2094, -0.3000001, 207.6294" QuestId="68506" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 5">
+      <GetTo ZoneId="621" XYZ="7.366835, 4.852146, 283.4615"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 5"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 6">
+      <GetTo ZoneId="621" XYZ="-3.108308, 3.22073, 251.354"/>
+      <TalkTo NpcId="1024341" XYZ="-3.524841, 3.174248, 249.3477" QuestId="68506" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 255">
+      <GetTo ZoneId="621" XYZ="-285.4252, 11.18326, 190.2086"/>
+      <TurnIn QuestId="68506" NpcId="1023036" XYZ="-285.2369, 11.18324, 188.8303"/>
+    </If>
+    <!-- A Blissful Arrival -->
+    <If Condition="not HasQuest(68507) and not IsQuestCompleted(68507)">
+      <GetTo ZoneId="621" XYZ="-285.3075, 11.18324, 188.2376"/>
+      <If Condition="IsQuestAcceptQualified(68507)">
+        <PickupQuest QuestId="68507" NpcId="1024051" XYZ="-285.298, 11.18323, 187.0298"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68507) and not IsQuestCompleted(68507) and GetQuestStep(68507) == 1">
+      <GetTo ZoneId="621" XYZ="527.9387, 70, 579.0246"/>
+      <UseObject NpcId="2009047" XYZ="526.8176, 69.96252, 577.3861" QuestId="68507" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68507) and not IsQuestCompleted(68507) and GetQuestStep(68507) == 2">
+      <GetTo ZoneId="621" XYZ="525.6696, 70, 575.6532"/>
+      <TalkTo NpcId="1024055" XYZ="525.0781, 70, 574.6699" QuestId="68507" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68507) and not IsQuestCompleted(68507) and GetQuestStep(68507) == 255">
+      <GetTo ZoneId="621" XYZ="342.005, 74.00002, 70.64069"/>
+      <TurnIn QuestId="68507" NpcId="1024057" XYZ="340.2302, 74.00002, 70.66455"/>
+    </If>
+    <!-- Return of the Bull -->
+    <If Condition="not HasQuest(68508) and not IsQuestCompleted(68508)">
+      <GetTo ZoneId="621" XYZ="339.5275, 74.00002, 74.33588"/>
+      <If Condition="IsQuestAcceptQualified(68508)">
+        <SoPickupQuest QuestId="68508" NpcId="1024063" XYZ="339.62, 74.00002, 75.48633"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 1">
+      <GetTo ZoneId="621" XYZ="593.7142, 80.00001, 622.5397"/>
+      <UseObject NpcId="2009048" XYZ="593.5605, 79.97253, 621.9425" QuestId="68508" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 2">
+      <GetTo ZoneId="621" XYZ="748.7604, 70.08471, 522.5895"/>
+      <NoCombatMoveTo XYZ="748.7604, 70.08471, 522.5895"/>
+      <TalkTo NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809" QuestId="68508" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 3">
+      <If Condition="not IsOnMap(737)">
+        <GetTo ZoneId="621" XYZ="748.7604, 70.08471, 522.5895"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809"/>
+      </If>
+      <MoveTo UseMesh="False" Distance="1" XYZ="245.0751, 122, -349.0807"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+      <!-- Impossible with current bot functionality -->
+      <!--
+      <SimpleDuty InteractNpcId="1024066" XYZ="245.0751, 122, -349.0807" QuestId="68508" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="254.7788, 122, -349.4514" Radius="45"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6386" Weight="3000"/>
+          <TargetMob Id="6913" Weight="2000"/>
+          <TargetMob Id="6385" Weight="1000"/>
+        </TargetMobs>
+      </SimpleDuty>
+      -->
+      <WaitWhile Condition="HasQuest(68508) and not IsQuestCompleted(68508) and not GetQuestStep(68508) == 5"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 5">
+      <If Condition="not IsOnMap(737)">
+        <GetTo ZoneId="621" XYZ="748.7604, 70.08471, 522.5895"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809"/>
+      </If>
+      <MoveTo UseMesh="False" Distance="1" XYZ="250.6531, 122, -346.7813"/>
+      <TalkTo NpcId="1024206" XYZ="251.6975, 122, -345.5406" QuestId="68508" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 6">
+      <GetTo ZoneId="621" XYZ="742.5979, 70, 525.395"/>
+      <TalkTo NpcId="1024068" XYZ="741.1764, 70, 525.5055" QuestId="68508" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 7">
+      <GetTo ZoneId="621" XYZ="742.5979, 70, 525.395"/>
+      <TalkTo NpcId="1024068" XYZ="741.1764, 70, 525.5055" QuestId="68508" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 255">
+      <GetTo ZoneId="635" XYZ="171.8871, 13.02367, -92.47694"/>
+      <TurnIn QuestId="68508" NpcId="1019468" XYZ="170.5806, 13.02367, -91.96619"/>
+    </If>
   </Order>
   <GrindAreas>
     <GrindArea name="Hard_Country_Chapuli">
@@ -4937,8 +5271,27 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="Enchanted_Lamp">
-      <![CDATA[
+    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]></CodeChunk>
+    <CodeChunk Name="Descend_Into_Diving"><![CDATA[
+        MovementManager.StartDescending();
+
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);]]></CodeChunk>
+    <CodeChunk Name="To_Skalla"><![CDATA[
+        MovementManager.StartAscending();
+    await Coroutine.Sleep(2500);
+    MovementManager.StopAscending();
+        await Coroutine.Sleep(500);
+        MovementManager.SetFacing(1.601761f);
+        await Coroutine.Sleep(500);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(10000);
+        MovementManager.MoveStop();
+        await Coroutine.Sleep(500);
+        ]]></CodeChunk>
+    <CodeChunk Name="Enchanted_Lamp"><![CDATA[
         var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002243);
 
         await Coroutine.Sleep(500);
@@ -4946,10 +5299,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         if (item != null)
         {
           item.UseItem();
-        }]]>
-    </CodeChunk>
-    <CodeChunk Name="The_Will_To_Live">
-      <![CDATA[
+        }]]></CodeChunk>
+    <CodeChunk Name="The_Will_To_Live"><![CDATA[
         foreach (BagSlot slot in InventoryManager.FilledInventoryAndArmory)
         {
           BagSlot Head = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
@@ -4987,10 +5338,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
             slot.Move(Feet);
             await Coroutine.Sleep(500);
           }
-        }]]>
-    </CodeChunk>
-    <CodeChunk Name="Sworn_Enemies_Of_The_Sun">
-      <![CDATA[
+        }]]></CodeChunk>
+    <CodeChunk Name="Sworn_Enemies_Of_The_Sun"><![CDATA[
         if (Core.Player.IsMounted)
         {
           ActionManager.Dismount();
@@ -4998,10 +5347,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         }
 
         ChatManager.SendChat("/lookout");
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Glory_To_The_Khagan">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="Glory_To_The_Khagan"><![CDATA[
         if (Core.Player.IsMounted)
         {
           ActionManager.Dismount();
@@ -5009,10 +5356,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         }
 
         ChatManager.SendChat("/victorypose");
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="A_Good_Samurai_Is_Hard_To_Find">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="A_Good_Samurai_Is_Hard_To_Find"><![CDATA[
         var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002099);
 
         await Coroutine.Sleep(500);
@@ -5020,10 +5365,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         if (item != null)
         {
           item.UseItem();
-        }]]>
-    </CodeChunk>
-    <CodeChunk Name="Travel_To_Yanxia">
-      <![CDATA[
+        }]]></CodeChunk>
+    <CodeChunk Name="Travel_To_Yanxia"><![CDATA[
         await Coroutine.Sleep(500);
         MovementManager.SetFacing(5.39f);
         await Coroutine.Sleep(500);
@@ -5031,10 +5374,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         await Coroutine.Sleep(2000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(500);
-        ]]>
-    </CodeChunk>
-    <CodeChunk Name="Travel_To_Azim_Steppe">
-      <![CDATA[
+        ]]></CodeChunk>
+    <CodeChunk Name="Travel_To_Azim_Steppe"><![CDATA[
         await Coroutine.Sleep(500);
         MovementManager.SetFacing(3.86f);
         await Coroutine.Sleep(500);
@@ -5042,10 +5383,8 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         await Coroutine.Sleep(2000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(500);
-        ]]>
-    </CodeChunk>
-    <CodeChunk Name="Travel_To_The_Lochs">
-      <![CDATA[
+        ]]></CodeChunk>
+    <CodeChunk Name="Travel_To_The_Lochs"><![CDATA[
         await Coroutine.Sleep(500);
         MovementManager.SetFacing(1.58f);
         await Coroutine.Sleep(500);
@@ -5053,7 +5392,6 @@ Setup:    Make sure the 3.0 Main Scenario is completed.
         await Coroutine.Sleep(2000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(500);
-        ]]>
-    </CodeChunk>
+        ]]></CodeChunk>
   </CodeChunks>
 </Profile>

@@ -700,8 +700,8 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         </If>
       </If>
       <If Condition="HasQuest(65695) and not IsQuestCompleted(65695) and GetQuestStep(65695) == 1">
-        <GetTo ZoneId="148" XYZ="375.9059, -32.05927, 438.7427"/>
-        <NoCombatMoveTo XYZ="375.9059, -32.05927, 438.7427"/>
+        <GetTo ZoneId="148" XYZ="375.9712, -32.04504, 440.4023"/>
+        <NoCombatMoveTo XYZ="375.9712, -32.04504, 440.4023"/>
         <UseItem ItemId="2000095" NpcId="2000042" XYZ="375.9059, -32.05927, 438.7427" QuestId="65695" StepId="1"/>
       </If>
       <If Condition="HasQuest(65695) and not IsQuestCompleted(65695) and GetQuestStep(65695) == 255">
@@ -7480,7 +7480,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 4">
       <RunCode Name="Announce_Manual_Completion"/>
-      <WaitWhile Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 4"/>
+      <WaitWhile Condition="HasQuest(66572) and not IsQuestCompleted(66572) and not GetQuestStep(66572) == 255"/>
     </If>
     <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 255">
       <GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
@@ -8082,16 +8082,19 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <GetTo ZoneId="156" XYZ="-529.6382, -1.787507, -276.4462"/>
       <NoCombatMoveTo XYZ="-529.6382, -1.787507, -276.4462"/>
       <SendChat QuestItem="2001079" XYZ="-529.6382, -1.787507, -276.4462" QuestId="66719"/>
+      <WaitWhile Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 1 and GetQuestById(66719).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
     <If Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 1 and GetQuestById(66719).GetTodoArgs(1, 0).Item1 == 1">
       <GetTo ZoneId="156" XYZ="-484.6262, -3.998581, -283.6899"/>
       <NoCombatMoveTo XYZ="-484.6262, -3.998581, -283.6899"/>
       <SendChat QuestItem="2001079" XYZ="-484.6262, -3.998581, -283.6899" QuestId="66719"/>
+      <WaitWhile Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 1 and GetQuestById(66719).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
     <If Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 1 and GetQuestById(66719).GetTodoArgs(1, 0).Item1 == 2">
       <GetTo ZoneId="156" XYZ="-473.4733, -3.43301, -252.8515"/>
       <NoCombatMoveTo XYZ="-473.4733, -3.43301, -252.8515"/>
       <SendChat QuestItem="2001079" XYZ="-469.2324, -4.000019, -256.7648" QuestId="66719"/>
+      <WaitWhile Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 1 and GetQuestById(66719).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(66719) and not IsQuestCompleted(66719) and GetQuestStep(66719) == 255">
       <GetTo ZoneId="156" XYZ="54.79517, 25.54827, -698.0544"/>
@@ -8363,22 +8366,16 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1008276" XYZ="-542.9313, 11.20175, 62.24158" QuestId="66726" StepId="3"/>
     </If>
     <While Condition="HasQuest(66726) and not IsQuestCompleted(66726) and GetQuestStep(66726) == 4">
-      <GetTo ZoneId="152" XYZ="-542.9313, 11.20175, 62.24158"/>
-      <NoCombatMoveTo XYZ="-542.9313, 11.20175, 62.24158"/>
-      <RunCode Name="Dismount"/>
-      <RunCode Name="Disable_Mount"/>
-      <NoCombatMoveTo XYZ="-542.9313, 11.20175, 62.24158"/>
-      <WaitTimer WaitTime="5"/>
-      <NoCombatMoveTo XYZ="-387.5481, 0.1001635, 69.79528"/>
-      <WaitTimer WaitTime="5"/>
-      <NoCombatMoveTo XYZ="-356.2295, 4.868959, 62.71615"/>
-      <WaitTimer WaitTime="5"/>
-      <NoCombatMoveTo XYZ="-323.0839, 8.56884, 70.18418"/>
-      <WaitTimer WaitTime="5"/>
-      <NoCombatMoveTo XYZ="-241.7146, 11.89279, 20.12896"/>
-      <WaitTimer WaitTime="5"/>
-      <RunCode Name="Enable_Mount"/>
-      <NoCombatMoveTo XYZ="-318.6237, 12.25293, -35.05005"/>
+      <MoveTo XYZ="-483.7456, 6.760449, 80.92095"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>	  
+      <MoveTo XYZ="-373.9252, 1.538172, 64.90609"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>	  
+      <MoveTo XYZ="-345.4185, 6.056373, 59.15918"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>	  
+      <MoveTo XYZ="-314.5034, 8.049933, 81.6847"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>	  
+      <MoveTo XYZ="-257.1334, 11.48224, -10.28989"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>	  
       <UseObject NpcId="2003347" XYZ="-318.6237, 12.25293, -35.05005" Radius="10" QuestId="66726" StepId="4"/>
     </While>
     <If Condition="HasQuest(66726) and not IsQuestCompleted(66726) and GetQuestStep(66726) == 5">
@@ -10795,6 +10792,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <WaitWhile Condition="HasQuest(65620) and not IsQuestCompleted(65620) and not GetQuestStep(65620) == 255"/>
     </If>
     <If Condition="HasQuest(65620) and not IsQuestCompleted(65620) and GetQuestStep(65620) == 255">
+	  <WaitWhile Condition="QuestLogManager.InCutscene"/>
       <GetTo ZoneId="155" XYZ="-905.7603, 229.2982, -10.14728"/>
       <NoCombatMoveTo XYZ="-905.7603, 229.2982, -10.14728"/>
       <TurnIn QuestId="65620" NpcId="1010042" XYZ="-905.7603, 229.2982, -10.14728"/>
@@ -11467,16 +11465,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <HandOver ItemId="2001547" NpcId="1010929" XYZ="-146.8071, 43.49525, -187.3961" QuestId="65906" StepId="3"/>
     </If>
     <If Condition="HasQuest(65906) and not IsQuestCompleted(65906) and GetQuestStep(65906) == 255">
-      <If Condition="not IsOnMap(156) and not IsOnMap(351)">
+      <If Condition="not IsOnMap(351)">
         <GetTo ZoneId="156" XYZ="21.13373, 22.32391, -631.281"/>
-      </If>
-      <If Condition="IsOnMap(156)">
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
       </If>
       <If Condition="IsOnMap(351) and IsOnSubMap(481)">
         <UseTransport InteractDistance="3.0" NpcId="2002878" XYZ="-0.01531982, -1.022339, -26.7796"/>
       </If>
-      <NoCombatMoveTo XYZ="-1.266479, -1.995725, -42.06915"/>
       <TurnIn QuestId="65906" NpcId="1010930" XYZ="-1.266479, -1.995725, -42.06915"/>
     </If>
     <!-- Defenders for Ishgard (Level 50) -->

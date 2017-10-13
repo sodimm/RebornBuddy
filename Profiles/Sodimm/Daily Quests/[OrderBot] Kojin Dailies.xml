@@ -31,57 +31,104 @@ Authors:  Sodimm.
       <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
     </If>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517,68518"/>
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68525,68526"/>
     <!-- Pick Ups -->
-    <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518]))">
-      <If Condition="not IsOnSubMap(2769)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-      </If>
-      <!-- Best Served Foul -->
-      <If Condition="not HasQuest(68515)">
-        <!--
-        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
--->
-        <If Condition="IsQuestAcceptQualified(68515)">
-          <PickupQuest QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    <If Condition="not HasQuest(68510)">
+      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68525,68526]))">
+        <If Condition="not IsOnSubMap(2769)">
+          <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         </If>
-      </If>
-      <!-- A Real Pearler -->
-      <If Condition="not HasQuest(68516)">
-        <!--
+        <!-- Best Served Foul -->
+        <If Condition="not HasQuest(68515)">
+          <!--
         <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
 -->
-        <If Condition="IsQuestAcceptQualified(68516)">
-          <PickupQuest QuestId="68516" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          <If Condition="IsQuestAcceptQualified(68515)">
+            <PickupQuest QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
         </If>
-      </If>
-      <!-- You Have the Rite -->
-      <If Condition="not HasQuest(68517)">
-        <!--
+        <!-- A Real Pearler -->
+        <If Condition="not HasQuest(68516)">
+          <!--
         <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
 -->
-        <If Condition="IsQuestAcceptQualified(68517)">
-          <PickupQuest QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          <If Condition="IsQuestAcceptQualified(68516)">
+            <PickupQuest QuestId="68516" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
         </If>
-      </If>
-      <!-- Krilled to Pieces -->
-      <If Condition="not HasQuest(68518)">
-        <!--
+        <!-- You Have the Rite -->
+        <If Condition="not HasQuest(68517)">
+          <!--
         <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
 -->
-        <If Condition="IsQuestAcceptQualified(68518)">
-          <PickupQuest QuestId="68518" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          <If Condition="IsQuestAcceptQualified(68517)">
+            <PickupQuest QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Krilled to Pieces -->
+        <If Condition="not HasQuest(68518)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68518)">
+            <PickupQuest QuestId="68518" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Tonight We Dine in Shells -->
+        <If Condition="not HasQuest(68519)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68519)">
+            <PickupQuest QuestId="68519" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Pickles of Partnership -->
+        <If Condition="not HasQuest(68520)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68520)">
+            <PickupQuest QuestId="68520" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Little Kojin Lost -->
+        <If Condition="not HasQuest(68521)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68521)">
+            <PickupQuest QuestId="68521" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Anala-lyze This -->
+        <If Condition="not HasQuest(68525)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68525)">
+            <PickupQuest QuestId="68525" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Sand-sifting Specialist -->
+        <If Condition="not HasQuest(68526)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68526)">
+            <PickupQuest QuestId="68526" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
         </If>
       </If>
     </If>
-	<!-- Striped Ray -->
+    <!-- Striped Ray -->
     <!-- Krilled to Pieces -->
     <If Condition="HasQuest(68518) and GetQuestStep(68518) == 1">
       <If Condition="not IsOnSubMap(2769)">
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
       </If>
       <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68518" StepId="1"/>
-	</If>
+    </If>
     <If Condition="HasQuest(68518) and GetQuestStep(68518) == 2">
       <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
@@ -93,7 +140,7 @@ Authors:  Sodimm.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-	  <SoUseSpell SpellId="10013" Distance="2" NpcIds="2009233,2009234,2009235,2009236,2009237" QuestId="68518" StepId="2">
+      <SoUseSpell SpellId="10013" Distance="2" NpcIds="2009233,2009234,2009235,2009236,2009237" QuestId="68518" StepId="2">
         <HotSpots>
           <HotSpot XYZ="81.19324, -197.7722, -266.8651" Radius="10"/>
           <HotSpot XYZ="195.056, -183.3066, -346.6087" Radius="10"/>
@@ -102,8 +149,37 @@ Authors:  Sodimm.
           <HotSpot XYZ="173.9985, -161.8525, -190.2953" Radius="10"/>
         </HotSpots>
       </SoUseSpell>
-	  <RunCode Name="Dismount"/>
-	</If>
+      <RunCode Name="Dismount"/>
+    </If>
+    <!-- Sand-sifting Specialist -->
+    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 1">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68526" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 2">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <SoUseSpell SpellId="10013" Distance="2" NpcIds="2009105,2009106,2009107,2009108,2009109" QuestId="68526" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="560.1434, -75.54742, -410.8187" Radius="10"/>
+          <HotSpot XYZ="539.2385, -56.26001, -364.889" Radius="10"/>
+          <HotSpot XYZ="613.9467, -74.57086, -400.0458" Radius="10"/>
+          <HotSpot XYZ="286.3356, -74.60144, -499.0158" Radius="10"/>
+          <HotSpot XYZ="239.1852, -74.99817, -464.9576" Radius="10"/>
+        </HotSpots>
+      </SoUseSpell>
+      <RunCode Name="Dismount"/>
+    </If>
     <!-- Underwater -->
     <!-- A Real Pearler -->
     <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1">
@@ -138,17 +214,76 @@ Authors:  Sodimm.
       <TalkTo NpcId="1024294" XYZ="-24.76544, -190.3894, -137.1024" QuestId="68517" StepId="1"/>
     </If>
     <!-- Main Land -->
+    <!-- Shoal Rock -->
+    <!-- Pickles of Partnership -->
+    <If Condition="HasQuest(68520) and  GetQuestStep(68520) == 1 and GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 0">
+      <GetTo ZoneId="613" XYZ="575.754, 9.866471, -734.5359"/>
+      <HandOver ItemIds="2002426" NpcId="1024420" XYZ="577.3556, 9.866471, -733.7911" QuestId="68520"/>
+    </If>
+    <If Condition="HasQuest(68520) and  GetQuestStep(68520) == 1 and GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 1">
+      <GetTo ZoneId="613" XYZ="536.109, 33.65523, -812.7546"/>
+      <HandOver ItemIds="2002426" NpcId="1019249" XYZ="537.1328, 33.65523, -811.1849" QuestId="68520"/>
+    </If>
+    <!-- Little Kojin Lost -->
+    <If Condition="HasQuest(68521) and GetQuestStepGtLt(68521, 0, 255)">
+      <GetTo ZoneId="613" XYZ="821.1222, 8.786834, -774.555"/>
+      <RunCode Name="68521"/>
+      <UseObject UseDistance="1" NpcIds="1024295,1024345" QuestId="68521" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="891.783, -140.6119, -794.3694" Radius="10"/>
+          <HotSpot XYZ="861.6616, -108.6595, -546.4103" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- Volcano -->
+    <!-- Tonight We Dine in Shells -->
+    <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <GetTo ZoneId="613" XYZ="28.76486, 2.999225, 527.7987"/>
+      <UseItem ItemId="2002401" NpcIds="2009091,2009092,2009093" QuestId="68519" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-72.58722, 10.51343, 632.4102" Radius="10"/>
+          <HotSpot XYZ="29.49561, 3.005981, 527.7637" Radius="10"/>
+          <HotSpot XYZ="38.86462, 18.20398, 712.7947" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <!-- Anala-lyze This -->
+    <If Condition="HasQuest(68525) and GetQuestStep(68525) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <GetTo ZoneId="613" XYZ="28.07532, 51.43711, 770.9987"/>
+      <UseObject NpcIds="2009162,2009163" QuestId="68525" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="29.58716, 51.40759, 771.3588" Radius="10"/>
+          <HotSpot XYZ="337.85, 5.81366, 685.2673" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- Isle of Bekko -->
     <!-- A Real Pearler -->
     <If Condition="HasQuest(68516) and GetQuestStep(68516) == 2">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
       <GetTo ZoneId="613" XYZ="878.0482, 1.179207, 856.5481"/>
       <HandOver ItemId="2002399" NpcId="1024460" XYZ="878.0803, 1.179207, 858.2742" QuestId="68516" StepId="2"/>
     </If>
     <!-- Best Served Foul -->
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
       <GetTo ZoneId="613" XYZ="702.0458, 0.7776591, -25.6705"/>
       <TalkTo NpcId="1024538" XYZ="703.7003, 0.7387832, -26.0777" QuestId="68515" StepId="1"/>
     </If>
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
       <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
         <HotSpots>
           <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
@@ -165,6 +300,9 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
       <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
         <HotSpots>
           <HotSpot XYZ="762.7983, 0.4448189, -286.8482" Radius="10"/>
@@ -202,53 +340,187 @@ Authors:  Sodimm.
       <SoEmoteNpc Emote="pray" NpcIds="2009085" XYZ="368.3986, -116.6247, -291.3406" QuestId="68517" StepId="3"/>
     </If>
     <!-- TurnIn -->
-    <If Condition="not IsOnSubMap(2769)">
-      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-    </If>
     <!-- Best Served Foul -->
-    <If Condition="HasQuest(68515) and not IsQuestCompleted(68515) and GetQuestStep(68515) == 255">
+    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
       <!--
       <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
 -->
       <TurnIn QuestId="68515" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
     <!-- A Real Pearler -->
-    <If Condition="HasQuest(68516) and not IsQuestCompleted(68516) and GetQuestStep(68516) == 255">
+    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
       <!--
       <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
 -->
       <TurnIn ItemIds="2002428" QuestId="68516" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
     <!-- You Have the Rite -->
-    <If Condition="HasQuest(68517) and not IsQuestCompleted(68517) and GetQuestStep(68517) == 255">
+    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
       <!--
       <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
 -->
       <TurnIn QuestId="68517" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
     <!-- Krilled to Pieces -->
-    <If Condition="HasQuest(68518) and not IsQuestCompleted(68518) and GetQuestStep(68518) == 255">
+    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
       <!--
       <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
 -->
       <TurnIn QuestId="68518" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Tonight We Dine in Shells -->
+    <If Condition="HasQuest(68519) and GetQuestStep(68519) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68519" ItemId="2002402" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Krilled to Pieces -->
+    <If Condition="HasQuest(68520) and GetQuestStep(68520) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68520" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Little Kojin Lost -->
+    <If Condition="HasQuest(68521) and GetQuestStep(68521) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68521" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Anala-lyze This -->
+    <If Condition="HasQuest(68525) and GetQuestStep(68525) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68525" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Sand-sifting Specialist -->
+    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68526" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Under Wraps -->
+    <If Condition="not HasQuest(68510) and not IsQuestCompleted(68510)">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.0734, -119.5893, -247.4663" />
+-->
+      <If Condition="IsQuestAcceptQualified(68510)">
+        <PickupQuest QuestId="68510" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 1">
+      <GetTo ZoneId="614" XYZ="462.9904, 56.63378, -156.7799"/>
+      <SoTalkTo NpcId="1024231" XYZ="463.4012, 56.86197, -157.9462" QuestId="68510" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 2">
+      <GetTo ZoneId="614" XYZ="146.1002, 26.60172, 455.8178"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 2"/>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 3">
+      <GetTo ZoneId="614" XYZ="204.9109, 14.28261, 711.4144"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 3"/>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 4">
+      <GetTo ZoneId="614" XYZ="300.4438, 2.80657, 731.8773"/>
+      <TalkTo NpcId="1024238" XYZ="302.7236, 2.86196, 731.4412" QuestId="68510" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 5">
+      <GetTo ZoneId="614" XYZ="181.4258, 6.071421, 554.3765"/>
+      <TalkTo NpcId="1024244" XYZ="181.1093, 6.110566, 553.2462" QuestId="68510" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--    <GetTo ZoneId="613" XYZ="397.8369, -119.5893, -247.8048" />
+-->
+      <TurnIn QuestId="68510" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+    </If>
   </Order>
   <CodeChunks>
-    <CodeChunk Name="MoveForward"><![CDATA[
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="MoveForward">
+      <![CDATA[
         await Coroutine.Sleep(1000);
         MovementManager.MoveForwardStart();
         await Coroutine.Sleep(2000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(1000);
-        ]]></CodeChunk>
-    <CodeChunk Name="Dismount"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Dismount">
+      <![CDATA[
         if(Core.Player.IsMounted)
         {
           await CommonTasks.StopAndDismount();
           await Coroutine.Sleep(500);
         }
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68521">
+      <![CDATA[
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        await CommonTasks.DescendTo(-120f);
+        await Coroutine.Sleep(1000);
+        await CommonTasks.StopAndDismount();
+        GameObjectManager.GetObjectByNPCId(2009099).Face();
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(2000);
+        MovementManager.MoveStop();
+        ChatManager.SendChat("Itomaki");
+        while (ConditionParser.GetQuestStep(68521) != 2)
+        {
+          if (Talk.DialogOpen)
+          {
+            Talk.Next();
+          }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
   </CodeChunks>
   <GrindAreas>
   </GrindAreas>

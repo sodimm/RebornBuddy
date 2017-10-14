@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Heaven-sent -->
-    <If Condition="not HasQuest(68509) and not IsQuestCompleted(68509)">
+    <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
       <GetTo ZoneId="613" XYZ="-728.2995, 0.1718476, -407.0521"/>
       <If Condition="IsQuestAcceptQualified(68509)">
         <PickupQuest QuestId="68509" NpcId="1024221" XYZ="-729.6101, 0.2552749, -404.9592"/>
@@ -252,6 +252,7 @@ Authors:  Sodimm.
           <HotSpot XYZ="379.0798, -0.07635498, -494.316" Radius="10"/>
         </HotSpots>
       </UseItem>
+      <GetTo ZoneId="613" XYZ="136.6423, -0.06949949, -580.2354"/>
       <ExEnablePlugins Names="Enable Flight"/>
     </If>
     <!-- Confused Courier -->
@@ -309,8 +310,9 @@ Authors:  Sodimm.
     <If Condition="HasQuest(68521) and GetQuestStepGtLt(68521, 0, 255)">
       <GetTo ZoneId="613" XYZ="821.1222, 8.786834, -774.555"/>
       <RunCode Name="68521"/>
-      <UseObject UseDistance="1" NpcIds="1024295,1024345" QuestId="68521" StepId="2">
+      <UseObject UseDistance="1" NpcIds="1024295,1024344,1024345" QuestId="68521" StepId="2">
         <HotSpots>
+          <HotSpot XYZ="836.1486, -127.8554, -910.7042" Radius="10"/>
           <HotSpot XYZ="891.783, -140.6119, -794.3694" Radius="10"/>
           <HotSpot XYZ="861.6616, -108.6595, -546.4103" Radius="10"/>
         </HotSpots>
@@ -337,9 +339,10 @@ Authors:  Sodimm.
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="28.07532, 51.43711, 770.9987"/>
-      <UseObject NpcIds="2009162,2009163" QuestId="68525" StepId="1">
+      <UseObject NpcIds="2009161,2009162,2009163" QuestId="68525" StepId="1">
         <HotSpots>
           <HotSpot XYZ="29.58716, 51.40759, 771.3588" Radius="10"/>
+          <HotSpot XYZ="52.26208, 18.84485, 576.4399" Radius="10"/>
           <HotSpot XYZ="337.85, 5.81366, 685.2673" Radius="10"/>
         </HotSpots>
       </UseObject>
@@ -552,7 +555,7 @@ Authors:  Sodimm.
       <TurnIn QuestId="68526" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
     <!-- Under Wraps -->
-    <If Condition="not HasQuest(68510) and not IsQuestCompleted(68510)">
+    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not IsQuestCompleted(68510)">
       <If Condition="not IsOnSubMap(2769)">
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
       </If>
@@ -570,12 +573,10 @@ Authors:  Sodimm.
     <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 2">
       <GetTo ZoneId="614" XYZ="146.1002, 26.60172, 455.8178"/>
       <RunCode Name="Announce_Manual_Completion"/>
-      <WaitWhile Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 2"/>
     </If>
     <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 3">
       <GetTo ZoneId="614" XYZ="204.9109, 14.28261, 711.4144"/>
       <RunCode Name="Announce_Manual_Completion"/>
-      <WaitWhile Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 3"/>
     </If>
     <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 4">
       <GetTo ZoneId="614" XYZ="300.4438, 2.80657, 731.8773"/>

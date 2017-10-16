@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68532"/>
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68532"/>
     <!-- Unlock (Requires Quest: Tide Goes In, Imperials Go Out to be completed.) -->
     <!-- Heaven-sent -->
     <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
@@ -35,7 +35,7 @@ Authors:  Sodimm.
     </If>
     <!-- Pick Ups -->
     <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511)">
-      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68532]))">
+      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68532]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         </If>
@@ -165,6 +165,15 @@ Authors:  Sodimm.
             <PickupQuest QuestId="68528" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
           </If>
         </If>
+        <!-- Pleasure Doing Business -->
+        <If Condition="not HasQuest(68529)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68529)">
+            <PickupQuest QuestId="68529" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
         <!-- Flotsam and Jetsam -->
         <If Condition="not HasQuest(68532)">
           <!--
@@ -286,6 +295,40 @@ Authors:  Sodimm.
       <TalkTo NpcId="1024294" XYZ="-24.76544, -190.3894, -137.1024" QuestId="68517" StepId="1"/>
     </If>
     <!-- Main Land -->
+    <!-- Pleasure Doing Business -->
+    <While Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 0)">
+      <GetTo ZoneId="613" XYZ="-747.4273, 1.579549, -478.3697"/>
+      <MoveTo XYZ="-747.4273, 1.579549, -478.3697"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024311).IsVisible">
+        <TalkTo NpcId="1024311" XYZ="-750.3929, 1.667969, -479.3317" QuestId="68529"/>
+      </If>
+      <MoveTo XYZ="-795.0103, 21.34735, -466.2089"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024310).IsVisible">
+        <TalkTo NpcId="1024310" XYZ="-795.0103, 21.34735, -466.2089" QuestId="68529"/>
+      </If>
+    </While>
+    <While Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 1)">
+      <GetTo ZoneId="613" XYZ="-792.0806, 8.039128, -444.419"/>
+      <MoveTo XYZ="-792.0806, 8.039128, -444.419"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024312).IsVisible">
+        <TalkTo NpcId="1024312" XYZ="-792.0806, 8.039128, -444.419" QuestId="68529"/>
+      </If>
+      <MoveTo XYZ="-764.126, 4.745544, -441.5198"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024313).IsVisible">
+        <TalkTo NpcId="1024313" XYZ="-764.126, 4.745544, -441.5198" QuestId="68529"/>
+      </If>
+    </While>
+    <While Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 2)">
+      <GetTo ZoneId="613" XYZ="-784.4816, 7.70575, -456.9925"/>
+      <MoveTo XYZ="-784.4816, 7.70575, -456.9925"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024314).IsVisible">
+        <TalkTo NpcId="1024314" XYZ="-784.4816, 7.70575, -456.9925" QuestId="68529"/>
+      </If>
+      <MoveTo XYZ="-797.4823, 8.045045, -417.5632"/>
+      <If Condition="GameObjectManager.GetObjectByNPCId(1024315).IsVisible">
+        <TalkTo NpcId="1024315" XYZ="-797.4823, 8.045045, -417.5632" QuestId="68529"/>
+      </If>
+    </While>
     <!-- Flotsam and Jetsam -->
     <If Condition="HasQuest(68532) and GetQuestStep(68532) == 1">
       <If Condition="IsOnSubMap(2769)">
@@ -650,6 +693,16 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68528" ItemIds="2002408,2002409" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Pleasure Doing Business -->
+    <If Condition="HasQuest(68529) and GetQuestStep(68529) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68529" ItemIds="2002410,2002411,2002412" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
     <!-- Flotsam and Jetsam -->
     <If Condition="HasQuest(68532) and GetQuestStep(68532) == 255">
       <If Condition="not IsOnSubMap(2769)">
@@ -761,7 +814,7 @@ Authors:  Sodimm.
     <!-- A Test of Courage -->
     <!-- Rank 7 -->
     <!-- True-blue -->
-    </Order>
+  </Order>
   <CodeChunks>
     <CodeChunk Name="Announce_Manual_Completion">
       <![CDATA[ 

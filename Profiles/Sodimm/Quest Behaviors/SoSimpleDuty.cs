@@ -1,14 +1,18 @@
+using Buddy.Coroutines;
 using Clio.Utilities;
 using Clio.XmlEngine;
 using ff14bot.Behavior;
 using ff14bot.Managers;
+using ff14bot.Navigation;
 using ff14bot.Objects;
+using ff14bot.Pathing;
 using ff14bot.RemoteWindows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 using TreeSharp;
 using Action = TreeSharp.Action;
@@ -33,6 +37,10 @@ namespace ff14bot.NeoProfiles.Tags
         [XmlAttribute("UseItem")]
         public bool UseItem { get; set; }
 
+        [DefaultValue(false)]
+        [XmlAttribute("InteractInCombat")]
+        public bool InteractInCombat { get; set; }
+
         [XmlElement("InteractObjects")]
         public List<InteractObject> Interactobjects { get; set; }
 
@@ -40,6 +48,7 @@ namespace ff14bot.NeoProfiles.Tags
         public List<CheckPoint> Checkpoints { get; set; }
 
         private string ItemNames;
+        private Composite _combatInteractLogic;
         private HashSet<uint> interactNpcIds;
         private HashSet<BagSlot> usedSlots;
         protected override void OnStart()
@@ -78,6 +87,13 @@ namespace ff14bot.NeoProfiles.Tags
                     }
                 }
                 ItemNames = sb.ToString();
+            }
+
+            if (InteractInCombat)
+            {
+                _combatInteractLogic = new ActionRunCoroutine(cr => CombatInteract());
+                Log("Injecting InCombat Interact Logic.");
+                TreeHooks.Instance.InsertHook("TreeStart", 0, _combatInteractLogic);
             }
 
             GameEvents.OnPlayerDied += OnPlayerDeathEvent;
@@ -179,8 +195,35 @@ namespace ff14bot.NeoProfiles.Tags
             );
         }
 
+        private async Task<bool> CombatInteract()
+        {
+            if (HasInteractObjects && InteractableTarget != null)
+            {
+                if (Core.Player.Distance(InteractableTarget.Location) > 5)
+                {
+                    return await CommonTasks.MoveAndStop(new MoveToParameters(InteractableTarget.Location), 3);
+                }
+
+                if (Core.Player.Distance(InteractableTarget.Location) < 5)
+                {
+                    InteractableTarget.Interact();
+                    await Coroutine.Wait(10000, () => !Core.Player.IsCasting);
+                }
+
+                await Coroutine.Yield();
+            }
+
+            return false;
+        }
+
         protected override void OnDone()
         {
+            if (_combatInteractLogic != null)
+            {
+                Log("Removing Combat Interact Logic.");
+                TreeHooks.Instance.RemoveHook("TreeStart", _combatInteractLogic);
+            }
+
             doneUseItem = false;
             GameEvents.OnPlayerDied -= OnPlayerDeathEvent;
             base.OnDone();

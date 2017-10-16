@@ -7,6 +7,9 @@ Authors:  Sodimm.
   <Name>[OrderBot] Kojin Dailies.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
+    <!-- Register Dailies -->
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68532"/>
+    <!-- Unlock (Requires Quest: Tide Goes In, Imperials Go Out to be completed.) -->
     <!-- Heaven-sent -->
     <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
       <GetTo ZoneId="613" XYZ="-728.2995, 0.1718476, -407.0521"/>
@@ -30,10 +33,8 @@ Authors:  Sodimm.
       <GetTo ZoneId="613" XYZ="652.0712, 3.239789, -58.64638"/>
       <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
     </If>
-    <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68532"/>
     <!-- Pick Ups -->
-    <If Condition="not HasQuest(68510) and not HasQuest(68511)">
+    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511)">
       <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68532]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
@@ -659,6 +660,7 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68532" ItemId="2002415" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Rank 3 -->
     <!-- Under Wraps -->
     <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not IsQuestCompleted(68510)">
       <If Condition="not IsOnSubMap(2769)">
@@ -699,6 +701,7 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68510" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
     </If>
+    <!-- Rank 4 -->
     <!-- The Value of Silence -->
     <If Condition="IsQuestCompleted(68510) and not HasQuest(68511) and not IsQuestCompleted(68511)">
       <If Condition="not IsOnSubMap(2769)">
@@ -752,7 +755,13 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68511" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
     </If>
-  </Order>
+    <!-- Rank 5 -->
+    <!-- Misdelivered -->
+    <!-- Rank 6 -->
+    <!-- A Test of Courage -->
+    <!-- Rank 7 -->
+    <!-- True-blue -->
+    </Order>
   <CodeChunks>
     <CodeChunk Name="Announce_Manual_Completion">
       <![CDATA[ 

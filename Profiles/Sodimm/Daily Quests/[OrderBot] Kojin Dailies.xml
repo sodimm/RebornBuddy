@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68532"/>
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532"/>
     <!-- Unlock (Requires Quest: Tide Goes In, Imperials Go Out to be completed.) -->
     <!-- Heaven-sent -->
     <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
@@ -35,7 +35,7 @@ Authors:  Sodimm.
     </If>
     <!-- Pick Ups -->
     <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511)">
-      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68532]))">
+      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         </If>
@@ -174,6 +174,24 @@ Authors:  Sodimm.
             <PickupQuest QuestId="68529" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
           </If>
         </If>
+        <!-- Deep Turquoise Sea -->
+        <If Condition="not HasQuest(68530)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68530)">
+            <PickupQuest QuestId="68530" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Holy Mother of Pearl -->
+        <If Condition="not HasQuest(68531)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68531)">
+            <PickupQuest QuestId="68531" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
         <!-- Flotsam and Jetsam -->
         <If Condition="not HasQuest(68532)">
           <!--
@@ -275,6 +293,33 @@ Authors:  Sodimm.
       <RunCode Name="Announce_Manual_Completion"/>
       <WaitTimer WaitTime="60"/>
       <WaitWhile Condition="HasQuest(68527) and GetQuestStep(68527) == 1"/>
+    </If>
+    <!-- Deep Turquoise Sea -->
+    <If Condition="HasQuest(68530) and GetQuestStep(68530) == 1">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <MoveTo XYZ="231.6208, -84.12361, -83.17975"/>
+      <MoveTo XYZ="119.7891, -91.10775, 58.22238"/>
+      <MoveTo XYZ="-174.4097, -133.5922, 168.7589"/>
+      <MoveTo XYZ="-271.8313, -191.5234, 408.0979"/>
+      <MoveTo XYZ="-271.8313, -293.0225, 408.0979"/>
+    <UseObject NpcIds="2009119,2009120,2009121,2009122,2009123" UseDistance="0.50" QuestId="68530" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-233.9361, -411.3985, 372.8236" Radius="10"/>
+          <HotSpot XYZ="-279.6216, -366.8116, 408.6824" Radius="10"/>
+          <HotSpot XYZ="-286.0914, -367.422, 390.2494" Radius="10"/>
+          <HotSpot XYZ="-249.5919, -325.948, 472.7092" Radius="10"/>
+          <HotSpot XYZ="-229.2668, -308.7358, 449.485" Radius="10"/>
+        </HotSpots>
+      </UseObject>
     </If>
     <!-- You Have the Rite -->
     <If Condition="HasQuest(68517) and GetQuestStep(68517) == 1">
@@ -474,6 +519,37 @@ Authors:  Sodimm.
       </If>
       <GetTo ZoneId="613" XYZ="878.0482, 1.179207, 856.5481"/>
       <HandOver ItemId="2002399" NpcId="1024460" XYZ="878.0803, 1.179207, 858.2742" QuestId="68516" StepId="2"/>
+    </If>
+    <!-- Holy Mother of Pearl -->
+    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <GetTo ZoneId="613" XYZ="716.9872, -0.3000001, 142.1604"/>
+      <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 2">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <UseItem ItemId="2002414" NpcIds="2009124,2009126,2009127,2009128,2009227,2008344,2008343" QuestId="68531" StepId="2">
+        <HotSpots>
+        <HotSpot XYZ="753.5667, 0.4119263, 121.7212" Radius="10"/>
+          <HotSpot XYZ="745.4185, 0.1677856, 95.75024" Radius="10"/>
+          <HotSpot XYZ="745.4489, 0.1677856, 95.78088" Radius="10"/>
+          <HotSpot XYZ="777.1571, 1.205444, 110.3685" Radius="10"/>
+          <HotSpot XYZ="708.0338, 3.005981, 152.575" Radius="10"/>
+          <HotSpot XYZ="785.5801, 1.235901, 21.86615" Radius="10"/>
+          <HotSpot XYZ="777.1876, 1.235901, 110.3685" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 3">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <GetTo ZoneId="613" XYZ="717.1461, -0.3000001, 141.6932"/>
+      <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="3"/>
     </If>
     <!-- Best Served Foul -->
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 1">
@@ -703,6 +779,26 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68529" ItemIds="2002410,2002411,2002412" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Deep Turquoise Sea -->
+    <If Condition="HasQuest(68530) and GetQuestStep(68530) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68530" ItemId="2002413" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Holy Mother of Pearl -->
+    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68531" ItemIds="2002410,2002411,2002412" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
     <!-- Flotsam and Jetsam -->
     <If Condition="HasQuest(68532) and GetQuestStep(68532) == 255">
       <If Condition="not IsOnSubMap(2769)">
@@ -851,7 +947,10 @@ Authors:  Sodimm.
         MovementManager.MoveForwardStart();
         await Coroutine.Sleep(2000);
         MovementManager.MoveStop();
-        ChatManager.SendChat("Itomaki");
+        if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)
+        {
+          ChatManager.SendChat("Itomaki");
+        }
         while (ConditionParser.GetQuestStep(68521) != 2)
         {
           if (Talk.DialogOpen)

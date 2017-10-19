@@ -8,6 +8,105 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
   <Name>[OrderBot] Moogle Dailies.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
+    <!-- Tricks and Stones -->
+    <If Condition="IsQuestCompleted(67407) and not HasQuest(67856) and not IsQuestCompleted(67856)">
+      <GetTo ZoneId="400" XYZ="236.0822, -42.13839, 600.6666"/>
+      <If Condition="IsQuestAcceptQualified(67856)">
+        <PickupQuest NpcId="1017328" QuestId="67856" XYZ="234.3328, -42.20274, 601.007"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 1">
+      <GetTo ZoneId="400" XYZ="259.3539, -40.47296, 646.0106"/>
+      <ExDisablePlugins Names="Enable Flight"/>
+      <TalkTo QuestId="67856" StepId="1" NpcId="1017329" XYZ="351.7662, -74.80417, 629.9688"/>
+      <ExEnablePlugins Names="Enable Flight"/>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 2">
+      <GetTo ZoneId="418" XYZ="127.4776, 24.45884, -2.32563"/>
+      <TalkTo QuestId="67856" StepId="2" NpcId="1012163" XYZ="128.252, 24.45884, -0.6867676"/>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 3">
+      <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
+      <TalkTo QuestId="67856" StepId="3" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>
+    </If>	
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4">
+      <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
+      <TalkTo QuestId="67856" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>
+    </If>
+    <!-- Fake Kupo Nut -->
+    <While Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4 and not HasAtLeast(15720,1)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="31591"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="31617"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="31643"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="31669"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="31695"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="31721"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="31747"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="31773"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4 and HasAtLeast(15720,1)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4">
+      <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
+      <HandOver ItemId="15720" QuestId="67856" StepId="4" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>		
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 5">
+      <GetTo ZoneId="400" XYZ="-367.9719, 60.89617, 311.8606"/>
+      <TalkTo QuestId="67856" StepId="5" NpcId="1017331" XYZ="-366.8422, 60.89617, 312.6726"/>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 6">
+      <GetTo ZoneId="400" XYZ="-612.8724, 48, 326.9892"/>
+      <TalkTo QuestId="67856" StepId="6" NpcId="1017334" XYZ="-614.374, 48, 326.2836"/>
+    </If>	
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 7">
+      <GetTo ZoneId="400" XYZ="-367.9719, 60.89617, 311.8606"/>
+      <TalkTo QuestId="67856" StepId="7" NpcId="1017331" XYZ="-366.8422, 60.89617, 312.6726"/>
+    </If>
+    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 255">
+      <GetTo ZoneId="400" XYZ="-367.9719, 60.89617, 311.8606"/>
+      <SoTurnIn QuestId="67856" StepId="255" NpcId="1017335" XYZ="-370.9926, 60.86112, 309.8954"/>
+    </If>
     <!-- Register Dailies -->
     <RegisterDailies QuestIds="67826,67827,67828,67829,67830,67831,67832,67833,67834,67835,67836,67837,67838,67839,67840,67841,67842,67843,67844,67845,67846,67847,67848,67849,67850,67851,67852,67853,67854,67855"/>
     <!-- Pick Ups -->
@@ -3152,125 +3251,6 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <TurnIn QuestId="67855" NpcId="1017171" XYZ="-334.9032, 58.91553, 315.6107"/>
     </If>
     <!-- Reputation & Unlock Quests -->
-    <!-- Tricks and Stones -->
-    <If Condition="not HasQuest(67856) and not IsQuestCompleted(67856)">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="234.3328, -42.20274, 601.007"/>
-      </If>
-      <NoCombatMoveTo XYZ="234.3328, -42.20274, 601.007"/>
-      <PickUpQuest QuestId="67856" NpcId="1017328" XYZ="234.3328, -42.20274, 601.007"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 1">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="351.7662, -74.80417, 629.9688" />
-      </If>
-      <NoCombatMoveTo XYZ="351.7662, -74.80417, 629.9688" />
-      <TalkTo NpcId="1017329" XYZ="351.7662, -74.80417, 629.9688" QuestId="67856" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 2">
-      <If Condition="not IsOnMap(418)">
-        <GetTo ZoneId="418" XYZ="128.252, 24.45884, -0.6867676" />
-      </If>
-      <NoCombatMoveTo XYZ="128.252, 24.45884, -0.6867676" />
-      <TalkTo NpcId="1012163" XYZ="128.252, 24.45884, -0.6867676" QuestId="67856" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 3">
-      <If Condition="not IsOnMap(419)">
-        <GetTo ZoneId="419" XYZ="-246.7231, -20.03492, -90.10455" />
-      </If>
-      <NoCombatMoveTo XYZ="-246.7231, -20.03492, -90.10455" />
-      <TalkTo NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455" QuestId="67856" StepId="3"/>
-    </If>
-    <!-- Fake Kupo Nut -->
-    <While Condition="HasQuest(67856) and GetQuestStep(67856) == 4 and not HasAtLeast(15720,1)">
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
-          <Synthesize RecipeId="31591" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100001" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
-          <Synthesize RecipeId="31617" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100015" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
-          <Synthesize RecipeId="31643" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100030" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
-          <Synthesize RecipeId="31669" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100075" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
-          <Synthesize RecipeId="31695" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100045" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
-          <Synthesize RecipeId="31721" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100060" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
-          <Synthesize RecipeId="31747" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100090" />
-          </While>
-        </If>
-        <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
-          <Synthesize RecipeId="31773" />
-          <While Condition="CraftingManager.IsCrafting">
-            <CraftAction Name="Basic Synthesis" ActionId="100105" />
-          </While>
-        </If>
-      </While>
-    <If Condition="HasQuest(67856) and GetQuestStep(67856) == 4 and HasAtLeast(15720,1)">
-      <StopCrafting />
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4">
-      <If Condition="not IsOnMap(419)">
-        <GetTo ZoneId="419" XYZ="-246.7231, -20.03492, -90.10455" />
-      </If>
-      <NoCombatMoveTo XYZ="-246.7231, -20.03492, -90.10455" />
-      <HandOver ItemId="15720" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455" QuestId="67856" StepId="4"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 5">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="-366.8422, 60.89617, 312.6726" />
-      </If>
-      <NoCombatMoveTo XYZ="-366.8422, 60.89617, 312.6726" />
-      <TalkTo NpcId="1017331" XYZ="-366.8422, 60.89617, 312.6726" QuestId="67856" StepId="5"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 6">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="-614.374, 48, 326.2836" />
-      </If>
-      <NoCombatMoveTo XYZ="-614.374, 48, 326.2836" />
-      <TalkTo NpcId="1017334" XYZ="-614.374, 48, 326.2836" QuestId="67856" StepId="6"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 7">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="-366.8422, 60.89617, 312.6726" />
-      </If>
-      <NoCombatMoveTo XYZ="-366.8422, 60.89617, 312.6726" />
-      <TalkTo NpcId="1017331" XYZ="-366.8422, 60.89617, 312.6726" QuestId="67856" StepId="7"/>
-    </If>
-    <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 255">
-      <If Condition="not IsOnMap(400)">
-        <GetTo ZoneId="400" XYZ="-370.9926, 60.86112, 309.8954" />
-      </If>
-      <NoCombatMoveTo XYZ="-370.9926, 60.86112, 309.8954" />
-      <SoTurnIn QuestId="67856" NpcId="1017335" XYZ="-370.9926, 60.86112, 309.8954" DialogOption="0"/>
-    </If>
-
 <!--    <If Condition="not IsQuestCompleted(67857)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!{1}** The Milk of Moogle Kindness **{1}>

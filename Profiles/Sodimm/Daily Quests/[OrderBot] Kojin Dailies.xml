@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68535,68536,68537"/>
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68535,68536,68537,68538"/>
     <!-- Unlock (Requires Quest: Tide Goes In, Imperials Go Out to be completed.) -->
     <!-- Heaven-sent -->
     <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
@@ -35,7 +35,7 @@ Authors:  Sodimm.
     </If>
     <!-- Pick Ups -->
     <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512)">
-      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68535,68536,68537]))">
+      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68535,68536,68537,68538]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         </If>
@@ -226,6 +226,15 @@ Authors:  Sodimm.
 -->
           <If Condition="IsQuestAcceptQualified(68537)">
             <PickupQuest QuestId="68537" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Disciplinary Action -->
+        <If Condition="not HasQuest(68538)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68538)">
+            <PickupQuest QuestId="68538" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
           </If>
         </If>
       </If>
@@ -572,6 +581,27 @@ Authors:  Sodimm.
       </UseObject>
     </If>
     <!-- Volcano -->
+    <!-- Disciplinary Action -->
+    <While Condition="HasQuest(68538) and GetQuestStep(68538) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+	  <GetTo ZoneId="613" XYZ="429.1904, -0.01531982, 506.8589"/>
+	  <WaitWhile Condition="Core.Player.InCombat"/>
+	  <RunCode Name="68538"/>
+      <GetTo ZoneId="613" XYZ="253.2539, -0.01531982, 479.6062"/>
+	  <WaitWhile Condition="Core.Player.InCombat"/>
+	  <RunCode Name="68538"/>
+      <GetTo ZoneId="613" XYZ="94.01074, -0.01531982, 491.844"/>
+	  <WaitWhile Condition="Core.Player.InCombat"/>
+	  <RunCode Name="68538"/>
+      <GetTo ZoneId="613" XYZ="-192.0653, -0.01531982, 628.2596"/>
+	  <WaitWhile Condition="Core.Player.InCombat"/>
+	  <RunCode Name="68538"/>
+	  <GetTo ZoneId="613" XYZ="-370.3823, -0.01531982, 863.6453"/>
+	  <WaitWhile Condition="Core.Player.InCombat"/>
+	  <RunCode Name="68538"/>
+    </While>
     <!-- Tonight We Dine in Shells -->
     <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1">
       <If Condition="IsOnSubMap(2769)">
@@ -928,6 +958,16 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68537" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Disciplinary Action -->
+    <If Condition="HasQuest(68538) and GetQuestStep(68538) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68538" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
     <!-- Rank 3 -->
     <!-- Under Wraps -->
     <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not IsQuestCompleted(68510)">
@@ -1106,6 +1146,19 @@ Authors:  Sodimm.
         }
         await Coroutine.Sleep(2000);
       ]]></CodeChunk>
+    <CodeChunk Name="68538">
+      <![CDATA[
+        BagSlot Item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002424);
+		GameObject Target = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.NpcId == 6885).FirstOrDefault();
+        await Coroutine.Sleep(500);
+        if (Target != null)
+        {
+		  Item.UseItem(Target);
+          await Coroutine.Wait(10000, () => Target == null);
+        }
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
   </CodeChunks>
   <GrindAreas>
   </GrindAreas>

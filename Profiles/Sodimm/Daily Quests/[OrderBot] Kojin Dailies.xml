@@ -417,7 +417,7 @@ Authors:  Sodimm.
       <If Condition="IsOnSubMap(2769) or IsOnSubMap(2780)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
-      <GetTo ZoneId="613" XYZ="-842.3133, 36.02649, 319.9664"/>
+      <NoCombatMoveTo XYZ="-842.3133, 36.02649, 319.9664"/>
       <SendChat QuestItem="2002422" XYZ="-842.3133, 36.02649, 319.9664"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
@@ -425,7 +425,7 @@ Authors:  Sodimm.
       <If Condition="IsOnSubMap(2769)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
-      <GetTo ZoneId="613" XYZ="-873.5942, 35.99597, 318.8372"/>
+      <NoCombatMoveTo XYZ="-873.5942, 35.99597, 318.8372"/>
       <SendChat QuestItem="2002422" XYZ="-873.5942, 35.99597, 318.8372"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
@@ -433,7 +433,7 @@ Authors:  Sodimm.
       <If Condition="IsOnSubMap(2769)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
-      <GetTo ZoneId="613" XYZ="-848.8746, 36.02649, 300.6484"/>
+      <NoCombatMoveTo XYZ="-848.8746, 36.02649, 300.6484"/>
       <SendChat QuestItem="2002422" XYZ="-848.8746, 36.02649, 300.6484"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>

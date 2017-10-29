@@ -34,8 +34,9 @@ Authors:  Sodimm.
       <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
     </If>
     <!-- Pick Ups -->
-    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512)">
-      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68535,68536,68537,68538]))">
+    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538"/>
+    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512) and not HasQuest(68513)">
+      <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         </If>
@@ -201,6 +202,24 @@ Authors:  Sodimm.
             <PickupQuest QuestId="68532" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
           </If>
         </If>
+        <!-- Clammed Up -->
+        <If Condition="not HasQuest(68533)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68533)">
+            <PickupQuest QuestId="68533" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+        <!-- Tale of Roe -->
+        <If Condition="not HasQuest(68534)">
+          <!--
+        <GetTo ZoneId="613" XYZ="392.2065, -119.5893, -234.3448"/>
+-->
+          <If Condition="IsQuestAcceptQualified(68534)">
+            <PickupQuest QuestId="68534" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
         <!-- You Blow It Up -->
         <If Condition="not HasQuest(68535)">
           <!--
@@ -329,6 +348,27 @@ Authors:  Sodimm.
       <RunCode Name="Announce_Manual_Completion"/>
       <WaitTimer WaitTime="60"/>
       <WaitWhile Condition="HasQuest(68527) and GetQuestStep(68527) == 1"/>
+    </If>
+    <!-- Clammed Up -->
+    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 1">
+      <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <If Condition="not IsOnSubMap(2750)">
+        <!--
+        <GetTo ZoneId="613" XYZ="325.959, -120.3188, -308.8289"/>
+-->
+        <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
+        <RunCode Name="MoveForward"/>
+      </If>
+      <UseObject UseDistance="1" NpcIds="2009135,2009136,2009137,2009139" QuestId="68533" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-141.6801, -149.3401, -214.6487" Radius="10"/>
+          <HotSpot XYZ="-131.7312, -191.9738, -6.118958" Radius="10"/>
+          <HotSpot XYZ="-77.74481, -180.6211, 33.15784" Radius="10"/>
+          <HotSpot XYZ="-150.1031, -167.01, 87.60205" Radius="10"/>
+        </HotSpots>
+      </UseObject>
     </If>
     <!-- Tentacles of Trade -->
     <If Condition="HasQuest(68536) and GetQuestStep(68536) == 1">
@@ -586,21 +626,21 @@ Authors:  Sodimm.
       <If Condition="IsOnSubMap(2769)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
-	  <GetTo ZoneId="613" XYZ="429.1904, -0.01531982, 506.8589"/>
-	  <WaitWhile Condition="Core.Player.InCombat"/>
-	  <RunCode Name="68538"/>
+      <GetTo ZoneId="613" XYZ="429.1904, -0.01531982, 506.8589"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>
+      <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="253.2539, -0.01531982, 479.6062"/>
-	  <WaitWhile Condition="Core.Player.InCombat"/>
-	  <RunCode Name="68538"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>
+      <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="94.01074, -0.01531982, 491.844"/>
-	  <WaitWhile Condition="Core.Player.InCombat"/>
-	  <RunCode Name="68538"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>
+      <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="-192.0653, -0.01531982, 628.2596"/>
-	  <WaitWhile Condition="Core.Player.InCombat"/>
-	  <RunCode Name="68538"/>
-	  <GetTo ZoneId="613" XYZ="-370.3823, -0.01531982, 863.6453"/>
-	  <WaitWhile Condition="Core.Player.InCombat"/>
-	  <RunCode Name="68538"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>
+      <RunCode Name="68538"/>
+      <GetTo ZoneId="613" XYZ="-370.3823, -0.01531982, 863.6453"/>
+      <WaitWhile Condition="Core.Player.InCombat"/>
+      <RunCode Name="68538"/>
     </While>
     <!-- Tonight We Dine in Shells -->
     <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1">
@@ -629,6 +669,27 @@ Authors:  Sodimm.
           <HotSpot XYZ="337.85, 5.81366, 685.2673" Radius="10"/>
         </HotSpots>
       </UseObject>
+    </If>
+    <!-- Tale of Roe -->
+    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 1">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <UseItem ItemId="2002419" NpcIds="2009100,2009101,2009140,2009141,2009142" QuestId="68534" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="543.1753, -0.01531982, 685.7251" Radius="10"/>
+          <HotSpot XYZ="480.4607, 3.829956, 841.3672" Radius="10"/>
+          <HotSpot XYZ="460.9902, 0.5645142, 889.494" Radius="10"/>
+          <HotSpot XYZ="394.7661, 16.98328, 845.9448" Radius="10"/>
+          <HotSpot XYZ="352.1018, -0.01531982, 860.3188" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 2">
+      <If Condition="IsOnSubMap(2769)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
+      <HandOver ItemId="2002420" NpcId="1024317" XYZ="823.3004, 5.923001, 866.6361" QuestId="68534" StepId="2"/>
     </If>
     <!-- Isle of Bekko -->
     <!-- A Real Pearler -->
@@ -928,6 +989,26 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68532" ItemId="2002415" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
     </If>
+    <!-- Clammed Up -->
+    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68533" ItemId="2002418" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
+    <!-- Tale of Roe -->
+    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="392.1834, -119.5893, -234.5341" />
+-->
+      <TurnIn QuestId="68534" ItemId="2002421" NpcId="1024217" XYZ="394.3998, -119.5893, -232.2881"/>
+    </If>
     <!-- You Blow It Up -->
     <If Condition="HasQuest(68535) and GetQuestStep(68535) == 255">
       <If Condition="not IsOnSubMap(2769)">
@@ -1102,8 +1183,53 @@ Authors:  Sodimm.
 -->
       <TurnIn QuestId="68512" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
     </If>
+    <!-- A Test of Courage -->
+    <If Condition="IsQuestCompleted(68512) and not HasQuest(68513) and not IsQuestCompleted(68513)">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108" />
+-->
+      <If Condition="IsQuestAcceptQualified(68513)">
+        <PickupQuest QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 1">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108" />
+-->
+      <TalkTo NpcId="1024269" XYZ="330.6476, -116.8671, -202.472" QuestId="68513" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 2">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108" />
+-->
+      <UseObject NpcId="2009174" XYZ="321.9806, -120.0427, -250.4159" QuestId="68513" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 3">
+      <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+      <MoveTo XYZ="-645.8464, 1.400071, 264.53"/>
+      <RunCode Name="Descend_Into_Diving"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
+      </If>
+      <SoTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+    </If>
   </Order>
   <CodeChunks>
+    <CodeChunk Name="Descend_Into_Diving"><![CDATA[
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);]]></CodeChunk>
     <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
@@ -1134,7 +1260,7 @@ Authors:  Sodimm.
         MovementManager.MoveStop();
         if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)
         {
-          ChatManager.SendChat("Itomaki");
+          ChatManager.SendChat("/s Itomaki");
         }
         while (ConditionParser.GetQuestStep(68521) != 2)
         {
@@ -1146,19 +1272,17 @@ Authors:  Sodimm.
         }
         await Coroutine.Sleep(2000);
       ]]></CodeChunk>
-    <CodeChunk Name="68538">
-      <![CDATA[
+    <CodeChunk Name="68538"><![CDATA[
         BagSlot Item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002424);
-		GameObject Target = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.NpcId == 6885).FirstOrDefault();
+    GameObject Target = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.NpcId == 6885).FirstOrDefault();
         await Coroutine.Sleep(500);
         if (Target != null)
         {
-		  Item.UseItem(Target);
+      Item.UseItem(Target);
           await Coroutine.Wait(10000, () => Target == null);
         }
         await Coroutine.Sleep(2000);
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
   </GrindAreas>

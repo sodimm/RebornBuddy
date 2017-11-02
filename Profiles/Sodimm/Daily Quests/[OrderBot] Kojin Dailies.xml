@@ -361,9 +361,10 @@ Authors:  Sodimm.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <UseObject UseDistance="1" NpcIds="2009135,2009136,2009137,2009139" QuestId="68533" StepId="1">
+      <UseObject UseDistance="1" NpcIds="2009135,2009136,2009137,2009138,2009139" QuestId="68533" StepId="1">
         <HotSpots>
           <HotSpot XYZ="-141.6801, -149.3401, -214.6487" Radius="10"/>
+          <HotSpot XYZ="-298.2376, -194.1711, -126.2075" Radius="10"/>
           <HotSpot XYZ="-131.7312, -191.9738, -6.118958" Radius="10"/>
           <HotSpot XYZ="-77.74481, -180.6211, 33.15784" Radius="10"/>
           <HotSpot XYZ="-150.1031, -167.01, 87.60205" Radius="10"/>
@@ -595,6 +596,9 @@ Authors:  Sodimm.
     </If>
     <!-- Pickles of Partnership -->
     <While Condition="HasQuest(68520) and  GetQuestStep(68520) == 1">
+      <If Condition="IsOnSubMap(2750)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+      </If>
       <MoveTo XYZ="575.754, 9.866471, -734.5359"/>
       <If Condition="GameObjectManager.GetObjectByNPCId(1024420).IsVisible">
         <HandOver ItemId="2002426" NpcId="1024420" XYZ="577.3556, 9.866471, -733.7911" QuestId="68520"/>
@@ -627,18 +631,23 @@ Authors:  Sodimm.
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="429.1904, -0.01531982, 506.8589"/>
+	  <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="253.2539, -0.01531982, 479.6062"/>
+	  <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="94.01074, -0.01531982, 491.844"/>
+	  <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="-192.0653, -0.01531982, 628.2596"/>
+	  <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="-370.3823, -0.01531982, 863.6453"/>
+	  <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
     </While>
@@ -1276,9 +1285,13 @@ Authors:  Sodimm.
         BagSlot Item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002424);
     GameObject Target = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.NpcId == 6885).FirstOrDefault();
         await Coroutine.Sleep(500);
+		if (Target == null)
+		{
+		  await Coroutine.Wait(5000, () => Target != null);
+		}
         if (Target != null)
         {
-      Item.UseItem(Target);
+          Item.UseItem(Target);
           await Coroutine.Wait(10000, () => Target == null);
         }
         await Coroutine.Sleep(2000);

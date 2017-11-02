@@ -732,10 +732,10 @@ Authors:  Sodimm.
     <!-- Operation Riffraff -->
     <If Condition="HasQuest(66875) and GetQuestStep(66875) == 1">
       <If Condition="not IsOnMap(180)">
-        <GetTo ZoneId="180" XYZ="95.06458, 55.40984, -499.5353" />
+        <GetTo ZoneId="180" XYZ="95.06458, 55.40984, -499.5353"/>
       </If>
-      <NoCombatMoveTo XYZ="95.06458, 55.40984, -499.5353" />
-      <TalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66875" StepId="1" />
+      <NoCombatMoveTo XYZ="95.06458, 55.40984, -499.5353"/>
+      <TalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66875" StepId="1"/>
     </If>
     <If Condition="HasQuest(66875) and GetQuestStep(66875) == 2">
       <If Condition="not IsOnMap(180)">
@@ -1554,20 +1554,15 @@ Authors:  Sodimm.
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="DisableMount">
-      <![CDATA[
+    <CodeChunk Name="DisableMount"><![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
         await Coroutine.Sleep(100);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="EnableMount">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="EnableMount"><![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
         await Coroutine.Sleep(100);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66872">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="66872"><![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(586).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
           if (Core.Me.IsMounted)
@@ -1580,10 +1575,8 @@ Authors:  Sodimm.
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66878a">
-      <![CDATA[ 
+      ]]></CodeChunk>
+    <CodeChunk Name="66878a"><![CDATA[ 
         if (Core.Player.IsMounted)
         {
           ff14bot.Managers.ActionManager.Dismount();
@@ -1595,18 +1588,14 @@ Authors:  Sodimm.
         ff14bot.Managers.MovementManager.Jump();
         await Coroutine.Sleep(3000);
         ff14bot.Managers.MovementManager.MoveForwardStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66878b">
-      <![CDATA[ 
+      ]]></CodeChunk>
+    <CodeChunk Name="66878b"><![CDATA[ 
         ff14bot.Managers.MovementManager.SetFacing(3.207531f);
         ff14bot.Managers.MovementManager.MoveForwardStart();
         await Coroutine.Sleep(1500);
         ff14bot.Managers.MovementManager.MoveForwardStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66900">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="66900"><![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(597).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
           if (Core.Me.IsMounted)
@@ -1619,10 +1608,8 @@ Authors:  Sodimm.
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66908">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="66908"><![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(700).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
           if (Core.Me.IsMounted)
@@ -1635,7 +1622,6 @@ Authors:  Sodimm.
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
 </Profile>

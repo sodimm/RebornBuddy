@@ -49,7 +49,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.3983, 3.999996, 200.2688"/>
       <TurnIn QuestId="68431" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
-	  <WaitTimer WaitTime="2"/>
+      <WaitTimer WaitTime="2"/>
     </If>
     <!-- A New Fishing Ex-spear-ience (Level 61) -->
     <If Condition="not HasQuest(68458) and not IsQuestCompleted(68458) and IsQuestCompleted(68020) and IsQuestCompleted(66643) and Core.Player.ClassLevel &gt; 60">
@@ -65,7 +65,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <RunCode Name="Move_Forward"/>
       <ExMoveTo XYZ="293.8948, -98.65965, -411.4322" Distance="1"/>
       <TurnIn QuestId="68458" NpcId="1023621" XYZ="294.1786, -98.43597, -413.3516"/>
-	  <WaitTimer WaitTime="2"/>
+      <WaitTimer WaitTime="2"/>
     </If>
     <!-- A Rousing Reunion (Level 63) -->
     <If Condition="not HasQuest(68432) and not IsQuestCompleted(68432) and IsQuestCompleted(68431) and Core.Player.ClassLevel &gt; 62">
@@ -118,7 +118,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.2569, 3.999995, 200.3749"/>
       <SoTurnIn QuestId="68432" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
-	  <WaitTimer WaitTime="2"/>
+      <WaitTimer WaitTime="2"/>
     </If>
     <!-- Search for the Spawning Grounds (Level 65) -->
     <If Condition="not HasQuest(68433) and not IsQuestCompleted(68433) and IsQuestCompleted(68432) and Core.Player.ClassLevel &gt; 64">
@@ -143,10 +143,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <TalkTo NpcId="1021399" XYZ="370.0465, -120.0139, -281.9715" QuestId="68433" StepId="2"/>
     </If>
     <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 3">
-	  <TeleportTo Name="Onokoro" AetheryteId="106" Force="True"/>
+      <TeleportTo Name="Onokoro" AetheryteId="106" Force="True"/>
       <NoCombatMoveTo XYZ="526.4575, 0.05002415, -244.5874"/>
       <TalkTo NpcId="1021402" XYZ="524.5593, -0.007716715, -244.8616" QuestId="68433" StepId="3"/>
-	  <NoCombatMoveTo XYZ="532.2314, 0.8364315, -230.2563" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="532.2314, 0.8364315, -230.2563" UseMesh="False"/>
     </If>
     <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 4">
       <While Condition="not HqHasAtLeast(17950,3)">
@@ -188,7 +188,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.1505, 3.999996, 200.1491"/>
       <TurnIn QuestId="68433" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
-	  <WaitTimer WaitTime="2"/>
+      <WaitTimer WaitTime="2"/>
     </If>
     <!-- Always a Bigger Fish (Level 68) -->
     <If Condition="not HasQuest(68434) and not IsQuestCompleted(68434) and IsQuestCompleted(68433) and Core.Player.ClassLevel &gt; 67">
@@ -274,7 +274,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       </If>
       <NoCombatMoveTo XYZ="-154.8356, 3.999995, 199.8452"/>
       <TurnIn QuestId="68434" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
-	  <WaitTimer WaitTime="2"/>
+      <WaitTimer WaitTime="2"/>
     </If>
     <!-- Farewell, and Thanks for the Fish (Level 70) -->
     <If Condition="not HasQuest(68435) and not IsQuestCompleted(68435) and IsQuestCompleted(68434) and Core.Player.ClassLevel &gt; 69">

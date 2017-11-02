@@ -28,7 +28,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 3">
       <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
       <TalkTo QuestId="67856" StepId="3" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>
-    </If>	
+    </If>
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4">
       <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
       <TalkTo QuestId="67856" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>
@@ -89,7 +89,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 4">
       <GetTo ZoneId="419" XYZ="-247.346, -20.03492, -88.70134"/>
-      <HandOver ItemId="15720" QuestId="67856" StepId="4" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>		
+      <HandOver ItemId="15720" QuestId="67856" StepId="4" NpcId="1017330" XYZ="-246.7231, -20.03492, -90.10455"/>
     </If>
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 5">
       <GetTo ZoneId="400" XYZ="-367.9719, 60.89617, 311.8606"/>
@@ -98,7 +98,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 6">
       <GetTo ZoneId="400" XYZ="-612.8724, 48, 326.9892"/>
       <TalkTo QuestId="67856" StepId="6" NpcId="1017334" XYZ="-614.374, 48, 326.2836"/>
-    </If>	
+    </If>
     <If Condition="HasQuest(67856) and not IsQuestCompleted(67856) and GetQuestStep(67856) == 7">
       <GetTo ZoneId="400" XYZ="-367.9719, 60.89617, 311.8606"/>
       <TalkTo QuestId="67856" StepId="7" NpcId="1017331" XYZ="-366.8422, 60.89617, 312.6726"/>
@@ -533,14 +533,14 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
         <GetTo ZoneId="400" XYZ="-846.4332, 32.5, 477.6836"/>
       </If>
       <NoCombatMoveTo XYZ="-846.4332, 32.5, 477.6836"/>
-      <UseObject NpcIds="2007256" XYZ="-846.4332, 32.5, 477.6836" QuestId="67849" StepId="2" />
+      <UseObject NpcIds="2007256" XYZ="-846.4332, 32.5, 477.6836" QuestId="67849" StepId="2"/>
     </If>
     <If Condition="HasQuest(67849) and GetQuestStep(67849) == 3">
       <If Condition="not IsOnMap(400)">
         <GetTo ZoneId="400" XYZ="-840.8484, 32.5, 481.4373"/>
       </If>
       <NoCombatMoveTo XYZ="-840.8484, 32.5, 481.4373"/>
-      <HandOver ItemId="2001995" NpcId="1017453" XYZ="-840.8484, 32.5, 481.4373" QuestId="67849" StepId="3" />
+      <HandOver ItemId="2001995" NpcId="1017453" XYZ="-840.8484, 32.5, 481.4373" QuestId="67849" StepId="3"/>
     </If>
     <!-- Dragonscale Rasp -->
     <While Condition="GetQuestStep(67849) == 4 and not HasAtLeast(15741,3)">
@@ -594,14 +594,14 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HasAtLeast(15741,3)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67849) and GetQuestStep(67849) == 4">
       <If Condition="not IsOnMap(400)">
         <GetTo ZoneId="400" XYZ="-836.9116, 35.2195, 457.6637"/>
       </If>
       <NoCombatMoveTo XYZ="-836.9116, 35.2195, 457.6637"/>
-      <HandOver ItemId="15741" NpcId="1017549" XYZ="-836.9116, 35.2195, 457.6637" QuestId="67849" StepId="4" />
+      <HandOver ItemId="15741" NpcId="1017549" XYZ="-836.9116, 35.2195, 457.6637" QuestId="67849" StepId="4"/>
     </If>
     <!-- From Lax to Max -->
     <If Condition="HasQuest(67851) and GetQuestStep(67851) == 1">
@@ -609,14 +609,14 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
         <GetTo ZoneId="400" XYZ="-618.7381, 70, 207.9347"/>
       </If>
       <NoCombatMoveTo XYZ="-618.7381, 70, 207.9347"/>
-      <UseObject NpcIds="1017457,1017458,1017459" XYZ="-618.7381, 70, 207.9347" Radius="40" QuestId="67851" StepId="1" />
+      <UseObject NpcIds="1017457,1017458,1017459" XYZ="-618.7381, 70, 207.9347" Radius="40" QuestId="67851" StepId="1"/>
     </If>
     <If Condition="HasQuest(67851) and GetQuestStep(67851) == 2">
       <If Condition="not IsOnMap(400)">
         <GetTo ZoneId="400" XYZ="-56.80939, -8.866012, 161.8219"/>
       </If>
       <NoCombatMoveTo XYZ="-56.80939, -8.866012, 161.8219"/>
-      <TalkTo NpcId="1017352" XYZ="-56.80939, -8.866012, 161.8219" QuestId="67851" StepId="2" />
+      <TalkTo NpcId="1017352" XYZ="-56.80939, -8.866012, 161.8219" QuestId="67851" StepId="2"/>
     </If>
     <If Condition="HasQuest(67851) and GetQuestStep(67851) == 3 and GetQuestById(67851).GetTodoArgs(3, 0).Item1 == 0">
       <If Condition="not IsOnMap(400)">
@@ -659,7 +659,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
         <GetTo ZoneId="400" XYZ="-74.87604, -8.172174, 158.709"/>
       </If>
       <NoCombatMoveTo XYZ="-74.87604, -8.172174, 158.709"/>
-      <TalkTo NpcId="1017351" XYZ="-74.87604, -8.172174, 158.709" QuestId="67850" StepId="2" />
+      <TalkTo NpcId="1017351" XYZ="-74.87604, -8.172174, 158.709" QuestId="67850" StepId="2"/>
     </If>
     <!-- Cloudfish Lure -->
     <While Condition="GetQuestStep(67850) == 3 and not HqHasAtLeast(15742,1)">
@@ -801,7 +801,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(15742,1)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67850) and GetQuestStep(67850) == 3">
       <If Condition="not IsOnMap(400)">
@@ -891,7 +891,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HasAtLeast(15743,3)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <!-- The Moogle Motivator -->
     <If Condition="HasQuest(67854) and GetQuestStep(67854) == 1">
@@ -1152,7 +1152,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HasAtLeast(15740,3)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67847) and GetQuestStep(67847) == 4">
       <If Condition="not IsOnMap(400)">
@@ -1323,7 +1323,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(15739,1)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67846) and GetQuestStep(67846) == 3">
       <If Condition="not IsOnMap(400)">
@@ -1354,9 +1354,9 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <NoCombatMoveTo XYZ="-658.9609, 94.25488, -417.0748"/>
       <UseObject NpcIds="2007244,2007245,2007246" QuestId="67841" StepId="3">
         <HotSpots>
-          <HotSpot XYZ="-658.9609, 94.25488, -417.0748" Radius="15" />
-          <HotSpot XYZ="-671.1376, 93.91919, -507.4998" Radius="15" />
-          <HotSpot XYZ="-813.1685, 94.86523, -457.3282" Radius="15" />
+          <HotSpot XYZ="-658.9609, 94.25488, -417.0748" Radius="15"/>
+          <HotSpot XYZ="-671.1376, 93.91919, -507.4998" Radius="15"/>
+          <HotSpot XYZ="-813.1685, 94.86523, -457.3282" Radius="15"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -1507,7 +1507,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(15737,1)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67841) and GetQuestStep(67841) == 5">
       <If Condition="not IsOnMap(400)">
@@ -1845,7 +1845,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
         <GetTo ZoneId="400" XYZ="312.3673, -35.70687, 89.25"/>
       </If>
       <NoCombatMoveTo XYZ="312.3673, -35.70687, 89.25"/>
-      <TalkTo NpcId="1017357" XYZ="312.3673, -35.70687, 89.25" QuestId="67828" />
+      <TalkTo NpcId="1017357" XYZ="312.3673, -35.70687, 89.25" QuestId="67828"/>
     </If>
     <If Condition="HasQuest(67828) and GetQuestStep(67828) == 1">
       <If Condition="not IsOnMap(400)">
@@ -1869,9 +1869,9 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <NoCombatMoveTo XYZ="412.3574, -22.55554, 16.53531"/>
       <UseObject NpcIds="2007225,2007226,2007227" QuestId="67830" StepId="2" MapId="400">
         <HotSpots>
-          <HotSpot XYZ="412.3574, -22.55554, 16.53531" Radius="15" />
-          <HotSpot XYZ="428.6885, -27.57543, 142.3216" Radius="15" />
-          <HotSpot XYZ="439.0774, -31.64589, 205.1821" Radius="15" />
+          <HotSpot XYZ="412.3574, -22.55554, 16.53531" Radius="15"/>
+          <HotSpot XYZ="428.6885, -27.57543, 142.3216" Radius="15"/>
+          <HotSpot XYZ="439.0774, -31.64589, 205.1821" Radius="15"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -1933,7 +1933,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HasAtLeast(15729,3)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <!-- A Fine Finish -->
     <If Condition="HasQuest(67834) and GetQuestStep(67834) == 1">
@@ -2083,7 +2083,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(15731,1)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <If Condition="HasQuest(67834) and GetQuestStep(67834) == 2">
       <If Condition="not IsOnMap(400)">
@@ -2092,7 +2092,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <NoCombatMoveTo XYZ="556.6415, -0.916756, -385.3574"/>
       <HandOver ItemId="15731" NpcId="1017378" XYZ="556.6415, -0.916756, -385.3574" QuestId="67834" StepId="2"/>
     </If>
-     <!-- Hasty Conclusions -->
+    <!-- Hasty Conclusions -->
     <If Condition="HasQuest(67827) and GetQuestStep(67827) == 1">
       <If Condition="not IsOnMap(400)">
         <GetTo ZoneId="400" XYZ="676.1425, -0.4951096, 11.55096"/>
@@ -2103,56 +2103,56 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     <!-- Repurposed Construction Component -->
     <While Condition="GetQuestStep(67827) == 255 and not HasAtLeast(15726,3)">
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
-        <Synthesize RecipeId="31597" />
+        <Synthesize RecipeId="31597"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100001" />
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
-        <Synthesize RecipeId="31623" />
+        <Synthesize RecipeId="31623"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100015" />
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
-        <Synthesize RecipeId="31649" />
+        <Synthesize RecipeId="31649"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100030" />
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
-        <Synthesize RecipeId="31675" />
+        <Synthesize RecipeId="31675"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100075" />
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
-        <Synthesize RecipeId="31701" />
+        <Synthesize RecipeId="31701"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100045" />
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
-        <Synthesize RecipeId="31727" />
+        <Synthesize RecipeId="31727"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100060" />
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
-        <Synthesize RecipeId="31753" />
+        <Synthesize RecipeId="31753"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100090" />
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
-        <Synthesize RecipeId="31779" />
+        <Synthesize RecipeId="31779"/>
         <While Condition="CraftingManager.IsCrafting">
-          <CraftAction Name="Basic Synthesis" ActionId="100105" />
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
         </While>
       </If>
     </While>
     <If Condition="CraftingLog.IsOpen and HasAtLeast(15726,3)">
-      <StopCrafting />
+      <StopCrafting/>
     </If>
     <!-- Tricks Without Treats -->
     <If Condition="HasQuest(67837) and GetQuestStep(67837) == 1">
@@ -3251,7 +3251,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <TurnIn QuestId="67855" NpcId="1017171" XYZ="-334.9032, 58.91553, 315.6107"/>
     </If>
     <!-- Reputation & Unlock Quests -->
-<!--    <If Condition="not IsQuestCompleted(67857)">
+    <!--    <If Condition="not IsQuestCompleted(67857)">
       <SoSendCommand GearSet="&craftGearSet;" />
       <!{1}** The Milk of Moogle Kindness **{1}>
       <SoPickUpQuest QuestId="67857" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445" MapId="400" />
@@ -3916,18 +3916,14 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 -->
   </Order>
   <CodeChunks>
-    <CodeChunk Name="DisableMount">
-      <![CDATA[
+    <CodeChunk Name="DisableMount"><![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
         await Coroutine.Sleep(100);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="EnableMount">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="EnableMount"><![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
         await Coroutine.Sleep(100);
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
     <CodeChunk Name="Dismount"><![CDATA[
         if(Core.Player.IsMounted)
         {

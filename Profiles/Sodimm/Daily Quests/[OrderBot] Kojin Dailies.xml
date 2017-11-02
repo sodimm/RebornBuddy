@@ -455,11 +455,11 @@ Authors:  Sodimm.
     </If>
     <!-- You Blow It Up -->
     <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="IsOnSubMap(2769) or IsOnSubMap(2780)">
+      <If Condition="IsOnSubMap(2769) or IsOnSubMap(2780) or IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <NoCombatMoveTo XYZ="-842.3133, 36.02649, 319.9664"/>
-      <SendChat QuestItem="2002422" XYZ="-842.3133, 36.02649, 319.9664"/>
+      <SoSendChat QuestItem="2002422" XYZ="-842.3133, 36.02649, 319.9664"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
     <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 1">
@@ -467,7 +467,7 @@ Authors:  Sodimm.
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <NoCombatMoveTo XYZ="-873.5942, 35.99597, 318.8372"/>
-      <SendChat QuestItem="2002422" XYZ="-873.5942, 35.99597, 318.8372"/>
+      <SoSendChat QuestItem="2002422" XYZ="-873.5942, 35.99597, 318.8372"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
     <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 2">
@@ -475,7 +475,7 @@ Authors:  Sodimm.
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <NoCombatMoveTo XYZ="-848.8746, 36.02649, 300.6484"/>
-      <SendChat QuestItem="2002422" XYZ="-848.8746, 36.02649, 300.6484"/>
+      <SoSendChat QuestItem="2002422" XYZ="-848.8746, 36.02649, 300.6484"/>
       <WaitWhile Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <!-- Main Land -->
@@ -627,33 +627,33 @@ Authors:  Sodimm.
     <!-- Volcano -->
     <!-- Disciplinary Action -->
     <While Condition="HasQuest(68538) and GetQuestStep(68538) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="429.1904, -0.01531982, 506.8589"/>
-	  <RunCode Name="Dismount"/>
+      <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="253.2539, -0.01531982, 479.6062"/>
-	  <RunCode Name="Dismount"/>
+      <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="94.01074, -0.01531982, 491.844"/>
-	  <RunCode Name="Dismount"/>
+      <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="-192.0653, -0.01531982, 628.2596"/>
-	  <RunCode Name="Dismount"/>
+      <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
       <GetTo ZoneId="613" XYZ="-370.3823, -0.01531982, 863.6453"/>
-	  <RunCode Name="Dismount"/>
+      <RunCode Name="Dismount"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
       <RunCode Name="68538"/>
     </While>
     <!-- Tonight We Dine in Shells -->
     <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="28.76486, 2.999225, 527.7987"/>
@@ -667,7 +667,7 @@ Authors:  Sodimm.
     </If>
     <!-- Anala-lyze This -->
     <If Condition="HasQuest(68525) and GetQuestStep(68525) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="28.07532, 51.43711, 770.9987"/>
@@ -681,7 +681,7 @@ Authors:  Sodimm.
     </If>
     <!-- Tale of Roe -->
     <If Condition="HasQuest(68534) and GetQuestStep(68534) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <UseItem ItemId="2002419" NpcIds="2009100,2009101,2009140,2009141,2009142" QuestId="68534" StepId="1">
@@ -695,7 +695,7 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <If Condition="HasQuest(68534) and GetQuestStep(68534) == 2">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <HandOver ItemId="2002420" NpcId="1024317" XYZ="823.3004, 5.923001, 866.6361" QuestId="68534" StepId="2"/>
@@ -703,7 +703,7 @@ Authors:  Sodimm.
     <!-- Isle of Bekko -->
     <!-- A Real Pearler -->
     <If Condition="HasQuest(68516) and GetQuestStep(68516) == 2">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="878.0482, 1.179207, 856.5481"/>
@@ -711,14 +711,14 @@ Authors:  Sodimm.
     </If>
     <!-- Holy Mother of Pearl -->
     <If Condition="HasQuest(68531) and GetQuestStep(68531) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="716.9872, -0.3000001, 142.1604"/>
       <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="1"/>
     </If>
     <If Condition="HasQuest(68531) and GetQuestStep(68531) == 2">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <UseItem ItemId="2002414" NpcIds="2009124,2009126,2009127,2009128,2009227,2008344,2008343" QuestId="68531" StepId="2">
@@ -734,7 +734,7 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <If Condition="HasQuest(68531) and GetQuestStep(68531) == 3">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="717.1461, -0.3000001, 141.6932"/>
@@ -742,14 +742,14 @@ Authors:  Sodimm.
     </If>
     <!-- Best Served Foul -->
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <GetTo ZoneId="613" XYZ="702.0458, 0.7776591, -25.6705"/>
       <TalkTo NpcId="1024538" XYZ="703.7003, 0.7387832, -26.0777" QuestId="68515" StepId="1"/>
     </If>
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
@@ -768,7 +768,7 @@ Authors:  Sodimm.
       </UseItem>
     </If>
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
-      <If Condition="IsOnSubMap(2769)">
+      <If Condition="IsOnSubMap(2750)">
         <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <UseObject NpcIds="2009239,2009240,2009241" UseTimes="1">
@@ -796,7 +796,7 @@ Authors:  Sodimm.
       <GetTo ZoneId="613" XYZ="367.4951, -119.9297, -291.9828"/>
 -->
       <MoveTo XYZ="367.4951, -119.9297, -291.9828"/>
-      <SendChat QuestItem="2002400" XYZ="367.4951, -119.9297, -291.9828" QuestId="68517" StepId="2"/>
+      <SoSendChat QuestItem="2002400" XYZ="367.4951, -119.9297, -291.9828" QuestId="68517" StepId="2"/>
     </If>
     <If Condition="HasQuest(68517) and GetQuestStep(68517) == 3">
       <If Condition="not IsOnSubMap(2769)">
@@ -1298,5 +1298,5 @@ Authors:  Sodimm.
       ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
-  </GrindAreas>
+	</GrindAreas>
 </Profile>

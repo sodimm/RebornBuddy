@@ -20,7 +20,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     <RegisterDailies QuestIds="67030,67031,67032,67033,67034,67035,67036,67037,67038,67039,67040,67041,67042,67043,67044,67045,67046,67047,67048,67049,67050,67051,67052,67053,67054,67055,67056,67057,67058,67059,67102,67103,67104"/>
     <!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([67030,67031,67032,67033,67034,67035,67036,67037,67038,67039,67040,67041,67042,67043,67044,67045,67046,67047,67048,67049,67050,67051,67052,67053,67054,67055,67056,67057,67058,67059,67102,67103,67104]))">
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <!-- Rank 6 -->
       <!-- West For Fishing -->
       <If Condition="not HasQuest(67056)">
@@ -357,7 +357,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
           <PickupQuest QuestId="67033" NpcId="1009211" XYZ="153.8872, -9.001622, 77.50049"/>
         </If>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Rank 6 Quests -->
     <!-- A High Wind in Ishgard -->
@@ -381,7 +381,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="261.161, 295.114777, -106.829414"/>
       </If>
       <NoCombatMoveTo XYZ="261.161, 295.114777, -106.829414"/>
-      <SendChat GearSet="&botanistGearSet;"/>
+      <SoSendChat GearSet="&botanistGearSet;"/>
       <Gather while="GetQuestStepGtLt(67057,0,2)">
         <GatherObject>Mature Tree</GatherObject>
         <HotSpots>
@@ -394,7 +394,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Mining for Compliments-->
     <If Condition="HasQuest(67058) and GetQuestStep(67058) == 1">
@@ -402,7 +402,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="314.8685, 301, -244.0696"/>
       </If>
       <NoCombatMoveTo XYZ="314.8685, 301, -244.0696"/>
-      <SendChat GearSet="&minerGearSet;"/>
+      <SoSendChat GearSet="&minerGearSet;"/>
       <Gather while="GetQuestStepGtLt(67058,0,2)">
         <GatherObject>Mineral Deposit</GatherObject>
         <HotSpots>
@@ -415,7 +415,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- West for Fishing -->
     <If Condition="HasQuest(67056) and GetQuestStep(67056) == 1">
@@ -424,13 +424,13 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       </If>
       <NoCombatMoveTo XYZ="303.5594, 301.962, -258.2455"/>
       <RunCode Name="Dismount"/>
-      <SendChat GearSet="&fisherGearSet;"/>
+      <SoSendChat GearSet="&fisherGearSet;"/>
       <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67056,0,2)">
         <FishSpots>
           <FishSpot XYZ="303.5594, 301.962, -258.2455" Heading="0.3151579"/>
         </FishSpots>
       </Fish>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- In Case Of Emergency -->
     <If Condition="HasQuest(67103) and GetQuestStep(67103) == 1">
@@ -460,7 +460,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="681.8679, 299.0426, -344.1425"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="681.8679, 299.0426, -344.1425"/>
       <Grind GrindRef="67102" While="GetQuestStep(67102) == 1"/>
     </If>
@@ -494,7 +494,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001423" NpcId="1009221" XYZ="202.1362, 301.9998, -253.5593" QuestId="67056" StepId="3"/>
     </If>
     <!-- Escape Flyer Component -->
@@ -644,7 +644,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001435" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67057" StepId="3"/>
     </If>
     <!-- Spare Tank Component -->
@@ -794,7 +794,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001434" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67058" StepId="3"/>
     </If>
     <!-- Refabrication Component -->
@@ -941,7 +941,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </If>
     <!-- Clear Specialization II -->
     <If Condition="Core.Me.HasAura(552)">
-      <SendChat RemoveAura="552"/>
+      <SoSendChat RemoveAura="552"/>
     </If>
     <!-- Detailing II -->
     <!-- A High Wind In Ishgard -->
@@ -950,7 +950,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
       <NoCombatMoveTo XYZ="202.2286, 301.9998, -253.7029"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001429" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67059" StepId="3"/>
     </If>
     <!-- Isolator Component -->
@@ -1117,7 +1117,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
       <NoCombatMoveTo XYZ="202.2286, 301.9998, -253.7029"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001430" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67102" StepId="2"/>
     </If>
     <!-- Hyperconductor Component -->
@@ -1264,7 +1264,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </If>
     <!-- Clear Detailing II. -->
     <If Condition="Core.Me.HasAura(553)">
-      <SendChat RemoveAura="553"/>
+      <SoSendChat RemoveAura="553"/>
     </If>
     <!-- Finishing II -->
     <!-- In Case Of Emergency  -->
@@ -1272,7 +1272,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001431" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67103" StepId="2"/>
     </If>
     <!-- Auxiliary Aerodynamo Component -->
@@ -1438,7 +1438,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="202.1362, 301.9998, -253.5593"/>
       </If>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001432" NpcId="1009221" XYZ="202.2286, 301.9998, -253.7029" QuestId="67104" StepId="2"/>
     </If>
     <!-- Decorative Plating Component -->
@@ -1652,7 +1652,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-134.609, -1.227495, -638.0457"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-134.609, -1.227495, -638.0457"/>
       <UseObject NpcIds="1009669,1009640,1009670" QuestId="67055" StepId="2">
         <HotSpots>
@@ -1667,28 +1667,28 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-134.609, -1.227495, -638.0457"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-374.701, -17.14841, -416.918"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
-      <RunCode Name="Dismount"/>  
-      <SendChat GearSet="&fisherGearSet;"/>
-      <SendChat DoAction="Stealth"/>
+      <RunCode Name="Dismount"/>
+      <SoSendChat GearSet="&fisherGearSet;"/>
+      <SoSendChat DoAction="Stealth"/>
       <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67045,1,3)">
         <FishSpots>
           <FishSpot XYZ="-374.701, -17.14841, -416.918" Heading="3.816963"/>
         </FishSpots>
       </Fish>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Manual Labor -->
     <If Condition="HasQuest(67047) and GetQuestStep(67047) == 2">
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-270.883, -8.08434, -329.2861"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-270.883, -8.08434, -329.2861"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
-      <SendChat GearSet="&minerGearSet;"/>
+      <SoSendChat GearSet="&minerGearSet;"/>
       <Gather while="GetQuestStepGtLt(67047,1,3)">
         <GatherObject>Mineral Deposit</GatherObject>
         <HotSpots>
@@ -1701,19 +1701,19 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- A Hard Knock Life -->
     <If Condition="HasQuest(67046) and GetQuestStep(67046) == 2">
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-270.883, -8.08434, -329.2861"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-270.883, -8.08434, -329.2861"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
-      <RunCode Name="Dismount"/>  
-      <SendChat GearSet="&botanistGearSet;"/>
-      <SendChat DoAction="Stealth"/>
+      <RunCode Name="Dismount"/>
+      <SoSendChat GearSet="&botanistGearSet;"/>
+      <SoSendChat DoAction="Stealth"/>
       <Gather while="GetQuestStepGtLt(67046,1,3)">
         <GatherObject>Mature Tree</GatherObject>
         <HotSpots>
@@ -1726,14 +1726,14 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Leave Nothing To Waste -->
     <If Condition="HasQuest(67048) and GetQuestStep(67048) == 2">
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-366.4447, -17.14841, -407.6499"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-366.4447, -17.14841, -407.6499"/>
       <Grind GrindRef="67048" While="ItemCount(2001418) &lt; 1" PostCombatDelay="2.5"/>
     </If>
@@ -1742,7 +1742,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(156)">
         <GetTo ZoneId="156" XYZ="-366.4447, -17.14841, -407.6499"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-366.4447, -17.14841, -407.6499"/>
       <UseObject NpcIds="2004479,2004480,2004481" QuestId="67049" StepId="2">
         <HotSpots>
@@ -1758,7 +1758,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001409,2001410" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67045" StepId="3"/>
     </If>
     <!-- Speaking Tube Component -->
@@ -1909,7 +1909,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001411,2001412,2001413" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67046" StepId="3"/>
     </If>
     <!-- Lamp Component -->
@@ -1949,7 +1949,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
           <CraftAction Name="Standard Touch" ActionId="100034"/>
           <CraftAction Name="Standard Touch" ActionId="100034"/>
           <CraftAction Name="Standard Touch" ActionId="100034"/>
-          <CraftAction Name="Master's Mend" ActionId="100032"/>	
+          <CraftAction Name="Master's Mend" ActionId="100032"/>
           <CraftAction Name="Standard Touch" ActionId="100034"/>
           <CraftAction Name="Standard Touch" ActionId="100034"/>
           <CraftAction Name="Basic Synthesis" ActionId="100030"/>
@@ -2036,7 +2036,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001414,2001415,2001416" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67047" StepId="3"/>
     </If>
     <!-- Exhaust Outlet Component -->
@@ -2187,7 +2187,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001417,2001418" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67048" StepId="3"/>
     </If>
     <!-- Disposal Unit Component -->
@@ -2313,7 +2313,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001419,2001420" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67049" StepId="3"/>
     </If>
     <!-- Ceruleum Tank Component -->
@@ -2432,7 +2432,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
       </If>
       <NoCombatMoveTo XYZ="38.20673, 29, -798.4677"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001421" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67055" StepId="3"/>
     </If>
     <!-- Steering Mechanism Component -->
@@ -2552,7 +2552,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="180.3516, -1.220433, 41.69001"/>
       </If>
       <NoCombatMoveTo XYZ="180.3516, -1.220433, 41.69001"/>
-      <SendChat GearSet="&minerGearSet;"/>
+      <SoSendChat GearSet="&minerGearSet;"/>
       <Gather while="GetQuestStepGtLt(67035,0,2)">
         <GatherObject>Mineral Deposit</GatherObject>
         <HotSpots>
@@ -2565,14 +2565,14 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Getting Into Gear -->
     <If Condition="HasQuest(67038) and GetQuestStep(67038) == 1">
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="63.15698, -13.3626, 140.917"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="63.15698, -13.3626, 140.917"/>
       <TalkTo NpcId="1006406" XYZ="63.15698, -13.3626, 140.917" QuestId="67038" StepId="1"/>
     </If>
@@ -2581,10 +2581,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="24.99623, -11.87158, -8.93801"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="24.99623, -11.87158, -8.93801"/>
       <ClimbHill Start="24.99623, -11.87158, -8.93801" End="27.42598, -10.23256, -10.78763"/>
-      <SendChat GearSet="&botanistGearSet;"/>
+      <SoSendChat GearSet="&botanistGearSet;"/>
       <Gather Loops="1">
         <GatherObject>Mature Tree</GatherObject>
         <HotSpots>
@@ -2641,14 +2641,14 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         </ItemNames>
         <GatheringSkillOrder/>
       </Gather>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Right-wing Aeronautics -->
     <If Condition="HasQuest(67036) and GetQuestStep(67036) == 1">
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-115.4407, -9.47863, -69.89391"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-115.4407, -9.47863, -69.89391"/>
       <UseObject NpcId="2004475,2004476,2004477,2004478" XYZ="-115.4407, -9.47863, -69.89391" QuestId="67036" StepId="1"/>
     </If>
@@ -2657,7 +2657,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-156.6662, -9.954531, -92.76897"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-156.6662, -9.954531, -92.76897"/>
       <SoEmoteNpc Emote="say Wings Unbending" NpcId="1009637" XYZ="-156.6662, -9.954531, -92.76897" QuestId="67037" UseTimes="1" BlacklistAfter="True"/>
       <TalkTo NpcId="1009637" XYZ="-156.6662, -9.954531, -92.76897" QuestId="67037" StepId="1"/>
@@ -2667,7 +2667,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="85.66614, 7.399894, -58.9245"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="85.66614, 7.399894, -58.9245"/>
       <UseObject NpcIds="1009694,1009695,1009696,1009697,1009638" XYZ="85.66614, 7.399894, -58.9245" Radius="100" QuestId="67038" StepId="2"/>
     </If>
@@ -2676,7 +2676,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="115.3613, 6.780309, -59.51439"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="115.3613, 6.780309, -59.51439"/>
       <Grind GrindRef="67039" While="ItemCount(2001396) &lt; 3" PostCombatDelay="2.5"/>
     </If>
@@ -2685,7 +2685,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="445.4565, -0.9374095, -67.36859"/>
       </If>
       <NoCombatMoveTo XYZ="445.4565, -0.9374095, -67.36859"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001396" NpcId="1008945" XYZ="445.4565, -0.9374095, -67.36859" QuestId="67039" StepId="2"/>
     </If>
     <!-- Heat Vent Component -->
@@ -2801,7 +2801,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </While>
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(8110,4)">
       <StopCrafting/>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <!-- Reach For The Starboard -->
     <If Condition="HasQuest(67034) and GetQuestStep(67034) == 2">
@@ -2825,7 +2825,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001387" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67034" StepId="3"/>
     </If>
     <!-- Starboard Wing Component -->
@@ -2936,7 +2936,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001390" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67035" StepId="3"/>
     </If>
     <!-- Larboard Wing Component -->
@@ -3041,13 +3041,13 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(8106,4)">
       <StopCrafting/>
     </If>
-    <!-- Right-wing Aeronautics -->		
+    <!-- Right-wing Aeronautics -->
     <If Condition="HasQuest(67036) and GetQuestStep(67036) == 2">
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001393" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67036" StepId="2"/>
     </If>
     <!-- Starboard Wing Control Component -->
@@ -3152,13 +3152,13 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     <If Condition="CraftingLog.IsOpen and HqHasAtLeast(8107,1)">
       <StopCrafting/>
     </If>
-    <!-- Left-wing Aeronautics -->		
+    <!-- Left-wing Aeronautics -->
     <If Condition="HasQuest(67037) and GetQuestStep(67037) == 2">
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001394" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67037" StepId="2"/>
     </If>
     <!-- Larboard Wing Control Component -->
@@ -3261,7 +3261,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001395" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67038" StepId="3"/>
     </If>
     <!-- Transmission Component -->
@@ -3384,7 +3384,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="59.95264, 298.564, 176.257"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="59.95264, 298.564, 176.257"/>
       <SoEmoteNpc Emote="say Now Fall" NpcId="1009639" XYZ="59.95264, 298.564, 176.257" QuestId="67051" UseTimes="1" BlacklistAfter="True"/>
       <TalkTo NpcId="1009639" XYZ="59.95264, 298.564, 176.257" QuestId="67051"/>
@@ -3396,7 +3396,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="274.2301, 270.7413, 34.53231"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="274.2301, 270.7413, 34.53231"/>
       <UseItem NpcId="784" ItemId="2001403" XYZ="274.2301, 270.7413, 34.53231" Condition="GetQuestById(67052).QuestI8A == 0" BlacklistAfter="True" QuestId="67052"/>
       <NoCombatMoveTo XYZ="242.4013, 222.2293, 326.7268"/>
@@ -3404,7 +3404,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </If>
     <!-- A Long Way To The Top -->
     <If Condition="HasQuest(67054) and GetQuestStep(67054) == 1">
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
@@ -3423,7 +3423,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(155)">
         <GetTo ZoneId="155" XYZ="-240.1584, 226.7403, 410.9974"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-240.1584, 226.7403, 410.9974"/>
       <Grind GrindRef="67053" While="GetQuestStep(67053) == 1" PostCombatDelay="2.5"/>
     </If>
@@ -3434,21 +3434,21 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       </If>
       <NoCombatMoveTo XYZ="-56.94362, 197.8425, 488.5516"/>
       <RunCode Name="Dismount"/>
-      <SendChat GearSet="&fisherGearSet;"/>
+      <SoSendChat GearSet="&fisherGearSet;"/>
       <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67050,0,2)">
         <FishSpots>
           <FishSpot XYZ="-56.94362, 197.8425, 488.5516" Heading="5.85653"/>
         </FishSpots>
       </Fish>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
     </If>
     <If Condition="HasQuest(67050) and GetQuestStep(67050) == 2">
       <If Condition="not IsOnMap(155)">
-        <GetTo ZoneId="155" XYZ="248.4262, 222, 363.174" />
+        <GetTo ZoneId="155" XYZ="248.4262, 222, 363.174"/>
       </If>
-      <NoCombatMoveTo XYZ="248.4262, 222, 363.174" />
-      <SendChat GearSet="&crafterGearSet;"/>
-      <HandOver ItemIds="2001397,2001398" NpcId="1009219" XYZ="251.1177, 222, 366.2317" QuestId="67050" StepId="2" />
+      <NoCombatMoveTo XYZ="248.4262, 222, 363.174"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
+      <HandOver ItemIds="2001397,2001398" NpcId="1009219" XYZ="251.1177, 222, 366.2317" QuestId="67050" StepId="2"/>
     </If>
     <!-- Cockpit Exterior Component -->
     <While Condition="GetQuestStep(67050) == 255 and not HqHasAtLeast(8100,2)">
@@ -3559,7 +3559,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001399,2001400" NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67051" StepId="2"/>
     </If>
     <!-- Cockpit Interior Component -->
@@ -3671,7 +3671,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001401,2001402" NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67052" StepId="2"/>
     </If>
     <!-- Ballast Component -->
@@ -3783,7 +3783,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001404,2001405" NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67053" StepId="2"/>
     </If>
     <!-- Instrument Panel Component -->
@@ -3892,7 +3892,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       </If>
       <NoCombatMoveTo XYZ="249.4246, 222, 365.9561"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001406,2001407" NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67054" StepId="3"/>
     </If>
     <!-- Aerodynamo Component -->
@@ -4001,7 +4001,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="77.47987, -40.9355, 350.1134"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="77.47987, -40.9355, 350.1134"/>
       <UseObject NpcIds="2004460,2004461,2004462" XYZ="77.47987, -40.9355, 350.1134" QuestId="67040" StepId="1"/>
     </If>
@@ -4010,7 +4010,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="16.12609, -46.29958, 441.9455"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="16.12609, -46.29958, 441.9455"/>
       <UseObject NpcId="2004464" XYZ="16.12609, -46.29958, 441.9455" QuestId="67041" StepId="1"/>
     </If>
@@ -4019,7 +4019,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-195.2547, -63.12574, 363.3565"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-195.2547, -63.12574, 363.3565"/>
       <Grind GrindRef="67042" While="GetQuestById(67042).QuestI8C == 0" PostCombatDelay="2.5"/>
       <UseItem ItemId="2001384" NpcId="2988" XYZ="-195.2547, -63.12574, 363.3565" LacksAuraId="22" InCombatOnly="True" Condition="GetQuestById(67042).QuestI8C == 16" UseHealthPercent="100" UseTimes="1"/>
@@ -4029,7 +4029,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="-246.2142, -31.58565, 390.6744"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-246.2142, -31.58565, 390.6744"/>
       <TalkTo NpcId="1006258" XYZ="-246.2142, -31.58565, 390.6744" QuestId="67044" StepId="1"/>
     </If>
@@ -4038,7 +4038,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(148)">
         <GetTo ZoneId="148" XYZ="-408.2403, 64.44772, -243.6947"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="-408.2403, 64.44772, -243.6947"/>
       <SoEmoteNpc Emote="say High as Honor" NpcId="1009634" XYZ="-408.2403, 64.44772, -243.6947" QuestId="67043" UseTimes="1" BlacklistAfter="True"/>
       <TalkTo NpcId="1009634" XYZ="-408.2403, 64.44772, -243.6947" QuestId="67043" StepId="1"/>
@@ -4049,7 +4049,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001381" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67040" StepId="2"/>
     </If>
     <!-- Gyrodrive Component -->
@@ -4176,7 +4176,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001382" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67041" StepId="2"/>
     </If>
     <!-- Rigging Component -->
@@ -4303,7 +4303,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001383" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67042" StepId="2"/>
     </If>
     <!-- Deck Component -->
@@ -4416,7 +4416,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001385" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67043" StepId="2"/>
     </If>
     <!-- Engine Casing Component -->
@@ -4512,7 +4512,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="-4.104736, -40.95, 176.8368"/>
       </If>
       <NoCombatMoveTo XYZ="-4.104736, -40.95, 176.8368"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001386" NpcId="1009218" XYZ="-4.104736, -40.95, 176.8368" QuestId="67044" StepId="2"/>
     </If>
     <!-- Crafting Tool Component -->
@@ -4615,7 +4615,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="399.2134, -5.84667, -106.521"/>
       </If>
       <NoCombatMoveTo XYZ="399.2134, -5.84667, -106.521"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <TalkTo NpcId="1000656" XYZ="399.2134, -5.84667, -106.521" QuestId="67030" StepId="1"/>
     </If>
     <!-- Misdirected Woo -->
@@ -4624,7 +4624,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="399.2134, -5.84667, -106.521"/>
       </If>
       <NoCombatMoveTo XYZ="399.2134, -5.84667, -106.521"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <TalkTo NpcId="1000656" XYZ="399.2134, -5.84667, -106.521" QuestId="67031" StepId="1"/>
     </If>
     <!-- Trust, But Verify -->
@@ -4632,7 +4632,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="319.5697, -16.12885, 205.6763"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="319.5697, -16.12885, 205.6763"/>
       <UseItem NpcId="2004454" ItemId="2001374" XYZ="319.5697, -16.12885, 205.6763" QuestId="67030" StepId="2"/>
     </If>
@@ -4641,7 +4641,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="227.2494, -26.06217, 218.5125"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="227.2494, -26.06217, 218.5125"/>
       <UseObject NpcIds="2004456,2004457,2004458,2004459" QuestId="67032" StepId="1">
         <HotSpots>
@@ -4654,7 +4654,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="253.5287, -21.25274, 353.0782"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="253.5287, -21.25274, 353.0782"/>
       <SoEmoteNpc Emote="say With the Wind" NpcId="1009633" XYZ="253.5287, -21.25274, 353.0782" QuestId="67033" UseTimes="1" BlacklistAfter="True"/>
       <TalkTo NpcId="1009633" XYZ="253.5287, -21.25274, 353.0782" QuestId="67033" StepId="1"/>
@@ -4665,7 +4665,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="363.8487, -5.619825, 346.4739"/>
       </If>
       <NoCombatMoveTo XYZ="363.8487, -5.619825, 346.4739"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001379" NpcId="1009217" XYZ="363.8487, -5.619825, 346.4739" QuestId="67032" StepId="2"/>
     </If>
     <!-- Starboard Hull Component -->
@@ -4728,7 +4728,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="363.8487, -5.619825, 346.4739"/>
       </If>
       <NoCombatMoveTo XYZ="363.8487, -5.619825, 346.4739"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemId="2001380" NpcId="1009217" XYZ="363.8487, -5.619825, 346.4739" QuestId="67033" StepId="2"/>
     </If>
     <!-- Larboard Hull Component -->
@@ -4790,7 +4790,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <If Condition="not IsOnMap(154)">
         <GetTo ZoneId="154" XYZ="358.9684, 8.934157, 231.2505"/>
       </If>
-      <SendChat GearSet="&combatGearSet;"/>
+      <SoSendChat GearSet="&combatGearSet;"/>
       <NoCombatMoveTo XYZ="358.9684, 8.934157, 231.2505"/>
       <HandOver ItemId="2001377" NpcId="1000172" XYZ="358.9684, 8.934157, 231.2505" QuestId="67031" StepId="2"/>
     </If>
@@ -4799,7 +4799,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="400.8334, -5.900517, -104.5451"/>
       </If>
       <NoCombatMoveTo XYZ="400.8334, -5.900517, -104.5451"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001378,2001376" NpcId="1000656" XYZ="400.8334, -5.900517, -104.5451" QuestId="67031" StepId="3"/>
     </If>
     <!-- Bladder Lining Component -->
@@ -4862,7 +4862,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="400.8334, -5.900517, -104.5451"/>
       </If>
       <NoCombatMoveTo XYZ="400.8334, -5.900517, -104.5451"/>
-      <SendChat GearSet="&crafterGearSet;"/>
+      <SoSendChat GearSet="&crafterGearSet;"/>
       <HandOver ItemIds="2001373,2001375" NpcId="1000656" XYZ="400.8334, -5.900517, -104.5451" QuestId="67030" StepId="3"/>
     </If>
     <!-- Bladder Component -->
@@ -4927,8 +4927,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8120" QuestId="67056" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8120" QuestId="67056" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- Your Gil's No Good Here -->
     <If Condition="HasQuest(67057) and GetQuestStep(67057) == 255">
@@ -4936,8 +4936,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8121" QuestId="67057" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8121" QuestId="67057" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- Mining For Compliments -->
     <If Condition="HasQuest(67058) and GetQuestStep(67058) == 255">
@@ -4945,8 +4945,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8122" QuestId="67058" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8122" QuestId="67058" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- A High Wind In Ishgard -->
     <If Condition="HasQuest(67059) and GetQuestStep(67059) == 255">
@@ -4954,8 +4954,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8123" QuestId="67059" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8123" QuestId="67059" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- Bring Your Own Ectoplasm -->
     <If Condition="HasQuest(67102) and GetQuestStep(67102) == 255">
@@ -4963,8 +4963,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8125" QuestId="67102" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8125" QuestId="67102" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- In Case Of Emergency  -->
     <If Condition="HasQuest(67103) and GetQuestStep(67103) == 255">
@@ -4972,8 +4972,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8126" QuestId="67103" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8126" QuestId="67103" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- We Fly High (Squawkin') -->
     <If Condition="HasQuest(67104) and GetQuestStep(67104) == 255">
@@ -4981,8 +4981,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="164.3549, -22.79755, 114.641"/>
       </If>
       <NoCombatMoveTo XYZ="164.3549, -22.79755, 114.641"/>
-      <SendChat GearSet="&handInGearSet;"/>
-      <TurnIn ItemId="8127" QuestId="67104" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641" />
+      <SoSendChat GearSet="&handInGearSet;"/>
+      <TurnIn ItemId="8127" QuestId="67104" NpcId="1009216" XYZ="164.3549, -22.79755, 114.641"/>
     </If>
     <!-- Rank 5 -->
     <!-- Crazy Like The Pox -->
@@ -4991,7 +4991,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8112" QuestId="67045" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- A Hard Knock Life -->
@@ -5000,7 +5000,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8113" QuestId="67046" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- Manual Labor -->
@@ -5009,7 +5009,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8114" QuestId="67047" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- Leave Nothing To Waste -->
@@ -5018,7 +5018,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8115" QuestId="67048" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- Tanks For Nothing -->
@@ -5027,7 +5027,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8117" QuestId="67049" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- Never Steer You Wrong -->
@@ -5036,7 +5036,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="166.9588, -13.60462, 110.7875"/>
       </If>
       <NoCombatMoveTo XYZ="166.9588, -13.60462, 110.7875"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8118" QuestId="67055" NpcId="1009215" XYZ="166.9588, -13.60462, 110.7875"/>
     </If>
     <!-- Rank 4 -->
@@ -5046,7 +5046,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8105" QuestId="67034" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Larboard And Lodging -->
@@ -5055,7 +5055,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8106" QuestId="67035" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Right-wing Aeronautics -->
@@ -5064,7 +5064,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8107" QuestId="67036" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Left-wing Aeronautics -->
@@ -5073,7 +5073,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8108" QuestId="67037" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Getting Into Gear -->
@@ -5082,7 +5082,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8109" QuestId="67038" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Hells-vent on the Heavens -->
@@ -5091,7 +5091,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="159.3805, -5.686596, 69.29114"/>
       </If>
       <NoCombatMoveTo XYZ="159.3805, -5.686596, 69.29114"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8110" QuestId="67039" NpcId="1009214" XYZ="159.3805, -5.686596, 69.29114"/>
     </If>
     <!-- Rank 3 -->
@@ -5101,7 +5101,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="162.8452, -4.768587, 63.9221"/>
       </If>
       <NoCombatMoveTo XYZ="162.8452, -4.768587, 63.9221"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8100" QuestId="67051" NpcId="1009213" XYZ="159.2889, -3.6961, 64.28625"/>
     </If>
     <!-- An Empty Sack Can Not Hang Downright -->
@@ -5118,7 +5118,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="162.8452, -4.768587, 63.9221"/>
       </If>
       <NoCombatMoveTo XYZ="162.8452, -4.768587, 63.9221"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8102" QuestId="67052" NpcId="1009213" XYZ="159.2889, -3.6961, 64.28625"/>
     </If>
     <!-- Simply The Biast -->
@@ -5127,7 +5127,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="162.8452, -4.768587, 63.9221"/>
       </If>
       <NoCombatMoveTo XYZ="162.8452, -4.768587, 63.9221"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8103" QuestId="67053" NpcId="1009213" XYZ="159.2889, -3.6961, 64.28625"/>
     </If>
     <!-- A Long Way To The Top -->
@@ -5136,7 +5136,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="162.8452, -4.768587, 63.9221"/>
       </If>
       <NoCombatMoveTo XYZ="162.8452, -4.768587, 63.9221"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8104" QuestId="67054" NpcId="1009213" XYZ="159.2889, -3.6961, 64.28625"/>
     </If>
     <!-- Rank 2 -->
@@ -5146,7 +5146,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.425, -9.695862, 79.88071"/>
       </If>
       <NoCombatMoveTo XYZ="153.425, -9.695862, 79.88071"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8095" QuestId="67040" NpcId="1009212" XYZ="153.425, -9.695862, 79.88071"/>
     </If>
     <!-- Of Rodents and Rigging -->
@@ -5155,7 +5155,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.425, -9.695862, 79.88071"/>
       </If>
       <NoCombatMoveTo XYZ="153.425, -9.695862, 79.88071"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8096" QuestId="67041" NpcId="1009212" XYZ="153.425, -9.695862, 79.88071"/>
     </If>
     <!-- What Evil Lurks in the Hearts of Golems -->
@@ -5164,7 +5164,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.425, -9.695862, 79.88071"/>
       </If>
       <NoCombatMoveTo XYZ="153.425, -9.695862, 79.88071"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8097" QuestId="67042" NpcId="1009212" XYZ="153.425, -9.695862, 79.88071"/>
     </If>
     <!-- One Ixals Buzzard -->
@@ -5173,7 +5173,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.425, -9.695862, 79.88071"/>
       </If>
       <NoCombatMoveTo XYZ="153.425, -9.695862, 79.88071"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8098" QuestId="67043" NpcId="1009212" XYZ="153.425, -9.695862, 79.88071"/>
     </If>
     <!-- A Right Tool for the Tools -->
@@ -5182,7 +5182,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.425, -9.695862, 79.88071"/>
       </If>
       <NoCombatMoveTo XYZ="153.425, -9.695862, 79.88071"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8099" QuestId="67044" NpcId="1009212" XYZ="153.425, -9.695862, 79.88071"/>
     </If>
     <!-- Rank 1 -->
@@ -5192,7 +5192,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.8872, -9.001622, 77.50049"/>
       </If>
       <NoCombatMoveTo XYZ="153.8872, -9.001622, 77.50049"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8091" QuestId="67030" NpcId="1009211" XYZ="153.8872, -9.001622, 77.50049"/>
     </If>
     <!-- Misdirected Woo -->
@@ -5201,7 +5201,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.8872, -9.001622, 77.50049"/>
       </If>
       <NoCombatMoveTo XYZ="153.8872, -9.001622, 77.50049"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8092" QuestId="67031" StepId="255" NpcId="1009211" XYZ="153.8872, -9.001622, 77.50049"/>
     </If>
     <!-- Keeping Up Appearances -->
@@ -5210,7 +5210,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.8872, -9.001622, 77.50049"/>
       </If>
       <NoCombatMoveTo XYZ="153.8872, -9.001622, 77.50049"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8093" QuestId="67032" NpcId="1009211" XYZ="153.8872, -9.001622, 77.50049"/>
     </If>
     <!-- Blow, Ye Winds -->
@@ -5219,7 +5219,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <GetTo ZoneId="154" XYZ="153.8872, -9.001622, 77.50049"/>
       </If>
       <NoCombatMoveTo XYZ="153.8872, -9.001622, 77.50049"/>
-      <SendChat GearSet="&handInGearSet;"/>
+      <SoSendChat GearSet="&handInGearSet;"/>
       <TurnIn ItemId="8094" QuestId="67033" NpcId="1009211" XYZ="153.8872, -9.001622, 77.50049"/>
     </If>
     <!-- Reputation and Unlock Quests -->
@@ -5668,15 +5668,13 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 -->
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Dismount">
-      <![CDATA[
+    <CodeChunk Name="Dismount"><![CDATA[
         if(Core.Player.IsMounted)
         {
           await CommonTasks.StopAndDismount();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
     <GrindArea name="67102">

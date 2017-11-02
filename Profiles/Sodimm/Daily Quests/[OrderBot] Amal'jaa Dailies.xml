@@ -888,7 +888,6 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-174.0292,40,155.3521"/>
       <Grind GrindRef="66768b" While="HasQuest(66768) and GetQuestStep(66768) == 1 and not IsTodoChecked(66768, 1, 1)"/>
     </If>
-
     <!--    <!{1}** The Gland that Feeds You **{1}>
     <If Condition="HasQuest(66773) and GetQuestStep(66773) == 1">
       <If Condition="not IsOnMap(146)">
@@ -927,7 +926,6 @@ Authors:  Sodimm.
         </HotSpots>
       </SoUseItem>
 -->
-
     <!-- Singed Fur Their Own Good -->
     <If Condition="HasQuest(66772) and GetQuestStep(66772) == 1">
       <If Condition="not IsOnMap(146)">
@@ -1349,7 +1347,6 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="103.0235, 15.17023, -357.2687"/>
       <TurnIn QuestId="66767" NpcId="1005550" XYZ="103.0235, 15.17023, -357.2687"/>
     </If>
-
     <!--      <!{1}** An Eye on the Inside **{1}>
       <SoPickUpQuest QuestId="66756" NpcId="1005553" XYZ="122.6062, 16.40265, -362.1119" MapId="146" />
       <SoTalkTo NpcId="1006217" XYZ="-181.0483, 28.21407, -402.0295" QuestId="66756" StepId="1" MapId="146" />
@@ -1414,20 +1411,16 @@ Authors:  Sodimm.
       <SoTurnIn QuestId="66757" NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" MapId="130" />
     </If>
 -->
-
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Dismount">
-      <![CDATA[
+    <CodeChunk Name="Dismount"><![CDATA[
         if(Core.Player.IsMounted)
         {
           await CommonTasks.StopAndDismount();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="66781">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="66781"><![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(557).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
           if (Core.Me.IsMounted)
@@ -1440,8 +1433,7 @@ Authors:  Sodimm.
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
     <!--    <CodeChunk Name="DisableMount">
       <![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = false;

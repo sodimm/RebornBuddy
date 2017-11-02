@@ -227,6 +227,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="623.724, -35.16813, 458.6954"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008015).IsVisible">
+          <!--10-->
           <UseObject NpcIds="2008015" XYZ="623.724, -35.16813, 458.6954" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -236,6 +237,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="106.2911, -11.25576, 386.2865"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008024).IsVisible">
+          <!--1-->
           <UseObject NpcIds="2008024" XYZ="106.2911, -11.25576, 386.2865" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -245,6 +247,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="742.0491, -1.755693, -194.3951"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008016).IsVisible">
+          <!--9-->
           <UseObject NpcIds="2008016" XYZ="742.0491, -1.755693, -194.3951" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -257,6 +260,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="273.6664, 90.20409, -475.5069" Distance="1"/>
         <NoCombatMoveTo XYZ="282.4987, 81.48897, -460.5905" Distance="1" UseMesh="False"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008017).IsVisible">
+          <!--8-->
           <UseObject NpcIds="2008017" XYZ="282.4987, 81.48897, -460.5905" UseTimes="1" BlacklistAfter="True"/>
         </If>
         <NoCombatMoveTo XYZ="285.5352, 50.87238, -443.2186" Distance="1" UseMesh="False"/>
@@ -267,6 +271,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="-265.579, 64.58141, -361.007"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008018).IsVisible">
+          <!--7-->
           <UseObject NpcIds="2008018" XYZ="-265.579, 64.58141, -361.007" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -277,6 +282,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <TeleportTo Name="The Dawn Throne" AetheryteId="110" Force="True"/>
         <NoCombatMoveTo XYZ="103.7593, 116.043, -48.00158"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008019).IsVisible">
+          <!--6-->
           <UseObject NpcIds="2008019" XYZ="103.7593, 116.043, -48.00158" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -289,6 +295,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="-297.9183, 10.00196, 674.5955" Distance="0.5"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008023).IsVisible">
           <NoCombatMoveTo XYZ="-305.5691, 18.56014, 650.1381" Distance="0.5" UseMesh="False"/>
+          <!--2-->
           <UseObject NpcIds="2008023" XYZ="-305.5691, 18.56014, 650.1381" UseTimes="1" BlacklistAfter="True"/>
         </If>
         <NoCombatMoveTo XYZ="-309.6238, 8.929112, 635.1984" UseMesh="False"/>
@@ -299,6 +306,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="-640.5781, 6.119884, 702.3987"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008022).IsVisible">
+          <!--3-->
           <UseObject NpcIds="2008022" XYZ="-640.5781, 6.119884, 702.3987" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -308,6 +316,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="-773.5542, 12.48292, 345.0839"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008021).IsVisible">
+          <!--4-->
           <UseObject NpcIds="2008021" XYZ="-773.5542, 12.48292, 345.0839" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -317,6 +326,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(622)">
         <NoCombatMoveTo XYZ="-409.8354, 29.58549, -29.50996"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2008020).IsVisible">
+          <!--5-->
           <UseObject NpcIds="2008020" XYZ="-409.8354, 29.58549, -29.50996" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -405,8 +415,8 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
     </While>
     <!-- Ruby Sea -->
     <While Condition="&doRubySea;">
-      <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="-649.205, 22.22752, -611.3624"/>
+      <If Condition="IsOnMap(613)">
+        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
       </If>
       <If Condition="IsOnMap(613)">
         <NoCombatMoveTo XYZ="48.13285, 2.05105, -590.9346" Distance="0.5"/>
@@ -512,6 +522,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <NoCombatMoveTo XYZ="-392.5773, 39.61606, -47.4309"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007987).IsVisible">
           <MoveTo XYZ="-356.7994, 25.33143, 9.968737" UseMesh="False"/>
+          <!--8-->
           <UseObject NpcIds="2007987" XYZ="-356.7994, 25.33143, 9.968737" UseTimes="1" BlacklistAfter="True"/>
           <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2007987).IsVisible"/>
           <MoveTo XYZ="-346.0119, 9.085359, 26.44012" UseMesh="False"/>
@@ -520,6 +531,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(621)">
         <NoCombatMoveTo XYZ="-405.8281, 204.199, 739.2991"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007991).IsVisible">
+          <!--4-->
           <UseObject NpcIds="2007991" XYZ="-405.8281, 204.199, 739.2991" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -530,6 +542,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
           <MoveTo XYZ="-191.7148, 45.69061, 454.0391" UseMesh="False"/>
           <MoveTo XYZ="-191.1261, 31.26575, 466.352" UseMesh="False"/>
           <MoveTo XYZ="-174.9038, 31.26577, 474.4782" UseMesh="False"/>
+          <!--5-->
           <UseObject NpcIds="2007990" XYZ="-174.9038, 31.26577, 474.4782" UseTimes="1" BlacklistAfter="True"/>
           <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2007990).IsVisible"/>
           <MoveTo XYZ="-156.0262, 8.058244, 470.2649" UseMesh="False"/>
@@ -538,6 +551,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(621)">
         <NoCombatMoveTo XYZ="106.7653, 42.00407, 787.726"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007992).IsVisible">
+          <!--3-->
           <UseObject NpcIds="2007992" XYZ="106.7653, 42.00407, 787.726" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -545,6 +559,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <TeleportTo Name="Ala Mhigan Quarter" AetheryteId="103" Force="True"/>
         <NoCombatMoveTo XYZ="673.4974, 82.99997, 508.5288"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007994).IsVisible">
+          <!--1-->
           <UseObject NpcIds="2007994" XYZ="673.4974, 82.99997, 508.5288" UseTimes="1" BlacklistAfter="True"/>
         </If>
         <TeleportTo Name="Porta Praetoria" AetheryteId="102" Force="True"/>
@@ -552,12 +567,14 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(621)">
         <NoCombatMoveTo XYZ="403.3247, 116.7892, 69.89963"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007993).IsVisible">
+          <!--2-->
           <UseObject NpcIds="2007993" XYZ="403.3247, 116.7892, 69.89963" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
       <If Condition="IsOnMap(621)">
         <NoCombatMoveTo XYZ="49.61507, -0.3, -252.8017"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007989).IsVisible">
+          <!--6-->
           <UseObject NpcIds="2007989" XYZ="49.61507, -0.3, -252.8017" UseTimes="1" BlacklistAfter="True"/>
         </If>
       </If>
@@ -566,6 +583,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <If Condition="GameObjectManager.GetObjectByNPCId(2007986).IsVisible">
           <MoveTo XYZ="-327.3975, 51.77775, -447.3571" UseMesh="False"/>
           <MoveTo XYZ="-323.8145, 51.77773, -456.5256" UseMesh="False"/>
+          <!--9-->
           <UseObject NpcIds="2007986" XYZ="-323.8145, 51.77773, -456.5256" UseTimes="1" BlacklistAfter="True"/>
           <MoveTo XYZ="-299.5719, 19.13688, -463.5402" UseMesh="False"/>
         </If>
@@ -573,6 +591,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       <If Condition="IsOnMap(621)">
         <NoCombatMoveTo XYZ="672.2595, 111.8, -710.3323"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007988).IsVisible">
+          <!--7-->
           <UseObject NpcIds="2007988" XYZ="672.2595, 111.8, -710.3323" UseTimes="1" BlacklistAfter="True"/>
           <NoCombatMoveTo XYZ="627.2355, 109, -630.8505" UseMesh="False" Distance="1"/>
         </If>
@@ -587,6 +606,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <WaitTimer WaitTime="5"/>
         <If Condition="GameObjectManager.GetObjectByNPCId(2007985).IsVisible">
           <MoveTo XYZ="-644.1132, 64.30769, -291.335" UseMesh="False" Distance="1.0"/>
+          <!--10-->
           <UseObject NpcIds="2007985" XYZ="-644.1132, 64.30769, -291.335" UseTimes="1" BlacklistAfter="True"/>
           <WaitWhile Condition="GameObjectManager.GetObjectByNPCId(2007985).IsVisible"/>
         </If>

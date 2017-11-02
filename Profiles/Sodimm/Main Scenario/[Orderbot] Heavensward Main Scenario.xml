@@ -344,17 +344,17 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 0">
       <GetTo ZoneId="401" XYZ="-293.0496, -183.7349, 812.6802"/>
-      <SendChat Emote="psych" NpcId="1013498" XYZ="-293.0496, -183.7349, 812.6802"/>
+      <SoSendChat Emote="psych" NpcId="1013498" XYZ="-293.0496, -183.7349, 812.6802"/>
       <WaitWhile Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
     <If Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 1">
       <GetTo ZoneId="401" XYZ="-260.9141, -184.9108, 705.4092"/>
-      <SendChat Emote="psych" NpcId="1012359" XYZ="-260.9141, -184.9108, 705.4092"/>
+      <SoSendChat Emote="psych" NpcId="1012359" XYZ="-260.9141, -184.9108, 705.4092"/>
       <WaitWhile Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
     <If Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 2">
       <GetTo ZoneId="401" XYZ="-337.7584, -186.0735, 618.5549"/>
-      <SendChat Emote="psych" NpcId="1012360" XYZ="-337.7584, -186.0735, 618.5549"/>
+      <SoSendChat Emote="psych" NpcId="1012360" XYZ="-337.7584, -186.0735, 618.5549"/>
       <WaitWhile Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 1 and GetQuestById(67129).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 255">
@@ -1706,7 +1706,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
       </If>
       <GetTo ZoneId="401" XYZ="-702.7697, -62.06715, 112.6331"/>
-      <SendChat Emote="lookout" XYZ="-702.7697, -62.06715, 112.6331" QuestId="67180" StepId="1"/>
+      <SoSendChat Emote="lookout" XYZ="-702.7697, -62.06715, 112.6331" QuestId="67180" StepId="1"/>
     </If>
     <If Condition="HasQuest(67180) and not IsQuestCompleted(67180) and GetQuestStep(67180) == 2">
       <If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -1714,7 +1714,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
       </If>
       <GetTo ZoneId="401" XYZ="-761.8904, -38.69292, 75.92774"/>
-      <SendChat XYZ="-761.8904, -38.69292, 75.92774" Emote="lookout"/>
+      <SoSendChat XYZ="-761.8904, -38.69292, 75.92774" Emote="lookout"/>
       <SimpleDuty XYZ="-761.8904, -38.69292, 75.92774" QuestId="67180" StepId="2">
         <HotSpots>
           <HotSpot XYZ="69.20998, 23.97913, 6.114148" Radius="90"/>
@@ -2032,12 +2032,12 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 2 and GetQuestById(67192).GetTodoArgs(2, 0).Item1 == 0">
       <GetTo ZoneId="478" XYZ="-42.00812, 205.7957, 3.433289"/>
-      <SendChat Say="Noughts and Crosses"/>
+      <SoSendChat Say="Noughts and Crosses"/>
       <WaitWhile Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 2 and GetQuestById(67192).GetTodoArgs(2, 0).Item1 == 0"/>
     </If>
     <If Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 2 and GetQuestById(67192).GetTodoArgs(2, 0).Item1 == 1">
       <GetTo ZoneId="478" XYZ="-69.23029, 205.8877, -68.61987"/>
-      <SendChat Say="Noughts and Crosses"/>
+      <SoSendChat Say="Noughts and Crosses"/>
       <WaitWhile Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 2 and GetQuestById(67192).GetTodoArgs(2, 0).Item1 == 1"/>
     </If>
     <If Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 255">
@@ -3867,22 +3867,17 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[ 
+    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Move_Forward">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="Move_Forward"><![CDATA[
         MovementManager.MoveForwardStart();
         await Coroutine.Sleep(5000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(5000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Weathered_Gear">
-      <![CDATA[ 
+      ]]></CodeChunk>
+    <CodeChunk Name="Weathered_Gear"><![CDATA[ 
         await Coroutine.Sleep(1000);
         foreach(BagSlot slot in InventoryManager.FilledInventoryAndArmory)
         {
@@ -3899,8 +3894,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
             await Coroutine.Sleep(1000);
           }
         }
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
     <GrindArea Name="Wooly_Yak">

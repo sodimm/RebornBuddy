@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Register Dailies -->
-    <RegisterDailies QuestIds="67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816" />
+    <RegisterDailies QuestIds="67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816"/>
     <!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
       <!-- Getting the Shaft -->
@@ -252,9 +252,7 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-399.2523, 96.07059, -43.01526"/>
       <HandOver NpcId="1016874" ItemId="2001968" XYZ="-399.2523, 96.07059, -43.01526" QuestId="67813" StepId="3"/>
     </If>
-
-
-<!--      <!{1}** A Romp Around the Foothills **{1}>
+    <!--      <!{1}** A Romp Around the Foothills **{1}>
       <SoMoveTo XYZ="-265.3845, -30.1, 103.5592" QuestId="67814" StepId="1" MapId="398" />
       <SoTalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="1" NoFlight="True" MapId="398" />
       <SoMoveTo XYZ="-265.3845, -30.1, 103.5592" QuestId="67814" StepId="2" NoFlight="True" MapId="398" />
@@ -268,7 +266,6 @@ Authors:  Sodimm.
       <SoTalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="5" NoFlight="True" MapId="398" />
       <SoTurnIn QuestId="67814" NpcId="1016803" XYZ="58.45544, -48, -170.6133" NoFlight="True" MapId="398" />
 -->
-
     <!-- Smells Like Trouble -->
     <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(398)">
@@ -357,9 +354,9 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="284.5349, -67.61273, 83.87878"/>
       <UseObject NpcIds="2006885,2006884,2006886" QuestId="67798" StepId="1" MapId="398">
         <HotSpots>
-          <HotSpot XYZ="284.5349, -67.61273, 83.87878" Radius="10" />
-          <HotSpot XYZ="294.9417, -68.92505, 129.1981" Radius="10" />
-          <HotSpot XYZ="237.6592, -71.45807, 99.01575" Radius="10" />
+          <HotSpot XYZ="284.5349, -67.61273, 83.87878" Radius="10"/>
+          <HotSpot XYZ="294.9417, -68.92505, 129.1981" Radius="10"/>
+          <HotSpot XYZ="237.6592, -71.45807, 99.01575" Radius="10"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -392,9 +389,9 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="352.2545, -51.07196, -46.9826"/>
       <UseObject NpcIds="2006881,2006883,2006882" QuestId="67797" StepId="1">
         <HotSpots>
-          <HotSpot XYZ="352.2545, -51.07196, -46.9826" Radius="10" />
-          <HotSpot XYZ="31.41821, -65.32391, 111.7418" Radius="10" />
-          <HotSpot XYZ="307.0573, -66.54462, 163.4393" Radius="10" />
+          <HotSpot XYZ="352.2545, -51.07196, -46.9826" Radius="10"/>
+          <HotSpot XYZ="31.41821, -65.32391, 111.7418" Radius="10"/>
+          <HotSpot XYZ="307.0573, -66.54462, 163.4393" Radius="10"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -406,9 +403,9 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="566.7964, -20.55396, -530.2052"/>
       <UseObject NpcIds="2006913,2006914,2006912" QuestId="67804" StepId="1">
         <HotSpots>
-          <HotSpot XYZ="566.7964, -20.55396, -530.2052" Radius="10" />
-          <HotSpot XYZ="595.3917, -20.18774, -547.4785" Radius="10" />
-          <HotSpot XYZ="639.8259, -19.60791, -588.098" Radius="10" />
+          <HotSpot XYZ="566.7964, -20.55396, -530.2052" Radius="10"/>
+          <HotSpot XYZ="595.3917, -20.18774, -547.4785" Radius="10"/>
+          <HotSpot XYZ="639.8259, -19.60791, -588.098" Radius="10"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -569,10 +566,10 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-303.3646, -80.52191, 734.1573"/>
       <UseObject NpcIds="2006907,2006908,2006906,2006909" QuestId="67803" StepId="1">
         <HotSpots>
-          <HotSpot XYZ="-303.3646, -80.52191, 734.1573" Radius="10" />
-          <HotSpot XYZ="-305.745, -68.13159, 812.7717" Radius="10" />
-          <HotSpot XYZ="-178.5153, -86.16772, 775.845" Radius="10" />
-          <HotSpot XYZ="-124.3763, -86.07617, 763.6987" Radius="10" />
+          <HotSpot XYZ="-303.3646, -80.52191, 734.1573" Radius="10"/>
+          <HotSpot XYZ="-305.745, -68.13159, 812.7717" Radius="10"/>
+          <HotSpot XYZ="-178.5153, -86.16772, 775.845" Radius="10"/>
+          <HotSpot XYZ="-124.3763, -86.07617, 763.6987" Radius="10"/>
         </HotSpots>
       </UseObject>
       <WaitWhile Condition="Core.Me.InCombat"/>
@@ -635,9 +632,9 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="329.4879, -45.48718, -262.1348"/>
       <UseItem ItemId="2001961" NpcIds="2006920,2006919,2006918" QuestId="67806" StepId="2">
         <HotSpots>
-          <HotSpot XYZ="329.4879, -45.48718, -262.1348" Radius="10" />
-          <HotSpot XYZ="535.4543, -32.39496, -410.605" Radius="10" />
-          <HotSpot XYZ="475.7, -44.17493, -231.4642" Radius="10" />
+          <HotSpot XYZ="329.4879, -45.48718, -262.1348" Radius="10"/>
+          <HotSpot XYZ="535.4543, -32.39496, -410.605" Radius="10"/>
+          <HotSpot XYZ="475.7, -44.17493, -231.4642" Radius="10"/>
         </HotSpots>
       </UseItem>
     </If>
@@ -656,9 +653,9 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="707.7285, -50.0954, -151.4763"/>
       <UseObject NpcIds="2006873,2006871,2006872" QuestId="67800" StepId="1">
         <HotSpots>
-          <HotSpot XYZ="707.7285, -50.0954, -151.4763" Radius="10" />
-          <HotSpot XYZ="559.7161, -41.24518, -333.1808" Radius="10" />
-          <HotSpot XYZ="333.8215, -47.53192, -331.5328" Radius="10" />
+          <HotSpot XYZ="707.7285, -50.0954, -151.4763" Radius="10"/>
+          <HotSpot XYZ="559.7161, -41.24518, -333.1808" Radius="10"/>
+          <HotSpot XYZ="333.8215, -47.53192, -331.5328" Radius="10"/>
         </HotSpots>
       </UseObject>
     </If>
@@ -680,8 +677,8 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67799) and GetQuestStep(67799) == 4">
       <SoUseSpell SpellId="5872" NpcIds="2006889,2006888" QuestId="67799" StepId="4">
         <HotSpots>
-          <HotSpot XYZ="689.7229, -52.26221, 62.08887" Radius="10" />
-          <HotSpot XYZ="586.1753, -37.9798, 257.3739" Radius="10" />
+          <HotSpot XYZ="689.7229, -52.26221, 62.08887" Radius="10"/>
+          <HotSpot XYZ="586.1753, -37.9798, 257.3739" Radius="10"/>
         </HotSpots>
       </SoUseSpell>
       <RunCode Name="Dismount"/>
@@ -710,7 +707,7 @@ Authors:  Sodimm.
         <GetTo ZoneId="398" XYZ="74.20459, -48.53359, -171.1299"/>
       </If>
       <NoCombatMoveTo XYZ="74.20459, -48.53359, -171.1299"/>
-      <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67808" StepId="1" />
+      <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67808" StepId="1"/>
     </If>
     <If Condition="HasQuest(67808) and GetQuestStep(67808) == 2">
       <SoUseSpell SpellId="5872" NpcIds="2006924" XYZ="-190.2648, -104.7532, 512.932" QuestId="67808" StepId="2"/>
@@ -718,8 +715,8 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67808) and GetQuestStep(67808) == 3">
       <SoUseSpell SpellId="5872" NpcIds="2006925,2006926" QuestId="67808" StepId="3" MapId="398">
         <HotSpots>
-          <HotSpot XYZ="-13.44324, -129.2897, 712.2148" Radius="10" />
-          <HotSpot XYZ="45.15137, -132.1584, 685.7556" Radius="10" />
+          <HotSpot XYZ="-13.44324, -129.2897, 712.2148" Radius="10"/>
+          <HotSpot XYZ="45.15137, -132.1584, 685.7556" Radius="10"/>
         </HotSpots>
       </SoUseSpell>
       <RunCode Name="Dismount"/>
@@ -735,9 +732,9 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67812) and GetQuestStep(67812) == 2">
       <SoUseSpell SpellId="5872" NpcIds="2006938,2006940,2006939" QuestId="67812" StepId="2">
         <HotSpots>
-          <HotSpot XYZ="-178.8816, 179.8885, 4.257263" Radius="10" />
-          <HotSpot XYZ="-311.8181, -29.49573, 143.6331" Radius="10" />
-          <HotSpot XYZ="-313.8018, -29.49573, 102.0981" Radius="10" />
+          <HotSpot XYZ="-178.8816, 179.8885, 4.257263" Radius="10"/>
+          <HotSpot XYZ="-311.8181, -29.49573, 143.6331" Radius="10"/>
+          <HotSpot XYZ="-313.8018, -29.49573, 102.0981" Radius="10"/>
         </HotSpots>
       </SoUseSpell>
       <RunCode Name="Dismount"/>
@@ -908,51 +905,51 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="447.3792, -51.1414, 108.5374" />
+        <GetTo ZoneId="398" XYZ="447.3792, -51.1414, 108.5374"/>
       </If>
-      <NoCombatMoveTo XYZ="447.3792, -51.1414, 108.5374" />
+      <NoCombatMoveTo XYZ="447.3792, -51.1414, 108.5374"/>
       <TalkTo NpcId="1016835" XYZ="447.3792, -51.1414, 108.5374" QuestId="67791" StepId="1"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767" />
+        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767"/>
       </If>
-      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767" />
+      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767"/>
       <TalkTo NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="2"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 3">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="222.156, -74.93713, 122.5146" />
+        <GetTo ZoneId="398" XYZ="222.156, -74.93713, 122.5146"/>
       </If>
-      <NoCombatMoveTo XYZ="222.156, -74.93713, 122.5146" />
+      <NoCombatMoveTo XYZ="222.156, -74.93713, 122.5146"/>
       <UseObject NpcIds="2006874" XYZ="222.156, -74.93713, 122.5146" QuestId="67791" StepId="3"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 4">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767" />
+        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767"/>
       </If>
-      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767" />
+      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767"/>
       <HandOver ItemId="2001949" NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="4"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 5">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079" />
+        <GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
       </If>
-      <NoCombatMoveTo XYZ="470.0236, -49.89133, 20.37079" />
+      <NoCombatMoveTo XYZ="470.0236, -49.89133, 20.37079"/>
       <TalkTo NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" QuestId="67791" StepId="5"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 6">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="474.1268, -51.1414, 38.58637" />
+        <GetTo ZoneId="398" XYZ="474.1268, -51.1414, 38.58637"/>
       </If>
-      <NoCombatMoveTo XYZ="474.1268, -51.1414, 38.58637" />
+      <NoCombatMoveTo XYZ="474.1268, -51.1414, 38.58637"/>
       <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67791" StepId="6"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 7">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689" />
+        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689"/>
       </If>
-      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689" />
+      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689"/>
       <TalkTo NpcId="1016837" XYZ="58.88452, -48, -171.0689" QuestId="67791" StepId="7"/>
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 8">
@@ -961,13 +958,12 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 255">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689" />
+        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689"/>
       </If>
-      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689" />
+      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689"/>
       <SoTurnIn QuestId="67791" NpcId="1016837" XYZ="58.88452, -48, -171.0689" DialogOption="0"/>
     </If>
- 
-<!--    <If Condition="not IsQuestCompleted(67792)">
+    <!--    <If Condition="not IsQuestCompleted(67792)">
           <!{1}** Adventurers Don't Get Cold Feet **{1}>
           <SoPickUpQuest NpcId="1016802" QuestId="67792" XYZ="53.36072, -48, -169.9703" MapId="398" />
           <SoTalkTo NpcId="1016841" XYZ="842.9846, -8.926967, 338.2467" QuestId="67792" StepId="1" MapId="398" />
@@ -1040,17 +1036,14 @@ Authors:  Sodimm.
         </If>
       </If>
 -->
-
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Dismount">
-      <![CDATA[
+    <CodeChunk Name="Dismount"><![CDATA[
         if(Core.Player.IsMounted)
         {
           await CommonTasks.StopAndDismount();
           await Coroutine.Sleep(500);
         }
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
 </Profile>

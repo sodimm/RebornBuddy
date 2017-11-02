@@ -11,8 +11,8 @@ using System.Linq;
 
 namespace ff14bot.NeoProfiles
 {
-    [XmlElement("SendChat")]
-    public class SendChat : ProfileBehavior
+    [XmlElement("SoSendChat")]
+    public class SoSendChat : ProfileBehavior
     {
         [XmlAttribute("NpcId")]
         [DefaultValue(0)]
@@ -78,6 +78,7 @@ namespace ff14bot.NeoProfiles
         }
 
         private bool _done;
+
         public override bool IsDone
         {
             get

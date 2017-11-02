@@ -9,26 +9,17 @@ Authors:  Sodimm.
   <Order>
     <!-- A Reoccurring Bug -->
     <If Condition="not HasQuest(68497) and not IsQuestCompleted(68497)">
-      <If Condition="not IsOnMap(130)">
-        <GetTo ZoneId="130" XYZ="-21.37677, 10, -47.90832"/>
-      </If>
-      <NoCombatMoveTo XYZ="-21.37677, 10, -47.90832"/>
+      <GetTo ZoneId="130" XYZ="-21.37677, 10, -47.90832"/>
       <If Condition="IsQuestAcceptQualified(68497)">
         <PickupQuest QuestId="68497" NpcId="1023935" XYZ="-22.65973, 10, -47.98962"/>
       </If>
     </If>
     <If Condition="HasQuest(68497) and not IsQuestCompleted(68497) and GetQuestStep(68497) == 1">
-      <If Condition="not IsOnMap(140)">
-        <GetTo ZoneId="140" XYZ="111.5954, 19.18584, 71.425"/>
-      </If>
-      <NoCombatMoveTo XYZ="111.5954, 19.18584, 71.425"/>
+      <GetTo ZoneId="140" XYZ="111.5954, 19.18584, 71.425"/>
       <UseObject NpcIds="2009036" XYZ="113.6644, 18.99738, 70.81714" QuestId="68497" StepId="1"/>
     </If>
     <If Condition="HasQuest(68497) and not IsQuestCompleted(68497) and GetQuestStep(68497) == 2">
-      <If Condition="not IsOnMap(140)">
-        <GetTo ZoneId="140" XYZ="111.5954, 19.18584, 71.425"/>
-      </If>
-      <NoCombatMoveTo XYZ="111.5954, 19.18584, 71.425"/>
+      <GetTo ZoneId="140" XYZ="111.5954, 19.18584, 71.425"/>
       <SoTalkTo NpcId="2009036" XYZ="113.6644, 18.99738, 70.81714" QuestId="68497" StepId="2"/>
       <WaitWhile Condition="GetQuestStep(68497) == 2"/>
     </If>
@@ -51,10 +42,7 @@ Authors:  Sodimm.
       <WaitWhile Condition="GetQuestStep(68497) == 5"/>
     </If>
     <If Condition="HasQuest(68497) and not IsQuestCompleted(68497) and GetQuestStep(68497) == 255">
-      <If Condition="not IsOnMap(130)">
-        <GetTo ZoneId="130" XYZ="-20.35651, 10, -48.84215"/>
-      </If>
-      <NoCombatMoveTo XYZ="-20.35651, 10, -48.84215"/>
+      <GetTo ZoneId="130" XYZ="-20.35651, 10, -48.84215"/>
       <TurnIn QuestId="68497" NpcId="1023935" XYZ="-22.65973, 10, -47.98962"/>
     </If>
   </Order>

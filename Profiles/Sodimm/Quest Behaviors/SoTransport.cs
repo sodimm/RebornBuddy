@@ -20,6 +20,7 @@ namespace ff14bot.NeoProfiles
         public override bool HighPriority => true;
 
         private bool _done;
+
         public override bool IsDone
         {
             get

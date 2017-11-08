@@ -35,7 +35,7 @@ Authors:  Sodimm.
     </If>
     <!-- Pick Ups -->
     <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538"/>
-    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512) and not HasQuest(68513)">
+    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512) and not HasQuest(68513) and not HasQuest(68514)">
       <If Condition="not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538]))">
         <If Condition="not IsOnSubMap(2769)">
           <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
@@ -1234,6 +1234,39 @@ Authors:  Sodimm.
       </If>
       <SoTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
     </If>
+    <!-- True-blue -->
+    <If Condition="IsQuestCompleted(68513) and not HasQuest(68514) and not IsQuestCompleted(68514)">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108" />
+-->
+      <If Condition="IsQuestAcceptQualified(68514)">
+        <PickupQuest QuestId="68514" NpcId="1024220" XYZ="400.0762, -119.5893, -247.5471"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 1">
+      <GetTo ZoneId="614" XYZ="-272.5581, 17.31996, 491.9967"/>
+      <SoTalkTo NpcId="1024423" XYZ="-272.572, 17.31996, 490.0129" QuestId="68514" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 2">
+      <GetTo ZoneId="622" XYZ="535.0673, -19.50566, 317.5482"/>
+      <TalkTo NpcId="1024425" XYZ="533.8063, -19.50565, 316.1517" QuestId="68514" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 3">
+      <GetTo ZoneId="628" XYZ="-129.8018, -4.999999, 181.6413"/>
+      <TalkTo NpcId="1024428" XYZ="-130.5715, -4.999999, 183.3677" QuestId="68514" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 255">
+      <If Condition="not IsOnSubMap(2769)">
+        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      </If>
+      <!--
+      <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108" />
+-->
+      <TurnIn QuestId="68514" NpcId="1019178" XYZ="319.6917, -120.0349, -250.9042"/>
+    </If>
   </Order>
   <CodeChunks>
     <CodeChunk Name="Descend_Into_Diving"><![CDATA[
@@ -1285,10 +1318,10 @@ Authors:  Sodimm.
         BagSlot Item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002424);
     GameObject Target = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && obj.NpcId == 6885).FirstOrDefault();
         await Coroutine.Sleep(500);
-		if (Target == null)
-		{
-		  await Coroutine.Wait(5000, () => Target != null);
-		}
+    if (Target == null)
+    {
+      await Coroutine.Wait(5000, () => Target != null);
+    }
         if (Target != null)
         {
           Item.UseItem(Target);

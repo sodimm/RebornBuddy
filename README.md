@@ -20,7 +20,7 @@ Sparrow is a Companion plugin. Specify your Stance and Feed requirements in sett
 
 Please disable any UseChocobo features of your Combat Routines when using Sparrow, and indeed any other Chocobo Manager plugins, as this  will intefere.
 
-[Download](https://github.com/sodimm/RebornBuddy/blob/master/Downloads/Latest/Sparrow/Sparrow.zip?raw=true "Sparrow"). Unblock the zip and extract to your BotBases folder.
+[Download](https://github.com/sodimm/RebornBuddy/blob/master/Downloads/Latest/Sparrow/Sparrow.zip?raw=true "Sparrow"). Unblock the zip and extract to your Plugins folder.
 
 ## Profiles
 

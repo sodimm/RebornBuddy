@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Challenge Log
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Challenge Log</Name>
+  <Order>
+    <!-- Rising to the Challenge -->
+    <If Condition="(IsQuestCompleted(66209) or IsQuestCompleted(66210)) and not HasQuest(66967) and not IsQuestCompleted(66967)">
+      <GetTo ZoneId="128" XYZ="12.65095, 40.19991, -12.1757"/>
+      <If Condition="IsQuestAcceptQualified(66967)">
+        <PickupQuest QuestId="66967" NpcId="1005411" XYZ="13.41266, 40.2, -13.26007"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66967) and not IsQuestCompleted(66967) and GetQuestStep(66967) == 1">
+      <GetTo ZoneId="128" XYZ="-11.29723, 40.0005, 10.31812"/>
+      <TalkTo NpcId="1003598" XYZ="-12.06995, 40.00053, 11.45953" QuestId="66967" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66967) and not IsQuestCompleted(66967) and GetQuestStep(66967) == 255">
+      <GetTo ZoneId="129" XYZ="-182.9116, 1.999995, 206.9424"/>
+      <TurnIn QuestId="66967" ItemId="2001297" NpcId="1005410" XYZ="-182.4521, 1.999995, 208.7587"/>
+    </If>
+  </Order>
+</Profile>

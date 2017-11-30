@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Company Chocobo Flight
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Company Chocobo Flight</Name>
+  <Order>
+    <If Condition="not IsQuestCompleted(66698)">
+      <LogMessage Message="[OrderBot] Unlock Company Chocobo Flight: You must complete Quest: My Feisty Little Chocobo to proceed."/>
+    </If>
+    <If Condition="IsQuestCompleted(66698) and not IsQuestCompleted(67145)">
+      <LogMessage Message="[OrderBot] Unlock Company Chocobo Flight: You must complete Main Scenario Quest: Where the Chocobos Roam to proceed."/>
+    </If>
+    <!-- I Believe I Can Fly -->
+    <If Condition="IsQuestCompleted(66698) and IsQuestCompleted(67145) and not HasQuest(67653) and not IsQuestCompleted(67653)">
+      <GetTo ZoneId="418" XYZ="-171.6455, 2.170002, 19.18435"/>
+      <If Condition="IsQuestAcceptQualified(67653)">
+        <PickupQuest QuestId="67653" NpcId="1012177" XYZ="-171.9845, 2.170002, 20.37079"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 1">
+      <GetTo ZoneId="398" XYZ="454.6443, -51.1414, 57.63263"/>
+      <TalkTo NpcId="1011921" XYZ="453.3607, -51.1414, 58.57935" QuestId="67653" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 2">
+      <GetTo ZoneId="398" XYZ="728.0632, -49.97708, 34.35889"/>
+      <WaitWhile Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 2"/>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 3">
+      <GetTo ZoneId="398" XYZ="454.5616, -51.1414, 57.79843"/>
+      <TalkTo NpcId="1011921" XYZ="453.3607, -51.1414, 58.57935" QuestId="67653" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 4 and not IsTodoChecked(67653, 4, 0)">
+      <GetTo ZoneId="398" XYZ="609.8896, 2.980188, -489.3821"/>
+      <UseObject NpcId="2006419" XYZ="610.2845, 2.975464, -488.4566" Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 4 and not IsTodoChecked(67653, 4, 0)"/>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 4 and not IsTodoChecked(67653, 4, 1)">
+      <GetTo ZoneId="397" XYZ="109.2573, 195.0749, -48.70015"/>
+      <UseObject NpcId="2006420" XYZ="108.3237, 195.1781, -48.63055" Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 4 and not IsTodoChecked(67653, 4, 1)"/>
+    </If>
+    <If Condition="HasQuest(67653) and not IsQuestCompleted(67653) and GetQuestStep(67653) == 255">
+      <GetTo ZoneId="398" XYZ="454.749, -51.1414, 58.03328"/>
+      <TurnIn QuestId="67653" NpcId="1011921" XYZ="453.3607, -51.1414, 58.57935"/>
+    </If>
+    <RunCode Name="Use_Flyer_Shaffron"/>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Use_Flyer_Shaffron">
+	  <![CDATA[ 
+        await Coroutine.Sleep(2000);
+        foreach(BagSlot slot in InventoryManager.FilledSlots)
+        {
+          if(slot.RawItemId == 6032)
+          {
+            slot.UseItem();
+          }
+        }
+        await Coroutine.Wait(10000, () => !Core.Player.IsCasting);
+        await Coroutine.Sleep(2000);
+      ]]>
+	</CodeChunk>
+  </CodeChunks>
+</Profile>

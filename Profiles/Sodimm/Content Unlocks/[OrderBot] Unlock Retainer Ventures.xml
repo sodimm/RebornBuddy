@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Retainer Ventures
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Retainer Ventures</Name>
+  <Order>
+    <!-- An Ill-conceived Venture -->
+    <If Condition="not HasQuest(66969) and not IsQuestCompleted(66969)">
+      <GetTo ZoneId="129" XYZ="-106.0853, 18.00033, 0.07174745"/>
+      <If Condition="IsQuestAcceptQualified(66969)">
+        <PickupQuest QuestId="66969" NpcId="1005412" XYZ="-108.1407, 18.00033, -0.2289429"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66969) and not IsQuestCompleted(66969) and GetQuestStep(66969) == 1">
+      <GetTo ZoneId="138" XYZ="247.2661, -13.53922, 114.8751"/>
+      <UseObject NpcId="1005413" XYZ="248.493, -11.83891, 97.45935" QuestId="66969" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66969) and not IsQuestCompleted(66969) and GetQuestStep(66969) == 255">
+      <GetTo ZoneId="129" XYZ="-146.3387, 18.21202, 16.71108"/>
+      <TurnIn QuestId="66969" NpcId="1003275" XYZ="-147.1123, 18.2, 14.3587"/>
+    </If>
+  </Order>
+</Profile>

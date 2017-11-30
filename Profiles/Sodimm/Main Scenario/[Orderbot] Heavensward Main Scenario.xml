@@ -165,7 +165,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(67121) and not IsQuestCompleted(67121) and GetQuestStep(67121) == 2">
       <GetTo ZoneId="397" XYZ="501.7318, 164.194, 301.1367"/>
-      <Grind GrindRef="The_First_and_Foremost" PostCombatDelay="3.0" While="HasQuest(67121) and GetQuestStep(67121) == 2"/>
+      <Grind GrindRef="Deepeye" PostCombatDelay="3.0" While="HasQuest(67121) and GetQuestStep(67121) == 2"/>
     </If>
     <If Condition="HasQuest(67121) and not IsQuestCompleted(67121) and GetQuestStep(67121) == 255">
       <GetTo ZoneId="397" XYZ="501.7318, 164.194, 301.1367"/>
@@ -747,6 +747,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
           <TargetMob Id="4141" Weight="1000"/>
         </TargetMobs>
       </SimpleDuty>
+      <WaitWhile Condition="HasQuest(67142) and not IsQuestCompleted(67142) and not GetQuestStep(67142) == 2"/>
     </If>
     <If Condition="HasQuest(67142) and not IsQuestCompleted(67142) and GetQuestStep(67142) == 2">
       <GetTo ZoneId="397" XYZ="620.9657, 78.429, 213.8856"/>
@@ -972,8 +973,8 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
         <UseTransport InteractDistance="3.0" NpcId="2005446" XYZ="-9.079163, -127.7333, 734.0046"/>
       </If>
-      <MoveTo XYZ="5.850327, -2.384186E-07, -0.7740318"/>
-      <WaitWhile Condition="HasQuest(67152) and not IsQuestCompleted(67152) and GetQuestStep(67152) == 2"/>
+      <MoveTo UseMesh="False" XYZ="5.850327, -2.384186E-07, -0.7740318"/>
+      <WaitWhile Condition="HasQuest(67152) and not IsQuestCompleted(67152) and not GetQuestStep(67152) == 3"/>
     </If>
     <If Condition="HasQuest(67152) and not IsQuestCompleted(67152) and GetQuestStep(67152) == 3">
       <RunCode Name="Announce_Manual_Completion"/>
@@ -1680,6 +1681,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
       <UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
       <WaitWhile Condition="HasQuest(67179) and not IsQuestCompleted(67179) and not GetQuestStep(67179) == 255"/>
+	  <WaitWhile Condition="not IsOnMap(401)"/>
     </If>
     <If Condition="HasQuest(67179) and not IsQuestCompleted(67179) and GetQuestStep(67179) == 255">
       <If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2583,6 +2585,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <!-- Heavensward (Level 60) -->
     <If Condition="IsQuestCompleted(67204) and not HasQuest(67205) and not IsQuestCompleted(67205)">
+	  <ExEnablePlugins Names="Enable Flight"/>
       <If Condition="not IsOnMap(402)">
         <GetTo ZoneId="419" XYZ="168.4442, -14.34896, 49.57654"/>
         <UseTransport InteractDistance="3.0" NpcId="1012153" XYZ="168.4442, -14.34896, 49.57654"/>
@@ -2591,6 +2594,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="IsQuestAcceptQualified(67205)">
         <PickupQuest NpcId="1012848" QuestId="67205" XYZ="-319.0204, 253, -5.233948"/>
       </If>
+	  <ExDisablePlugins Names="Enable Flight"/>
     </If>
     <If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 1">
       <If Condition="not IsOnMap(402)">
@@ -3897,6 +3901,16 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       ]]></CodeChunk>
   </CodeChunks>
   <GrindAreas>
+    <GrindArea Name="Deepeye">
+      <Hotspots>
+        <Hotspot XYZ="403.5994, 167.5542, 293.2362" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3471"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
     <GrindArea Name="Wooly_Yak">
       <Hotspots>
         <Hotspot XYZ="-334.3916, 80.6248, -299.0159" Radius="90"/>

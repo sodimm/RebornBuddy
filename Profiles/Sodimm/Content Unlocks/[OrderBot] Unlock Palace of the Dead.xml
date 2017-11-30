@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Palace of the Dead
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Palace of the Dead</Name>
+  <Order>
+    <!-- The House That Death Built -->
+    <If Condition="IsQuestCompleted(66196) and not IsQuestCompleted(67092) and not HasQuest(67092)">
+      <GetTo ZoneId="132" XYZ="42.55737, -7.705872, 97.24573"/>
+      <If Condition="IsQuestAcceptQualified(67092)">
+        <PickupQuest NpcId="1000389" QuestId="67092"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67092) and not IsQuestCompleted(67092) and GetQuestStep(67092) == 1">
+      <GetTo ZoneId="153" XYZ="-199.0234, 6.873556, 30.5332"/>
+      <TalkTo NpcId="1017255" XYZ="-199.0234, 6.873556, 30.5332" QuestId="67092" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67092) and not IsQuestCompleted(67092) and GetQuestStep(67092) == 255">
+      <GetTo ZoneId="153" XYZ="187.5486, 7.238432, -39.26154"/>
+      <TurnIn QuestId="67092" NpcId="1017323" XYZ="187.5486, 7.238432, -39.26154"/>
+    </If>
+  </Order>
+</Profile>

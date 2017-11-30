@@ -10,7 +10,7 @@ using ff14bot.Objects;
 using System;
 using System.Threading.Tasks;
 using TreeSharp;
-
+using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles
 {
     [XmlElement("SoUseSpell")]
@@ -35,7 +35,8 @@ namespace ff14bot.NeoProfiles
                             new Decorator(r => Core.Player.Location.Distance(((GameObject)r).Location) > UseDistance,
                                 new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText))
                             ),
-                            new ActionRunCoroutine(r => CreateUseSpell(((GameObject)r), Spell))
+                            CreateUseSpell(Target, Spell)
+                            //new ActionRunCoroutine(r => CreateUseSpellAsync(((GameObject)r), Spell))
                          )
                    );
             }
@@ -46,7 +47,23 @@ namespace ff14bot.NeoProfiles
             return await CommonTasks.MoveAndStop(new Pathing.MoveToParameters(location, destinationName), distance, stopInRange);
         }
 
-        private async Task<bool> CreateUseSpell(GameObject obj, SpellData spell)
+
+        private Composite CreateUseSpell(GameObject obj, SpellData spell)
+        {
+            return
+                new Sequence(
+                    new Action(ret => Navigator.PlayerMover.MoveStop()),
+                    new WaitContinue(5, ret => !MovementManager.IsMoving, new Action(ret => RunStatus.Success)),
+                    new Sleep(1000),
+                    new DecoratorContinue(ret => ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Failure)),
+                    new DecoratorContinue(r => ActionManager.DoAction(spell, obj), new Action(ret => ActionManager.DoAction(spell, obj))),
+                    new Wait(5, ret => Core.Me.IsCasting || ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Success)),
+                    new Sleep(WaitTime),
+                    new DecoratorContinue(r => BlacklistAfter, new Action(r => Blacklist.Add(r as GameObject, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(BlacklistDuration), "BlacklistAfter")))
+                );
+        }
+
+        private async Task<bool> CreateUseSpellAsync(GameObject obj, SpellData spell)
         {
             if (ShortCircut(obj))
             {

@@ -677,6 +677,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68005) and not IsQuestCompleted(68005) and GetQuestStep(68005) == 2">
       <GetTo ZoneId="129" XYZ="-356.2665, 7.999987, 45.86062"/>
       <UseTransport InteractDistance="3.0" NpcId="1020442" XYZ="-356.2665, 7.999987, 45.86062" QuestId="68005" StepId="2"/>
+      <WaitWhile Condition="not IsOnMap(680)"/>
     </If>
     <If Condition="HasQuest(68005) and not IsQuestCompleted(68005) and GetQuestStep(68005) == 3">
       <If Condition="not IsOnMap(680)">
@@ -762,6 +763,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68009) and not IsQuestCompleted(68009) and GetQuestStep(68009) == 2">
       <GetTo ZoneId="628" XYZ="143.5123, 14.77572, 90.35785"/>
       <RunCode Name="A_Good_Samurai_Is_Hard_To_Find"/>
+      <WaitWhile Condition="HasQuest(68009) and not IsQuestCompleted(68009) and not GetQuestStep(68009) == 3"/>
     </If>
     <If Condition="HasQuest(68009) and not IsQuestCompleted(68009) and GetQuestStep(68009) == 3">
       <GetTo ZoneId="628" XYZ="-83.74267, 18.05, -190.6369"/>
@@ -1480,7 +1482,6 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68026) and not IsQuestCompleted(68026) and GetQuestStep(68026) == 255">
       <GetTo ZoneId="613" XYZ="-761.7733, 4.763445, -453.3271"/>
-      <NoCombatMoveTo XYZ="-761.7733, 4.763445, -453.3271"/>
       <TurnIn QuestId="68026" InteractDistance="3.0" NpcId="1019989" XYZ="-761.7733, 4.763445, -453.3271"/>
     </If>
     <!-- A Silence in Three Parts (Level 63) -->
@@ -3885,44 +3886,57 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         await Coroutine.Sleep(26000);
       ]]></CodeChunk>
     <CodeChunk Name="68086"><![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please dive.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Wait(26000, () => MovementManager.IsDiving);
+      if (MovementManager.IsSwimming)
+      {
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        MovementManager.StopDescending();
+      }
     if (MovementManager.IsDiving)
     {
       await CommonTasks.DescendTo(-84f);
       MovementManager.SetFacing(1.24f);
-          MovementManager.MoveForwardStart();
+      MovementManager.MoveForwardStart();
       await Coroutine.Sleep(15000);
-          if (GameObjectManager.GetObjectByNPCId(1021714).IsVisible)
+      if (GameObjectManager.GetObjectByNPCId(1021714).IsVisible)
       {
-            var Target = GameObjectManager.GetObjectByNPCId(1021714);
+        var Target = GameObjectManager.GetObjectByNPCId(1021714);
         MovementManager.SetFacing(Target.Location);
-            MovementManager.MoveForwardStart();
+        MovementManager.MoveForwardStart();
         await Coroutine.Sleep(4000);
-            MovementManager.MoveStop();
-          }
-        }		  
-      ]]></CodeChunk>
-    <CodeChunk Name="Dive"><![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please dive.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Wait(26000, () => MovementManager.IsDiving);
-      ]]></CodeChunk>
-    <CodeChunk Name="House_of_The_Fierce"><![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please dive.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Wait(26000, () => MovementManager.IsDiving);
-    if (MovementManager.IsDiving)
-    {
-      await CommonTasks.DescendTo(-44f);
-      MovementManager.SetFacing(4.2f);
-          MovementManager.MoveForwardStart();
-      await Coroutine.Sleep(10000);
-      MovementManager.SetFacing(4.0f);
-      await Coroutine.Sleep(10000);
-          MovementManager.MoveStop();
-      MovementManager.StartAscending();
-      await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
+        MovementManager.MoveStop();
+      }
     }		  
-      ]]></CodeChunk>
+    ]]></CodeChunk>
+    <CodeChunk Name="Dive"><![CDATA[ 
+      if (MovementManager.IsSwimming)
+      {
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        MovementManager.StopDescending();
+      }
+    ]]></CodeChunk>
+    <CodeChunk Name="House_of_The_Fierce"><![CDATA[ 
+      if (MovementManager.IsSwimming)
+      {
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        MovementManager.StopDescending();
+      }
+
+      if (MovementManager.IsDiving)
+      {
+        await CommonTasks.DescendTo(-44f);
+        MovementManager.SetFacing(4.2f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(10000);
+        MovementManager.SetFacing(4.0f);
+        await Coroutine.Sleep(10000);
+        MovementManager.MoveStop();
+        MovementManager.StartAscending();
+        await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
+      }
+    ]]></CodeChunk>
     <CodeChunk Name="Descend_Into_Diving"><![CDATA[
         MovementManager.StartDescending();
         await Coroutine.Wait(10000, () => MovementManager.IsDiving);]]></CodeChunk>

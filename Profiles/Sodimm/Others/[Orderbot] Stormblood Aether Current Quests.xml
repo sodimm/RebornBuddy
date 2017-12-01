@@ -14,7 +14,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
 <!ENTITY doPeaksLower "0">
 <!ENTITY doAzimSteppe "0">
 <!ENTITY doRubySea "0">
-<!ENTITY doYanxia "1">
+<!ENTITY doYanxia "0">
 <!ENTITY doLochs "0">
 ]>
 <Profile>
@@ -235,7 +235,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
     </If>
     <!-- Azim Steppe -->
     <If Condition="&doAzimSteppe;">
-      <!-- Words Are Very Unnecessary -->
+      <!-- Words Are Very Unnecessary (3) -->
       <If Condition="not HasQuest(68296) and not IsQuestCompleted(68296)">
         <GetTo ZoneId="622" XYZ="573.8724, -19.50563, 344.6087"/>
         <If Condition="IsQuestAcceptQualified(68296)">
@@ -250,14 +250,15 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="622" XYZ="586.4434, -19.50565, 316.261"/>
         <TurnIn QuestId="68296" NpcId="1022128" XYZ="586.4434, -19.50565, 316.261"/>
       </If>
-      <!-- Sheep Snatcher -->
-      <If Condition="not HasQuest(68307) and not IsQuestCompleted(68307)">
+      <!-- Sheep Snatcher (2) -->
+      <If Condition="IsQuestCompleted(68296) and not HasQuest(68307) and not IsQuestCompleted(68307)">
         <GetTo ZoneId="622" XYZ="344.6132, 26.26397, -326.2001"/>
         <If Condition="IsQuestAcceptQualified(68307)">
           <PickupQuest QuestId="68307" NpcId="1019405" XYZ="344.6132, 26.26397, -326.2001"/>
         </If>
       </If>
-      <If Condition="GetQuestStep(68307) == 1">
+      <If Condition="HasQuest(68307) and not IsQuestCompleted(68307) and GetQuestStep(68307) == 1">
+	    <GetTo ZoneId="622" XYZ="-83.96514, 33.66718, -213.9475"/>
         <RunCode Name="Announce_Manual_Completion"/>
       </If>
       <If Condition="HasQuest(68307) and not IsQuestCompleted(68307) and GetQuestStep(68307) == 2">
@@ -268,8 +269,8 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="622" XYZ="343.7481, 26.26795, -325.4355"/>
         <TurnIn ItemIds="2002173" QuestId="68307" NpcId="1019405" XYZ="343.7481, 26.26795, -325.4355"/>
       </If>
-      <!-- Mauci of the Seven Worries -->
-      <If Condition="not HasQuest(68327) and not IsQuestCompleted(68327)">
+      <!-- Mauci of the Seven Worries (0) -->
+      <If Condition="IsQuestCompleted(68307) and not HasQuest(68327) and not IsQuestCompleted(68327)">
         <GetTo ZoneId="622" XYZ="-434.7208, 2.565867, 651.0312"/>
         <If Condition="IsQuestAcceptQualified(68327)">
           <PickupQuest QuestId="68327" NpcId="1023193" XYZ="-434.7208, 2.565867, 651.0312"/>
@@ -291,8 +292,8 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="622" XYZ="-432.391, 2.668097, 651.086"/>
         <TurnIn QuestId="68327" NpcId="1023193" XYZ="-432.391, 2.668097, 651.086"/>
       </If>
-      <!-- Forty Years and Counting -->
-      <If Condition="not HasQuest(68318) and not IsQuestCompleted(68318)">
+      <!-- Forty Years and Counting (1) -->
+      <If Condition="IsQuestCompleted(68327) and not HasQuest(68318) and not IsQuestCompleted(68318)">
         <GetTo ZoneId="622" XYZ="78.13956, 114.905, 94.42142"/>
         <If Condition="IsQuestAcceptQualified(68318)">
           <PickupQuest QuestId="68318" NpcId="1023348" XYZ="78.13956, 114.905, 94.42142"/>
@@ -304,7 +305,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
       </If>
       <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 2">
         <GetTo ZoneId="622" XYZ="25.26894, 114.905, -43.35295"/>
-        <UseObject NpcIds="2008925, 20078926, 2008927" XYZ="25.26894, 114.905, -43.35295" QuestId="68318" StepId="2"/>
+        <UseObject NpcIds="2008925,2008926,2008927" XYZ="25.17076, 114.905, -49.23971" UseDistance="3" QuestId="68318" StepId="2"/>
       </If>
       <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 255">
         <GetTo ZoneId="622" XYZ="78.9364, 114.905, 94.25043"/>
@@ -313,7 +314,7 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
     </If>
     <!-- Ruby Sea -->
     <If Condition="&doRubySea;">
-      <!-- Pulling Double Booty -->
+      <!-- Pulling Double Booty (2) -->
       <If Condition="not HasQuest(68223) and not IsQuestCompleted(68223)">
         <GetTo ZoneId="613" XYZ="98.68376, 2.082913, -614.7886"/>
         <If Condition="IsQuestAcceptQualified(68223)">
@@ -336,8 +337,8 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="613" XYZ="-47.80473, 2.769715, -634.8738"/>
         <TurnIn ItemIds="2002223,2002224" QuestId="68223" NpcId="1022117" XYZ="-47.80473, 2.769715, -634.8738"/>
       </If>
-      <!-- The Sword in the Stone -->
-      <If Condition="not HasQuest(68229) and not IsQuestCompleted(68229)">
+      <!-- The Sword in the Stone (1) -->
+      <If Condition="IsQuestCompleted(68223) and not HasQuest(68229) and not IsQuestCompleted(68229)">
         <GetTo ZoneId="613" XYZ="565.2492, -61.97559, -146.0982"/>
         <If Condition="IsQuestAcceptQualified(68229)">
           <PickupQuest QuestId="68229" NpcId="1023357" XYZ="565.2492, -61.97559, -146.0982"/>
@@ -369,8 +370,8 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="613" XYZ="608.9202, -2.84076, -91.35365"/>
         <TurnIn QuestId="68229" NpcId="1023358" XYZ="608.9202, -2.84076, -91.35365"/>
       </If>
-      <!-- The Price of Betrayal -->
-      <If Condition="not HasQuest(68209) and not IsQuestCompleted(68209)">
+      <!-- The Price of Betrayal (3) -->
+      <If Condition="IsQuestCompleted(68229) and not HasQuest(68209) and not IsQuestCompleted(68209)">
         <GetTo ZoneId="613" XYZ="500.3604, 34.0062, 783.7982"/>
         <If Condition="IsQuestAcceptQualified(68209)">
           <PickupQuest QuestId="68209" NpcId="1019168" XYZ="500.3604, 34.0062, 783.7982"/>
@@ -389,51 +390,44 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         <GetTo ZoneId="613" XYZ="828.8051, 5.923008, 857.5446"/>
         <TurnIn QuestId="68209" NpcId="1019154" XYZ="828.8051, 5.923008, 857.5446"/>
       </If>
-      <!-- The Palace of Lost Souls -->
-      <If Condition="not HasQuest(68168) and not IsQuestCompleted(68168)">
-        <LogMessage Message="Please manually complete the Palace of Lost Souls quest."/>
+      <!-- The Palace of Lost Souls (0) -->
+      <If Condition="IsQuestCompleted(68209) and not HasQuest(68168) and not IsQuestCompleted(68168)">
+        <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812" />
+        <RunCode Name="Sui-no-Sato"/>
+		<GetTo ZoneId="613" XYZ="-63.24492, -198.9927, -65.75132"/>
+        <If Condition="IsQuestAcceptQualified(68168)" >
+          <SoPickupQuest QuestId="68168" NpcId="1023280" XYZ="-63.24492, -198.9927, -65.75132" />
+        </If>
       </If>
-      <!-- Broken stuff, it's all underwater!
-  <If Condition="not HasQuest(68168) and not IsQuestCompleted(68168)">
-    <If Condition="not IsOnMap(613)">
-      <GetTo ZoneId="613" XYZ="-63.24492, -198.9927, -65.75132" />
-    </If>
-    <NoCombatMoveTo XYZ="-63.24492, -198.9927, -65.75132" />
-    <If Condition="IsQuestAcceptQualified(68168)" >
-      <PickupQuest QuestId="68168" NpcId="1023280" XYZ="-63.24492, -198.9927, -65.75132" />
-    </If>
-  </If>
-  <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 1">
-    <If Condition="not IsOnMap(613)">
-      <GetTo ZoneId="613" XYZ="-10.84258, -187.0837, -94.69545" />
-    </If>
-    <NoCombatMoveTo XYZ="-10.84258, -187.0837, -94.69545" />
-    <TalkTo NpcId="1019197" XYZ="-10.84258, -187.0837, -94.69545" QuestId="68168" StepId="1" />
-  </If>
-  <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 2">
-    <If Condition="not IsOnMap(613)">
-      <GetTo ZoneId="613" XYZ="-955.9929, -899.5684, 757.0262" />
-    </If>
-    <NoCombatMoveTo XYZ="-955.9929, -899.5684, 757.0262" />
-    <TalkTo NpcId="1023293" XYZ="-955.9929, -899.5684, 757.0262" QuestId="68168" StepId="2" />
-  </If>
-  <If Condition="GetQuestStep(68168) == 3">
-  <LogMessage Message="Please manually complete the Shisui of the Violet Tides dungeon."/>
-  </If>
-  <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 4">
-    <If Condition="not IsOnMap(613)">
-      <GetTo ZoneId="613" XYZ="-955.6203, -899.6981, 757.6763" />
-    </If>
-    <NoCombatMoveTo XYZ="-955.6203, -899.6981, 757.6763" />
-    <TalkTo NpcId="1023293" XYZ="-955.6203, -899.6981, 757.6763" QuestId="68168" StepId="4" />
-  </If>
-  <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 255">
-    <If Condition="not IsOnMap(613)">
-      <GetTo ZoneId="613" XYZ="-63.31102, -198.991, -65.69412" />
-    </If>
-    <NoCombatMoveTo XYZ="-63.31102, -198.991, -65.69412" />
-    <TurnIn QuestId="68168" NpcId="1023280" XYZ="-63.31102, -198.991, -65.69412" />
-  </If>-->
+      <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 1">
+        <If Condition="not IsOnSubMap(2772)">
+          <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812" />
+          <RunCode Name="Sui-no-Sato"/>
+        </If>
+        <GetTo ZoneId="613" XYZ="-10.84258, -187.0837, -94.69545"/>
+        <TalkTo NpcId="1019197" XYZ="-10.84258, -187.0837, -94.69545" QuestId="68168" StepId="1" />
+      </If>
+      <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 2">
+        <GetTo ZoneId="613" XYZ="-956.4479, -0.5999966, 756.781" />
+        <RunCode Name="Shisui_of_the_Violet_Tides"/>
+        <TalkTo NpcId="1023293" XYZ="-955.9929, -899.5684, 757.0262" QuestId="68168" StepId="2" />
+      </If>
+      <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 3">
+        <RunCode Name="Announce_Manual_Completion"/>
+      </If>
+      <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 4">
+        <If Condition="not IsOnSubMap(2778)">
+          <GetTo ZoneId="613" XYZ="-956.4479, -0.5999966, 756.781" />
+          <RunCode Name="Shisui_of_the_Violet_Tides"/>
+        </If>
+        <TalkTo NpcId="1023293" XYZ="-955.6203, -899.6981, 757.6763" QuestId="68168" StepId="4" />
+      </If>
+      <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 255">
+        <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812" />
+        <RunCode Name="Sui-no-Sato"/>
+		<GetTo ZoneId="613" XYZ="-63.24492, -198.9927, -65.75132"/>
+        <TurnIn QuestId="68168" NpcId="1023280" XYZ="-63.31102, -198.991, -65.69412" />
+      </If>
     </If>
     <!-- Yanxia -->
     <If Condition="not IsQuestCompleted(68060) and &doYanxia;">
@@ -769,6 +763,60 @@ Setup:    Choose which area to acquire the currents below, 0 = false, 1 = true.
         }
 
         MovementManager.StopAscending();
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Sui-no-Sato">
+      <![CDATA[
+        if (MovementManager.IsSwimming)
+        {
+          MovementManager.StartDescending();
+          await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        }
+
+        MovementManager.StopDescending();
+        await Coroutine.Sleep(2000);
+
+        if (MovementManager.IsDiving)
+        {
+		
+          if (!Core.Player.IsMounted)
+          {
+            await CommonTasks.SummonFlyingMount();
+          }
+
+          await CommonTasks.DescendTo(-196f);
+          MovementManager.SetFacing(5.3f);
+          MovementManager.MoveForwardStart();
+          await Coroutine.Wait(30000, () => !MovementManager.IsDiving);
+        }
+
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Shisui_of_the_Violet_Tides">
+      <![CDATA[
+        if (MovementManager.IsSwimming)
+        {
+          MovementManager.StartDescending();
+          await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        }
+
+        MovementManager.StopDescending();
+        await Coroutine.Sleep(2000);
+
+        if (MovementManager.IsDiving)
+        {
+		
+          if (!Core.Player.IsMounted)
+          {
+            await CommonTasks.SummonFlyingMount();
+          }
+
+          await CommonTasks.DescendTo(-897f);
+        }
+
         await Coroutine.Sleep(2000);
       ]]>
     </CodeChunk>

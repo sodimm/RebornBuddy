@@ -13,7 +13,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- The Black Shroud -->
     <If Condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.Lancer">
       <!-- Coming to Gridania (Level 1) -->
-      <If Condition="not HasQuest(65575) and not IsQuestCompleted(65575)">
+      <If Condition="not IsQuestCompleted(65643) and not IsQuestCompleted(66130) and not HasQuest(65575) and not IsQuestCompleted(65575)">
         <GetTo ZoneId="132" XYZ="118.9895, -12.5777, 144.0687"/>
         <If Condition="IsQuestAcceptQualified(65575)">
           <PickupQuest QuestId="65575" NpcId="1001148" XYZ="117.1129, -12.50626, 143.6331"/>
@@ -874,7 +874,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- La Noscea -->
     <If Condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Marauder">
       <!-- Coming to Limsa Lominsa (Level 1) -->
-      <If Condition="not HasQuest(65643) and not IsQuestCompleted(65643)">
+      <If Condition="not IsQuestCompleted(66130) and not IsQuestCompleted(65575) and not HasQuest(65643) and not IsQuestCompleted(65643)">
         <GetTo ZoneId="128" XYZ="-39.84137, 20, -4.959229"/>
         <If Condition="IsQuestAcceptQualified(65643)">
           <PickupQuest NpcId="1001028" QuestId="65643" XYZ="-39.84137, 20, -4.959229"/>
@@ -1686,7 +1686,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- Thanalan -->
     <If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Thaumaturge">
       <!-- Coming to Ul'dah (Level 1) -->
-      <If Condition="not HasQuest(66130) and not IsQuestCompleted(66130)">
+      <If Condition="not IsQuestCompleted(65575) and not IsQuestCompleted(65643) and not HasQuest(66130) and not IsQuestCompleted(66130)">
         <GetTo ZoneId="130" XYZ="33.37146, 4.099995, -151.9952"/>
         <If Condition="IsQuestAcceptQualified(66130)">
           <PickupQuest NpcId="1003987" QuestId="66130" XYZ="33.37146, 4.099995, -151.9952"/>

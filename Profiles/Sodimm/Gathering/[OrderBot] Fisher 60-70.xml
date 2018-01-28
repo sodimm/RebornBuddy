@@ -243,13 +243,35 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
     </If>
     <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 5">
       <If Condition="not HqHasAtLeast(17951,3)">
-        <LogMessage Message="Please manually complete the quest objectives."/>
-        <WaitWhile Condition="not HqHasAtLeast(17951,3)"/>
+        <GetTo ZoneId="614" XYZ="473.6446, 70.4106, -46.08875"/>
+        <NoCombatMoveTo XYZ="-560.9194, 36.27979, 647.9481"/>
+        <RunCode Name="GoSwimming"/>
       </If>
+      <RunCode Name="TruthOfOceans"/>
+      <While Condition="not HqHasAtLeast(17951,3)">
+        <ExSpearFish VeteranTradeDepth="2" GigId="2" GatherStrategy="FishAndGo">
+          <Items>
+            <SpearFish Name="Ichthyosaur"/>
+          </Items>
+          <HotSpots>
+            <HotSpot Radius="80" XYZ="-497.6103, -106.693, 681.0361"/>
+            <HotSpot Radius="80" XYZ="-595.7624, -120.9816, 735.4556"/>
+			<HotSpot Radius="80" XYZ="-618.3608, -93.06483, 523.8447"/>
+          </HotSpots>
+        </ExSpearFish>
+        <WaitTimer WaitTime="2"/>
+        <ExSpearFish Loops="1" Collect="False" VeteranTradeDepth="6" GigId="0">
+          <Items>
+            <SpearFish Name="Dafangshi"/>
+          </Items>
+          <HotSpots>
+            <HotSpot Radius="200" XYZ="-444.7553, -103.2112, 774.0907"/>
+          </HotSpots>
+        </ExSpearFish>
+        <WaitTimer WaitTime="2"/>
+      </While>
       <If Condition="HqHasAtLeast(17951,3)">
-        <If Condition="not IsOnMap(614)">
-          <GetTo ZoneId="614" XYZ="703.4661, 2.646878, 514.4102"/>
-        </If>
+        <GetTo ZoneId="614" XYZ="473.6446, 70.4106, -46.08875"/>
         <NoCombatMoveTo XYZ="703.4661, 2.646878, 514.4102"/>
         <HandOver ItemIds="17951" RequiresHq="True" NpcId="1021409" XYZ="703.1814, 2.949344, 513.6339" QuestId="68434" StepId="5"/>
       </If>
@@ -262,10 +284,8 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
       <HandOver ItemIds="2002180" NpcId="1021403" XYZ="-750.9728, 1.579246, -455.4971" QuestId="68434" StepId="6"/>
     </If>
     <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 7">
-      <If Condition="not IsOnMap(613)">
-        <GetTo ZoneId="613" XYZ="358.5697, -119.9633, -240.6343"/>
-      </If>
-      <NoCombatMoveTo XYZ="358.5697, -119.9633, -240.6343"/>
+	  <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <GetTo ZoneId="613" XYZ="358.5697, -119.9633, -240.6343"/>
       <HandOver ItemIds="2002180" NpcId="1021412" XYZ="359.3347, -119.9429, -239.2767" QuestId="68434" StepId="7"/>
     </If>
     <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 255">
@@ -327,11 +347,20 @@ Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
           <GetTo ZoneId="613" XYZ="-749.6351, 1.559595, -456.9331"/>
         </If>
         <NoCombatMoveTo XYZ="-749.6351, 1.559595, -456.9331"/>
-        <TurnIn ItemIds="17952" RequiresHq="True" QuestId="68435" NpcId="1021416" XYZ="-751.0033, 1.581719, -457.2977"/>
+        <SoTurnIn ItemIds="17952" RequiresHq="True" QuestId="68435" NpcId="1021416" XYZ="-751.0033, 1.581719, -457.2977"/>
       </If>
     </If>
   </Order>
   <CodeChunks>
+    <CodeChunk Name="TruthOfOceans"><![CDATA[
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
+      if(!Core.Player.HasAura(1173))	{	ff14bot.Managers.ActionManager.DoAction(7911, Core.Player);
+      await Buddy.Coroutines.Coroutine.Sleep(2000);	}	]]></CodeChunk>
+    <CodeChunk Name="GoSwimming"><![CDATA[	var esc = new Vector3(-556.7548f, -50.22544f, 665.1617f);
+      await Buddy.Coroutines.Coroutine.Sleep(1000);
+      Navigator.PlayerMover.MoveTowards(esc);
+      await Buddy.Coroutines.Coroutine.Sleep(10000);
+      Navigator.PlayerMover.MoveStop();	]]></CodeChunk>
     <CodeChunk Name="Move_Forward"><![CDATA[
         await Coroutine.Sleep(500);
         MovementManager.SetFacing(3.76f);

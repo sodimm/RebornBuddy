@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] The Peaks Aether Currents
+Authors:  Sodimm, TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] The Peaks Aether Currents</Name>
+  <Order>
+    <If Condition="WorldManager.HasAetheryteId(100)">
+      <GetTo ZoneId="620" XYZ="709.5867, 256.2775, -479.185"/>
+      <ClimbHill Start="709.5867, 256.2775, -479.185" End="707.0926, 258.5405, -487.9874"/>
+      <!--7-->
+      <UseObject NpcIds="2007977" XYZ="712.7667, 256.7898, -488.9714" Condition="GameObjectManager.GetObjectByNPCId(2007977).IsVisible"/>
+      <RunCode Name="2007977"/>
+      <GetTo ZoneId="620" XYZ="302.6843, 197.7973, -31.24797"/>
+      <!--5-->
+      <UseObject NpcIds="2007979" XYZ="302.6843, 197.7973, -31.24797" Condition="GameObjectManager.GetObjectByNPCId(2007979).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="-281.9031, 104.5053, -361.8653"/>
+      <NoCombatMoveTo XYZ="-282.1063, 157.9419, -279.173" UseMesh="False" Distance="0.5"/>
+      <NoCombatMoveTo XYZ="-253.4668, 143.303, -276.1974" UseMesh="False" Distance="0.5"/>
+      <NoCombatMoveTo XYZ="-252.6902, 143.3147, -251.0808" UseMesh="False" Distance="0.5"/>
+      <NoCombatMoveTo XYZ="-283.5474, 143.3108, -249.7684" UseMesh="False" Distance="0.5"/>
+      <NoCombatMoveTo XYZ="-280.5971, 127.1437, -228.6376" UseMesh="False" Distance="0.5"/>
+      <!--6-->
+      <UseObject NpcIds="2007978" XYZ="-280.5971, 127.1437, -228.6376" Condition="GameObjectManager.GetObjectByNPCId(2007978).IsVisible"/>
+      <NoCombatMoveTo XYZ="-280.4504, 106.6676, -209.3894" UseMesh="False" Distance="0.5"/>
+      <GetTo ZoneId="620" XYZ="-481.2112, 57.84619, -780.3814"/>
+      <NoCombatMoveTo XYZ="-481.2112, 57.84619, -780.3814"/>
+      <!--9-->
+      <UseObject NpcIds="2007975" XYZ="-481.2112, 57.84619, -780.3814" Condition="GameObjectManager.GetObjectByNPCId(2007975).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="272.8755, 133.9292, -746.3962"/>
+      <NoCombatMoveTo ZoneId="620" XYZ="272.8755, 133.9292, -746.3962" Distance="1"/>
+      <NoCombatMoveTo XYZ="268.8016, 126.3302, -731.3122" Distance="1" UseMesh="False"/>
+      <!--8-->
+      <UseObject NpcIds="2007976" XYZ="261.7257, 126.2511, -726.2002" Condition="GameObjectManager.GetObjectByNPCId(2007976).IsVisible"/>
+      <MoveTo XYZ="265.6757, 114.3539, -718.0762" UseMesh="False" Distance="1.0"/>
+    </If>
+    <If Condition="WorldManager.HasAetheryteId(101) and IsQuestCompleted(68078)">
+      <GetTo ZoneId="620" XYZ="-271.6064, 257.5265, 728.4514"/>
+      <NoCombatMoveTo XYZ="-240.0634, 267.8429, 523.063" Distance="0.5"/>
+      <!--2-->
+      <UseObject NpcIds="2007982" XYZ="-240.0634, 267.8429, 523.063" Condition="GameObjectManager.GetObjectByNPCId(2007982).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="-663.6657, 274.7021, 555.5742"/>
+      <!--4-->
+      <UseObject NpcIds="2007980" XYZ="-663.6657, 274.7021, 555.5742" Condition="GameObjectManager.GetObjectByNPCId(2007980).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="-530.6277, 304.5957, 249.8138"/>
+      <!--3-->
+      <UseObject NpcIds="2007981" XYZ="-530.6277, 304.5957, 249.8138" Condition="GameObjectManager.GetObjectByNPCId(2007981).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="-13.66542, 302.1847, 31.57763"/>
+      <!--1-->
+      <UseObject NpcIds="2007983" XYZ="-13.66542, 302.1847, 31.57763" Condition="GameObjectManager.GetObjectByNPCId(2007983).IsVisible"/>
+      <GetTo ZoneId="620" XYZ="120.679, 305.8007, 517.4084"/>
+      <!--0-->
+      <UseObject NpcIds="2007984" XYZ="120.679, 305.8007, 517.4084" Condition="GameObjectManager.GetObjectByNPCId(2007984).IsVisible"/>
+    </If>
+  </Order>
+  <CodeChunks>
+  <CodeChunk Name="2007977">
+    <![CDATA[
+      var esc = new Vector3(716.8799f, 256.4569f, -479.6354f);
+      Navigator.PlayerMover.MoveTowards(esc);
+      await Coroutine.Sleep(4000);
+      Navigator.PlayerMover.MoveStop();
+    ]]>
+  </CodeChunk>
+ </CodeChunks>
+</Profile>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] The Azim Steppe Aether Currents
+Authors:  Sodimm, TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] The Azim Steppe Aether Currents</Name>
+  <Order>
+    <GetTo ZoneId="622" XYZ="623.724, -35.16813, 458.6954"/>
+    <!--9-->
+    <UseObject NpcIds="2008015" XYZ="623.724, -35.16813, 458.6954" Condition="GameObjectManager.GetObjectByNPCId(2008015).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="106.2911, -11.25576, 386.2865"/>
+    <!--0-->
+    <UseObject NpcIds="2008024" XYZ="106.2911, -11.25576, 386.2865" Condition="GameObjectManager.GetObjectByNPCId(2008024).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="742.0491, -1.755693, -194.3951"/>
+    <!--8-->
+    <UseObject NpcIds="2008016" XYZ="742.0491, -1.755693, -194.3951" Condition="GameObjectManager.GetObjectByNPCId(2008016).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="228.3774, 98.79747, -530.2931"/>
+    <NoCombatMoveTo XYZ="228.3774, 98.79747, -530.2931" Distance="1"/>
+    <RunCode Name="2008017"/>
+    <NoCombatMoveTo XYZ="273.6664, 90.20409, -475.5069" Distance="1"/>
+    <NoCombatMoveTo XYZ="282.4987, 81.48897, -460.5905" Distance="1" UseMesh="False"/>
+    <!--7-->
+    <UseObject NpcIds="2008017" XYZ="282.4987, 81.48897, -460.5905" Condition="GameObjectManager.GetObjectByNPCId(2008017).IsVisible"/>
+    <NoCombatMoveTo XYZ="285.5352, 50.87238, -443.2186" Distance="1" UseMesh="False"/>
+    <GetTo ZoneId="622" XYZ="-265.579, 64.58141, -361.007"/>
+    <!--6-->
+    <UseObject NpcIds="2008018" XYZ="-265.579, 64.58141, -361.007" Condition="GameObjectManager.GetObjectByNPCId(2008018).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="103.7593, 116.043, -48.00158"/>
+    <!--5-->
+    <UseObject NpcIds="2008019" XYZ="103.7593, 116.043, -48.00158" Condition="GameObjectManager.GetObjectByNPCId(2008019).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="-317.0756, 7.288915, 649.5165"/>
+    <NoCombatMoveTo XYZ="-297.9183, 10.00196, 674.5955" Distance="0.5"/>
+    <NoCombatMoveTo XYZ="-305.5691, 18.56014, 650.1381" Distance="0.5" UseMesh="False"/>
+    <!--1-->
+    <UseObject NpcIds="2008023" XYZ="-305.5691, 18.56014, 650.1381" Condition="GameObjectManager.GetObjectByNPCId(2008023).IsVisible"/>
+    <NoCombatMoveTo XYZ="-309.6238, 8.929112, 635.1984" UseMesh="False"/>
+    <GetTo ZoneId="622" XYZ="-640.5781, 6.119884, 702.3987"/>
+    <!--2-->
+    <UseObject NpcIds="2008022" XYZ="-640.5781, 6.119884, 702.3987" Condition="GameObjectManager.GetObjectByNPCId(2008022).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="-773.5542, 12.48292, 345.0839"/>
+    <!--3-->
+    <UseObject NpcIds="2008021" XYZ="-773.5542, 12.48292, 345.0839" Condition="GameObjectManager.GetObjectByNPCId(2008021).IsVisible"/>
+    <GetTo ZoneId="622" XYZ="-409.8354, 29.58549, -29.50996"/>
+    <!--4-->
+    <UseObject NpcIds="2008020" XYZ="-409.8354, 29.58549, -29.50996" Condition="GameObjectManager.GetObjectByNPCId(2008020).IsVisible"/>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="2008017">
+      <![CDATA[
+        MovementManager.SetFacing(0.8679836f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(2000);
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

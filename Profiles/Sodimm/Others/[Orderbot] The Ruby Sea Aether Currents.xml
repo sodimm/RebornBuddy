@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] The Ruby Sea Aether Currents
+Authors:  Sodimm, TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] The Ruby Sea Aether Currents</Name>
+  <Order>
+    <GetTo ZoneId="613" XYZ="21.00052, 25.11103, -633.582"/>
+    <MoveTo XYZ="21.00052, 25.11103, -633.582" Distance="0.5"/>
+    <Dismount/>
+    <RunCode Name="2007999"/>
+    <!--5-->
+    <UseObject NpcIds="2007999" XYZ="21.28632, 24.00244, -623.621" Condition="GameObjectManager.GetObjectByNPCId(2007999).IsVisible"/>
+    <RunCode Name="2007999"/>
+    <GetTo ZoneId="613" XYZ="-187.1824, 6.82074, -698.4512"/>
+    <!--6-->
+    <UseObject NpcIds="2007998" XYZ="-187.1824, 6.82074, -698.4512" Condition="GameObjectManager.GetObjectByNPCId(2007998).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="79.2085, 5.198706, -872.2508"/>
+    <Dismount/>
+    <RunCode Name="2008001"/>
+    <MoveTo XYZ="62.14745, 6.224848, -873.8759" Distance="0.5" UseMesh="False"/>
+    <Dismount/>
+    <!--4-->
+    <UseObject NpcIds="2008001" XYZ="62.14745, 6.224848, -873.8759" UseDistance="4" Condition="GameObjectManager.GetObjectByNPCId(2008001).IsVisible"/>
+    <RunCode Name="2008001"/>
+    <GetTo ZoneId="613" XYZ="492.0896, 32.20087, -772.6465"/>
+    <Dismount/>
+    <RunCode Name="2008000a"/>
+    <MoveTo XYZ="490.0681, 22.8542, -758.1326" Distance="0.5" UseMesh="False"/>
+    <MoveTo XYZ="498.411, 24.0269, -757.9445" Distance="0.5" UseMesh="False"/>
+    <MoveTo XYZ="501.2248, 23.42953, -753.9401" Distance="0.5" UseMesh="False"/>
+    <RunCode Name="2008000b"/>
+    <!--3-->
+    <UseObject NpcIds="2008000" XYZ="502.037, 20.88959, -750.0267" Condition="GameObjectManager.GetObjectByNPCId(2008000).IsVisible"/>
+    <RunCode Name="2008000a"/>
+    <GetTo ZoneId="613" XYZ="-648.6768, 22.5066, -613.2089"/>
+    <!--7-->
+    <UseObject NpcIds="2007997" XYZ="-649.4698, 22.14075, -610.9255" Condition="GameObjectManager.GetObjectByNPCId(2007997).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="707.8875, 38.32983, -47.2851"/>
+    <!--2-->
+    <UseObject NpcIds="2008002" XYZ="707.8875, 38.32983, -47.2851" Condition="GameObjectManager.GetObjectByNPCId(2008002).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="496.2709, 6.832363, 180.3171"/>
+    <!--1-->
+    <UseObject NpcIds="2008003" XYZ="498.9852, 7.583679, 180.0106" Condition="GameObjectManager.GetObjectByNPCId(2008003).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="425.7114, 16.89172, 870.1456"/>
+    <!--9-->
+    <UseObject NpcIds="2007995" XYZ="425.7114, 16.89172, 870.1456" Condition="GameObjectManager.GetObjectByNPCId(2007995).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="-314.5842, -0.5, 847.5641"/>
+    <!--8-->
+    <UseObject NpcIds="2007996" XYZ="-309.7429, 0.7476196, 846.1584" Condition="GameObjectManager.GetObjectByNPCId(2007996).IsVisible"/>
+    <GetTo ZoneId="613" XYZ="-411.5153, -0.599997, 172.7803"/>
+    <RunCode Name="Isle_of_Bekko"/>
+    <GetTo ZoneId="613" XYZ="-678.0947, 27.73551, 377.6114"/>
+    <!--0-->
+    <UseObject NpcIds="2008004" XYZ="-676.936, 27.42041, 374.1055" Condition="GameObjectManager.GetObjectByNPCId(2008004).IsVisible"/>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="2007999">
+      <![CDATA[
+        MovementManager.SetFacing(6.28f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(850);
+        MovementManager.Jump();
+        await Coroutine.Sleep(850);
+        MovementManager.Jump();
+        await Coroutine.Sleep(500);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2008000a">
+      <![CDATA[
+        MovementManager.SetFacing(6.17f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(700);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2008000b">
+      <![CDATA[
+        MovementManager.SetFacing(0.65f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(450);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2008001">
+      <![CDATA[
+        MovementManager.SetFacing(4.61f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(2700);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Isle_of_Bekko">
+      <![CDATA[ 
+        if (MovementManager.IsSwimming)
+        {
+          MovementManager.StartDescending();
+          await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        }
+   
+        MovementManager.StopDescending();
+        await Coroutine.Sleep(2000);
+
+        if (MovementManager.IsDiving)
+        {		  
+          if (!Core.Player.IsMounted)
+          {
+            await CommonTasks.SummonFlyingMount();
+          }
+          await CommonTasks.DescendTo(-107f);
+          MovementManager.SetFacing(5f);
+          MovementManager.MoveForwardStart();
+          await Coroutine.Sleep(15000);
+          Navigator.PlayerMover.MoveStop();
+          MovementManager.StartAscending();
+          await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
+        }
+
+        MovementManager.StopAscending();
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

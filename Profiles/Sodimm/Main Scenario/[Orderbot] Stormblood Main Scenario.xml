@@ -9,7 +9,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   <Name>[OrderBot] Stormblood Main Scenario</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <ExDisablePlugins Names="Enable Flight"/>
+    <RunCode Name="Disable_Flight"/>
     <BotSettings AutoEquip="1"/>
     <!-- Beyond the Great Wall (Level 60) -->
     <If Condition="IsQuestCompleted(67895) and not HasQuest(67982) and not IsQuestCompleted(67982)">
@@ -1154,7 +1154,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo InteractDistance="3.0" NpcId="1019969" XYZ="322.5031, -120.3922, -299.9959" QuestId="68020" StepId="1"/>
     </If>
     <If Condition="HasQuest(68020) and not IsQuestCompleted(68020) and GetQuestStep(68020) == 255">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2772) and not IsOnSubMap(2750)">
         <GetTo ZoneId="613" XYZ="321.4923, -120.3948, -299.794"/>
         <UseTransport InteractDistance="2.0" NpcId="1021614" XYZ="321.4923, -120.3948, -299.794"/>
@@ -1163,13 +1163,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExDisablePlugins Names="Enable Flight"/>
+      <RunCode Name="Disable_Flight"/>
       <RunCode Name="Dismount"/>
       <TurnIn QuestId="68020" InteractDistance="3.0" NpcId="1019970" XYZ="19.38696, -197.5218, -143.6913"/>
     </If>
     <!-- Forever and Ever Apart (Level 63) -->
     <If Condition="IsQuestCompleted(68020) and not HasQuest(68021) and not IsQuestCompleted(68021)">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2772) and not IsOnSubMap(2750)">
         <GetTo ZoneId="613" XYZ="321.4923, -120.3948, -299.794"/>
         <UseTransport InteractDistance="2.0" NpcId="1021614" XYZ="321.4923, -120.3948, -299.794"/>
@@ -1178,13 +1178,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExDisablePlugins Names="Enable Flight"/>
+      <RunCode Name="Disable_Flight"/>
       <If Condition="IsQuestAcceptQualified(68021)">
         <PickupQuest QuestId="68021" InteractDistance="3.0" NpcId="1019970" XYZ="19.38696, -197.5218, -143.6913"/>
       </If>
     </If>
     <If Condition="HasQuest(68021) and not IsQuestCompleted(68021) and GetQuestStep(68021) == 1">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2772) and not IsOnSubMap(2750)">
         <GetTo ZoneId="613" XYZ="321.4923, -120.3948, -299.794"/>
         <UseTransport InteractDistance="2.0" NpcId="1021614" XYZ="321.4923, -120.3948, -299.794"/>
@@ -1193,11 +1193,11 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExDisablePlugins Names="Enable Flight"/>
+      <RunCode Name="Disable_Flight"/>
       <TalkTo InteractDistance="3.0" NpcId="1019197" XYZ="-8.819601, -187.0837, -97.10515" QuestId="68021" StepId="1"/>
     </If>
     <If Condition="HasQuest(68021) and not IsQuestCompleted(68021) and GetQuestStep(68021) == 255">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2772) and not IsOnSubMap(2750)">
         <GetTo ZoneId="613" XYZ="321.4923, -120.3948, -299.794"/>
         <UseTransport InteractDistance="2.0" NpcId="1021614" XYZ="321.4923, -120.3948, -299.794"/>
@@ -1206,12 +1206,12 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExDisablePlugins Names="Enable Flight"/>
+      <RunCode Name="Disable_Flight"/>
       <TurnIn QuestId="68021" InteractDistance="3.0" NpcId="1019971" XYZ="20.0561, -197.5654, -145.2908"/>
     </If>
     <!-- In Darkness the Magatama Dreams (Level 63) -->
     <If Condition="IsQuestCompleted(68021) and not HasQuest(68022) and not IsQuestCompleted(68022)">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2772) and not IsOnSubMap(2750)">
         <GetTo ZoneId="613" XYZ="321.4923, -120.3948, -299.794"/>
         <UseTransport InteractDistance="2.0" NpcId="1021614" XYZ="321.4923, -120.3948, -299.794"/>
@@ -1220,13 +1220,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="23.88678, -198.1201, -157.0441"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExDisablePlugins Names="Enable Flight"/>
+      <RunCode Name="Disable_Flight"/>
       <If Condition="IsQuestAcceptQualified(68022)">
         <PickupQuest QuestId="68022" InteractDistance="3.0" NpcId="1019971" XYZ="20.0561, -197.5654, -145.2908"/>
       </If>
     </If>
     <If Condition="HasQuest(68022) and not IsQuestCompleted(68022) and GetQuestStep(68022) == 1">
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <If Condition="not IsOnSubMap(2769) and not IsOnSubMap(2750)">
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
       </If>
@@ -1242,7 +1242,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <MoveTo XYZ="-218.7949, -192.8664, 221.4494"/>
       <RunCode Name="Enchanted_Lamp"/>
       <WaitWhile Condition="HasQuest(68022) and not IsQuestCompleted(68022) and GetQuestStep(68022) == 2"/>
@@ -1253,7 +1253,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <UseObject UseDistance="0.50" NpcIds="2007920" XYZ="-220.7139, -192.9991, 221.7045" QuestId="68022" StepId="3"/>
     </If>
     <If Condition="HasQuest(68022) and not IsQuestCompleted(68022) and GetQuestStep(68022) == 255">
@@ -1262,7 +1262,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <TurnIn ItemIds="2002095" QuestId="68022" InteractDistance="3.0" NpcId="1019978" XYZ="-227.9416, -178.0988, 185.002"/>
     </If>
     <!-- The Whims of the Divine (Level 63) -->
@@ -1272,7 +1272,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <MoveTo XYZ="-227.9416, -178.0988, 185.002"/>
       <If Condition="IsQuestAcceptQualified(68023)">
         <PickupQuest QuestId="68023" InteractDistance="3.0" NpcId="1019978" XYZ="-227.9416, -178.0988, 185.002"/>
@@ -1300,14 +1300,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
         <RunCode Name="MoveForward"/>
       </If>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <TalkTo InteractDistance="3.0" NpcId="1019981" XYZ="-471.5278, -94.40621, 192.5568" QuestId="68024" StepId="1"/>
     </If>
     <If Condition="HasQuest(68024) and not IsQuestCompleted(68024) and GetQuestStep(68024) == 2">
       <If Condition="not IsOnSubMap(2786)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1318,7 +1318,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-739.7813, 4.659779, 233.5405"/>
       <WaitWhile Condition="HasQuest(68024) and not IsQuestCompleted(68024) and GetQuestStep(68024) == 2"/>
@@ -1327,7 +1327,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2786)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1338,7 +1338,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-702.1234, 7.082656, 14.73693"/>
       <WaitWhile Condition="HasQuest(68024) and not IsQuestCompleted(68024) and GetQuestStep(68024) == 3"/>
@@ -1347,7 +1347,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2786)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1358,7 +1358,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-740.1072, 8.312037, 118.198"/>
       <TalkTo InteractDistance="3.0" NpcId="1020624" XYZ="-740.1072, 8.312037, 118.198" QuestId="68024" StepId="4"/>
@@ -1367,7 +1367,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2786)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1378,7 +1378,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-836.1205, 51.33524, 39.59386"/>
       <TalkTo InteractDistance="3.0" NpcId="1019983" XYZ="-836.1205, 51.33524, 39.59386" QuestId="68024" StepId="5"/>
@@ -1387,7 +1387,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2788)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1398,7 +1398,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-796.9917, 48.3916, 149.5965"/>
       <TurnIn QuestId="68024" InteractDistance="3.0" NpcId="1019985" XYZ="-796.9917, 48.3916, 149.5965"/>
@@ -1408,7 +1408,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2788)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1419,7 +1419,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-796.9917, 48.3916, 149.5965"/>
       <If Condition="IsQuestAcceptQualified(68025)">
@@ -1430,7 +1430,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="not IsOnSubMap(2788)">
         <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
         <MoveTo Distance="1" XYZ="325.959, -120.3188, -308.8289"/>
-        <ExEnablePlugins Names="Enable Flight"/>
+        <RunCode Name="Enable_Flight"/>
         <RunCode Name="MoveForward"/>
         <WaitTimer WaitTime="5"/>
         <MoveTo XYZ="303.2598, -53.97443, -321.0207"/>
@@ -1441,7 +1441,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="-455.461, -120.4403, 190.2675"/>
         <MoveTo UseMesh="False" XYZ="-639.212, -32.18546, 261.6057"/>
         <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
+        <RunCode Name="Disable_Flight"/>
       </If>
       <GetTo ZoneId="613" XYZ="-838.6819, 51.63837, 38.55779"/>
       <UseObject NpcIds="2007853" XYZ="-838.6819, 51.63837, 38.55779" QuestId="68025" StepId="1"/>
@@ -2126,7 +2126,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1023089" XYZ="66.20763, 114.905, -8.062243"/>
       </If>
       <GetTo ZoneId="622" XYZ="-0.9057157, 1.986998, 182.9323"/>
-      <ExEnablePlugins Names="Enable Flight"/>
+      <RunCode Name="Enable_Flight"/>
       <RunCode Name="Dive"/>
       <UseObject NpcIds="2008250,2008251,2008252,2008253,2008254,2008255,2008256,2008257" UseDistance="0.5" QuestId="68045" StepId="3">
         <HotSpots>
@@ -2142,7 +2142,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         </HotSpots>
       </UseObject>
       <RunCode Name="Surface"/>
-      <ExDisablePlugins Names="Disable Flight"/>
+      <RunCode Name="Disable_Flight"/>
     </If>
     <If Condition="HasQuest(68045) and not IsQuestCompleted(68045) and GetQuestStep(68045) == 4">
       <If Condition="not IsOnSubMap(2822)">
@@ -2491,7 +2491,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68055) and not IsQuestCompleted(68055) and GetQuestStep(68055) == 255">
       <If Condition="not IsOnMap(639)">
         <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
-        <UseTransport Name="East Aldenard Trading Company Aide" InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
+        <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
       </If>
       <TurnIn QuestId="68055" NpcId="1023084" XYZ="-1.512932, 0, -1.258715"/>
     </If>
@@ -2499,7 +2499,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="IsQuestCompleted(68055) and not HasQuest(68482) and not IsQuestCompleted(68482)">
       <If Condition="not IsOnMap(639)">
         <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
-        <UseTransport Name="East Aldenard Trading Company Aide" InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
+        <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
       </If>
       <If Condition="IsQuestAcceptQualified(68482)">
         <PickupQuest QuestId="68482" NpcId="1023084" XYZ="-1.399162, 0, -1.416993"/>
@@ -3356,26 +3356,16 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1021712" InteractDistance="3.0" XYZ="209.4245, -0.3, 340.6146" QuestId="68086" StepId="1"/>
     </If>
     <If Condition="HasQuest(68086) and not IsQuestCompleted(68086) and GetQuestStep(68086) == 2">
-      <GetTo ZoneId="621" XYZ="195.6209, -0.6000003, 309.4468"/>
-      <ExEnablePlugins Names="Enable Flight"/>
-      <RunCode Name="68086"/>
+      <GetTo ZoneId="621" XYZ="178.0003, -0.5999999, 279.537"/>
+      <RunCode Name="The_Resonant"/>
       <TalkTo NpcId="1021714" XYZ="317.0367, -94.16345, 350.9117" QuestId="68086" StepId="2"/>
-      <ExDisablePlugins Names="Enable Flight"/>
     </If>
     <If Condition="HasQuest(68086) and not IsQuestCompleted(68086) and GetQuestStep(68086) == 3">
-      <ExEnablePlugins Names="Enable Flight"/>
-      <If Condition="not IsOnSubMap(2610) and not MovementManager.IsDiving">
-        <GetTo ZoneId="621" XYZ="195.6209, -0.6000003, 309.4468"/>
-        <RunCode Name="68086"/>
+      <If Condition="not MovementManager.IsDiving">
+        <GetTo ZoneId="621" XYZ="178.0003, -0.5999999, 279.537"/>
+        <RunCode Name="The_Resonant"/>
       </If>
-      <If Condition="MovementManager.IsDiving">
-        <MoveTo Distance="1" XYZ="347.3099, -93.87055, 364.0399"/>
-        <MoveTo Distance="1" XYZ="375.2906, -78.60432, 402.4644"/>
-        <MoveTo Distance="1" XYZ="432.2821, -72.23678, 434.8036"/>
-        <MoveTo Distance="1" XYZ="512.3904, -32.38996, 482.031"/>
-        <RunCode Name="Surface"/>
-        <ExDisablePlugins Names="Enable Flight"/>
-      </If>
+      <RunCode Name="The_Ala_Mhigan_Quarter"/>
       <MoveTo Distance="1" XYZ="516.8445, 0.01097977, 463.4821" UseMesh="False"/>
       <MoveTo Distance="1" XYZ="502.6888, 5, 463.6126" UseMesh="False"/>
       <MoveTo Distance="1" XYZ="493.513, 9.999919, 473.1904" UseMesh="False"/>
@@ -3553,22 +3543,17 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1024134" XYZ="207.8431, -0.3, 338.5519" QuestId="68500" StepId="1"/>
     </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 2">
-      <ExEnablePlugins Names="Enable Flight"/>
-      <GetTo ZoneId="621" XYZ="96.47099, 9.930986, -21.56549"/>
-      <RunCode Name="Descend_Into_Diving"/>
+      <GetTo ZoneId="621" XYZ="94.86054, -0.6, -25.66903"/>
+      <RunCode Name="The_Mad_Kings_Trove"/>
       <UseObject NpcId="2009052" XYZ="144.976, -270.985, -12.28351" QuestId="68500" StepId="2"/>
     </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 3">
       <If Condition="not MovementManager.IsDiving">
-        <ExEnablePlugins Names="Enable Flight"/>
-        <GetTo ZoneId="621" XYZ="96.47099, 9.930986, -21.56549"/>
-        <RunCode Name="Descend_Into_Diving"/>
-        <MoveTo XYZ="144.976, -270.985, -12.28351"/>
+        <GetTo ZoneId="621" XYZ="94.86054, -0.6, -25.66903"/>
+        <RunCode Name="The_Mad_Kings_Trove"/>
       </If>
-      <RunCode Name="To_Skalla"/>
-      <MoveTo UseMesh="False" XYZ="250.4082, -273.6489, -16.25198"/>
+      <RunCode Name="The_Drowned_City_Of_Skalla"/>
       <UseObject NpcId="2009054" XYZ="258.2283, -274.2809, -12.8634" QuestId="68500" StepId="3"/>
-      <ExDisablePlugins Names="Enable Flight"/>
     </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 4">
       <RunCode Name="Announce_Manual_Completion"/>
@@ -3814,8 +3799,8 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
           <TargetMob Id="6913" Weight="2000"/>
           <TargetMob Id="6385" Weight="1000"/>
         </TargetMobs>
-      </SimpleDuty>-->
-      <WaitWhile Condition="HasQuest(68508) and not IsQuestCompleted(68508) and not GetQuestStep(68508) == 5"/>
+      </SimpleDuty>
+      <WaitWhile Condition="HasQuest(68508) and not IsQuestCompleted(68508) and not GetQuestStep(68508) == 5"/>-->
     </If>
     <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 5">
       <If Condition="not IsOnMap(737)">
@@ -3837,9 +3822,261 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <GetTo ZoneId="635" XYZ="171.8871, 13.02367, -92.47694"/>
       <TurnIn QuestId="68508" NpcId="1019468" XYZ="170.5806, 13.02367, -91.96619"/>
     </If>
+    <!-- Tidings from the East (Level 70) -->
+    <If Condition="IsQuestCompleted(68508) and not HasQuest(68558) and not IsQuestCompleted(68558)">
+      <GetTo ZoneId="635" XYZ="170.5806, 13.02367, -91.96619"/>
+      <If Condition="IsQuestAcceptQualified(68558)">
+        <PickupQuest QuestId="68558" NpcId="1019468" XYZ="170.5806, 13.02367, -91.96619"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68558) and not IsQuestCompleted(68558) and GetQuestStep(68558) == 1">
+      <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
+      <SoTalkTo NpcId="1020463" XYZ="151.2017, 14.77572, 95.75024" QuestId="68558" StepId="1"/>
+      <WaitWhile Condition="HasQuest(68558) and not IsQuestCompleted(68558) and not GetQuestStep(68558) == 255"/>
+    </If>
+    <If Condition="HasQuest(68558) and not IsQuestCompleted(68558) and GetQuestStep(68558) == 255">
+      <GetTo ZoneId="628" XYZ="-11.36798, 10.50388, -212.7566"/>
+      <TurnIn QuestId="68558" NpcId="1024726" XYZ="-11.36798, 10.50388, -212.7566"/>
+    </If>
+    <!-- The Sword in the Store (Level 70) -->
+    <If Condition="IsQuestCompleted(68558) and not HasQuest(68559) and not IsQuestCompleted(68559)">
+      <GetTo ZoneId="628" XYZ="-12.37512, 10.50385, -213.7637"/>
+      <If Condition="IsQuestAcceptQualified(68559)">
+        <PickupQuest QuestId="68559" NpcId="1024727" XYZ="-12.37512, 10.50385, -213.7637"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68559) and not IsQuestCompleted(68559) and GetQuestStep(68559) == 1">
+      <GetTo ZoneId="628" XYZ="89.92139, 3.99995, 52.26208"/>
+      <TalkTo NpcId="1024731" XYZ="89.92139, 3.99995, 52.26208" QuestId="68559" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68559) and not IsQuestCompleted(68559) and GetQuestStep(68559) == 255">
+      <GetTo ZoneId="628" XYZ="-0.04809813, -1.192093E-07, -78.75706"/>
+      <TurnIn QuestId="68559" NpcId="1019061" XYZ="-0.04577637, 0, -80.8576"/>
+    </If>
+    <!-- Hope on the Waves (Level 70) -->
+    <If Condition="IsQuestCompleted(68559) and not HasQuest(68560) and not IsQuestCompleted(68560)">
+      <GetTo ZoneId="628" XYZ="1.388489, 0, -78.14148"/>
+      <If Condition="IsQuestAcceptQualified(68560)">
+        <PickupQuest QuestId="68560" NpcId="1024738" XYZ="1.388489, 0, -78.14148"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 1">
+      <GetTo ZoneId="628" XYZ="-123.1861, -6.999998, -58.85406"/>
+      <TalkTo NpcId="1024743" XYZ="-123.1861, -6.999998, -58.85406" QuestId="68560" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 2">
+      <GetTo ZoneId="613" XYZ="885.0995, 1.179207, 861.387"/>
+      <!--<SimpleDuty InteractNpcId="1024822" XYZ="885.0995, 1.179207, 861.387" QuestId="68560" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="578.6373, 0.28247, 764.187" Radius="60"/>
+          <HotSpot XYZ="470.1823, 30.39955, 756.4748" Radius="50"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6203" Weight="6000"/>
+          <TargetMob Id="5581" Weight="5000"/>
+          <TargetMob Id="5579" Weight="4000"/>
+          <TargetMob Id="5577" Weight="3000"/>
+          <TargetMob Id="4148" Weight="2000"/>
+          <TargetMob Id="6200" Weight="1000"/>
+        </TargetMobs>
+      </SimpleDuty>-->
+      <!--<WaitWhile Condition="HasQuest(68560) and not IsQuestCompleted(68560) and not GetQuestStep(68560) == 4"/>-->
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 4">
+      <GetTo ZoneId="613" XYZ="458.9456, 30.58063, 748.7448"/>
+      <TalkTo NpcId="1024826" XYZ="458.9456, 30.58063, 748.7448" QuestId="68560" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 5">
+      <GetTo ZoneId="613" XYZ="577.264, 0.9353817, 852.7809"/>
+      <TalkTo NpcId="1024830" XYZ="577.264, 0.9353817, 852.7809" QuestId="68560" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 255">
+      <GetTo ZoneId="613" XYZ="-788.2658, 11.70907, -283.0091"/>
+      <TurnIn QuestId="68560" NpcId="1024836" XYZ="-788.2658, 11.70907, -283.0091"/>
+    </If>
+    <!-- Elation and Trepidation (Level 70) -->
+    <If Condition="IsQuestCompleted(68560) and not HasQuest(68561) and not IsQuestCompleted(68561)">
+      <GetTo ZoneId="613" XYZ="-791.043, 12.34981, -283.8026"/>
+      <If Condition="IsQuestAcceptQualified(68561)">
+        <PickupQuest QuestId="68561" NpcId="1024837" XYZ="-791.043, 12.34981, -283.8026"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 1">
+      <GetTo ZoneId="614" XYZ="789.6085, 99.21144, -288.5329"/>
+      <TalkTo NpcId="1024842" XYZ="789.6085, 99.21144, -288.5329" QuestId="68561" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 2 and GetQuestById(68561).GetTodoArgs(2, 0).Item1 == 0">
+      <GetTo ZoneId="614" XYZ="195.6359, 5.16971, -437.2473"/>
+      <TalkTo NpcId="1019285" XYZ="195.6359, 5.16971, -437.2473" QuestId="68561"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 2 and GetQuestById(68561).GetTodoArgs(2, 0).Item1 == 1">
+      <GetTo ZoneId="614" XYZ="233.6003, 5.251857, -425.3758"/>
+      <TalkTo NpcId="1019286" XYZ="233.6003, 5.251857, -425.3758" QuestId="68561"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 3">
+      <GetTo ZoneId="614" XYZ="309.4681, 17.75578, -445.9755"/>
+      <TalkTo NpcId="1024846" XYZ="309.4681, 17.75578, -445.9755" QuestId="68561" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 4">
+      <GetTo ZoneId="614" XYZ="59.06763, 37.21815, -529.1676"/>
+      <TalkTo NpcId="1024847" XYZ="59.06763, 37.21815, -529.1676" QuestId="68561" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 5">
+      <GetTo ZoneId="614" XYZ="57.32813, 36.90612, -524.712"/>
+      <TalkTo NpcId="1024849" XYZ="57.32813, 36.90612, -524.712" QuestId="68561" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68561) and not IsQuestCompleted(68561) and GetQuestStep(68561) == 255">
+      <GetTo ZoneId="614" XYZ="173.2051, 5.191043, -433.2495"/>
+      <TurnIn QuestId="68561" NpcId="1020524" XYZ="173.2051, 5.191043, -433.2495"/>
+    </If>
+    <!-- Storm on the Horizon (Level 70) -->
+    <If Condition="IsQuestCompleted(68561) and not HasQuest(68562) and not IsQuestCompleted(68562)">
+      <GetTo ZoneId="614" XYZ="173.2051, 5.191043, -433.2495"/>
+      <If Condition="IsQuestAcceptQualified(68562)">
+        <PickupQuest QuestId="68562" NpcId="1020524" XYZ="173.2051, 5.191043, -433.2495"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 1">
+      <GetTo ZoneId="614" XYZ="350.1487, 26.44811, 609.1859"/>
+      <TalkTo NpcId="1024955" XYZ="350.1487, 26.44811, 609.1859" QuestId="68562" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 2">
+      <GetTo ZoneId="614" XYZ="365.9265, 1.786246, 738.9486"/>
+      <TalkTo NpcId="1024957" XYZ="365.9265, 1.786246, 738.9486" QuestId="68562" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 3">
+      <GetTo ZoneId="614" XYZ="-472.3125, 1.230005, 537.7736"/>
+      <TalkTo NpcId="1024966" XYZ="-472.3125, 1.230005, 537.7736" QuestId="68562" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 4">
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <TalkTo NpcId="1024970" XYZ="40.23804, 0, 5.874695" QuestId="68562" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 5">
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <SoTalkTo NpcId="1024974" XYZ="-10.33038, 0.1999732, 12.8938" QuestId="68562" StepId="5"/>
+      <WaitWhile Condition="HasQuest(68562) and not IsQuestCompleted(68562) and not GetQuestStep(68562) == 7"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 7">
+      <If Condition="not IsOnMap(744)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport nteractDistance="3.0" NpcId="1024974" XYZ="-10.33038, 0.1999732, 12.8938"/>
+      </If>
+      <TalkTo NpcId="1025049" XYZ="-0.01531982, 0.2, -4.837158" QuestId="68562" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68562) and not IsQuestCompleted(68562) and GetQuestStep(68562) == 255">
+      <If Condition="IsOnMap(744)">
+        <UseTransport InteractDistance="3.0" NpcId="2009289" XYZ="0.01519775, 0.9002075, 18.29553"/>
+      </If>
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <TurnIn QuestId="68562" NpcId="1024971" XYZ="6.027222, 0, 18.63123"/>
+    </If>
+    <!-- His Forgotten Home (Level 70) -->
+    <If Condition="IsQuestCompleted(68562) and not HasQuest(68563) and not IsQuestCompleted(68563)">
+      <If Condition="not IsOnMap(759)">
+        <If Condition="IsOnMap(744)">
+          <UseTransport InteractDistance="3.0" NpcId="2009289" XYZ="0.01519775, 0.9002075, 18.29553"/>
+        </If>
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68563)">
+        <PickupQuest QuestId="68563" NpcId="1024971" XYZ="6.027222, 0, 18.63123"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 1">
+      <GetTo ZoneId="614" XYZ="-276.2646, 53.24012, -368.8869"/>
+      <TalkTo NpcId="1024980" XYZ="-276.2646, 53.24012, -368.8869" QuestId="68563" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 2">
+      <GetTo ZoneId="614" XYZ="-260.6088, 53.21751, -645.594"/>
+      <TalkTo NpcId="1024983" XYZ="-260.6088, 53.21751, -645.594" QuestId="68563" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 3">
+      <GetTo ZoneId="614" XYZ="-348.9281, 1.230035, -344.1367"/>
+      <!--<SimpleDuty InteractNpcId="1024986" XYZ="-348.9281, 1.230035, -344.1367" QuestId="68563" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="469.3281, 18.30432, 299.5332" Radius="40"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="5834" Weight="2000"/>
+          <TargetMob Id="6891" Weight="1000"/>
+        </TargetMobs>
+      </SimpleDuty>-->
+      <!--<WaitWhile Condition="HasQuest(68563) and not IsQuestCompleted(68563) and not GetQuestStep(68563) == 255"/>-->
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 255">
+      <GetTo ZoneId="614" XYZ="464.1031, 17.72051, 301.5945"/>
+      <TurnIn QuestId="68563" NpcId="1024989" XYZ="464.1031, 17.72051, 301.5945"/>
+    </If>
+    <!-- A Guilty Conscience (Level 70) -->
+    <If Condition="IsQuestCompleted(68563) and not HasQuest(68564) and not IsQuestCompleted(68564)">
+      <GetTo ZoneId="614" XYZ="464.1031, 17.72051, 301.5945"/>
+      <If Condition="IsQuestAcceptQualified(68564)">
+        <PickupQuest QuestId="68564" NpcId="1024989" XYZ="464.1031, 17.72051, 301.5945"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68564) and not IsQuestCompleted(68564) and GetQuestStep(68564) == 1">
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <TalkTo NpcId="1025026" XYZ="3.707886, 0, 17.47156" QuestId="68564" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68564) and not IsQuestCompleted(68564) and GetQuestStep(68564) == 255">
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <UseTransport InteractDistance="3.0" NpcId="1024974" XYZ="-10.33038, 0.1999732, 12.8938"/>
+      <TurnIn QuestId="68564" NpcId="1024999" XYZ="0.1983643, 0.02109136, -3.097595"/>
+    </If>
+    <!-- Rise of a New Sun (Level 70) -->
+    <If Condition="IsQuestCompleted(68564) and not HasQuest(68565) and not IsQuestCompleted(68565)">
+      <If Condition="not IsOnMap(744)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="2009289" XYZ="0.01519775, 0.9002075, 18.29553"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68565)">
+        <PickupQuest QuestId="68565" NpcId="1025008" XYZ="0.1983643, 0.02109136, -3.097595"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68565) and not IsQuestCompleted(68565) and GetQuestStep(68565) == 1">
+      <If Condition="IsOnMap(744)">
+        <UseTransport InteractDistance="3.0" NpcId="2009289" XYZ="0.01519775, 0.9002075, 18.29553"/>
+      </If>
+      <If Condition="not IsOnMap(759)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+      </If>
+      <TalkTo NpcId="1025012" XYZ="1.571594, 0, 18.63123" QuestId="68565" StepId="1"/>
+      <WaitWhile Condition="HasQuest(68565) and not IsQuestCompleted(68565) and not GetQuestStep(68565) == 3"/>
+    </If>
+    <If Condition="HasQuest(68565) and not IsQuestCompleted(68565) and GetQuestStep(68565) == 3">
+      <GetTo ZoneId="614" XYZ="366.5369, 1.286227, 746.2118"/>
+      <TalkTo NpcId="1025019" XYZ="366.5369, 1.286227, 746.2118" QuestId="68565" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68565) and not IsQuestCompleted(68565) and GetQuestStep(68565) == 255">
+      <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
+      <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
+      <TurnIn QuestId="68565" NpcId="1020622" XYZ="0.04577637, 0, -2.304138"/>
+    </If>
   </Order>
   <GrindAreas>
-    <GrindArea name="Chapuli">
+    <GrindArea Name="Chapuli">
       <Hotspots>
         <Hotspot XYZ="-102.5254, 99.05808, -704.6464" Radius="90"/>
       </Hotspots>
@@ -3849,7 +4086,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <MinLevel/>
       <MaxLevel/>
     </GrindArea>
-    <GrindArea name="Hornbill">
+    <GrindArea Name="Hornbill">
       <Hotspots>
         <Hotspot XYZ="-562.6154, 47.85563, -697.9324" Radius="90"/>
       </Hotspots>
@@ -3859,7 +4096,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <MinLevel/>
       <MaxLevel/>
     </GrindArea>
-    <GrindArea name="Unkiu">
+    <GrindArea Name="Unkiu">
       <Hotspots>
         <Hotspot XYZ="787.4113, -0.5, -6.515625" Radius="90"/>
       </Hotspots>
@@ -3869,7 +4106,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <MinLevel/>
       <MaxLevel/>
     </GrindArea>
-    <GrindArea name="Dhole">
+    <GrindArea Name="Dhole">
       <Hotspots>
         <Hotspot XYZ="354.7423, -0.6031662, 306.9599" Radius="90"/>
       </Hotspots>
@@ -3882,152 +4119,334 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   </GrindAreas>
   <CodeChunks>
     <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
-    <CodeChunk Name="68086"><![CDATA[ 
-      if (MovementManager.IsSwimming)
-      {
-        MovementManager.StartDescending();
-        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
-        MovementManager.StopDescending();
-      }
+    Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+    await Coroutine.Sleep(26000);
+   ]]></CodeChunk>
+    <CodeChunk Name="The_Resonant"><![CDATA[
+    MovementManager.StartDescending();
+    await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+    MovementManager.StopDescending();
+
     if (MovementManager.IsDiving)
     {
-      await CommonTasks.DescendTo(-84f);
-      MovementManager.SetFacing(1.24f);
-      MovementManager.MoveForwardStart();
-      await Coroutine.Sleep(15000);
-      if (GameObjectManager.GetObjectByNPCId(1021714).IsVisible)
-      {
-        var Target = GameObjectManager.GetObjectByNPCId(1021714);
-        MovementManager.SetFacing(Target.Location);
-        MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(4000);
-        MovementManager.MoveStop();
-      }
-    }		  
-    ]]></CodeChunk>
+     var v1 = new Vector3(259.9764f, -94.66999f, 319.4105f);
+     var v2 = new Vector3(317.0367f, -94.16345f, 350.9117f);
+     var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+     var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+  
+     if (!Core.Player.IsMounted)
+     {
+      await CommonTasks.SummonFlyingMount();
+     }
+  
+     while (Core.Player.Location.Distance(v1) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p1);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v2) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p2);
+      await Coroutine.Yield();
+     }
+    }
+   ]]></CodeChunk>
+    <CodeChunk Name="The_Ala_Mhigan_Quarter"><![CDATA[
+    if (MovementManager.IsDiving)
+    {
+     var v1 = new Vector3(365.3603f, -82.27274f, 389.922f);
+     var v2 = new Vector3(417.0955f, -73.23685f, 423.1696f);
+     var v3 = new Vector3(514.745f, -46.6045f, 482.3958f);
+     var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+     var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+     var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+  
+     if (!Core.Player.IsMounted)
+     {
+      await CommonTasks.SummonFlyingMount();
+     }
+  
+     while (Core.Player.Location.Distance(v1) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p1);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v2) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p2);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v3) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p3);
+      await Coroutine.Yield();
+     }
+     
+     MovementManager.MoveStop();
+     MovementManager.StartAscending();
+     await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
+     MovementManager.StopAscending();
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="Dive"><![CDATA[ 
-      if (MovementManager.IsSwimming)
-      {
-        MovementManager.StartDescending();
-        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
-        MovementManager.StopDescending();
-      }
-    ]]></CodeChunk>
+    if (MovementManager.IsSwimming)
+    {
+      MovementManager.StartDescending();
+      await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+      MovementManager.StopDescending();
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="House_of_The_Fierce"><![CDATA[ 
-      if (MovementManager.IsSwimming)
-      {
-        MovementManager.StartDescending();
-        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
-        MovementManager.StopDescending();
-      }
+    MovementManager.StartDescending();
+    await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+    MovementManager.StopDescending();
 
-      if (MovementManager.IsDiving)
-      {
-        await CommonTasks.DescendTo(-44f);
-        MovementManager.SetFacing(4.2f);
-        MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(10000);
-        MovementManager.SetFacing(4.0f);
-        await Coroutine.Sleep(10000);
-        MovementManager.MoveStop();
-        MovementManager.StartAscending();
-        await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
-      }
-    ]]></CodeChunk>
-    <CodeChunk Name="Descend_Into_Diving"><![CDATA[
-        MovementManager.StartDescending();
-        await Coroutine.Wait(10000, () => MovementManager.IsDiving);]]></CodeChunk>
-    <CodeChunk Name="To_Skalla"><![CDATA[
-        MovementManager.StartAscending();
-    await Coroutine.Sleep(2500);
-    MovementManager.StopAscending();
-        await Coroutine.Sleep(500);
-        MovementManager.SetFacing(1.601761f);
-        await Coroutine.Sleep(500);
-        MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(10000);
-        MovementManager.MoveStop();
-        await Coroutine.Sleep(500);
-        ]]></CodeChunk>
+    if (MovementManager.IsDiving)
+    {
+     var v1 = new Vector3(390.7113f, -49.82583f, -295.7518f);
+     var v2 = new Vector3(366.7555f, -49.49994f, -310.5608f);
+     var v3 = new Vector3(340.6298f, -45.67356f, -329.9816f);
+     var v4 = new Vector3(305.7585f, -40.32132f, -355.5551f);
+     var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+     var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+     var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+     var p4 = new ff14bot.Pathing.FlyToParameters(v4) { CheckIndoors = false };
+  
+     if (!Core.Player.IsMounted)
+     {
+      await CommonTasks.SummonFlyingMount();
+     }
+  
+     while (Core.Player.Location.Distance(v1) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p1);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v2) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p2);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v3) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p3);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v4) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p4);
+      await Coroutine.Yield();
+     }
+
+     MovementManager.MoveStop();
+     MovementManager.StartAscending();
+     await Coroutine.Wait(20000, () => !MovementManager.IsDiving);
+     MovementManager.StopAscending();
+    }
+   ]]></CodeChunk>
+    <CodeChunk Name="The_Mad_Kings_Trove"><![CDATA[
+    MovementManager.StartDescending();
+    await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+    MovementManager.StopDescending();
+
+    if (MovementManager.IsDiving)
+    {
+     var v1 = new Vector3(103.065f, -167.9522f, -17.58121f);
+     var v2 = new Vector3(106.8865f, -212.9294f, -16.64462f);
+     var v3 = new Vector3(120.0104f, -255.0023f, -14.59951f);
+     var v4 = new Vector3(144.976f, -270.985f, -12.28351f);
+     var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+     var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+     var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+     var p4 = new ff14bot.Pathing.FlyToParameters(v4) { CheckIndoors = false };
+  
+     if (!Core.Player.IsMounted)
+     {
+      await CommonTasks.SummonFlyingMount();
+     }
+  
+     while (Core.Player.Location.Distance(v1) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p1);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v2) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p2);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v3) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p3);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v4) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p4);
+      await Coroutine.Yield();
+     }
+    }
+   ]]></CodeChunk>
+    <CodeChunk Name="The_Drowned_City_Of_Skalla"><![CDATA[
+    if (MovementManager.IsDiving)
+    {
+     var v1 = new Vector3(174.1294f, -269.0368f, -12.79143f);
+     var v2 = new Vector3(208.3281f, -269.8984f, -13.89207f);
+     var v3 = new Vector3(237.3132f, -273.2186f, -16.40656f);
+     var v4 = new Vector3(256.3734f, -275.3415f, -13.09682f);
+     var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+     var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+     var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+     var p4 = new ff14bot.Pathing.FlyToParameters(v4) { CheckIndoors = false };
+  
+     if (!Core.Player.IsMounted)
+     {
+      await CommonTasks.SummonFlyingMount();
+     }
+  
+     while (Core.Player.Location.Distance(v1) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p1);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v2) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p2);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v3) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p3);
+      await Coroutine.Yield();
+     }
+  
+     while (Core.Player.Location.Distance(v4) > 3f)
+     {
+      ff14bot.Pathing.Flightor.MoveTo(p4);
+      await Coroutine.Yield();
+     }
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="Enchanted_Lamp"><![CDATA[
-        var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002243);
-
-        await Coroutine.Sleep(500);
-
-        if (item != null)
-        {
-          item.UseItem();
-        }]]></CodeChunk>
+    var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002243);
+    await Coroutine.Sleep(500);
+    if (item != null)
+    {
+     item.UseItem();
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="The_Will_To_Live"><![CDATA[
-        foreach (BagSlot slot in InventoryManager.FilledInventoryAndArmory)
-        {
-          BagSlot Head = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
-          BagSlot Body = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body];
-          BagSlot Hands = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Hands];
-          BagSlot Legs = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs];
-          BagSlot Feet = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet];
+    foreach (BagSlot slot in InventoryManager.FilledInventoryAndArmory)
+    {
+     BagSlot Head = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
+     BagSlot Body = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body];
+     BagSlot Hands = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Hands];
+     BagSlot Legs = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs];
+     BagSlot Feet = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet];
 
-          if (slot.RawItemId == 20596)
-          {
-            slot.Move(Head);
-            await Coroutine.Sleep(500);
-          }
+     if (slot.RawItemId == 20596)
+     {
+      slot.Move(Head);
+      await Coroutine.Sleep(500);
+     }
 
-          if (slot.RawItemId == 20597)
-          {
-            slot.Move(Body);
-            await Coroutine.Sleep(500);
-          }
+     if (slot.RawItemId == 20597)
+     {
+      slot.Move(Body);
+      await Coroutine.Sleep(500);
+     }
 
-          if (slot.RawItemId == 20598)
-          {
-            slot.Move(Hands);
-            await Coroutine.Sleep(500);
-          }
+     if (slot.RawItemId == 20598)
+     {
+      slot.Move(Hands);
+      await Coroutine.Sleep(500);
+     }
 
-          if (slot.RawItemId == 20599)
-          {
-            slot.Move(Legs);
-            await Coroutine.Sleep(500);
-          }
+     if (slot.RawItemId == 20599)
+     {
+      slot.Move(Legs);
+      await Coroutine.Sleep(500);
+     }
 
-          if (slot.RawItemId == 20600)
-          {
-            slot.Move(Feet);
-            await Coroutine.Sleep(500);
-          }
-        }]]></CodeChunk>
+     if (slot.RawItemId == 20600)
+     {
+      slot.Move(Feet);
+      await Coroutine.Sleep(500);
+     }
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="A_Good_Samurai_Is_Hard_To_Find"><![CDATA[
-        var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002099);
-
-        await Coroutine.Sleep(500);
-
-        if (item != null)
-        {
-          item.UseItem();
-        }]]></CodeChunk>
+    var item = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002099);
+    await Coroutine.Sleep(500);
+    if (item != null)
+    {
+     item.UseItem();
+    }
+   ]]></CodeChunk>
     <CodeChunk Name="MoveForward"><![CDATA[
-        await Coroutine.Sleep(1000);
-        MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(2000);
-        MovementManager.MoveStop();
-        await Coroutine.Sleep(1000);
-      ]]></CodeChunk>
+    await Coroutine.Sleep(1000);
+    MovementManager.MoveForwardStart();
+    await Coroutine.Sleep(2000);
+    MovementManager.MoveStop();
+    await Coroutine.Sleep(1000);
+   ]]></CodeChunk>
     <CodeChunk Name="Dismount"><![CDATA[
-        if(Core.Player.IsMounted)
+    if(Core.Player.IsMounted)
+    {
+     await CommonTasks.StopAndDismount();
+     await Coroutine.Sleep(500);
+    }
+   ]]></CodeChunk>
+    <CodeChunk Name="Surface"><![CDATA[
+    MovementManager.StartAscending();
+    await Coroutine.Wait(30000, () => !MovementManager.IsDiving);
+    MovementManager.MoveStop();
+    await Coroutine.Sleep(1000);
+   ]]></CodeChunk>
+    <CodeChunk Name="Disable_Flight"><![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
         {
-          await CommonTasks.StopAndDismount();
-          await Coroutine.Sleep(500);
+          try
+          {
+            if (!plugin.Enabled)
+            {
+              break;
+            }
+            else
+            {
+              plugin.Enabled = false;
+            }
+          }
+          catch (Exception ex) { }
         }
       ]]></CodeChunk>
-    <CodeChunk Name="Surface"><![CDATA[
-        MovementManager.StartAscending();
-        await Coroutine.Wait(30000, () => !MovementManager.IsDiving);
-        MovementManager.MoveStop();
-        await Coroutine.Sleep(1000);
+    <CodeChunk Name="Enable_Flight"><![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+        {
+          try
+          {
+            if (plugin.Enabled)
+            {
+              break;
+            }
+            else
+            {
+              plugin.Enabled = true;
+            }
+          }
+          catch (Exception ex) { }
+        }
       ]]></CodeChunk>
   </CodeChunks>
 </Profile>

@@ -17,7 +17,7 @@ namespace ff14bot.NeoProfiles
 
     public class SoUseSpellTag : HuntBehavior
     {
-        public override bool HighPriority => true;
+        public override bool HighPriority { get => true; }
 
         private SpellData Spell => DataManager.GetSpellData(SpellId);
         public override string StatusText => $"Using ability {Spell.LocalizedName} for {QuestName}.";

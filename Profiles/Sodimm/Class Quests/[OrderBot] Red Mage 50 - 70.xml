@@ -337,16 +337,16 @@ Authors:  Sodimm, TuckMeIntoBread.
     <If Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 0">
       <GetTo ZoneId="620" XYZ="-212.222, 106.9504, -301.2741"/>
       <UseObject NpcId="2008293" XYZ="-212.222, 106.9504, -301.2741" UseDistance="5" Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 0"/>
-	</If>
+    </If>
     <If Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 1">
       <GetTo ZoneId="620" XYZ="-262.9583, 106.5989, -207.9044"/>
       <UseObject NpcId="2008292" XYZ="-262.3789, 106.6147, -206.8666" Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 1"/>
-	</If>
+    </If>
     <If Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 2">
       <GetTo ZoneId="620" XYZ="-281.2718, 104.5527, -360.4956"/>
       <NoCombatMoveTo Distance="0.5" XYZ="-282.1205, 201.7965, -228.7347"/>
       <NoCombatMoveTo Distance="0.5" UseMesh="False" XYZ="-297.7517, 202.1412, -229.3236"/>
-      <NoCombatMoveTo Distance="0.5" UseMesh="False" XYZ="-297.5449, 200.8239, -242.7547"/>	
+      <NoCombatMoveTo Distance="0.5" UseMesh="False" XYZ="-297.5449, 200.8239, -242.7547"/>
       <UseObject NpcId="2008291" XYZ="-299.4888, 200.7019, -240.5585" Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 2 and GetQuestById(68120).GetTodoArgs(2, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(68120) and not IsQuestCompleted(68120) and GetQuestStep(68120) == 3">
@@ -475,8 +475,7 @@ Authors:  Sodimm, TuckMeIntoBread.
     </If>
     <If Condition="HasQuest(68123) and not IsQuestCompleted(68123) and GetQuestStep(68123) == 4">
       <GetTo ZoneId="156" XYZ="367.7165, -16.4116, -335.3035"/>
-      <LogMessage Message="Please complete the next objective manually."/>
-      <WaitWhile Condition="GetQuestStep(68123) == 4"/>
+      <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(68123) and not IsQuestCompleted(68123) and GetQuestStep(68123) == 6">
       <GetTo ZoneId="156" XYZ="368.0712, -16.32908, -331.4206"/>

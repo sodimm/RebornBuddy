@@ -2467,7 +2467,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TurnIn QuestId="66209" NpcId="1000972" XYZ="17.79586, 40.21601, -5.386823"/>
     </If>
     <!-- It's Probably Pirates (Level 15) -->
-    <If Condition="not HasQuest(65781) and not IsQuestCompleted(65781)">
+    <If Condition="(IsQuestCompleted(66209) or IsQuestCompleted(66210)) and not HasQuest(65781) and not IsQuestCompleted(65781)">
       <GetTo ZoneId="128" XYZ="17.72645, 40.21601, -5.355656"/>
       <If Condition="IsQuestAcceptQualified(65781)">
         <PickupQuest QuestId="65781" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>

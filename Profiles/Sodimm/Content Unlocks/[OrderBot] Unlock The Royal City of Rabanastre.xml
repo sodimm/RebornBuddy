@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+ Profile:  [OrderBot] Unlock The Royal City of Rabanastre.
+ Authors:  Sodimm.
+ -->
+<Profile>
+  <Name>[OrderBot] Unlock The Royal City of Rabanastre.</Name>
+  <Order>
+    <!-- Dramatis Personae -->
+    <If Condition="not HasQuest(68539) and not IsQuestCompleted(68539)">
+      <GetTo ZoneId="628" XYZ="47.27831, 4, 56.78658"/>
+      <If Condition="IsQuestAcceptQualified(68539)">
+        <PickupQuest QuestId="68539" NpcId="1018994" XYZ="49.24084, 4, 55.77173"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68539) and not IsQuestCompleted(68539) and GetQuestStep(68539) == 1">
+      <GetTo ZoneId="628" XYZ="-39.58346, 15, 41.64639"/>
+      <TalkTo NpcId="1024140" XYZ="-40.66534, 15, 42.22168" QuestId="68539" StepId="1"/>
+      <WaitWhile Condition="not IsOnSubMap(2930)"/>
+    </If>
+    <If Condition="HasQuest(68539) and not IsQuestCompleted(68539) and GetQuestStep(68539) == 2">
+      <If Condition="not IsOnSubMap(2930)">
+        <GetTo ZoneId="628" XYZ="-41.95601, 15, 46.81813"/>
+        <UseTransport InteractDistance="2.0" NpcId="1019043" XYZ="-43.65613, 15, 46.52478"/>
+      </If>
+      <TalkTo NpcId="1024155" XYZ="-58.18268, 79.05602, 43.9917" QuestId="68539" StepId="2"/>
+      <WaitWhile Condition="not IsOnMap(735)"/>
+    </If>
+    <If Condition="HasQuest(68539) and not IsQuestCompleted(68539) and GetQuestStep(68539) == 3">
+      <If Condition="not IsOnMap(735)">
+        <GetTo ZoneId="628" XYZ="-41.95601, 15, 46.81813"/>
+        <UseTransport InteractDistance="2.0" NpcId="1019043" XYZ="-43.65613, 15, 46.52478"/>
+        <UseTransport InteractDistance="2.0" NpcId="1024156" XYZ="-59.09821, 79.05602, 45.30396"/>
+      </If>
+      <TalkTo NpcId="1024160" XYZ="-11.58167, -3.145626E-06, -3.738525" QuestId="68539" StepId="3"/>
+      <WaitWhile Condition="HasQuest(68539) and not IsQuestCompleted(68539) and not GetQuestStep(68539) == 255"/>
+    </If>
+    <If Condition="HasQuest(68539) and not IsQuestCompleted(68539) and GetQuestStep(68539) == 255">
+      <If Condition="not IsOnMap(736)">
+        <GetTo ZoneId="628" XYZ="-41.95601, 15, 46.81813"/>
+        <UseTransport InteractDistance="2.0" NpcId="1019043" XYZ="-43.65613, 15, 46.52478"/>
+        <UseTransport InteractDistance="2.0" NpcId="1024156" XYZ="-59.09821, 79.05602, 45.30396"/>
+        <UseTransport InteractDistance="2.0" NpcId="2009042" XYZ="34.07336, 1.602173, -1.785339"/>
+      </If>
+      <TurnIn QuestId="68539" NpcId="1024142" XYZ="-15.36591, -1.199829, -4.837158"/>
+    </If>
+    <!-- A City Fallen -->
+    <If Condition="IsQuestCompleted(68539) and not HasQuest(68540) and not IsQuestCompleted(68540)">
+      <If Condition="not IsOnMap(736)">
+        <GetTo ZoneId="628" XYZ="-41.95601, 15, 46.81813"/>
+        <UseTransport InteractDistance="2.0" NpcId="1019043" XYZ="-43.65613, 15, 46.52478"/>
+        <UseTransport InteractDistance="2.0" NpcId="1024156" XYZ="-59.09821, 79.05602, 45.30396"/>
+        <UseTransport InteractDistance="2.0" NpcId="2009042" XYZ="34.07336, 1.602173, -1.785339"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68540)">
+        <PickupQuest QuestId="68540" NpcId="1024142" XYZ="-15.36591, -1.199829, -4.837158"/>
+      </If>
+      <WaitWhile Condition="HasQuest(68540) and not IsQuestCompleted(68540) and not GetQuestStep(68540) == 2"/>
+    </If>
+    <If Condition="HasQuest(68540) and not IsQuestCompleted(68540) and GetQuestStep(68540) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68540) and not IsQuestCompleted(68540) and GetQuestStep(68540) == 4">
+      <If Condition="not IsOnMap(735)">
+        <GetTo ZoneId="628" XYZ="-41.95601, 15, 46.81813"/>
+        <UseTransport InteractDistance="2.0" NpcId="1019043" XYZ="-43.65613, 15, 46.52478"/>
+        <UseTransport InteractDistance="2.0" NpcId="1024156" XYZ="-59.09821, 79.05602, 45.30396"/>
+      </If>
+      <TalkTo NpcId="1024146" XYZ="-11.00183, -3.102292E-06, -6.851379" QuestId="68540" StepId="4"/>
+      <WaitWhile Condition="not IsOnMap(628)"/>
+    </If>
+    <If Condition="HasQuest(68540) and not IsQuestCompleted(68540) and GetQuestStep(68540) == 255">
+      <GetTo ZoneId="628" XYZ="-41.38286, 15, 43.33657"/>
+      <TurnIn QuestId="68540" NpcId="1024149" XYZ="-42.25226, 15, 42.55737"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

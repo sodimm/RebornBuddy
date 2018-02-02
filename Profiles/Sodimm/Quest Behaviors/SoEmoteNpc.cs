@@ -11,6 +11,7 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using TreeSharp;
+using Action = TreeSharp.Action;
 
 namespace ff14bot.NeoProfiles
 {
@@ -36,6 +37,12 @@ namespace ff14bot.NeoProfiles
                 return
                     new Decorator(r => (r as GameObject) != null,
                         new PrioritySelector(
+                            new Decorator(ret => SelectYesno.IsOpen,
+                                new Action(r =>
+                                {
+                                    SelectYesno.ClickYes();
+                                })
+                            ),
                             new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText)),
                             new ActionRunCoroutine(r => CreateEmoteObject(((GameObject)r), Emote))
                          )

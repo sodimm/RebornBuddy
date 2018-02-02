@@ -115,6 +115,12 @@ namespace ff14bot.NeoProfiles.Tags
                 new Decorator(ret => QuestLogManager.InCutscene,
                     new ActionAlwaysSucceed()
                 ),
+                new Decorator(r => Talk.DialogOpen && SelectYesno.IsOpen,
+                    new Action(r =>
+                    {
+                        SelectYesno.ClickYes();
+                    })
+                ),
                 new Decorator(r => Request.IsOpen,
                     new Action(r =>
                     {

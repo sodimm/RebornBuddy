@@ -4,6 +4,7 @@ Profile:  [Orderbot] Ananta Dailies
 Authors:  Sodimm
 -->
 <Profile>
+  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 24/28 Daily Quests, 3/5 Rank Quests. -->
   <Name>[Orderbot] Ananta Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
@@ -435,7 +436,7 @@ Authors:  Sodimm
       </FlightUseObject>
     </If>
     <If Condition="HasQuest(68578) and GetQuestStep(68578) == 2">
-      <FlightGetTo ZoneId="612" XYZ="52.05856, 50.0043, 297.5941" />
+      <FlightGetTo ZoneId="612" XYZ="52.05856, 50.0043, 297.5941"/>
       <FlightHandOver NpcId="1025051" XYZ="50.85828, 50.0043, 299.9465" QuestId="68578" StepId="2"/>
     </If>
     <!-- A Sluggish Endeavor -->
@@ -515,6 +516,20 @@ Authors:  Sodimm
         <SoTalkTo NpcId="1025060" DialogOption="1" XYZ="-572.9611, 112.4361, -229.2974" QuestId="68587"/>
       </If>
     </If>
+    <!-- Thin-skinned -->
+    <If Condition="HasQuest(68600) and GetQuestStep(68600) == 1">
+      <FlightGetTo ZoneId="612" XYZ="-395.6207, 128.8319, -509.7277"/>
+      <FlightUseObject NpcIds="2009359,2009360,2009361,2009362,2009363,2009364" QuestId="68600" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-395.6207, 128.8319, -509.7277"/>
+          <HotSpot XYZ="-410.6661, 131.8531, -481.6205"/>
+          <HotSpot XYZ="-522.6368, 122.7283, -452.1401"/>
+          <HotSpot XYZ="-475.2117, 97.58142, -344.0147"/>
+          <HotSpot XYZ="-472.4346, 93.43091, -325.7648"/>
+          <HotSpot XYZ="-554.0093, 103.4714, -310.1091"/>
+        </HotSpots>
+      </FlightUseObject>
+    </If>
     <!-- Let There Be Lard -->
     <If Condition="HasQuest(68599) and GetQuestStep(68599) == 1">
       <FlightGetTo ZoneId="612" XYZ="-173.3883, 58.1521, -449.485"/>
@@ -528,20 +543,56 @@ Authors:  Sodimm
     </If>
     <!-- Funnel and Games -->
     <If Condition="HasQuest(68590) and GetQuestStep(68590) == 1">
-	  <If Condition="GetQuestById(68590).QuestI8CH == 3">
+      <If Condition="GetQuestById(68590).QuestI8CH == 3">
         <FlightGetTo ZoneId="612" XYZ="-192.0773, 39.09403, 141.3276" Land="True"/>
         <FlightMoveTo XYZ="-218.7977, 42.79788, 86.02752"/>
         <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
         <MoveTo XYZ="-192.0773, 39.09403, 141.3276"/>
-	  </If>
+      </If>
       <FlightGetTo ZoneId="612" XYZ="-201.3637, 42.85657, -14.22521" Land="True"/>
       <FlightMoveTo XYZ="-160.4346, 41.7993, -32.99627"/>
       <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
     </If>
     <!-- Keeping an Eye Off Things -->
     <If Condition="HasQuest(68592) and GetQuestStep(68592) == 1">
-      <FlightGetTo ZoneId="612" XYZ="-48.96625, 41.21885, -263.1724" Land="True"/>
-      <FlightUseItem ItemId="2002438" NpcId="7030" XYZ="-48.96625, 41.21885, -263.1724" QuestId="68592" StepId="1"/>
+      <FlightGetTo ZoneId="612" XYZ="-48.96625, 41.21885, -263.1724" Land="True" Dismount="True"/>
+      <FlightUseItem InCombat="True" ItemId="2002438" NpcId="7030" XYZ="-48.96625, 41.21885, -263.1724" LacksAuraIds="1383,1089,456,22" QuestId="68592" StepId="1"/>
+    </If>
+    <!-- Bhoot Camps -->
+	<!-- Gyr Kehim gives Flightor a migraine. -->
+    <If Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 0">
+      <FlightGetTo ZoneId="612" XYZ="101.3046, 41.03149, -180.8957"/>
+      <FlightUseObject NpcIds="2009344,2009345,2009346" Condition="not ObjectExistsWithId(7031)">
+        <HotSpots>
+          <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
+          <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
+          <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
+        </HotSpots>
+      </FlightUseObject>
+      <FlightUseItem ItemId="2002439" NpcIds="7031" Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 0">
+        <HotSpots>
+          <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
+          <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
+          <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
+        </HotSpots>
+      </FlightUseItem>
+    </If>
+    <If Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 1">
+      <FlightGetTo ZoneId="612" XYZ="136.4004, 50.37, -397.6959"/>
+      <FlightUseObject NpcIds="2009344,2009345,2009346" Condition="not ObjectExistsWithId(7031)">
+        <HotSpots>
+          <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
+          <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
+          <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
+        </HotSpots>
+      </FlightUseObject>
+      <FlightUseItem ItemId="2002439" NpcIds="7031" Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 1">
+        <HotSpots>
+          <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
+          <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
+          <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
+        </HotSpots>
+      </FlightUseItem>
     </If>
     <!-- When Feathers Fly -->
     <If Condition="HasQuest(68588) and GetQuestStep(68588) == 1">
@@ -577,6 +628,19 @@ Authors:  Sodimm
     <If Condition="HasQuest(68589) and GetQuestStep(68589) == 2">
       <FlightGetTo ZoneId="612" XYZ="41.45874, 42.87572, -218.2803"/>
       <FlightTalkTo NpcId="1025247" XYZ="41.45874, 42.87572, -218.2803" QuestId="68589" StepId="2"/>
+    </If>
+    <!-- A Delicate Operation -->
+    <If Condition="HasQuest(68601) and GetQuestStep(68601) == 1">
+      <FlightGetTo ZoneId="612" XYZ="171.6182, 113.7255, -0.1373901"/>
+      <FlightUseItem ItemId="2002450" NpcIds="2009365,2009366,2009367,2009368,2009369" QuestId="68601" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="171.6182, 113.7255, -0.1373901"/>
+          <HotSpot XYZ="170.2754, 111.467, -31.69305"/>
+          <HotSpot XYZ="170.0618, 103.5323, 17.77667"/>
+          <HotSpot XYZ="186.3889, 103.2578, 15.85406"/>
+          <HotSpot XYZ="150.2251, 108.1406, -42.19128"/>
+        </HotSpots>
+      </FlightUseItem>
     </If>
     <!-- Up Sheet Creek -->
     <If Condition="HasQuest(68598) and GetQuestStep(68598) == 1">
@@ -639,7 +703,7 @@ Authors:  Sodimm
       </FlightUseObject>
     </If>
     <If Condition="HasQuest(68584) and GetQuestStep(68584) == 2">
-      <FlightGetTo ZoneId="612" XYZ="15.41216, 56.02146, 251.4697" Land="True"/>
+      <FlightGetTo ZoneId="612" XYZ="-2.377094, 55.97821, 234.5367" Land="True"/>
       <FlightHandOver NpcId="1025058" XYZ="12.34448, 56.02146, 260.7614" QuestId="68584" StepId="2"/>
     </If>
     <!-- A Very Hungry Marid -->
@@ -656,8 +720,13 @@ Authors:  Sodimm
       <FlightUseObject NpcId="2009347" XYZ="35.96545, 51.255, 292.3781" QuestId="68594" StepId="3"/>
     </If>
     <If Condition="HasQuest(68594) and GetQuestStep(68594) == 4">
-      <FlightGetTo ZoneId="612" XYZ="93.72153, 40.88166, 372.3503"/>
+      <FlightGetTo ZoneId="612" XYZ="93.72153, 40.88166, 372.3503" Land="True"/>
       <FlightHandOver ItemId="2002440" NpcId="1025072" XYZ="94.04126, 41.17176, 376.5773" QuestId="68594" StepId="4"/>
+    </If>
+    <!-- Thin-skinned -->
+    <If Condition="HasQuest(68600) and GetQuestStep(68600) == 2">
+      <FlightGetTo ZoneId="612" XYZ="-2.77714, 56.02146, 244.7713"/>
+      <FlightHandOver NpcId="1025073" XYZ="-4.104736, 56.13782, 246.1737" QuestId="68600" StepId="2"/>
     </If>
     <!-- Have I Got News for You -->
     <If Condition="HasQuest(68578) and GetQuestStep(68578) == 255">
@@ -734,6 +803,11 @@ Authors:  Sodimm
       <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
       <FlightTurnIn QuestId="68592" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
     </If>
+    <!-- Bhoot Camps -->
+    <If Condition="HasQuest(68593) and GetQuestStep(68593) == 255">
+      <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
+      <FlightTurnIn QuestId="68593" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
+    </If>
     <!-- A Very Hungry Marid -->
     <If Condition="HasQuest(68594) and GetQuestStep(68594) == 255">
       <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
@@ -763,6 +837,16 @@ Authors:  Sodimm
     <If Condition="HasQuest(68599) and GetQuestStep(68599) == 255">
       <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
       <FlightTurnIn QuestId="68599" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
+    </If>
+    <!-- Thin-skinned -->
+    <If Condition="HasQuest(68600) and GetQuestStep(68600) == 255">
+      <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
+      <FlightTurnIn QuestId="68600" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
+    </If>
+    <!-- A Delicate Operation -->
+    <If Condition="HasQuest(68601) and GetQuestStep(68601) == 255">
+      <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
+      <FlightTurnIn QuestId="68601" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
     </If>
     <!-- Griffins Rampant -->
     <If Condition="IsQuestCompleted(68572) and not HasQuest(68573) and not IsQuestCompleted(68573)">
@@ -851,8 +935,44 @@ Authors:  Sodimm
       <FlightTurnIn QuestId="68574" NpcId="1024911" XYZ="10.97125, 55.94391, 239.887"/>
     </If>
     <!-- It Can Be Cruel Sometimes -->
-    <!--<If Condition="IsQuestCompleted(68574) and not HasQuest(68575) and not IsQuestCompleted(68575)">
-    </If>-->
+    <If Condition="IsQuestCompleted(68574) and not HasQuest(68575) and not IsQuestCompleted(68575)">
+      <FlightGetTo ZoneId="612" XYZ="10.59453, 55.94352, 237.865"/>
+      <If Condition="IsQuestAcceptQualified(68575)">
+        <FlightPickupQuest QuestId="68575" NpcId="1024771" XYZ="12.00879, 55.97821, 237.9645"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 1">
+      <FlightGetTo ZoneId="612" XYZ="-127.2189, 41.0598, 8.73585"/>
+      <SoTalkTo NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 2">
+      <FlightGetTo ZoneId="612" XYZ="-127.2189, 41.0598, 8.73585"/>
+      <FlightUseItem ItemId="2002429" NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 3">
+      <FlightGetTo ZoneId="612" XYZ="-127.2189, 41.0598, 8.73585"/>
+      <FlightUseItem ItemId="2002429" NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 4">
+      <FlightGetTo ZoneId="612" XYZ="-127.2189, 41.0598, 8.73585"/>
+      <FlightUseItem ItemId="2002429" NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 5">
+      <FlightGetTo ZoneId="635" XYZ="-117.2066, 0.6342249, -57.35493"/>
+      <FlightTalkTo NpcId="1019486" XYZ="-116.7468, 0.6342248, -55.83282" QuestId="68575" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 6">
+      <FlightGetTo ZoneId="612" XYZ="-495.0179, 118.7987, -427.1153" Land="True" Dismount="True"/>
+      <WaitWhile Condition="HasQuest(68575) and not IsQuestCompleted(68575) and not GetQuestStep(68575) == 7"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 7">
+      <FlightGetTo ZoneId="612" XYZ="-495.0179, 118.7987, -427.1153"/>
+      <FlightUseObject NpcId="1024920" XYZ="-495.0179, 118.7987, -427.1153" QuestId="68575" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 255">
+      <FlightGetTo ZoneId="612" XYZ="11.3798, 55.94352, 238.0929"/>
+      <FlightTurnIn QuestId="68575" NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645"/>
+    </If>
     <!-- Schism between Sisters -->
     <!--<If Condition="IsQuestCompleted(68575) and not HasQuest(68576) and not IsQuestCompleted(68576)">
     </If>-->
@@ -897,3 +1017,4 @@ Authors:  Sodimm
     </CodeChunk>
   </CodeChunks>
 </Profile>
+

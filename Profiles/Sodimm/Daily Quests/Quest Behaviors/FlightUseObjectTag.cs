@@ -3,7 +3,6 @@ using Clio.XmlEngine;
 using ff14bot.Navigation;
 using OrderBotTags.Behaviors;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using TreeSharp;
@@ -24,11 +23,6 @@ namespace ff14bot.NeoProfiles.Tags
 
                 if (IsStepComplete) { return true; }
 
-                if (UseTimes > 0)
-                {
-                    if (usedTimes == UseTimes) { return true; }
-                }
-
                 if (Conditional != null)
                 {
                     var cond = !Conditional();
@@ -45,10 +39,6 @@ namespace ff14bot.NeoProfiles.Tags
         [XmlAttribute("NpcIds")]
         [XmlAttribute("NpcId")]
         public int[] NpcIds { get; set; }
-
-        [XmlAttribute("UseTimes")]
-        [DefaultValue(0)]
-        public int UseTimes { get; set; }
 
         [XmlElement("HotSpots")]
         public List<HotSpot> Hotspots { get; set; } = new List<HotSpot>();
@@ -69,7 +59,6 @@ namespace ff14bot.NeoProfiles.Tags
             }
         }
 
-        int usedTimes = 0;
         public async Task<bool> Main()
         {
             foreach (var o in Hotspots.OrderBy(r => r.Position.DistanceSqr(Core.Me.Location)))
@@ -90,13 +79,11 @@ namespace ff14bot.NeoProfiles.Tags
 
                 if (!await Movement.MoveTo(obj.Location, true, true)) { return false; }
 
-                if (!await Common.UseObject(obj, UseTimes, BlacklistAfter, BlacklistDuration)) { return false; }
+                if (!await Common.UseObject(obj, BlacklistAfter, BlacklistDuration)) { return false; }
 
                 await Common.Sleep(500);
 
                 await Dialog.Skip();
-
-                usedTimes++;
 
                 await Common.Sleep(Wait);
             }
@@ -106,14 +93,8 @@ namespace ff14bot.NeoProfiles.Tags
 
         protected sealed override Composite CreateBehavior() => new ActionRunCoroutine(cr => Main());
 
-        protected sealed override void OnDone()
-        {
-            usedTimes = 0;
-        }
+        protected sealed override void OnDone() { }
 
-        protected override void OnResetCachedDone()
-        {
-            usedTimes = 0;
-        }
+        protected override void OnResetCachedDone() { }
     }
 }

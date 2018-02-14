@@ -82,7 +82,7 @@ namespace ff14bot.NeoProfiles.Tags
 
                 if (!await Movement.MoveTo(obj.Location, true, true)) { return false; }
 
-                if (!await Common.EmoteObject(Emote, obj, BlacklistAfter, BlacklistDuration)) { return false; }
+                if (!await Common.UseEmote(Emote, obj, BlacklistAfter, BlacklistDuration)) { return false; }
 
                 await Common.Sleep(500);
 

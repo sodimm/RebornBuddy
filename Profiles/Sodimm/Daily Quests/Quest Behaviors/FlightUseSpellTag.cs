@@ -78,7 +78,7 @@ namespace ff14bot.NeoProfiles.Tags
 
                 var obj = Common.GetClosest(NpcIds);
 
-                if (!await Common.UseSpellObject(SpellId, obj, BlacklistAfter, BlacklistDuration)) { continue; }
+                if (!await Common.UseSpell(SpellId, obj, BlacklistAfter, BlacklistDuration)) { continue; }
 
                 await Common.Sleep(500);
 

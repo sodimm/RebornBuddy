@@ -72,6 +72,27 @@
 
         protected override Composite CreateBehavior() => base.CreateBehavior();
 
+        public static class Helpers
+        {
+            /// <summary>
+            /// Checks to see if the Object has any AuraId matching those in an Array of Ids.
+            /// </summary>
+            /// <param name="obj">The GameObject.</param>
+            /// <param name="ids">The AuraIds to Check for.</param>
+            /// <returns>True if the AuraId exists.</returns>
+            public static bool HasAnyAura(BattleCharacter obj, params int[] ids)
+            {
+                int idCount = 0;
+
+                foreach (uint id in ids)
+                {
+                    if (obj.HasAura(id)) { idCount++; }
+                }
+
+                return idCount > 0 ? true : false;
+            }
+        }
+
         #region Movement
         public class Movement
         {
@@ -263,7 +284,7 @@
             /// <param name="blackList">Should you Blacklist the object after use?</param>
             /// <param name="duration">How long do you want the Blacklist to last.</param>
             /// <returns></returns>
-            public static async Task<bool> EmoteObject(string emote, GameObject obj, bool blackList = false, int duration = 180)
+            public static async Task<bool> UseEmote(string emote, GameObject obj, bool blackList = false, int duration = 180)
             {
                 while (true)
                 {
@@ -308,7 +329,7 @@
             /// <param name="blackList">Should you Blacklist the object after use?</param>
             /// <param name="duration">How long do you want the Blacklist to last.</param>
             /// <returns></returns>
-            public static async Task<bool> UseSpellObject(int spellId, GameObject obj, bool blackList = false, int duration = 180)
+            public static async Task<bool> UseSpell(int spellId, GameObject obj, bool blackList = false, int duration = 180)
             {
                 while (true)
                 {
@@ -359,20 +380,16 @@
             /// <param name="blackList">Should you Blacklist the object after use?</param>
             /// <param name="duration">How long do you want the Blacklist to last.</param>
             /// <returns></returns>
-            public static async Task<bool> UseObject(GameObject obj, int useTimes = -1, bool blackList = false, int duration = 180)
+            public static async Task<bool> UseObject(GameObject obj, bool blackList = false, int duration = 180)
             {
                 while (true)
                 {
-                    int used = 0;
-
                     if (Dialog.IsTalking)
                     {
                         await Dialog.Skip();
                         await Sleep(500);
                         continue;
                     }
-
-                    if (useTimes > 0 && used >= useTimes) { return true; }
 
                     if (Core.Me.InCombat) { return false; }
 
@@ -394,8 +411,6 @@
                     {
                         Blacklist.Add(obj.ObjectId, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(duration), "BlacklistAfter");
                     }
-
-                    used++;
                 }
 
                 return true;
@@ -409,7 +424,7 @@
             /// <param name="blackList">Should you Blacklist the object after use?</param>
             /// <param name="duration">How long do you want the Blacklist to last.</param>
             /// <returns></returns>
-            public static async Task<bool> UseItem(int item, GameObject obj, bool blackList = false, int duration = 180)
+            public static async Task<bool> UseItem(int item, GameObject obj, bool blackList = false, int duration = 180, bool inCombat = false, int[] hasAnyAura = null)
             {
                 var slot = InventoryManager.FilledSlots.FirstOrDefault(s => s.RawItemId == item);
                 if (slot == null) { return false; }
@@ -425,7 +440,9 @@
                         continue;
                     }
 
-                    if (Core.Me.InCombat) { return false; }
+                    if (inCombat && Helpers.HasAnyAura((obj as BattleCharacter))) { return false; }
+
+                    if (!inCombat && Core.Me.InCombat) { return false; }
 
                     if (!Exists(obj.Location, (int)obj.NpcId) || !obj.IsTargetable || !obj.IsValid || !slot.CanUse(obj)) { break; }
                     if (slot.Count < count) { break; }
@@ -437,7 +454,8 @@
                         continue;
                     }
 
-                    slot.UseItem(Core.Me.CurrentTarget);
+                    if (slot.Item.IsGroundTargeting) { slot.UseItem(Core.Me.CurrentTarget.Location); }
+                    else { slot.UseItem(Core.Me.CurrentTarget); }
                     await Sleep(800);
                     await Coroutine.Wait(10000, () => !Core.Me.IsCasting);
                     if (!Core.Me.InCombat) { await Sleep(800); }
@@ -451,6 +469,7 @@
 
                 return true;
             }
+
         }
         #endregion Common Tasks
 

@@ -1,8 +1,11 @@
 using Clio.Utilities;
 using Clio.XmlEngine;
+using ff14bot.Behavior;
+using ff14bot.Helpers;
 using ff14bot.Navigation;
 using OrderBotTags.Behaviors;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using TreeSharp;
@@ -46,6 +49,16 @@ namespace ff14bot.NeoProfiles.Tags
         [XmlElement("HotSpots")]
         public List<HotSpot> Hotspots { get; set; } = new List<HotSpot>();
 
+        [XmlAttribute("InCombat")]
+        [DefaultValue(false)]
+        public new bool InCombat { get; set; }
+
+        [XmlAttribute("LacksAuraIds")]
+        [DefaultValue(null)]
+        public int[] Auras { get; set; }
+
+
+        private Composite _combatlogic;
         protected sealed override void OnStart()
         {
             SetupConditional();
@@ -59,6 +72,12 @@ namespace ff14bot.NeoProfiles.Tags
                 }
 
                 Hotspots.Add(new HotSpot(XYZ, 50f));
+            }
+
+            if (InCombat)
+            {
+                _combatlogic = new ActionRunCoroutine(cr => Common.UseItem(ItemId, Poi.Current?.BattleCharacter, inCombat: true, hasAnyAura: Auras));
+                TreeHooks.Instance.InsertHook("PreCombatLogic", 0, _combatlogic);
             }
         }
 

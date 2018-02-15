@@ -549,9 +549,16 @@ Authors:  Sodimm
         <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
         <MoveTo XYZ="-192.0773, 39.09403, 141.3276"/>
       </If>
-      <FlightGetTo ZoneId="612" XYZ="-201.3637, 42.85657, -14.22521" Land="True"/>
-      <FlightMoveTo XYZ="-160.4346, 41.7993, -32.99627"/>
-      <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
+      <If Condition="GetQuestById(68590).QuestI8CH == 2">
+        <FlightGetTo ZoneId="612" XYZ="-224.029, 41.32917, 3.473847" Land="True"/>
+        <FlightMoveTo XYZ="-248.0251, 50.78176, 34.30751"/>
+        <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
+      </If>
+      <If Condition="GetQuestById(68590).QuestI8CH == 3">
+        <FlightGetTo ZoneId="612" XYZ="-201.3637, 42.85657, -14.22521" Land="True"/>
+        <FlightMoveTo XYZ="-160.4346, 41.7993, -32.99627"/>
+        <WaitWhile Condition="HasQuest(68590) and GetQuestStep(68590) == 1"/>
+      </If>
     </If>
     <!-- Keeping an Eye Off Things -->
     <If Condition="HasQuest(68592) and GetQuestStep(68592) == 1">
@@ -569,7 +576,7 @@ Authors:  Sodimm
           <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
         </HotSpots>
       </FlightUseObject>
-      <FlightUseItem ItemId="2002439" NpcIds="7031" Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 0">
+      <FlightUseItem ItemId="2002439" NpcIds="7031" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="0"> <!--Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 0">-->
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
@@ -586,7 +593,7 @@ Authors:  Sodimm
           <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
         </HotSpots>
       </FlightUseObject>
-      <FlightUseItem ItemId="2002439" NpcIds="7031" Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 1">
+      <FlightUseItem ItemId="2002439" NpcIds="7031" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="1"> <!--Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 1">-->
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>

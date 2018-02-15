@@ -22,6 +22,8 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 if (IsQuestComplete) { return true; }
 
+                if (IsTodoCountComplete) { return true; }
+
                 if (IsObjectiveComplete) { return true; }
 
                 if (IsStepComplete) { return true; }

@@ -35,13 +35,31 @@
         public int Todo { get; set; }
 
         /// <summary>
-        /// Returns IsTodoChecked status for current quest if Todo attribute is defined.
+        /// Checks IsTodoChecked if Todo attribute is defined.
         /// </summary>
         public bool IsObjectiveComplete => Todo > -1 ? ConditionParser.IsTodoChecked(QuestId, (int)StepId, Todo) : false;
+
+        [DefaultValue(-1)]
+        [XmlAttribute("TodoCount")]
+        public int TodoCount { get; set; }
+
+        [DefaultValue(-1)]
+        [XmlAttribute("TodoIndex")]
+        public int TodoIndex { get; set; }
+
+        /// <summary>
+        /// Checks GetTodoArgs.Item1 (Count) if TodoCount and TodoIndex attributes are defined.
+        /// </summary>
+        public bool IsTodoCountComplete => TodoCount > -1 && TodoIndex > -1 ? ConditionParser.GetQuestById(QuestId).GetTodoArgs((int)StepId, TodoIndex).Item1 != TodoCount : false;
+
 
         [DefaultValue(false)]
         [XmlAttribute("Land")]
         public bool Land { get; set; }
+
+        [DefaultValue(false)]
+        [XmlAttribute("Dismount")]
+        public bool Dismount { get; set; }
 
         [DefaultValue(false)]
         [XmlAttribute("BlacklistAfter")]
@@ -440,7 +458,7 @@
                         continue;
                     }
 
-                    if (inCombat && Helpers.HasAnyAura((obj as BattleCharacter))) { return false; }
+                    if (inCombat && Helpers.HasAnyAura((obj as BattleCharacter), hasAnyAura)) { return false; }
 
                     if (!inCombat && Core.Me.InCombat) { return false; }
 

@@ -40,7 +40,7 @@ namespace ff14bot.NeoProfiles.Tags
                 while (WorldManager.ZoneId != ZoneId && await NavGraph.NavGraphConsumer(ctx => thisPath).ExecuteCoroutine()) { await Coroutine.Yield(); }
             }
 
-            if (!await Movement.MoveTo(XYZ, Land)) { return false; }
+            if (!await Movement.MoveTo(XYZ, Land, Dismount)) { return false; }
 
             await Coroutine.Wait(4000, () => !Core.Me.InCombat);
 

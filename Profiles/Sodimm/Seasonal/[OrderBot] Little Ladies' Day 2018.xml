@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Little Ladies' Day 2018
+Authors:  TuckMeIntoBread
+Version:  1.0.0
+-->
+<Profile>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- A Colorful Affair -->
+    <If Condition="not HasQuest(68620) and not IsQuestCompleted(68620)">
+      <GetTo ZoneId="130" XYZ="-101.4621, 4, -106.8564"/>
+      <If Condition="IsQuestAcceptQualified(68620)">
+        <SoPickupQuest QuestId="68620" NpcId="1025295" XYZ="-101.6099, 4, -106.096"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 1">
+      <GetTo ZoneId="130" XYZ="-34.30423, 5, -131.3688"/>
+      <SoTalkTo NpcId="1025293" XYZ="-33.18835, 5, -130.6935" QuestId="68620" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 2">
+      <If Condition="HasQuest(68620) and GetQuestById(68620).QuestI8AH == 0">
+        <GetTo ZoneId="131" XYZ="157.1292, 7.792007, 100.5555"/>
+        <SoHandOver ItemIds="2002456" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419" QuestId="68620" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68620) and GetQuestById(68620).QuestI8AH == 1">
+        <GetTo ZoneId="131" XYZ="-113.9708, 41.59999, 120.9362"/>
+        <SoHandOver ItemIds="2002456" NpcId="1002281" XYZ="-115.7397, 41.59998, 118.8831" QuestId="68620" StepId="2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 3">
+      <GetTo ZoneId="130" XYZ="-33.87157, 5, -131.0193"/>
+      <SoHandOver ItemIds="2002457,2002460" NpcId="1025293" XYZ="-33.18835, 5, -130.6935" QuestId="68620" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 4 and not(Core.Player.HasAura(1494))">
+      <GetTo ZoneId="130" XYZ="-34.941, 5.000001, -131.2443"/>
+      <SoTalkTo DialogOption="0" NpcId="1025294" XYZ="-35.08057, 5.000001, -130.2968" QuestId="68620" StepId="4"/>
+    </If>
+    <While Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 4 and (Core.Player.HasAura(1494))">
+      <GetTo ZoneId="130" XYZ="-38.84649, 4, -143.6738"/>
+      <SoSendChat NpcId="7077" Emote="ac &quot;Cheer On&quot;" UseDistance="10" XYZ="-38.84649, 4, -143.6738" Radius="10" QuestId="68620" StepId="4"/>
+    </While>
+    <If Condition="HasQuest(68620) and not IsQuestCompleted(68620) and GetQuestStep(68620) == 255">
+      <SoSendChat DoAction="Curtain Call" XYZ="-38.84649, 4, -143.6738"/>
+      <GetTo ZoneId="130" XYZ="-34.55908, 5, -131.2786"/>
+      <TurnIn QuestId="68620" NpcId="1025293" XYZ="-33.18835, 5, -130.6935"/>
+    </If>
+  </Order>
+</Profile>

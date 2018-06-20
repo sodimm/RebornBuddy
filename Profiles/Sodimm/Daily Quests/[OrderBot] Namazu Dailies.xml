@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Namazu Dailies
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[Orderbot] Namazu Dailies</Name>
+  <Order>
+    <!-- Perchance to Hanami -->
+    <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
+      <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
+      <If Condition="IsQuestAcceptQualified(68270)">
+        <PickupQuest QuestId="68270" NpcId="1019262" XYZ="445.7617, 58.67623, -155.6268"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68270) and not IsQuestCompleted(68270) and GetQuestStep(68270) == 1">
+      <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
+      <UseObject NpcIds="2008520,2008521" XYZ="476.8596, 58.30469, -178.0881" Radius="10" QuestId="68270" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68270) and not IsQuestCompleted(68270) and GetQuestStep(68270) == 255">
+      <GetTo ZoneId="614" XYZ="-277.4002, 17.31996, 499.2541"/>
+      <TurnIn ItemIds="2002250,2002251" QuestId="68270" NpcId="1019302" XYZ="-279.347, 17.31996, 498.4968"/>
+    </If>
+    <!-- Gyorin the Namazu -->
+    <If Condition="not HasQuest(68284) and not IsQuestCompleted(68284)">
+      <GetTo ZoneId="614" XYZ="-298.378, 16.52396, 541.3185"/>
+      <If Condition="IsQuestAcceptQualified(68284)">
+        <PickupQuest QuestId="68284" NpcId="1023236" XYZ="-300.0687, 16.80611, 539.4521"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68284) and not IsQuestCompleted(68284) and GetQuestStep(68284) == 1">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TalkTo NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131" QuestId="68284" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68284) and not IsQuestCompleted(68284) and GetQuestStep(68284) == 2">
+      <GetTo ZoneId="614" XYZ="-462.6281, 1.301181, 579.0251"/>
+      <TalkTo NpcId="1023238" XYZ="-464.4999, 1.301181, 577.325" QuestId="68284" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68284) and not IsQuestCompleted(68284) and GetQuestStep(68284) == 3">
+      <GetTo ZoneId="614" XYZ="-552.0068, -0.5999999, 569.5641"/>
+      <RunCode Name="68284"/>
+    </If>
+    <If Condition="HasQuest(68284) and not IsQuestCompleted(68284) and GetQuestStep(68284) == 4">
+      <GetTo ZoneId="614" XYZ="-462.6281, 1.301181, 579.0251"/>
+      <HandOver ItemId="2002327" NpcId="1023238" XYZ="-464.4999, 1.301181, 577.325" QuestId="68284" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68284) and not IsQuestCompleted(68284) and GetQuestStep(68284) == 255">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TurnIn QuestId="68284" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+    </If>
+    <!-- No Wealth Like Mineral Wealth -->
+    <If Condition="not HasQuest(68285) and not IsQuestCompleted(68285)">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <If Condition="IsQuestAcceptQualified(68285)">
+        <PickupQuest QuestId="68285" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 1">
+      <GetTo ZoneId="614" XYZ="-394.1543, 46.54133, 450.9009"/>
+      <TalkTo NpcId="1023239" XYZ="-392.7214, 46.67025, 452.9333" QuestId="68285" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 2">
+      <GetTo ZoneId="614" XYZ="-259.6989, 38.52378, 221.223"/>
+      <TalkTo NpcId="1023240" XYZ="-258.6557, 38.1819, 217.9751" QuestId="68285" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 3">
+      <GetTo ZoneId="614" XYZ="-288.6645, 39.23127, 206.4696"/>
+      <WaitWhile Condition="HasQuest(68285) and not IsQuestCompleted(68285) and not GetQuestStep(68285) == 4"/>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 4">
+      <GetTo ZoneId="614" XYZ="-259.6989, 38.52378, 221.223"/>
+      <TalkTo NpcId="1023240" XYZ="-258.6557, 38.1819, 217.9751" QuestId="68285" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 5">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <UseObject NpcId="2008801" XYZ="-234.2413, 17.59357, 486.9917" QuestId="68285" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68285) and not IsQuestCompleted(68285) and GetQuestStep(68285) == 255">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TurnIn QuestId="68285" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+    </If>
+    <!-- Fresh Flesh -->
+    <If Condition="not HasQuest(68286) and not IsQuestCompleted(68286)">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <If Condition="IsQuestAcceptQualified(68286)">
+        <PickupQuest QuestId="68286" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 1">
+      <GetTo ZoneId="614" XYZ="146.7893, -0.2994347, 246.4543"/>
+      <Grind GrindRef="68286" PostCombatDelay="3.0" While="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 1"/>
+    </If>
+    <If Condition="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 2">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <HandOver ItemId="2002328" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131" QuestId="68286" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 3">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <UseObject NpcId="2008802" XYZ="-235.0348, 17.65466, 487.3273" QuestId="68286" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 4">
+      <GetTo ZoneId="614" XYZ="-87.92662, -0.1278195, 652.1938"/>
+      <UseObject NpcId="1023243" XYZ="-88.85327, -0.3510132, 654.4442" QuestId="68286" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68286) and not IsQuestCompleted(68286) and GetQuestStep(68286) == 255">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TurnIn QuestId="68286" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+    </If>
+    <!-- Show Me the New Money -->
+    <If Condition="not HasQuest(68287) and not IsQuestCompleted(68287)">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <If Condition="IsQuestAcceptQualified(68287)">
+        <PickupQuest QuestId="68287" NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 1">
+      <GetTo ZoneId="614" XYZ="-288.8105, 17.31996, 492.2309"/>
+      <TalkTo NpcId="1023244" XYZ="-290.1503, 17.31996, 490.8674" QuestId="68287" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 2">
+      <GetTo ZoneId="614" XYZ="130.0345, 12.73131, 483.8642"/>
+      <TalkTo NpcId="1023245" XYZ="133.1654, 13.17286, 483.7871" QuestId="68287" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 3">
+      <GetTo ZoneId="614" XYZ="399.0776, 14.64187, 629.2374"/>
+      <TalkTo NpcId="1023246" XYZ="401.3275, 14.64187, 630.1517" QuestId="68287" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 4">
+      <GetTo ZoneId="614" XYZ="447.5162, 14.62323, 673.5396"/>
+      <WaitWhile Condition="HasQuest(68287) and not IsQuestCompleted(68287) and not GetQuestStep(68287) == 5"/>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 5">
+      <GetTo ZoneId="614" XYZ="399.0776, 14.64187, 629.2374"/>
+      <TalkTo NpcId="1023246" XYZ="401.3275, 14.64187, 630.1517" QuestId="68287" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68287) and not IsQuestCompleted(68287) and GetQuestStep(68287) == 255">
+      <GetTo ZoneId="614" XYZ="-288.8105, 17.31996, 492.2309"/>
+      <TurnIn QuestId="68287" NpcId="1023244" XYZ="-290.1503, 17.31996, 490.8674"/>
+    </If>
+    <!-- Amber Alert -->
+    <If Condition="not HasQuest(68283) and not IsQuestCompleted(68283)">
+      <GetTo ZoneId="614" XYZ="-318.8687, 17.97489, 508.2003"/>
+      <If Condition="IsQuestAcceptQualified(68283)">
+        <PickupQuest QuestId="68283" NpcId="1019298" XYZ="-323.3845, 18.83587, 508.171"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68283) and not IsQuestCompleted(68283) and GetQuestStep(68283) == 1">
+      <GetTo ZoneId="614" XYZ="404.5508, 76.13844, -148.1554"/>
+      <TalkTo NpcId="1019261" XYZ="403.0059, 76.16982, -148.8518" QuestId="68283" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68283) and not IsQuestCompleted(68283) and GetQuestStep(68283) == 2">
+      <GetTo ZoneId="614" XYZ="-318.8687, 17.97489, 508.2003"/>
+      <TalkTo NpcId="1019298" XYZ="-323.3845, 18.83587, 508.171" QuestId="68283" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68283) and not IsQuestCompleted(68283) and GetQuestStep(68283) == 255">
+      <GetTo ZoneId="614" XYZ="404.5508, 76.13844, -148.1554"/>
+      <TurnIn QuestId="68283" NpcId="1019261" XYZ="403.0059, 76.16982, -148.8518"/>
+    </If>
+    <!-- Courage the Cowardly Lupin -->
+    <If Condition="not HasQuest(68272) and not IsQuestCompleted(68272)">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <If Condition="IsQuestAcceptQualified(68272)">
+        <PickupQuest QuestId="68272" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68272) and not IsQuestCompleted(68272) and GetQuestStep(68272) == 1">
+      <GetTo ZoneId="614" XYZ="394.7758, 80.89912, -193.5361"/>
+      <UseObject NpcId="2008459" XYZ="394.5525, 80.88806, -194.1711" QuestId="68272" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68272) and not IsQuestCompleted(68272) and GetQuestStep(68272) == 2">
+      <GetTo ZoneId="614" XYZ="394.7758, 80.89912, -193.5361"/>
+      <EmoteNPC Emote="rally" NpcId="1022399" XYZ="392.6909, 80.90235, -194.9035" QuestId="68272" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68272) and not IsQuestCompleted(68272) and GetQuestStep(68272) == 3">
+      <GetTo ZoneId="614" XYZ="497.92, 55.24899, 191.6071"/>
+      <WaitWhile Condition="HasQuest(68272) and not IsQuestCompleted(68272) and not GetQuestStep(68272) == 4"/>
+    </If>
+    <If Condition="HasQuest(68272) and not IsQuestCompleted(68272) and GetQuestStep(68272) == 4">
+      <GetTo ZoneId="614" XYZ="497.92, 55.24899, 191.6071"/>
+      <UseObject NpcId="1022400" XYZ="499.9618, 55.28981, 191.1802" QuestId="68272" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68272) and not IsQuestCompleted(68272) and GetQuestStep(68272) == 255">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <TurnIn QuestId="68272" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+    </If>
+    <!-- Kurobana vs. the Rice Sacks -->
+    <If Condition="not HasQuest(68273) and not IsQuestCompleted(68273)">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <If Condition="IsQuestAcceptQualified(68273)">
+        <PickupQuest QuestId="68273" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68273) and not IsQuestCompleted(68273) and GetQuestStep(68273) == 1">
+      <GetTo ZoneId="614" XYZ="395.2791, 80.89684, -194.0479"/>
+      <TalkTo NpcId="1022399" XYZ="392.6909, 80.90235, -194.9035" QuestId="68273" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68273) and not IsQuestCompleted(68273) and GetQuestStep(68273) == 2">
+      <GetTo ZoneId="614" XYZ="634.6388, 86.25573, -143.7639"/>
+      <TalkTo NpcId="1022421" XYZ="634.5464, 86.07644, -146.746" QuestId="68273" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68273) and not IsQuestCompleted(68273) and GetQuestStep(68273) == 3">
+      <GetTo ZoneId="614" XYZ="501.7774, 66.6405, -18.34867"/>
+      <EmoteNPC Emote="psych" NpcId="1022423" XYZ="499.7177, 66.36111, -16.58661" QuestId="68273" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68273) and not IsQuestCompleted(68273) and GetQuestStep(68273) == 4">
+      <GetTo ZoneId="614" XYZ="473.3797, 68.02851, -105.565"/>
+      <TalkTo NpcId="1022424" XYZ="475.5168, 68.02852, -106.3096" QuestId="68273" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68273) and not IsQuestCompleted(68273) and GetQuestStep(68273) == 255">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <TurnIn QuestId="68273" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+    </If>
+    <!-- Kurobana vs. the Arrowheads -->
+    <If Condition="not HasQuest(68274) and not IsQuestCompleted(68274)">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <If Condition="IsQuestAcceptQualified(68274)">
+        <PickupQuest QuestId="68274" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68274) and not IsQuestCompleted(68274) and GetQuestStep(68274) == 1">
+      <GetTo ZoneId="614" XYZ="603.687, 67.78421, -135.6342"/>
+      <TalkTo NpcId="1022414" DialogOption="1" XYZ="605.249, 67.79578, -137.4991" QuestId="68274" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68274) and not IsQuestCompleted(68274) and GetQuestStep(68274) == 2">
+      <GetTo ZoneId="614" XYZ="603.687, 67.78421, -135.6342"/>
+      <UseObject NpcIds="2008490,2008491,2008492" QuestId="68274" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="664.8203, 92.08813, -107.7745" Radius="10"/>
+          <HotSpot XYZ="627.8019, 84.97742, -98.49707" Radius="10"/>
+          <HotSpot XYZ="657.9841, 85.22156, -150.5608" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(68274) and not IsQuestCompleted(68274) and GetQuestStep(68274) == 3">
+      <GetTo ZoneId="614" XYZ="603.687, 67.78421, -135.6342"/>
+      <HandOver ItemId="2002309" NpcId="1022414" XYZ="605.249, 67.79578, -137.4991" QuestId="68274" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68274) and not IsQuestCompleted(68274) and GetQuestStep(68274) == 255">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <TurnIn QuestId="68274" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+    </If>
+    <!-- Kurobana Holmes -->
+    <If Condition="not HasQuest(68275) and not IsQuestCompleted(68275)">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <If Condition="IsQuestAcceptQualified(68275)">
+        <PickupQuest QuestId="68275" NpcId="1022425" XYZ="473.3806, 58.51295, -180.9568"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 1">
+      <GetTo ZoneId="614" XYZ="366.4516, 100.8388, -92.60686"/>
+      <TalkTo NpcId="1022417" XYZ="365.6825, 100.839, -93.91931" QuestId="68275" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 2">
+      <GetTo ZoneId="614" XYZ="674.1839, 98.37488, -103.1428"/>
+      <TalkTo NpcId="1022416" XYZ="675.9288, 98.45921, -103.8071" QuestId="68275" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 3">
+      <GetTo ZoneId="614" XYZ="735.5531, 119.6949, -36.79697"/>
+      <TalkTo NpcId="1022418" XYZ="734.5845, 119.6984, -35.05005" QuestId="68275" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 4">
+      <GetTo ZoneId="614" XYZ="720.631, 116.9319, -60.51178"/>
+      <WaitWhile Condition="HasQuest(68275) and not IsQuestCompleted(68275) and not GetQuestStep(68275) == 5"/>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 5">
+      <GetTo ZoneId="614" XYZ="735.5531, 119.6949, -36.79697"/>
+      <TalkTo NpcId="1022418" XYZ="734.5845, 119.6984, -35.05005" QuestId="68275" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68275) and not IsQuestCompleted(68275) and GetQuestStep(68275) == 255">
+      <GetTo ZoneId="614" XYZ="472.3177, 58.59403, -181.4977"/>
+      <TurnIn QuestId="68275" NpcId="1019312" XYZ="473.8077, 58.44831, -182.7878"/>
+    </If>
+    <!-- Kurobana vs. Gyorin -->
+    <If Condition="not HasQuest(68276) and not IsQuestCompleted(68276)">
+      <GetTo ZoneId="614" XYZ="393.432, 80.89989, -193.7207"/>
+      <If Condition="IsQuestAcceptQualified(68276)">
+        <PickupQuest QuestId="68276" NpcId="1022399" XYZ="392.6909, 80.90235, -194.9035"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68276) and not IsQuestCompleted(68276) and GetQuestStep(68276) == 1">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TalkTo NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131" QuestId="68276" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68276) and not IsQuestCompleted(68276) and GetQuestStep(68276) == 2">
+      <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>
+      <TalkTo NpcId="1023237" XYZ="-233.7224, 17.6282, 485.3131" QuestId="68276" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68276) and not IsQuestCompleted(68276) and GetQuestStep(68276) == 3">
+      <GetTo ZoneId="614" XYZ="562.1876, 67.71468, -11.18082"/>
+      <TalkTo NpcId="1023463" XYZ="563.8666, 68.09528, -11.30695" QuestId="68276" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68276) and not IsQuestCompleted(68276) and GetQuestStep(68276) == 255">
+      <GetTo ZoneId="614" XYZ="462.3271, 68.01754, -105.9092"/>
+      <TurnIn QuestId="68276" NpcId="1023465" XYZ="462.7603, 68.01855, -106.5538"/>
+    </If>
+    <!-- Something Fishy This Way Comes -->
+    <If Condition="IsQuestCompleted(68276) and not HasQuest(68632) and not IsQuestCompleted(68632)">
+      <RunCode Name="Switch"/>
+      <GetTo ZoneId="622" XYZ="-200.273, 1.730612, 800.0025"/>
+      <If Condition="IsQuestAcceptQualified(68632)">
+        <PickupQuest QuestId="68632" NpcId="1025693" XYZ="-200.1832, 1.722322, 801.7546"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68632) and not IsQuestCompleted(68632) and GetQuestStep(68632) == 1">
+      <GetTo ZoneId="614" XYZ="-289.037, 17.31996, 511.0836"/>
+      <HandOver ItemIds="2002471" NpcId="1025694" XYZ="-290.1198, 17.31996, 511.986" QuestId="68632" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68632) and not IsQuestCompleted(68632) and GetQuestStep(68632) == 2">
+      <GetTo ZoneId="614" XYZ="-284.1415, 17.31996, 511.3145"/>
+      <TalkTo NpcId="1025695" XYZ="-284.1688, 17.31996, 513.6643" QuestId="68632" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68632) and not IsQuestCompleted(68632) and GetQuestStep(68632) == 3">
+      <GetTo ZoneId="622" XYZ="496.493, 40.83612, -508.3553"/>
+      <TalkTo NpcId="1019382" XYZ="496.5437, 40.85965, -510.5822" QuestId="68632" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68632) and not IsQuestCompleted(68632) and GetQuestStep(68632) == 4">
+      <GetTo ZoneId="622" XYZ="-625.6262, 40.09414, 101.1272"/>
+      <UseTransport NpcId="1025697" XYZ="-627.8325, 40.01948, 100.2059" QuestId="68632" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68632) and not IsQuestCompleted(68632) and GetQuestStep(68632) == 255">
+      <GetTo ZoneId="622" XYZ="-765.3054, 127.4361, 92.16696"/>
+      <TurnIn QuestId="68632" NpcId="1025698" XYZ="-766.7201, 127.4386, 91.23364"/>
+    </If>
+    <!-- One Size Fits All -->
+    <If Condition="IsQuestCompleted(68632) and not HasQuest(68633) and not IsQuestCompleted(68633)">
+      <GetTo ZoneId="622" XYZ="-765.4116, 127.4303, 93.58228"/>
+      <If Condition="IsQuestAcceptQualified(68633)">
+        <PickupQuest QuestId="68633" NpcId="1025700" XYZ="-767.2999, 127.433, 92.48486"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and not HasAtLeast(22694, 3)">
+      <GetTo ZoneId="622" XYZ="-769.6514, 127.4556, 86.4019"/>
+      <UseObject NpcId="1025609" XYZ="-770.4738, 127.428, 85.28259" Condition="not HasItem(22694)"/>
+    </If>
+    <!-- Happi Component -->
+    <While Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and not HasAtLeast(22720, 3)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32682"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32709"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32736"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32763"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32790"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32817"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32844"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32871"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and CraftingLog.IsOpen and HasAtLeast(22720,3)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and HasAtLeast(22720, 3)">
+      <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
+      <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
+    </If>
+    <!-- Pickup Quest -->
+    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68644]))">
+      <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
+      <!-- The Importance of Being Yes, Yes -->
+      <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
+        <PickupQuest QuestId="68639" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Pilgrim's Regress -->
+      <If Condition="IsQuestAcceptQualified(68640) and not HasQuest(68640)">
+        <PickupQuest QuestId="68640" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Simpler Gifts -->
+      <If Condition="IsQuestAcceptQualified(68644) and not HasQuest(68644)">
+        <PickupQuest QuestId="68644" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+    </If>
+    <!-- The Importance of Being Yes, Yes -->
+    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025769" XYZ="511.4365, 29.90783, -404.9287" QuestId="68639" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 2 and not HasAtLeast(22699, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025770" XYZ="511.6501, 30.10596, -407.248" Condition="not HasItem(22699)"/>
+    </If>
+    <!-- Finery Components -->
+    <While Condition="HasQuest(68639) and HasItem(22699) and not HasAtLeast(22725, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32695"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32722"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32749"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32776"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32857"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32884"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32844"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32871"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="CraftingLog.IsOpen and HasAtLeast(22725,2)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68639) and HasAtLeast(22725, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22725" NpcId="1025769" XYZ="511.4365, 29.90783, -404.9287" QuestId="68639" StepId="2"/>
+    </If>
+    <!-- Pilgrim's Regress -->
+    <If Condition="HasQuest(68640) and GetQuestStep(68640) == 1 and not IsTodoChecked(68640, 1, 1)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="725.1102, -1.484014, -422.9517" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <MoveTo XYZ="725.1102, -1.484014, -422.9517" Distance="1.0"/>
+      <RunCode Name="68640"/>
+    </If>
+    <If Condition="HasQuest(68640) and GetQuestStep(68640) == 1 and not IsTodoChecked(68640, 1, 0)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-70.81714, 66.9718, -421.8967" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <MoveTo XYZ="-70.81714, 66.9718, -421.8967" Distance="1.0"/>
+      <RunCode Name="68640"/>
+    </If>
+    <!-- Simpler Gifts -->
+    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025777" XYZ="-596.9177, 64.00098, -285.0843" QuestId="68644" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 2 and not HasItem(22703)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025778" XYZ="-597.0398, 63.82837, -288.655" Condition="not HasItem(22703)"/>
+    </If>
+    <!-- Trinket Components -->
+    <While Condition="HasQuest(68644) and HasItem(22703) and not HasItem(22729)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32699"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32726"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32753"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32780"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32807"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32834"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32861"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32888"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="CraftingLog.IsOpen and HasItem(22729)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 2 and HasItem(22729)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22729" NpcId="1025777" XYZ="-596.9177, 64.00098, -285.0843" QuestId="68644" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 3">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo ZoneId="622" XYZ="-608.4955, 8.484489, 423.0657" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2002481" NpcId="1019330" XYZ="-746.7918, 7.845998, 398.2756" QuestId="68644" StepId="3"/>
+      <MoveTo XYZ="-608.4955, 8.484489, 423.0657"/>
+    </If>
+    <!-- The Importance of Being Yes, Yes -->
+    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68639" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Pilgrim's Regress -->
+    <If Condition="GetQuestStep(68640) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68640" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Simpler Gifts -->
+    <If Condition="GetQuestStep(68644) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68644" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+  </Order>
+  <GrindAreas>
+    <GrindArea name="68286">
+      <Hotspots>
+        <HotSpot XYZ="153.7651, -0.2997839, 225.9403" Radius="75"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5762"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="68284"><![CDATA[
+     // Stop and dismount
+     if (Core.Player.IsMounted)
+     {
+       await CommonTasks.StopAndDismount();
+       await Coroutine.Sleep(500);
+     }
+     
+     // Dive
+     MovementManager.StartDescending();
+     await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+
+     // Stop movement
+     MovementManager.MoveStop();
+     await Coroutine.Sleep(500);
+
+     // Mount up
+     if (!Core.Player.IsMounted)
+     {
+       await CommonTasks.SummonFlyingMount();
+       await Coroutine.Wait(10000, () => Core.Player.IsMounted);
+     }
+     
+     // Descend
+     await CommonTasks.DescendTo(-109f);
+     
+     // Stop and dismount
+     await CommonTasks.StopAndDismount();
+
+     // Face the Fishing Rod	   
+     GameObjectManager.GetObjectByNPCId(2008799).Face();
+     
+     // Target and interact with the Fishing Rod
+     if (GameObjectManager.GetObjectByNPCId(2008799).IsVisible)
+     {
+       GameObjectManager.GetObjectByNPCId(2008799).Target();
+       GameObjectManager.GetObjectByNPCId(2008799).Interact();
+     }
+       
+     // Skip dialog and wait until step 4
+     while (ConditionParser.GetQuestStep(68284) != 4)
+     {
+       if (Talk.DialogOpen)
+       {
+         Talk.Next();
+       }
+       await Coroutine.Yield();
+     }
+     
+     // Pause
+     await Coroutine.Sleep(2000);
+  
+     if (ConditionParser.GetQuestStep(68284) == 4 && MovementManager.IsDiving)
+     {
+       // Mount up
+       if (!Core.Player.IsMounted)
+       {
+         await CommonTasks.SummonFlyingMount();
+         await Coroutine.Sleep(500);
+       }
+     
+       // Ascend
+       MovementManager.StartAscending();
+       await Coroutine.Wait(30000, () => !MovementManager.IsDiving);
+     }
+     
+     // Stop movement
+     MovementManager.MoveStop();
+     
+     // Dismount
+     await CommonTasks.StopAndDismount();
+     ]]></CodeChunk>
+    <CodeChunk Name="Switch"><![CDATA[
+      Core.OverlayManager.AddToast(() => "Please switch to your Crafting Class.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      await Coroutine.Sleep(26000);
+    ]]></CodeChunk>
+    <CodeChunk Name="68640"><![CDATA[
+     // Dismount just in case FlyToTag forgets to
+     if (Core.Player.IsMounted)
+     {
+       await CommonTasks.StopAndDismount();
+       await Coroutine.Sleep(500);
+     }
+     
+     // Say "his whiskers"
+     ChatManager.SendChat("/say his whiskers");
+
+     // Pause
+     await Coroutine.Sleep(2000);
+
+     // Skip dialog whilst occupied and movement locked
+     while (Talk.ConvoLock || MovementManager.IsOccupied)
+     {
+       if (Talk.DialogOpen)
+       {
+         Talk.Next();
+       }
+       await Coroutine.Yield();
+     }
+     ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

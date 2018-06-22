@@ -20,7 +20,7 @@ namespace ff14bot.NeoProfiles.Tags
 
         public async Task<bool> Main()
         {
-            if (!await Movement.MoveTo(XYZ, Land)) { return false; }
+            if (!await Movement.MoveTo(XYZ, Land, Dismount, IgnoreIndoors)) { return false; }
 
             return _done = true;
         }

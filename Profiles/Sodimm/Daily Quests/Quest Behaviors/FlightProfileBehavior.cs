@@ -73,6 +73,10 @@
         [DefaultValue(1000)]
         public int Wait { get; set; }
 
+        [DefaultValue(false)]
+        [XmlAttribute("IgnoreIndoors")]
+        public bool IgnoreIndoors { get; set; }
+
         internal void SetupConditional()
         {
             try

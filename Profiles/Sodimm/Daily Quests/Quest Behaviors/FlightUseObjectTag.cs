@@ -77,7 +77,7 @@ namespace ff14bot.NeoProfiles.Tags
 
                 var obj = Common.GetClosest(NpcIds);
 
-                if (!await Movement.MoveTo(obj.Location, true, true)) { return false; }
+                if (!await Movement.MoveTo(obj.Location, true, true, IgnoreIndoors)) { return false; }
 
                 if (!await Common.UseObject(obj, BlacklistAfter, BlacklistDuration)) { return false; }
 

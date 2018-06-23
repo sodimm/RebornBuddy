@@ -328,12 +328,12 @@ Authors:  Sodimm
         <PickupQuest QuestId="68633" NpcId="1025700" XYZ="-767.2999, 127.433, 92.48486"/>
       </If>
     </If>
-    <If Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and not HasAtLeast(22694, 3)">
+    <If Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and not HasItem(22694) and not HasAtLeast(22720, 3)">
       <GetTo ZoneId="622" XYZ="-769.6514, 127.4556, 86.4019"/>
       <UseObject NpcId="1025609" XYZ="-770.4738, 127.428, 85.28259" Condition="not HasItem(22694)"/>
     </If>
     <!-- Happi Components -->
-    <While Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and not HasAtLeast(22720, 3)">
+    <While Condition="HasQuest(68633) and not IsQuestCompleted(68633) and GetQuestStep(68633) == 255 and HasItem(22694) and not HasAtLeast(22720, 3)">
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
         <Synthesize RecipeId="32682"/>
         <While Condition="CraftingManager.IsCrafting">
@@ -390,7 +390,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68644]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and HasAtLeastOneQuest(Array[int]([68639,68640,68641,68643,68644,68645,68650,68656]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -404,9 +404,25 @@ Authors:  Sodimm
       <If Condition="IsQuestAcceptQualified(68641) and not HasQuest(68641)">
         <PickupQuest QuestId="68641" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- Free for Most -->
+      <If Condition="IsQuestAcceptQualified(68643) and not HasQuest(68643)">
+        <PickupQuest QuestId="68643" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
       <!-- Simpler Gifts -->
       <If Condition="IsQuestAcceptQualified(68644) and not HasQuest(68644)">
         <PickupQuest QuestId="68644" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Catching Catfish -->
+      <If Condition="IsQuestAcceptQualified(68645) and not HasQuest(68645)">
+        <PickupQuest QuestId="68645" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Local Special Tea -->
+      <If Condition="IsQuestAcceptQualified(68650) and not HasQuest(68650)">
+        <PickupQuest QuestId="68650" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Surprise Offerings -->
+      <If Condition="IsQuestAcceptQualified(68656) and not HasQuest(68656)">
+        <PickupQuest QuestId="68656" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
     </If>
     <!-- The Importance of Being Yes, Yes -->
@@ -417,7 +433,7 @@ Authors:  Sodimm
       <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
       <TalkTo NpcId="1025769" XYZ="511.4365, 29.90783, -404.9287" QuestId="68639" StepId="1"/>
     </If>
-    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 2 and not HasAtLeast(22699, 2) and not HasAtLeast(22725, 2)">
+    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 2 and not HasItem(22699) and not HasAtLeast(22725, 2)">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
         <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
@@ -571,6 +587,75 @@ Authors:  Sodimm
     <If Condition="HasQuest(68641) and GetQuestStep(68641) == 255 and CraftingLog.IsOpen and HasItem(22726)">
       <StopCrafting/>
     </If>
+    <!-- Free for Most -->
+    <If Condition="HasQuest(68643) and GetQuestStep(68643) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-145.4032, 27.92217, -36.05713" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025775" XYZ="-145.4032, 27.92217, -36.05713" QuestId="68643" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68643) and GetQuestStep(68643) == 255 and not HasItem(22702) and not HasAtLeast(22728, 3)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-143.4501, 27.66455, -39.13947" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025776" XYZ="-143.4501, 27.66455, -39.13947" Condition="not HasItem(22702)"/>
+    </If>
+    <!-- Uchiwa Components -->
+    <While Condition="HasQuest(68643) and GetQuestStep(68643) == 255 and HasItem(22702) and not HasAtLeast(22728, 3)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32698"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32725"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32752"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32779"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32806"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32833"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32860"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32887"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68643) and GetQuestStep(68643) == 255 and CraftingLog.IsOpen and HasAtLeast(22728, 3)">
+      <StopCrafting/>
+    </If>
     <!-- Simpler Gifts -->
     <If Condition="HasQuest(68644) and GetQuestStep(68644) == 1">
       <If Condition="not IsOnMap(622)">
@@ -579,7 +664,7 @@ Authors:  Sodimm
       <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
       <TalkTo NpcId="1025777" XYZ="-596.9177, 64.00098, -285.0843" QuestId="68644" StepId="1"/>
     </If>
-    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 2 and not HasItem(22703)">
+    <If Condition="HasQuest(68644) and GetQuestStep(68644) == 2 and not HasItem(22703) and not HasItem(22729)">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
         <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
@@ -651,9 +736,386 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
-      <FlyTo ZoneId="622" XYZ="-608.4955, 8.484489, 423.0657" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <FlyTo XYZ="-608.4955, 8.484489, 423.0657" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
       <HandOver ItemId="2002481" NpcId="1019330" XYZ="-746.7918, 7.845998, 398.2756" QuestId="68644" StepId="3"/>
       <MoveTo XYZ="-608.4955, 8.484489, 423.0657"/>
+    </If>
+    <!-- Catching Catfish -->
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="199.7201, 13.99777, 126.2199" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025779" XYZ="193.0419, 13.04057, 120.1953" QuestId="68645" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 2 and not HasItem(22704) and not HasAtLeast(22730, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="199.7201, 13.99777, 126.2199" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025780" XYZ="192.3094, 13.26007, 122.5452" Condition="not HasItem(22704)"/>
+    </If>
+    <!-- Catfish Lure Components -->
+    <While Condition="HasQuest(68645) and GetQuestStep(68645) == 2 and HasItem(22704) and not HasAtLeast(22730, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32700"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32727"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32754"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32781"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32808"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32835"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32862"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32889"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 2 and CraftingLog.IsOpen and HasAtLeast(22730, 2)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 2 and HasAtLeast(22730, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="199.7201, 13.99777, 126.2199" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22730" NpcId="1025779" XYZ="193.0419, 13.04057, 120.1953" QuestId="68645" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 3">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="199.7201, 13.99777, 126.2199" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="2009494" XYZ="575.0972, -19.27222, 424.9789" QuestId="68645" StepId="3"/>
+    </If>
+    <!-- Local Special Tea -->
+    <If Condition="HasQuest(68650) and GetQuestStep(68650) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="594.9338, 23.16482, -421.8052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025789" XYZ="594.9338, 23.16482, -421.8052" QuestId="68650" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68650) and GetQuestStep(68650) == 2 and not HasItem(22709) and not HasAtLeast(22735, 3)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="594.9338, 23.16482, -421.8052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025790" XYZ="594.4152, 23.20898, -423.8193" Condition="not HasItem(22709)"/>
+    </If>
+    <!-- Mol Tea Ceremony Paraphernalia -->
+    <While Condition="HasQuest(68650) and GetQuestStep(68650) == 2 and HasItem(22709) and not HasAtLeast(22735, 3)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32704"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32731"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32758"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32785"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32812"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32839"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32866"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32893"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68650) and GetQuestStep(68650) == 2 and CraftingLog.IsOpen and HasAtLeast(22735, 3)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68650) and GetQuestStep(68650) == 2 and HasAtLeast(22735, 3)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="594.9338, 23.16482, -421.8052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22735" NpcId="1025789" XYZ="594.9338, 23.16482, -421.8052" QuestId="68650" StepId="2"/>
+    </If>
+    <!-- Surprise Offerings -->
+    <If Condition="HasQuest(68656) and GetQuestStep(68656) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="733.6079, 0.6443284, -164.7822" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025805" XYZ="733.6079, 0.6443284, -164.7822" QuestId="68656" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255 and not HasItem(22713) and not HasHqItem(22739)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="733.6079, 0.6443284, -164.7822" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025806" XYZ="733.1501, 0.5340576, -162.2187" Condition="not HasItem(22713)"/>
+    </If>
+    <!-- Substitute Offering -->
+    <While Condition="HasQuest(68656) and GetQuestStep(68656) == 255 and HasItem(22713) and not HasHqItem(22739)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32705"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="244"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="260"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100008"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32732"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="245"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="261"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100022"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32759"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="246"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="262"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100038"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32786"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="247"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="263"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100081"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32813"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="249"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="265"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100052"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32840"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="248"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="264"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100068"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32867"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="250"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="266"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100097"/>
+          </If>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32894"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <If Condition="Core.Player.CurrentCPPercent == 100">
+            <CraftAction Name="Steady Hand" ActionId="251"/>
+          </If>
+          <If Condition="CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+          </If>
+          <If Condition="not Core.Me.HasAura(254) and not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Great Strides" ActionId="267"/>
+          </If>
+          <If Condition="not CraftingManager.HQPercent &gt; 80">
+            <CraftAction Name="Advanced Touch" ActionId="100112"/>
+          </If>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255 and CraftingLog.IsOpen and HasHqItem(22739)">
+      <StopCrafting/>
+    </If>
+    <!-- Generous Gifts -->
+    <While Condition="HasQuest(68664) and GetQuestStep(68664) == 2 and HasItem(22718) and not HasAtLeast(22744, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32692"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32719"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32746"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32773"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32800"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32827"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32854"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32881"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68664) and GetQuestStep(68664) == 2 and CraftingLog.IsOpen and HasAtLeast(22744, 2)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68664) and GetQuestStep(68664) == 2 and HasAtLeast(22744, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-55.98541, 114.905, -19.08911" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22744" NpcId="1025831" XYZ="-50.98041, 114.905, -23.17853" QuestId="68664" StepId="2"/>
     </If>
     <!-- The Importance of Being Yes, Yes -->
     <If Condition="HasQuest(68639) and GetQuestStep(68639) == 255">
@@ -670,10 +1132,128 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68641" ItemId="22726" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
+    <!-- Free for Most -->
+    <If Condition="HasQuest(68643) and GetQuestStep(68643) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68643" ItemId="22728" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
     <!-- Simpler Gifts -->
     <If Condition="HasQuest(68644) and GetQuestStep(68644) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68644" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Catching Catfish -->
+    <If Condition="HasQuest(68645) and GetQuestStep(68645) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68645" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Local Special Tea -->
+    <If Condition="HasQuest(68650) and GetQuestStep(68650) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68650" ItemId="2002477" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Surprise Offerings -->
+    <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68656" ItemId="22739" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Big, Big Fish -->
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not IsQuestCompleted(68634)">
+      <GetTo ZoneId="622" XYZ="-766.7506, 127.4391, 91.11157"/>
+      <If Condition="IsQuestAcceptQualified(68634)">
+        <PickupQuest NpcId="1025601" QuestId="68634" XYZ="-766.7506, 127.4391, 91.11157"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 1 and GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(614)">
+        <GetTo ZoneId="614" XYZ="436.3357, 68.83234, -93.72992"/>
+        <FlyTo XYZ="-277.0524, 17.31996, 507.738" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="2002472" NpcId="1025701" XYZ="-280.8118, 17.31996, 524.5289" QuestId="68634"/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 1 and GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(614)">
+        <GetTo ZoneId="614" XYZ="436.3357, 68.83234, -93.72992"/>
+        <FlyTo XYZ="-277.0524, 17.31996, 507.738" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="2002472" NpcId="1025702" XYZ="-279.2554, 17.31996, 489.2804" QuestId="68634"/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 1 and GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(614)">
+        <GetTo ZoneId="614" XYZ="436.3357, 68.83234, -93.72992"/>
+        <FlyTo XYZ="-277.0524, 17.31996, 507.738" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="2002472" NpcId="1025768" XYZ="-292.2561, 17.31996, 489.7687" QuestId="68634"/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 2">
+      <GetTo ZoneId="622" XYZ="-766.7506, 127.4391, 91.11157"/>
+      <TalkTo NpcId="1025605" XYZ="-766.7506, 127.4391, 91.11157" QuestId="68634" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 3">
+      <GetTo ZoneId="622" XYZ="-734.0658, 127.4179, 100.8468"/>
+      <TalkTo NpcId="1025703" XYZ="-734.0658, 127.4179, 100.8468" QuestId="68634" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 255 and not HasItem(22695) and not HasAtLeast(22721, 2)">
+      <GetTo ZoneId="622" XYZ="-770.4738, 127.428, 85.28259"/>
+      <UseObject NpcId="1025609" XYZ="-770.4738, 127.428, 85.28259" Condition="not HasItem(22695)"/>
+    </If>
+    <!-- Altar Components -->
+    <While Condition="HasQuest(68634) and GetQuestStep(68634) == 255 and HasItem(22695) and not HasAtLeast(22721, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32683"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32710"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32737"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32764"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32791"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32818"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32845"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32872"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 255 and CraftingLog.IsOpen and HasAtLeast(22721, 2)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68634) and GetQuestStep(68634) == 255 and HasAtLeast(22721, 2)">
+      <GetTo ZoneId="622" XYZ="-770.4738, 127.428, 85.28259"/>
+      <TurnIn QuestId="68634" ItemId="22721" NpcId="1025704" XYZ="-734.8898, 127.4217, 99.99231"/>
     </If>
   </Order>
   <GrindAreas>

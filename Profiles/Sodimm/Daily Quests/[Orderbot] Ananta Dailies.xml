@@ -4,7 +4,7 @@ Profile:  [Orderbot] Ananta Dailies
 Authors:  Sodimm
 -->
 <Profile>
-  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 24/28 Daily Quests, 3/5 Rank Quests. -->
+  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 27/28 Daily Quests, 4/5 Rank Quests. -->
   <Name>[Orderbot] Ananta Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
@@ -1033,8 +1033,40 @@ Authors:  Sodimm
       <FlightTurnIn QuestId="68575" NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645"/>
     </If>
     <!-- Schism between Sisters -->
-    <!--<If Condition="IsQuestCompleted(68575) and not HasQuest(68576) and not IsQuestCompleted(68576)">
-    </If>-->
+    <If Condition="IsQuestCompleted(68575) and not HasQuest(68576) and not IsQuestCompleted(68576)">
+      <FlightGetTo ZoneId="612" XYZ="10.53337, 55.94352, 237.7662"/>
+      <If Condition="IsQuestAcceptQualified(68576)">
+        <FlightPickupQuest QuestId="68576" NpcId="1024771" XYZ="12.00879, 55.97821, 237.9645"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68576) and not IsQuestCompleted(68576) and GetQuestStep(68576) == 1">
+      <FlightGetTo ZoneId="612" XYZ="142.7994, 40.41238, 408.6818"/>
+      <FlightTalkTo NpcId="1024924" XYZ="143.267, 40.29609, 410.2388" QuestId="68576" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68576) and not IsQuestCompleted(68576) and GetQuestStep(68576) == 2">
+      <FlightGetTo ZoneId="612" XYZ="119.4828, 48.53894, 594.8682"/>
+      <FlightTalkTo NpcId="1024929" XYZ="120.4698, 48.56923, 596.1547" QuestId="68576" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68576) and not IsQuestCompleted(68576) and GetQuestStep(68576) == 3">
+      <FlightGetTo ZoneId="612" XYZ="274.9058, 38.35057, 345.4049"/>
+      <SimpleDuty InteractNpcId="1024934" XYZ="274.9523, 38.27877, 343.0074" QuestId="68576" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="317.2141, 37.41453, 321.2177" Radius="60"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="7091" Weight="5000"/>
+          <TargetMob Id="7087" Weight="4000"/>
+          <TargetMob Id="7086" Weight="3000"/>
+          <TargetMob Id="7085" Weight="2000"/>
+          <TargetMob Id="7084" Weight="1000"/>
+        </TargetMobs>
+      </SimpleDuty>
+      <WaitWhile Condition="HasQuest(68576) and not IsQuestCompleted(68576) and not GetQuestStep(68576) == 255"/>
+    </If>
+    <If Condition="HasQuest(68576) and not IsQuestCompleted(68576) and GetQuestStep(68576) == 255">
+      <FlightGetTo ZoneId="612" XYZ="14.03478, 55.94352, 239.661"/>
+      <FlightTurnIn QuestId="68576" NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645"/>
+    </If>
     <!-- Celebratory Smorgasbord -->
     <!--<If Condition="IsQuestCompleted(68576) and not HasQuest(68577) and not IsQuestCompleted(68577)">
     </If>-->

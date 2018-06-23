@@ -1848,9 +1848,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <!-- We Must Rebuild  (Level 4)-->
     <If Condition="IsQuestCompleted(66130) and not HasQuest(66131) and not IsQuestCompleted(66131)">
-      <If Condition="not IsOnMap(130)">
-        <GetTo ZoneId="130" XYZ="21.69085, 6.999996, -80.55646"/>
-      </If>
+      <GetTo ZoneId="130" XYZ="21.69085, 6.999996, -80.55646"/>
       <If Condition="IsQuestAcceptQualified(66131)">
         <PickupQuest NpcId="1001353" QuestId="66131" XYZ="21.07263, 7.45, -78.78235"/>
       </If>

@@ -66,7 +66,7 @@ namespace ff14bot.NeoProfiles.Tags
 
                 if (!await Common.AwaitCombat()) { return false; }
 
-                if (!await Movement.MoveTo(o.Position)) { return false; }
+                if (!await Movement.MoveTo(o.Position, ignoreIndoors: IgnoreIndoors)) { return false; }
 
                 if (!Common.Exists(o.Position, NpcIds))
                 {

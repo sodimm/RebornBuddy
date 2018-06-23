@@ -4,7 +4,7 @@ Profile:  [Orderbot] Ananta Dailies
 Authors:  Sodimm
 -->
 <Profile>
-  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 27/28 Daily Quests, 4/5 Rank Quests. -->
+  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 28/28 Daily Quests, 4/5 Rank Quests. -->
   <Name>[Orderbot] Ananta Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
@@ -581,15 +581,15 @@ Authors:  Sodimm
     <!-- Bhoot Camps -->
     <!-- Gyr Kehim gives Flightor a migraine. -->
     <If Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 0">
-      <FlightGetTo ZoneId="612" XYZ="101.3046, 41.03149, -180.8957"/>
-      <FlightUseObject NpcIds="2009344,2009345,2009346" Condition="not ObjectExistsWithId(7031)">
+      <FlightGetTo ZoneId="612" XYZ="101.3046, 41.03149, -180.8957" IgnoreIndoors="True"/>
+      <FlightUseObject NpcIds="2009344,2009345,2009346" IgnoreIndoors="True" Condition="not ObjectExistsWithId(7031)">
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
           <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
         </HotSpots>
       </FlightUseObject>
-      <FlightUseItem ItemId="2002439" NpcIds="7031" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="0">
+      <FlightUseItem ItemId="2002439" NpcIds="7031" IgnoreIndoors="True" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="0">
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
@@ -598,15 +598,15 @@ Authors:  Sodimm
       </FlightUseItem>
     </If>
     <If Condition="HasQuest(68593) and GetQuestStep(68593) == 1 and GetQuestById(68593).GetTodoArgs(1, 0).Item1 == 1">
-      <FlightGetTo ZoneId="612" XYZ="136.4004, 50.37, -397.6959"/>
-      <FlightUseObject NpcIds="2009344,2009345,2009346" Condition="not ObjectExistsWithId(7031)">
+      <FlightGetTo ZoneId="612" XYZ="136.4004, 50.37, -397.6959" IgnoreIndoors="True"/>
+      <FlightUseObject NpcIds="2009344,2009345,2009346" IgnoreIndoors="True" Condition="not ObjectExistsWithId(7031)">
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
           <HotSpot XYZ="12.58862, 41.67236, -294.0261"/>
         </HotSpots>
       </FlightUseObject>
-      <FlightUseItem ItemId="2002439" NpcIds="7031" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="1">
+      <FlightUseItem ItemId="2002439" NpcIds="7031" IgnoreIndoors="True" QuestId="68593" StepId="1" TodoIndex="0" TodoCount="1">
         <HotSpots>
           <HotSpot XYZ="101.3046, 41.03149, -180.8957"/>
           <HotSpot XYZ="136.4004, 50.37, -397.6959"/>
@@ -639,6 +639,16 @@ Authors:  Sodimm
           <HotSpot XYZ="333.1808, 61.17334, -362.4171"/>
         </HotSpots>
       </FlightUseItem>
+    </If>
+    <!-- Catching and Fletching -->
+    <If Condition="HasQuest(68605) and not IsQuestCompleted(68605) and GetQuestStep(68605) == 1">
+      <FlightGetTo ZoneId="612" XYZ="72.93169, 53.30054, -483.0703" IgnoreIndoors="True"/>
+      <FlightUseObject NpcIds="2009377,2009376" IgnoreIndoors="True" QuestId="68605" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="74.41821, 53.39136, -484.4282"/>
+          <HotSpot XYZ="-41.09259, 69.38269, -650.3547"/>
+        </HotSpots>
+      </FlightUseObject>
     </If>
     <!-- Sparring Lessons -->
     <If Condition="HasQuest(68589) and GetQuestStep(68589) == 1">
@@ -906,6 +916,11 @@ Authors:  Sodimm
     <If Condition="HasQuest(68604) and GetQuestStep(68604) == 255">
       <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
       <FlightTurnIn QuestId="68604" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
+    </If>
+    <!-- Catching and Fletching -->
+    <If Condition="HasQuest(68605) and GetQuestStep(68605) == 255">
+      <FlightGetTo ZoneId="612" XYZ="-26.6743, 56.13148, 233.1804"/>
+      <FlightTurnIn QuestId="68605" NpcId="1024773" XYZ="-26.8434, 56.11944, 233.5191"/>
     </If>
     <!-- Griffins Rampant -->
     <If Condition="IsQuestCompleted(68572) and not HasQuest(68573) and not IsQuestCompleted(68573)">

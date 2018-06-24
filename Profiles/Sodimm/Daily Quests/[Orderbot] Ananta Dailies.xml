@@ -641,10 +641,11 @@ Authors:  Sodimm
       </FlightUseItem>
     </If>
     <!-- Catching and Fletching -->
-    <If Condition="HasQuest(68605) and not IsQuestCompleted(68605) and GetQuestStep(68605) == 1">
+    <If Condition="HasQuest(68605) and GetQuestStep(68605) == 1">
       <FlightGetTo ZoneId="612" XYZ="72.93169, 53.30054, -483.0703" IgnoreIndoors="True"/>
-      <FlightUseObject NpcIds="2009377,2009376" IgnoreIndoors="True" QuestId="68605" StepId="1">
+      <FlightUseObject NpcIds="2009375,2009376,2009377" IgnoreIndoors="True" QuestId="68605" StepId="1">
         <HotSpots>
+          <HotSpot XYZ="153.8567, 61.02075, -631.22"/>
           <HotSpot XYZ="74.41821, 53.39136, -484.4282"/>
           <HotSpot XYZ="-41.09259, 69.38269, -650.3547"/>
         </HotSpots>
@@ -673,7 +674,7 @@ Authors:  Sodimm
       </FlightUseItem>
     </If>
     <!-- Soothing the Sting -->
-    <If Condition="HasQuest(68604) and not IsQuestCompleted(68604) and GetQuestStep(68604) == 1">
+    <If Condition="HasQuest(68604) and GetQuestStep(68604) == 1">
       <FlightGetTo ZoneId="612" XYZ="344.8947, 42.75284, -306.1446"/>
       <FlightUseObject NpcIds="2009370,2009371,2009372,2009373,2009374" IgnoreIndoors="True" QuestId="68604" StepId="1">
         <HotSpots>

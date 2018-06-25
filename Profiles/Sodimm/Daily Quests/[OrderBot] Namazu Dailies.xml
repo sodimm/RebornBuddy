@@ -390,7 +390,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and HasAtLeastOneQuest(Array[int]([68639,68640,68641,68643,68644,68645,68650,68656]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68643,68644,68645,68650,68656]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">

@@ -68,7 +68,7 @@ namespace ff14bot.NeoProfiles.Tags
             {
                 if (IsDone) break;
 
-                await Movement.MoveTo(o.Position);
+                await Movement.MoveTo(o.Position, Land);
 
                 if (!Common.Exists(o.Position, NpcIds))
                 {

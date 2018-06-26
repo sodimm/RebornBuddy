@@ -7,7 +7,7 @@ Authors:  Sodimm
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
-    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68648,68650,68656,68658,68663"/>
+    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68648,68650,68651,68653,68656,68658,68663"/>
     <!-- Perchance to Hanami -->
     <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
       <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
@@ -392,7 +392,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68648,68650,68656,68658,68663]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68648,68650,68651,68653,68656,68658,68663]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -429,6 +429,14 @@ Authors:  Sodimm
       <!-- Local Special Tea -->
       <If Condition="IsQuestAcceptQualified(68650) and not HasQuest(68650)">
         <PickupQuest QuestId="68650" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Collision of Cultures -->
+      <If Condition="IsQuestAcceptQualified(68651) and not HasQuest(68651)">
+        <PickupQuest QuestId="68651" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <!-- Beat of the Drum -->
+      <If Condition="IsQuestAcceptQualified(68653) and not HasQuest(68653)">
+        <PickupQuest QuestId="68653" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
       <!-- Surprise Offerings -->
       <If Condition="IsQuestAcceptQualified(68656) and not HasQuest(68656)">
@@ -1150,6 +1158,95 @@ Authors:  Sodimm
       </If>
       <HandOver ItemId="22735" NpcId="1025789" XYZ="594.9338, 23.16482, -421.8052" QuestId="68650" StepId="2"/>
     </If>
+    <!-- Collision of Cultures -->
+    <If Condition="HasQuest(68651) and GetQuestStep(68651) == 1">
+      <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
+      <TalkTo InteractDistance="3.0" QuestId="68651" StepId="1" NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
+    </If>
+    <If Condition="HasQuest(68651) and GetQuestStep(68651) == 2">
+      <If Condition="not Core.Player.IsMounted">
+        <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
+        <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
+      </If>
+      <FlightUseSpell SpellId="11499" NpcId="2009498" XYZ="-161.5778, 5.142273, 554.467" QuestId="68651" StepId="2" Land="True"/>
+    </If>
+    <If Condition="HasQuest(68651) and GetQuestStep(68651) == 3">
+      <If Condition="not Core.Player.IsMounted">
+        <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
+        <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
+      </If>
+      <FlightUseSpell SpellId="11499" NpcId="2009499" XYZ="176.3485, 4.135132, 20.64545" QuestId="68651" StepId="3" Land="True"/>
+      <Dismount/>
+    </If>
+    <!-- Beat of the Drum -->
+    <If Condition="HasQuest(68653) and GetQuestStep(68653) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-175.0363, 66.81902, -437.4304" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025799" XYZ="-175.0363, 66.81902, -437.4304" QuestId="68653" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255 and not HasItem(22711) and not HasItem(22737)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-175.0363, 66.81902, -437.4304" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025800" XYZ="-172.7474, 67.39905, -436.6064" Condition="not HasItem(22711)"/>
+    </If>
+    <!-- Drum Parts -->
+    <While Condition="HasQuest(68653) and GetQuestStep(68653) == 255 and HasItem(22711) and not HasItem(22737)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32686"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32713"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32740"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32767"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32794"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32821"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32848"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32875"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255 and CraftingLog.IsOpen and HasItem(22737)">
+      <StopCrafting/>
+    </If>
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 1">
       <If Condition="not IsOnMap(622)">
@@ -1501,6 +1598,16 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68650" ItemId="2002477" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
+    <!-- Collision of Cultures -->
+    <If Condition="HasQuest(68651) and GetQuestStep(68651) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68651" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Beat of the Drum -->
+    <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68653" ItemId="22737" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
@@ -1710,7 +1817,7 @@ Authors:  Sodimm
           <HotSpot XYZ="-761.8677, 127.2556, 137.5295"/>
         </HotSpots>
       </FlightUseSpell>
-      <RunCode Name="Dismount"/>
+      <Dismount/>
     </If>
     <If Condition="HasQuest(68635) and GetQuestStep(68635) == 255">
       <GetTo ZoneId="622" XYZ="-747.8599, 127.4577, 91.20313"/>
@@ -1830,12 +1937,5 @@ Authors:  Sodimm
        await Coroutine.Yield();
      }
      ]]></CodeChunk>
-    <CodeChunk Name="Dismount"><![CDATA[
-        if(Core.Player.IsMounted)
-        {
-          await CommonTasks.StopAndDismount();
-          await Coroutine.Sleep(500);
-        }
-      ]]></CodeChunk>
   </CodeChunks>
 </Profile>

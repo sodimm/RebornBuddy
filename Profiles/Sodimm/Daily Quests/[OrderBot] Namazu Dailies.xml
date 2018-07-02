@@ -7,7 +7,8 @@ Authors:  Sodimm
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
-    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68653,68656,68657,68658,68660,68662,68663,68664"/>
+    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 21/28 DAILY QUESTS, 3/5 RANK-UP QUESTS -->
+    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664"/>
     <!-- Perchance to Hanami -->
     <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
       <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
@@ -392,7 +393,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68653,68656,68657,68658,68660,68662,68663,68664]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -434,6 +435,7 @@ Authors:  Sodimm
       <If Condition="IsQuestAcceptQualified(68648) and not HasQuest(68648)">
         <PickupQuest QuestId="68648" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- Great Buuz Up -->
       <!-- Local Special Tea -->
       <If Condition="IsQuestAcceptQualified(68650) and not HasQuest(68650)">
         <PickupQuest QuestId="68650" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
@@ -442,10 +444,16 @@ Authors:  Sodimm
       <If Condition="IsQuestAcceptQualified(68651) and not HasQuest(68651)">
         <PickupQuest QuestId="68651" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- A Stable's Condition -->
+      <If Condition="IsQuestAcceptQualified(68652) and not HasQuest(68652)">
+        <PickupQuest QuestId="68652" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
       <!-- Beat of the Drum -->
       <If Condition="IsQuestAcceptQualified(68653) and not HasQuest(68653)">
         <PickupQuest QuestId="68653" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- Cannot Say Neigh -->
+      <!-- Ready the Confetti -->
       <!-- Surprise Offerings -->
       <If Condition="IsQuestAcceptQualified(68656) and not HasQuest(68656)">
         <PickupQuest QuestId="68656" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
@@ -458,10 +466,12 @@ Authors:  Sodimm
       <If Condition="IsQuestAcceptQualified(68658) and not HasQuest(68658)">
         <PickupQuest QuestId="68658" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- Give Till It Hurts -->
       <!-- Bull's-eye -->
       <If Condition="IsQuestAcceptQualified(68660) and not HasQuest(68660)">
         <PickupQuest QuestId="68660" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- Taking the Plunge -->
       <!-- A Favor Repaid -->
       <If Condition="IsQuestAcceptQualified(68662) and not HasQuest(68662)">
         <PickupQuest QuestId="68662" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
@@ -474,6 +484,8 @@ Authors:  Sodimm
       <If Condition="IsQuestAcceptQualified(68664) and not HasQuest(68664)">
         <PickupQuest QuestId="68664" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
+      <!-- The Deadliest Sport -->
+      <!-- Overcommitment -->
     </If>
     <!-- The Importance of Being Yes, Yes -->
     <If Condition="HasQuest(68639) and GetQuestStep(68639) == 1">
@@ -1354,6 +1366,75 @@ Authors:  Sodimm
       <FlightUseSpell SpellId="11499" NpcId="2009499" XYZ="176.3485, 4.135132, 20.64545" QuestId="68651" StepId="3" Land="True"/>
       <Dismount/>
     </If>
+    <!-- A Stable's Condition -->
+    <If Condition="HasQuest(68652) and GetQuestStep(68652) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-364.7975, 76.98169, -579.2172" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025797" XYZ="-364.7975, 76.98169, -579.2172" QuestId="68652" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68652) and GetQuestStep(68652) == 255 and not HasItem(22710) and not HasAtLeast(22736, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-364.7975, 76.98169, -579.2172" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025798" XYZ="-366.2318, 76.98169, -580.3159" Condition="not HasItem(22710)"/>
+    </If>
+    <!-- Stable Supplies -->
+    <While Condition="HasQuest(68652) and GetQuestStep(68652) == 255 and HasItem(22710) and not HasAtLeast(22736, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32690"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32717"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32744"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32771"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32798"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32825"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32852"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32879"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68652) and GetQuestStep(68652) == 255 and CraftingLog.IsOpen and HasAtLeast(22736, 2)">
+      <StopCrafting/>
+    </If>
     <!-- Beat of the Drum -->
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 1">
       <If Condition="not IsOnMap(622)">
@@ -1988,6 +2069,11 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68651" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
+    <!-- A Stable's Condition -->
+    <If Condition="HasQuest(68652) and GetQuestStep(68652) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68652" ItemId="22736" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
     <!-- Beat of the Drum -->
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
@@ -2036,7 +2122,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68660" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68653,68656,68657,68658,68660,68662,68663,68664]))">
+    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664]))">
       <!-- Big, Big Fish -->
       <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not IsQuestCompleted(68634)">
         <GetTo ZoneId="622" XYZ="-766.7506, 127.4391, 91.11157"/>
@@ -2515,10 +2601,10 @@ Authors:  Sodimm
      
      // Dismount
      await CommonTasks.StopAndDismount();
-     ]]></CodeChunk>
+    ]]></CodeChunk>
     <CodeChunk Name="Switch"><![CDATA[
-      Core.OverlayManager.AddToast(() => "Please switch to your Crafting Class.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-      await Coroutine.Sleep(26000);
+     Core.OverlayManager.AddToast(() => "Please switch to your Crafting Class.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+     await Coroutine.Sleep(26000);
     ]]></CodeChunk>
     <CodeChunk Name="68640"><![CDATA[
      // Dismount just in case FlyToTag forgets to
@@ -2543,10 +2629,10 @@ Authors:  Sodimm
        }
        await Coroutine.Yield();
      }
-     ]]></CodeChunk>
+    ]]></CodeChunk>
     <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
+      Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      await Coroutine.Sleep(26000);
+    ]]></CodeChunk>
   </CodeChunks>
 </Profile>

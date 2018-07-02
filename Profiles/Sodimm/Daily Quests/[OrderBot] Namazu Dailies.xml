@@ -7,8 +7,8 @@ Authors:  Sodimm
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 21/28 DAILY QUESTS, 3/5 RANK-UP QUESTS -->
-    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664"/>
+    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 22/28 DAILY QUESTS, 3/5 RANK-UP QUESTS -->
+    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68654,68656,68657,68658,68660,68662,68663,68664"/>
     <!-- Perchance to Hanami -->
     <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
       <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
@@ -393,7 +393,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68654,68656,68657,68658,68660,68662,68663,68664]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -453,6 +453,9 @@ Authors:  Sodimm
         <PickupQuest QuestId="68653" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
       <!-- Cannot Say Neigh -->
+      <If Condition="IsQuestAcceptQualified(68654) and not HasQuest(68654)">
+        <PickupQuest QuestId="68654" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
       <!-- Ready the Confetti -->
       <!-- Surprise Offerings -->
       <If Condition="IsQuestAcceptQualified(68656) and not HasQuest(68656)">
@@ -1504,6 +1507,23 @@ Authors:  Sodimm
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255 and CraftingLog.IsOpen and HasItem(22737)">
       <StopCrafting/>
     </If>
+    <!-- Cannot Say Neigh -->
+    <If Condition="HasQuest(68654) and GetQuestStep(68654) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
+      <FlyTo XYZ="-609.4911, 41.83495, 139.7573" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025801" XYZ="-609.4911, 41.83495, 139.7573" QuestId="68654" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68654) and GetQuestStep(68654) == 2">
+      <If Condition="not Core.Me.IsMounted">
+        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <FlyTo XYZ="-609.4911, 41.83495, 139.7573" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+        <TalkTo NpcId="1025801" XYZ="-609.4911, 41.83495, 139.7573" QuestId="68654"/>
+      </If>
+      <NoCombatMoveTo XYZ="-232.8984, 55.46668, -329.1523"/>
+      <WaitWhile Condition="HasQuest(68654) and not GetQuestStep(68654) == 255"/>
+    </If>
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 1">
       <If Condition="not IsOnMap(622)">
@@ -2078,6 +2098,11 @@ Authors:  Sodimm
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68653" ItemId="22737" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
+    <!-- Cannot Say Neigh -->
+    <If Condition="HasQuest(68654) and GetQuestStep(68654) == 255">
+      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+      <TurnIn QuestId="68654" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255">

@@ -4,7 +4,6 @@ Profile:  [Orderbot] Ananta Dailies
 Authors:  Sodimm
 -->
 <Profile>
-  <!-- PROGRESS: 8/8 Pre-Requisite Quests, 1/1 Unlock Quest, 28/28 Daily Quests, 4/5 Rank Quests. -->
   <Name>[Orderbot] Ananta Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
@@ -1085,8 +1084,33 @@ Authors:  Sodimm
       <FlightTurnIn QuestId="68576" NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645"/>
     </If>
     <!-- Celebratory Smorgasbord -->
-    <!--<If Condition="IsQuestCompleted(68576) and not HasQuest(68577) and not IsQuestCompleted(68577)">
-    </If>-->
+    <If Condition="IsQuestCompleted(68576) and not HasQuest(68577) and not IsQuestCompleted(68577)">
+      <FlightGetTo ZoneId="612" XYZ="9.987233, 55.96816, 237.832"/>
+      <If Condition="IsQuestAcceptQualified(68577)">
+        <PickupQuest QuestId="68577" NpcId="1024771" XYZ="12.00879, 55.97821, 237.9645"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 1">
+      <FlightGetTo ZoneId="612" XYZ="-645.2259, 130.1171, -537.4763"/>
+      <FlightHandOver NpcIds="1023142,1024937" QuestId="68577" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-642.9083, 130.2595, -538.2925"/>
+          <HotSpot XYZ="448.3957, 114.4036, 234.836"/>
+        </HotSpots>
+      </FlightHandOver>
+    </If>
+    <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 2">
+      <FlightGetTo ZoneId="612" XYZ="12.42102, 55.97821, 239.4173"/>
+      <FlightTalkTo NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645" QuestId="68577" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 3">
+      <FlightGetTo ZoneId="612" XYZ="-154.2896, 39.09669, 161.0175"/>
+      <FlightTalkTo NpcId="1025235" XYZ="-155.2301, 39.09669, 159.0448" QuestId="68577" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 255">
+      <FlightGetTo ZoneId="612" XYZ="9.353745, 55.94352, 237.1991"/>
+      <FlightTurnIn QuestId="68577" NpcId="1024952" XYZ="12.00879, 55.97821, 237.9645"/>
+    </If>
   </Order>
   <CodeChunks>
     <CodeChunk Name="Announce_Manual_Completion"><![CDATA[

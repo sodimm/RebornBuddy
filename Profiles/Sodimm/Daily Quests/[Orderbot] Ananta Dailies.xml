@@ -398,15 +398,15 @@ Authors:  Sodimm
       </If>
     </If>
     <!-- A Business Proposal -->
-    <If Condition="HasQuest(68602) and not IsQuestCompleted(68602) and GetQuestStep(68602) == 1">
+    <If Condition="HasQuest(68602) and GetQuestStep(68602) == 1">
       <FlightGetTo ZoneId="612" XYZ="134.0949, 39.09655, 302.03"/>
       <FlightTalkTo NpcId="1025084" XYZ="135.2711, 39.09655, 302.2354" QuestId="68602" StepId="1"/>
     </If>
-    <If Condition="HasQuest(68602) and not IsQuestCompleted(68602) and GetQuestStep(68602) == 2">
+    <If Condition="HasQuest(68602) and GetQuestStep(68602) == 2">
       <FlightGetTo ZoneId="612" XYZ="134.0949, 39.09655, 302.03"/>
       <FlightUseObject NpcId="2008303" XYZ="135.6984, 40.51257, 300.7705" QuestId="68602" StepId="2"/>
     </If>
-    <If Condition="HasQuest(68602) and not IsQuestCompleted(68602) and GetQuestStep(68602) == 3">
+    <If Condition="HasQuest(68602) and GetQuestStep(68602) == 3">
       <NoCombatMoveTo XYZ="396.2359, 73.86472, 185.665"/>
       <FlightTalkTo NpcId="1025074" XYZ="396.9023, 74.06104, 186.1143" QuestId="68602" StepId="3"/>
     </If>

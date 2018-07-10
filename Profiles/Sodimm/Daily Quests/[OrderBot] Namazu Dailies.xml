@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Profile:  [Orderbot] Namazu Dailies
-Authors:  Sodimm
+Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 27/28 DAILY QUESTS, 4/5 RANK-UP QUESTS -->
-    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
+    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 28/28 DAILY QUESTS, 4/5 RANK-UP QUESTS -->
+    <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
     <!-- Perchance to Hanami -->
     <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
       <GetTo ZoneId="614" XYZ="446.6596, 58.54897, -156.3169"/>
@@ -393,7 +393,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -436,6 +436,9 @@ Authors:  Sodimm
         <PickupQuest QuestId="68648" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
       </If>
       <!-- Great Buuz Up -->
+      <If Condition="IsQuestAcceptQualified(68649) and not HasQuest(68649)">
+        <PickupQuest QuestId="68649" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+      </If>
       <!-- Local Special Tea -->
       <If Condition="IsQuestAcceptQualified(68650) and not HasQuest(68650)">
         <PickupQuest QuestId="68650" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
@@ -1287,6 +1290,89 @@ Authors:  Sodimm
         <FlyTo XYZ="76.58496, 114.905, -6.363098" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
       </If>
       <HandOver ItemId="22733" NpcId="1025785" XYZ="76.58496, 114.905, -6.363098" QuestId="68648" Step="2"/>
+    </If>
+    <!-- Great Buuz Up -->
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 1">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="388.65, -8.531172, 489.3821"/>
+      </If>
+      <FlyTo XYZ="388.65, -8.531172, 489.3821" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025787" XYZ="389.7001, -8.514979, 487.9376" QuestId="68649" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="390.7713, -8.519436, 489.8471"/>
+        <FlyTo XYZ="388.65, -8.531172, 489.3821" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <TalkTo NpcId="1025788" XYZ="391.9889, -8.529846, 489.5552" QuestId="68649" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and not HasItem(22708) and not HasAtLeast(22708, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="390.7713, -8.519436, 489.8471"/>
+        <FlyTo XYZ="390.7713, -8.519436, 489.8471" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <UseObject NpcId="1025788" XYZ="391.9889, -8.529846, 489.5552" Condition="not HasItem(22708)"/>
+    </If>
+    <!-- Buuz Cooking Paraphernalia -->
+    <While Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and HasItem(22708) and not HasAtLeast(22708, 2)">
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+        <Synthesize RecipeId="32703"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100001"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+        <Synthesize RecipeId="32730"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100015"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+        <Synthesize RecipeId="32757"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100030"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+        <Synthesize RecipeId="32784"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100075"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+        <Synthesize RecipeId="32811"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100045"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+        <Synthesize RecipeId="32838"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100060"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+        <Synthesize RecipeId="32865"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100090"/>
+        </While>
+      </If>
+      <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+        <Synthesize RecipeId="32892"/>
+        <While Condition="CraftingManager.IsCrafting">
+          <CraftAction Name="Basic Synthesis" ActionId="100105"/>
+        </While>
+      </If>
+    </While>
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and CraftingLog.IsOpen and HasAtLeast(22734,2)">
+      <StopCrafting/>
+    </If>
+    <If Condition="HasQuest(68639) and GetQuestStep(68639) == 2 and HasAtLeast(22734, 2)">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="390.1731, -8.520788, 489.4004"/>
+        <FlyTo XYZ="390.1731, -8.520788, 489.4004" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      </If>
+      <HandOver ItemId="22734" NpcId="1025787" XYZ="389.7001, -8.514979, 487.9376" QuestId="68649" StepId="2"/>
     </If>
     <!-- Local Special Tea -->
     <If Condition="HasQuest(68650) and GetQuestStep(68650) == 1">
@@ -2673,6 +2759,11 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68648" ItemId="2002476" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
+    <!-- Great Buuz Up -->
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 255">
+      <GetTo ZoneId="622" XYZ="-776.9598, 127.8089, 97.30933"/>
+      <TurnIn QuestId="68649" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
+    </If>
     <!-- Local Special Tea -->
     <If Condition="HasQuest(68650) and GetQuestStep(68650) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
@@ -2727,7 +2818,7 @@ Authors:  Sodimm
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68661" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
-    </If> 
+    </If>
     <!-- A Favor Repaid -->
     <If Condition="HasQuest(68662) and GetQuestStep(68662) == 255">
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
@@ -2766,7 +2857,7 @@ Authors:  Sodimm
       <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68660" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68650,68651,68652,68653,68656,68657,68658,68660,68662,68663,68664]))">
+    <If Condition="IsQuestCompleted(68633) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
       <!-- Big, Big Fish -->
       <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not IsQuestCompleted(68634)">
         <GetTo ZoneId="622" XYZ="-766.7506, 127.4391, 91.11157"/>

@@ -52,7 +52,6 @@
         /// </summary>
         public bool IsTodoCountComplete => TodoCount > -1 && TodoIndex > -1 ? ConditionParser.GetQuestById(QuestId).GetTodoArgs((int)StepId, TodoIndex).Item1 != TodoCount : false;
 
-
         [DefaultValue(false)]
         [XmlAttribute("Land")]
         public bool Land { get; set; }
@@ -145,11 +144,11 @@
             {
                 if (CommonBehaviors.IsLoading) { await CommonTasks.HandleLoading(); }
 
-                if (!await Common.AwaitCombat(500)) return false;
+                if (!await Common.AwaitCombat(500)) { return false; }
 
                 while (!AtLocation(destination))
                 {
-                    if (Core.Me.IsDead) return false;
+                    if (Core.Me.IsDead) { return false; }
 
                     if (!Core.Me.IsMounted && Core.Me.Location.Distance(destination) > CharacterSettings.Instance.MountDistance)
                     {
@@ -212,15 +211,18 @@
             /// </summary>
             public static async Task<bool> Dismount()
             {
-                while (true)
-                {
-                    if (!Core.Me.IsMounted || Core.Me.IsDead) { break; }
+                if (!Core.Me.IsMounted) { return false; }
 
+                while (Core.Me.IsMounted)
+                {
                     await CommonTasks.StopAndDismount();
                     await Sleep(100);
+
+                    if (!Core.Me.IsMounted) { break; }
+
                 }
 
-                return !Core.Me.IsMounted;
+                return true;
             }
 
             /// <summary>
@@ -228,15 +230,18 @@
             /// </summary>
             public static async Task<bool> Land()
             {
-                while (true)
-                {
-                    if (!MovementManager.IsFlying || Core.Me.IsDead) { break; }
+                if (!MovementManager.IsFlying) { return false; }
 
+                while (MovementManager.IsFlying)
+                {
                     await CommonTasks.Land();
                     await Sleep(100);
+
+                    if (!MovementManager.IsFlying) { break; }
+
                 }
 
-                return !MovementManager.IsFlying;
+                return true;
             }
 
             /// <summary>

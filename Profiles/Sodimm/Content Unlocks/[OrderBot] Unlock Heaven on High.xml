@@ -6,8 +6,8 @@ Authors:  Sodimm
 <Profile>
   <Name>[OrderBot] Unlock Heaven on High</Name>
   <Order>
-    <!-- Knocking on Heaven's Door (Requires MSQ Tide Goes in, Imperials Go Out and Floor 50 Complete in Palace of the Dead) -->
-    <If Condition="IsQuestCompleted(68026) and not HasQuest(68667) and not IsQuestCompleted(68667)">
+    <!-- Knocking on Heaven's Door -->
+    <If Condition="IsQuestCompleted(68026) and IsQuestCompleted(67092) and not HasQuest(68667) and not IsQuestCompleted(68667)">
       <If Condition="not IsOnMap(613)">
         <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
       </If>

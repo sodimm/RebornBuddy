@@ -773,7 +773,7 @@ Authors:  Sodimm
       <FlightHandOver NpcId="1025073" XYZ="-4.104736, 56.13782, 246.1737" QuestId="68600" StepId="2"/>
     </If>
     <!-- For Fast, Temporary Relief -->
-    <If Condition="HasQuest(68603) and not IsQuestCompleted(68603) and GetQuestStep(68603) == 1">
+    <If Condition="HasQuest(68603) and GetQuestStep(68603) == 1">
       <FlightGetTo ZoneId="612" XYZ="551.6888, 73.44409, 11.58203"/>
       <FlightUseItem ItemId="2002453" NpcIds="1025075,1025076,1025077" QuestId="68603" StepId="1">
         <HotSpots>

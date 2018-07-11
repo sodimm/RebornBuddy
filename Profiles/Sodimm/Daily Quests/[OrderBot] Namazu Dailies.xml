@@ -1306,7 +1306,7 @@ Authors:  Sodimm, TuckMeIntoBread
       </If>
       <TalkTo NpcId="1025788" XYZ="391.9889, -8.529846, 489.5552" QuestId="68649" StepId="2"/>
     </If>
-    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and not HasItem(22708) and not HasAtLeast(22708, 2)">
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and not HasItem(22708) and not HasAtLeast(22734, 2)">
       <If Condition="not IsOnMap(622)">
         <GetTo ZoneId="622" XYZ="390.7713, -8.519436, 489.8471"/>
         <FlyTo XYZ="390.7713, -8.519436, 489.8471" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
@@ -1314,7 +1314,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <UseObject NpcId="1025788" XYZ="391.9889, -8.529846, 489.5552" Condition="not HasItem(22708)"/>
     </If>
     <!-- Buuz Cooking Paraphernalia -->
-    <While Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and HasItem(22708) and not HasAtLeast(22708, 2)">
+    <While Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and HasItem(22708) and not HasAtLeast(22734, 2)">
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
         <Synthesize RecipeId="32703"/>
         <While Condition="CraftingManager.IsCrafting">
@@ -1364,7 +1364,7 @@ Authors:  Sodimm, TuckMeIntoBread
         </While>
       </If>
     </While>
-    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and CraftingLog.IsOpen and HasAtLeast(22734,2)">
+    <If Condition="HasQuest(68649) and GetQuestStep(68649) == 2 and CraftingLog.IsOpen and HasAtLeast(22734, 2)">
       <StopCrafting/>
     </If>
     <If Condition="HasQuest(68639) and GetQuestStep(68639) == 2 and HasAtLeast(22734, 2)">

@@ -7,6 +7,7 @@ Authors:  Sodimm, TuckMeIntoBread
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
+    <RunCode Name="Disable_Flight"/>
     <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 28/28 DAILY QUESTS, 4/5 RANK-UP QUESTS -->
     <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
     <!-- Perchance to Hanami -->
@@ -730,7 +731,7 @@ Authors:  Sodimm, TuckMeIntoBread
         </While>
       </If>
       <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
-        <Synthesize RecipeId="32866"/>
+        <Synthesize RecipeId="32886"/>
         <While Condition="CraftingManager.IsCrafting">
           <CraftAction Name="Basic Synthesis" ActionId="100105"/>
         </While>
@@ -3520,7 +3521,7 @@ Authors:  Sodimm, TuckMeIntoBread
     ]]>
     </CodeChunk>
     <CodeChunk Name="68640">
-      <![CDATA[
+     <![CDATA[
      // Dismount just in case FlyToTag forgets to
      if (Core.Player.IsMounted)
      {
@@ -3550,6 +3551,25 @@ Authors:  Sodimm, TuckMeIntoBread
       Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
       await Coroutine.Sleep(26000);
     ]]>
+    </CodeChunk>
+    <CodeChunk Name="Disable_Flight">
+     <![CDATA[
+     foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+     {
+       try
+       {
+         if (!plugin.Enabled)
+         {
+           break;
+         }
+         else
+         {
+           plugin.Enabled = false;
+         }
+       }
+       catch (Exception ex) { }
+     }
+     ]]>
     </CodeChunk>
   </CodeChunks>
 </Profile>

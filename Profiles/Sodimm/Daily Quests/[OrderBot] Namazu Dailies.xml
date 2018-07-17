@@ -8,7 +8,6 @@ Authors:  Sodimm, TuckMeIntoBread
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
     <RunCode Name="Disable_Flight"/>
-    <!-- PROGRESS: 12/12 PRE-REQUISITE QUESTS, 1/1 UNLOCK QUEST, 28/28 DAILY QUESTS, 4/5 RANK-UP QUESTS -->
     <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
     <!-- Perchance to Hanami -->
     <If Condition="not HasQuest(68270) and not IsQuestCompleted(68270)">
@@ -394,7 +393,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <GetTo ZoneId="622" XYZ="-764.4707, 127.4369, 92.14957"/>
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
-    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasQuest(68638) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
       <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
@@ -3424,6 +3423,41 @@ Authors:  Sodimm, TuckMeIntoBread
       <If Condition="HasQuest(68637) and GetQuestStep(68637) == 255 and HasHqItem(22724)">
         <GetTo ZoneId="622" XYZ="-790.9819, 127.2848, 122.6978"/>
         <TurnIn QuestId="68637" ItemId="22724" NpcId="1025845" XYZ="-790.9819, 127.2848, 122.6978"/>
+      </If>
+      <!-- Disciples of Creation -->
+      <If Condition="IsQuestCompleted(68637) and not HasQuest(68638) and not IsQuestCompleted(68638)">
+        <If Condition="not IsOnMap(622)">
+          <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68638)">
+          <PickupQuest QuestId="68638" NpcId="1025601" XYZ="-766.7506, 127.4391, 91.11157"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68638) and not IsQuestCompleted(68638) and GetQuestStep(68638) == 1">
+        <If Condition="not IsOnMap(622)">
+          <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        </If>
+        <FlyTo XYZ="-441.1397, 2.244934, 620.489" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1020280" XYZ="-448.1422, 2.277143, 632.1354" QuestId="68638" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68638) and not IsQuestCompleted(68638) and GetQuestStep(68638) == 2">
+        <If Condition="not IsOnMap(622)">
+          <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        </If>
+        <FlyTo XYZ="69.31143, 114.905, 63.85573" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1019417" XYZ="-39.41406, 122.1, 63.61487" QuestId="68638" StepId="2"/>
+        <MoveTo XYZ="69.31143, 114.905, 63.85573"/>
+      </If>
+      <If Condition="HasQuest(68638) and not IsQuestCompleted(68638) and GetQuestStep(68638) == 3">
+        <If Condition="not IsOnMap(622)">
+          <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        </If>
+        <FlyTo XYZ="493.2774, 40.13596, -470.0835" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1020539" XYZ="498.2832, 40.8361, -508.2017" QuestId="68638" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68638) and not IsQuestCompleted(68638) and GetQuestStep(68638) == 255">
+        <GetTo ZoneId="622" XYZ="-788.8917, 127.2841, 123.4464"/>
+        <TurnIn QuestId="68638" NpcId="1025844" XYZ="-790.8293, 127.2799, 123.949"/>
       </If>
     </If>
   </Order>

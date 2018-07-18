@@ -213,7 +213,7 @@ Required Botbases:  Lisbeth 3.0.
       </If>
       <If Condition="HasQuest(66074) and not IsQuestCompleted(66074) and GetQuestStep(66074) == 3 and HasHqItem(1937) and HasHqItem(1862) and HasHqItem(2039)">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
-        <HandOver ItemIds="1937,1862,2039" RequiresHq="True, True, True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="66074" StepId="3"/>
+        <HandOver ItemIds="1937, 1862, 2039" RequiresHq="True, True, True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="66074" StepId="3"/>
       </If>
       <If Condition="HasQuest(66074) and not IsQuestCompleted(66074) and GetQuestStep(66074) == 4">
         <GetTo ZoneId="132" XYZ="-56.26001, -0.5033983, -0.1679077"/>
@@ -569,170 +569,461 @@ Required Botbases:  Lisbeth 3.0.
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Blacksmith">
-      <If Condition="not IsQuestCompleted(67547)">
-        <LogMessage Message="You haven't finished all of the Heavensward Blacksmith quests yet!"/>
-        <WaitWhile Condition="not IsQuestCompleted(67547)"/>
+      <!-- My First Cross-pein Hammer (Level 1) -->
+      <If Condition="IsQuestCompleted(65827) and not HasQuest(65828) and not IsQuestCompleted(65828)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65828)">
+          <PickupQuest QuestId="65828" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65828) and not IsQuestCompleted(65828) and GetQuestStep(65828) == 255 and not HasItem(5056)">
+        <Lisbeth Json="[{'Item': 5056,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65828) and not IsQuestCompleted(65828) and GetQuestStep(65828) == 255 and HasItem(5056)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <SoTurnIn QuestId="65828" ItemId="5056" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- Hammer Time (Level 5) -->
+      <If Condition="IsQuestCompleted(65828) and not HasQuest(65829) and not IsQuestCompleted(65829) and Core.Player.ClassLevel &gt; 4">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65829)">
+          <PickupQuest QuestId="65829" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65829) and not IsQuestCompleted(65829) and GetQuestStep(65829) == 255 and not HasAtLeast(2341, 3)">
+        <Lisbeth Json="[{'Item': 2341,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65829) and not IsQuestCompleted(65829) and GetQuestStep(65829) == 255 and HasAtLeast(2341, 3)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <SoTurnIn QuestId="65829" ItemId="2341" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- Riveting Ramblings (Level 10) -->
+      <If Condition="IsQuestCompleted(65829) and not HasQuest(65830) and not IsQuestCompleted(65830) and Core.Player.ClassLevel &gt; 9">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65830)">
+          <PickupQuest QuestId="65830" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65830) and not IsQuestCompleted(65830) and GetQuestStep(65830) == 255 and not HasItem(5091)">
+        <Lisbeth Json="[{'Item': 5091,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65830) and not IsQuestCompleted(65830) and GetQuestStep(65830) == 255 and HasItem(5091)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <SoTurnIn QuestId="65830" ItemId="5091" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- The Business of Blacksmithing (Level 15) -->
+      <If Condition="IsQuestCompleted(65830) and not HasQuest(65831) and not IsQuestCompleted(65831) and Core.Player.ClassLevel &gt; 14">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65831)">
+          <PickupQuest NpcId="1000997" QuestId="65831" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65831) and not IsQuestCompleted(65831) and GetQuestStep(65831) == 1">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65831" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(65831) and not IsQuestCompleted(65831) and GetQuestStep(65831) == 255 and not HasItem(1605)">
+        <Lisbeth Json="[{'Item': 1605,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65831) and not IsQuestCompleted(65831) and GetQuestStep(65831) == 255 and not HasItem(1753)">
+        <Lisbeth Json="[{'Item': 1753,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65831) and not IsQuestCompleted(65831) and GetQuestStep(65831) == 255 and HasItem(1605) and HasItem(1753)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <SoTurnIn QuestId="65831" ItemIds="1605,1753" AllowHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+      </If>
+      <!-- By the Sweat of Your Brow (Level 20) -->
+      <If Condition="IsQuestCompleted(65831) and not HasQuest(65832) and not IsQuestCompleted(65832) and Core.Player.ClassLevel &gt; 19">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65832)">
+          <PickupQuest QuestId="65832" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65832) and not IsQuestCompleted(65832) and GetQuestStep(65832) == 255 and not HasItem(2344)">
+        <Lisbeth Json="[{'Item': 2344,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65832) and not IsQuestCompleted(65832) and GetQuestStep(65832) == 255 and HasItem(2344)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <SoTurnIn QuestId="65832" ItemId="2344" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- True as Steel (Level 25) -->
+      <If Condition="IsQuestCompleted(65832) and not HasQuest(65833) and not IsQuestCompleted(65833) and Core.Player.ClassLevel &gt; 24">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65833)">
+          <PickupQuest NpcId="1000997" QuestId="65833" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65833) and not IsQuestCompleted(65833) and GetQuestStep(65833) == 255 and not HasHqItem(5058)">
+        <Lisbeth Json="[{'Item': 5058,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65833) and not IsQuestCompleted(65833) and GetQuestStep(65833) == 255 and HasHqItem(5058)">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TurnIn QuestId="65833" ItemId="5058" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+      </If>
+      <!-- As Iron Sharpens Iron (Level 30) -->
+      <If Condition="IsQuestCompleted(65833) and not HasQuest(65834) and not IsQuestCompleted(65834) and Core.Player.ClassLevel &gt; 29">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65834)">
+          <PickupQuest NpcId="1000997" QuestId="65834" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 1">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65834" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 2">
+        <GetTo ZoneId="128" XYZ="-51.28564, 42.8, 195.5138"/>
+        <TalkTo NpcId="1000971" XYZ="-51.28564, 42.8, 195.5138" QuestId="65834" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 3 and not HasHqItem(2551)">
+        <Lisbeth Json="[{'Item': 2551,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 3 and HasHqItem(2551)">
+        <GetTo ZoneId="128" XYZ="-51.28564, 42.8, 195.5138"/>
+        <HandOver ItemId="2551" RequiresHq="True" NpcId="1000971" XYZ="-51.28564, 42.8, 195.5138" QuestId="65834" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 4">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65834" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 255">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <TurnIn QuestId="65834" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- Set Faezahr to Stun (Level 35) -->
+      <If Condition="IsQuestCompleted(65834) and not HasQuest(65835) and not IsQuestCompleted(65835) and Core.Player.ClassLevel &gt; 34">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65835)">
+          <PickupQuest NpcId="1000997" QuestId="65835" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65835) and not IsQuestCompleted(65835) and GetQuestStep(65835) == 1">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65835" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(65835) and not IsQuestCompleted(65835) and GetQuestStep(65835) == 255 and not HasHqItem(1778)">
+        <Lisbeth Json="[{'Item': 1778,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65835) and not IsQuestCompleted(65835) and GetQuestStep(65835) == 255 and HasHqItem(1778)">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TurnIn QuestId="65835" ItemId="1778" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+      </If>
+      <!-- Forging Ahead (Level 40) -->
+      <If Condition="IsQuestCompleted(65835) and not HasQuest(65836) and not IsQuestCompleted(65836) and Core.Player.ClassLevel &gt; 39">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65836)">
+          <PickupQuest NpcId="1000997" QuestId="65836" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65836) and not IsQuestCompleted(65836) and GetQuestStep(65836) == 255 and not HasHqItem(2350)">
+        <Lisbeth Json="[{'Item': 2350,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65836) and not IsQuestCompleted(65836) and GetQuestStep(65836) == 255 and HasHqItem(2350)">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <TurnIn QuestId="65836" ItemId="2350" RequiresHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- Beauty and the Bardiche (Level 45) -->
+      <If Condition="IsQuestCompleted(65836) and not HasQuest(65837) and not IsQuestCompleted(65837) and Core.Player.ClassLevel &gt; 44">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65837)">
+          <PickupQuest NpcId="1000997" QuestId="65837" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 1">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65837" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 2 and not HasHqItem(1723)">
+        <Lisbeth Json="[{'Item': 1723,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 2 and HasHqItem(1723) and not HasHqItem(1796)">
+        <Lisbeth Json="[{'Item': 1796,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 2 and HasHqItem(1723) and HasHqItem(1796) and not HasHqItem(1659)">
+        <Lisbeth Json="[{'Item': 1659,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 2 and HasHqItem(1723) and HasHqItem(1796) and HasHqItem(1659)">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <HandOver ItemIds="1723, 1796, 1659" RequiresHq="True, True, True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65837" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 255">
+        <GetTo ZoneId="129" XYZ="-300.4044, 21.34725, 193.1945"/>
+        <TurnIn QuestId="65837" ItemIds="1723, 1796, 1659" RequiresHq="True, True, True" NpcId="1001539" XYZ="-300.4044, 21.34725, 193.1945"/>
+      </If>
+      <!-- Waiting in the Winglet (Level 50) -->
+      <If Condition="IsQuestCompleted(65837) and not HasQuest(65838) and not IsQuestCompleted(65838) and Core.Player.ClassLevel &gt; 49">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(65838)">
+          <PickupQuest NpcId="1000997" QuestId="65838" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 1">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <TalkTo NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65838" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 2">
+        <GetTo ZoneId="128" XYZ="25.07056, 31.99998, 32.45593"/>
+        <TalkTo NpcId="1005177" XYZ="25.07056, 31.99998, 32.45593" QuestId="65838" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 3 and not HasHqItem(1663)">
+        <Lisbeth Json="[{'Item': 1663,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 3 and HasHqItem(1663)">
+        <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <HandOver ItemId="1663" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65838" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 4">
+        <GetTo ZoneId="128" XYZ="-42.37433, 42.5, 204.1199"/>
+        <TalkTo NpcId="1005178" XYZ="-42.37433, 42.5, 204.1199" QuestId="65838" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 255">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <TurnIn QuestId="65838" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+      </If>
+      <!-- Forging Northwards (Level 50) -->
+      <If Condition="IsQuestCompleted(65838) and not HasQuest(67543) and not IsQuestCompleted(67543) and Core.Player.ClassLevel &gt; 49">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <If Condition="IsQuestAcceptQualified(67543)">
+          <PickupQuest QuestId="65837" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67543) and not IsQuestCompleted(67543) and GetQuestStep(67543) == 1">
+        <GetTo ZoneId="128" XYZ="-6.51562, 39.5175, 16.9527"/>
+        <TalkTo NpcId="1012510" XYZ="-6.51562, 39.5175, 16.9527" QuestId="67543" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67543) and not IsQuestCompleted(67543) and GetQuestStep(67543) == 255">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <TurnIn QuestId="67543" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+      </If>
+      <!-- Leave it to Fremondain (Level 53) -->
+      <If Condition="IsQuestCompleted(67543) and not HasQuest(67544) and not IsQuestCompleted(67544) and Core.Player.ClassLevel &gt; 52">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <If Condition="IsQuestAcceptQualified(67544)">
+          <PickupQuest QuestId="67544" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67544) and not IsQuestCompleted(67544) and GetQuestStep(67544) == 1">
+        <GetTo ZoneId="397" XYZ="385.977, 173.258, 449.363"/>
+        <TalkTo NpcId="1012511" XYZ="385.977, 173.258, 449.363" QuestId="67544" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67544) and not IsQuestCompleted(67544) and GetQuestStep(67544) == 2">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <TalkTo NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185" QuestId="67544" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67544) and not IsQuestCompleted(67544) and GetQuestStep(67544) == 255 and not HasHqItem(12528)">
+        <Lisbeth Json="[{'Item': 12528,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(67544) and not IsQuestCompleted(67544) and GetQuestStep(67544) == 255 and HasHqItem(12528)">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <TurnIn QuestId="67544" ItemId="12528" RequiresHq="True" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+      </If>
+      <!-- The Good Fight (Level 55) -->
+      <If Condition="IsQuestCompleted(67544) and not HasQuest(67545) and not IsQuestCompleted(67545) and Core.Player.ClassLevel &gt; 54">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <If Condition="IsQuestAcceptQualified(67545)">
+          <PickupQuest QuestId="67545" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67545) and not IsQuestCompleted(67545) and GetQuestStep(67545) == 1">
+        <GetTo ZoneId="398" XYZ="517.265, -51.1521, 35.5687"/>
+        <TalkTo NpcId="1012515" XYZ="517.265, -51.1521, 35.5687" QuestId="67545" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67545) and not IsQuestCompleted(67545) and GetQuestStep(67545) == 2 and not HasHqItem(10588)">
+        <Lisbeth Json="[{'Item': 10588,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(67545) and not IsQuestCompleted(67545) and GetQuestStep(67545) == 2 and HasHqItem(10588)">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <HandOver ItemId="10588" RequiresHq="True" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185" QuestId="67545" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67545) and not IsQuestCompleted(67545) and GetQuestStep(67545) == 255">
+        <GetTo ZoneId="418" XYZ="83.63464, 23.97186, -32.76117"/>
+        <TurnIn QuestId="67545" NpcId="2005898" XYZ="83.63464, 23.97186, -32.76117"/>
+      </If>
+      <!-- Blade that was Broken (Level 57) -->
+      <If Condition="IsQuestCompleted(67545) and not HasQuest(67546) and not IsQuestCompleted(67546) and Core.Player.ClassLevel &gt; 56">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <If Condition="IsQuestAcceptQualified(67546)">
+          <PickupQuest QuestId="67546" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 1">
+        <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <HandOver ItemId="2001709" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344" QuestId="67546" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 2">
+        <GetTo ZoneId="154" XYZ="440.726, -0.937455, -62.1923"/>
+        <HandOver ItemId="2001709" NpcId="1003075" XYZ="440.726, -0.937455, -62.1923" QuestId="67546" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 3 and not HasHqItem(11877)">
+        <Lisbeth Json="[{'Item': 11877,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 3 and HasHqItem(11877)">
+        <GetTo ZoneId="154" XYZ="445.4565, -0.9374095, -67.36859"/>
+        <HandOver ItemId="11877" RequiresHq="True" NpcId="1008945" XYZ="445.4565, -0.9374095, -67.36859" QuestId="67546" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 4">
+        <GetTo ZoneId="154" XYZ="440.726, -0.937455, -62.1923"/>
+        <HandOver ItemId="2001709" NpcId="1003075" XYZ="440.726, -0.937455, -62.1923" QuestId="67546" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 255">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <TurnIn QuestId="67546" ItemId="2001709" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+      </If>
+      <!-- Integrity (Level 60) -->
+      <If Condition="IsQuestCompleted(67546) and not HasQuest(67547) and not IsQuestCompleted(67547) and Core.Player.ClassLevel &gt; 59">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <If Condition="IsQuestAcceptQualified(67547)">
+          <PickupQuest QuestId="67547" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 1 and not HasHqItem(10591)">
+        <Lisbeth Json="[{'Item': 10591,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 1 and HasHqItem(10591)">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <HandOver ItemId="10591" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185" QuestId="67547" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 2">
+        <GetTo ZoneId="418" XYZ="80.1306, 24.0645, -32.1703"/>
+        <TalkTo NpcId="1013682" XYZ="80.1306, 24.0645, -32.1703" QuestId="67547" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 255">
+        <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
+        <TurnIn QuestId="67547" ItemId="2001709" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
       </If>
       <!-- A Missive from the Far East (Level 60) -->
-      <If Condition="not HasQuest(68129) and not IsQuestCompleted(68129) and IsQuestCompleted(67547) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="IsQuestCompleted(67547) and not HasQuest(68129) and not IsQuestCompleted(68129) and Core.Player.ClassLevel &gt; 59">
         <GetTo ZoneId="128" XYZ="-31.56651, 44.49999, 185.0013"/>
-        <NoCombatMoveTo XYZ="-31.56651, 44.49999, 185.0013"/>
         <If Condition="IsQuestAcceptQualified(68129)">
           <PickupQuest QuestId="68129" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(68129) and not IsQuestCompleted(68129) and GetQuestStep(68129) == 1">
         <GetTo ZoneId="129" XYZ="-215.9861, 5.999996, 162.7398"/>
-        <NoCombatMoveTo XYZ="-215.9861, 5.999996, 162.7398"/>
         <TalkTo NpcId="1021040" XYZ="-217.1816, 5.999996, 162.2797" QuestId="68129" StepId="1"/>
       </If>
       <If Condition="HasQuest(68129) and not IsQuestCompleted(68129) and GetQuestStep(68129) == 255">
         <GetTo ZoneId="128" XYZ="-31.86705, 44.49996, 184.5974"/>
-        <NoCombatMoveTo XYZ="-31.86705, 44.49996, 184.5974"/>
         <TurnIn ItemIds="2002065" QuestId="68129" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
       </If>
       <!-- The Client is King (Level 63) -->
-      <If Condition="not HasQuest(68152) and not IsQuestCompleted(68152) and IsQuestCompleted(68129) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="IsQuestCompleted(68129) and not HasQuest(68152) and not IsQuestCompleted(68152) and Core.Player.ClassLevel &gt; 62">
         <GetTo ZoneId="128" XYZ="-31.86705, 44.49996, 184.5974"/>
-        <NoCombatMoveTo XYZ="-31.86705, 44.49996, 184.5974"/>
         <If Condition="IsQuestAcceptQualified(68152)">
           <PickupQuest QuestId="68152" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 1">
         <GetTo ZoneId="128" XYZ="-184.048, 41, 183.7282"/>
-        <NoCombatMoveTo XYZ="-184.048, 41, 183.7282"/>
         <SoTalkTo NpcId="1021042" XYZ="-184.9241, 41, 184.6799" QuestId="68152" StepId="1"/>
       </If>
       <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 2">
         <GetTo ZoneId="128" XYZ="-31.56689, 44.49995, 184.0667"/>
-        <NoCombatMoveTo XYZ="-31.56689, 44.49995, 184.0667"/>
         <TalkTo NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344" QuestId="68152" StepId="2"/>
       </If>
       <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 3">
         <GetTo ZoneId="128" XYZ="-4.915592, 39.51749, 16.79177"/>
-        <NoCombatMoveTo XYZ="-4.915592, 39.51749, 16.79177"/>
         <TalkTo NpcId="1021043" XYZ="-5.56958, 39.51749, 17.25787" QuestId="68152" StepId="3"/>
       </If>
-      <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 255">
-        <If Condition="not HasHqItem(17886)">
-          <Lisbeth Json="[{'Item': 17886,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
-        </If>
+      <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 255 and not HasHqItem(17886)">
+        <Lisbeth Json="[{'Item': 17886,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(68152) and not IsQuestCompleted(68152) and GetQuestStep(68152) == 255 and HasHqItem(17886)">
         <GetTo ZoneId="128" XYZ="-31.50769, 44.5, 184.9527"/>
-        <NoCombatMoveTo XYZ="-31.50769, 44.5, 184.9527"/>
-        <TurnIn ItemIds="17886" QuestId="68152" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <TurnIn QuestId="68152" ItemId="17886" RequiresHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
       </If>
       <!-- Blood Ties (Level 65) -->
-      <If Condition="not HasQuest(68153) and not IsQuestCompleted(68153) and IsQuestCompleted(68152) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="IsQuestCompleted(68152) and not HasQuest(68153) and not IsQuestCompleted(68153) and Core.Player.ClassLevel &gt; 64">
         <GetTo ZoneId="128" XYZ="-31.50769, 44.5, 184.9527"/>
-        <NoCombatMoveTo XYZ="-31.50769, 44.5, 184.9527"/>
         <If Condition="IsQuestAcceptQualified(68153)">
           <PickupQuest QuestId="68153" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 1">
         <GetTo ZoneId="129" XYZ="-187.0464, 3.999966, 177.5832"/>
-        <NoCombatMoveTo XYZ="-187.0464, 3.999966, 177.5832"/>
         <SoTalkTo NpcId="1021044" XYZ="-188.983, 3.999864, 177.5387" QuestId="68153" StepId="1"/>
       </If>
       <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 2">
         <GetTo ZoneId="128" XYZ="-184.2916, 41, 184.5182"/>
-        <NoCombatMoveTo XYZ="-184.2916, 41, 184.5182"/>
-        <SoHandOver ItemIds="2002071" NpcId="1021042" XYZ="-184.9241, 41, 184.6799" QuestId="68153" StepId="2"/>
+        <SoHandOver ItemId="2002071" NpcId="1021042" XYZ="-184.9241, 41, 184.6799" QuestId="68153" StepId="2"/>
       </If>
-      <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 3">
-        <If Condition="not HasHqItem(17888)">
-          <Lisbeth Json="[{'Item': 17888,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
-        </If>
+      <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 3 and not HasHqItem(17888)">
+        <Lisbeth Json="[{'Item': 17888,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 3 and HasHqItem(17888)">
         <GetTo ZoneId="129" XYZ="-188.1376, 3.999918, 177.7511"/>
-        <NoCombatMoveTo XYZ="-188.1376, 3.999918, 177.7511"/>
-        <HandOver ItemIds="17888" NpcId="1021044" XYZ="-188.983, 3.999864, 177.5387" QuestId="68153" StepId="3"/>
+        <HandOver ItemId="17888" RequiresHq="True" NpcId="1021044" XYZ="-188.983, 3.999864, 177.5387" QuestId="68153" StepId="3"/>
       </If>
       <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 255">
         <GetTo ZoneId="128" XYZ="-31.51809, 44.49999, 184.7543"/>
-        <NoCombatMoveTo XYZ="-31.51809, 44.49999, 184.7543"/>
         <TurnIn QuestId="68153" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
       </If>
       <!-- The Missing Piece (Level 68) -->
-      <If Condition="not HasQuest(68154) and not IsQuestCompleted(68154) and IsQuestCompleted(68153) and Core.Player.ClassLevel &gt; 67">
+      <If Condition="IsQuestCompleted(68153) and not HasQuest(68154) and not IsQuestCompleted(68154) and Core.Player.ClassLevel &gt; 67">
         <GetTo ZoneId="128" XYZ="-31.51809, 44.49999, 184.7543"/>
-        <NoCombatMoveTo XYZ="-31.51809, 44.49999, 184.7543"/>
         <If Condition="IsQuestAcceptQualified(68154)">
           <PickupQuest QuestId="68154" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 1">
         <GetTo ZoneId="129" XYZ="-237.7715, 16.2, 40.2176"/>
-        <NoCombatMoveTo XYZ="-237.7715, 16.2, 40.2176"/>
         <TalkTo NpcId="1021046" XYZ="-238.8495, 16.2, 39.81079" QuestId="68154" StepId="1"/>
       </If>
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 2">
         <GetTo ZoneId="128" XYZ="-31.62722, 44.49998, 184.8541"/>
-        <NoCombatMoveTo XYZ="-31.62722, 44.49998, 184.8541"/>
         <TalkTo NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344" QuestId="68154" StepId="2"/>
       </If>
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 3">
         <GetTo ZoneId="128" XYZ="-50.22987, 42.79999, 192.7438"/>
-        <NoCombatMoveTo XYZ="-50.22987, 42.79999, 192.7438"/>
         <TalkTo NpcId="1000995" XYZ="-52.01807, 42.7997, 192.2179" QuestId="68154" StepId="3"/>
       </If>
-      <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 4">
-        <If Condition="not HasHqItem(17890)">
-          <Lisbeth Json="[{'Item': 17890,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
-        </If>
+      <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 4 and not HasHqItem(17890)">
+        <Lisbeth Json="[{'Item': 17890,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 4 and HasHqItem(17890)">
         <GetTo ZoneId="128" XYZ="-30.39445, 44.49998, 185.0105"/>
-        <NoCombatMoveTo XYZ="-30.39445, 44.49998, 185.0105"/>
-        <HandOver ItemIds="17890" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344" QuestId="68154" StepId="4"/>
+        <HandOver ItemId="17890" RequireHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344" QuestId="68154" StepId="4"/>
       </If>
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 5">
         <GetTo ZoneId="128" XYZ="-184.0373, 41, 184.3588"/>
-        <NoCombatMoveTo XYZ="-184.0373, 41, 184.3588"/>
         <HandOver ItemIds="2002066" NpcId="1021042" XYZ="-184.9241, 41, 184.6799" QuestId="68154" StepId="5"/>
       </If>
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 255">
         <GetTo ZoneId="128" XYZ="-32.22143, 44.49998, 186.8418"/>
-        <NoCombatMoveTo XYZ="-32.22143, 44.49998, 186.8418"/>
         <TurnIn QuestId="68154" NpcId="1021047" XYZ="-31.8761, 44.5, 187.8232"/>
       </If>
       <!-- The Final Face-off (Level 70) -->
-      <If Condition="not HasQuest(68155) and not IsQuestCompleted(68155) and IsQuestCompleted(68154) and Core.Player.ClassLevel &gt; 69">
+      <If Condition="IsQuestCompleted(68154) and not HasQuest(68155) and not IsQuestCompleted(68155) and Core.Player.ClassLevel &gt; 69">
         <GetTo ZoneId="128" XYZ="-32.39525, 44.67499, 185.0457"/>
-        <NoCombatMoveTo XYZ="-32.39525, 44.67499, 185.0457"/>
         <If Condition="IsQuestAcceptQualified(68155)">
           <PickupQuest QuestId="68155" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 1">
         <GetTo ZoneId="628" XYZ="-80.8498, -6.999999, -67.58692"/>
-        <NoCombatMoveTo XYZ="-80.8498, -6.999999, -67.58692"/>
         <TalkTo NpcId="1021048" XYZ="-79.17908, -6.999999, -67.70435" QuestId="68155" StepId="1"/>
       </If>
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 2">
         <GetTo ZoneId="628" XYZ="-135.3349, -4.417055, 198.8495"/>
-        <NoCombatMoveTo XYZ="-135.3349, -4.417055, 198.8495"/>
         <TalkTo NpcId="1019050" XYZ="-135.0271, -4.44043, 198.0164" QuestId="68155" StepId="2"/>
       </If>
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 3">
         <GetTo ZoneId="628" XYZ="-79.74056, -6.999999, -68.36252"/>
-        <NoCombatMoveTo XYZ="-79.74056, -6.999999, -68.36252"/>
         <TalkTo NpcId="1021048" XYZ="-79.17908, -6.999999, -67.70435" QuestId="68155" StepId="3"/>
       </If>
-      <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 4">
-        <If Condition="not HasHqItem(17892)">
-          <Lisbeth Json="[{'Item': 17892,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
-        </If>
+      <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 4 and not HasHqItem(17892)">
+        <Lisbeth Json="[{'Item': 17892,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      </If>
+      <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 4 and HasHqItem(17892)">
         <GetTo ZoneId="628" XYZ="-135.7374, -4.417048, 199.0069"/>
-        <NoCombatMoveTo XYZ="-135.7374, -4.417048, 199.0069"/>
-        <HandOver ItemIds="17892" NpcId="1019050" XYZ="-135.0271, -4.44043, 198.0164" QuestId="68155" StepId="4"/>
+        <HandOver ItemId="17892" RequireHq="True" NpcId="1019050" XYZ="-135.0271, -4.44043, 198.0164" QuestId="68155" StepId="4"/>
       </If>
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 5">
         <GetTo ZoneId="628" XYZ="-135.7374, -4.417048, 199.0069"/>
-        <NoCombatMoveTo XYZ="-135.7374, -4.417048, 199.0069"/>
         <TalkTo NpcId="1019050" XYZ="-135.0271, -4.44043, 198.0164" QuestId="68155" StepId="5"/>
       </If>
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 255">
         <GetTo ZoneId="128" XYZ="-31.7522, 44.49996, 184.6536"/>
-        <NoCombatMoveTo XYZ="-31.7522, 44.49996, 184.6536"/>
         <TurnIn QuestId="68155" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
       </If>
     </If>

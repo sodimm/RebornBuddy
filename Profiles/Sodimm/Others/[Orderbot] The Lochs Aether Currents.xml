@@ -30,6 +30,8 @@ Authors:  Sodimm, TuckMeIntoBread
       <GetTo ZoneId="621" XYZ="673.4974, 82.99997, 508.5288"/>
       <!--0-->
       <UseObject NpcIds="2007994" XYZ="673.4974, 82.99997, 508.5288" Condition="GameObjectManager.GetObjectByNPCId(2007994).IsVisible"/>
+      <!--<GetTo ZoneId="621" XYZ="403.3247, 116.7892, 69.89963"/>--> <!-- Tries to navigate BACK to the Npc after the transition, Reported -->
+	  <UseTransport InteractDistance="3.0" NpcId="1023048" XYZ="497.7645, 69.99941, 583.7339"/><!-- TODO :: Remove this Temporary Fix once GetTo is corrected. -->
       <GetTo ZoneId="621" XYZ="403.3247, 116.7892, 69.89963"/>
       <!--1-->
       <UseObject NpcIds="2007993" XYZ="403.3247, 116.7892, 69.89963" Condition="GameObjectManager.GetObjectByNPCId(2007993).IsVisible"/>

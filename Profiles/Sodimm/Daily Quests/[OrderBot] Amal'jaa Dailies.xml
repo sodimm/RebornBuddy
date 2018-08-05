@@ -1072,7 +1072,7 @@ Authors:  Sodimm.
         <GetTo ZoneId="146" XYZ="-154.7112,6.240906,-33.18835"/>
       </If>
       <NoCombatMoveTo XYZ="-154.7112,6.240906,-33.18835"/>
-      <UseItem ItemId="2001148" NpcIds="2003011,2002991,2003010,2002990,2002989,2002988" QuestId="66765" StepId="2">
+      <UseItem ItemId="2001148" NpcIds="2003011,2002991,2003010,2002990,2002989,2002988,2002987" QuestId="66765" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-154.7112,6.240906,-33.18835" Radius="75"/>
           <HotSpot XYZ="-163.6531,7.248047,15.70148" Radius="75"/>
@@ -1090,7 +1090,9 @@ Authors:  Sodimm.
         <GetTo ZoneId="146" XYZ="-13.62687,0.02612245,-1.374997"/>
       </If>
       <NoCombatMoveTo XYZ="-13.62687,0.02612245,-1.374997"/>
-      <UseObject NpcIds="2003136,2003140,2003141,2003147,2003148" XYZ="-13.62687,0.02612245,-1.374997" Radius="100" Condition="not IsTodoChecked(66766, 1, 0)" UseTimes="1"/>
+	  <While Condition="not IsTodoChecked(66766, 1, 0)">
+        <UseObject NpcIds="2003136,2003140,2003141,2003147,2003148" XYZ="-13.62687,0.02612245,-1.374997" Radius="100" UseTimes="1"/>
+	  </While>
     </If>
     <If Condition="HasQuest(66766) and GetQuestStep(66766) == 1 and not IsTodoChecked(66766, 1, 1)">
       <If Condition="not IsOnMap(146)">

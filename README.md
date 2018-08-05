@@ -4,7 +4,7 @@
 
 Artemis is a Hunt Bill BotBase. Select DoHuntBills in the Settings, pick up the bills and press start... Magic.
 
-Please note that Artemis does use ExBuddy, so please be mindful when submitting errors that ExFlight can and will crash from time to time.
+Artemis uses Flightor and will turn off ExFlght, as it will interfere. Be aware that it will not turn it back on when it's finished.
 
 [Download](https://github.com/sodimm/RebornBuddy/blob/master/Downloads/Latest/Artemis/Artemis.zip?raw=true "Artemis"). Unblock the zip and extract to your BotBases folder.
 

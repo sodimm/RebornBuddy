@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Rathalos
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[Orderbot] Rathalos</Name>
+  <Order>
+    <RunCode Name="Disable_Flight"/>
+    <!-- The New King on the Block -->
+    <If Condition="not HasQuest(67090) and not IsQuestCompleted(67090)">
+      <GetTo ZoneId="628" XYZ="-76.01229, 11.80004, -115.6063"/>
+      <If Condition="IsQuestAcceptQualified(67090)">
+        <PickupQuest QuestId="67090" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(1, 0).Item1 == 0">
+      <GetTo ZoneId="622" XYZ="539.0184, -19.50564, 325"/>
+      <TalkTo NpcId="1025723" XYZ="538.1094, -19.50565, 324.3915" QuestId="67090"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(1, 0).Item1 == 1">
+      <GetTo ZoneId="622" XYZ="578.6771, -19.50393, 280.9116" />
+      <TalkTo NpcId="1025724" XYZ="579.1256, -19.50358, 280.3234" QuestId="67090"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(1, 0).Item1 == 2">
+      <GetTo ZoneId="622" XYZ="538.4455, -19.3006, 269.981" />
+      <TalkTo NpcId="1025725" XYZ="537.4075, -19.2849, 268.9402" QuestId="67090"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 2">
+      <GetTo ZoneId="622" XYZ="514.5195, -19.65834, 289.4169" />
+      <TalkTo NpcId="1025726" XYZ="513.6339, -19.6877, 290.3943" QuestId="67090" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 3">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="514.5195, -19.65834, 289.4169"/>
+      </If>
+      <FlyTo XYZ="315.7767, -25.58031, 571.1226" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <UseObject NpcId="2009489" XYZ="315.0834, -25.65051, 571.9844" QuestId="67090" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 4">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="315.0834, -25.65051, 571.9844"/>
+      </If>
+      <FlyTo XYZ="-481.1174, 71.69028, -514.8209" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 5">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 6">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="315.0834, -25.65051, 571.9844"/>
+      </If>
+      <FlyTo XYZ="-481.1174, 71.69028, -514.8209" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <SoTalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(67090) and not IsQuestCompleted(67090) and GetQuestStep(67090) == 255">
+      <GetTo ZoneId="628" XYZ="-76.23109, 11.80004, -115.5325"/>
+      <TurnIn QuestId="67090" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+    </If>
+    <!-- The Newer King on the Block -->
+    <If Condition="not HasQuest(67091) and not IsQuestCompleted(67091)">
+      <GetTo ZoneId="628" XYZ="-76.23109, 11.80004, -115.5325"/>
+      <If Condition="IsQuestAcceptQualified(67091)">
+        <PickupQuest QuestId="67091" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67091) and not IsQuestCompleted(67091) and GetQuestStep(67091) == 255">
+      <GetTo ZoneId="628" XYZ="-76.23109, 11.80004, -115.5325"/>
+      <TurnIn QuestId="67091" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+        {
+          try
+          {
+             if (!plugin.Enabled) { break; }
+             else { plugin.Enabled = false; }
+          }
+          catch (Exception ex) { }
+        }
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>
+

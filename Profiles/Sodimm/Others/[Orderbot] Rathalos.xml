@@ -5,6 +5,7 @@ Authors:  Sodimm
 -->
 <Profile>
   <Name>[Orderbot] Rathalos</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <RunCode Name="Disable_Flight"/>
     <!-- The New King on the Block -->
@@ -62,7 +63,7 @@ Authors:  Sodimm
     <If Condition="not HasQuest(67091) and not IsQuestCompleted(67091)">
       <GetTo ZoneId="628" XYZ="-76.23109, 11.80004, -115.5325"/>
       <If Condition="IsQuestAcceptQualified(67091)">
-        <PickupQuest QuestId="67091" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+        <SoPickupQuest QuestId="67091" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
       </If>
     </If>
     <If Condition="HasQuest(67091) and not IsQuestCompleted(67091) and GetQuestStep(67091) == 255">

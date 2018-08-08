@@ -518,6 +518,70 @@ Authors:  Sodimm.
       </If>
     </If>
 -->
+    <!-- Losing One's Tempered -->
+    <If Condition="HasQuest(66764) and GetQuestStep(66764) == 1 and GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(146)">
+        <GetTo ZoneId="146" XYZ="-189.8607, 3.6831, -159.6381"/>
+      </If>
+      <NoCombatMoveTo XYZ="-189.8607, 3.6831, -159.6381"/>
+      <UseObject NpcIds="2003169,2003170,2003171" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001191" UseHealthPercent="2" UseTimes="1" NpcIds="2361,2363">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(66764) and GetQuestStep(66764) == 1 and GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(146)">
+        <GetTo ZoneId="146" XYZ="-189.8607, 3.6831, -159.6381"/>
+      </If>
+      <NoCombatMoveTo XYZ="-189.8607, 3.6831, -159.6381"/>
+      <UseObject NpcIds="2003169,2003170,2003171" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001191" UseHealthPercent="2" UseTimes="1" NpcIds="2361,2363">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(66764) and GetQuestStep(66764) == 1 and GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(146)">
+        <GetTo ZoneId="146" XYZ="-189.8607, 3.6831, -159.6381"/>
+      </If>
+      <NoCombatMoveTo XYZ="-189.8607, 3.6831, -159.6381"/>
+      <UseObject NpcIds="2003169,2003170,2003171" UseTimes="1">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+      <UseItem ItemId="2001191" UseHealthPercent="2" UseTimes="1" NpcIds="2361,2363">
+        <HotSpots>
+          <HotSpot XYZ="-191.1804, 3.677429, -162.0051" Radius="10"/>
+          <HotSpot XYZ="-156.5424, 6.393494, -54.76471" Radius="10"/>
+          <HotSpot XYZ="-18.38715, 1.327454, -26.99323" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+      <WaitWhile Condition="GetQuestById(66764).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
     <!-- Nothing Sacred -->
     <If Condition="HasQuest(66784) and GetQuestStep(66784) == 1">
       <If Condition="not IsOnMap(146)">
@@ -611,7 +675,7 @@ Authors:  Sodimm.
       <If Condition="not IsOnMap(146)">
         <GetTo ZoneId="146" XYZ="543.8109, 10.06467, -17.24093"/>
       </If>
-      <NoCombatMoveTo XYZ="542.0544, 7.599619, -30.96616"/>
+      <NoCombatMoveTo XYZ="543.8109, 10.06467, -17.24093"/>
       <WaitWhile Condition="not FateManager.WithinFate"/>
       <RunCode Name="66781"/>
       <Grind GrindRef="66781" While="not HasItem(7001)"/>
@@ -888,7 +952,7 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="-174.0292,40,155.3521"/>
       <Grind GrindRef="66768b" While="HasQuest(66768) and GetQuestStep(66768) == 1 and not IsTodoChecked(66768, 1, 1)"/>
     </If>
-    <!--    <!{1}** The Gland that Feeds You **{1}>
+    <!-- The Gland that Feeds You -->
     <If Condition="HasQuest(66773) and GetQuestStep(66773) == 1">
       <If Condition="not IsOnMap(146)">
         <GetTo ZoneId="146" XYZ="87.75464,8.804443,229.6024"/>
@@ -896,36 +960,38 @@ Authors:  Sodimm.
       <NoCombatMoveTo XYZ="87.75464,8.804443,229.6024"/>
       <UseObject NpcIds="2003173,2003174,2003175,2003176,2003177" QuestId="66773" StepId="1">
         <HotSpots>
-          <HotSpot XYZ="87.75464,8.804443,229.6024" Radius="75" />
-          <HotSpot XYZ="102.9832,8.8349,202.1667" Radius="75" />
-          <HotSpot XYZ="120.5614,7.980469,252.8267" Radius="75" />
-          <HotSpot XYZ="125.6885,7.492188,231.3724" Radius="75" />
-          <HotSpot XYZ="145.3116,7.461609,200.7935" Radius="75" />
+          <HotSpot XYZ="87.75464,8.804443,229.6024" Radius="75"/>
+          <HotSpot XYZ="102.9832,8.8349,202.1667" Radius="75"/>
+          <HotSpot XYZ="120.5614,7.980469,252.8267" Radius="75"/>
+          <HotSpot XYZ="125.6885,7.492188,231.3724" Radius="75"/>
+          <HotSpot XYZ="145.3116,7.461609,200.7935" Radius="75"/>
         </HotSpots>
       </UseObject>
     </If>
-    <If Condition="HasQuest(66773) and GetQuestStep(66773) == 1">
+    <If Condition="HasQuest(66773) and GetQuestStep(66773) == 2">
       <If Condition="not IsOnMap(146)">
         <GetTo ZoneId="146" XYZ="-82.1394, 8.224609, 344.9912"/>
       </If>
       <NoCombatMoveTo XYZ="-82.1394, 8.224609, 344.9912"/>
       <UseObject NpcIds="2003181,2003182,2003184,2003185,2003183" QuestId="66773" ItemId="2001192" ItemTarget="2299" LacksAura="22" StepId="2">
         <HotSpots>
-          <HotSpot XYZ="-82.1394, 8.224609, 344.9912" Radius="10" />
-          <HotSpot XYZ="-88.91437, 7.736328, 296.0708" Radius="10" />
-          <HotSpot XYZ="-135.1187, 5.081238, 257.8927" Radius="10" />
-          <HotSpot XYZ="-212.9397,7.797302,232.4712" Radius="10" />
-          <HotSpot XYZ="-51.28564, 10.66602, 169.6649" Radius="10" />
+          <HotSpot XYZ="-82.1394, 8.224609, 344.9912" Radius="10"/>
+          <HotSpot XYZ="-88.91437, 7.736328, 296.0708" Radius="10"/>
+          <HotSpot XYZ="-135.1187, 5.081238, 257.8927" Radius="10"/>
+          <HotSpot XYZ="-212.9397,7.797302,232.4712" Radius="10"/>
+          <HotSpot XYZ="-51.28564, 10.66602, 169.6649" Radius="10"/>
         </HotSpots>
-      </SoUseObject>
-      <SoUseItem ItemId="2001195" NpcIds="1005838,1005839,1005840" QuestId="66773" StepId="3" MapId="146">
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(66773) and GetQuestStep(66773) == 3">
+      <UseItem ItemId="2001195" NpcIds="1005838,1005839,1005840" QuestId="66773" StepId="3" MapId="146">
         <HotSpots>
-          <HotSpot XYZ="92.14917, 14.43948, -381.6129" Radius="75" />
-          <HotSpot XYZ="99.50403, 14.97906, -377.9813" Radius="75" />
-          <HotSpot XYZ="99.29041, 15.0212, -372.0303" Radius="75" />
+          <HotSpot XYZ="92.14917, 14.43948, -381.6129" Radius="75"/>
+          <HotSpot XYZ="99.50403, 14.97906, -377.9813" Radius="75"/>
+          <HotSpot XYZ="99.29041, 15.0212, -372.0303" Radius="75"/>
         </HotSpots>
-      </SoUseItem>
--->
+      </UseItem>
+    </If>
     <!-- Singed Fur Their Own Good -->
     <If Condition="HasQuest(66772) and GetQuestStep(66772) == 1">
       <If Condition="not IsOnMap(146)">
@@ -1090,9 +1156,9 @@ Authors:  Sodimm.
         <GetTo ZoneId="146" XYZ="-13.62687,0.02612245,-1.374997"/>
       </If>
       <NoCombatMoveTo XYZ="-13.62687,0.02612245,-1.374997"/>
-	  <While Condition="not IsTodoChecked(66766, 1, 0)">
+      <While Condition="not IsTodoChecked(66766, 1, 0)">
         <UseObject NpcIds="2003136,2003140,2003141,2003147,2003148" XYZ="-13.62687,0.02612245,-1.374997" Radius="100" UseTimes="1"/>
-	  </While>
+      </While>
     </If>
     <If Condition="HasQuest(66766) and GetQuestStep(66766) == 1 and not IsTodoChecked(66766, 1, 1)">
       <If Condition="not IsOnMap(146)">

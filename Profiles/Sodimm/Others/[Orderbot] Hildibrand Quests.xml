@@ -564,7 +564,7 @@ Authors:  Sodimm
       <TalkTo NpcId="1011681" XYZ="-182.2996, 18, 56.90088" QuestId="66027"/>
     </If>
     <If Condition="HasQuest(66027) and not IsQuestCompleted(66027) and GetQuestStep(66027) == 1 and GetQuestById(66027).GetTodoArgs(1, 0).Item1 == 1">
-      <GetTo ZoneId="130" XYZ="-195.4528, 18, 60.53247"/>
+      <GetTo ZoneId="130" XYZ="-196.3336, 18, 62.16604"/>
       <TalkTo NpcId="1003897" XYZ="-195.4528, 18, 60.53247" QuestId="66027"/>
     </If>
     <If Condition="HasQuest(66027) and not IsQuestCompleted(66027) and GetQuestStep(66027) == 1 and GetQuestById(66027).GetTodoArgs(1, 0).Item1 == 2">
@@ -584,7 +584,7 @@ Authors:  Sodimm
       <TalkTo NpcId="1011683" XYZ="76.8291, 45, -218.2803" QuestId="66027" StepId="3"/>
     </If>
     <If Condition="HasQuest(66027) and not IsQuestCompleted(66027) and GetQuestStep(66027) == 4">
-      <GetTo ZoneId="140" XYZ="-341.3316, 23, -353.6448"/>
+      <GetTo ZoneId="140" XYZ="-344.3504, 23, -353.2311"/>
       <WaitWhile Condition="HasQuest(66027) and not IsQuestCompleted(66027) and not GetQuestStep(66027) == 255"/>
     </If>
     <If Condition="HasQuest(66027) and not IsQuestCompleted(66027) and GetQuestStep(66027) == 255">
@@ -642,7 +642,7 @@ Authors:  Sodimm
       <TalkTo NpcId="1011707" XYZ="42.89307, 34, 29.34302" QuestId="66029" StepId="1"/>
     </If>
     <If Condition="HasQuest(66029) and not IsQuestCompleted(66029) and GetQuestStep(66029) == 2">
-      <GetTo ZoneId="131" XYZ="140.4897, 4.009998, -59.80017"/>
+      <GetTo ZoneId="131" XYZ="137.9159, 4, -58.54622"/>
       <TalkTo NpcId="1001679" XYZ="140.4897, 4.009998, -59.80017" QuestId="66029" StepId="2"/>
     </If>
     <If Condition="HasQuest(66029) and not IsQuestCompleted(66029) and GetQuestStep(66029) == 3">
@@ -682,7 +682,7 @@ Authors:  Sodimm
       <TurnIn QuestId="66038" NpcId="1011723" XYZ="141.0696, 29.64365, 173.7239"/>
     </If>
     <!-- A Gentleman Falls, Rather than Flies (Level 60) -->
-    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(66029) and not HasQuest(67762) and not IsQuestCompleted(67762)">
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(66038) and not HasQuest(67762) and not IsQuestCompleted(67762)">
       <GetTo ZoneId="419" XYZ="-265.3062, -20.03492, -67.13261"/>
       <If Condition="IsQuestAcceptQualified(67762)">
         <PickupQuest QuestId="67762" NpcId="1016597" XYZ="-265.3062, -20.03492, -67.13261"/>

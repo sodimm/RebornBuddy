@@ -128,11 +128,10 @@ Authors:  TuckMeIntoBread, Sodimm.
     </If>
     <If Condition="HasQuest(67949) and not IsQuestCompleted(67949) and GetQuestStep(67949) == 3">
       <GetTo ZoneId="628" XYZ="130.3816, 25, -0.5099589"/>
-    <RunCode Name="Announce_Manual_Completion"/>
+      <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(67949) and not IsQuestCompleted(67949) and GetQuestStep(67949) == 255">
       <GetTo ZoneId="628" XYZ="-47.85839, 16.52945, 11.30724"/>
-      <NoCombatMoveTo XYZ="-47.85839, 16.52945, 11.30724"/>
       <TurnIn QuestId="67949" NpcId="1021309" XYZ="-47.85839, 16.52945, 11.30724"/>
     </If>
   </Order>

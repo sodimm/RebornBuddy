@@ -451,7 +451,7 @@
             /// <param name="blackList">Should you Blacklist the object after use?</param>
             /// <param name="duration">How long do you want the Blacklist to last.</param>
             /// <returns></returns>
-            public static async Task<bool> UseItem(int item, GameObject obj, bool blackList = false, int duration = 180, bool inCombat = false, int[] hasAnyAura = null)
+            public static async Task<bool> UseItem(int item, GameObject obj, bool blackList = false, int duration = 180, bool inCombat = false, int healthPercent = 40, int[] hasAnyAura = null)
             {
                 var slot = InventoryManager.FilledSlots.FirstOrDefault(s => s.RawItemId == item);
                 if (slot == null) { return false; }
@@ -467,7 +467,9 @@
                         continue;
                     }
 
-                    if (inCombat && Helpers.HasAnyAura((obj as BattleCharacter), hasAnyAura)) { return false; }
+                    if (inCombat && hasAnyAura != null && Helpers.HasAnyAura((obj as BattleCharacter), hasAnyAura)) { return false; }
+
+                    if (inCombat && Core.Me.CurrentTarget.CurrentHealthPercent > healthPercent) { return false; }
 
                     if (!inCombat && Core.Me.InCombat) { return false; }
 

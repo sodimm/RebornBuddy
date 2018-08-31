@@ -55,6 +55,10 @@ namespace ff14bot.NeoProfiles.Tags
         [DefaultValue(false)]
         public new bool InCombat { get; set; }
 
+        [XmlAttribute("HealthPercent")]
+        [DefaultValue(40)]
+        public int HealthPercent { get; set; }
+
         [XmlAttribute("LacksAuraIds")]
         [DefaultValue(null)]
         public int[] Auras { get; set; }
@@ -78,7 +82,7 @@ namespace ff14bot.NeoProfiles.Tags
 
             if (InCombat)
             {
-                _combatlogic = new ActionRunCoroutine(cr => Common.UseItem(ItemId, Poi.Current?.BattleCharacter, inCombat: true, hasAnyAura: Auras));
+                _combatlogic = new ActionRunCoroutine(cr => Common.UseItem(ItemId, Poi.Current?.BattleCharacter, inCombat: true, hasAnyAura: Auras, healthPercent: HealthPercent));
                 TreeHooks.Instance.InsertHook("PreCombatLogic", 0, _combatlogic);
             }
         }
@@ -91,7 +95,9 @@ namespace ff14bot.NeoProfiles.Tags
 
                 if (!await Common.AwaitCombat()) { return false; }
 
-                if (!await Movement.MoveTo(o.Position, ignoreIndoors: IgnoreIndoors)) { return false; }
+                if (!InCombat && !await Movement.MoveTo(o.Position, ignoreIndoors: IgnoreIndoors)) { return false; }
+
+                if (InCombat && !await Movement.MoveTo(o.Position, true, false, IgnoreIndoors)) { return false; }
 
                 if (!Common.Exists(o.Position, NpcIds))
                 {

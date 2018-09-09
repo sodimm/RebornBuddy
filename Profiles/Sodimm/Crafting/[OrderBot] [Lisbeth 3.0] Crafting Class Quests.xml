@@ -23,6 +23,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <SoTurnIn QuestId="65741" ItemId="5361" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- To Be the Wood (Level 5) -->
       <If Condition="IsQuestCompleted(65741) and not HasQuest(65675) and not IsQuestCompleted(65675) and Core.Player.ClassLevel &gt; 4">
@@ -37,6 +38,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <SoTurnIn QuestId="65675" ItemId="2219" AllowHq="True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Supplies for the Sick (Level 10) -->
       <If Condition="IsQuestCompleted(65675) and not HasQuest(65676) and not IsQuestCompleted(65676) and Core.Player.ClassLevel &gt; 9">
@@ -47,10 +49,11 @@ Required Botbases:  Lisbeth 3.0.
       </If>
       <If Condition="HasQuest(65676) and not IsQuestCompleted(65676) and GetQuestStep(65676) == 255">
         <If Condition="not HasItem(5364)">
-          <Lisbeth Json="[{'Item': 5364,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+          <Lisbeth Json="[{'Item': 5364,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <SoTurnIn QuestId="65676" ItemId="5364" AllowHq="True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Carpenter in Need (Level 15) -->
       <If Condition="IsQuestCompleted(65676) and not HasQuest(65677) and not IsQuestCompleted(65677) and Core.Player.ClassLevel &gt; 14">
@@ -61,7 +64,7 @@ Required Botbases:  Lisbeth 3.0.
       </If>
       <If Condition="HasQuest(65677) and not IsQuestCompleted(65677) and GetQuestStep(65677) == 1">
         <GetTo ZoneId="132" XYZ="-9.720032, -3.25, 52.47571"/>
-        <TalkTo NpcId="1000149" XYZ="-9.720032, -3.25, 52.47571" QuestId="65676" StepId="1"/>
+        <TalkTo NpcId="1000149" XYZ="-9.720032, -3.25, 52.47571" QuestId="65677" StepId="1"/>
       </If>
       <If Condition="HasQuest(65677) and not IsQuestCompleted(65677) and GetQuestStep(65677) == 2 and not IsTodoChecked(65677, 2, 1)">
         <If Condition="not HasItem(1895)">
@@ -80,6 +83,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65677) and not IsQuestCompleted(65677) and GetQuestStep(65677) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="65677" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Lance's Lesson  (Level 20) -->
       <If Condition="IsQuestCompleted(65677) and not HasQuest(65678) and not IsQuestCompleted(65678) and Core.Player.ClassLevel &gt; 19">
@@ -93,11 +97,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 1827,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
-        <If Condition="not IsTodoChecked(65678, 255, 0)">
+        <If Condition="GetQuestStep(65678) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65678, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65678) == 255"/>
         </If>
         <SoTurnIn QuestId="65678" ItemId="1827" AllowHq="True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Crisis of Confidence (Level 25) -->
       <If Condition="IsQuestCompleted(65678) and not HasQuest(65704) and not IsQuestCompleted(65704) and Core.Player.ClassLevel &gt; 24">
@@ -111,11 +116,12 @@ Required Botbases:  Lisbeth 3.0.
         <TalkTo NpcId="1000162" XYZ="-77.95837, -3.695303, 53.08606" QuestId="65704" StepId="1"/>
       </If>
       <If Condition="HasQuest(65704) and not IsQuestCompleted(65704) and GetQuestStep(65704) == 255">
-        <If Condition="HasHqItem(5371)">
+        <If Condition="not HasHqItem(5371)">
           <Lisbeth Json="[{'Item': 5371,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="65704" ItemId="5371" RequiresHq="True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Between Captain and Conjurer (Level 30) -->
       <If Condition="IsQuestCompleted(65704) and not HasQuest(65705) and not IsQuestCompleted(65705) and Core.Player.ClassLevel &gt; 29">
@@ -146,11 +152,12 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65705) and not IsQuestCompleted(65705) and GetQuestStep(65705) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="65705" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Growing Apart (Level 35) -->
       <If Condition="IsQuestCompleted(65705) and not HasQuest(66072) and not IsQuestCompleted(66072) and Core.Player.ClassLevel &gt; 34">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
-        <If Condition="IsQuestAcceptQualified(60072)">
+        <If Condition="IsQuestAcceptQualified(66072)">
           <PickupQuest QuestId="66072" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
         </If>
       </If>
@@ -168,6 +175,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66072) and not IsQuestCompleted(66072) and GetQuestStep(66072) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="66072" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Memento Mori (Level 40) -->
       <If Condition="IsQuestCompleted(66072) and not HasQuest(66073) and not IsQuestCompleted(66073) and Core.Player.ClassLevel &gt; 39">
@@ -190,6 +198,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66073) and not IsQuestCompleted(66073) and GetQuestStep(66073) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="66073" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Gone till the Sixth Astral Moon (Level 45) -->
       <If Condition="IsQuestCompleted(66073) and not HasQuest(66074) and not IsQuestCompleted(66074) and Core.Player.ClassLevel &gt; 44">
@@ -226,6 +235,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66074) and not IsQuestCompleted(66074) and GetQuestStep(66074) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="66074" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Saving Captain Gairhard (Level 50) -->
       <If Condition="IsQuestCompleted(66074) and not HasQuest(66075) and not IsQuestCompleted(66075) and Core.Player.ClassLevel &gt; 49">
@@ -243,19 +253,23 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 5376,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
-        <If Condition="not IsTodoChecked(66075, 2, 0)">
-          <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66075, 2, 0)"/>
-        </If>
         <HandOver ItemId="5376" RequireHq="True" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="66075" StepId="2"/>
       </If>
       <If Condition="HasQuest(66075) and not IsQuestCompleted(66075) and GetQuestStep(66075) == 3">
+        <If Condition="not HasHqItem(1942)">
+          <Lisbeth Json="[{'Item': 1942,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+        </If>
         <GetTo ZoneId="154" XYZ="162.005, -27.84127, 309.9564"/>
+        <If Condition="GetQuestStep(66075) == 3">
+          <RunCode Name="Requires_Melding"/>
+          <WaitWhile Condition="GetQuestStep(66075) == 3"/>
+        </If>
         <HandOver ItemId="1942" RequireHq="True" NpcId="1003072" XYZ="162.005, -27.84127, 309.9564" QuestId="66075" StepId="3"/>
       </If>
       <If Condition="HasQuest(66075) and not IsQuestCompleted(66075) and GetQuestStep(66075) == 255">
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="66075" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Lance of a Lifetime (Level 50) -->
       <If Condition="IsQuestCompleted(66075) and not HasQuest(67533) and not IsQuestCompleted(67533) and Core.Player.ClassLevel &gt; 49">
@@ -271,6 +285,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67533) and not IsQuestCompleted(67533) and GetQuestStep(67533) == 255">
         <GetTo ZoneId="418" XYZ="96.57422, -20.02087, 64.7135"/>
         <TurnIn QuestId="67533" ItemId="2001681" NpcId="1012498" XYZ="96.57422, -20.02087, 64.7135"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A-hunting He Will Go (Level 53) -->
       <If Condition="IsQuestCompleted(67533) and not HasQuest(67534) and not IsQuestCompleted(67534) and Core.Player.ClassLevel &gt; 52">
@@ -293,6 +308,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67534) and not IsQuestCompleted(67534) and GetQuestStep(67534) == 255">
         <GetTo ZoneId="418" XYZ="96.57422, -20.02087, 64.7135"/>
         <TurnIn QuestId="67534" NpcId="1012498" XYZ="96.57422, -20.02087, 64.7135"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Ministers Of Grace Defend Him (Level 55) -->
       <If Condition="IsQuestCompleted(67534) and not HasQuest(67535) and not IsQuestCompleted(67535) and Core.Player.ClassLevel &gt; 54">
@@ -315,6 +331,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67535) and not IsQuestCompleted(67535) and GetQuestStep(67535) == 255">
         <GetTo ZoneId="418" XYZ="96.57422, -20.02087, 64.7135"/>
         <TurnIn QuestId="67535" NpcId="1012498" XYZ="96.57422, -20.02087, 64.7135"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Son Also Rises (Level 57) -->
       <If Condition="IsQuestCompleted(67535) and not HasQuest(67536) and not IsQuestCompleted(67536) and Core.Player.ClassLevel &gt; 56">
@@ -341,6 +358,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="418" XYZ="96.57422, -20.02087, 64.7135"/>
         <TurnIn QuestId="67536" ItemId="12583" RequireHq="True" NpcId="1012498" XYZ="96.57422, -20.02087, 64.7135"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- More Fierce than Fire (Level 60) -->
       <If Condition="IsQuestCompleted(67536) and not HasQuest(67537) and not IsQuestCompleted(67537) and Core.Player.ClassLevel &gt; 59">
@@ -379,6 +397,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67537) and not IsQuestCompleted(67537) and GetQuestStep(67537) == 255">
         <GetTo ZoneId="397" XYZ="542.2294, 176.8043, -554.4976"/>
         <TurnIn QuestId="67537" NpcId="1013686" XYZ="542.2294, 176.8043, -554.4976"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Uncharted Territory (Level 60) -->
       <If Condition="IsQuestCompleted(67537) and not HasQuest(67977) and not IsQuestCompleted(67977) and Core.Player.ClassLevel &gt; 59">
@@ -410,6 +429,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67977) and not IsQuestCompleted(67977) and GetQuestStep(67977) == 255">
         <GetTo ZoneId="132" XYZ="-45.10997, -1.250017, 57.86028"/>
         <TurnIn QuestId="67977" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Game of Confidence (Level 63) -->
       <If Condition="IsQuestCompleted(67977) and not HasQuest(67978) and not IsQuestCompleted(67978) and Core.Player.ClassLevel &gt; 62">
@@ -452,6 +472,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67978) and not IsQuestCompleted(67978) and GetQuestStep(67978) == 255">
         <GetTo ZoneId="628" XYZ="-46.65266, 3.013504, -69.99533"/>
         <TurnIn QuestId="67978" NpcId="1020903" XYZ="-46.95203, 3.013504, -69.0166"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Lesson in Listening (Level 65) -->
       <If Condition="IsQuestCompleted(67978) and not HasQuest(67979) and not IsQuestCompleted(67979) and Core.Player.ClassLevel &gt; 64">
@@ -490,6 +511,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67979) and not IsQuestCompleted(67979) and GetQuestStep(67979) == 255">
         <GetTo ZoneId="628" XYZ="-50.98821, -2.9, -51.92702"/>
         <TurnIn QuestId="67979" NpcId="1020994" XYZ="-51.89594, -2.9, -50.91937"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Live and Let Dine (Level 68) -->
       <If Condition="IsQuestCompleted(67979) and not HasQuest(67980) and not IsQuestCompleted(67980) and Core.Player.ClassLevel &gt; 67">
@@ -536,6 +558,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67980) and not IsQuestCompleted(67980) and GetQuestStep(67980) == 255">
         <GetTo ZoneId="132" XYZ="-22.08097, -3.25, 35.43846"/>
         <TurnIn QuestId="67980" NpcId="1020901" XYZ="-22.87329, -3.25, 35.20251"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Tea Party Rules (Level 70) -->
       <If Condition="IsQuestCompleted(67980) and not HasQuest(67981) and not IsQuestCompleted(67981) and Core.Player.ClassLevel &gt; 69">
@@ -574,6 +597,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67981) and not IsQuestCompleted(67981) and GetQuestStep(67981) == 255">
         <GetTo ZoneId="132" XYZ="-45.06167, -1.250014, 57.76295"/>
         <TurnIn QuestId="67981" NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Blacksmith">
@@ -590,6 +614,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <SoTurnIn QuestId="65828" ItemId="5056" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Hammer Time (Level 5) -->
       <If Condition="IsQuestCompleted(65828) and not HasQuest(65829) and not IsQuestCompleted(65829) and Core.Player.ClassLevel &gt; 4">
@@ -604,6 +629,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <SoTurnIn QuestId="65829" ItemId="2341" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Riveting Ramblings (Level 10) -->
       <If Condition="IsQuestCompleted(65829) and not HasQuest(65830) and not IsQuestCompleted(65830) and Core.Player.ClassLevel &gt; 9">
@@ -618,6 +644,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <SoTurnIn QuestId="65830" ItemId="5091" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Business of Blacksmithing (Level 15) -->
       <If Condition="IsQuestCompleted(65830) and not HasQuest(65831) and not IsQuestCompleted(65831) and Core.Player.ClassLevel &gt; 14">
@@ -639,6 +666,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <SoTurnIn QuestId="65831" ItemIds="1605,1753" AllowHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- By the Sweat of Your Brow (Level 20) -->
       <If Condition="IsQuestCompleted(65831) and not HasQuest(65832) and not IsQuestCompleted(65832) and Core.Player.ClassLevel &gt; 19">
@@ -652,11 +680,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2344,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
-        <If Condition="not IsTodoChecked(65832, 255, 0)">
+        <If Condition="GetQuestStep(65832) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65832, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65832) == 255"/>
         </If>
         <SoTurnIn QuestId="65832" ItemId="2344" AllowHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- True as Steel (Level 25) -->
       <If Condition="IsQuestCompleted(65832) and not HasQuest(65833) and not IsQuestCompleted(65833) and Core.Player.ClassLevel &gt; 24">
@@ -671,6 +700,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
         <TurnIn QuestId="65833" ItemId="5058" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- As Iron Sharpens Iron (Level 30) -->
       <If Condition="IsQuestCompleted(65833) and not HasQuest(65834) and not IsQuestCompleted(65834) and Core.Player.ClassLevel &gt; 29">
@@ -701,6 +731,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65834) and not IsQuestCompleted(65834) and GetQuestStep(65834) == 255">
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <TurnIn QuestId="65834" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Set Faezahr to Stun (Level 35) -->
       <If Condition="IsQuestCompleted(65834) and not HasQuest(65835) and not IsQuestCompleted(65835) and Core.Player.ClassLevel &gt; 34">
@@ -719,6 +750,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
         <TurnIn QuestId="65835" ItemId="1778" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Forging Ahead (Level 40) -->
       <If Condition="IsQuestCompleted(65835) and not HasQuest(65836) and not IsQuestCompleted(65836) and Core.Player.ClassLevel &gt; 39">
@@ -733,6 +765,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <TurnIn QuestId="65836" ItemId="2350" RequiresHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Beauty and the Bardiche (Level 45) -->
       <If Condition="IsQuestCompleted(65836) and not HasQuest(65837) and not IsQuestCompleted(65837) and Core.Player.ClassLevel &gt; 44">
@@ -761,6 +794,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65837) and not IsQuestCompleted(65837) and GetQuestStep(65837) == 255">
         <GetTo ZoneId="129" XYZ="-300.4044, 21.34725, 193.1945"/>
         <TurnIn QuestId="65837" ItemIds="1723, 1796, 1659" RequiresHq="True, True, True" NpcId="1001539" XYZ="-300.4044, 21.34725, 193.1945"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Waiting in the Winglet (Level 50) -->
       <If Condition="IsQuestCompleted(65837) and not HasQuest(65838) and not IsQuestCompleted(65838) and Core.Player.ClassLevel &gt; 49">
@@ -782,9 +816,9 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 1663,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
-        <If Condition="not IsTodoChecked(65838, 3, 0)">
+        <If Condition="GetQuestStep(65838) == 3">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65838, 3, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65838) == 3"/>
         </If>
         <HandOver ItemId="1663" RequiresHq="True" NpcId="1001005" XYZ="-52.35376, 42.49961, 211.5968" QuestId="65838" StepId="3"/>
       </If>
@@ -795,6 +829,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65838) and not IsQuestCompleted(65838) and GetQuestStep(65838) == 255">
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <TurnIn QuestId="65838" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Forging Northwards (Level 50) -->
       <If Condition="IsQuestCompleted(65838) and not HasQuest(67543) and not IsQuestCompleted(67543) and Core.Player.ClassLevel &gt; 49">
@@ -810,6 +845,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67543) and not IsQuestCompleted(67543) and GetQuestStep(67543) == 255">
         <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
         <TurnIn QuestId="67543" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Leave it to Fremondain (Level 53) -->
       <If Condition="IsQuestCompleted(67543) and not HasQuest(67544) and not IsQuestCompleted(67544) and Core.Player.ClassLevel &gt; 52">
@@ -832,6 +868,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
         <TurnIn QuestId="67544" ItemId="12528" RequiresHq="True" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Good Fight (Level 55) -->
       <If Condition="IsQuestCompleted(67544) and not HasQuest(67545) and not IsQuestCompleted(67545) and Core.Player.ClassLevel &gt; 54">
@@ -854,6 +891,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67545) and not IsQuestCompleted(67545) and GetQuestStep(67545) == 255">
         <GetTo ZoneId="418" XYZ="83.63464, 23.97186, -32.76117"/>
         <TurnIn QuestId="67545" NpcId="2005898" XYZ="83.63464, 23.97186, -32.76117"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Blade that was Broken (Level 57) -->
       <If Condition="IsQuestCompleted(67545) and not HasQuest(67546) and not IsQuestCompleted(67546) and Core.Player.ClassLevel &gt; 56">
@@ -884,6 +922,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67546) and not IsQuestCompleted(67546) and GetQuestStep(67546) == 255">
         <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
         <TurnIn QuestId="67546" ItemId="2001709" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Integrity (Level 60) -->
       <If Condition="IsQuestCompleted(67546) and not HasQuest(67547) and not IsQuestCompleted(67547) and Core.Player.ClassLevel &gt; 59">
@@ -906,6 +945,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 255">
         <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
         <TurnIn QuestId="67547" ItemId="2001709" NpcId="1012509" XYZ="-190.566, -12.5484, -25.8185"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Missive from the Far East (Level 60) -->
       <If Condition="IsQuestCompleted(67547) and not HasQuest(68129) and not IsQuestCompleted(68129) and Core.Player.ClassLevel &gt; 59">
@@ -921,6 +961,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68129) and not IsQuestCompleted(68129) and GetQuestStep(68129) == 255">
         <GetTo ZoneId="128" XYZ="-31.86705, 44.49996, 184.5974"/>
         <TurnIn ItemIds="2002065" QuestId="68129" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Client is King (Level 63) -->
       <If Condition="IsQuestCompleted(68129) and not HasQuest(68152) and not IsQuestCompleted(68152) and Core.Player.ClassLevel &gt; 62">
@@ -947,6 +988,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.50769, 44.5, 184.9527"/>
         <TurnIn QuestId="68152" ItemId="17886" RequiresHq="True" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Blood Ties (Level 65) -->
       <If Condition="IsQuestCompleted(68152) and not HasQuest(68153) and not IsQuestCompleted(68153) and Core.Player.ClassLevel &gt; 64">
@@ -973,6 +1015,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68153) and not IsQuestCompleted(68153) and GetQuestStep(68153) == 255">
         <GetTo ZoneId="128" XYZ="-31.51809, 44.49999, 184.7543"/>
         <TurnIn QuestId="68153" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Missing Piece (Level 68) -->
       <If Condition="IsQuestCompleted(68153) and not HasQuest(68154) and not IsQuestCompleted(68154) and Core.Player.ClassLevel &gt; 67">
@@ -1007,6 +1050,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68154) and not IsQuestCompleted(68154) and GetQuestStep(68154) == 255">
         <GetTo ZoneId="128" XYZ="-32.22143, 44.49998, 186.8418"/>
         <TurnIn QuestId="68154" NpcId="1021047" XYZ="-31.8761, 44.5, 187.8232"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Final Face-off (Level 70) -->
       <If Condition="IsQuestCompleted(68154) and not HasQuest(68155) and not IsQuestCompleted(68155) and Core.Player.ClassLevel &gt; 69">
@@ -1041,6 +1085,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68155) and not IsQuestCompleted(68155) and GetQuestStep(68155) == 255">
         <GetTo ZoneId="128" XYZ="-31.7522, 44.49996, 184.6536"/>
         <TurnIn QuestId="68155" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Armorer">
@@ -1057,6 +1102,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <SoTurnIn QuestId="65810" ItemId="5056" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- From Thigh to Neck (Level 5) -->
       <If Condition="IsQuestCompleted(65810) and not HasQuest(65811) and not IsQuestCompleted(65811) and Core.Player.ClassLevel &gt; 4">
@@ -1071,6 +1117,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
         <SoTurnIn QuestId="65811" ItemId="2226" NpcId="1001000"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Base Fundamentals (Level 10) -->
       <If Condition="IsQuestCompleted(65811) and not HasQuest(65812) and not IsQuestCompleted(65812) and Core.Player.ClassLevel &gt; 9">
@@ -1085,6 +1132,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
         <SoTurnIn QuestId="65812" ItemId="5071" NpcId="1001000"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- One's Own Worst Critic (Level 15) -->
       <If Condition="IsQuestCompleted(65812) and not HasQuest(65813) and not IsQuestCompleted(65813) and Core.Player.ClassLevel &gt; 14">
@@ -1118,6 +1166,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65813) and not IsQuestCompleted(65813) and GetQuestStep(65813) == 255">
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <TurnIn NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289" QuestId="65813"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- An Armorer's Pride (Level 20) -->
       <If Condition="IsQuestCompleted(65813) and not HasQuest(65814) and not IsQuestCompleted(65814) and Core.Player.ClassLevel &gt; 19">
@@ -1131,11 +1180,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2236,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
-        <If Condition="not IsTodoChecked(65814, 255, 0)">
+        <If Condition="GetQuestStep(65814) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65814, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65814) == 255"/>
         </If>
         <SoTurnIn QuestId="65814" ItemId="2236" NpcId="1001001"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Showing Your Steel (Level 25) -->
       <If Condition="IsQuestCompleted(65814) and not HasQuest(65815) and not IsQuestCompleted(65815) and Core.Player.ClassLevel &gt; 24">
@@ -1150,6 +1200,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <SoTurnIn QuestId="65815" ItemId="5058" NpcId="1001001"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- May the Best Armorer Win (Level 30) -->
       <If Condition="IsQuestCompleted(65815) and not HasQuest(65816) and not IsQuestCompleted(65816) and Core.Player.ClassLevel &gt; 29">
@@ -1172,6 +1223,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <SoTurnIn QuestId="65816" ItemId="3096" RequiresHq="True" NpcId="1001001"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Pans of Steel (Level 35) -->
       <If Condition="IsQuestCompleted(65816) and not HasQuest(65817) and not IsQuestCompleted(65817) and Core.Player.ClassLevel &gt; 34">
@@ -1190,6 +1242,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65817) and not IsQuestCompleted(65817) and GetQuestStep(65817) == 255">
         <GetTo ZoneId="128" XYZ="-54.64258, 43.99998, -151.2322"/>
         <SoTurnIn QuestId="65817" ItemId="2502" RequiresHq="True" NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Best of Three (Level 40) -->
       <If Condition="IsQuestCompleted(65817) and not HasQuest(65818) and not IsQuestCompleted(65818) and Core.Player.ClassLevel &gt; 39">
@@ -1212,6 +1265,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65818) and not IsQuestCompleted(65818) and GetQuestStep(65818) == 255">
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <SoTurnIn QuestId="65818" ItemId="3149" RequiresHq="True" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- For the Good of the Guild (Level 45) -->
       <If Condition="IsQuestCompleted(65818) and not HasQuest(65819) and not IsQuestCompleted(65819) and Core.Player.ClassLevel &gt; 44">
@@ -1236,6 +1290,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65819) and not IsQuestCompleted(65819) and GetQuestStep(65819) == 255">
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <SoTurnIn QuestId="65819" ItemIds="3861, 2830, 3868" RequiresHq="True, True, True" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Rivalry and Respect (Level 50) -->
       <If Condition="IsQuestCompleted(65819) and not HasQuest(65820) and not IsQuestCompleted(65820) and Core.Player.ClassLevel &gt; 49">
@@ -1249,9 +1304,9 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3203,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="129" XYZ="-202.6857, 16, 56.99243"/>
-        <If Condition="not IsTodoChecked(65820, 1, 0)">
+        <If Condition="GetQuestStep(65820) == 1">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65820, 1, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65820) == 1"/>
         </If>
         <HandOver ItemId="3203" RequiresHq="True" NpcId="1001540" XYZ="-202.6857, 16, 56.99243" QuestId="65820" StepId="1"/>
       </If>
@@ -1262,6 +1317,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65820) and not IsQuestCompleted(65820) and GetQuestStep(65820) == 255">
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
         <SoTurnIn NpcId="1001000" QuestId="65820" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Breaking of Blanstyr (Level 51) -->
       <If Condition="IsQuestCompleted(65820) and not HasQuest(67574) and not IsQuestCompleted(67574) and Core.Player.ClassLevel &gt; 50">
@@ -1289,6 +1345,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67574) and not IsQuestCompleted(67574) and GetQuestStep(67574) == 255">
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
         <SoTurnIn QuestId="67574" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Light-Headed (Level 54) -->
       <If Condition="IsQuestCompleted(67574) and not HasQuest(67575) and not IsQuestCompleted(67575) and Core.Player.ClassLevel &gt; 53">
@@ -1319,6 +1376,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-24.91, 40, 4.995"/>
         <SoTurnIn QuestId="67575" ItemId="10756" NpcId="1012518"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Fancy Lancer (Level 57) -->
       <If Condition="IsQuestCompleted(67575) and not HasQuest(67576) and not IsQuestCompleted(67576) and Core.Player.ClassLevel &gt; 56">
@@ -1353,6 +1411,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-24.91, 40, 4.995"/>
         <SoTurnIn QuestId="67576" ItemId="10721" NpcId="1012518" RequiresHq="True" XYZ="-24.91, 40, 4.995"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The reforging of Blanstyr (Level 59) -->
       <If Condition="IsQuestCompleted(67576) and not HasQuest(67577) and not IsQuestCompleted(67577) and Core.Player.ClassLevel &gt; 58">
@@ -1383,6 +1442,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-24.91, 40, 4.995"/>
         <SoTurnIn QuestId="67577" ItemId="10667" NpcId="1012518" XYZ="-24.91, 40, 4.995"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Pride of Vymelli (Level 60) -->
       <If Condition="IsQuestCompleted(67577) and not HasQuest(67578) and not IsQuestCompleted(67578) and Core.Player.ClassLevel &gt; 59">
@@ -1413,6 +1473,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67578) and not IsQuestCompleted(67578) and GetQuestStep(67578) == 255 and HasItem(2001689)">
         <GetTo ZoneId="129" XYZ="6.48505, 20.3097, 1.08331"/>
         <SoTurnIn QuestId="67578" ItemId="2001689" NpcId="1013791" XYZ="6.48505, 20.3097, 1.08331"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Original Blanstyr (Level 60) -->
       <If Condition="IsQuestCompleted(67578) and not HasQuest(68130) and not IsQuestCompleted(68130) and Core.Player.ClassLevel &gt; 59">
@@ -1428,6 +1489,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68130) and not IsQuestCompleted(68130) and GetQuestStep(68130) == 255">
         <GetTo ZoneId="128" XYZ="-31.55056, 41.49998, 207.4771"/>
         <TurnIn QuestId="68130" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Eastern Apprentice (Level 63) -->
       <If Condition="IsQuestCompleted(68130) and not HasQuest(68131) and not IsQuestCompleted(68131) and Core.Player.ClassLevel &gt; 62">
@@ -1458,6 +1520,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68131) and not IsQuestCompleted(68131) and GetQuestStep(68131) == 255">
         <GetTo ZoneId="628" XYZ="-129.5407, -4.750016, 202.1004"/>
         <TurnIn QuestId="68131" NpcId="1021369" XYZ="-128.1606, -4.750018, 203.8147"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Forging with Scales (Level 65) -->
       <If Condition="IsQuestCompleted(68131) and not HasQuest(68132) and not IsQuestCompleted(68132) and Core.Player.ClassLevel &gt; 64">
@@ -1484,6 +1547,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="628" XYZ="-129.2014, -4.750015, 203.3975"/>
         <TurnIn ItemIds="17896" QuestId="68132" NpcId="1021369" XYZ="-128.1606, -4.750018, 203.8147"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Head-to-head Contest (Level 68) -->
       <If Condition="IsQuestCompleted(68132) and not HasQuest(68133) and not IsQuestCompleted(68133) and Core.Player.ClassLevel &gt; 67">
@@ -1518,6 +1582,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="628" XYZ="-129.3481, -4.750015, 203.0172"/>
         <TurnIn QuestId="68133" ItemId="17898" NpcId="1019052" XYZ="-128.1606, -4.750021, 202.0447"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Confluence of Style (Level 70) -->
       <If Condition="IsQuestCompleted(68133) and not HasQuest(68134) and not IsQuestCompleted(68134) and Core.Player.ClassLevel &gt; 69">
@@ -1548,6 +1613,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68134) and not IsQuestCompleted(68134) and GetQuestStep(68134) == 255">
         <GetTo ZoneId="128" XYZ="-31.87518, 41.49998, 207.5554"/>
         <TurnIn QuestId="68134" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Goldsmith">
@@ -1564,6 +1630,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
         <TurnIn QuestId="66146" ItemId="5062" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Gorgets Rising (Level 5) -->
       <If Condition="IsQuestCompleted(66146) and not HasQuest(66147) and not IsQuestCompleted(66147) and Core.Player.ClassLevel &gt; 4">
@@ -1578,6 +1645,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66147" ItemIds="4305, 4305, 4305" AllowHq="True, True, True" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Throw Some Rings on It (Level 10) -->
       <If Condition="IsQuestCompleted(66147) and not HasQuest(66149) and not IsQuestCompleted(66149) and Core.Player.ClassLevel &gt; 9">
@@ -1596,6 +1664,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66149) and not IsQuestCompleted(66149) and GetQuestStep(66149) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66149" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Objectively Speaking (Level 15) -->
       <If Condition="IsQuestCompleted(66149) and not HasQuest(66150) and not IsQuestCompleted(66150) and Core.Player.ClassLevel &gt; 14">
@@ -1627,6 +1696,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66150) and not IsQuestCompleted(66150) and GetQuestStep(66150) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66150" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Melding of the Minds (Level 20) -->
       <If Condition="IsQuestCompleted(66150) and not HasQuest(66151) and not IsQuestCompleted(66151) and Core.Player.ClassLevel &gt; 19">
@@ -1640,11 +1710,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2111,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
-        <If Condition="not IsTodoChecked(66151, 255, 0)">
+        <If Condition="GetQuestStep(66151) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66151, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(66151) == 255"/>
         </If>
         <SoTurnIn QuestId="66151" ItemId="2111" NpcId="1004093" AllowHq="True" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Or Ever the Silver Cord be Loosed (Level 25) -->
       <If Condition="IsQuestCompleted(66151) and not HasQuest(66152) and not IsQuestCompleted(66152) and Core.Player.ClassLevel &gt; 24">
@@ -1659,6 +1730,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66152" ItemId="5064" RequiresHq="True" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Serendipity Now (Level 30) -->
       <If Condition="IsQuestCompleted(66152) and not HasQuest(66153) and not IsQuestCompleted(66153) and Core.Player.ClassLevel &gt; 29">
@@ -1684,6 +1756,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66153) and not IsQuestCompleted(66153) and GetQuestStep(66153) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn ItemId="2000509" QuestId="66153" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Mammets on Fire (Level 35) -->
       <If Condition="IsQuestCompleted(66153) and not HasQuest(66191) and not IsQuestCompleted(66191) and Core.Player.ClassLevel &gt; 34">
@@ -1698,6 +1771,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66191" ItemId="2078" RequiresHq="True" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Horns of the Green (Level 40) -->
       <If Condition="IsQuestCompleted(66191) and not HasQuest(66192) and not IsQuestCompleted(66192) and Core.Player.ClassLevel &gt; 39">
@@ -1723,6 +1797,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66192) and not IsQuestCompleted(66192) and GetQuestStep(66192) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66192" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Fox in the Hen House (Level 45) -->
       <If Condition="IsQuestCompleted(66192) and not HasQuest(66193) and not IsQuestCompleted(66193) and Core.Player.ClassLevel &gt; 44">
@@ -1760,6 +1835,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66193) and not IsQuestCompleted(66193) and GetQuestStep(66193) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66193" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Jaded (Level 50) -->
       <If Condition="IsQuestCompleted(66193) and not HasQuest(66194) and not IsQuestCompleted(66194) and Core.Player.ClassLevel &gt; 49">
@@ -1773,9 +1849,9 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2876,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
-        <If Condition="not IsTodoChecked(66194, 1, 0)">
+        <If Condition="GetQuestStep(66194) == 1">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66194, 1, 0)"/>
+          <WaitWhile Condition="GetQuestStep(66194) == 1"/>
         </If>
         <SoHandOver ItemIds="4514" RequiresHq="True" QuestId="66194" StepId="1" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
       </If>
@@ -1790,6 +1866,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66194) and not IsQuestCompleted(66194) and GetQuestStep(66194) == 255">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn QuestId="66194" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Form to the Formless (Level 50) -->
       <If Condition="IsQuestCompleted(66194) and not HasQuest(67606) and not IsQuestCompleted(67606) and Core.Player.ClassLevel &gt; 49">
@@ -1813,6 +1890,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67606) and not IsQuestCompleted(67606) and GetQuestStep(67606) == 255">
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <SoTurnIn NpcId="1012528" QuestId="67606" XYZ="-57.406, 18.5041, 66.5633"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Elegance and Artistry (Level 53) -->
       <If Condition="IsQuestCompleted(67606) and not HasQuest(67607) and not IsQuestCompleted(67607) and Core.Player.ClassLevel &gt; 52">
@@ -1835,6 +1913,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <SoTurnIn NpcId="1012528" ItemId="11068" QuestId="67607" XYZ="-57.406, 18.5041, 66.5633"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Double Trouble (Level 55) -->
       <If Condition="IsQuestCompleted(67607) and not HasQuest(67608) and not IsQuestCompleted(67608) and Core.Player.ClassLevel &gt; 54">
@@ -1865,6 +1944,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67608) and not IsQuestCompleted(67608) and GetQuestStep(67608) == 255">
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <SoTurnIn NpcId="1012528" ItemId="2001722" QuestId="67608" XYZ="-57.406, 18.5041, 66.5633"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Masterclass (Level 58) -->
       <If Condition="IsQuestCompleted(67608) and not HasQuest(67609) and not IsQuestCompleted(67609) and Core.Player.ClassLevel &gt; 57">
@@ -1891,6 +1971,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67609) and not IsQuestCompleted(67609) and GetQuestStep(67609) == 255">
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <TurnIn NpcId="1012528" QuestId="67609" XYZ="-57.406, 18.5041, 66.5633"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Two Hearts Beat as One (Level 60) -->
       <If Condition="IsQuestCompleted(67609) and not HasQuest(67610) and not IsQuestCompleted(67610) and Core.Player.ClassLevel &gt; 59">
@@ -1920,6 +2001,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67610) and not IsQuestCompleted(67610) and GetQuestStep(67610) == 255">
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <SoTurnIn NpcId="1012528" QuestId="676010" XYZ="-57.406, 18.5041, 66.5633"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Royal Request (Level 60) -->
       <If Condition="IsQuestCompleted(67610) and not HasQuest(68135) and not IsQuestCompleted(68135) and Core.Player.ClassLevel &gt; 59">
@@ -1947,6 +2029,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68135) and not IsQuestCompleted(68135) and GetQuestStep(68135) == 255">
         <GetTo ZoneId="131" XYZ="-33.10773, 13.59999, 98.55938"/>
         <TurnIn QuestId="68135" NpcId="1002280" XYZ="-35.38574, 13.59997, 97.24573"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Gemworks in Progress (Level 63) -->
       <If Condition="IsQuestCompleted(68135) and not HasQuest(68136) and not IsQuestCompleted(68136) and Core.Player.ClassLevel &gt; 62">
@@ -1985,6 +2068,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="635" XYZ="-76.9677, 0.01000077, 46.56393"/>
         <TurnIn ItemIds="17902" QuestId="68136" NpcId="1021131" XYZ="-77.95837, 0.01000099, 45.5481"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Blindsided (Level 65) -->
       <If Condition="IsQuestCompleted(68136) and not HasQuest(68137) and not IsQuestCompleted(68137) and Core.Player.ClassLevel &gt; 64">
@@ -2019,6 +2103,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="635" XYZ="-77.05145, 0.01000082, 46.10489"/>
         <TurnIn ItemIds="17904" QuestId="68137" NpcId="1021131" XYZ="-77.95837, 0.01000099, 45.5481"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Perfect Tribute (Level 68) -->
       <If Condition="IsQuestCompleted(68137) and not HasQuest(68138) and not IsQuestCompleted(68138) and Core.Player.ClassLevel &gt; 67">
@@ -2061,6 +2146,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="635" XYZ="-76.95066, 0.01000094, 45.4845"/>
         <TurnIn ItemIds="17906" QuestId="68138" NpcId="1021131" XYZ="-77.95837, 0.01000099, 45.5481"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Sultana Dreaming (Level 70) -->
       <If Condition="IsQuestCompleted(68138) and not HasQuest(68139) and not IsQuestCompleted(68139) and Core.Player.ClassLevel &gt; 69">
@@ -2099,6 +2185,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68139) and not IsQuestCompleted(68139) and GetQuestStep(68139) == 255">
         <GetTo ZoneId="131" XYZ="-38.23554, 13.5, 111.0385"/>
         <TurnIn QuestId="68139" NpcId="1021158" XYZ="-38.65112, 13.5, 111.4366"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Leatherworker">
@@ -2115,6 +2202,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65745" ItemId="5275" NpcId="1000691" AllowHq="True" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Test of Technique (Level 5) -->
       <If Condition="IsQuestCompleted(65745) and not HasQuest(65642) and not IsQuestCompleted(65642) and Core.Player.ClassLevel &gt; 4">
@@ -2129,6 +2217,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
         <SoTurnIn ItemIds="4305,4305,4305" AllowHq="True" QuestId="66147" NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Geva's Gambit (Level 10) -->
       <If Condition="IsQuestCompleted(65654) and not HasQuest(65671) and not IsQuestCompleted(65671) and Core.Player.ClassLevel &gt; 9">
@@ -2143,6 +2232,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65671" ItemId="5276" NpcId="1000691" AllowHq="True" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Working Hells for Leather (Level 15) -->
       <If Condition="IsQuestCompleted(65671) and not HasQuest(65672) and not IsQuestCompleted(65672) and Core.Player.ClassLevel &gt; 14">
@@ -2160,10 +2250,12 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn ItemIds="3772,4308" AllowHq="True" QuestId="65672" StepId="1" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <If Condition="HasQuest(65672) and not IsQuestCompleted(65672) and GetQuestStep(65672) == 255">
         <GetTo ZoneId="131" XYZ="59.30462, 8, -141.0205"/>
         <SoTurnIn QuestId="65672" NpcId="1000681" XYZ="58.73193, 7.980469, -138.5672"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Aldgoat Everything (Level 20) -->
       <If Condition="IsQuestCompleted(65672) and not HasQuest(65673) and not IsQuestCompleted(65673) and Core.Player.ClassLevel &gt; 19">
@@ -2177,11 +2269,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3784,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
-        <If Condition="not IsTodoChecked(65673, 255, 0)">
+        <If Condition="GetQuestStep(65673) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65673, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65673) == 255"/>
         </If>
         <SoTurnIn QuestId="65673" ItemId="3784" NpcId="1000691" AllowHq="True" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Skin in the Game (Level 25) -->
       <If Condition="IsQuestCompleted(65673) and not HasQuest(65587) and not IsQuestCompleted(65587) and Core.Player.ClassLevel &gt; 24">
@@ -2204,6 +2297,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65587) and not IsQuestCompleted(65587) and GetQuestStep(65587) == 255">
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65587" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Toadskins of the Father (Level 30) -->
       <If Condition="IsQuestCompleted(65587) and not HasQuest(65597) and not IsQuestCompleted(65597) and Core.Player.ClassLevel &gt; 29">
@@ -2237,6 +2331,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65597) and not IsQuestCompleted(65597) and GetQuestStep(65597) == 255">
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65597" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Lead by the Empire (Level 35) -->
       <If Condition="IsQuestCompleted(65597) and not HasQuest(65599) and not IsQuestCompleted(65599) and Core.Player.ClassLevel &gt; 34">
@@ -2251,6 +2346,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65599" ItemId="3616" RequiresHq="True" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Brand Loyalty (Level 40) -->
       <If Condition="IsQuestCompleted(65599) and not HasQuest(65600) and not IsQuestCompleted(65600) and Core.Player.ClassLevel &gt; 39">
@@ -2273,6 +2369,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65600) and not IsQuestCompleted(65600) and GetQuestStep(65600) == 255">
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65600" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Dissension in the Ranks (Level 45) -->
       <If Condition="IsQuestCompleted(65600) and not HasQuest(65601) and not IsQuestCompleted(65601) and Core.Player.ClassLevel &gt; 44">
@@ -2318,6 +2415,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65601) and not IsQuestCompleted(65601) and GetQuestStep(65601) == 255">
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65601" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Accept No Imitations (Level 50) -->
       <If Condition="IsQuestCompleted(65601) and not HasQuest(65602) and not IsQuestCompleted(65602) and Core.Player.ClassLevel &gt; 49">
@@ -2339,15 +2437,16 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3206,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="133" XYZ="-52.65088, 6.749007, -125.2032"/>
-        <If Condition="not IsTodoChecked(65602, 3, 0)">
+        <If Condition="GetQuestStep(65602) == 3">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(65602, 3, 0)"/>
+          <WaitWhile Condition="GetQuestStep(65602) == 3"/>
         </If>
         <SoHandOver ItemId="3206" NpcId="1003674" RequiresHq="True" XYZ="-53.57446, 7.202537, -118.3643" QuestId="65602" StepId="3"/>
       </If>
       <If Condition="HasQuest(65602) and not IsQuestCompleted(65602) and GetQuestStep(65602) == 255">
         <GetTo ZoneId="133" XYZ="71.97681, 8, -166.5217"/>
         <SoTurnIn QuestId="65602" NpcId="1000691" XYZ="71.97681, 8, -166.5217"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Turndown Service (Level 50) -->
       <If Condition="IsQuestCompleted(65602) and not HasQuest(67611) and not IsQuestCompleted(67611) and Core.Player.ClassLevel &gt; 49">
@@ -2375,6 +2474,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67611) and not IsQuestCompleted(67611) and GetQuestStep(67611) == 255">
         <GetTo ZoneId="419" XYZ="-259.069, -20.0349, -84.3817"/>
         <SoTurnIn QuestId="67611" NpcId="1012538" XYZ="-259.069, -20.0349, -84.3817"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- By Your Bootstraps (Level 53) -->
       <If Condition="IsQuestCompleted(67611) and not HasQuest(67612) and not IsQuestCompleted(67612) and Core.Player.ClassLevel &gt; 52">
@@ -2397,6 +2497,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="-259.069, -20.0349, -84.3817"/>
         <SoTurnIn QuestId="67612" ItemId="12007" RequiresHq="True" NpcId="1003674" XYZ="-259.069, -20.0349, -84.3817"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Perfect Pitch (Level 55) -->
       <If Condition="IsQuestCompleted(67612) and not HasQuest(67613) and not IsQuestCompleted(67613) and Core.Player.ClassLevel &gt; 54">
@@ -2427,6 +2528,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67613) and not IsQuestCompleted(67613) and GetQuestStep(67613) == 255">
         <GetTo ZoneId="419" XYZ="-259.069, -20.0349, -84.3817"/>
         <SoTurnIn NpcId="1012538" QuestId="67613" XYZ="-259.069, -20.0349, -84.3817"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- From the Hoplon to the Brume (Level 58) -->
       <If Condition="IsQuestCompleted(67613) and not HasQuest(67614) and not IsQuestCompleted(67614) and Core.Player.ClassLevel &gt; 57">
@@ -2461,6 +2563,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="-259.069, -20.0349, -84.3817"/>
         <SoTurnIn NpcId="1012538" ItemId="12024" RequiresHq="True" QuestId="67614" XYZ="-259.069, -20.0349, -84.3817"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Winter's Sale (Level 60) -->
       <If Condition="IsQuestCompleted(67614) and not HasQuest(67615) and not IsQuestCompleted(67615) and Core.Player.ClassLevel &gt; 59">
@@ -2491,6 +2594,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67615) and not IsQuestCompleted(67615) and GetQuestStep(67615) == 255">
         <GetTo ZoneId="419" XYZ="-259.069, -20.0349, -84.3817"/>
         <SoTurnIn NpcId="1012538" QuestId="67615" XYZ="-259.069, -20.0349, -84.3817"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Taxing Request (Level 60) -->
       <If Condition="IsQuestCompleted(67615) and not HasQuest(68145) and not IsQuestCompleted(68145) and Core.Player.ClassLevel &gt; 59">
@@ -2510,6 +2614,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68145) and not IsQuestCompleted(68145) and GetQuestStep(68145) == 255">
         <GetTo ZoneId="133" XYZ="140.9785, 13.5714, -91.07951"/>
         <TurnIn QuestId="68145" NpcId="1020929" XYZ="141.7106, 13.5714, -90.44025"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Mounting Expectations (Level 63) -->
       <If Condition="IsQuestCompleted(68145) and not HasQuest(68146) and not IsQuestCompleted(68146) and Core.Player.ClassLevel &gt; 62">
@@ -2544,6 +2649,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="133" XYZ="76.32645, 0, -125.24"/>
         <TurnIn ItemIds="17910" QuestId="68146" NpcId="1020941" XYZ="75.7915, 0, -125.8107"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Value of Life (Level 65) -->
       <If Condition="IsQuestCompleted(68146) and not HasQuest(68147) and not IsQuestCompleted(68147) and Core.Player.ClassLevel &gt; 64">
@@ -2582,6 +2688,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="133" XYZ="76.51757, 0, -125.0596"/>
         <TurnIn ItemIds="17912" QuestId="68147" NpcId="1020941" XYZ="75.7915, 0, -125.8107"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Trouble with Taxidermy (Level 68) -->
       <If Condition="IsQuestCompleted(68147) and not HasQuest(68150) and not IsQuestCompleted(68150) and Core.Player.ClassLevel &gt; 67">
@@ -2612,6 +2719,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68150) and not IsQuestCompleted(68150) and GetQuestStep(68150) == 255">
         <GetTo ZoneId="133" XYZ="76.34505, 0, -123.2606"/>
         <TurnIn QuestId="68150" NpcId="1020940" XYZ="76.15771, 0, -124.4068"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- True to Life (Level 70) -->
       <If Condition="IsQuestCompleted(68150) and not HasQuest(68151) and not IsQuestCompleted(68151) and Core.Player.ClassLevel &gt; 69">
@@ -2642,6 +2750,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="133" XYZ="77.39965, 0, -125.1896"/>
         <TurnIn ItemIds="17916" QuestId="68151" NpcId="1020947" XYZ="76.18823, 0, -126.1159"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Weaver">
@@ -2658,6 +2767,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66071" ItemId="5333" NpcId="1003818" AllowHq="True" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Once More Unto the Breeches (Level 5) -->
       <If Condition="IsQuestCompleted(66071) and not HasQuest(66123) and not IsQuestCompleted(66123) and Core.Player.ClassLevel &gt; 4">
@@ -2672,6 +2782,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn ItemIds="3274,3274,3274" AllowHq="True" QuestId="66123" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Alternative Applications (Level 10) -->
       <If Condition="IsQuestCompleted(66123) and not HasQuest(66125) and not IsQuestCompleted(66125) and Core.Player.ClassLevel &gt; 9">
@@ -2686,6 +2797,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66125" ItemId="5324" NpcId="1003818" AllowHq="True" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Practical Needs (Level 15) -->
       <If Condition="IsQuestCompleted(66125) and not HasQuest(66126) and not IsQuestCompleted(66126) and Core.Player.ClassLevel &gt; 14">
@@ -2707,6 +2819,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn ItemIds="2670,3322" AllowHq="True" QuestId="66125" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Materia Concerns (Level 20) -->
       <If Condition="IsQuestCompleted(66126) and not HasQuest(66127) and not IsQuestCompleted(66127) and Core.Player.ClassLevel &gt; 19">
@@ -2728,11 +2841,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3039,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
-        <If Condition="not IsTodoChecked(66127, 255, 0)">
+        <If Condition="GetQuestStep(66127) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66127, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(66127) == 255"/>
         </If>
         <SoTurnIn QuestId="66127" ItemId="3039" NpcId="1003818" AllowHq="True" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- That Velveteen Dress (Level 25) -->
       <If Condition="IsQuestCompleted(66127) and not HasQuest(66128) and not IsQuestCompleted(66128) and Core.Player.ClassLevel &gt; 24">
@@ -2759,6 +2873,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66127" ItemId="5326" NpcId="1003818" AllowHq="True" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Miner on a Mission (Level 30) -->
       <If Condition="IsQuestCompleted(66128) and not HasQuest(66129) and not IsQuestCompleted(66129) and Core.Player.ClassLevel &gt; 29">
@@ -2777,6 +2892,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66127" ItemId="3823" RequiresHq="True" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Designed by Committee (Level 35) -->
       <If Condition="IsQuestCompleted(66129) and not HasQuest(66187) and not IsQuestCompleted(66187) and Core.Player.ClassLevel &gt; 34">
@@ -2795,6 +2911,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66127" ItemId="3125" RequiresHq="True" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Subtle Inquiry (Level 40) -->
       <If Condition="IsQuestCompleted(66187) and not HasQuest(66188) and not IsQuestCompleted(66188) and Core.Player.ClassLevel &gt; 39">
@@ -2813,6 +2930,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66127" ItemId="3413" RequiresHq="True" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Intervention (Level 45) -->
       <If Condition="IsQuestCompleted(66188) and not HasQuest(66189) and not IsQuestCompleted(66189) and Core.Player.ClassLevel &gt; 44">
@@ -2837,6 +2955,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn ItemIds="2829,3176,3429" RequiresHq="true,true,true" QuestId="66127" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Miner Reborn (Level 50) -->
       <If Condition="IsQuestCompleted(66189) and not HasQuest(66190) and not IsQuestCompleted(66190) and Core.Player.ClassLevel &gt; 49">
@@ -2865,6 +2984,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66190) and not IsQuestCompleted(66190) and GetQuestStep(66190) == 255">
         <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419"/>
         <SoTurnIn QuestId="66190" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Social Knitwork (Level 50) -->
       <If Condition="IsQuestCompleted(66190) and not HasQuest(67538) and not IsQuestCompleted(67538) and Core.Player.ClassLevel &gt; 49">
@@ -2888,6 +3008,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67538) and not IsQuestCompleted(67538) and GetQuestStep(67538) == 255">
         <GetTo ZoneId="419" XYZ="86.1737, -4.73493, -30.4632"/>
         <SoTurnIn NpcId="1012548" QuestId="67538" XYZ="86.1737, -4.73493, -30.4632"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Tomboy Foolery (Level 53) -->
       <If Condition="IsQuestCompleted(67538) and not HasQuest(67539) and not IsQuestCompleted(67539) and Core.Player.ClassLevel &gt; 52">
@@ -2910,6 +3031,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="86.1737, -4.73493, -30.4632"/>
         <SoTurnIn ItemId="11966" RequiresHq="True" NpcId="1012548" QuestId="67539" XYZ="86.1737, -4.73493, -30.4632"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- For Lover and Country (Level 55) -->
       <If Condition="IsQuestCompleted(67539) and not HasQuest(67540) and not IsQuestCompleted(67540) and Core.Player.ClassLevel &gt; 54">
@@ -2940,6 +3062,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="86.1737, -4.73493, -30.4632"/>
         <SoTurnIn ItemId="10881" RequiresHq="True" NpcId="1012548" QuestId="67540" XYZ="86.1737, -4.73493, -30.4632"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Spinning the Truth (Level 58) -->
       <If Condition="IsQuestCompleted(67540) and not HasQuest(67541) and not IsQuestCompleted(67541) and Core.Player.ClassLevel &gt; 57">
@@ -2962,6 +3085,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="419" XYZ="86.1737, -4.73493, -30.4632"/>
         <SoTurnIn ItemId="12596" RequiresHq="True" NpcId="1012548" QuestId="67541" XYZ="86.1737, -4.73493, -30.4632"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Never Leave Without a Good-bye (Level 60) -->
       <If Condition="IsQuestCompleted(67541) and not HasQuest(67542) and not IsQuestCompleted(67542) and Core.Player.ClassLevel &gt; 60">
@@ -2996,6 +3120,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67542) and not IsQuestCompleted(67542) and GetQuestStep(67542) == 255">
         <GetTo ZoneId="418" XYZ="9.994568, 1.266479, 109.453"/>
         <SoTurnIn NpcId="2005910" QuestId="67542" XYZ="9.994568, 1.266479, 109.453"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- When East Meets West (Level 60) -->
       <If Condition="IsQuestCompleted(67542) and not HasQuest(67967) and not IsQuestCompleted(67967) and Core.Player.ClassLevel &gt; 59">
@@ -3015,6 +3140,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67967) and not IsQuestCompleted(67967) and GetQuestStep(67967) == 255">
         <GetTo ZoneId="131" XYZ="156.8442, 7.792007, 99.72921"/>
         <TurnIn QuestId="67967" NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Butterfly Effect (Level 63) -->
       <If Condition="IsQuestCompleted(67967) and not HasQuest(67968) and not IsQuestCompleted(67968) and Core.Player.ClassLevel &gt; 62">
@@ -3045,6 +3171,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="628" XYZ="-6.986575, 5.910849, -146.845"/>
         <TurnIn ItemIds="17918" QuestId="67968" NpcId="1019811" XYZ="-6.179932, 5.935336, -147.9363"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Crane's Caveat (Level 65) -->
       <If Condition="IsQuestCompleted(67968) and not HasQuest(67969) and not IsQuestCompleted(67969) and Core.Player.ClassLevel &gt; 64">
@@ -3071,6 +3198,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="628" XYZ="-6.788828, 5.912681, -146.9174"/>
         <TurnIn ItemIds="17920" QuestId="67969" NpcId="1019811" XYZ="-6.179932, 5.935336, -147.9363"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Geiko for All Seasons (Level 68) -->
       <If Condition="IsQuestCompleted(67969) and not HasQuest(67970) and not IsQuestCompleted(67970) and Core.Player.ClassLevel &gt; 67">
@@ -3105,6 +3233,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67970) and not IsQuestCompleted(67970) and GetQuestStep(67970) == 255">
         <GetTo ZoneId="628" XYZ="-6.207043, 5.920218, -147.2335"/>
         <TurnIn QuestId="67970" NpcId="1019811" XYZ="-6.179932, 5.935336, -147.9363"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Send Me an Angel (Level 70) -->
       <If Condition="IsQuestCompleted(67970) and not HasQuest(67971) and not IsQuestCompleted(67971) and Core.Player.ClassLevel &gt; 69">
@@ -3143,6 +3272,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67971) and not IsQuestCompleted(67971) and GetQuestStep(67971) == 255">
         <GetTo ZoneId="628" XYZ="-7.305711, 5.908822, -146.7726"/>
         <TurnIn QuestId="67971" NpcId="1019811" XYZ="-6.179932, 5.935336, -147.9363"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Alchemist">
@@ -3159,6 +3289,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66113" ItemId="5487" NpcId="1002299" AllowHq="True" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Second Principle (Level 5) -->
       <If Condition="IsQuestCompleted(66113) and not HasQuest(66114) and not IsQuestCompleted(66114) and Core.Player.ClassLevel &gt; 4">
@@ -3173,6 +3304,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66114" ItemId="4564" NpcId="1002299" AllowHq="True" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- All of Your Beeswax (Level 10) -->
       <If Condition="IsQuestCompleted(66114) and not HasQuest(66116) and not IsQuestCompleted(66116) and Core.Player.ClassLevel &gt; 9">
@@ -3187,6 +3319,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66116" ItemId="5515" NpcId="1002299" AllowHq="True" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- For Fair Love (Level 15) -->
       <If Condition="IsQuestCompleted(66116) and not HasQuest(66117) and not IsQuestCompleted(66117) and Core.Player.ClassLevel &gt; 14">
@@ -3212,6 +3345,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66117) and not IsQuestCompleted(66117) and GetQuestStep(66117) == 255">
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66117" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Arcanist's Tome (Level 20) -->
       <If Condition="IsQuestCompleted(66117) and not HasQuest(66118) and not IsQuestCompleted(66118) and Core.Player.ClassLevel &gt; 29">
@@ -3225,11 +3359,12 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2149,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
-        <If Condition="not IsTodoChecked(66118, 255, 0)">
+        <If Condition="GetQuestStep(66118) == 255">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66118, 255, 0)"/>
+          <WaitWhile Condition="GetQuestStep(66118) == 255"/>
         </If>
         <SoTurnIn QuestId="66118" ItemId="2149" NpcId="1002299" AllowHq="True" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Practical Alchemy (Level 25) -->
       <If Condition="IsQuestCompleted(66118) and not HasQuest(66119) and not IsQuestCompleted(66119) and Core.Player.ClassLevel &gt; 24">
@@ -3244,6 +3379,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66119" ItemId="5522" NpcId="1002299" AllowHq="True" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Baleful Brews (Level 30) -->
       <If Condition="IsQuestCompleted(66119) and not HasQuest(66120) and not IsQuestCompleted(66120) and Core.Player.ClassLevel &gt; 29">
@@ -3269,6 +3405,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(66120) and not IsQuestCompleted(66120) and GetQuestStep(66120) == 255">
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66120" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Cease and Assist (Level 35) -->
       <If Condition="IsQuestCompleted(66120) and not HasQuest(66183) and not IsQuestCompleted(66183) and Core.Player.ClassLevel &gt; 34">
@@ -3291,6 +3428,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66183" ItemId="4556" RequiresHq="True" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Might Made Right (Level 40) -->
       <If Condition="IsQuestCompleted(66183) and not HasQuest(66184) and not IsQuestCompleted(66184) and Core.Player.ClassLevel &gt; 39">
@@ -3305,6 +3443,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66184" ItemId="4599" RequiresHq="True" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Ultimate Alchemy (Level 45) -->
       <If Condition="IsQuestCompleted(66184) and not HasQuest(66185) and not IsQuestCompleted(66185) and Core.Player.ClassLevel &gt; 44">
@@ -3325,6 +3464,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn ItemIds="4607,4608,4606" RequiresHq="true,true,true" QuestId="66185" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Momentary Miracle (Level 50) -->
       <If Condition="IsQuestCompleted(66185) and not HasQuest(66186) and not IsQuestCompleted(66186) and Core.Player.ClassLevel &gt; 49">
@@ -3354,15 +3494,16 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 1987,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
-        <If Condition="not IsTodoChecked(66186, 3, 0)">
+        <If Condition="GetQuestStep(66186) == 3">
           <RunCode Name="Requires_Melding"/>
-          <WaitWhile Condition="not IsTodoChecked(66186, 3, 0)"/>
+          <WaitWhile Condition="GetQuestStep(66186) == 3"/>
         </If>
         <SoHandOver ItemId="1987" NpcId="1002299" RequiresHq="False" XYZ="-98.8938, 40.19999, 120.8362" QuestId="66186" StepId="3"/>
       </If>
       <If Condition="HasQuest(66186) and not IsQuestCompleted(66186) and GetQuestStep(66186) == 255">
         <GetTo ZoneId="131" XYZ="-98.8938, 40.19999, 120.8362"/>
         <SoTurnIn QuestId="66186" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Without a Trace (Level 50) -->
       <If Condition="IsQuestCompleted(66186) and not HasQuest(67601) and not IsQuestCompleted(67601) and Core.Player.ClassLevel &gt; 49">
@@ -3378,6 +3519,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67601) and not IsQuestCompleted(67601) and GetQuestStep(67601) == 255">
         <GetTo ZoneId="156" XYZ="76.8951, 22.2367, -640.412"/>
         <TurnIn QuestId="67601" ItemId="2001704" NpcId="1012558" XYZ="76.8951, 22.2367, -640.412"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Magic Marks the Spot (Level 53) -->
       <If Condition="IsQuestCompleted(67601) and not HasQuest(67602) and not IsQuestCompleted(67602) and Core.Player.ClassLevel &gt; 52">
@@ -3404,6 +3546,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67602) and not IsQuestCompleted(67602) and GetQuestStep(67602) == 255">
         <GetTo ZoneId="156" XYZ="431.235, -5.50854, -440.635"/>
         <SoTurnIn NpcId="1012560" QuestId="67602" XYZ="431.235, -5.50854, -440.635"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- From Hells (Level 55) -->
       <If Condition="IsQuestCompleted(67602) and not HasQuest(67603) and not IsQuestCompleted(67603) and Core.Player.ClassLevel &gt; 54">
@@ -3434,6 +3577,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67603) and not IsQuestCompleted(67603) and GetQuestStep(67603) == 255">
         <GetTo ZoneId="156" XYZ="76.8951, 22.2367, -640.412"/>
         <SoTurnIn ItemId="2001706" RequiresHq="False" NpcId="1012558" QuestId="67603" XYZ="76.8951, 22.2367, -640.412"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Burden of Proof (Level 58) -->
       <If Condition="IsQuestCompleted(67603) and not HasQuest(67604) and not IsQuestCompleted(67604) and Core.Player.ClassLevel &gt; 57">
@@ -3460,6 +3604,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="156" XYZ="78.2486, 22.2367, -640.01"/>
         <SoTurnIn ItemId="12622" RequireHq="True" NpcId="1012559" QuestId="67604" XYZ="78.2486, 22.2367, -640.01"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- What Death can Join Together (Level 60) -->
       <If Condition="IsQuestCompleted(67604) and not HasQuest(67605) and not IsQuestCompleted(67605) and Core.Player.ClassLevel &gt; 59">
@@ -3498,6 +3643,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67605) and not IsQuestCompleted(67605) and GetQuestStep(67605) == 255">
         <GetTo ZoneId="156" XYZ="78.2486, 22.2367, -640.01"/>
         <SoTurnIn NpcId="1012558" QuestId="67605" XYZ="76.8951, 22.2367, -640.412"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Not Quite Dead Yet (Level 60) -->
       <If Condition="IsQuestCompleted(67605) and not HasQuest(67972) and not IsQuestCompleted(67972) and Core.Player.ClassLevel &gt; 59">
@@ -3521,6 +3667,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67972) and not IsQuestCompleted(67972) and GetQuestStep(67972) == 255">
         <GetTo ZoneId="131" XYZ="-99.88629, 40.2, 121.5309"/>
         <TurnIn QuestId="67972" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Forbidden Blade (Level 63) -->
       <If Condition="IsQuestCompleted(67972) and not HasQuest(67973) and not IsQuestCompleted(67973) and Core.Player.ClassLevel &gt; 62">
@@ -3551,6 +3698,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67973) and not IsQuestCompleted(67973) and GetQuestStep(67973) == 255">
         <GetTo ZoneId="131" XYZ="-99.41384, 40.2, 121.6572"/>
         <TurnIn QuestId="67973" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Do Goldsmiths Dream of Gilded Sheep (Level 65) -->
       <If Condition="IsQuestCompleted(67973) and not HasQuest(67974) and not IsQuestCompleted(67974) and Core.Player.ClassLevel &gt; 64">
@@ -3585,6 +3733,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="130" XYZ="-157.2528, 14.0481, 59.74953"/>
         <TurnIn ItemIds="17928" QuestId="67974" NpcId="1020098" XYZ="-157.5495, 14.048, 58.64038"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- No Sin Unpunished (Level 68) -->
       <If Condition="IsQuestCompleted(67974) and not HasQuest(67975) and not IsQuestCompleted(67975) and Core.Player.ClassLevel &gt; 67">
@@ -3623,6 +3772,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67975) and not IsQuestCompleted(67975) and GetQuestStep(67975) == 255">
         <GetTo ZoneId="131" XYZ="134.1213, 4, -18.87574"/>
         <TurnIn QuestId="67975" NpcId="1020107" XYZ="133.5927, 4, -20.03516"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Love Beyond Lifetimes (Level 70) -->
       <If Condition="IsQuestCompleted(67975) and not HasQuest(67976) and not IsQuestCompleted(67976) and Core.Player.ClassLevel &gt; 69">
@@ -3661,6 +3811,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67976) and not IsQuestCompleted(67976) and GetQuestStep(67976) == 255">
         <GetTo ZoneId="131" XYZ="-99.55579, 40.2, 121.7901"/>
         <SoTurnIn QuestId="67976" NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362"/>
+        <WaitTimer WaitTime="2"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.Culinarian">
@@ -3677,6 +3828,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-54.64258, 43.99998, -151.2322"/>
         <SoTurnIn QuestId="65790" ItemId="4849" NpcId="1000947" AllowHq="True" XYZ="-54.64258, 43.99998, -151.2322"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Treat of Trout (Level 5) -->
       <If Condition="IsQuestCompleted(65790) and not HasQuest(65791) and not IsQuestCompleted(65791) and Core.Player.ClassLevel &gt; 4">
@@ -3691,6 +3843,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-66.26996, 42.29999, -162.9207"/>
         <SoTurnIn QuestId="65791" ItemId="4660" NpcId="1000950" AllowHq="True" XYZ="-66.26996, 42.29999, -162.9207"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Dodo it Yourself (Level 10) -->
       <If Condition="IsQuestCompleted(65791) and not HasQuest(65793) and not IsQuestCompleted(65793) and Core.Player.ClassLevel &gt; 9">
@@ -3705,6 +3858,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-66.26996, 42.29999, -162.9207"/>
         <SoTurnIn QuestId="65793" ItemId="4640" NpcId="1000950" AllowHq="True" XYZ="-66.26996, 42.29999, -162.9207"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- On a Skewer Tip (Level 15) -->
       <If Condition="IsQuestCompleted(65793) and not HasQuest(65794) and not IsQuestCompleted(65794) and Core.Player.ClassLevel &gt; 14">
@@ -3731,6 +3885,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65794) and not IsQuestCompleted(65794) and GetQuestStep(65794) == 255">
         <GetTo ZoneId="128" XYZ="-54.64258, 43.99998, -151.2322"/>
         <SoTurnIn QuestId="65794" NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Releasing a Burden (Level 20) -->
       <If Condition="IsQuestCompleted(65794) and not HasQuest(65795) and not IsQuestCompleted(65795) and Core.Player.ClassLevel &gt; 19">
@@ -3745,6 +3900,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-52.65894, 42.69984, -160.235"/>
         <SoTurnIn QuestId="65795" ItemId="4730" NpcId="1000956" AllowHq="True" XYZ="-52.65894, 42.69984, -160.235"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Winning Friends with Aldgoat (Level 25) -->
       <If Condition="IsQuestCompleted(65795) and not HasQuest(65796) and not IsQuestCompleted(65796) and Core.Player.ClassLevel &gt; 24">
@@ -3759,6 +3915,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-52.65894, 42.69984, -160.235"/>
         <SoTurnIn QuestId="65796" ItemId="4644" NpcId="1000956" AllowHq="True" XYZ="-52.65894, 42.69984, -160.235"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Chefsbane Cometh (Level 30) -->
       <If Condition="IsQuestCompleted(65796) and not HasQuest(65802) and not IsQuestCompleted(65802) and Core.Player.ClassLevel &gt; 29">
@@ -3785,6 +3942,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65802) and not IsQuestCompleted(65802) and GetQuestStep(65802) == 255">
         <GetTo ZoneId="128" XYZ="-54.64258, 43.99998, -151.2322"/>
         <TurnIn QuestId="65802" NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Of Cooks and Books (Level 35) -->
       <If Condition="IsQuestCompleted(65802) and not HasQuest(65803) and not IsQuestCompleted(65803) and Core.Player.ClassLevel &gt; 34">
@@ -3803,6 +3961,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-58.85406, 42.29973, -164.0803"/>
         <SoTurnIn QuestId="65803" ItemId="4677" RequiresHq="True" NpcId="1001537" XYZ="-58.85406, 42.29973, -164.0803"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Diplomacy of the Skillet (Level 40) -->
       <If Condition="IsQuestCompleted(65803) and not HasQuest(65804) and not IsQuestCompleted(65804) and Core.Player.ClassLevel &gt; 49">
@@ -3827,6 +3986,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-58.85406, 42.29973, -164.0803"/>
         <SoTurnIn QuestId="65804" ItemId="4712,4733,4749" RequiresHq="true,true,true" NpcId="1001537" XYZ="-58.85406, 42.29973, -164.0803"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Taste of Home (Level 45) -->
       <If Condition="IsQuestCompleted(65804) and not HasQuest(65805) and not IsQuestCompleted(65805) and Core.Player.ClassLevel &gt; 44">
@@ -3845,6 +4005,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-58.85406, 42.29973, -164.0803"/>
         <SoTurnIn QuestId="65805" ItemId="4679" RequiresHq="True" NpcId="1001537" XYZ="-58.85406, 42.29973, -164.0803"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Revenge of the Chefsbane (Level 50) -->
       <If Condition="IsQuestCompleted(65805) and not HasQuest(65806) and not IsQuestCompleted(65806) and Core.Player.ClassLevel &gt; 49">
@@ -3900,6 +4061,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(65806) and not IsQuestCompleted(65806) and GetQuestStep(65806) == 255">
         <GetTo ZoneId="128" XYZ="-54.64258, 43.99998, -151.2322"/>
         <SoTurnIn QuestId="65806" NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Wait on Me (Level 50) -->
       <If Condition="IsQuestCompleted(65806) and not HasQuest(67579) and not IsQuestCompleted(67579) and Core.Player.ClassLevel &gt; 49">
@@ -3919,6 +4081,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67579) and not IsQuestCompleted(67579) and GetQuestStep(67579) == 255">
         <GetTo ZoneId="128" XYZ="69.7248, 44.3999, 135.967"/>
         <SoTurnIn QuestId="67579" NpcId="1012568" XYZ="69.7248, 44.3999, 135.967"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Spoonful Less Sugar (Level 53) -->
       <If Condition="IsQuestCompleted(67579) and not HasQuest(67580) and not IsQuestCompleted(67580) and Core.Player.ClassLevel &gt; 52">
@@ -3952,6 +4115,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="69.7248, 44.3999, 135.967"/>
         <SoTurnIn NpcId="1012568" ItemId="12842, 12846" RequiresHq="True, False" QuestId="67580" XYZ="69.7248, 44.3999, 135.967"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Looking for Some Hot Stuff (Level 55) -->
       <If Condition="IsQuestCompleted(67580) and not HasQuest(67581) and not IsQuestCompleted(67581) and Core.Player.ClassLevel &gt; 54">
@@ -3988,6 +4152,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="69.7248, 44.3999, 135.967"/>
         <SoTurnIn NpcId="1012568" ItemId="12849, 12862, 12855" RequiresHq="True, True, True" QuestId="67581" XYZ="69.7248, 44.3999, 135.967"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Love Meat Tender (Level 58) -->
       <If Condition="IsQuestCompleted(67581) and not HasQuest(67582) and not IsQuestCompleted(67582) and Core.Player.ClassLevel &gt; 57">
@@ -4006,6 +4171,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
         <GetTo ZoneId="128" XYZ="-54.6426, 43.9917, -151.202"/>
         <SoTurnIn NpcId="1000947" ItemId="12858" RequiresHq="True" QuestId="67582" XYZ="-54.6426, 43.9917, -151.202"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Spirit of Hospitality (Level 60) -->
       <If Condition="IsQuestCompleted(67582) and not HasQuest(67583) and not IsQuestCompleted(67583) and Core.Player.ClassLevel &gt; 59">
@@ -4038,6 +4204,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(67583) and not IsQuestCompleted(67583) and GetQuestStep(67583) == 255">
         <GetTo ZoneId="128" XYZ="69.7248, 44.3999, 135.967"/>
         <SoTurnIn NpcId="1012568" QuestId="67583" XYZ="69.7248, 44.3999, 135.967"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Flavors of the Far East (Level 60) -->
       <If Condition="IsQuestCompleted(67583) and not HasQuest(68140) and not IsQuestCompleted(68140) and Core.Player.ClassLevel &gt; 59">
@@ -4053,6 +4220,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68140) and not IsQuestCompleted(68140) and GetQuestStep(68140) == 255">
         <GetTo ZoneId="156" XYZ="31.90068, 50.99996, -819.4875"/>
         <TurnIn QuestId="68140" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Rice to the Occasion (Level 63) -->
       <If Condition="IsQuestCompleted(68140) and not HasQuest(68141) and not IsQuestCompleted(68141) and Core.Player.ClassLevel &gt; 62">
@@ -4087,6 +4255,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68141) and not IsQuestCompleted(68141) and GetQuestStep(68141) == 255">
         <GetTo ZoneId="156" XYZ="32.3839, 50.99997, -820.7322"/>
         <TurnIn QuestId="68141" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- A Broth from the Brine (Level 65) -->
       <If Condition="IsQuestCompleted(68141) and not HasQuest(68142) and not IsQuestCompleted(68142) and Core.Player.ClassLevel &gt; 64">
@@ -4121,6 +4290,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68142) and not IsQuestCompleted(68142) and GetQuestStep(68142) == 255">
         <GetTo ZoneId="156" XYZ="32.37473, 50.99997, -821.4847"/>
         <TurnIn QuestId="68142" NpcId="1020144" XYZ="30.65527, 50.99997, -822.0798"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- Teach a Man to Make Fish (Lvel 68) -->
       <If Condition="IsQuestCompleted(68142) and not HasQuest(68143) and not IsQuestCompleted(68143) and Core.Player.ClassLevel &gt; 67">
@@ -4166,6 +4336,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="HasQuest(68143) and not IsQuestCompleted(68143) and GetQuestStep(68143) == 255">
         <GetTo ZoneId="156" XYZ="34.23852, 50.99996, -821.674"/>
         <TurnIn QuestId="68143" NpcId="1020161" XYZ="33.98181, 50.99997, -823.0869"/>
+        <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Way to a Father's Heart (Level 70) -->
       <If Condition="IsQuestCompleted(68143) and not HasQuest(68144) and not IsQuestCompleted(68144) and Core.Player.ClassLevel &gt; 69">
@@ -4221,14 +4392,11 @@ Required Botbases:  Lisbeth 3.0.
     </If>
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Requires_Melding">
-      <![CDATA[
-        Core.OverlayManager.AddToast(() => "This quest requires you to Meld the equipment you've just created. Please do so.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+    <CodeChunk Name="Requires_Melding"><![CDATA[
+        Core.OverlayManager.AddToast(() => "Please complete the current quest step manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Move_Forward">
-      <![CDATA[
+      ]]></CodeChunk>
+    <CodeChunk Name="Move_Forward"><![CDATA[
         await Coroutine.Sleep(500);
         MovementManager.SetFacing(3.76f);
         await Coroutine.Sleep(500);
@@ -4236,7 +4404,6 @@ Required Botbases:  Lisbeth 3.0.
         await Coroutine.Sleep(3000);
         MovementManager.MoveStop();
         await Coroutine.Sleep(500);
-      ]]>
-    </CodeChunk>
+      ]]></CodeChunk>
   </CodeChunks>
 </Profile>

@@ -33,7 +33,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
       </If>
       <If Condition="HasQuest(65675) and not IsQuestCompleted(65675) and GetQuestStep(65675) == 255">
-        <If Condition="not HasItem(2219)">
+        <If Condition="not HasAtLeast(2219,3)">
           <Lisbeth Json="[{'Item': 2219,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
@@ -353,8 +353,8 @@ Required Botbases:  Lisbeth 3.0.
         <TalkTo NpcId="1000776" XYZ="115.3429, 287.0294, 142.1377" QuestId="67536" StepId="3"/>
       </If>
       <If Condition="HasQuest(67536) and not IsQuestCompleted(67536) and GetQuestStep(67536) == 255">
-        <If Condition="not HasHqItem(12583)">
-          <Lisbeth Json="[{'Item': 12583,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+        <If Condition="not HqHasAtLeast(12583,3)">
+          <Lisbeth Json="[{'Item': 12583,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="418" XYZ="96.57422, -20.02087, 64.7135"/>
         <TurnIn QuestId="67536" ItemId="12583" RequireHq="True" NpcId="1012498" XYZ="96.57422, -20.02087, 64.7135"/>
@@ -785,7 +785,7 @@ Required Botbases:  Lisbeth 3.0.
         <If Condition="not HasHqItem(1796)">
           <Lisbeth Json="[{'Item': 1796,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
-        <If Condition="HasHqItem(1659)">
+        <If Condition="not HasHqItem(1659)">
           <Lisbeth Json="[{'Item': 1659,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-52.35376, 42.49961, 211.5968"/>
@@ -835,7 +835,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="IsQuestCompleted(65838) and not HasQuest(67543) and not IsQuestCompleted(67543) and Core.Player.ClassLevel &gt; 49">
         <GetTo ZoneId="128" XYZ="-31.26581, 44.49997, 185.5344"/>
         <If Condition="IsQuestAcceptQualified(67543)">
-          <PickupQuest QuestId="65837" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
+          <PickupQuest QuestId="67543" NpcId="1000997" XYZ="-31.26581, 44.49997, 185.5344"/>
         </If>
       </If>
       <If Condition="HasQuest(67543) and not IsQuestCompleted(67543) and GetQuestStep(67543) == 1">
@@ -932,7 +932,7 @@ Required Botbases:  Lisbeth 3.0.
         </If>
       </If>
       <If Condition="HasQuest(67547) and not IsQuestCompleted(67547) and GetQuestStep(67547) == 1">
-        <If Condition="HasHqItem(10591)">
+        <If Condition="not HasHqItem(10591)">
           <Lisbeth Json="[{'Item': 10591,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="419" XYZ="-190.566, -12.5484, -25.8185"/>
@@ -1091,7 +1091,7 @@ Required Botbases:  Lisbeth 3.0.
     <If Condition="ClassName == ClassJobType.Armorer">
       <!-- My First Doming Hammer (Lvl 1) -->
       <If Condition="IsQuestCompleted(65809) and not HasQuest(65810) and not IsQuestCompleted(65810)">
-        <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
+        <GetTo ZoneId="128" XYZ="-32.23862, 41.49998, 207.5451"/>
         <If Condition="IsQuestAcceptQualified(65810)">
           <PickupQuest QuestId="65810" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
         </If>
@@ -1100,7 +1100,7 @@ Required Botbases:  Lisbeth 3.0.
         <If Condition="not HasItem(5056)">
           <Lisbeth Json="[{'Item': 5056,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
-        <GetTo ZoneId="132" XYZ="-44.87683, -1.250002, 56.83984"/>
+        <GetTo ZoneId="128" XYZ="-32.23862, 41.49998, 207.5451"/>
         <SoTurnIn QuestId="65810" ItemId="5056" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
         <WaitTimer WaitTime="2"/>
       </If>
@@ -1116,7 +1116,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 2226,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
-        <SoTurnIn QuestId="65811" ItemId="2226" NpcId="1001000"/>
+        <SoTurnIn QuestId="65811" ItemIds="2226, 2226, 2226" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- The Base Fundamentals (Level 10) -->
@@ -1131,7 +1131,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 5071,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
-        <SoTurnIn QuestId="65812" ItemId="5071" NpcId="1001000"/>
+        <SoTurnIn QuestId="65812" ItemId="5071" NpcId="1001009" XYZ="-29.71688, 41.5, 210.7288"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- One's Own Worst Critic (Level 15) -->
@@ -1156,16 +1156,16 @@ Required Botbases:  Lisbeth 3.0.
         <If Condition="not HasItem(2231)">
           <Lisbeth Json="[{'Item': 2231,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
-        <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
-        <HandOver ItemIds="2680, 2231" NpcId="1001000" XYZ="-56.44318, 39.97361, 178.7289" QuestId="65813" StepId="3"/>
+        <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
+        <HandOver ItemIds="2680, 2231" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289" QuestId="65813" StepId="3"/>
       </If>
       <If Condition="HasQuest(65813) and not IsQuestCompleted(65813) and GetQuestStep(65813) == 4">
         <GetTo ZoneId="128" XYZ="-61.99744, 42.49878, 201.8616"/>
         <TalkTo NpcId="1001011" XYZ="-61.99744, 42.49878, 201.8616" QuestId="65813" StepId="4"/>
       </If>
       <If Condition="HasQuest(65813) and not IsQuestCompleted(65813) and GetQuestStep(65813) == 255">
-        <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
-        <TurnIn NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289" QuestId="65813"/>
+        <GetTo ZoneId="128" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <TurnIn NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923" QuestId="65813"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- An Armorer's Pride (Level 20) -->
@@ -1199,7 +1199,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 5058,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
-        <SoTurnIn QuestId="65815" ItemId="5058" NpcId="1001001"/>
+        <SoTurnIn QuestId="65815" ItemId="5058" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- May the Best Armorer Win (Level 30) -->
@@ -1222,7 +1222,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3096,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
-        <SoTurnIn QuestId="65816" ItemId="3096" RequiresHq="True" NpcId="1001001"/>
+        <SoTurnIn QuestId="65816" ItemId="3096" RequiresHq="True" NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- Pans of Steel (Level 35) -->
@@ -1285,7 +1285,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 3868,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-32.02869, 41.49999, 208.3923"/>
-        <HandOver ItemIds="3861, 2830, 3868" RequiresHq="True, True, True" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923" QuestId="65818" StepId="1"/>
+        <HandOver ItemIds="3861, 2830, 3868" RequiresHq="True, True, True" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923" QuestId="65819" StepId="1"/>
       </If>
       <If Condition="HasQuest(65819) and not IsQuestCompleted(65819) and GetQuestStep(65819) == 255">
         <GetTo ZoneId="128" XYZ="-56.44318, 39.97361, 178.7289"/>
@@ -1296,7 +1296,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="IsQuestCompleted(65819) and not HasQuest(65820) and not IsQuestCompleted(65820) and Core.Player.ClassLevel &gt; 49">
         <GetTo ZoneId="128" XYZ="-31.23862, 41.49998, 205.5451"/>
         <If Condition="IsQuestAcceptQualified(65820)">
-          <PickupQuest QuestId="65811" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
+          <PickupQuest QuestId="65820" NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923"/>
         </If>
       </If>
       <If Condition="HasQuest(65820) and not IsQuestCompleted(65820) and GetQuestStep(65820) == 1">
@@ -1311,7 +1311,7 @@ Required Botbases:  Lisbeth 3.0.
         <HandOver ItemId="3203" RequiresHq="True" NpcId="1001540" XYZ="-202.6857, 16, 56.99243" QuestId="65820" StepId="1"/>
       </If>
       <If Condition="HasQuest(65820) and not IsQuestCompleted(65820) and GetQuestStep(65820) == 2">
-        <GetTo ZoneId="131" XYZ="-56.44318, 39.97361, 178.7289"/>
+        <GetTo ZoneId="128" XYZ="-54.93203, 39.97425, 177.0036"/>
         <TalkTo NpcId="1001001" XYZ="-56.44318, 39.97361, 178.7289" QuestId="65820" StepId="2"/>
       </If>
       <If Condition="HasQuest(65820) and not IsQuestCompleted(65820) and GetQuestStep(65820) == 255">
@@ -1339,7 +1339,7 @@ Required Botbases:  Lisbeth 3.0.
         <TalkTo NpcId="1012522" XYZ="314.72, 46.2473, 18.7567" QuestId="67574" StepId="3"/>
       </If>
       <If Condition="HasQuest(67574) and not IsQuestCompleted(67574) and GetQuestStep(67574) == 4">
-        <GetTo ZoneId="129" XYZ="-32.02869, 41.49999, 208.3923"/>
+        <GetTo ZoneId="128" XYZ="-32.02869, 41.49999, 208.3923"/>
         <TalkTo NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923" QuestId="67574" StepId="4"/>
       </If>
       <If Condition="HasQuest(67574) and not IsQuestCompleted(67574) and GetQuestStep(67574) == 255">
@@ -1375,7 +1375,7 @@ Required Botbases:  Lisbeth 3.0.
           <Lisbeth Json="[{'Item': 10756,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         </If>
         <GetTo ZoneId="128" XYZ="-24.91, 40, 4.995"/>
-        <SoTurnIn QuestId="67575" ItemId="10756" NpcId="1012518"/>
+        <SoTurnIn QuestId="67575" ItemId="10756" NpcId="1012518" XYZ="-24.91, 40, 4.995"/>
         <WaitTimer WaitTime="2"/>
       </If>
       <!-- Fancy Lancer (Level 57) -->
@@ -1430,7 +1430,7 @@ Required Botbases:  Lisbeth 3.0.
       </If>
       <If Condition="HasQuest(67577) and not IsQuestCompleted(67577) and GetQuestStep(67577) == 3">
         <GetTo ZoneId="419" XYZ="-162.1466, 14.95313, -185.525"/>
-        <SoSendChat Message="/pray" XYZ="-162.1466, 14.95313, -185.525" QuestId="67577" StepId="3"/>
+        <SoSendChat Emote="pray" XYZ="-162.1466, 14.95313, -185.525" QuestId="67577" StepId="3"/>
       </If>
       <If Condition="HasQuest(67577) and not IsQuestCompleted(67577) and GetQuestStep(67577) == 4">
         <GetTo ZoneId="155" XYZ="-128.527, 304.127, -295.816"/>
@@ -1896,7 +1896,7 @@ Required Botbases:  Lisbeth 3.0.
       <If Condition="IsQuestCompleted(67606) and not HasQuest(67607) and not IsQuestCompleted(67607) and Core.Player.ClassLevel &gt; 52">
         <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <If Condition="IsQuestAcceptQualified(67607)">
-          <PickupQuest QuestId="67607" NpcId="1012528" XYZ="-25.16223, 12.2, 110.7957"/>
+          <PickupQuest QuestId="67607" NpcId="1012528" XYZ="-57.406, 18.5041, 66.5633"/>
         </If>
       </If>
       <If Condition="HasQuest(67607) and not IsQuestCompleted(67607) and GetQuestStep(67607) == 1">
@@ -1904,7 +1904,7 @@ Required Botbases:  Lisbeth 3.0.
         <TalkTo NpcId="1012529" XYZ="132.874, 4, -68.3243" QuestId="67607" StepId="1"/>
       </If>
       <If Condition="HasQuest(67607) and not IsQuestCompleted(67607) and GetQuestStep(67607) == 2">
-        <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
+        <GetTo ZoneId="131" XYZ="-57.406, 18.5041, 66.5633"/>
         <TalkTo NpcId="1012528" XYZ="-57.406, 18.5041, 66.5633" QuestId="67607" StepId="2"/>
       </If>
       <If Condition="HasQuest(67607) and not IsQuestCompleted(67607) and GetQuestStep(67607) == 255">
@@ -1955,7 +1955,7 @@ Required Botbases:  Lisbeth 3.0.
       </If>
       <If Condition="HasQuest(67609) and not IsQuestCompleted(67609) and GetQuestStep(67609) == 1">
         <GetTo ZoneId="131" XYZ="-25.16223, 12.2, 110.7957"/>
-        <TalkTo NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957" QuestId="67608" StepId="1"/>
+        <TalkTo NpcId="1004093" XYZ="-25.16223, 12.2, 110.7957" QuestId="67609" StepId="1"/>
       </If>
       <If Condition="HasQuest(67609) and not IsQuestCompleted(67609) and GetQuestStep(67609) == 2">
         <GetTo ZoneId="131" XYZ="-38.6809, 13.5, 119.22"/>

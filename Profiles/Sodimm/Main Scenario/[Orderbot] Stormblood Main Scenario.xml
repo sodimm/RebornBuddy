@@ -3707,16 +3707,25 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1024044" XYZ="-110.3685, 4, -114.0002" QuestId="68505" StepId="2"/>
     </If>
     <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 3">
-      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <If Condition="not IsOnMap(212)">
+        <GetTo ZoneId="140" XYZ="-482.5854, 17.07477, -386.7481"/>
+        <UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
+      </If>
       <TalkTo NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644" QuestId="68505" StepId="3"/>
     </If>
     <If Condition="HasQuest(68505) and not IsQuestCompleted(68505) and GetQuestStep(68505) == 255">
-      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <If Condition="not IsOnMap(212)">
+        <GetTo ZoneId="140" XYZ="-482.5854, 17.07477, -386.7481"/>
+        <UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
+      </If>
       <TurnIn QuestId="68505" NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644"/>
     </If>
     <!-- Securing the Saltery (Level 70) -->
     <If Condition="IsQuestCompleted(68505) and not HasQuest(68506) and not IsQuestCompleted(68506)">
-      <GetTo ZoneId="212" XYZ="-2.337661, -2.000001, -16.00286"/>
+      <If Condition="not IsOnMap(212)">
+        <GetTo ZoneId="140" XYZ="-482.5854, 17.07477, -386.7481"/>
+        <UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(68506)">
         <PickupQuest QuestId="68506" NpcId="1024045" XYZ="-2.822998, -2.000001, -17.16644"/>
       </If>
@@ -3781,7 +3790,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 2">
       <GetTo ZoneId="621" XYZ="748.7604, 70.08471, 522.5895"/>
-      <TalkTo NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809" QuestId="68508" StepId="2"/>
+      <UseTransport InteractDistance="3.0" NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809" QuestId="68508" StepId="2"/>
     </If>
     <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 3">
       <If Condition="not IsOnMap(737)">
@@ -4078,7 +4087,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="IsQuestCompleted(68565) and not HasQuest(68606) and not IsQuestCompleted(68606)">
       <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
       <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
-      <PickupQuest QuestId="68606" NpcId="1020622" XYZ="0.04577637, 0, -2.304138"/>
+      <PickupQuest QuestId="68606" NpcId="1025023" XYZ="0.04577637, 0, -2.304138"/>
     </If>
     <If Condition="HasQuest(68606) and not IsQuestCompleted(68606) and GetQuestStep(68606) == 1">
       <If Condition="not IsOnMap(744)">
@@ -4161,7 +4170,11 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <!-- Conscripts and Contingencies (Level 70) -->
     <If Condition="IsQuestCompleted(68608) and not HasQuest(68609) and not IsQuestCompleted(68609)">
-      <GetTo ZoneId="744" XYZ="0.1708785, 0.02109134, -1.108811"/>
+      <If Condition="not IsOnMap(744)">
+        <GetTo ZoneId="614" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1024794" XYZ="-493.9803, 1.301181, 542.9006"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025354" XYZ="-10.33038, 0.1999732, 12.8938"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(68609)">
         <PickupQuest QuestId="68609" NpcId="1024999" XYZ="0.1983643, 0.02109136, -3.097595"/>
       </If>

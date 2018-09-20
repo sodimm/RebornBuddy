@@ -4346,7 +4346,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TurnIn QuestId="68680" NpcId="1026268" XYZ="117.7843, -4.178713, 87.29688"/>
     </If>
     <!-- Shadows in the Empire (Level 70) -->
-    <If Condition="IsQuestCompleted(68680) not HasQuest(68681) and not IsQuestCompleted(68681)">
+    <If Condition="IsQuestCompleted(68680) and not HasQuest(68681) and not IsQuestCompleted(68681)">
       <GetTo ZoneId="759" XYZ="118.4901, -4.178713, 85.43443"/>
       <If Condition="IsQuestAcceptQualified(68681)">
         <PickupQuest QuestId="68681" NpcId="1026268" XYZ="117.7843, -4.178713, 87.29688"/>

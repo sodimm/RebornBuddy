@@ -2,7 +2,6 @@
 <!--
 Profile:  [OrderBot] Stormblood Crafter Class Quests.
 Authors:  TuckMeIntoBread, Sodimm.
-Required Botbases:  Lisbeth.
 Required Quest Completion:  A Realm Reborn & Heavensward Crafter Quests.
 -->
 <Profile>
@@ -1608,7 +1607,10 @@ Required Quest Completion:  A Realm Reborn & Heavensward Crafter Quests.
         <TalkTo NpcId="1019812" XYZ="-9.048645, 5.945387, -149.157" QuestId="67971" StepId="5"/>
       </If>
       <If Condition="HasQuest(67971) and not IsQuestCompleted(67971) and GetQuestStep(67971) == 6">
-        <Lisbeth Orders="\Profiles\Sodimm\Crafting\Lisbeth Orders\[OrderBot] WVR 70.json"/>
+        <If Condition="not HasItem(17924)">
+          <LogMessage Message="Please manually craft the quest items."/>
+          <WaitWhile Condition="not HasItem(17924)"/>
+        </If>
         <If Condition="not IsOnMap(628)">
           <GetTo ZoneId="628" XYZ="-7.305711, 5.908822, -146.7726"/>
         </If>

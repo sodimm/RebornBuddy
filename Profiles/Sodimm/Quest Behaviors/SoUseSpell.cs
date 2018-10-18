@@ -35,9 +35,9 @@ namespace ff14bot.NeoProfiles
                             new Decorator(r => Core.Player.Location.Distance(((GameObject)r).Location) > UseDistance,
                                 new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText))
                             ),
-                            CreateUseSpell(Target, Spell)
+                            CreateUseSpell()
                          )
-                   );
+                     );
             }
         }
 
@@ -47,7 +47,7 @@ namespace ff14bot.NeoProfiles
         }
 
 
-        private Composite CreateUseSpell(GameObject obj, SpellData spell)
+        private Composite CreateUseSpell()
         {
             return
                 new Sequence(
@@ -55,8 +55,8 @@ namespace ff14bot.NeoProfiles
                     new WaitContinue(5, ret => !MovementManager.IsMoving, new Action(ret => RunStatus.Success)),
                     new Sleep(1000),
                     new DecoratorContinue(ret => ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Failure)),
-                    new DecoratorContinue(r => ActionManager.DoAction(spell, obj), new Action(ret => ActionManager.DoAction(spell, obj))),
-                    new DecoratorContinue(r => ActionManager.DoActionLocation(spell.Id, obj.Location), new Action(ret => ActionManager.DoActionLocation(spell.Id, obj.Location))),
+                    new DecoratorContinue(r => !Spell.GroundTarget, new Action(ret => ActionManager.DoAction(Spell, ((GameObject)ret)))),
+                    new DecoratorContinue(r => Spell.GroundTarget, new Action(ret => ActionManager.DoActionLocation(Spell.Id, ((GameObject)ret).Location))),
                     new Wait(5, ret => Core.Me.IsCasting || ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Success)),
                     new Sleep(WaitTime),
                     new DecoratorContinue(r => BlacklistAfter, new Action(r => Blacklist.Add(r as GameObject, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(BlacklistDuration), "BlacklistAfter")))

@@ -14,12 +14,12 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles
 {
     [XmlElement("SoUseSpell")]
-
     public class SoUseSpellTag : HuntBehavior
     {
-        public override bool HighPriority { get => true; }
+        public override bool HighPriority { get { return true; } }
 
-        private SpellData Spell => DataManager.GetSpellData(SpellId);
+        private SpellData Spell { get { return DataManager.GetSpellData(SpellId); } }
+
         public override string StatusText => $"Using ability {Spell.LocalizedName} for {QuestName}.";
 
         [XmlAttribute("SpellId")]
@@ -75,19 +75,13 @@ namespace ff14bot.NeoProfiles
         protected override void OnStartHunt()
         {
             _flightLogic = new ActionRunCoroutine(cr => FlightLogic());
-            //Log("Injecting Mount Logic.");
             TreeHooks.Instance.InsertHook("TreeStart", 0, _flightLogic);
             Log("Started");
         }
 
         protected override void OnDoneHunt()
         {
-            if (_flightLogic != null)
-            {
-                //Log("Removing Mount Logic.");
-                TreeHooks.Instance.RemoveHook("TreeStart", _flightLogic);
-            }
-
+            if (_flightLogic != null) { TreeHooks.Instance.RemoveHook("TreeStart", _flightLogic); }
             Log("Finished");
         }
     }

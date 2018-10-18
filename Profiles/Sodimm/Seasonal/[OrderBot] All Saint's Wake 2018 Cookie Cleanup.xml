@@ -24,6 +24,7 @@ Authors:  Sodimm
           <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
         </If>
         <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996" QuestId="68706" StepId="1"/>
+        <RunCode Name="Go_Go_Random"/>
       </If>
       <If Condition="HasQuest(68706) and GetQuestStep(68706) == 2 and GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 0">
         <If Condition="not IsOnMap(809)">
@@ -31,7 +32,7 @@ Authors:  Sodimm
           <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
         </If>
         <If Condition="not Core.Me.HasAura(565)">
-          <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+          <RunCode Name="Go_Go_Random"/>
         </If>
         <SoUseSpell SpellId="13265" NpcId="1026673" XYZ="54.73401, 0, 28.7937" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 0"/>
       </If>
@@ -41,7 +42,7 @@ Authors:  Sodimm
           <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
         </If>
         <If Condition="not Core.Me.HasAura(565)">
-          <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+          <RunCode Name="Go_Go_Random"/>
         </If>
         <If Condition="GetQuestById(68706).QuestI8C == 1">
           <SoUseSpell SpellId="13265" NpcId="1026674" XYZ="26.56592, 0, 89.58569" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1"/>
@@ -70,7 +71,7 @@ Authors:  Sodimm
           <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
         </If>
         <If Condition="not Core.Me.HasAura(565)">
-          <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+          <RunCode Name="Go_Go_Random"/>
         </If>
         <MoveTo XYZ="-40.16502, 0, -1.463736"/>
         <SoUseSpell SpellId="13265" NpcId="1026679" XYZ="-60.89874, 0, -45.45667" QuestId="68706" StepId="2"/>
@@ -84,4 +85,50 @@ Authors:  Sodimm
       </If>
     </While>
   </Order>
+  <CodeChunks>
+    <CodeChunk Name="Go_Go_Random">
+      <![CDATA[
+        await Coroutine.Sleep(1000);
+
+        string thisAura = null;
+        if (Core.Me.HasAura(565)) {  thisAura = Core.Me.GetAuraById(565).LocalizedName;  }
+        if (!string.IsNullOrWhiteSpace(thisAura))  {  ChatManager.SendChat("/statusoff \"" + thisAura + "\"");  }
+
+        await Coroutine.Sleep(500);
+
+        var loc = new Vector3(20.98108f, 0f, -11.61212f);
+        while (Core.Player.Location.Distance(loc) > 3f)
+        {
+          ff14bot.Pathing.Flightor.MoveTo(loc);
+          await Coroutine.Yield();
+        }
+        
+        MovementManager.MoveStop();
+
+        var NPC = GameObjectManager.GetObjectByNPCId(1026660);
+        NPC.Target();
+        NPC.Interact();
+
+        var _randomInt = new Random();
+        while (!Core.Me.HasAura(565))
+        {
+          if (Talk.DialogOpen)
+          {
+            Talk.Next();
+            await Coroutine.Sleep(50);
+          }
+      
+          if (SelectString.IsOpen)
+          {
+            SelectString.ClickSlot((uint)_randomInt.Next(0, 3));
+            await Coroutine.Sleep(50);
+          }
+      
+          await Coroutine.Yield();
+        }
+
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
 </Profile>

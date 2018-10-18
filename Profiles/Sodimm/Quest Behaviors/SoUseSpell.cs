@@ -36,7 +36,6 @@ namespace ff14bot.NeoProfiles
                                 new ActionRunCoroutine(r => MoveAndStop(((GameObject)r).Location, UseDistance, false, StatusText))
                             ),
                             CreateUseSpell(Target, Spell)
-                            //new ActionRunCoroutine(r => CreateUseSpellAsync(((GameObject)r), Spell))
                          )
                    );
             }
@@ -57,47 +56,17 @@ namespace ff14bot.NeoProfiles
                     new Sleep(1000),
                     new DecoratorContinue(ret => ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Failure)),
                     new DecoratorContinue(r => ActionManager.DoAction(spell, obj), new Action(ret => ActionManager.DoAction(spell, obj))),
+                    new DecoratorContinue(r => ActionManager.DoActionLocation(spell.Id, obj.Location), new Action(ret => ActionManager.DoActionLocation(spell.Id, obj.Location))),
                     new Wait(5, ret => Core.Me.IsCasting || ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Success)),
                     new Sleep(WaitTime),
                     new DecoratorContinue(r => BlacklistAfter, new Action(r => Blacklist.Add(r as GameObject, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(BlacklistDuration), "BlacklistAfter")))
                 );
         }
 
-        private async Task<bool> CreateUseSpellAsync(GameObject obj, SpellData spell)
-        {
-            if (ShortCircut(obj))
-            {
-                return false;
-            }
-
-            if (obj.IsTargetable && obj.IsVisible)
-            {
-                Navigator.PlayerMover.MoveStop();
-
-                obj.Face();
-
-                if (ActionManager.DoAction(Spell, obj))
-                {
-                    ActionManager.DoAction(Spell, obj);
-                }
-
-                if (BlacklistAfter)
-                {
-                    Blacklist.Add(obj, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(BlacklistDuration), "BlacklistAfter");
-                }
-
-                await Coroutine.Wait(5000, () => ShortCircut(obj));
-            }
-
-            return false;
-        }
 
         private async Task<bool> FlightLogic()
         {
-            if (Core.Player.IsMounted && !MovementManager.IsFlying)
-            {
-                return await CommonTasks.TakeOff();
-            }
+            if (Core.Player.IsMounted && !MovementManager.IsFlying) { return await CommonTasks.TakeOff(); }
 
             return false;
         }
@@ -106,7 +75,7 @@ namespace ff14bot.NeoProfiles
         protected override void OnStartHunt()
         {
             _flightLogic = new ActionRunCoroutine(cr => FlightLogic());
-            Log("Injecting Mount Logic.");
+            //Log("Injecting Mount Logic.");
             TreeHooks.Instance.InsertHook("TreeStart", 0, _flightLogic);
             Log("Started");
         }
@@ -115,7 +84,7 @@ namespace ff14bot.NeoProfiles
         {
             if (_flightLogic != null)
             {
-                Log("Removing Mount Logic.");
+                //Log("Removing Mount Logic.");
                 TreeHooks.Instance.RemoveHook("TreeStart", _flightLogic);
             }
 

@@ -15,10 +15,10 @@ Profile instruction: Set your Miner's Gear Set number to "1" (ONE). Set your Bot
   <CodeChunks>
     <CodeChunk Name="UseStealth"><![CDATA[
 			SpellData data;
-			if (!Core.Me.HasAura("Stealth") && Actionmanager.CurrentActions.TryGetValue("Stealth", out data) && Actionmanager.CanCast(data, Core.Me))
+			if (!Core.Me.HasAura("Stealth") && ActionManager.CurrentActions.TryGetValue("Stealth", out data) && ActionManager.CanCast(data, Core.Me))
 			{
-				Actionmanager.DoAction("Stealth", Core.Me);
-				await Buddy.Coroutines.Coroutine.Sleep(500);
+				ActionManager.DoAction("Stealth", Core.Me);
+				await Coroutine.Sleep(500);
 			}
 		]]></CodeChunk>
     <CodeChunk Name="DisableMount"><![CDATA[
@@ -28,15 +28,15 @@ Profile instruction: Set your Miner's Gear Set number to "1" (ONE). Set your Bot
 			ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
 		]]></CodeChunk>
     <CodeChunk Name="Dismount"><![CDATA[
-			ff14bot.Managers.Actionmanager.Dismount();
+			ActionManager.Dismount();
 		]]></CodeChunk>
     <CodeChunk Name="MIN"><![CDATA[
 			ff14bot.Managers.ChatManager.SendChat("/gs change 1");
-			await Buddy.Coroutines.Coroutine.Sleep(3000);
+			await Coroutine.Sleep(3000);
 		]]></CodeChunk>
     <CodeChunk Name="BTN"><![CDATA[
 			ff14bot.Managers.ChatManager.SendChat("/gs change 2");
-			await Buddy.Coroutines.Coroutine.Sleep(3000);
+			await Coroutine.Sleep(3000);
 		]]></CodeChunk>
   </CodeChunks>
   <Order>

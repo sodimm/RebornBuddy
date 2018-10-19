@@ -120,7 +120,7 @@ Authors:  Sodimm
       
           if (SelectString.IsOpen)
           {
-            SelectString.ClickSlot((uint)_randomInt.Next(0, 3));
+            SelectString.ClickSlot((uint)_randomInt.Next(0, SelectString.LineCount - 1));
             await Coroutine.Sleep(50);
           }
       

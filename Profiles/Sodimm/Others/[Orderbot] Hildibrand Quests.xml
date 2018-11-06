@@ -1277,6 +1277,71 @@ Authors:  Sodimm
       <GetTo ZoneId="628" XYZ="63.38855, 10.50397, -155.8283"/>
       <TurnIn QuestId="68631" NpcId="1025912" XYZ="66.57507, 10.50397, -155.5963"/>
     </If>
+    <!-- The Black Heart Beneath (Level 70) -->
+    <If Condition="not HasQuest(68686) and not IsQuestCompleted(68686)">
+      <GetTo ZoneId="628" XYZ="64.93983, 10.50397, -154.3911"/>
+      <If Condition="IsQuestAcceptQualified(68686)">
+        <PickupQuest QuestId="68686" NpcId="1025912" XYZ="66.57507, 10.50397, -155.5963"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 1 and GetQuestById(68686).GetTodoArgs(1, 0).Item1 == 0">
+      <GetTo ZoneId="628" XYZ="-3.854217, 0.009144783, -112.7889"/>
+      <TalkTo NpcId="1022620" XYZ="-4.745544, 0.02283034, -113.9697" QuestId="68686"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 1 and GetQuestById(68686).GetTodoArgs(1, 0).Item1 == 1">
+      <GetTo ZoneId="628" XYZ="37.87277, 2.99998, -66.04837"/>
+      <TalkTo NpcId="1022628" XYZ="38.65112, 2.99999, -66.7583" QuestId="68686"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 1 and GetQuestById(68686).GetTodoArgs(1, 0).Item1 == 2">
+      <GetTo ZoneId="628" XYZ="1.870824, 0, -69.45045"/>
+      <TalkTo NpcId="1019063" XYZ="3.341675, 7.450581E-09, -67.73486" QuestId="68686"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 2">
+      <GetTo ZoneId="628" XYZ="65.19611, 10.50397, -154.3275"/>
+      <TalkTo NpcId="1025912" XYZ="66.57507, 10.50397, -155.5963" QuestId="68686" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 3">
+      <GetTo ZoneId="628" XYZ="62.23488, 6.007698, -110.4833"/>
+      <TalkTo NpcId="1026349" XYZ="62.18042, 5.991543, -106.1265" QuestId="68686" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 4">
+      <GetTo ZoneId="628" XYZ="64.93456, -8.099998, -226.5001"/>
+      <TalkTo NpcId="1026457" XYZ="62.27197, -8.099998, -225.2995" QuestId="68686" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68686) and not IsQuestCompleted(68686) and GetQuestStep(68686) == 255">
+      <GetTo ZoneId="628" XYZ="43.20721, -7.465471, -260.3412"/>
+      <TurnIn QuestId="68686" NpcId="1026353" XYZ="45.45654, -7.470526, -261.3412"/>
+    </If>
+    <!-- Good Swords, Good Dogs (Level 70) -->
+    <If Condition="not HasQuest(68687) and not IsQuestCompleted(68687)">
+      <GetTo ZoneId="628" XYZ="43.16013, -7.465423, -261.272"/>
+      <If Condition="IsQuestAcceptQualified(68687)">
+        <PickupQuest QuestId="68687" NpcId="1026351" XYZ="45.09033, -7.469796, -262.7146"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68687) and not IsQuestCompleted(68687) and GetQuestStep(68687) == 1">
+      <GetTo ZoneId="613" XYZ="842.9474, 1.179205, 863.5935"/>
+      <TalkTo NpcId="1026355" XYZ="841.2756, 1.179202, 861.9058" QuestId="68687" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68687) and not IsQuestCompleted(68687) and GetQuestStep(68687) == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
+      </If>
+      <FlyTo XYZ="499.9723, 28.29205, 723.2436" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1019166" XYZ="495.6587, 29.39458, 722.0111" QuestId="68687" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68687) and not IsQuestCompleted(68687) and GetQuestStep(68687) == 3">
+      <GetTo ZoneId="613" XYZ="434.4166, 29.51374, 778.3181"/>
+      <TalkTo NpcId="1026366" XYZ="433.7377, 30.29471, 780.6973" QuestId="68687" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68687) and not IsQuestCompleted(68687) and GetQuestStep(68687) == 4">
+      <GetTo ZoneId="613" XYZ="300.137, 0.6257159, 470.6373"/>
+      <TalkTo NpcId="1026367" XYZ="297.322, 0.3528307, 470.5118" QuestId="68687" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68687) and not IsQuestCompleted(68687) and GetQuestStep(68687) == 255">
+      <GetTo ZoneId="628" XYZ="-33.46214, 5.990408, -151.535"/>
+      <TurnIn QuestId="68687" NpcId="1026369" XYZ="-35.08057, 5.983372, -152.2393"/>
+    </If>
   </Order>
   <GrindAreas>
     <GrindArea name="555">
@@ -1305,37 +1370,35 @@ Authors:  Sodimm
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
-    <CodeChunk Name="555"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="555">
+      <![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(555).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
-          if (Core.Me.IsMounted)
-          {
-            await CommonTasks.StopAndDismount();
-          }
+          if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
 
-          Logging.Write("Attempting to Level Sync");
           await Coroutine.Sleep(3000);
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]></CodeChunk>
-    <CodeChunk Name="336"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="336">
+      <![CDATA[
         if (FateManager.WithinFate && FateManager.GetFateById(336).MaxLevel < Core.Me.ClassLevel && !Core.Me.IsLevelSynced)
         {
-          if (Core.Me.IsMounted)
-          {
-            await CommonTasks.StopAndDismount();
-          }
+          if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
 
-          Logging.Write("Attempting to Level Sync");
           await Coroutine.Sleep(3000);
           ToDoList.LevelSync();
           await Coroutine.Sleep(500);
         }
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

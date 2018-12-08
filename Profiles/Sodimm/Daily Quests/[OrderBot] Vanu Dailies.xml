@@ -5,446 +5,526 @@ Authors:  Sodimm.
 -->
 <Profile>
   <Name>[OrderBot] Vanu Dailies.</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
+    <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736"/>
-    <If Condition="not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+    <!-- Three Beaks to the Wind -->
+    <If Condition="IsQuestCompleted(67184) and not HasQuest(67700) and not IsQuestCompleted(67700)">
+      <GetTo ZoneId="401" XYZ="-539.8235, -37.1359, -386.6885"/>
+      <If Condition="IsQuestAcceptQualified(67700)">
+        <PickUpQuest QuestId="67700" NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 1">
+      <GetTo ZoneId="401" XYZ="-659.7952, -51.08029, -398.8028"/>
+      <FlyTo XYZ="-428.275, 201.3427, -229.0532" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006621" XYZ="-428.275, 201.3427, -229.0532" QuestId="67700" StepId="1"/>
+      <WaitWhile Condition="HasQuest(67700) and not IsQuestCompleted(67700) and not GetQuestStep(67700) == 3"/>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-428.275, 201.3427, -229.0532" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016150" XYZ="-429.5262, 167.9683, -224.445" QuestId="67700" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 4">
+      <GetTo ZoneId="401" XYZ="-539.8235, -37.1359, -386.6885"/>
+      <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67700" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 5">
+      <GetTo ZoneId="401" XYZ="-659.7952, -51.08029, -398.8028"/>
+      <FlyTo XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67700" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 6">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlightUseSpell SpellId="4931" NpcIds="1016158,1016157,1016156" QuestId="67700" StepId="6">
+        <HotSpots>
+          <HotSpot XYZ="-779.263, -117.9065, -393.5455" Radius="10"/>
+          <HotSpot XYZ="-813.2906, -110.4907, -434.1955" Radius="10"/>
+          <HotSpot XYZ="-860.5936, -122.9114, -378.3475" Radius="10"/>
+        </HotSpots>
+      </FlightUseSpell>
+      <FlyTo XYZ="-821.462, -133.2695, -387.6938" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+    </If>
+    <If Condition="IsQuestCompleted(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
       <!-- Veni, Vundu, Vici -->
-      <If Condition="not HasQuest(67707)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67707)">
-          <PickUpQuest QuestId="67707" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67707) and not HasQuest(67707)">
+        <PickUpQuest QuestId="67707" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Pussyfooting About -->
-      <If Condition="not HasQuest(67708)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67708)">
-          <PickUpQuest QuestId="67708" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67708) and not HasQuest(67708)">
+        <PickUpQuest QuestId="67708" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Endymion Disco -->
-      <If Condition="not HasQuest(67709)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67709)">
-          <PickUpQuest QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67709) and not HasQuest(67709)">
+        <PickUpQuest QuestId="67709" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Pilfering Pots From The Pantry -->
-      <If Condition="not HasQuest(67710)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67710)">
-          <PickUpQuest QuestId="67710" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67710) and not HasQuest(67710)">
+        <PickUpQuest QuestId="67710" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Chigoe Cha-Cha  -->
-      <If Condition="not HasQuest(67711)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67711)">
-          <PickUpQuest QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67711) and not HasQuest(67711)">
+        <PickUpQuest QuestId="67711" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Water Crystal Waltz -->
-      <If Condition="not HasQuest(67712)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67712)">
-          <PickUpQuest QuestId="67712" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67712) and not HasQuest(67712)">
+        <PickUpQuest QuestId="67712" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Hardboiled Hustle -->
-      <If Condition="not HasQuest(67713)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67713)">
-          <PickUpQuest QuestId="67713" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67713) and not HasQuest(67713)">
+        <PickUpQuest QuestId="67713" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Sanuwa Samba -->
-      <If Condition="not HasQuest(67714)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67714)">
-          <PickUpQuest QuestId="67714" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67714) and not HasQuest(67714)">
+        <PickUpQuest QuestId="67714" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Bird Watching -->
-      <If Condition="not HasQuest(67715)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67715)">
-          <PickUpQuest QuestId="67715" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67715) and not HasQuest(67715)">
+        <PickUpQuest QuestId="67715" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Comb And Get It -->
-      <If Condition="not HasQuest(67716)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67716)">
-          <PickUpQuest QuestId="67716" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67716) and not HasQuest(67716)">
+        <PickUpQuest QuestId="67716" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- The Binding Soil -->
-      <If Condition="not HasQuest(67717)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67717)">
-          <PickUpQuest QuestId="67717" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67717) and not HasQuest(67717)">
+        <PickUpQuest QuestId="67717" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Flight Of The Midges -->
-      <If Condition="not HasQuest(67718)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67718)">
-          <PickUpQuest QuestId="67718" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67718) and not HasQuest(67718)">
+        <PickUpQuest QuestId="67718" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Fishing In Troubled Waters -->
-      <If Condition="not HasQuest(67719)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67719)">
-          <PickUpQuest QuestId="67719" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67719) and not HasQuest(67719)">
+        <PickUpQuest QuestId="67719" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Reeling In The Vundu -->
-      <If Condition="not HasQuest(67720)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67720)">
-          <PickUpQuest QuestId="67720" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67720) and not HasQuest(67720)">
+        <PickUpQuest QuestId="67720" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Nailed Down -->
-      <If Condition="not HasQuest(67721)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67721)">
-          <PickUpQuest QuestId="67721" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67721) and not HasQuest(67721)">
+        <PickUpQuest QuestId="67721" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- The House That Ginu Built -->
-      <If Condition="not HasQuest(67722)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67722)">
-          <PickUpQuest QuestId="67722" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67722) and not HasQuest(67722)">
+        <PickUpQuest QuestId="67722" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- A Bone To Pick -->
-      <If Condition="not HasQuest(67723)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67723)">
-          <PickUpQuest QuestId="67723" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67723) and not HasQuest(67723)">
+        <PickUpQuest QuestId="67723" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- A Hut To Dye For -->
-      <If Condition="not HasQuest(67724)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67724)">
-          <PickUpQuest QuestId="67724" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67724) and not HasQuest(67724)">
+        <PickUpQuest QuestId="67724" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Shady Pemonitions -->
-      <If Condition="not HasQuest(67725)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67725)">
-          <PickUpQuest QuestId="67725" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67725) and not HasQuest(67725)">
+        <PickUpQuest QuestId="67725" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Pestered Ancestors -->
-      <If Condition="not HasQuest(67726)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67726)">
-          <PickUpQuest QuestId="67726" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67726) and not HasQuest(67726)">
+        <PickUpQuest QuestId="67726" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Smooth As Silk, Cool As Air -->
-      <If Condition="not HasQuest(67727)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67727)">
-          <PickUpQuest QuestId="67727" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67727) and not HasQuest(67727)">
+        <PickUpQuest QuestId="67727" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Gaelcat's Out The Bag -->
-      <If Condition="not HasQuest(67728)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67728)">
-          <PickUpQuest QuestId="67728" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67728) and not HasQuest(67728)">
+        <PickUpQuest QuestId="67728" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Rotten To The Korrigan -->
-      <If Condition="not HasQuest(67729)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67729)">
-          <PickUpQuest QuestId="67729" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67729) and not HasQuest(67729)">
+        <PickUpQuest QuestId="67729" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Gastornis Groove -->
-      <If Condition="not HasQuest(67730)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67730)">
-          <PickUpQuest QuestId="67730" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67730) and not HasQuest(67730)">
+        <PickUpQuest QuestId="67730" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- The Cats Meow -->
-      <If Condition="not HasQuest(67731)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67731)">
-          <PickUpQuest QuestId="67731" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67731) and not HasQuest(67731)">
+        <PickUpQuest QuestId="67731" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Easy As Paissa -->
-      <If Condition="not HasQuest(67732)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67732)">
-          <PickUpQuest QuestId="67732" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67732) and not HasQuest(67732)">
+        <PickUpQuest QuestId="67732" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Dance Commander -->
-      <If Condition="not HasQuest(67733)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67733)">
-          <PickUpQuest QuestId="67733" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67733) and not HasQuest(67733)">
+        <PickUpQuest QuestId="67733" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Electric Gunduloo -->
-      <If Condition="not HasQuest(67734)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67734)">
-          <PickUpQuest QuestId="67734" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67734) and not HasQuest(67734)">
+        <PickUpQuest QuestId="67734" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Wildwort And Sundrop -->
-      <If Condition="not HasQuest(67735)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67735)">
-          <PickUpQuest QuestId="67735" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67735) and not HasQuest(67735)">
+        <PickUpQuest QuestId="67735" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Vanish, Vile Vundu -->
-      <If Condition="not HasQuest(67736)">
-        <If Condition="not IsOnMap(401)">
-          <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-        </If>
-        <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-        <If Condition="IsQuestAcceptQualified(67736)">
-          <PickUpQuest QuestId="67736" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67736) and not HasQuest(67736)">
+        <PickUpQuest QuestId="67736" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
     </If>
-    <!-- Quests in the Open World -->
-    <!-- Gastornis Groove -->
-    <If Condition="HasQuest(67730) and GetQuestStep(67730) == 1">
+    <!-- Endymion Disco -->
+    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67730" StepId="1"/>
+      <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67709" StepId="1"/>
     </If>
-    <!-- Nailed Down -->
-    <If Condition="HasQuest(67721) and GetQuestStep(67721) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67721" StepId="1"/>
+    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 2">
+      <RunCode Name="67709"/>
+      <FlightUseSpell SpellId="4931" NpcIds="2006649,2006647,2006648,2006646" QuestId="67709" StepId="2" IgnoreIndoors="True">
+        <HotSpots>
+          <HotSpot XYZ="-539.0555, 64.22522, -377.0047" Radius="10"/>
+          <HotSpot XYZ="-504.7837, -26.68805, -530.9377" Radius="10"/>
+          <HotSpot XYZ="-477.4091, -28.88544, -668.33" Radius="10"/>
+          <HotSpot XYZ="-96.20813, 0.3203735, -620.264" Radius="10"/>
+        </HotSpots>
+      </FlightUseSpell>
+      <Dismount/>
     </If>
-    <!-- The House That Ginu Built -->
-    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 1">
+    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 255">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67722" StepId="1"/>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
-    <!-- A Bone To Pick -->
-    <If Condition="HasQuest(67723) and GetQuestStep(67723) == 1">
+    <!-- Chigoe Cha-Cha -->
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67723" StepId="1"/>
+      <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67711" StepId="1"/>
     </If>
-    <!-- A Hut To Dye For -->
-    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67724" StepId="1"/>
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 2">
+      <FlightUseSpell SpellId="4931" NpcId="2006655" XYZ="-48.32532, 17.99036, -852.4758" QuestId="67711" StepId="2"/>
     </If>
-    <!-- Gaelcat's Out The Bag -->
-    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 1">
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 3">
+      <FlightUseSpell SpellId="4931" NpcId="2006656" XYZ="95.23157, -11.88684, -817.6242" QuestId="67711" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 4">
+      <FlightUseSpell SpellId="4931" NpcId="2006657" XYZ="205.8899, -6.912354, -785.7023" QuestId="67711" StepId="4"/>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 255">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67728" StepId="1"/>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
+    </If>
+    <!-- Sanuwa Samba -->
+    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67714" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 2">
+      <FlyTo XYZ="126.7822, -98.15427, 500.9179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <FlightUseSpell SpellId="4931" NpcIds="1016219, 1016218, 1016217" QuestId="67714" StepId="2" IgnoreIndoors="True">
+        <HotSpots>
+          <HotSpot XYZ="14.38922, -111.0549, 413.7178" Radius="10"/>
+          <HotSpot XYZ="97.48987, -86.45681, 466.575" Radius="10"/>
+          <HotSpot XYZ="148.3515, -88.0248, 441.4963" Radius="10"/>
+          <HotSpot XYZ="137.9568, -87.38033, 434.6227" Radius="10"/>
+        </HotSpots>
+      </FlightUseSpell>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
+    </If>
+    <!-- Flight of the Midges -->
+    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-804.2573, -133.2695, -390.8904" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904" QuestId="67718" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67718" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 3">
+      <FlightUseSpell SpellId="4931" NpcIds="1016222,1016221,1016220" QuestId="67718" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="-851.1622, 9.685495, -230.5582" Radius="10"/>
+          <HotSpot XYZ="-582.5859, -50.14484, -541.6489" Radius="10"/>
+          <HotSpot XYZ="-461.4017, -20.85574, -610.0296" Radius="10"/>
+        </HotSpots>
+      </FlightUseSpell>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
     </If>
     <!-- The Binding Soil -->
     <If Condition="HasQuest(67717) and GetQuestStep(67717) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
       <TalkTo NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904" QuestId="67717" StepId="1"/>
     </If>
     <!-- Rotten To The Korrigan -->
     <If Condition="HasQuest(67729) and GetQuestStep(67729) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
       <TalkTo NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904" QuestId="67729" StepId="1"/>
     </If>
-    <!-- Shady Pemonitions -->
+    <!-- Nailed Down -->
+    <If Condition="HasQuest(67721) and GetQuestStep(67721) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67721" StepId="1"/>
+    </If>
+    <!-- The House That Ginu Built -->
+    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67722" StepId="1"/>
+    </If>
+    <!-- A Bone To Pick -->
+    <If Condition="HasQuest(67723) and GetQuestStep(67723) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67723" StepId="1"/>
+    </If>
+    <!-- A Hut To Die For -->
+    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67724" StepId="1"/>
+    </If>
+    <!-- Gaelcat's Out The Bag -->
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016092" XYZ="-792.6299, -133.3218, -425.5589" QuestId="67728" StepId="1"/>
+    </If>
+    <!-- Gastornis Groove -->
+    <If Condition="HasQuest(67730) and GetQuestStep(67730) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-792.6299, -133.3218, -425.5589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67730" StepId="1"/>
+    </If>
+    <!-- Shady Premonitions -->
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67725" StepId="1"/>
     </If>
     <!-- Pestered Ancestors -->
     <If Condition="HasQuest(67726) and GetQuestStep(67726) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67726" StepId="1"/>
     </If>
-    <!-- Smooth As Silk, Cool As Air -->
+    <!-- Smooth as Silk, Cool as Air -->
     <If Condition="HasQuest(67727) and GetQuestStep(67727) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67727" StepId="1"/>
     </If>
     <!-- The Cats Meow -->
     <If Condition="HasQuest(67731) and GetQuestStep(67731) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67731" StepId="1"/>
     </If>
     <!-- Dance Commander -->
     <If Condition="HasQuest(67733) and GetQuestStep(67733) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67733" StepId="1"/>
     </If>
     <!-- Electric Gunduloo -->
     <If Condition="HasQuest(67734) and GetQuestStep(67734) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67734" StepId="1"/>
     </If>
-    <!-- Wildwort And Sundrop -->
+    <!-- Wildwort and Sundrop -->
     <If Condition="HasQuest(67735) and GetQuestStep(67735) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
       <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67735" StepId="1"/>
     </If>
-    <!-- Fishing In Troubled Waters -->
+    <!-- Vanish, Vile Vundu -->
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67736" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67736" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 3">
+      <FlightUseSpell SpellId="4931" NpcId="1016242" XYZ="284.1992, 28.57418, -636.3775" QuestId="67736" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 4">
+      <FlightUseSpell SpellId="4931" NpcId="1016378" XYZ="338.4298, 31.48374, -562.1882" QuestId="67736" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 5">
+      <FlightUseSpell SpellId="4931" NpcId="1016379" XYZ="501.274, 112.649, -182.9709" QuestId="67736" StepId="5"/>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
+    </If>
+    <!-- Fishing in Troubled Waters -->
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-836.5148, -133.2695, -386.6179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
       <TalkTo NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179" QuestId="67719" StepId="1"/>
+    </If>
+    <!-- Reeling in the Vundu -->
+    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-836.5148, -133.2695, -386.6179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179" QuestId="67720" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-776.0281, -133.3556, -414.3282" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67720" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 3">
+      <FlightUseSpell SpellId="4931" NpcIds="1016227,1016226" QuestId="67720" StepId="3">
+        <HotSpots>
+          <HotSpot XYZ="466.3302, -97.30765, -527.7798" Radius="10"/>
+          <HotSpot XYZ="710.9331, -98.03255, -741.0239" Radius="10"/>
+        </HotSpots>
+      </FlightUseSpell>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
+    </If>
+    <!-- Veni, Vundu, Vici -->
+    <If Condition="HasQuest(67707) and GetQuestStep(67707) == 1 and not GetQuestById(67707).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-24.76544, 5.325378, -657.7097" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcIds="2006641,2006640,2006639,2006642" Condition="HasQuest(67707) and GetQuestStep(67707) == 1 and not GetQuestById(67707).GetTodoArgs(1, 0).Item1 == 2">
+        <HotSpots>
+          <HotSpot XYZ="-24.76544, 5.325378, -657.7097" Radius="5"/>
+          <HotSpot XYZ="-82.2309, -10.72711, -637.9034" Radius="5"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67707) and GetQuestStep(67707) == 1 and GetQuestById(67707).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-270.3136, -13.96204, -635.2484" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcIds="2006641,2006640,2006639,2006642" QuestId="67707" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-245.4109, -13.22961, -608.2704" Radius="5"/>
+          <HotSpot XYZ="-270.3136, -13.96204, -635.2484" Radius="5"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67707) and GetQuestStep(67707) == 255">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67707" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Pussyfooting About -->
     <If Condition="HasQuest(67708) and GetQuestStep(67708) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-473.106, -56.01587, -624.1398"/>
+      <FlyTo XYZ="-473.106, -56.01587, -624.1398" Land="True"/>
       <UseObject NpcIds="2006645,2006643,2006644" Distance="5" QuestId="67708" StepId="1">
         <HotSpots>
           <HotSpot XYZ="-473.106, -56.01587, -624.1398" Radius="5"/>
@@ -455,123 +535,139 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67708) and GetQuestStep(67708) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <HandOver NpcId="1016089" ItemId="2001904" XYZ="-799.4659, -133.2695, -404.1352" QuestId="67708" StepId="2"/>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001904" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352" QuestId="67708" StepId="2"/>
     </If>
     <If Condition="HasQuest(67708) and GetQuestStep(67708) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-658.8998, -127.7836, 622.98"/>
-      <HandOver NpcId="1012056" ItemId="2001905" XYZ="-658.8998, -127.7836, 622.98" QuestId="67708" StepId="3"/>
-    </If>
-    <!-- Veni, Vundu, Vici -->
-    <If Condition="HasQuest(67707) and GetQuestStep(67707) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-24.76544, 5.325378, -657.7097"/>
-      <UseObject NpcIds="2006641,2006640,2006639,2006642" QuestId="67707" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="-24.76544, 5.325378, -657.7097" Radius="5"/>
-          <HotSpot XYZ="-82.2309, -10.72711, -637.9034" Radius="5"/>
-          <HotSpot XYZ="-245.4109, -13.22961, -608.2704" Radius="5"/>
-          <HotSpot XYZ="-270.3136, -13.96204, -635.2484" Radius="5"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="-658.8998, -127.7836, 622.98" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001905" NpcId="1012056" XYZ="-658.8998, -127.7836, 622.98" QuestId="67708" StepId="3"/>
     </If>
     <!-- Pilfering Pots From The Pantry -->
-    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 1">
+    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="847.2876, -50.58368, 7.217468"/>
-      <UseObject NpcIds="2006654,2006653,2006652,2006651" QuestId="67710" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="642.6335, -92.57648, 63.03503" Radius="5"/>
-          <HotSpot XYZ="860.2273, -84.45868, 19.27209" Radius="5"/>
-          <HotSpot XYZ="847.2876, -50.58368, 7.217468" Radius="5"/>
-          <HotSpot XYZ="664.3624, -30.86908, -137.0108" Radius="5"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="603.9226, -69.1489, 281.0497" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+      <FlyTo XYZ="802.5234, -69.13943, 32.73896" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006652" XYZ="847.2876, -50.58368, 7.217468" Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="802.5234, -69.13943, 32.73896" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <UseObject NpcId="2006653" XYZ="856.3144, -84.19918, 23.49827" Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="644.2354, -93.74065, 51.27343" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006654" XYZ="644.2354, -93.74065, 51.27343" Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="662.1318, -30.98417, -138.2147" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006651" XYZ="662.1318, -30.98417, -138.2147" Condition="HasQuest(67710) and GetQuestStep(67710) == 1 and GetQuestById(67710).GetTodoArgs(1, 0).Item1 == 3"/>
+      <RunCode Name="67710"/>
     </If>
     <!-- Water Crystal Waltz -->
     <If Condition="HasQuest(67712) and GetQuestStep(67712) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-277.6379, -184.5974, 741.6038"/>
+      <FlyTo XYZ="-277.6379, -184.5974, 741.6038" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67712" StepId="1"/>
     </If>
-    <If Condition="HasQuest(67712) and GetQuestStep(67712) == 2">
+    <If Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="150.7743, -133.9896, 610.0098"/>
-      <UseObject NpcIds="2006662,2006659,2006658" QuestId="67712" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="150.7743, -133.9896, 610.0098" Radius="5"/>
-          <HotSpot XYZ="333.4248, -124.1627, 751.4916" Radius="5"/>
-          <HotSpot XYZ="407.187, -122.5147, 724.0558" Radius="5"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="150.7743, -133.9896, 610.0098" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006662" XYZ="150.7743, -133.9896, 610.0098" Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="333.4248, -124.1627, 751.4916" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006659" XYZ="333.4248, -124.1627, 751.4916" Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="400.9748, -125.2895, 726.5571" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006658" XYZ="407.187, -122.5147, 724.0558" Condition="HasQuest(67712) and GetQuestStep(67712) == 2 and GetQuestById(67712).GetTodoArgs(2, 0).Item1 == 2"/>
     </If>
     <!-- Hardboiled Hustle -->
-    <If Condition="HasQuest(67713) and GetQuestStep(67713) == 1">
+    <If Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="665.0034, -158.7702, 662.2567"/>
-      <UseObject NpcIds="2006663,2006664,2006665" QuestId="67713" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="665.0034, -158.7702, 662.2567" Radius="5"/>
-          <HotSpot XYZ="625.3605, -160.296, 835.6298" Radius="5"/>
-          <HotSpot XYZ="728.1146, -157.4579, 815.5488" Radius="5"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="665.0034, -158.7702, 662.2567" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006663" XYZ="665.0034, -158.7702, 662.2567" Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="625.3605, -160.296, 835.6298" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006664" XYZ="625.3605, -160.296, 835.6298" Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="728.1146, -157.4579, 815.5488" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006665" XYZ="728.1146, -157.4579, 815.5488" Condition="HasQuest(67713) and GetQuestStep(67713) == 1 and GetQuestById(67713).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <!-- Bird Watching -->
     <If Condition="HasQuest(67715) and GetQuestStep(67715) == 1 and GetQuestById(67715).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-656.7635, -117.3236, 492.7899"/>
+      <FlyTo XYZ="-656.7635, -117.3236, 492.7899" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1012055" XYZ="-656.7635, -117.3236, 492.7899" QuestId="67715"/>
     </If>
     <If Condition="HasQuest(67715) and GetQuestStep(67715) == 1 and GetQuestById(67715).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-599.0845, -122.5, 559.5024"/>
+      <GetTo ZoneId="401" XYZ="-599.0845, -122.5, 559.5024"/>
       <TalkTo NpcId="1012057" XYZ="-599.0845, -122.5, 559.5024" QuestId="67715"/>
     </If>
     <If Condition="HasQuest(67715) and GetQuestStep(67715) == 1 and not IsTodoChecked(67715, 1, 1)">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-279.7131, -156.8713, 766.9946"/>
+      <FlyTo XYZ="-279.7131, -156.8713, 766.9946" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1016215" XYZ="-279.7131, -156.8713, 766.9946" QuestId="67715" StepId="1"/>
     </If>
-    <If Condition="HasQuest(67715) and GetQuestStep(67715) == 2">
+    <If Condition="HasQuest(67715) and GetQuestStep(67715) == 2 and GetQuestById(67715).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="270.8933, -114.2139, 395.2544"/>
-      <UseObject NpcIds="2006702,2006703" QuestId="67715" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="270.8933, -114.2139, 395.2544" Radius="10"/>
-          <HotSpot XYZ="504.1123, -101.3352, 360.5859" Radius="10"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="270.8933, -114.2139, 395.2544" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006702" XYZ="270.8933, -114.2139, 395.2544" Condition="HasQuest(67715) and GetQuestStep(67715) == 2 and GetQuestById(67715).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67715) and GetQuestStep(67715) == 2 and GetQuestById(67715).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="504.1123, -101.3352, 360.5859" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006703" XYZ="504.1123, -101.3352, 360.5859" Condition="HasQuest(67715) and GetQuestStep(67715) == 2 and GetQuestById(67715).GetTodoArgs(2, 0).Item1 == 1"/>
     </If>
     <!-- Comb And Get It -->
     <If Condition="HasQuest(67716) and GetQuestStep(67716) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-759.4568, -61.90588, 140.2151"/>
+      <FlyTo XYZ="-759.4568, -61.90588, 140.2151" Land="True"/>
       <UseObject NpcIds="2006761,2006667" QuestId="67716" StepId="1">
         <HotSpots>
           <HotSpot XYZ="-759.4568, -61.90588, 140.2151" Radius="5"/>
@@ -581,25 +677,22 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67716) and GetQuestStep(67716) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-627.863, -59.37292, -162.1271"/>
-      <UseItem NpcIds="2006666" ItemId="2001941" XYZ="-627.863, -59.37292, -162.1271" QuestId="67716" StepId="2"/>
+      <FlyTo XYZ="-627.863, -59.37292, -162.1271" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseItem ItemId="2001941" NpcIds="2006666" XYZ="-627.863, -59.37292, -162.1271" QuestId="67716" StepId="2"/>
     </If>
     <If Condition="HasQuest(67716) and GetQuestStep(67716) == 3">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-597.0398, -51.05185, -387.0451"/>
-      <HandOver NpcId="1012068" ItemId="2001909" XYZ="-597.0398, -51.05185, -387.0451" QuestId="67716" StepId="3"/>
+      <GetTo ZoneId="401" XYZ="-597.0398, -51.05185, -387.0451"/>
+      <HandOver ItemId="2001909" NpcId="1012068" XYZ="-597.0398, -51.05185, -387.0451" QuestId="67716" StepId="3"/>
     </If>
     <!-- The Binding Soil -->
     <If Condition="HasQuest(67717) and GetQuestStep(67717) == 2 and not IsTodoChecked(67717, 2, 1)">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-292.3477, -142.2904, 325.9174"/>
-      <UseObject NpcIds="2006706,2006704,2006705" QuestId="67717" UseTimes="1">
+      <FlyTo XYZ="-375.2694, -156.7587, 215.7144" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006706,2006704,2006705" QuestId="67717" Condition="HasQuest(67717) and GetQuestStep(67717) == 2 and not IsTodoChecked(67717, 2, 1)">
         <HotSpots>
           <HotSpot XYZ="-292.3477, -142.2904, 325.9174" Radius="5"/>
           <HotSpot XYZ="-281.1169, -133.135, 345.2964" Radius="5"/>
@@ -609,9 +702,9 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67717) and GetQuestStep(67717) == 2 and not IsTodoChecked(67717, 2, 0)">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="165.8503, -86.13721, 415.9456"/>
+      <FlyTo XYZ="165.8503, -86.13721, 415.9456" Land="True" IgnoreIndoors="True"/>
       <UseObject NpcIds="2006670,2006668,2006669" QuestId="67717" StepId="2">
         <HotSpots>
           <HotSpot XYZ="165.8503, -86.13721, 415.9456" Radius="5"/>
@@ -623,25 +716,25 @@ Authors:  Sodimm.
     <!-- Fishing In Troubled Waters -->
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="833.827, -97.81962, -734.51"/>
+      <FlyTo XYZ="833.827, -97.81962, -734.51" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1016223" XYZ="833.827, -97.81962, -734.51" QuestId="67719" StepId="2"/>
-      <WaitWhile Condition="GetQuestStep(67719) == 2"/>
+      <WaitWhile Condition="HasQuest(67719) and not GetQuestStep(67719) == 3"/>
     </If>
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="834.3785, -97.81962, -734.51" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="834.3785, -97.81962, -734.51"/>
       <TalkTo NpcId="1016223" XYZ="834.3785, -97.81962, -734.51" QuestId="67719" StepId="3"/>
     </If>
     <!-- Nailed Down -->
     <If Condition="HasQuest(67721) and GetQuestStep(67721) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-717.0062, -13.90106, -101.4879"/>
+      <FlyTo XYZ="-717.0062, -13.90106, -101.4879" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcIds="2006762,2006676" QuestId="67721" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-781.5214, -13.93152, -114.3054" Radius="10"/>
@@ -651,103 +744,113 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67721) and GetQuestStep(67721) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-642.298, -207.2938, 211.1085"/>
-      <UseItem NpcIds="2006675" ItemId="2001912" XYZ="-642.298, -207.2938, 211.1085" QuestId="67721" StepId="3"/>
+      <FlyTo XYZ="-642.298, -207.2938, 211.1085" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseItem ItemId="2001912" NpcId="2006675" XYZ="-642.298, -207.2938, 211.1085" QuestId="67721" StepId="3"/>
     </If>
     <If Condition="HasQuest(67721) and GetQuestStep(67721) == 4">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-640.1007, -119.5621, 469.5963"/>
-      <HandOver NpcId="1012054" ItemId="2001913" XYZ="-640.1007, -119.5621, 469.5963" QuestId="67721" StepId="4"/>
+      <FlyTo XYZ="-640.1007, -119.5621, 469.5963" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001913" NpcId="1012054" XYZ="-640.1007, -119.5621, 469.5963" QuestId="67721" StepId="4"/>
     </If>
     <!-- The House That Ginu Built -->
-    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 2">
+    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 2 and GetQuestById(67722).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="117.9675, 12.25293, -412.9244"/>
-      <UseObject NpcIds="2006677,2006678" QuestId="67722" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="117.9675, 12.25293, -412.9244" Radius="10"/>
-          <HotSpot XYZ="160.5402, 11.8562, -507.6524" Radius="10"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="117.9675, 12.25293, -412.9244" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006677" XYZ="117.9675, 12.25293, -412.9244" Condition="HasQuest(67722) and GetQuestStep(67722) == 2 and GetQuestById(67722).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 2 and GetQuestById(67722).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="160.5402, 11.8562, -507.6524" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006678" XYZ="160.5402, 11.8562, -507.6524" Condition="HasQuest(67722) and GetQuestStep(67722) == 2 and GetQuestById(67722).GetTodoArgs(2, 0).Item1 == 1"/>
     </If>
     <!-- A Bone To Pick -->
     <If Condition="HasQuest(67723) and GetQuestStep(67723) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-401.175, -202.6551, 432.3948"/>
-      <UseObject NpcIds="2006679" XYZ="-401.175, -202.6551, 432.3948" QuestId="67723" StepId="2"/>
+      <FlyTo XYZ="-401.175, -202.6551, 432.3948" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006679" XYZ="-401.175, -202.6551, 432.3948" QuestId="67723" StepId="2"/>
     </If>
     <If Condition="HasQuest(67723) and GetQuestStep(67723) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-280.8728, -202.0142, 390.7987"/>
-      <UseObject NpcIds="2006680" XYZ="-280.8728, -202.0142, 390.7987" QuestId="67723" StepId="3"/>
+      <FlyTo XYZ="-280.8728, -202.0142, 390.7987" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006680" XYZ="-280.8728, -202.0142, 390.7987" QuestId="67723" StepId="3"/>
     </If>
     <!-- A Hut To Dye For -->
-    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 2">
+    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="25.71143, 150.4692, -133.5623"/>
-      <UseObject NpcIds="2006682,2006681,2006683" QuestId="67724" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="25.71143, 150.4692, -133.5623" Radius="10"/>
-          <HotSpot XYZ="237.0793, 163.9581, -46.43323" Radius="10"/>
-          <HotSpot XYZ="332.5094, 106.7979, -68.2536" Radius="10"/>
-        </HotSpots>
-      </UseObject>
-      <WaitWhile Condition="Core.Player.InCombat"/>
+      <FlyTo XYZ="22.11003, 150.499, -131.9332" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006682" XYZ="25.71143, 150.4692, -133.5623" Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="236.5823, 163.9543, -44.65412" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006681" XYZ="237.0793, 163.9581, -46.43323" Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 1"/>
+	  <RunCode Name="67724"/>
+    </If>
+    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="330.2475, 106.8025, -67.86343" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006683" XYZ="332.5094, 106.7979, -68.2536" Condition="HasQuest(67724) and GetQuestStep(67724) == 2 and GetQuestById(67724).GetTodoArgs(2, 0).Item1 == 2"/>
     </If>
     <!-- Shady Pemonitions -->
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-547.7836, -57.6466, -549.7673"/>
+      <FlyTo XYZ="-547.7836, -57.6466, -549.7673" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1016228" XYZ="-547.7836, -57.6466, -549.7673" QuestId="67725" StepId="2"/>
     </If>
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-357.29, -56.56525, -598.9929"/>
-      <UseObject NpcIds="2006684" XYZ="-357.29, -56.56525, -598.9929" QuestId="67725" StepId="3"/>
+      <FlyTo XYZ="-357.29, -56.56525, -598.9929" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006684" XYZ="-357.29, -56.56525, -598.9929" QuestId="67725" StepId="3"/>
     </If>
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 4">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-369.3141, -54.22221, -605.3407" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-369.3141, -54.22221, -605.3407"/>
       <TalkTo NpcId="1016229" XYZ="-369.3141, -54.22221, -605.3407" QuestId="67725" StepId="4"/>
     </If>
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 5">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-107.0726, -13.50433, -655.6039"/>
-      <UseObject NpcIds="2006685" XYZ="-107.0726, -13.50433, -655.6039" QuestId="67725" StepId="5"/>
+      <FlyTo XYZ="-107.0726, -13.50433, -655.6039" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006685" XYZ="-107.0726, -13.50433, -655.6039" QuestId="67725" StepId="5"/>
     </If>
     <If Condition="HasQuest(67725) and GetQuestStep(67725) == 6">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-114.8547, -13.979, -652.8878" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-114.8547, -13.979, -652.8878"/>
       <TalkTo NpcId="1016230" XYZ="-114.8547, -13.979, -652.8878" QuestId="67725" StepId="6"/>
     </If>
     <!-- Pestered Ancestors -->
     <If Condition="HasQuest(67726) and GetQuestStep(67726) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="72.92273, -88.39557, 428.8242"/>
+      <FlyTo XYZ="72.92273, -88.39557, 428.8242" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <UseObject NpcIds="2006707,2006686" QuestId="67726" StepId="2">
         <HotSpots>
           <HotSpot XYZ="72.92273, -88.39557, 428.8242" Radius="10"/>
@@ -756,42 +859,76 @@ Authors:  Sodimm.
       </UseObject>
     </If>
     <!-- Smooth As Silk, Cool As Air -->
-    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 2">
+    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-553.9788, -58.42682, -271.1071"/>
-      <UseObject NpcIds="2006689,2006690,2006688,2006687" QuestId="67727" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="-830.3197, -14.35876, -131.8228" Radius="10"/>
-          <HotSpot XYZ="-857.6333, 4.653992, -218.6771" Radius="10"/>
-          <HotSpot XYZ="-715.1446, -58.6405, -342.3057" Radius="10"/>
-          <HotSpot XYZ="-553.9788, -58.42682, -271.1071" Radius="10"/>
-        </HotSpots>
-      </UseObject>
+      <FlyTo XYZ="-830.3197, -14.35876, -131.8228" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006689" XYZ="-830.3197, -14.35876, -131.8228" Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-857.6333, 4.653992, -218.6771" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006690" XYZ="-857.6333, 4.653992, -218.6771" Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-715.1446, -58.6405, -342.3057" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006688" XYZ="-715.1446, -58.6405, -342.3057" Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-553.9788, -58.42682, -271.1071" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006687" XYZ="-553.9788, -58.42682, -271.1071" Condition="HasQuest(67727) and GetQuestStep(67727) == 2 and GetQuestById(67727).GetTodoArgs(2, 0).Item1 == 3"/>
     </If>
     <!-- Gaelcat's Out The Bag -->
-    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2">
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-627.8936, -149.9529, 480.1556"/>
-      <UseItem NpcIds="1016375,1016232,1016374,1016233,1016231" ItemId="2001934" QuestId="67728" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="-627.8936, -149.9529, 480.1556" Radius="10"/>
-          <HotSpot XYZ="-452.1096, -187.396, 734.1877" Radius="10"/>
-          <HotSpot XYZ="-343.0076, -161.8661, 770.0159" Radius="10"/>
-          <HotSpot XYZ="-359.823, -184.9545, 796.7192" Radius="10"/>
-          <HotSpot XYZ="-333.7911, -184.9745, 625.1162" Radius="10"/>
-        </HotSpots>
-      </UseItem>
-    </If>
+      <FlyTo XYZ="-333.7911, -184.9745, 625.1162" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+	  <UseItem ItemId="2001934" NpcId="1016231" XYZ="-333.7911, -184.9745, 625.1162" Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 0"/>
+	</If>
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-452.1096, -187.396, 734.1877" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+	  <UseItem ItemId="2001934" NpcId="1016232" XYZ="-452.1096, -187.396, 734.1877" Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 1"/>
+	</If>
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-359.823, -184.9545, 796.7192" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+	  <UseItem ItemId="2001934" NpcId="1016233" XYZ="-359.823, -184.9545, 796.7192" Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 2"/>
+	</If>
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-343.0076, -161.8661, 770.0159" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+	  <UseItem ItemId="2001934" NpcId="1016374" XYZ="-343.0076, -161.8661, 770.0159" Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 3"/>
+	</If>
+    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 4">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-627.8936, -149.9529, 480.1556" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+	  <UseItem ItemId="2001934" NpcId="1016375" XYZ="-627.8936, -149.9529, 480.1556" Condition="HasQuest(67728) and GetQuestStep(67728) == 2 and GetQuestById(67728).GetTodoArgs(2, 0).Item1 == 4"/>
+	</If>
     <!-- Rotten To The Korrigan -->
     <If Condition="HasQuest(67729) and GetQuestStep(67729) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-261.8601, -132.0669, 388.6625"/>
+      <FlyTo XYZ="-261.8601, -132.0669, 388.6625" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcIds="1016508,1016235,1016236,1016216" QuestId="67729" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-261.8601, -132.0669, 388.6625" Radius="10"/>
@@ -804,9 +941,9 @@ Authors:  Sodimm.
     <!-- Gastornis Groove -->
     <If Condition="HasQuest(67730) and GetQuestStep(67730) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-244.7394, -184.9241, 687.4342"/>
+      <FlyTo XYZ="-244.7394, -184.9241, 687.4342" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcIds="2006691,2006692,2006693" QuestId="67730" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-244.7394, -184.9241, 687.4342" Radius="10"/>
@@ -818,548 +955,404 @@ Authors:  Sodimm.
     <!-- The Cats Meow -->
     <If Condition="HasQuest(67731) and GetQuestStep(67731) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-277.6379, -184.5974, 741.6038"/>
-      <SoHandOver NpcId="1011952" ItemIds="2001922" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67731" StepId="2"/>
+      <FlyTo XYZ="-277.6379, -184.5974, 741.6038" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001922" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67731" StepId="2"/>
     </If>
     <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="702.9069, -126.0321, 392.0499"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="702.9069, -126.0321, 392.0499"/>
-      <HandOver NpcId="1016376" ItemId="2001922" XYZ="702.9069, -126.0321, 392.0499" QuestId="67731"/>
+      <FlyTo XYZ="702.9069, -126.0321, 392.0499" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001922" NpcId="1016376" XYZ="702.9069, -126.0321, 392.0499" QuestId="67731"/>
     </If>
     <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="272.7854, -114.2413, 387.6859"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="272.7854, -114.2413, 387.6859"/>
-      <HandOver NpcId="1016377" ItemId="2001922" XYZ="272.7854, -114.2413, 387.6859" QuestId="67731"/>
+      <FlyTo XYZ="272.7854, -114.2413, 387.6859" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001922" NpcId="1016377" XYZ="272.7854, -114.2413, 387.6859" QuestId="67731"/>
     </If>
     <If Condition="HasQuest(67731) and GetQuestStep(67731) == 3 and GetQuestById(67731).GetTodoArgs(3, 0).Item1 == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-519.646, -152.4781, 280.3845"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-519.646, -152.4781, 280.3845"/>
-      <HandOver NpcId="1016385" ItemId="2001922" XYZ="-519.646, -152.4781, 280.3845" QuestId="67731"/>
+      <FlyTo XYZ="-519.646, -152.4781, 280.3845" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2001922" NpcId="1016385" XYZ="-519.646, -152.4781, 280.3845" QuestId="67731"/>
     </If>
     <!-- Easy As Paissa -->
     <If Condition="HasQuest(67732) and GetQuestStep(67732) == 1">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-28.03088, -136.9802, 454.9476"/>
-      <UseObject NpcIds="2006694" XYZ="-28.03088, -136.9802, 454.9476" QuestId="67732" StepId="1"/>
+      <FlyTo XYZ="-28.03088, -136.9802, 454.9476" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006694" XYZ="-28.03088, -136.9802, 454.9476" QuestId="67732" StepId="1"/>
     </If>
     <If Condition="HasQuest(67732) and GetQuestStep(67732) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-15.18274, -136.9802, 458.3351" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-15.18274, -136.9802, 458.3351"/>
-      <UseObject NpcIds="2006699" XYZ="-15.18274, -136.9802, 458.3351" QuestId="67732" StepId="2"/>
+      <UseObject NpcId="2006699" XYZ="-15.18274, -136.9802, 458.3351" QuestId="67732" StepId="2"/>
     </If>
     <If Condition="HasQuest(67732) and GetQuestStep(67732) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-28.00031, -137.7737, 454.9476" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <NoCombatMoveTo XYZ="-28.00031, -137.7737, 454.9476"/>
-      <UseItem NpcIds="1016237" ItemId="2001935" XYZ="-28.00031, -137.7737, 454.9476" QuestId="67732" StepId="3"/>
+      <UseItem ItemId="2001935" NpcId="1016237" XYZ="-28.00031, -137.7737, 454.9476" QuestId="67732" StepId="3"/>
     </If>
     <!-- Dance Commander -->
-    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 2">
+    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="655.1474, -41.15605, -303.4154"/>
-      <SoEmoteNpc Emote="sundance" NpcIds="1016362,1016365,1016364,1016363" Distance="1" QuestId="67733" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="655.1474, -41.15605, -303.4154" Radius="10"/>
-          <HotSpot XYZ="682.368, -11.39684, -400.6256" Radius="10"/>
-          <HotSpot XYZ="799.9846, -11.39684, -416.9833" Radius="10"/>
-          <HotSpot XYZ="776.9131, -39.97968, -540.2457" Radius="10"/>
-        </HotSpots>
-      </SoEmoteNpc>
-    </If>
+      <FlyTo XYZ="655.1474, -41.15605, -303.4154" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+	  <EmoteNPC Emote="sundance" NpcId="1016362" XYZ="655.1474, -41.15605, -303.4154" Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 0"/>
+	</If>
+    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="682.368, -11.39684, -400.6256" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+	  <EmoteNPC Emote="sundance" NpcId="1016365" XYZ="682.368, -11.39684, -400.6256" Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 1"/>
+	</If>
+    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="799.9846, -11.39684, -416.9833" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+	  <EmoteNPC Emote="sundance" NpcId="1016364" XYZ="799.9846, -11.39684, -416.9833" Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 2"/>
+	</If>
+    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 3">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="776.9131, -39.97968, -540.2457" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True" IgnoreIndoors="True"/>
+	  <EmoteNPC Emote="sundance" NpcId="1016363" XYZ="776.9131, -39.97968, -540.2457" Condition="HasQuest(67733) and GetQuestStep(67733) == 2 and GetQuestById(67733).GetTodoArgs(2, 0).Item1 == 3"/>
+	</If>
     <!-- Electric Gunduloo -->
-    <If Condition="HasQuest(67734) and GetQuestStep(67734) == 2">
+    <If Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-182.9405, 213.612, 204.5776"/>
-      <SoEmoteNpc Emote="sundance" NpcIds="1016241,1016239,1016240" QuestId="67734" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="-182.9405, 213.612, 204.5776" Radius="10"/>
-          <HotSpot XYZ="-64.68304, 212.9267, 101.3351" Radius="10"/>
-          <HotSpot XYZ="233.2341, 240.4237, 118.3032" Radius="10"/>
-        </HotSpots>
-      </SoEmoteNpc>
+      <FlyTo XYZ="-182.9405, 213.612, 204.5776" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True" IgnoreIndoors="True"/>
+      <EmoteNPC Emote="sundance" NpcId="1016241" XYZ="-182.9405, 213.612, 204.5776" Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="-64.68304, 212.9267, 101.3351" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True" IgnoreIndoors="True"/>
+      <EmoteNPC Emote="sundance" NpcId="1016239" XYZ="-64.68304, 212.9267, 101.3351" Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <FlyTo XYZ="233.2341, 240.4237, 118.3032" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <EmoteNPC Emote="sundance" NpcId="1016240" XYZ="233.2341, 240.4237, 118.3032" Condition="HasQuest(67734) and GetQuestStep(67734) == 2 and GetQuestById(67734).GetTodoArgs(2, 0).Item1 == 2"/>
     </If>
     <!-- Wildwort And Sundrop -->
     <If Condition="HasQuest(67735) and GetQuestStep(67735) == 2">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="-198.4131, 93.55298, -303.8834"/>
-      <UseObject NpcIds="2006708" XYZ="-198.4131, 93.55298, -303.8834" QuestId="67735" StepId="2"/>
+      <FlyTo XYZ="-198.4131, 93.55298, -303.8834" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2006708" XYZ="-198.4131, 93.55298, -303.8834" QuestId="67735" StepId="2"/>
     </If>
     <If Condition="HasQuest(67735) and GetQuestStep(67735) == 3">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
       </If>
-      <NoCombatMoveTo XYZ="111.467, -84.55023, 429.8314"/>
-      <UseItem NpcIds="2006695" ItemId="2001927" XYZ="111.467, -84.55023, 429.8314" QuestId="67735" StepId="3"/>
+	  <FlyTo XYZ="118.3401, -41.37024, 243.8844" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+      <FlyTo XYZ="111.467, -84.55023, 429.8314" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True" IgnoreIndoors="True"/>
+      <UseItem ItemId="2001927" NpcId="2006695" XYZ="111.467, -84.55023, 429.8314" QuestId="67735" StepId="3"/>
     </If>
     <If Condition="HasQuest(67735) and GetQuestStep(67735) == 4">
       <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+	    <FlyTo XYZ="118.3401, -41.37024, 243.8844" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+        <FlyTo XYZ="111.467, -84.55023, 429.8314" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True" IgnoreIndoors="True"/>
       </If>
-      <NoCombatMoveTo XYZ="111.4366, -83.02441, 428.8549"/>
-      <SoEmoteNpc Emote="sundance" NpcIds="2006696" XYZ="111.4366, -83.02441, 428.8549" QuestId="67735" StepId="4"/>
+      <EmoteNPC Emote="sundance" NpcId="2006696" XYZ="111.4366, -83.02441, 428.8549" QuestId="67735" StepId="4"/>
     </If>
-    <!-- Quests on the Sanuwa -->
-    <!-- Sanuwa Samba -->
-    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+    <If Condition="not HasQuest(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+	  <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+	  </If>
+      <FlyTo XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+      <!-- Pussyfooting About -->
+      <If Condition="HasQuest(67708) and GetQuestStep(67708) == 255">
+        <TurnIn QuestId="67708" NpcId="1016089" ItemId="2001906" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67714" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 2">
-      <SoUseSpell SpellId="4931" NpcIds="1016219,1016218,1016217" Distance="3" QuestId="67714" StepId="2" MapId="401">
-        <HotSpots>
-          <HotSpot XYZ="14.38922, -111.0549, 413.7178" Radius="10"/>
-          <HotSpot XYZ="97.48987, -86.45681, 466.575" Radius="10"/>
-          <HotSpot XYZ="148.3515, -88.0248, 441.4963" Radius="10"/>
-          <HotSpot XYZ="137.9568, -87.38033, 434.6227" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67714) and GetQuestStep(67714) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Pilfering Pots From The Pantry -->
+      <If Condition="HasQuest(67710) and GetQuestStep(67710) == 255">
+        <TurnIn QuestId="67710" NpcId="1016089" ItemId="2001907" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Endymion Disco -->
-    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Water Crystal Waltz -->
+      <If Condition="HasQuest(67712) and GetQuestStep(67712) == 255">
+        <TurnIn QuestId="67712" NpcId="1016089" ItemId="2001908" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67709" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 2">
-      <SoUseSpell SpellId="4931" NpcIds="2006649,2006647,2006648,2006646" Distance="5" QuestId="67709" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="-539.0555, 64.22522, -377.0047" Radius="10"/>
-          <HotSpot XYZ="-504.7837, -26.68805, -530.9377" Radius="10"/>
-          <HotSpot XYZ="-477.4091, -28.88544, -668.33" Radius="10"/>
-          <HotSpot XYZ="-96.20813, 0.3203735, -620.264" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67709) and GetQuestStep(67709) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Hardboiled Hustle -->
+      <If Condition="HasQuest(67713) and GetQuestStep(67713) == 255">
+        <TurnIn QuestId="67713" NpcId="1016089" ItemId="2001931" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Chigoe Cha-Cha -->
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Bird Watching -->
+      <If Condition="HasQuest(67715) and GetQuestStep(67715) == 255">
+        <TurnIn QuestId="67715" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67711" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 2">
-      <SoUseSpell SpellId="4931" NpcIds="2006655" Distance="5" XYZ="-48.32532, 17.99036, -852.4758" QuestId="67711" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 3">
-      <SoUseSpell SpellId="4931" NpcIds="2006656" Distance="5" XYZ="95.23157, -11.88684, -817.6242" QuestId="67711" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 4">
-      <SoUseSpell SpellId="4931" NpcIds="2006657" Distance="5" XYZ="205.8899, -6.912354, -785.7023" QuestId="67711" StepId="4"/>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67711) and GetQuestStep(67711) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Comb And Get It -->
+      <If Condition="HasQuest(67716) and GetQuestStep(67716) == 255">
+        <TurnIn QuestId="67716" NpcId="1016089" ItemId="2001910" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Flight of the Midges -->
-    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- The Binding Soil -->
+      <If Condition="HasQuest(67717) and GetQuestStep(67717) == 255">
+        <TurnIn QuestId="67717" NpcId="1016091" ItemIds="2001911, 2001926" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
       </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
-      <TalkTo NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904" QuestId="67718" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 2">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Fishing in Troubled Waters -->
+      <If Condition="HasQuest(67719) and GetQuestStep(67719) == 255">
+        <TurnIn QuestId="67719" NpcId="1016090" InteractDistance="3.0" XYZ="-836.5148, -133.2695, -386.6179"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67718" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 3">
-      <SoUseSpell SpellId="4931" NpcIds="1016222,1016221,1016220" Distance="5" QuestId="67718" StepId="3">
-        <HotSpots>
-          <HotSpot XYZ="-851.1622, 9.685495, -230.5582" Radius="10"/>
-          <HotSpot XYZ="-582.5859, -50.14484, -541.6489" Radius="10"/>
-          <HotSpot XYZ="-461.4017, -20.85574, -610.0296" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67718) and GetQuestStep(67718) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Nailed Down -->
+      <If Condition="HasQuest(67721) and GetQuestStep(67721) == 255">
+        <TurnIn QuestId="67721" NpcId="1016092" ItemId="2001914" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
-      <TurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
-    </If>
-    <!-- Reeling in the Vundu -->
-    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- The House That Ginu Built -->
+      <If Condition="HasQuest(67722) and GetQuestStep(67722) == 255">
+        <TurnIn QuestId="67722" NpcId="1016092" ItemId="2001915" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
-      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
-      <TalkTo NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179" QuestId="67720" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 2">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- A Bone To Pick -->
+      <If Condition="HasQuest(67723) and GetQuestStep(67723) == 255">
+        <TurnIn QuestId="67723" NpcId="1016092" ItemIds="2001916,2001937" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67720" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 3">
-      <SoUseSpell SpellId="4931" NpcIds="1016227,1016226" Distance="5" QuestId="67720" StepId="3">
-        <HotSpots>
-          <HotSpot XYZ="466.3302, -97.30765, -527.7798" Radius="10"/>
-          <HotSpot XYZ="710.9331, -98.03255, -741.0239" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67720) and GetQuestStep(67720) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- A Hut To Dye For -->
+      <If Condition="HasQuest(67724) and GetQuestStep(67724) == 255">
+        <TurnIn QuestId="67724" NpcId="1016092" ItemId="2001917" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
-      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
-      <TurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
-    </If>
-    <!-- Vanish, Vile Vundu -->
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 1">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Shady Premonitions -->
+      <If Condition="HasQuest(67725) and GetQuestStep(67725) == 255">
+        <TurnIn QuestId="67725" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TalkTo NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67736" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 2">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Pestered Ancestors -->
+      <If Condition="HasQuest(67726) and GetQuestStep(67726) == 255">
+        <TurnIn QuestId="67726" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TalkTo NpcId="1016093" XYZ="-776.0281, -133.3556, -414.3282" QuestId="67736" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 3">
-      <SoUseSpell SpellId="4931" NpcIds="1016242" Distance="5" XYZ="284.1992, 28.57418, -636.3775" QuestId="67736" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 4">
-      <SoUseSpell SpellId="4931" NpcIds="1016378" Distance="5" XYZ="338.4298, 31.48374, -562.1882" QuestId="67736" StepId="4"/>
-    </If>
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 5">
-      <SoUseSpell SpellId="4931" NpcIds="1016379" Distance="5" XYZ="501.274, 112.649, -182.9709" QuestId="67736" StepId="5"/>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67736) and GetQuestStep(67736) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Smooth As Silk, Cool As Air -->
+      <If Condition="HasQuest(67727) and GetQuestStep(67727) == 255">
+        <TurnIn QuestId="67727" NpcId="1016088" ItemId="2001918" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Turn Ins -->
-    <!-- Gastornis Groove -->
-    <If Condition="HasQuest(67730) and GetQuestStep(67730) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Gaelcat's Out The Bag -->
+      <If Condition="HasQuest(67728) and GetQuestStep(67728) == 255">
+        <TurnIn QuestId="67728" NpcId="1016092" ItemId="2001919" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
-      <NoCombatMoveTo XYZ="-776.0281, -133.3556, -414.3282"/>
-      <TurnIn QuestId="67730" NpcId="1016093" ItemId="2001921" XYZ="-776.0281, -133.3556, -414.3282"/>
-    </If>
-    <!-- Nailed Down -->
-    <If Condition="HasQuest(67721) and GetQuestStep(67721) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Rotten To The Korrigan -->
+      <If Condition="HasQuest(67729) and GetQuestStep(67729) == 255">
+        <TurnIn QuestId="67729" NpcId="1016091" ItemId="2001920" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TurnIn QuestId="67721" NpcId="1016092" ItemId="2001914" XYZ="-792.6299, -133.3218, -425.5589"/>
-    </If>
-    <!-- The House That Ginu Built -->
-    <If Condition="HasQuest(67722) and GetQuestStep(67722) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Gastornis Groove -->
+      <If Condition="HasQuest(67730) and GetQuestStep(67730) == 255">
+        <TurnIn QuestId="67730" NpcId="1016093" ItemId="2001921" InteractDistance="3.0" XYZ="-776.0281, -133.3556, -414.3282"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TurnIn QuestId="67722" NpcId="1016092" ItemId="2001915" XYZ="-792.6299, -133.3218, -425.5589"/>
-    </If>
-    <!-- A Bone To Pick -->
-    <If Condition="HasQuest(67723) and GetQuestStep(67723) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- The Cats Meow -->
+      <If Condition="HasQuest(67731) and GetQuestStep(67731) == 255">
+        <TurnIn QuestId="67731" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TurnIn QuestId="67723" NpcId="1016092" ItemIds="2001916,2001937" XYZ="-792.6299, -133.3218, -425.5589"/>
-    </If>
-    <!-- A Hut To Dye For -->
-    <If Condition="HasQuest(67724) and GetQuestStep(67724) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Easy As Paissa -->
+      <If Condition="HasQuest(67732) and GetQuestStep(67732) == 255">
+        <TurnIn QuestId="67732" NpcId="1016089" ItemId="2001923" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TurnIn QuestId="67724" NpcId="1016092" ItemId="2001917" XYZ="-792.6299, -133.3218, -425.5589"/>
-    </If>
-    <!-- Gaelcat's Out The Bag -->
-    <If Condition="HasQuest(67728) and GetQuestStep(67728) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Dance Commander -->
+      <If Condition="HasQuest(67733) and GetQuestStep(67733) == 255">
+        <TurnIn QuestId="67733" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-792.6299, -133.3218, -425.5589"/>
-      <TurnIn QuestId="67728" NpcId="1016092" ItemId="2001919" XYZ="-792.6299, -133.3218, -425.5589"/>
-    </If>
-    <!-- Veni, Vundu, Vici -->
-    <If Condition="HasQuest(67707) and GetQuestStep(67707) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Electric Gunduloo -->
+      <If Condition="HasQuest(67734) and GetQuestStep(67734) == 255">
+        <TurnIn QuestId="67734" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67707" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Pussyfooting About -->
-    <If Condition="HasQuest(67708) and GetQuestStep(67708) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
+      <!-- Wildwort and Sundrop -->
+      <If Condition="HasQuest(67735) and GetQuestStep(67735) == 255">
+        <TurnIn QuestId="67735" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67708" NpcId="1016089" ItemId="2001906" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
-    <!-- Pilfering Pots From The Pantry -->
-    <If Condition="HasQuest(67710) and GetQuestStep(67710) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67710" NpcId="1016089" ItemId="2001907" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Water Crystal Waltz -->
-    <If Condition="HasQuest(67712) and GetQuestStep(67712) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67712" NpcId="1016089" ItemId="2001908" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Hardboiled Hustle -->
-    <If Condition="HasQuest(67713) and GetQuestStep(67713) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67713" NpcId="1016089" ItemId="2001931" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Bird Watching -->
-    <If Condition="HasQuest(67715) and GetQuestStep(67715) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67715" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Comb And Get It -->
-    <If Condition="HasQuest(67716) and GetQuestStep(67716) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67716" NpcId="1016089" ItemId="2001910" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- Easy As Paissa -->
-    <If Condition="HasQuest(67732) and GetQuestStep(67732) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67732" NpcId="1016089" ItemId="2001923" XYZ="-799.4659, -133.2695, -404.1352"/>
-    </If>
-    <!-- The Binding Soil -->
-    <If Condition="HasQuest(67717) and GetQuestStep(67717) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-799.4659, -133.2695, -404.1352"/>
-      <TurnIn QuestId="67717" NpcId="1016091" ItemIds="2001911,2001926" XYZ="-804.2573, -133.2695, -390.8904"/>
-    </If>
-    <!-- Rotten To The Korrigan -->
-    <If Condition="HasQuest(67729) and GetQuestStep(67729) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-804.2573, -133.2695, -390.8904"/>
-      <TurnIn QuestId="67729" NpcId="1016091" ItemId="2001920" XYZ="-804.2573, -133.2695, -390.8904"/>
-    </If>
-    <!-- Shady Premonitions -->
-    <If Condition="HasQuest(67725) and GetQuestStep(67725) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67725" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Pestered Ancestors -->
-    <If Condition="HasQuest(67726) and GetQuestStep(67726) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67726" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Smooth As Silk, Cool As Air -->
-    <If Condition="HasQuest(67727) and GetQuestStep(67727) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67727" NpcId="1016088" ItemId="2001918" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- The Cats Meow -->
-    <If Condition="HasQuest(67731) and GetQuestStep(67731) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67731" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Dance Commander -->
-    <If Condition="HasQuest(67733) and GetQuestStep(67733) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67733" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Electric Gunduloo -->
-    <If Condition="HasQuest(67734) and GetQuestStep(67734) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <SoTurnIn QuestId="67734" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" MapId="401"/>
-    </If>
-    <!-- Wildwort and Sundrop -->
-    <If Condition="HasQuest(67735) and GetQuestStep(67735) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-818.143, -129.9326, -414.0231"/>
-      <TurnIn QuestId="67735" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
-    </If>
-    <!-- Fishing In Troubled Waters -->
-    <If Condition="HasQuest(67719) and GetQuestStep(67719) == 255">
-      <If Condition="not IsOnMap(401)">
-        <GetTo ZoneId="401" XYZ="-660.347, -51.07811, -400.6389"/>
-      </If>
-      <NoCombatMoveTo XYZ="-836.5148, -133.2695, -386.6179"/>
-      <TurnIn QuestId="67719" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
-    </If>
-    <!-- Reputation & Unlock Quests -->
-    <!--        <If Condition="not IsQuestCompleted(67700)">
-          <!{1}** Three Beaks to the Wind **{1}>
-          <If Condition="IsQuestAcceptQualified(67700)">
-<If Condition="IsQuestAcceptQualified(67700)">
-<PickUpQuest QuestId="67700" NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-</If></If>          <SoUseObject NpcIds="2006621" QuestId="67700" StepId="1" XYZ="-428.275, 201.3427, -229.0532" Radius="5" MapId="401" />
-          <WaitWhile Condition="GetQuestStep(67700) == 2" />
-          <SoTalkTo NpcId="1016150" QuestId="67700" StepId="3" XYZ="-429.5262, 167.9683, -224.445" MapId="401" />
-          <SoTalkTo NpcId="1012064" QuestId="67700" StepId="4" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-          <SoTalkTo NpcId="1016087" QuestId="67700" StepId="5" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-          <SoUseSpell Distance="5" SpellId="4931" NpcIds="1016158,1016157,1016156" QuestId="67700" StepId="6" MapId="401">
-            <HotSpots>
-              <HotSpot XYZ="-779.263, -117.9065, -393.5455" Radius="10" />
-              <HotSpot XYZ="-813.2906, -110.4907, -434.1955" Radius="10" />
-              <HotSpot XYZ="-860.5936, -122.9114, -378.3475" Radius="10" />
-            </HotSpots>
-          </SoUseSpell>
-            <SoTurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+    <If Condition="IsQuestCompleted(67700) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+      <!-- A Tribal Reunion -->
+      <If Condition="IsQuestCompleted(67700) and not HasQuest(67701) and not IsQuestCompleted(67701)">
+        <If Condition="IsQuestAcceptQualified(67701)">
+          <PickUpQuest QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
         </If>
-        <If Condition="not IsQuestCompleted(67701)">
-          <!{1}** A Tribal Reunion **{1}>
-          <If Condition="IsQuestAcceptQualified(67701)">
-<If Condition="IsQuestAcceptQualified(67701)">
-<PickUpQuest QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <SoTalkTo NpcId="1016159" QuestId="67701" StepId="1" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-          <SoTalkTo NpcId="1016161" QuestId="67701" StepId="2" XYZ="108.0491, -147.8377, 495.1704" MapId="401" />
-          <SoTalkTo NpcId="1016159" QuestId="67701" StepId="3" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-          <WaitWhile Condition="GetQuestStep(67701) == 4" />
-          <SoTalkTo NpcId="1016463" QuestId="67701" StepId="5" XYZ="115.9838, -93.22749, 477.8667" MapId="401" />
-          <SoTalkTo NpcId="1012064" QuestId="67701" StepId="6" XYZ="-542.7787, -37.11544, -386.7094" MapId="401" />
-            <SoTurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 1">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
         </If>
-        <If Condition="not IsQuestCompleted(67702)">
-          <!{1}** Linu's Lovely Bones **{1}>
-          <If Condition="IsQuestAcceptQualified(67702)">
-<If Condition="IsQuestAcceptQualified(67702)">
-<PickUpQuest QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <SoTalkTo NpcId="1016166" QuestId="67702" StepId="1" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
-          <SoUseItem NpcIds="2006627,2006628,2006629,2006630,2006631" ItemId="2001901" QuestId="67702" StepId="2" PostCombatDelay="2" MapId="401">
-            <HotSpots>
-              <HotSpot XYZ="583.5201, -126.8177, 268.0857" Radius="5" />
-              <HotSpot XYZ="632.9594, -111.6808, 157.8545" Radius="5" />
-              <HotSpot XYZ="688.5939, -95.99457, 101.274" Radius="5" />
-              <HotSpot XYZ="709.8647, -85.19116, 29.89246" Radius="5" />
-              <HotSpot XYZ="722.8656, -65.84277, -57.93854" Radius="5" />
-            </HotSpots>
-          </SoUseItem>
-          <SoTalkTo NpcId="1016166" QuestId="67702" StepId="3" XYZ="557.885, -126.2324, 283.0701" MapId="401" />
-          <SoEmoteNpc Emote="dance" NpcIds="1016166" XYZ="557.885, -126.2324, 283.0701" QuestId="67702" StepId="4" MapId="401" />
-          <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67702" StepId="5" MapId="401" />
-            <SoTurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+        <FlyTo XYZ="126.7822, -98.15427, 500.9179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016159" XYZ="115.9838, -93.22749, 477.8667" QuestId="67701" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 2">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
         </If>
-        <If Condition="not IsQuestCompleted(67703)">
-          <!{1}** In The Skycage Over The Sea **{1}>
-          <If Condition="IsQuestAcceptQualified(67703)">
-<If Condition="IsQuestAcceptQualified(67703)">
-<PickUpQuest QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <SoMoveTo XYZ="-306.1723, 93.99152, -226.4287" Distance="1" QuestId="67703" StepId="1" MapId="401" />
-          <WaitWhile Condition="Core.Player.InCombat or GetQuestStep(67703) == 1" />
-          <SoTalkTo NpcId="1016168" XYZ="-306.1723, 93.99152, -226.4287" QuestId="67703" StepId="2" MapId="401" />
-          <SoHandOver NpcId="1016172" ItemIds="2001902" XYZ="-314.7173, -7.663834, -230.6096" QuestId="67703" StepId="3" MapId="401" />
-          <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67703" StepId="4" MapId="401" />
-            <SoTurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+        <FlyTo XYZ="127.3539, -147.8377, 545.6152" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016161" XYZ="108.0491, -147.8377, 495.1704" QuestId="67701" StepId="2"/>
+        <NoCombatMoveTo XYZ="127.3539, -147.8377, 545.6152"/>
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 3">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
         </If>
-        <If Condition="not IsQuestCompleted(67704)">
-          <!{1}** Fishing for Friendship **{1}>
-          <SoPickUpQuest NpcId="1016087" QuestId="67704" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-          <SoUseObject NpcIds="2006633" XYZ="-15.12177, 168.017, -100.4502" Radius="5" QuestId="67704" StepId="1" MapId="401" />
-          <SoHandOver NpcId="1016088" ItemIds="2001903" XYZ="-818.143, -129.9326, -414.0231" QuestId="67704" StepId="2" MapId="401" />
-          <SoMoveTo XYZ="205.3101, -118.3452, 422.2018" Distance="1" QuestId="67704" />
-          <SoTalkTo NpcId="1016173" XYZ="205.3101, -118.3452, 422.2018" QuestId="67704" StepId="4" MapId="401" />
-            <SoTurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
+        <FlyTo XYZ="126.7822, -98.15427, 500.9179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016159" XYZ="115.9838, -93.22749, 477.8667" QuestId="67701" StepId="3"/>
+        <WaitWhile Condition="HasQuest(67701) and not IsQuestCompleted(67701) and not GetQuestStep(67701) == 5"/>
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 5">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="126.7822, -98.15427, 500.9179" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
         </If>
-        <If Condition="not IsQuestCompleted(67705)">
+        <TalkTo NpcId="1016463" XYZ="115.9838, -93.22749, 477.8667" QuestId="67701" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 6">
+        <GetTo ZoneId="401" XYZ="-542.7787, -37.11544, -386.7094"/>
+        <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67701" StepId="6"/>
+      </If>
+      <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 255">
+        <GetTo ZoneId="401" XYZ="-659.7952, -51.08029, -398.8028"/>
+        <FlyTo XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+      </If>
+      <!-- Linu's Lovely Bones -->
+      <If Condition="IsQuestCompleted(67701) and not HasQuest(67702) and not IsQuestCompleted(67702)">
+        <If Condition="IsQuestAcceptQualified(67702)">
+          <PickUpQuest QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 1">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="557.885, -126.2324, 283.0701" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016166" QuestId="67702" StepId="1" XYZ="557.885, -126.2324, 283.0701"/>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 2">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="557.885, -126.2324, 283.0701" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <UseItem NpcIds="2006627,2006628,2006629,2006630,2006631" ItemId="2001901" QuestId="67702" StepId="2">
+          <HotSpots>
+            <HotSpot XYZ="583.5201, -126.8177, 268.0857" Radius="5"/>
+            <HotSpot XYZ="632.9594, -111.6808, 157.8545" Radius="5"/>
+            <HotSpot XYZ="688.5939, -95.99457, 101.274" Radius="5"/>
+            <HotSpot XYZ="709.8647, -85.19116, 29.89246" Radius="5"/>
+            <HotSpot XYZ="722.8656, -65.84277, -57.93854" Radius="5"/>
+          </HotSpots>
+        </UseItem>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 3">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="557.885, -126.2324, 283.0701" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016166" XYZ="557.885, -126.2324, 283.0701" QuestId="67702" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 4">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="557.885, -126.2324, 283.0701" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <EmoteNPC Emote="dance" NpcIds="1016166" XYZ="557.885, -126.2324, 283.0701" QuestId="67702" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 5">
+        <GetTo ZoneId="401" XYZ="-542.7787, -37.11544, -386.7094"/>
+        <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67702" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 255">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-799.4659, -133.2695, -404.1352" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+      </If>
+      <!-- In The Skycage Over The Sea -->
+      <If Condition="IsQuestCompleted(67702) and not HasQuest(67703) and not IsQuestCompleted(67703)">
+        <If Condition="IsQuestAcceptQualified(67703)">
+          <PickUpQuest QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 1">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="-306.1723, 93.99152, -226.4287" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <WaitWhile Condition="HasQuest(67703) and not IsQuestCompleted(67703) and not GetQuestStep(67703) == 2"/>
+      </If>
+      <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 2">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="-306.1723, 93.99152, -226.4287" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <SoTalkTo NpcId="1016168" XYZ="-306.1723, 93.99152, -226.4287" QuestId="67703" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 3">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="-306.1723, 93.99152, -226.4287" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <RunCode Name="67703"/>
+        <HandOver ItemId="2001902" NpcId="1016172" XYZ="-314.7173, -7.663834, -230.6096" QuestId="67703" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 4">
+        <GetTo ZoneId="401" XYZ="-542.7787, -37.11544, -386.7094"/>
+        <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67703" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 255">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+      </If>
+      <!-- Fishing for Friendship -->
+      <If Condition="IsQuestCompleted(67703) and not HasQuest(67704) and not IsQuestCompleted(67704)">
+        <If Condition="IsQuestAcceptQualified(67704)">
+          <PickUpQuest QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+		</If>
+      </If>
+      <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 1">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="-15.12177, 168.017, -100.4502" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <UseObject NpcId="2006633" XYZ="-15.12177, 168.017, -100.4502" QuestId="67704" StepId="1"/>
+		<RunCode Name="67704"/>
+      </If>
+      <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 2">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="-818.143, -129.9326, -414.0231" Land="True" IgnoreIndoors="True"/>
+        <HandOver ItemId="2001903" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" QuestId="67704" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 3">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="205.3101, -118.3452, 422.2018" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <WaitWhile Condition="HasQuest(67704) and not IsQuestCompleted(67704) and not GetQuestStep(67704) == 4"/>
+      </If>
+      <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 4">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+          <FlyTo XYZ="205.3101, -118.3452, 422.2018" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016173" XYZ="205.3101, -118.3452, 422.2018" QuestId="67704" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 255">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        <FlyTo XYZ="-796.7498, -133.2695, -410.6966" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+      </If>
+        <!--<If Condition="not IsQuestCompleted(67705)">
           <!{1}** Sundrop the Beat **{1}>
-          <If Condition="IsQuestAcceptQualified(67705)">
+          <If Condition="IsQuestAcceptQualified(67705) and not HasQuest(67705)">
 <If Condition="IsQuestAcceptQualified(67705)">
 <PickUpQuest QuestId="67705" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
 </If></If>          <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67705" StepId="1" MapId="401" />
@@ -1383,33 +1376,97 @@ Authors:  Sodimm.
         </If>
         <If Condition="not IsQuestCompleted(67706)">
           <!{1}** Nest Side Story **{1}>
-          <If Condition="IsQuestAcceptQualified(67706)">
+          <If Condition="IsQuestAcceptQualified(67706) and not HasQuest(67706)">
 <If Condition="IsQuestAcceptQualified(67706)">
 <PickUpQuest QuestId="67706" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <SoEmoteNpc Emote="sundance" NpcIds="2006623" XYZ="-761.7457, -132.6162, -422.1714" Radius="5" QuestId="67706" StepId="1" MapId="401" />
+</If></If>          <FlightEmoteNpc Emote="sundance" NpcIds="2006623" XYZ="-761.7457, -132.6162, -422.1714" Radius="5" QuestId="67706" StepId="1" MapId="401" />
           <SoTalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67706" StepId="2" MapId="401" />
           <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67706" StepId="3" MapId="401" />
             <SoTurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301" MapId="401" />
         </If>
         <If Condition="not IsQuestCompleted(67761)">
           <!{1}** The Nest of Honor **{1}>
-          <If Condition="IsQuestAcceptQualified(67761)">
+          <If Condition="IsQuestAcceptQualified(67761) and not HasQuest(67761)">
 <If Condition="IsQuestAcceptQualified(67761)">
 <PickUpQuest QuestId="67761" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
 </If></If>            <SoTurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" MapId="401" />
-        </If>
--->
+        </If>-->
+    </If>
   </Order>
   <CodeChunks>
-    <CodeChunk Name="Dismount"><![CDATA[
-        if(Core.Player.IsMounted)
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
         {
-          await CommonTasks.StopAndDismount();
-          await Coroutine.Sleep(500);
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+          }
+          catch (Exception ex) {  }
         }
-      ]]></CodeChunk>
-    <CodeChunk Name="67705"><![CDATA[
-        if (Core.Player.IsMounted)
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67703">
+      <![CDATA[
+        var v1 = new Vector3(-325.8275f, 88.51444f, -226.0075f);
+        var v2 = new Vector3(-297.2541f, 13.24029f, -211.0071f);
+        var v3 = new Vector3(-310.9411f, 6.458747f, -224.6673f);
+        var v4 = new Vector3(-315.8369f, -7.697884f, -228.7376f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+        var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+        var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+        var p4 = new ff14bot.Pathing.FlyToParameters(v4) { CheckIndoors = false };
+  
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+  
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v2) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p2);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v3) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p3);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v4) > 2f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p4);
+           await Coroutine.Yield();
+        }
+    
+        await CommonTasks.StopAndDismount();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67704">
+      <![CDATA[
+        var v1 = new Vector3(-15.9091f, 168.8174f, -135.1227f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+    
+        await CommonTasks.TakeOff();
+        await CommonTasks.AscendTo(171f);		
+        MovementManager.MoveStop();		
+
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67705">
+      <![CDATA[
+        if (Core.Me.IsMounted)
         {
           await CommonTasks.StopAndDismount();
           await Coroutine.Sleep(500);
@@ -1417,6 +1474,79 @@ Authors:  Sodimm.
 
         ChatManager.SendChat("/dance");
         await Coroutine.Sleep(3000);
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67709">
+      <![CDATA[
+        var v1 = new Vector3(-656.5062f, -48.12413f, -414.4641f);
+        var v2 = new Vector3(-586.3085f, -15.80522f, -402.7271f);
+        var v3 = new Vector3(-561.2401f, 28.68943f, -392.6726f);
+        var v4 = new Vector3(-539.0555f, 64.22522f, -377.0047f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+        var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+        var p3 = new ff14bot.Pathing.FlyToParameters(v3) { CheckIndoors = false };
+        var p4 = new ff14bot.Pathing.FlyToParameters(v4) { CheckIndoors = false };
+  
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v2) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p2);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v3) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p3);
+           await Coroutine.Yield();
+        }
+  
+        while (Core.Player.Location.Distance(v4) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p4);
+           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67710">
+      <![CDATA[
+        var v1 = new Vector3(666.6268f, -35.91245f, -93.04849f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+    
+        await CommonTasks.TakeOff();
+        await CommonTasks.AscendTo(-25f);		
+        MovementManager.MoveStop();		
+
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67724">
+      <![CDATA[
+        var v1 = new Vector3(272.9016f, 156.2957f, -38.45721f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+    
+        await CommonTasks.TakeOff();
+        await CommonTasks.AscendTo(169f);		
+        MovementManager.MoveStop();		
+
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

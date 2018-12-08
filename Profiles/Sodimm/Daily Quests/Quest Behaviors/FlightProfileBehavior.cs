@@ -76,6 +76,10 @@
         [XmlAttribute("IgnoreIndoors")]
         public bool IgnoreIndoors { get; set; }
 
+        [DefaultValue(0f)]
+        [XmlAttribute("MinHeight")]
+        public float MinHeight { get; set; }
+
         internal void SetupConditional()
         {
             try

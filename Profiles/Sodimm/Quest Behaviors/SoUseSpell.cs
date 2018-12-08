@@ -7,7 +7,6 @@ using ff14bot.Objects;
 using ff14bot.RemoteWindows;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 using TreeSharp;
 using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles
@@ -38,31 +37,30 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        [XmlAttribute("XYZ")]
-        public Vector3 XYZ { get; set; }
-
-        [XmlAttribute("UseDistance")]
-        [DefaultValue(3.24f)]
-        public float UseDistance { get; set; }
-
-        [XmlAttribute("Radius")]
-        [DefaultValue(50f)]
-        public float Radius { get; set; }
+        [XmlAttribute("SpellId")]
+        public uint SpellId { get; set; }
 
         [XmlAttribute("NpcIds")]
         [XmlAttribute("NpcId")]
         public int[] NpcIds { get; set; }
 
+        [XmlAttribute("UseDistance")]
+        [DefaultValue(3.24f)]
+        public float UseDistance { get; set; }
+
         [XmlElement("HotSpots")]
         public IndexedList<HotSpot> Hotspots { get; set; }
 
-        [XmlAttribute("SpellId")]
-        public uint SpellId { get; set; }
+        [XmlAttribute("XYZ")]
+        public Vector3 XYZ { get; set; }
+        public HotSpot Position { get { return Hotspots.CurrentOrDefault; } }
+
+        [XmlAttribute("Radius")]
+        [DefaultValue(50f)]
+        public float Radius { get; set; }
 
         [XmlAttribute("WaitTime")]
         public int WaitTime { get; set; }
-
-        public HotSpot Position { get { return Hotspots.CurrentOrDefault; } }
 
         protected override Composite CreateBehavior()
         {
@@ -76,7 +74,7 @@ namespace ff14bot.NeoProfiles
                 );
         }
 
-        protected bool ShortCircut(GameObject obj)
+        protected bool ShortCircuit(GameObject obj)
         {
             if (!obj.IsValid || !obj.IsTargetable || !obj.IsVisible) { return true; }
 
@@ -84,7 +82,6 @@ namespace ff14bot.NeoProfiles
 
             return false;
         }
-
 
         private Composite CustomLogic
         {
@@ -107,10 +104,10 @@ namespace ff14bot.NeoProfiles
                     new Action(ret => Navigator.PlayerMover.MoveStop()),
                     new WaitContinue(5, ret => !MovementManager.IsMoving, new Action(ret => RunStatus.Success)),
                     new Sleep(1000),
-                    new DecoratorContinue(ret => ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Failure)),
+                    new DecoratorContinue(ret => ShortCircuit((ret as GameObject)), new Action(ret => RunStatus.Failure)),
                     new DecoratorContinue(r => !Spell.GroundTarget, new Action(ret => ActionManager.DoAction(Spell, ((GameObject)ret)))),
                     new DecoratorContinue(r => Spell.GroundTarget, new Action(ret => ActionManager.DoActionLocation(Spell.Id, ((GameObject)ret).Location))),
-                    new Wait(5, ret => Core.Me.IsCasting || ShortCircut((ret as GameObject)), new Action(ret => RunStatus.Success)),
+                    new Wait(5, ret => Core.Me.IsCasting || ShortCircuit((ret as GameObject)), new Action(ret => RunStatus.Success)),
                     new Sleep(WaitTime)
                 );
         }
@@ -140,8 +137,7 @@ namespace ff14bot.NeoProfiles
             float closest = float.MaxValue;
             foreach (var obj in possible)
             {
-                if (obj.DistanceSqr() < 1)
-                    return obj;
+                if (obj.DistanceSqr() < 1) { return obj; }
 
                 HotSpot target = null;
                 foreach (var hotspot in Hotspots)
@@ -168,14 +164,6 @@ namespace ff14bot.NeoProfiles
         }
 
 
-        private async Task<bool> FlightLogic()
-        {
-            if (Core.Player.IsMounted && !MovementManager.IsFlying) { return await CommonTasks.TakeOff(); }
-
-            return false;
-        }
-
-        private Composite _flightLogic;
         protected override void OnStart()
         {
             if (Hotspots != null)
@@ -184,7 +172,7 @@ namespace ff14bot.NeoProfiles
                 {
                     if (XYZ == Vector3.Zero)
                     {
-                        LogError("No hotspots and no XYZ provided, this is an invalid combination for this behavior");
+                        LogError("No hotspots and no XYZ provided, this is an invalid combination for this behavior.");
                         return;
                     }
 
@@ -195,14 +183,11 @@ namespace ff14bot.NeoProfiles
                 Hotspots.Index = 0;
             }
 
-            _flightLogic = new ActionRunCoroutine(cr => FlightLogic());
-            TreeHooks.Instance.InsertHook("TreeStart", 0, _flightLogic);
             Log("Started");
         }
 
         protected override void OnDone()
         {
-            if (_flightLogic != null) { TreeHooks.Instance.RemoveHook("TreeStart", _flightLogic); }
             Log("Finished");
         }
     }

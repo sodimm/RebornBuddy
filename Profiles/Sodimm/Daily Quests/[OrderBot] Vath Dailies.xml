@@ -2,6 +2,7 @@
 <!--
 Profile:  [Orderbot] Vath Dailies.
 Authors:  Sodimm.
+Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow. Having it too close will cause the quest to not update.
 -->
 <Profile>
   <Name>[OrderBot] Vath Dailies.</Name>
@@ -652,7 +653,7 @@ Authors:  Sodimm.
       <FlightUseSpell SpellId="5872" NpcIds="2006938,2006940,2006939" QuestId="67812" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-178.8816, 179.8885, 4.257263" Radius="10"/>
-          <HotSpot XYZ="-311.8181, -29.49573, 143.6331" Radius="10"/>
+          <HotSpot XYZ="-311.8181, -30.03556, 143.6331" Radius="10"/>
           <HotSpot XYZ="-313.8018, -29.49573, 102.0981" Radius="10"/>
         </HotSpots>
       </FlightUseSpell>
@@ -1051,31 +1052,66 @@ Authors:  Sodimm.
         <FlyTo XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
         <TurnIn QuestId="67794" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/>
       </If>
+      <!-- Resistance Is Futile -->
+      <If Condition="IsQuestCompleted(67794) and not HasQuest(67795) and not IsQuestCompleted(67795)">
+        <If Condition="IsQuestAcceptQualified(67795)">
+          <PickUpQuest QuestId="67795" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 1">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+        </If>
+        <FlyTo XYZ="73.19751, -49.19563, -139.0555" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67795" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 2">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+        </If>
+        <FlyTo XYZ="230.8842, -103.3896, 588.6777" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <WaitWhile Condition="HasQuest(67795) and not IsQuestCompleted(67795) and not GetQuestStep(67795) == 3"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 3">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+          <FlyTo XYZ="230.8842, -103.3896, 588.6777" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <TalkTo NpcId="1016851" XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 4">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+        </If>
+        <FlyTo XYZ="297.2915, -119.9126, 681.1168" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <TalkTo NpcId="1016891" XYZ="297.2915, -119.9126, 681.1168" QuestId="67795" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 255">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+        </If>
+        <FlyTo XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67795" ItemId="2001956" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+      </If>
+      <!-- A Symbiotic Friendship -->
+      <If Condition="IsQuestCompleted(67795) and not HasQuest(67796) and not IsQuestCompleted(67796)">
+        <If Condition="IsQuestAcceptQualified(67796)">
+          <PickUpQuest QuestId="67796" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67796) and not IsQuestCompleted(67796) and GetQuestStep(67796) == 255">
+        <If Condition="not IsOnMap(398)">
+          <GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
+          <FlyTo XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TurnIn QuestId="67796" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/> 
+      </If>
     </If>
-    <!--<If Condition="not IsQuestCompleted(67795)">
-          <!{1}** Resistance Is Futile **{1}>
-          <SoPickUpQuest QuestId="67795" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <SoTalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67795" StepId="1" MapId="398" />
-          <SoMoveTo XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="2" MapId="398" />
-          <SoTalkTo NpcId="1016851" XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="3" MapId="398" />
-          <SoTalkTo NpcId="1016891" XYZ="297.2915, -119.9126, 681.1168" QuestId="67795" StepId="4" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67795" NpcId="1016802" ItemId="2001956" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          </If>
-        </If>
-        <If Condition="not IsQuestCompleted(67796)">
-          <!{1}** A Symbiotic Friendship **{1}>
-          <SoPickUpQuest QuestId="67796" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67796" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" MapId="398" /> 
-          </If>
-        </If>
-      </If>-->
   </Order>
   <CodeChunks>
     <CodeChunk Name="Disable_Flight">
       <![CDATA[
-        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
         {
           try
           {

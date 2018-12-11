@@ -1315,7 +1315,7 @@ Authors:  Sodimm.
       <If Condition="IsQuestCompleted(67703) and not HasQuest(67704) and not IsQuestCompleted(67704)">
         <If Condition="IsQuestAcceptQualified(67704)">
           <PickUpQuest QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
-		</If>
+		    </If>
       </If>
       <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 1">
         <If Condition="not IsOnMap(401)">
@@ -1323,7 +1323,7 @@ Authors:  Sodimm.
         </If>
         <FlyTo XYZ="-15.12177, 168.017, -100.4502" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
         <UseObject NpcId="2006633" XYZ="-15.12177, 168.017, -100.4502" QuestId="67704" StepId="1"/>
-		<RunCode Name="67704"/>
+	      <RunCode Name="67704"/>
       </If>
       <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 2">
         <If Condition="not IsOnMap(401)">
@@ -1351,31 +1351,62 @@ Authors:  Sodimm.
         <FlyTo XYZ="-796.7498, -133.2695, -410.6966" Land="True" IgnoreIndoors="True"/>
         <TurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
       </If>
-        <!--<If Condition="not IsQuestCompleted(67705)">
-          <!{1}** Sundrop the Beat **{1}>
-          <If Condition="IsQuestAcceptQualified(67705) and not HasQuest(67705)">
-<If Condition="IsQuestAcceptQualified(67705)">
-<PickUpQuest QuestId="67705" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67705" StepId="1" MapId="401" />
-          <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="2" MapId="401" />
-          <If Condition="GetQuestStep(67705) == 3">
-            <NoCombatMoveTo XYZ="-589.0587, -1.12088, -340.6529" />
-            <RunCode Name="Dismount" />
-            <RunCode Name="67705" />
-            <WaitWhile Condition="GetQuestStep(67705) == 3" />
-          </If>
-          <SoTalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="4" MapId="401" />
-          <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="5" MapId="401" />
-          <If Condition="GetQuestStep(67705) == 6">
-            <NoCombatMoveTo XYZ="702.5201, -60.77912, 145.6018" />
-            <RunCode Name="Dismount" />
-            <RunCode Name="67705" />
-            <WaitWhile Condition="GetQuestStep(67705) == 6" />
-          </If>
-          <SoTalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="7" MapId="401" />
-            <SoTurnIn QuestId="67705" NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" MapId="401" />
+      <!-- Sundrop the Beat -->
+      <If Condition="IsQuestCompleted(67704) and not HasQuest(67705) and not IsQuestCompleted(67705)">
+        <If Condition="IsQuestAcceptQualified(67705)">
+          <PickUpQuest QuestId="67705" NpcId="1016087" InteractDistance="3.0" XYZ="-796.7498, -133.2695, -410.6966"/>
         </If>
-        <If Condition="not IsQuestCompleted(67706)">
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 1">
+        <GetTo ZoneId="401" XYZ="-542.7787, -37.11544, -386.7094"/>
+        <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67705" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 2">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-606.4088, -51.07104, -370.8705"/>
+        </If>  
+        <TalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 3">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="-588.7658, -1.101547, -340.3477" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <RunCode Name="67705"/>
+       </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 4">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+        </If>
+        <FlyTo XYZ="-606.4088, -51.07104, -370.8705" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016174" XYZ="-606.4088, -51.07104, -370.8705" QuestId="67705" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 5">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="657.557, -125.6886, 307.6066"/>
+        </If>
+        <FlyTo XYZ="657.557, -125.6886, 307.6066" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 6">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="657.557, -125.6886, 307.6066"/>
+        </If>
+        <FlyTo XYZ="702.5201, -60.77912, 145.6018" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <RunCode Name="67705" />
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 7">
+        <If Condition="not IsOnMap(401)">
+          <GetTo ZoneId="401" XYZ="657.557, -125.6886, 307.6066"/>
+        </If>
+        <FlyTo XYZ="657.557, -125.6886, 307.6066" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016175" XYZ="657.557, -125.6886, 307.6066" QuestId="67705" StepId="7"/>
+      </If>
+      <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 255">
+        <GetTo ZoneId="401" XYZ="-606.4088, -51.07104, -370.8705"/>
+        <TurnIn QuestId="67705" NpcId="1016174" InteractDistance="3.0" XYZ="-606.4088, -51.07104, -370.8705"/>
+      </If>
+        <!--<If Condition="not IsQuestCompleted(67706)">
           <!{1}** Nest Side Story **{1}>
           <If Condition="IsQuestAcceptQualified(67706) and not HasQuest(67706)">
 <If Condition="IsQuestAcceptQualified(67706)">
@@ -1397,7 +1428,7 @@ Authors:  Sodimm.
   <CodeChunks>
     <CodeChunk Name="Disable_Flight">
       <![CDATA[
-        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
         {
           try
           {
@@ -1467,14 +1498,23 @@ Authors:  Sodimm.
     </CodeChunk>
     <CodeChunk Name="67705">
       <![CDATA[
-        if (Core.Me.IsMounted)
-        {
-          await CommonTasks.StopAndDismount();
-          await Coroutine.Sleep(500);
-        }
+        if (Core.Player.IsMounted)  {  await CommonTasks.StopAndDismount();  }
+		
+		await Coroutine.Sleep(2000);
 
         ChatManager.SendChat("/dance");
-        await Coroutine.Sleep(3000);
+		
+        while (ConditionParser.GetQuestStep(67705) == 6)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+    
+        while (ConditionParser.GetQuestStep(67705) == 3)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
       ]]>
     </CodeChunk>
     <CodeChunk Name="67709">

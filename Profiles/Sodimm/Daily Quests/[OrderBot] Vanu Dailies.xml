@@ -849,7 +849,8 @@ Authors:  Sodimm.
     <If Condition="HasQuest(67726) and GetQuestStep(67726) == 2">
       <If Condition="not IsOnMap(401)">
         <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
-      </If>
+      </If>	  
+      <FlyTo XYZ="-45.98569, -64.98451, 499.232" IgnoreIndoors="True"/>
       <FlyTo XYZ="72.92273, -88.39557, 428.8242" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <UseObject NpcIds="2006707,2006686" QuestId="67726" StepId="2">
         <HotSpots>

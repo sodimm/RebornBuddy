@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Starlight Celebration 2018.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Starlight Celebration 2018</Name>
+  <Order>
+    <!-- Not-so-silent Night -->
+    <If Condition="not HasQuest(68709) and not IsQuestCompleted(68709)">
+      <GetTo ZoneId="133" XYZ="-50.95873, 6.499997, -90.07923"/>
+      <If Condition="IsQuestAcceptQualified(68709)">
+        <PickupQuest QuestId="68709" NpcId="1026626" XYZ="-51.16351, 6.698669, -87.29688"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68709) and not IsQuestCompleted(68709) and GetQuestStep(68709) == 1">
+      <GetTo ZoneId="132" XYZ="11.02302, 0.1117469, 2.639446"/>
+      <TalkTo NpcId="1001276" XYZ="13.96191, 0.1373291, 2.090454" QuestId="68709" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68709) and not IsQuestCompleted(68709) and GetQuestStep(68709) == 2">
+      <GetTo ZoneId="133" XYZ="73.40436, 8.00074, -142.5717"/>
+      <UseObject NpcId="2009642" XYZ="73.22803, 7.980469, -143.8774" QuestId="68709" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68709) and not IsQuestCompleted(68709) and GetQuestStep(68709) == 3 and not IsTodoChecked(68709, 3, 0)">
+      <GetTo ZoneId="132" XYZ="-44.3393, -1.250026, 58.81297"/>
+      <TalkTo NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="68709"/>
+    </If>
+    <If Condition="HasQuest(68709) and not IsQuestCompleted(68709) and GetQuestStep(68709) == 3 and not IsTodoChecked(68709, 3, 1)">
+      <GetTo ZoneId="131" XYZ="156.1458, 7.79196, 100.6714"/>
+      <TalkTo NpcId="1003818" XYZ="157.3662, 7.792007, 98.92419" QuestId="68709"/>
+    </If>
+    <If Condition="HasQuest(68709) and not IsQuestCompleted(68709) and GetQuestStep(68709) == 255">
+      <GetTo ZoneId="133" XYZ="-50.99336, 6.499995, -89.08147"/>
+      <TurnIn ItemIds="2002494,2002495" QuestId="68709" NpcId="1026626" XYZ="-51.16351, 6.698669, -87.29688"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks/>
+</Profile>

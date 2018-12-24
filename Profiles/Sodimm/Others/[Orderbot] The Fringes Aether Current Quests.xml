@@ -23,16 +23,17 @@ Authors:  Sodimm, TuckMeIntoBread
         <GetTo ZoneId="612" XYZ="-622.8626, 130, -485.154"/>
         <TalkTo NpcId="1019523" XYZ="-622.8626, 130, -485.154" QuestId="68175"/>
       </If>
-      <NoCombatMoveTo XYZ="-449.9056, 105.1852, -401.9163" Distance="5"/>
-      <RunCode Name="Announce_Manual_Completion"/>
+      <!--<NoCombatMoveTo XYZ="-449.6657, 105.2192, -402.5377" Distance="1"/>-->
+      <SoUseSpell SpellId="8624" NpcId="5866" XYZ="-449.6657, 105.2192, -402.5377" QuestId="68175" StepId="2"/>
     </If>
     <If Condition="HasQuest(68175) and not IsQuestCompleted(68175) and GetQuestStep(68175) == 3">
       <If Condition="not Core.Player.IsMounted">
         <GetTo ZoneId="612" XYZ="-622.8626, 130, -485.154"/>
         <TalkTo NpcId="1019523" XYZ="-622.8626, 130, -485.154" QuestId="68175"/>
       </If>
-      <NoCombatMoveTo XYZ="-227.9985, 64.92878, -674.7943" Distance="5"/>
-      <RunCode Name="Announce_Manual_Completion"/>
+      <!--<NoCombatMoveTo XYZ="-227.9985, 64.92878, -674.7943" Distance="1"/>-->
+      <SoUseSpell SpellId="8624" NpcId="5866" XYZ="-227.9985, 64.92878, -674.7943" QuestId="68175" StepId="3"/>
+      <Dismount/>
     </If>
     <If Condition="HasQuest(68175) and not IsQuestCompleted(68175) and GetQuestStep(68175) == 255">
       <GetTo ZoneId="612" XYZ="-651.3646, 130.0019, -510.5701"/>
@@ -79,7 +80,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68357) and not IsQuestCompleted(68357) and GetQuestStep(68357) == 255">
       <GetTo ZoneId="612" XYZ="432.8989, 114.5068, 233.9212"/>
-      <TurnIn ItemIds="2002325" NpcId="1020807" XYZ="432.8989, 114.5068, 233.9212" QuestId="68357" StepId="255"/>
+      <TurnIn ItemId="2002325" NpcId="1020807" XYZ="432.8989, 114.5068, 233.9212" QuestId="68357" StepId="255"/>
     </If>
     <!-- Unexpected Guests (1) -->
     <If Condition="IsQuestCompleted(68067) and not HasQuest(68352) and not IsQuestCompleted(68352)">
@@ -105,14 +106,6 @@ Authors:  Sodimm, TuckMeIntoBread
       <TurnIn QuestId="68352" NpcId="1020821" XYZ="277.8148, 76.97218, -25.63755"/>
     </If>
   </Order>
-  <GrindAreas>
-  </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion">
-	  <![CDATA[
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
-      ]]>
-	</CodeChunk>
-  </CodeChunks>
+  <GrindAreas/>
+  <CodeChunks/>
 </Profile>

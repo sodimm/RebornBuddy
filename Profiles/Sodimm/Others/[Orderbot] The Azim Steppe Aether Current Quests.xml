@@ -5,7 +5,6 @@ Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] The Azim Steppe Aether Current Quests</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Words Are Very Unnecessary (3) -->
     <If Condition="IsQuestCompleted(68037) and not HasQuest(68296) and not IsQuestCompleted(68296)">
@@ -39,7 +38,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68307) and not IsQuestCompleted(68307) and GetQuestStep(68307) == 255">
       <GetTo ZoneId="622" XYZ="343.7481, 26.26795, -325.4355"/>
-      <TurnIn ItemIds="2002173" QuestId="68307" NpcId="1019405" XYZ="343.7481, 26.26795, -325.4355"/>
+      <TurnIn QuestId="68307" ItemId="2002173" NpcId="1019405" XYZ="343.7481, 26.26795, -325.4355"/>
     </If>
     <!-- Forty Years and Counting (1) -->
     <If Condition="IsQuestCompleted(68046) and not HasQuest(68318) and not IsQuestCompleted(68318)">
@@ -58,7 +57,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68318) and not IsQuestCompleted(68318) and GetQuestStep(68318) == 255">
       <GetTo ZoneId="622" XYZ="78.9364, 114.905, 94.25043"/>
-      <TurnIn ItemIds="2002380" QuestId="68318" NpcId="1023348" XYZ="78.9364, 114.905, 94.25043"/>
+      <TurnIn QuestId="68318" ItemId="2002380" NpcId="1023348" XYZ="78.9364, 114.905, 94.25043"/>
     </If>
     <!-- Mauci of the Seven Worries (0) -->
     <If Condition="IsQuestCompleted(68048) and not HasQuest(68327) and not IsQuestCompleted(68327)">
@@ -84,8 +83,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <TurnIn QuestId="68327" NpcId="1023193" XYZ="-432.391, 2.668097, 651.086"/>
     </If>
   </Order>
-  <GrindAreas>
-  </GrindAreas>
+  <GrindAreas/>
   <CodeChunks>
     <CodeChunk Name="Announce_Manual_Completion">
 	  <![CDATA[

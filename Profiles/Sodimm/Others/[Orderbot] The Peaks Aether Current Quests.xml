@@ -5,7 +5,6 @@ Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] The Peaks Aether Current Quests</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- Saint Sayer -->
     <If Condition="IsQuestCompleted(68000) and not HasQuest(68191) and not IsQuestCompleted(68191)">
@@ -25,7 +24,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68191) and not IsQuestCompleted(68191) and GetQuestStep(68191) == 3">
       <GetTo ZoneId="620" XYZ="750.3235, 242.4072, -602.1752"/>
-      <Grind GrindRef="Marble_Urolith" PostCombatDelay="3.0" While="HasQuest(68191) and not IsQuestCompleted(68191) and GetQuestStep(68191) == 3"/>
+      <Grind GrindRef="68191" PostCombatDelay="3.0" While="HasQuest(68191) and not IsQuestCompleted(68191) and GetQuestStep(68191) == 3"/>
     </If>
     <If Condition="HasQuest(68191) and not IsQuestCompleted(68191) and GetQuestStep(68191) == 255">
       <GetTo ZoneId="620" XYZ="16.50958, 118.0358, -776.7533"/>
@@ -71,11 +70,11 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68387) and not IsQuestCompleted(68387) and GetQuestStep(68387) == 2">
       <GetTo ZoneId="620" XYZ="-201.2187, 258.9065, 781.106"/>
-      <HandOver ItemIds="2002310" NpcId="1023169" XYZ="-201.2187, 258.9065, 781.106" QuestId="68387" StepId="2"/>
+      <HandOver ItemId="2002310" NpcId="1023169" XYZ="-201.2187, 258.9065, 781.106" QuestId="68387" StepId="2"/>
     </If>
     <If Condition="HasQuest(68387) and not IsQuestCompleted(68387) and GetQuestStep(68387) == 3">
       <GetTo ZoneId="620" XYZ="358.4203, 325.3905, 332.8086"/>
-      <HandOver ItemIds="2002311" NpcId="1023168" XYZ="358.4203, 325.3905, 332.8086" QuestId="68387" StepId="3"/>
+      <HandOver ItemId="2002311" NpcId="1023168" XYZ="358.4203, 325.3905, 332.8086" QuestId="68387" StepId="3"/>
     </If>
     <If Condition="HasQuest(68387) and not IsQuestCompleted(68387) and GetQuestStep(68387) == 255">
       <GetTo ZoneId="620" XYZ="312.1086, 324.3033, 361.0327"/>
@@ -110,7 +109,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
   </Order>
   <GrindAreas>
-    <GrindArea Name="Marble_Urolith">
+    <GrindArea Name="68191">
       <Hotspots>
         <Hotspot XYZ="767.7468, 245.4678, -596.8373" Radius="90"/>
       </Hotspots>
@@ -121,6 +120,5 @@ Authors:  Sodimm, TuckMeIntoBread
       <MaxLevel/>
     </GrindArea>
   </GrindAreas>
-  <CodeChunks>
-  </CodeChunks>
+  <CodeChunks/>
 </Profile>

@@ -11,18 +11,18 @@ Authors:  Sodimm, TuckMeIntoBread
     <Dismount/>
     <RunCode Name="2007999"/>
     <!--5-->
-    <UseObject NpcIds="2007999" XYZ="21.28632, 24.00244, -623.621" Condition="GameObjectManager.GetObjectByNPCId(2007999).IsVisible"/>
+    <UseObject NpcId="2007999" XYZ="21.28632, 24.00244, -623.621" Condition="GameObjectManager.GetObjectByNPCId(2007999).IsVisible"/>
     <RunCode Name="2007999"/>
     <GetTo ZoneId="613" XYZ="-187.1824, 6.82074, -698.4512"/>
     <!--6-->
-    <UseObject NpcIds="2007998" XYZ="-187.1824, 6.82074, -698.4512" Condition="GameObjectManager.GetObjectByNPCId(2007998).IsVisible"/>
+    <UseObject NpcId="2007998" XYZ="-187.1824, 6.82074, -698.4512" Condition="GameObjectManager.GetObjectByNPCId(2007998).IsVisible"/>
     <GetTo ZoneId="613" XYZ="79.2085, 5.198706, -872.2508"/>
     <Dismount/>
     <RunCode Name="2008001"/>
     <MoveTo XYZ="62.14745, 6.224848, -873.8759" Distance="0.5" UseMesh="False"/>
     <Dismount/>
     <!--4-->
-    <UseObject NpcIds="2008001" XYZ="62.14745, 6.224848, -873.8759" UseDistance="4" Condition="GameObjectManager.GetObjectByNPCId(2008001).IsVisible"/>
+    <UseObject NpcId="2008001" XYZ="62.14745, 6.224848, -873.8759" UseDistance="4" Condition="GameObjectManager.GetObjectByNPCId(2008001).IsVisible"/>
     <RunCode Name="2008001"/>
     <GetTo ZoneId="613" XYZ="492.0896, 32.20087, -772.6465"/>
     <Dismount/>
@@ -32,28 +32,28 @@ Authors:  Sodimm, TuckMeIntoBread
     <MoveTo XYZ="501.2248, 23.42953, -753.9401" Distance="0.5" UseMesh="False"/>
     <RunCode Name="2008000b"/>
     <!--3-->
-    <UseObject NpcIds="2008000" XYZ="502.037, 20.88959, -750.0267" Condition="GameObjectManager.GetObjectByNPCId(2008000).IsVisible"/>
+    <UseObject NpcId="2008000" XYZ="502.037, 20.88959, -750.0267" Condition="GameObjectManager.GetObjectByNPCId(2008000).IsVisible"/>
     <RunCode Name="2008000a"/>
     <GetTo ZoneId="613" XYZ="-648.6768, 22.5066, -613.2089"/>
     <!--7-->
-    <UseObject NpcIds="2007997" XYZ="-649.4698, 22.14075, -610.9255" Condition="GameObjectManager.GetObjectByNPCId(2007997).IsVisible"/>
+    <UseObject NpcId="2007997" XYZ="-649.4698, 22.14075, -610.9255" Condition="GameObjectManager.GetObjectByNPCId(2007997).IsVisible"/>
     <GetTo ZoneId="613" XYZ="707.8875, 38.32983, -47.2851"/>
     <!--2-->
-    <UseObject NpcIds="2008002" XYZ="707.8875, 38.32983, -47.2851" Condition="GameObjectManager.GetObjectByNPCId(2008002).IsVisible"/>
+    <UseObject NpcId="2008002" XYZ="707.8875, 38.32983, -47.2851" Condition="GameObjectManager.GetObjectByNPCId(2008002).IsVisible"/>
     <GetTo ZoneId="613" XYZ="496.2709, 6.832363, 180.3171"/>
     <!--1-->
-    <UseObject NpcIds="2008003" XYZ="498.9852, 7.583679, 180.0106" Condition="GameObjectManager.GetObjectByNPCId(2008003).IsVisible"/>
+    <UseObject NpcId="2008003" XYZ="498.9852, 7.583679, 180.0106" Condition="GameObjectManager.GetObjectByNPCId(2008003).IsVisible"/>
     <GetTo ZoneId="613" XYZ="425.7114, 16.89172, 870.1456"/>
     <!--9-->
-    <UseObject NpcIds="2007995" XYZ="425.7114, 16.89172, 870.1456" Condition="GameObjectManager.GetObjectByNPCId(2007995).IsVisible"/>
+    <UseObject NpcId="2007995" XYZ="425.7114, 16.89172, 870.1456" Condition="GameObjectManager.GetObjectByNPCId(2007995).IsVisible"/>
     <GetTo ZoneId="613" XYZ="-314.5842, -0.5, 847.5641"/>
     <!--8-->
-    <UseObject NpcIds="2007996" XYZ="-309.7429, 0.7476196, 846.1584" Condition="GameObjectManager.GetObjectByNPCId(2007996).IsVisible"/>
+    <UseObject NpcId="2007996" XYZ="-309.7429, 0.7476196, 846.1584" Condition="GameObjectManager.GetObjectByNPCId(2007996).IsVisible"/>
     <GetTo ZoneId="613" XYZ="-411.5153, -0.599997, 172.7803"/>
     <RunCode Name="IsleOfBekko"/>
     <GetTo ZoneId="613" XYZ="-678.0947, 27.73551, 377.6114"/>
     <!--0-->
-    <UseObject NpcIds="2008004" XYZ="-676.936, 27.42041, 374.1055" Condition="GameObjectManager.GetObjectByNPCId(2008004).IsVisible"/>
+    <UseObject NpcId="2008004" XYZ="-676.936, 27.42041, 374.1055" Condition="GameObjectManager.GetObjectByNPCId(2008004).IsVisible"/>
   </Order>
   <CodeChunks>
     <CodeChunk Name="2007999">
@@ -112,8 +112,8 @@ Authors:  Sodimm, TuckMeIntoBread
         var p2 = new Vector3(-637.3761f, -39.85123f, 263.5708f);
 
         MovementManager.StartDescending();
-        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
         while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
         MovementManager.StopDescending();
     
         if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }

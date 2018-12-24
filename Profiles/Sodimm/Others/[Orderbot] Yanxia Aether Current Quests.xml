@@ -94,7 +94,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68266) and not IsQuestCompleted(68266) and GetQuestStep(68266) == 1">
       <GetTo ZoneId="614" XYZ="162.1497, -0.2999607, 211.0351"/>
-      <Grind GrindRef="Water_Serpent" PostCombatDelay="3.0" While="HasQuest(68266) and not IsQuestCompleted(68266) and GetQuestStep(68266) == 1"/>
+      <Grind GrindRef="68266" PostCombatDelay="3.0" While="HasQuest(68266) and not IsQuestCompleted(68266) and GetQuestStep(68266) == 1"/>
     </If>
     <If Condition="HasQuest(68266) and not IsQuestCompleted(68266) and GetQuestStep(68266) == 255">
       <GetTo ZoneId="614" XYZ="758.0844, 98.22374, -230.6801"/>
@@ -122,15 +122,15 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 4">
       <GetTo ZoneId="614" XYZ="529.6653, 19.51778, 352.0714"/>
-      <HandOver ItemIds="2002248" NpcId="1022457" XYZ="529.6653, 19.51778, 352.0714" QuestId="68269" StepId="4"/>
+      <HandOver ItemId="2002248" NpcId="1022457" XYZ="529.6653, 19.51778, 352.0714" QuestId="68269" StepId="4"/>
     </If>
     <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 5">
       <GetTo ZoneId="614" XYZ="619.8672, -0.5999999, 559.8383"/>
-      <RunCode Name="Wolves_And_Weeds"/>
+      <RunCode Name="68269"/>
     </If>
     <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 6">
       <GetTo ZoneId="614" XYZ="529.7897, 19.59827, 351.7205"/>
-      <HandOver ItemIds="2002249" NpcId="1022457" XYZ="529.7897, 19.59827, 351.7205" QuestId="68269" StepId="6"/>
+      <HandOver ItemId="2002249" NpcId="1022457" XYZ="529.7897, 19.59827, 351.7205" QuestId="68269" StepId="6"/>
     </If>
     <If Condition="HasQuest(68269) and not IsQuestCompleted(68269) and GetQuestStep(68269) == 255">
       <GetTo ZoneId="614" XYZ="434.9989, 67.98668, -123.4497"/>
@@ -138,7 +138,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
   </Order>
   <GrindAreas>
-    <GrindArea Name="Water_Serpent">
+    <GrindArea Name="68266">
       <Hotspots>
         <Hotspot XYZ="162.1497, -0.2999607, 211.0351" Radius="90"/>
       </Hotspots>
@@ -150,7 +150,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="Wolves_And_Weeds">
+    <CodeChunk Name="68269">
       <![CDATA[
         if (MovementManager.IsSwimming)
         {

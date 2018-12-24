@@ -5,7 +5,6 @@ Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] The Ruby Sea Aether Current Quests</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- The Price of Betrayal (3) -->
     <If Condition="IsQuestCompleted(68014) and not HasQuest(68209) and not IsQuestCompleted(68209)">
@@ -48,7 +47,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68223) and not IsQuestCompleted(68223) and GetQuestStep(68223) == 255">
       <GetTo ZoneId="613" XYZ="-47.80473, 2.769715, -634.8738"/>
-      <TurnIn ItemIds="2002223,2002224" QuestId="68223" NpcId="1022117" XYZ="-47.80473, 2.769715, -634.8738"/>
+      <TurnIn QuestId="68223" ItemIds="2002223,2002224" NpcId="1022117" XYZ="-47.80473, 2.769715, -634.8738"/>
     </If>
     <!-- The Sword in the Stone (1) -->
     <If Condition="IsQuestCompleted(68019) and not HasQuest(68229) and not IsQuestCompleted(68229)">
@@ -128,8 +127,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <TurnIn QuestId="68168" NpcId="1023280" XYZ="-63.31102, -198.991, -65.69412"/>
     </If>
   </Order>
-  <GrindAreas>
-  </GrindAreas>
+  <GrindAreas/>
   <CodeChunks>
     <CodeChunk Name="ManualCompletion">
       <![CDATA[

@@ -5,7 +5,6 @@ Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] The Lochs Aether Current Quests</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- It's a Zu Out There -->
     <If Condition="IsQuestCompleted(68084) and not HasQuest(68413) and not IsQuestCompleted(68413)">
@@ -31,7 +30,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68416) and not IsQuestCompleted(68416) and GetQuestStep(68416) == 1">
       <GetTo ZoneId="621" XYZ="-473.1273, 87.08347, -722.8254"/>
-      <Grind GrindRef="Spectre" PostCombatDelay="3.0" While="HasQuest(68416) and not IsQuestCompleted(68416) and GetQuestStep(68416) == 1"/>
+      <Grind GrindRef="68416" PostCombatDelay="3.0" While="HasQuest(68416) and not IsQuestCompleted(68416) and GetQuestStep(68416) == 1"/>
     </If>
     <If Condition="HasQuest(68416) and not IsQuestCompleted(68416) and GetQuestStep(68416) == 255">
       <GetTo ZoneId="621" XYZ="-524.5329, 8.68931, -19.4433"/>
@@ -49,18 +48,12 @@ Authors:  Sodimm, TuckMeIntoBread
       <TalkTo NpcId="1023174" XYZ="-82.7164, 1.120263, -297.6326" QuestId="68417" StepId="1"/>
     </If>
     <If Condition="HasQuest(68417) and not IsQuestCompleted(68417) and GetQuestStep(68417) == 2">
-      <If Condition="not IsOnMap(621)">
-        <GetTo ZoneId="621" XYZ="-82.7164, 1.120263, -297.6326"/>
-      </If>
-      <NoCombatMoveTo XYZ="-82.7164, 1.120263, -297.6326"/>
-      <!-- Underwater Objective -->
-      <!--<UseObject NpcIds="2008779" XYZ="-56.46591, -339.5192, -104.1442" QuestId="68417" StepId="2" />-->
-      <LogMessage Message="Please complete the next objective for quest If I Were A Fish manually."/>
-      <WaitWhile Condition="GetQuestStep(68417) == 2"/>
+      <GetTo ZoneId="621" XYZ="-131.4688, -0.6, -179.2324"/>
+	  <RunCode Name="68417"/>
     </If>
     <If Condition="HasQuest(68417) and not IsQuestCompleted(68417) and GetQuestStep(68417) == 3">
       <GetTo ZoneId="621" XYZ="-82.78043, 1.129258, -297.2216"/>
-      <HandOver ItemIds="2002313" NpcId="1023174" XYZ="-82.78043, 1.129258, -297.2216" QuestId="68417" StepId="3"/>
+      <HandOver ItemId="2002313" NpcId="1023174" XYZ="-82.78043, 1.129258, -297.2216" QuestId="68417" StepId="3"/>
     </If>
     <If Condition="HasQuest(68417) and not IsQuestCompleted(68417) and GetQuestStep(68417) == 255">
       <GetTo ZoneId="621" XYZ="-661.8531, 49.9998, -48.9227"/>
@@ -75,15 +68,15 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68419) and not IsQuestCompleted(68419) and GetQuestStep(68419) == 1">
       <GetTo ZoneId="621" XYZ="-156.9747, 2.799993, 196.0645"/>
-      <UseItem NpcIds="5719" ItemId="2002315" UseHealthPercent="25" InCombatOnly="True" XYZ="-142.7926, -0.3, 136.9581" Radius="90" QuestId="68419" StepId="1"/>
+      <UseItem ItemId="2002315" NpcId="5719" XYZ="-142.7926, -0.3, 136.9581" InCombatOnly="True" UseHealthPercent="25" QuestId="68419" StepId="1"/>
     </If>
     <If Condition="HasQuest(68419) and not IsQuestCompleted(68419) and GetQuestStep(68419) == 255">
       <GetTo ZoneId="621" XYZ="-539.7079, 7.611982, 52.32739"/>
-      <TurnIn ItemIds="2002316" QuestId="68419" NpcId="1022991" XYZ="-539.7079, 7.611982, 52.32739"/>
+      <TurnIn QuestId="68419" ItemId="2002316" NpcId="1022991" XYZ="-539.7079, 7.611982, 52.32739"/>
     </If>
   </Order>
   <GrindAreas>
-    <GrindArea Name="Spectre">
+    <GrindArea Name="68416">
       <Hotspots>
         <Hotspot XYZ="-473.1273, 87.08347, -722.8254" Radius="90"/>
       </Hotspots>
@@ -95,5 +88,61 @@ Authors:  Sodimm, TuckMeIntoBread
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
+    <CodeChunk Name="68417">
+      <![CDATA[ 
+        MovementManager.StartDescending();
+        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
+        MovementManager.StopDescending();
+
+        if (MovementManager.IsDiving)
+        {
+          var p1 = new Vector3(-108.7301f, -263.9186f, -157.6365f);
+          var p2 = new Vector3(-54.30657f, -339.5192f, -102.2504f);
+  
+          if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+  
+          while (Core.Player.Location.Distance(p1) > 1f)
+          {
+            Navigator.PlayerMover.MoveTowards(p1);
+            await Coroutine.Yield();
+          }
+  
+          while (Core.Player.Location.Distance(p2) > 3f)
+          {
+            Navigator.PlayerMover.MoveTowards(p2);
+            await Coroutine.Yield();
+          }
+		  
+		  MovementManager.MoveStop();
+		  
+          var obj = GameObjectManager.GetObjectByNPCId(2008779);  
+		  
+		  obj.Interact();
+
+          while (ConditionParser.GetQuestStep(68417) == 2)
+          {
+            if (Talk.DialogOpen)  {  Talk.Next();  }
+            await Coroutine.Yield();
+          }
+		  
+		  await Coroutine.Sleep(2000);
+		  
+          if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+
+          while (Core.Player.Location.Distance(p1) > 1f)
+          {
+            Navigator.PlayerMover.MoveTowards(p1);
+            await Coroutine.Yield();
+          }
+		  
+          MovementManager.MoveStop();
+          MovementManager.StartAscending();
+          while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+          while (MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
+          MovementManager.StopAscending();
+        }
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

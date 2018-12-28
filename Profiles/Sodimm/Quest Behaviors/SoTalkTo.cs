@@ -7,7 +7,6 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoTalkTo")]
-
     class SoTalkTo : TalkToTag
     {
         [DefaultValue(0)]

@@ -8,7 +8,6 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoTurnIn")]
-
     class SoTurnIn : TurnInTag
     {
         [DefaultValue(0)]
@@ -52,6 +51,7 @@ namespace ff14bot.NeoProfiles.Tags
             doneEmote = false;
             base.OnDone();
         }
+
         protected override void OnResetCachedDone()
         {
             doneEmote = false;

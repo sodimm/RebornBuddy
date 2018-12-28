@@ -1,10 +1,12 @@
 using Clio.Utilities;
 using Clio.XmlEngine;
 using ff14bot.Behavior;
+using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.Navigation;
 using ff14bot.Objects;
 using ff14bot.RemoteWindows;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using TreeSharp;
@@ -14,10 +16,7 @@ namespace ff14bot.NeoProfiles
     [XmlElement("SoUseSpell")]
     public class SoUseSpellTag : ProfileBehavior
     {
-        protected SoUseSpellTag()
-        {
-            Hotspots = new IndexedList<HotSpot>();
-        }
+        protected SoUseSpellTag() { Hotspots = new IndexedList<HotSpot>(); }
 
         public override bool HighPriority { get { return true; } }
 
@@ -32,6 +31,12 @@ namespace ff14bot.NeoProfiles
                 if (IsQuestComplete) { return true; }
 
                 if (IsStepComplete) { return true; }
+
+                if (Conditional != null)
+                {
+                    var cond = !Conditional();
+                    return cond;
+                }
 
                 return false;
             }
@@ -61,6 +66,24 @@ namespace ff14bot.NeoProfiles
 
         [XmlAttribute("WaitTime")]
         public int WaitTime { get; set; }
+
+        [XmlAttribute("Condition")]
+        public string Condition { get; set; }
+        public Func<bool> Conditional { get; set; }
+
+        public void SetupConditional()
+        {
+            try
+            {
+                if (Conditional == null && !string.IsNullOrEmpty(Condition)) { Conditional = ScriptManager.GetCondition(Condition); }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteDiagnostic(ScriptManager.FormatSyntaxErrorException(ex));
+                TreeRoot.Stop();
+                throw;
+            }
+        }
 
         protected override Composite CreateBehavior()
         {
@@ -159,13 +182,13 @@ namespace ff14bot.NeoProfiles
                     return obj;
                 }
             }
-
             return null;
         }
 
-
         protected override void OnStart()
         {
+            SetupConditional();
+
             if (Hotspots != null)
             {
                 if (Hotspots.Count == 0)
@@ -182,13 +205,8 @@ namespace ff14bot.NeoProfiles
                 Hotspots.IsCyclic = true;
                 Hotspots.Index = 0;
             }
-
-            Log("Started");
         }
 
-        protected override void OnDone()
-        {
-            Log("Finished");
-        }
+        protected override void OnDone() { }
     }
 }

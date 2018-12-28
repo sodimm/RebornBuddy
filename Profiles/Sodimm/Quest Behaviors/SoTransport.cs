@@ -14,7 +14,6 @@ using TreeSharp;
 namespace ff14bot.NeoProfiles
 {
     [XmlElement("SoTransport")]
-
     public class SoTransport : ProfileBehavior
     {
         public override bool HighPriority => true;

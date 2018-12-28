@@ -8,7 +8,6 @@ namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoPickUpQuest")]
     [XmlElement("SoPickupQuest")]
-
     class SoPickUpQuest : PickupQuestTag
     {
         [DefaultValue(0)]

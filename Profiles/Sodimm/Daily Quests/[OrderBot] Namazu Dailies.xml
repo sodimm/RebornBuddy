@@ -7,6 +7,7 @@ Authors:  Sodimm, TuckMeIntoBread
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
   <Order>
+    <!-- 50/50 100% -->
     <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
     <!-- Perchance to Hanami -->
@@ -394,7 +395,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <TurnIn QuestId="68633" ItemId="22720" NpcId="1025699" XYZ="-765.3163, 127.4411, 90.92847"/>
     </If>
     <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasQuest(68638) and not HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
-      <GetTo ZoneId="622" XYZ="-777.3802, 127.8089, 98.5271"/>
+      <TeleportTo Name="Dhoro Iloh" AetheryteId="128" Force="True"/>
       <!-- The Importance of Being Yes, Yes -->
       <If Condition="IsQuestAcceptQualified(68639) and not HasQuest(68639)">
         <PickupQuest QuestId="68639" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
@@ -511,7 +512,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- The Importance of Being Yes, Yes -->
     <If Condition="HasQuest(68639) and GetQuestStep(68639) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="513.2753, 30.02837, -406.7227" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025769" XYZ="511.4365, 29.90783, -404.9287" QuestId="68639" StepId="1"/>
@@ -587,7 +588,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Pilgrim's Regress -->
     <If Condition="HasQuest(68640) and GetQuestStep(68640) == 1 and not IsTodoChecked(68640, 1, 1)">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="725.1102, -1.484014, -422.9517" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <MoveTo XYZ="725.1102, -1.484014, -422.9517" Distance="1.0"/>
@@ -595,7 +596,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68640) and GetQuestStep(68640) == 1 and not IsTodoChecked(68640, 1, 0)">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-70.81714, 66.9718, -421.8967" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <MoveTo XYZ="-70.81714, 66.9718, -421.8967" Distance="1.0"/>
@@ -604,7 +605,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Unidentified Festive Objects -->
     <If Condition="HasQuest(68641) and GetQuestStep(68641) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-54.39844, 76.83682, -560.8148" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025641" XYZ="-54.39844, 76.83682, -560.8148" QuestId="68641" StepId="1"/>
@@ -673,7 +674,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Carry That Crate -->
     <If Condition="HasQuest(68642) and GetQuestStep(68642) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-311.2993, 50.54991, -225.8183" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025773" XYZ="-311.2993, 50.54991, -225.8183" QuestId="68642" StepId="1"/>
@@ -742,7 +743,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Free for Most -->
     <If Condition="HasQuest(68643) and GetQuestStep(68643) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-145.4032, 27.92217, -36.05713" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025775" XYZ="-145.4032, 27.92217, -36.05713" QuestId="68643" StepId="1"/>
@@ -811,7 +812,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Simpler Gifts -->
     <If Condition="HasQuest(68644) and GetQuestStep(68644) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-589.2917, 63.5653, -283.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025777" XYZ="-596.9177, 64.00098, -285.0843" QuestId="68644" StepId="1"/>
@@ -886,7 +887,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68644) and GetQuestStep(68644) == 3">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-608.4955, 8.484489, 423.0657" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <HandOver ItemId="2002481" NpcId="1019330" XYZ="-746.7918, 7.845998, 398.2756" QuestId="68644" StepId="3"/>
@@ -895,7 +896,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Catching Catfish -->
     <If Condition="HasQuest(68645) and GetQuestStep(68645) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="199.7201, 13.99777, 126.2199" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025779" XYZ="193.0419, 13.04057, 120.1953" QuestId="68645" StepId="1"/>
@@ -978,7 +979,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Wood You Believe It -->
     <If Condition="HasQuest(68646) and GetQuestStep(68646) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="573.9681, -19.50582, 427.6646" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025781" XYZ="573.9681, -19.50582, 427.6646" QuestId="68646" StepId="1"/>
@@ -1061,7 +1062,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Ghosts of Honor -->
     <If Condition="HasQuest(68647) and GetQuestStep(68647) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="122.6062, 39.55857, -336.5683" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025783" XYZ="122.6062, 39.55857, -336.5683" QuestId="68647" StepId="1"/>
@@ -1130,7 +1131,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Carving a Niche -->
     <If Condition="HasQuest(68648) and GetQuestStep(68648) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="76.58496, 114.905, -6.363098" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025785" XYZ="76.58496, 114.905, -6.363098" QuestId="68648" StepId="1"/>
@@ -1294,7 +1295,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Great Buuz Up -->
     <If Condition="HasQuest(68649) and GetQuestStep(68649) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="388.65, -8.531172, 489.3821"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="388.65, -8.531172, 489.3821" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025787" XYZ="389.7001, -8.514979, 487.9376" QuestId="68649" StepId="1"/>
@@ -1377,7 +1378,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Local Special Tea -->
     <If Condition="HasQuest(68650) and GetQuestStep(68650) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="594.9338, 23.16482, -421.8052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025789" XYZ="594.9338, 23.16482, -421.8052" QuestId="68650" StepId="1"/>
@@ -1473,7 +1474,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- A Stable's Condition -->
     <If Condition="HasQuest(68652) and GetQuestStep(68652) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-364.7975, 76.98169, -579.2172" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025797" XYZ="-364.7975, 76.98169, -579.2172" QuestId="68652" StepId="1"/>
@@ -1542,7 +1543,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Beat of the Drum -->
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-175.0363, 66.81902, -437.4304" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025799" XYZ="-175.0363, 66.81902, -437.4304" QuestId="68653" StepId="1"/>
@@ -1611,7 +1612,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Cannot Say Neigh -->
     <If Condition="HasQuest(68654) and GetQuestStep(68654) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-609.4911, 41.83495, 139.7573" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025801" XYZ="-609.4911, 41.83495, 139.7573" QuestId="68654" StepId="1"/>
@@ -1628,7 +1629,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Ready the Confetti -->
     <If Condition="HasQuest(68655) and GetQuestStep(68655) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="275.5931, 2.410636, 279.3163" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025803" XYZ="275.5931, 2.410636, 279.3163" QuestId="68655" StepId="1"/>
@@ -1704,7 +1705,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="733.6079, 0.6443284, -164.7822" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025805" XYZ="733.6079, 0.6443284, -164.7822" QuestId="68656" StepId="1"/>
@@ -1881,7 +1882,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Roasting a New Dish -->
     <If Condition="HasQuest(68658) and GetQuestStep(68658) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="584.4967, -12.09324, 225.574" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025814" XYZ="584.4967, -12.09324, 225.574" QuestId="68658" StepId="1"/>
@@ -1961,7 +1962,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Give Till It Hurts -->
     <If Condition="HasQuest(68659) and GetQuestStep(68659) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="542.877, 9.946626, -192.3611" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025817" XYZ="544.9148, 10.03488, -193.4081" QuestId="68659" StepId="1"/>
@@ -2118,7 +2119,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Taking the Plunge -->
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="94.2854, 116.043, 143.4805" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025820" XYZ="94.2854, 116.043, 143.4805" QuestId="68661" StepId="1"/>
@@ -2193,21 +2194,21 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 3 and GetQuestById(68661).QuestI8C == 16">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-0.1983643, 2.131157, 224.0786" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcId="1025823" XYZ="-0.1983643, 2.131157, 224.0786" QuestId="68661" StepId="3"/>
     </If>
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 3 and GetQuestById(68661).QuestI8C == 32">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="199.3895, 1.915876, 41.15356" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcId="1021491" XYZ="199.3895, 1.915876, 41.15356" QuestId="68661" StepId="3"/>
     </If>
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 3 and GetQuestById(68661).QuestI8C == 48">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-145.9221, 1.899946, 239.7344" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseObject NpcId="1025835" XYZ="-145.9221, 1.899946, 239.7344" QuestId="68661" StepId="3"/>
@@ -2215,7 +2216,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- A Favor Repaid -->
     <If Condition="HasQuest(68662) and GetQuestStep(68662) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="90.95867, -11.87734, 653.3869" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025822" XYZ="88.45642, -11.54772, 652.7351" QuestId="68662" StepId="1"/>
@@ -2379,7 +2380,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- In Steep Trouble -->
     <If Condition="HasQuest(68663) and GetQuestStep(68663) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="432.0286, 20.09967, -22.38501" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <UseItem ItemId="2002479" NpcIds="1025825,1025826,1025827" XYZ="445.791, 2.833452, -13.64365" Radius="60" QuestId="68663" Step="1"/>
@@ -2387,7 +2388,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- A Welcome Surprise -->
     <If Condition="HasQuest(68664) and GetQuestStep(68664) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-55.98541, 114.905, -19.08911" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025828" XYZ="-55.98541, 114.905, -19.08911" QuestId="68664" StepId="1"/>
@@ -2463,7 +2464,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- The Deadliest Sport -->
     <If Condition="HasQuest(68665) and GetQuestStep(68665) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="-533.0621, 66.45438, -411.0632" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025858" XYZ="-534.7219, 66.33932, -409.7505" QuestId="68665" StepId="1"/>
@@ -2624,7 +2625,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <!-- Overcommitment -->
     <If Condition="HasQuest(68666) and GetQuestStep(68666) == 1">
       <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
+        <TeleportTo Name="Dhoro Iloh" AetheryteId="128"/>
       </If>
       <FlyTo XYZ="239.2461, 1.202408, 12.46655" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1025837" XYZ="239.2461, 1.202408, 12.46655" QuestId="68666" StepId="1"/>
@@ -2709,141 +2710,117 @@ Authors:  Sodimm, TuckMeIntoBread
       <GetTo ZoneId="622" XYZ="43.28979, 114.905, 7.919373"/>
       <HandOver ItemId="2002480" NpcId="1025840" XYZ="43.28979, 114.905, 7.919373" QuestId="68666"/>
     </If>
+    <If Condition="IsQuestCompleted(68633) and not HasQuest(68634) and not HasQuest(68635) and not HasQuest(68636) and not HasQuest(68637) and not HasQuest(68638) and HasAtLeastOneQuest(Array[int]([68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666]))">
+      <TeleportTo Name="Dhoro Iloh" AetheryteId="128" Force="True"/>
     <!-- The Importance of Being Yes, Yes -->
     <If Condition="HasQuest(68639) and GetQuestStep(68639) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68639" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Pilgrim's Regress -->
     <If Condition="HasQuest(68640) and GetQuestStep(68640) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68640" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Unidentified Festive Objects -->
     <If Condition="HasQuest(68641) and GetQuestStep(68641) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68641" ItemId="22726" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Carry That Crate -->
     <If Condition="HasQuest(68642) and GetQuestStep(68642) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68642" ItemId="22727" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Free for Most -->
     <If Condition="HasQuest(68643) and GetQuestStep(68643) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68643" ItemId="22728" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Simpler Gifts -->
     <If Condition="HasQuest(68644) and GetQuestStep(68644) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68644" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Catching Catfish -->
     <If Condition="HasQuest(68645) and GetQuestStep(68645) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68645" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Wood You Believe It -->
     <If Condition="HasQuest(68646) and GetQuestStep(68646) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68646" ItemId="2002475" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Ghosts of Honor -->
     <If Condition="HasQuest(68647) and GetQuestStep(68647) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68647" ItemId="22732" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Carving a Niche -->
     <If Condition="HasQuest(68648) and GetQuestStep(68648) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68648" ItemId="2002476" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Great Buuz Up -->
     <If Condition="HasQuest(68649) and GetQuestStep(68649) == 255">
-      <GetTo ZoneId="622" XYZ="-776.9598, 127.8089, 97.30933"/>
       <TurnIn QuestId="68649" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Local Special Tea -->
     <If Condition="HasQuest(68650) and GetQuestStep(68650) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68650" ItemId="2002477" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Collision of Cultures -->
     <If Condition="HasQuest(68651) and GetQuestStep(68651) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68651" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- A Stable's Condition -->
     <If Condition="HasQuest(68652) and GetQuestStep(68652) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68652" ItemId="22736" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Beat of the Drum -->
     <If Condition="HasQuest(68653) and GetQuestStep(68653) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68653" ItemId="22737" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Cannot Say Neigh -->
     <If Condition="HasQuest(68654) and GetQuestStep(68654) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68654" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Ready the Confetti -->
     <If Condition="HasQuest(68655) and GetQuestStep(68655) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68655" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Surprise Offerings -->
     <If Condition="HasQuest(68656) and GetQuestStep(68656) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68656" ItemId="22739" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Bearers Wanted -->
     <If Condition="HasQuest(68657) and GetQuestStep(68657) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68657" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Roasting a New Dish -->
     <If Condition="HasQuest(68658) and GetQuestStep(68658) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68658" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Give Till It Hurts -->
     <If Condition="HasQuest(68659) and GetQuestStep(68659) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68659" NpcId="1025602" ItemId="22741" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Taking the Plunge -->
     <If Condition="HasQuest(68661) and GetQuestStep(68661) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68661" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- A Favor Repaid -->
     <If Condition="HasQuest(68662) and GetQuestStep(68662) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68662" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- In Steep Trouble -->
     <If Condition="HasQuest(68663) and GetQuestStep(68663) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68663" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- A Welcome Surprise -->
     <If Condition="HasQuest(68664) and GetQuestStep(68664) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68664" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- The Deadliest Sport -->
     <If Condition="HasQuest(68665) and GetQuestStep(68665) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68665" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
     <!-- Overcommitment -->
     <If Condition="HasQuest(68666) and GetQuestStep(68666) == 255">
-      <GetTo ZoneId="622" XYZ="-780.148, 128.252, 97.15417"/>
       <TurnIn QuestId="68666" NpcId="1025602" XYZ="-780.148, 128.252, 97.15417"/>
     </If>
+</If>
     <!-- Bull's-eye -->
     <If Condition="HasQuest(68660) and GetQuestStep(68660) == 1">
       <GetTo ZoneId="622" XYZ="-815.4269, 127.9104, 55.77173"/>
@@ -3474,6 +3451,24 @@ Authors:  Sodimm, TuckMeIntoBread
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+        {
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+          }
+          catch (Exception ex) {  }
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+      Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      await Coroutine.Sleep(26000);
+    ]]>
+    </CodeChunk>
     <CodeChunk Name="68284">
       <![CDATA[
      // Stop and dismount
@@ -3579,31 +3574,6 @@ Authors:  Sodimm, TuckMeIntoBread
        await Coroutine.Yield();
      }
     ]]>
-    </CodeChunk>
-    <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[ 
-      Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-      await Coroutine.Sleep(26000);
-    ]]>
-    </CodeChunk>
-    <CodeChunk Name="Disable_Flight">
-     <![CDATA[
-     foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
-     {
-       try
-       {
-         if (!plugin.Enabled)
-         {
-           break;
-         }
-         else
-         {
-           plugin.Enabled = false;
-         }
-       }
-       catch (Exception ex) { }
-     }
-     ]]>
     </CodeChunk>
   </CodeChunks>
 </Profile>

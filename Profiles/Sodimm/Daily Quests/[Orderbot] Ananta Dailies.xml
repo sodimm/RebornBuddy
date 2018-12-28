@@ -7,7 +7,7 @@ Authors:  Sodimm
   <Name>[Orderbot] Ananta Dailies</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- ** 33/36 (92%) -->
+    <!-- ** 35/36 (97%) -->
     <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="68578,68579,68580,68581,68582,68583,68584,68585,68586,68587,68588,68589,68590,68591,68592,68593,68594,68595,68596,68597,68598,68599,685600,685601,685602,685603,685604,685605"/>
     <!-- Drawing a Blank (Level 61) -->
@@ -1517,7 +1517,7 @@ Authors:  Sodimm
         <FlyTo XYZ="9.073017, 55.94364, 238.7027" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <TurnIn QuestId="68574" NpcId="1024911" InteractDistance="3.0" XYZ="10.97125, 55.94391, 239.887"/>
       </If>
-      <!-- It Can Be Cruel Sometimes ** -->
+      <!-- It Can Be Cruel Sometimes -->
       <If Condition="IsQuestCompleted(68574) and not HasQuest(68575) and not IsQuestCompleted(68575)">
         <If Condition="IsQuestAcceptQualified(68575)">
           <PickupQuest QuestId="68575" NpcId="1024771" InteractDistance="3.0" XYZ="12.00879, 55.97821, 237.9645"/>
@@ -1533,8 +1533,8 @@ Authors:  Sodimm
       <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 2">
         <If Condition="not IsOnMap(612)">
           <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
+          <FlyTo XYZ="-127.2189, 41.0598, 8.73585" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         </If>
-        <FlyTo XYZ="-127.2189, 41.0598, 8.73585" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <UseItem ItemId="2002429" NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="2"/>
       </If>
       <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 3">
@@ -1552,22 +1552,19 @@ Authors:  Sodimm
         <UseItem ItemId="2002429" NpcId="1024915" XYZ="-127.4586, 41.19766, 7.248047" QuestId="68575" StepId="4"/>
       </If>
       <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 5">
-        <If Condition="not IsOnMap(635)">
-          <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
-        </If>
-        <FlyTo XYZ="-117.2066, 0.6342249, -57.35493" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <GetTo ZoneId="635" XYZ="-117.2066, 0.6342249, -57.35493"/>
         <TalkTo NpcId="1019486" XYZ="-116.7468, 0.6342248, -55.83282" QuestId="68575" StepId="5"/>
       </If>
       <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 6">
         <If Condition="not IsOnMap(612)">
-          <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
+          <TeleportTo Name="Castrum Oriens" AetheryteId="98"/>
         </If>
         <FlyTo XYZ="-495.0179, 118.7987, -427.1153" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <WaitWhile Condition="HasQuest(68575) and not IsQuestCompleted(68575) and not GetQuestStep(68575) == 7"/>
       </If>
       <If Condition="HasQuest(68575) and not IsQuestCompleted(68575) and GetQuestStep(68575) == 7">
         <If Condition="not IsOnMap(612)">
-          <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
+          <TeleportTo Name="Castrum Oriens" AetheryteId="98"/>
           <FlyTo XYZ="-495.0179, 118.7987, -427.1153" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         </If>
         <UseObject NpcId="1024920" XYZ="-495.0179, 118.7987, -427.1153" QuestId="68575" StepId="7"/>
@@ -1625,25 +1622,19 @@ Authors:  Sodimm
         <FlyTo XYZ="14.03478, 55.94352, 239.661" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <TurnIn QuestId="68576" NpcId="1024952" InteractDistance="3.0" XYZ="12.00879, 55.97821, 237.9645"/>
       </If>
-      <!-- Celebratory Smorgasbord ** -->
+      <!-- Celebratory Smorgasbord -->
       <If Condition="IsQuestCompleted(68576) and not HasQuest(68577) and not IsQuestCompleted(68577)">
         <If Condition="IsQuestAcceptQualified(68577)">
           <PickupQuest QuestId="68577" NpcId="1024771" XYZ="12.00879, 55.97821, 237.9645"/>
         </If>
       </If>
-      <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 1 and GetQuestById(68577).GetTodoArgs(1, 0).Item1 == 0">
-        <If Condition="not IsOnMap(612)">
-          <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
-        </If>
-        <FlyTo XYZ="-645.2259, 130.1171, -537.4763" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 1 and not IsTodoChecked(68577, 1, 1)">
+        <TeleportTo Name="Castrum Oriens" AetheryteId="98" Force="True"/>
         <HandOver ItemId="2002430" NpcId="1023142" XYZ="-642.9083, 130.2595, -538.2925" QuestId="68577"/>
       </If>
-      <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 1 and GetQuestById(68577).GetTodoArgs(1, 0).Item1 == 1">
-        <If Condition="not IsOnMap(612)">
-          <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
-        </If>
-        <FlyTo XYZ="448.3957, 114.4036, 234.836" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <HandOver ItemId="2002430" NpcId="1024937" XYZ="448.3957, 114.4036, 234.836" QuestId="68577"/>
+      <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 1 and not IsTodoChecked(68577, 1, 0)">
+        <TeleportTo Name="The Peering Stones" AetheryteId="99" Force="True"/>
+        <HandOver ItemId="2002430" NpcId="1024937" XYZ="450.8887, 114.3642, 235.9197" QuestId="68577"/>
       </If>
       <If Condition="HasQuest(68577) and not IsQuestCompleted(68577) and GetQuestStep(68577) == 2">
         <If Condition="not IsOnMap(612)">

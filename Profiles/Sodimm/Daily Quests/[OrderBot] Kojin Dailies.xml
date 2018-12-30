@@ -7,7 +7,7 @@ Authors:  Sodimm.
   <Name>[OrderBot] Kojin Dailies.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!--  24/30 80% -->
+    <!--  25/30 83% -->
     <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538"/>
     <!-- Heaven-sent -->
@@ -1353,7 +1353,7 @@ Authors:  Sodimm.
         <If Condition="not IsOnMap(613)">
           <TeleportTo Name="Onkoro" AetheryteId="106"/>
         </If>
-        <FlyTo XYZ="247.2921, 6.195127, 651.1696" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <FlyTo XYZ="247.2921, 6.195127, 651.1696" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <TalkTo NpcId="1024264" XYZ="246.9061, 6.054259, 649.2561" QuestId="68512" StepId="3"/>
       </If>
       <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 4">
@@ -1364,28 +1364,36 @@ Authors:  Sodimm.
         <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
         <TurnIn QuestId="68512" NpcId="1024215" InteractDistance="3.0" XYZ="400.0762, -119.5893, -247.5471"/>
       </If>
-      <!-- A Test of Courage ** -->
+      <!-- A Test of Courage -->
       <If Condition="IsQuestCompleted(68512) and not HasQuest(68513) and not IsQuestCompleted(68513)">
         <If Condition="IsQuestAcceptQualified(68513)">
           <PickupQuest QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
         </If>
       </If>
       <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 1">
-        <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108"/>
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+        </If>
         <TalkTo NpcId="1024269" XYZ="330.6476, -116.8671, -202.472" QuestId="68513" StepId="1"/>
       </If>
       <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 2">
-        <GetTo ZoneId="613" XYZ="398.1064, -119.5893, -247.6108"/>
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+        </If>
         <UseObject NpcId="2009174" XYZ="321.9806, -120.0427, -250.4159" QuestId="68513" StepId="2"/>
       </If>
       <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 3">
-        <TeleportTo Name="Onkoro" AetheryteId="106"/>
-        <MoveTo XYZ="-645.8464, 1.400071, 264.53"/>
-        <RunCode Name="Descend_Into_Diving"/>
+        <If Condition="IsOnSubMap(2769)">
+          <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+        </If>
+        <FlyTo XYZ="-645.8464, 1.400071, 264.53" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+        <RunCode Name="68513"/>
         <RunCode Name="Announce_Manual_Completion"/>
       </If>
       <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 255">
-        <GetTo ZoneId="613" XYZ="362.4861, -117.9305, -257.7594"/>
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+        </If>
         <SoTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
       </If>
       <!-- True-blue ** -->
@@ -1472,6 +1480,23 @@ Authors:  Sodimm.
 
         while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }
         while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68513">
+      <![CDATA[
+        MovementManager.StartDescending();
+        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
+        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        MovementManager.StopDescending();
+
+        var v1 = new Vector3(-666.8956f, -33.70721f, 268.1772f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+  
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
       ]]>
     </CodeChunk>
     <CodeChunk Name="68517">

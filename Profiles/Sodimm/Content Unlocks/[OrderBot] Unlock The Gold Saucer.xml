@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+ Profile:  [OrderBot] Unlock The Gold Saucer.
+ Authors:  Sodimm.
+ -->
+<Profile>
+  <Name>[OrderBot] Unlock The Gold Saucer</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- It Could Happen to You (Level 15) -->
+    <If Condition="(IsQuestCompleted(66043) or IsQuestCompleted(66064) or IsQuestCompleted(66082)) and not HasQuest(65970) and not IsQuestCompleted(65970) and Core.Player.ClassLevel &gt; 14">
+      <GetTo ZoneId="130" XYZ="-81.28416, 4, -110.7648"/>
+      <If Condition="IsQuestAcceptQualified(65970)">
+        <PickupQuest QuestId="65970" NpcId="1011565" InteractDistance="3.0" XYZ="-78.8739, 4, -110.4296"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65970) and not IsQuestCompleted(65970) and GetQuestStep(65970) == 255">
+      <GetTo ZoneId="130" XYZ="-23.6542, 83.19999, -4.632526"/>
+      <SoTurnIn ItemId="2001555" QuestId="65970" NpcId="1004433" InteractDistance="3.0" XYZ="-23.60571, 83.19999, -2.304138"/>
+      <WaitWhile Condition="not IsOnMap(144)"/>
+    </If>
+    <!-- World of Wonders (Level 15) -->
+    <If Condition="IsQuestCompleted(65970) and not HasQuest(65971) and not IsQuestCompleted(65971)">
+      <GetTo ZoneId="144" XYZ="-38.97863, 0.02503264, 99.10065"/>
+      <If Condition="IsQuestAcceptQualified(65971)">
+        <PickupQuest QuestId="65971" NpcId="1011022" InteractDistance="3.0" XYZ="-38.89526, -2.793968E-06, 97.33728"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 1">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="-54.18003, 1.600001, 34.63613"/>
+      </If>
+      <TalkTo NpcId="1010448" XYZ="-54.00177, 1.6, 30.68579" QuestId="65971" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 2">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="-61.41798, 1.6, 29.30517"/>
+      </If>
+      <TalkTo NpcId="1011038" XYZ="-58.88464, 1.6, 27.63403" QuestId="65971" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 3">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="-98.22258, -0.8629702, 64.79282"/>
+      </If>
+      <TalkTo NpcId="1010478" XYZ="-99.19891, -0.8629702, 66.11731" QuestId="65971" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 4">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="19.41186, 3.99973, 36.23358"/>
+      </If>
+      <TalkTo NpcId="1011080" XYZ="21.53046, 3.99973, 39.90234" QuestId="65971" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 5">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="122.4002, 13.00045, -15.48271"/>
+      </If>
+      <TalkTo NpcId="1011079" XYZ="125.0781, 13.00064, -13.77893" QuestId="65971" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 6">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="-10.32157, 3.265048, -74.50376"/>
+      </If>
+      <TalkTo NpcId="1011084" XYZ="-12.52765, 3.254643, -73.16705" QuestId="65971" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 255">
+      <If Condition="not IsOnMap(144)">
+        <GetTo ZoneId="144" XYZ="-54.09208, 1.600001, 34.75377"/>
+      </If>
+      <TurnIn QuestId="65971" NpcId="1010448" InteractDistance="3.0" XYZ="-54.00177, 1.6, 30.68579"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks/>
+</Profile>

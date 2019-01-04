@@ -995,8 +995,8 @@ Authors:  Sodimm
     <If Condition="HasQuest(68589) and GetQuestStep(68589) == 2">
       <If Condition="not IsOnMap(612)">
         <TeleportTo Name="The Peering Stones" AetheryteId="99"/>
+        <FlyTo XYZ="39.04773, 43.37332, -221.9425" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
-      <FlyTo XYZ="41.45874, 42.87572, -218.2803" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <TalkTo NpcId="1025247" XYZ="41.45874, 42.87572, -218.2803" QuestId="68589" StepId="2"/>
     </If>
     <!-- A Delicate Operation -->

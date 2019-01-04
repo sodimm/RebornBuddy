@@ -75,7 +75,7 @@ Authors:  Sodimm.
       <FlyTo Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
       <TurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
     </If>
-    <If Condition="IsQuestCompleted(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+    <If Condition="IsQuestCompleted(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and not HasQuest(67761) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
       <If Condition="not IsOnMap(401)">
         <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
       </If>
@@ -1201,7 +1201,7 @@ Authors:  Sodimm.
       </If>
       <EmoteNPC Emote="sundance" NpcId="2006696" XYZ="111.4366, -83.02441, 428.8549" QuestId="67735" StepId="4"/>
     </If>
-    <If Condition="not HasQuest(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
+    <If Condition="not HasQuest(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and not HasQuest(67761) and HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
 	  <If Condition="not IsOnMap(401)">
         <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 	  </If>
@@ -1531,23 +1531,53 @@ Authors:  Sodimm.
         <GetTo ZoneId="401" XYZ="-606.4088, -51.07104, -370.8705"/>
         <TurnIn QuestId="67705" NpcId="1016174" InteractDistance="3.0" XYZ="-606.4088, -51.07104, -370.8705"/>
       </If>
-        <!--<If Condition="not IsQuestCompleted(67706)">
-          <!{1}** Nest Side Story **{1}>
-          <If Condition="IsQuestAcceptQualified(67706) and not HasQuest(67706)">
-<If Condition="IsQuestAcceptQualified(67706)">
-<PickUpQuest QuestId="67706" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>          <FlightEmoteNpc Emote="sundance" NpcIds="2006623" XYZ="-761.7457, -132.6162, -422.1714" Radius="5" QuestId="67706" StepId="1" MapId="401" />
-          <SoTalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67706" StepId="2" MapId="401" />
-          <SoTalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67706" StepId="3" MapId="401" />
-            <SoTurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301" MapId="401" />
+      <!-- Nest Side Story -->
+      <If Condition="IsQuestCompleted(67705) and not HasQuest(67706) and not IsQuestCompleted(67706)">
+        <If Condition="IsQuestAcceptQualified(67706)">
+          <PickUpQuest QuestId="67706" NpcId="1016087" InteractDistance="3.0" XYZ="-796.7498, -133.2695, -410.6966"/>
         </If>
-        <If Condition="not IsQuestCompleted(67761)">
-          <!{1}** The Nest of Honor **{1}>
-          <If Condition="IsQuestAcceptQualified(67761) and not HasQuest(67761)">
-<If Condition="IsQuestAcceptQualified(67761)">
-<PickUpQuest QuestId="67761" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" MapId="401" />
-</If></If>            <SoTurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231" MapId="401" />
-        </If>-->
+      </If>
+      <If Condition="HasQuest(67706) and not IsQuestCompleted(67706) and GetQuestStep(67706) == 1">
+        <If Condition="not IsOnMap(401)">
+          <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
+          <FlyTo Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+		</If>
+        <EmoteNPC Emote="sundance" NpcId="2006623" XYZ="-761.7457, -132.6162, -422.1714" QuestId="67706" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67706) and not IsQuestCompleted(67706) and GetQuestStep(67706) == 2">
+        <If Condition="not IsOnMap(401)">
+          <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
+          <FlyTo Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+		</If>
+        <TalkTo NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966" QuestId="67706" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67706) and not IsQuestCompleted(67706) and GetQuestStep(67706) == 3">
+        <If Condition="not IsOnMap(401)">
+          <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
+		</If>
+        <FlyTo XYZ="-542.7787, -37.11544, -386.7094" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67706" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67706) and not IsQuestCompleted(67706) and GetQuestStep(67706) == 255">
+        <If Condition="not IsOnMap(401)">
+          <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
+		</If>
+        <FlyTo XYZ="-220.4777, -4.959229, -582.3301" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301"/>
+      </If>
+      <!-- The Nest of Honor -->
+      <If Condition="IsQuestCompleted(67706) and not HasQuest(67761) and not IsQuestCompleted(67761)">
+        <If Condition="IsQuestAcceptQualified(67761)">
+          <PickUpQuest QuestId="67761" NpcId="1016087" InteractDistance="3.0" XYZ="-796.7498, -133.2695, -410.6966"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67761) and not IsQuestCompleted(67761) and GetQuestStep(67761) == 255">
+        <If Condition="not IsOnMap(401)">
+          <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
+          <FlyTo Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
+		</If>
+        <TurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
+      </If>
     </If>
   </Order>
   <GrindAreas/>

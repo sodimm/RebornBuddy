@@ -5,7 +5,7 @@ Authors:  Sodimm, TuckMeIntoBread
 -->
 <Profile>
   <Name>[Orderbot] Namazu Dailies</Name>
-  <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <!-- 50/50 100% -->
     <RunCode Name="Disable_Flight"/>
@@ -1461,14 +1461,16 @@ Authors:  Sodimm, TuckMeIntoBread
         <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
         <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
       </If>
-      <FlightUseSpell SpellId="11499" NpcId="2009498" XYZ="-161.5778, 5.142273, 554.467" QuestId="68651" StepId="2" Land="True"/>
+      <FlyTo XYZ="-161.5778, 5.142273, 554.467" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <SoUseSpell SpellId="11499" NpcId="2009498" UseDistance="3.0" XYZ="-161.5778, 5.142273, 554.467" QuestId="68651" StepId="2"/>
     </If>
     <If Condition="HasQuest(68651) and GetQuestStep(68651) == 3">
       <If Condition="not Core.Player.IsMounted">
         <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
         <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
       </If>
-      <FlightUseSpell SpellId="11499" NpcId="2009499" XYZ="176.3485, 4.135132, 20.64545" QuestId="68651" StepId="3" Land="True"/>
+      <FlyTo XYZ="176.3485, 4.135132, 20.64545" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <SoUseSpell SpellId="11499" NpcId="2009499" UseDistance="3.0" XYZ="176.3485, 4.135132, 20.64545" QuestId="68651" StepId="3"/>
       <Dismount/>
     </If>
     <!-- A Stable's Condition -->
@@ -1864,7 +1866,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
       <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329" QuestId="68657" StepId="1"/>
     </If>
-    <If Condition="HasQuest(68657) and GetQuestStep(68657) == 2">
+    <!--<If Condition="HasQuest(68657) and GetQuestStep(68657) == 2">
       <If Condition="not Core.Me.IsMounted">
         <GetTo ZoneId="622" XYZ="-739.437, 127.4582, 90.62329"/>
         <TalkTo NpcId="1025610" XYZ="-739.437, 127.4582, 90.62329"/>
@@ -1878,7 +1880,7 @@ Authors:  Sodimm, TuckMeIntoBread
         </HotSpots>
       </FlightUseSpell>
       <Dismount/>
-    </If>
+    </If>-->
     <!-- Roasting a New Dish -->
     <If Condition="HasQuest(68658) and GetQuestStep(68658) == 1">
       <If Condition="not IsOnMap(622)">

@@ -7,7 +7,7 @@ Authors:  Sodimm, TuckMeIntoBread
   <Name>[Orderbot] Namazu Dailies</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- 50/50 100% -->
+    <!-- 32/50 64% -->
     <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="68639,68640,68641,68642,68643,68644,68645,68646,68647,68648,68649,68650,68651,68652,68653,68654,68655,68656,68657,68658,68659,68660,68661,68662,68663,68664,68665,68666"/>
     <!-- Perchance to Hanami -->
@@ -3025,13 +3025,13 @@ Authors:  Sodimm, TuckMeIntoBread
           <GetTo ZoneId="622" XYZ="-747.8599, 127.4577, 91.20313"/>
           <TalkTo NpcId="1025707" XYZ="-747.8599, 127.4577, 91.20313"/>
         </If>
-        <FlightUseSpell SpellId="11499" NpcIds="1026018,1025709" QuestId="68635" StepId="6">
+        <!--<FlightUseSpell SpellId="11499" NpcIds="1026018,1025709" QuestId="68635" StepId="6">
           <HotSpots>
             <HotSpot XYZ="-728.2368, 127.3782, 110.7041"/>
             <HotSpot XYZ="-761.8677, 127.2556, 137.5295"/>
           </HotSpots>
         </FlightUseSpell>
-        <Dismount/>
+        <Dismount/>-->
       </If>
       <If Condition="HasQuest(68635) and GetQuestStep(68635) == 255">
         <GetTo ZoneId="622" XYZ="-747.8599, 127.4577, 91.20313"/>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] A Nocturne For Heroes.
+Authors:  TuckMeIntoBread.
+Required Quest Completion:  The Ultimate Weapon.
+-->
+<Profile>
+  <Name>[OrderBot] A Nocturne For Heroes</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+  <!-- The Man in Black -->
+  <If Condition="not HasQuest(68694) and not IsQuestCompleted(68694)">
+    <GetTo ZoneId="130" XYZ="-131.2292, 4, -75.8382"/>
+    <If Condition="IsQuestAcceptQualified(68694)">
+      <PickupQuest QuestId="68694" NpcId="1026849" XYZ="-132.4636, 4, -75.05914"/>
+    </If>
+  </If>
+  <If Condition="HasQuest(68694) and not IsQuestCompleted(68694) and GetQuestStep(68694) == 1">
+    <GetTo ZoneId="141" XYZ="-68.36612, -5.777673, 30.12299"/>
+    <TalkTo NpcId="2009661" XYZ="-68.89453, -5.56958, 30.44165" QuestId="68694" StepId="1"/>
+  </If>
+  <If Condition="HasQuest(68694) and not IsQuestCompleted(68694) and GetQuestStep(68694) == 2">
+    <GetTo ZoneId="141" XYZ="273.3763, -10.07829, -14.78487"/>
+    <LogMessage Message="Please manually complete the Like Clockwork FATE."/>
+    <WaitWhile Condition="GetQuestStep(68694) == 2"/>
+  </If>
+  <If Condition="HasQuest(68694) and not IsQuestCompleted(68694) and GetQuestStep(68694) == 3">
+    <GetTo ZoneId="141" XYZ="116.0778, 0.7001015, -143.6108"/>
+    <TalkTo NpcId="2009662" XYZ="115.8007, 0.8086548, -143.1144" QuestId="68694" StepId="3"/>
+  </If>
+  <If Condition="HasQuest(68694) and not IsQuestCompleted(68694) and GetQuestStep(68694) == 4">
+    <GetTo ZoneId="141" XYZ="-3.858329, -2.072266, -182.2595"/>
+    <TalkTo NpcId="1026850" XYZ="-5.172852, -2.072266, -183.3677" QuestId="68694" StepId="4"/>
+  </If>
+  <If Condition="HasQuest(68694) and not IsQuestCompleted(68694) and GetQuestStep(68694) == 255">
+    <GetTo ZoneId="130" XYZ="-131.7517, 4, -76.33855"/>
+    <TurnIn QuestId="68694" NpcId="1026849" XYZ="-132.4636, 4, -75.05914"/>
+  </If>
+  <!-- In the Dark of Night -->
+  <If Condition="not HasQuest(68695) and not IsQuestCompleted(68695)">
+    <GetTo ZoneId="130" XYZ="-131.7517, 4, -76.33855"/>
+    <If Condition="IsQuestAcceptQualified(68695)">
+      <PickupQuest QuestId="68695" NpcId="1026849" XYZ="-132.4636, 4, -75.05914"/>
+    </If>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 1">
+    <GetTo ZoneId="133" XYZ="168.0977, 15.7, -66.54029"/>
+    <TalkTo NpcId="1000227" XYZ="168.6274, 15.7, -65.69012" QuestId="68695" StepId="1"/>
+    <GetTo ZoneId="133" XYZ="149.9951, 10.89789, -229.1393"/>
+    <TalkTo NpcId="1000257" XYZ="150.1639, 10.85295, -230.457" QuestId="68695" StepId="1"/>
+    <GetTo ZoneId="132" XYZ="-114.4885, -7.5, 90.24609"/>
+    <TalkTo NpcId="1006694" XYZ="-115.3735, -7.351984, 91.23364" QuestId="68695" StepId="1"/>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 2">
+    <GetTo ZoneId="133" XYZ="-37.48439, 7.164489, -121.564"/>
+    <SoTalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68695" StepId="2"/>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 3">
+    <GetTo ZoneId="152" XYZ="-236.3142, 12, 18.97063"/>
+    <LogMessage Message="Please manually complete the duty."/>
+	<WaitWhile Condition="GetQuestStep(68695) == 3"/>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 4">
+    <GetTo ZoneId="152" XYZ="-307.2061, 11.21637, -13.69983"/>
+    <TalkTo NpcId="1026871" XYZ="-305.7145, 11.0578, -12.19196" QuestId="68695" StepId="4"/>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 5">
+    <GetTo ZoneId="133" XYZ="-37.84978, 7.100684, -121.808"/>
+    <TalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68695" StepId="5"/>
+  </If>
+  <If Condition="HasQuest(68695) and not IsQuestCompleted(68695) and GetQuestStep(68695) == 255">
+    <GetTo ZoneId="132" XYZ="10.74649, -0.07057256, 5.433046"/>
+    <TurnIn QuestId="68695" NpcId="1026870" XYZ="11.42896, 0.01538193, 4.470825"/>
+  </If>
+  <!-- Messenger of the Winds -->
+  <If Condition="not HasQuest(68696) and not IsQuestCompleted(68696)">
+    <GetTo ZoneId="132" XYZ="10.74649, -0.07057267, 5.433046"/>
+    <If Condition="IsQuestAcceptQualified(68696)">
+      <PickupQuest QuestId="68696" NpcId="1026870" XYZ="11.42896, 0.01538193, 4.470825"/>
+    </If>
+  </If>
+  <If Condition="HasQuest(68696) and not IsQuestCompleted(68696) and GetQuestStep(68696) == 1">
+    <GetTo ZoneId="148" XYZ="-39.4294, 0.1879755, -232.0419"/>
+    <TalkTo NpcId="1026868" XYZ="-40.48224, 0.1310671, -231.6777" QuestId="68696" StepId="1"/>
+  </If>
+  <If Condition="HasQuest(68696) and not IsQuestCompleted(68696) and GetQuestStep(68696) == 2">
+    <GetTo ZoneId="133" XYZ="-37.85802, 7.119903, -121.6873"/>
+    <TalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68696" StepId="2"/>
+  </If>
+  <If Condition="HasQuest(68696) and not IsQuestCompleted(68696) and GetQuestStep(68696) == 3">
+    <GetTo ZoneId="132" XYZ="67.19819, -8.054339, 109.7462"/>
+    <LogMessage Message="Please manually complete the duty."/>
+	<WaitWhile Condition="GetQuestStep(68696) == 3"/>
+  </If>
+  <If Condition="HasQuest(68696) and not IsQuestCompleted(68696) and GetQuestStep(68696) == 255">
+    <GetTo ZoneId="132" XYZ="67.64816, -8.009697, 109.1875"/>
+    <TurnIn QuestId="68696" NpcId="1026869" XYZ="67.36853, -8.060707, 110.9178"/>
+  </If>
+  </Order>
+</Profile>

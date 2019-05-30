@@ -700,9 +700,8 @@ Authors:  Sodimm, TuckMeIntoBread.
       </If>
       <!-- Hands of Healing (Level 60) -->
       <If Condition="IsQuestCompleted(67260) and not HasQuest(67261) and not IsQuestCompleted(67261) and Core.Player.ClassLevel &gt; 57">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
         <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
           <If Condition="IsQuestAcceptQualified(67261)">
             <PickupQuest QuestId="67261" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>

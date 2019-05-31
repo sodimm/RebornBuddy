@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Stormblood Allied.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Stormblood Allied.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <RunCode Name="Disable_Flight"/>
+    <!-- The Ananta Maid's Tail (Level 70) -->
+    <If Condition="IsQuestCompleted(68514) and IsQuestCompleted(68577) and IsQuestCompleted(68638) and not HasQuest(68697) and not IsQuestCompleted(68697)">
+      <GetTo ZoneId="628" XYZ="95.95951, 11.99994, -71.06355"/>
+      <If Condition="IsQuestAcceptQualified(68697)">
+        <PickupQuest QuestId="68697" NpcId="1026380" XYZ="94.22449, 12.00001, -72.55664"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 1">
+      <GetTo ZoneId="628" XYZ="-84.96851, -6.999999, -55.05303"/>
+      <UseObject NpcId="2009604" XYZ="-85.19116, -7.003906, -52.84204" QuestId="68697" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 2">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="141.1587, 25, -8.321259"/>
+      </If>
+      <TalkTo NpcId="1026381" XYZ="139.3301, 25, -7.003906" QuestId="68697" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 3">
+      <GetTo ZoneId="628" XYZ="-78.59173, 18, -174.6316"/>
+      <TalkTo NpcId="1026383" XYZ="-79.14862, 18, -176.4706" QuestId="68697" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 4">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-107.2617, 11.90237, -138.6507"/>
+      </If>
+      <UseTransport NpcId="1026384" XYZ="-107.7134, 11.90237, -140.734" QuestId="68697" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 5">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-107.2617, 11.90237, -138.6507"/>
+      </If>
+      <TalkTo NpcId="1026385" XYZ="-108.1407, 11.90237, -140.5814" QuestId="68697" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 6">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-6.887088, 0.150003, -104.6138"/>
+      </If>
+      <TalkTo NpcId="1026386" XYZ="-4.989685, 0.25, -103.502" QuestId="68697" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 7">
+      <GetTo ZoneId="628" XYZ="-80.77178, -3, 64.02086"/>
+      <TalkTo NpcId="1026388" XYZ="-82.414, -2.999997, 62.42456" QuestId="68697" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 8">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-82.37286, -3, 63.72051"/>
+      </If>
+      <UseObject NpcId="1026389" XYZ="-84.76392, -2.999998, 62.91284" QuestId="68697" StepId="8"/>
+    </If>
+    <If Condition="HasQuest(68697) and not IsQuestCompleted(68697) and GetQuestStep(68697) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-82.37286, -3, 63.72051"/>
+      </If>
+      <RunCode Name="68697"/>
+      <TurnIn QuestId="68697" NpcId="1026389" XYZ="-84.76392, -2.999998, 62.91284"/>
+    </If>
+    <!-- Ruby Seas under Ruby Skies (Level 70) -->
+    <If Condition="IsQuestCompleted(68697) and not HasQuest(68698) and not IsQuestCompleted(68698)">
+      <GetTo ZoneId="628" XYZ="-81.79082, -2.999998, 62.43475"/>
+      <If Condition="IsQuestAcceptQualified(68698)">
+        <PickupQuest QuestId="68698" NpcId="1026388" XYZ="-82.414, -2.999997, 62.42456"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 1">
+      <GetTo ZoneId="613" XYZ="857.4735, 6.945029, 807.0197"/>
+      <TalkTo NpcId="1026395" XYZ="857.4501, 6.945029, 804.7455" QuestId="68698" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 2 and GetQuestById(68698).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="843.3878, 6.945029, 819.1491"/>
+      </If>
+      <TalkTo NpcId="1026398" XYZ="840.3906, 6.945029, 819.6688" QuestId="68698"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 2 and GetQuestById(68698).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="850.457, 1.179207, 865.4984"/>
+      </If>
+      <TalkTo NpcId="1026397" XYZ="848.6304, 1.179207, 863.8589" QuestId="68698" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 3">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="868.2507, 1.179207, 847.491"/>
+      </If>
+      <TalkTo NpcId="1026399" XYZ="867.4294, 1.179207, 844.7546" QuestId="68698" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 4">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+      </If>
+      <FlyTo XYZ="-769.6127, 2.84428, -360.736" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1026401" XYZ="-773.1289, 2.941284, -360.9217" QuestId="68698" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 5 and GetQuestById(68698).GetTodoArgs(5, 0).Item1 == 0">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+      </If>
+      <FlyTo XYZ="-722.0466, 1.274293, -566.2543" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1026406" XYZ="-722.9267, 1.285581, -568.5359" QuestId="68698"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 5 and GetQuestById(68698).GetTodoArgs(5, 0).Item1 == 1">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+        <FlyTo XYZ="-716.308, 1.270276, -591.1642" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1026404" XYZ="-716.0906, 1.25068, -593.6218" QuestId="68698"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 5 and GetQuestById(68698).GetTodoArgs(5, 0).Item1 == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+        <FlyTo XYZ="-737.9932, 1.960285, -609.1352" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <TalkTo NpcId="1026405" XYZ="-739.9863, 1.960285, -611.2917" QuestId="68698" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68698) and not IsQuestCompleted(68698) and GetQuestStep(68698) == 255">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+      </If>
+      <FlyTo XYZ="-770.5902, 3.1239, -362.0663" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TurnIn QuestId="68698" NpcId="1026401" XYZ="-773.1289, 2.941284, -360.9217"/>
+    </If>
+    <!-- Fish in a Barrel (Level 70) -->
+    <If Condition="IsQuestCompleted(68698) and not HasQuest(68699) and not IsQuestCompleted(68699)">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="83.9764, 3.115506, -583.2424"/>
+        <FlyTo XYZ="-770.7081, 2.87314, -361.22" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68699)">
+        <SoPickupQuest QuestId="68699" NpcId="1026401" XYZ="-773.1289, 2.941284, -360.9217"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68699) and not IsQuestCompleted(68699) and GetQuestStep(68699) == 1">
+      <GetTo ZoneId="622" XYZ="-774.8621, 127.2798, 128.466"/>
+      <TalkTo NpcId="1026414" XYZ="-778.2864, 127.2708, 129.7474" QuestId="68699" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68699) and not IsQuestCompleted(68699) and GetQuestStep(68699) == 2">
+      <GetTo ZoneId="622" XYZ="29.64193, 114.905, -13.99784"/>
+      <UseObject NpcId="2009605" XYZ="27.17627, 114.8851, -15.03015" QuestId="68699" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68699) and not IsQuestCompleted(68699) and GetQuestStep(68699) == 3">
+      <If Condition="not IsOnMap(622)">
+        <GetTo ZoneId="622" XYZ="-100.0744, 116.043, -49.00466"/>
+      </If>
+      <TalkTo NpcId="1026420" XYZ="-102.739, 116.043, -48.14227" QuestId="68699" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68699) and not IsQuestCompleted(68699) and GetQuestStep(68699) == 255">
+      <GetTo ZoneId="622" XYZ="-776.2368, 127.2827, 127.3763"/>
+      <TurnIn QuestId="68699" NpcId="1026422" XYZ="-779.0799, 127.2772, 127.9163"/>
+    </If>
+    <!-- What a Wonder-full World (Level 70) -->
+    <If Condition="IsQuestCompleted(68699) and not HasQuest(68700) and not IsQuestCompleted(68700)">
+      <GetTo ZoneId="622" XYZ="-777.4216, 127.2766, 128.5306"/>
+      <If Condition="IsQuestAcceptQualified(68700)">
+        <PickupQuest QuestId="68700" NpcId="1026421" XYZ="-779.7818, 127.269, 129.7474"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68700) and not IsQuestCompleted(68700) and GetQuestStep(68700) == 1">
+      <GetTo ZoneId="628" XYZ="-79.96191, 11.84616, -155.2322"/>
+      <UseObject NpcId="2009606" XYZ="-77.62268, 11.82568, -155.169" QuestId="68700" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68700) and not IsQuestCompleted(68700) and GetQuestStep(68700) == 2">
+      <GetTo ZoneId="628" XYZ="-69.97584, 15, 71.69019"/>
+      <TalkTo NpcId="1026425" XYZ="-72.12946, 15.00001, 70.45081" QuestId="68700" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68700) and not IsQuestCompleted(68700) and GetQuestStep(68700) == 3">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-32.91915, 15, 61.3316"/>
+      </If>
+      <UseObject NpcId="2009607" XYZ="-31.47937, 14.99957, 61.08191" QuestId="68700" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68700) and not IsQuestCompleted(68700) and GetQuestStep(68700) == 255">
+      <GetTo ZoneId="628" XYZ="-82.52058, 11.82914, -156.5625"/>
+      <SoTurnIn QuestId="68700" NpcId="1026426" XYZ="-81.49847, 11.82907, -155.5353"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+        {
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+          }
+          catch (Exception ex) { }
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68697"><![CDATA[
+        var item = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.KeyItems).Where(r => r.RawItemId == 2002488).FirstOrDefault();
+    
+        if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
+    
+        if (GameObjectManager.GetObjectByNPCId(1026389).IsVisible && !QuestLogManager.InCutscene)
+        {
+          if (item != null)
+          { 
+            item.UseItem(GameObjectManager.GetObjectByNPCId(1026389).Location);
+            await Coroutine.Wait(5000, () => !Core.Me.IsCasting);
+          }
+        }
+      ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

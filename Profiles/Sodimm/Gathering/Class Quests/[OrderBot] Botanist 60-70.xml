@@ -276,7 +276,7 @@ Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
         </ExGather>
       </If>
     </If>
-    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and HqHasAtLeast(17948,5)">
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and HasAtLeast(17948,5)">
       <GetTo ZoneId="478" XYZ="-44.54691, 209.2032, -89.48778"/>
       <SoTurnIn ItemIds="17948" QuestId="68160" NpcId="1021349" XYZ="-44.54691, 209.2032, -89.48778"/>
     </If>

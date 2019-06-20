@@ -900,6 +900,7 @@ Authors:  Sodimm.
         <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <UseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
       </If>
+      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
     </If>
     <If Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1">
       <If Condition="not IsOnMap(613)">
@@ -917,6 +918,7 @@ Authors:  Sodimm.
         <FlyTo XYZ="-190.0653, -0.01531982, 643.2596" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <UseItem ItemId="2002424" NpcId="6885" XYZ="-192.0653, -0.01531982, 628.2596" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
       </If>
+      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
     </If>
     <If Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2">
       <If Condition="not IsOnMap(613)">
@@ -934,6 +936,7 @@ Authors:  Sodimm.
         <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         <UseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
       </If>
+      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
     </If>
     <!-- Tonight We Dine in Shells -->
     <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0">
@@ -1091,6 +1094,7 @@ Authors:  Sodimm.
         <UseObject NpcId="2009239" XYZ="762.9358, 0.4425049, -286.7323" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
         <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="762.9358, 0.4425049, -286.7323" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
       </If>
+      <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
     </If>
     <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
       <If Condition="not IsOnMap(613)">
@@ -1111,6 +1115,7 @@ Authors:  Sodimm.
         <UseObject NpcId="2009240" XYZ="620.2334, 0.1067505, -315.9076" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
         <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="620.2334, 0.1067505, -315.9076" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
       </If>
+      <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
     </If>
     <!-- You Have the Rite -->
     <If Condition="HasQuest(68517) and GetQuestStep(68517) == 2">

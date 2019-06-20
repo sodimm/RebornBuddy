@@ -3025,13 +3025,13 @@ Authors:  Sodimm, TuckMeIntoBread
           <GetTo ZoneId="622" XYZ="-747.8599, 127.4577, 91.20313"/>
           <TalkTo NpcId="1025707" XYZ="-747.8599, 127.4577, 91.20313"/>
         </If>
-        <!--<FlightUseSpell SpellId="11499" NpcIds="1026018,1025709" QuestId="68635" StepId="6">
+        <SoUseSpell SpellId="11499" NpcIds="1026018,1025709" UseDistance="1.0" QuestId="68635" StepId="6">
           <HotSpots>
             <HotSpot XYZ="-728.2368, 127.3782, 110.7041"/>
             <HotSpot XYZ="-761.8677, 127.2556, 137.5295"/>
           </HotSpots>
-        </FlightUseSpell>
-        <Dismount/>-->
+        </SoUseSpell>
+        <Dismount/>
       </If>
       <If Condition="HasQuest(68635) and GetQuestStep(68635) == 255">
         <GetTo ZoneId="622" XYZ="-747.8599, 127.4577, 91.20313"/>

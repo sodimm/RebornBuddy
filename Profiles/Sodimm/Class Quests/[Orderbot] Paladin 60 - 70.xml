@@ -15,7 +15,9 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 1">
-      <GetTo ZoneId="131" XYZ="-24.75084, 38.01001, 82.61761"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-24.75084, 38.01001, 82.61761"/>
+      </If>
       <HandOver ItemId="2002237" NpcId="1021342" XYZ="-24.75084, 38.01001, 82.61761" QuestId="68107" StepId="1"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 2 and GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 0">
@@ -23,23 +25,33 @@ Authors:  TuckMeIntoBread, Sodimm.
       <TalkTo NpcId="1021343" XYZ="-75.10159, 6.98457, 7.007832" QuestId="68107"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 2 and GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 1">
-      <GetTo ZoneId="131" XYZ="-70.50087, 7.005229, -10.04235"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-70.50087, 7.005229, -10.04235"/>
+      </If>
       <TalkTo NpcId="1021345" XYZ="-70.50087, 7.005229, -10.04235" QuestId="68107"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 2 and GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 2">
-      <GetTo ZoneId="131" XYZ="-96.14977, 6.98457, -9.957673"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-96.14977, 6.98457, -9.957673"/>
+      </If>
       <TalkTo NpcId="1021346" XYZ="-96.14977, 6.98457, -9.957673" QuestId="68107"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 2 and GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 3">
-      <GetTo ZoneId="131" XYZ="-105.7699, 6.98399, 2.462978"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-105.7699, 6.98399, 2.462978"/>
+      </If>
       <TalkTo NpcId="1021347" XYZ="-105.7699, 6.98399, 2.462978" QuestId="68107"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 2 and GetQuestById(68107).GetTodoArgs(2, 0).Item1 == 4">
-      <GetTo ZoneId="131" XYZ="-97.34112, 6.984566, 14.39276"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-97.34112, 6.984566, 14.39276"/>
+      </If>
       <TalkTo NpcId="1021344" XYZ="-97.34112, 6.984566, 14.39276" QuestId="68107"/>
     </If>
     <If Condition="HasQuest(68107) and not IsQuestCompleted(68107) and GetQuestStep(68107) == 255">
-      <GetTo ZoneId="131" XYZ="-94.92588, 6.500001, 39.0393"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-94.92588, 6.500001, 39.0393"/>
+      </If>
       <TurnIn QuestId="68107" NpcId="1001739" XYZ="-94.92588, 6.500001, 39.0393"/>
     </If>
     <!-- In Thal's Name (Level 63) -->
@@ -50,19 +62,27 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
     </If>
     <If Condition="HasQuest(68108) and not IsQuestCompleted(68108) and GetQuestStep(68108) == 1">
-      <GetTo ZoneId="131" XYZ="-82.50227, 1.950004, 59.95036"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-82.50227, 1.950004, 59.95036"/>
+      </If>
       <UseObject NpcId="2008101" XYZ="-82.50227, 1.950004, 59.95036" QuestId="68108" StepId="1"/>
     </If>
     <If Condition="HasQuest(68108) and not IsQuestCompleted(68108) and GetQuestStep(68108) == 2">
-      <GetTo ZoneId="131" XYZ="-86.26301, 1.949986, 57.97012"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-86.26301, 1.949986, 57.97012"/>
+      </If>
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(68108) and not IsQuestCompleted(68108) and GetQuestStep(68108) == 4">
-      <GetTo ZoneId="131" XYZ="-84.87743, 1.950004, 60.14511"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-84.87743, 1.950004, 60.14511"/>
+      </If>
       <TalkTo NpcId="1021275" XYZ="-84.87743, 1.950004, 60.14511" QuestId="68108" StepId="4"/>
     </If>
     <If Condition="HasQuest(68108) and not IsQuestCompleted(68108) and GetQuestStep(68108) == 255">
-      <GetTo ZoneId="131" XYZ="-94.76803, 6.500001, 39.3539"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-94.76803, 6.500001, 39.3539"/>
+      </If>
       <TurnIn QuestId="68108" NpcId="1001739" XYZ="-94.76803, 6.500001, 39.3539"/>
     </If>
     <!-- In Nald's Name (Level 65) -->
@@ -73,20 +93,28 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
     </If>
     <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 1">
-      <GetTo ZoneId="131" XYZ="-83.88955, 6.984568, 11.98143"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-83.88955, 6.984568, 11.98143"/>
+      </If>
       <UseTransport NpcId="1021364" XYZ="-83.88955, 6.984568, 11.98143" QuestId="68109"/>
       <WaitWhile Condition="HasQuest(68109) and not IsQuestCompleted(68109) and not GetQuestStep(68109) == 2"/>
     </If>
-    <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 2 and GetQuestById(68109).QuestI8AH == 0">
-      <GetTo ZoneId="131" XYZ="-93.50822, 6.984568, 14.69896"/>
+    <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 2 and not IsTodoChecked(68109, 2, 0)">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-93.50822, 6.984568, 14.69896"/>
+      </If>
       <TalkTo NpcId="1021365" XYZ="-93.50822, 6.984568, 14.69896" QuestId="68109"/>
     </If>
-    <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 2 and GetQuestById(68109).QuestI8AH == 1">
-      <GetTo ZoneId="131" XYZ="-99.2542, 6.984566, 13.86204"/>
+    <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 2 and not IsTodoChecked(68109, 2, 1)">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-99.2542, 6.984566, 13.86204"/>
+      </If>
       <TalkTo NpcId="1021366" XYZ="-99.2542, 6.984566, 13.86204" QuestId="68109"/>
     </If>
     <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 3">
-      <GetTo ZoneId="131" XYZ="-94.72933, 6.500001, 38.57367"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-94.72933, 6.500001, 38.57367"/>
+      </If>
       <TalkTo NpcId="1001739" XYZ="-94.72933, 6.500001, 38.57367" QuestId="68109" StepId="3"/>
     </If>
     <If Condition="HasQuest(68109) and not IsQuestCompleted(68109) and GetQuestStep(68109) == 4">
@@ -105,39 +133,54 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 1">
-      <GetTo ZoneId="131" XYZ="-94.61464, 6.500001, 38.85214"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-94.61464, 6.500001, 38.85214"/>
+      </If>
       <TalkTo NpcId="1001739" XYZ="-94.61464, 6.500001, 38.85214" QuestId="68110" StepId="1"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 2">
-      <GetTo ZoneId="131" XYZ="-86.215, 1.949986, 57.83983"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-86.215, 1.949986, 57.83983"/>
+      </If>
       <TalkTo NpcId="1021271" XYZ="-86.215, 1.949986, 57.83983" QuestId="68110" StepId="2"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 3">
-      <GetTo ZoneId="131" XYZ="-86.215, 1.949986, 57.83983"/>
+      <GetTo ZoneId="131" XYZ="64.33165, 7.920917, -41.85167"/>
       <WaitWhile Condition="HasQuest(68110) and not IsQuestCompleted(68110) and not GetQuestStep(68110) == 4"/>
     </If>
-    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 0">
-      <GetTo ZoneId="131" XYZ="81.04234, 8, -72.53278"/>
+    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68110).GetTodoArgs(4, 0).Item1 == 0">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="81.04234, 8, -72.53278"/>
+      </If>
       <TalkTo NpcId="1021379" XYZ="81.04234, 8, -72.53278" QuestId="68110"/>
     </If>
-    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 1">
-      <GetTo ZoneId="131" XYZ="97.92914, 8, -12.58384"/>
+    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68110).GetTodoArgs(4, 0).Item1 == 1">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="97.92914, 8, -12.58384"/>
+      </If>
       <TalkTo NpcId="1021378" XYZ="97.92914, 8, -12.58384" QuestId="68110"/>
     </If>
-    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68107).GetTodoArgs(4, 0).Item1 == 2">
-      <GetTo ZoneId="131" XYZ="105.7962, 8, 4.050132"/>
+    <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 4 and GetQuestById(68110).GetTodoArgs(4, 0).Item1 == 2">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="105.7962, 8, 4.050132"/>
+      </If>
       <TalkTo NpcId="1021380" XYZ="105.7962, 8, 4.050132" QuestId="68110"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 5">
-      <GetTo ZoneId="131" XYZ="138.7676, 4, 50.32509"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="138.7676, 4, 50.32509"/>
+      </If>
       <SoEmoteNpc NpcId="1021381" Emote="s Doubt the truth" XYZ="138.7676, 4, 50.32509" QuestId="68110" StepId="5"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 6">
       <GetTo ZoneId="141" XYZ="281.5268, 15.28104, 513.5396"/>
       <SoTalkTo NpcId="1021382" XYZ="281.5268, 15.28104, 513.5396" QuestId="68110" StepId="6"/>
+      <WaitWhile Condition="HasQuest(68110) and not IsQuestCompleted(68110) and not GetQuestStep(68110) == 7"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 7">
-      <GetTo ZoneId="141" XYZ="283.719, 15.60366, 512.9433"/>
+      <If Condition="not IsOnMap(141)">
+        <GetTo ZoneId="141" XYZ="283.719, 15.60366, 512.9433"/>
+      </If>
       <TalkTo NpcId="1021383" XYZ="283.719, 15.60366, 512.9433" QuestId="68110" StepId="7"/>
     </If>
     <If Condition="HasQuest(68110) and not IsQuestCompleted(68110) and GetQuestStep(68110) == 255">
@@ -152,18 +195,25 @@ Authors:  TuckMeIntoBread, Sodimm.
       </If>
     </If>
     <If Condition="HasQuest(68111) and not IsQuestCompleted(68111) and GetQuestStep(68111) == 1">
-      <GetTo ZoneId="131" XYZ="-86.52013, 1.94998, 57.72566"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-86.52013, 1.94998, 57.72566"/>
+      </If>
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(68111) and not IsQuestCompleted(68111) and GetQuestStep(68111) == 255">
-      <GetTo ZoneId="131" XYZ="-94.89854, 6.500002, 40.45914"/>
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-94.89854, 6.500002, 40.45914"/>
+      </If>
       <TurnIn QuestId="68111" NpcId="1001739" XYZ="-94.89854, 6.500002, 40.45914"/>
     </If>
   </Order>
+  <GrindAreas/>
   <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

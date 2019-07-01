@@ -484,7 +484,7 @@ Authors:  Sodimm
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(67737) and not IsQuestCompleted(67737) and GetQuestStep(67737) == 3">
-	  <If Condition="not IsOnSubMap(173)">
+      <If Condition="not IsOnSubMap(173)">
         <GetTo ZoneId="138" XYZ="316.957, -36.325, 350.6864"/>
         <UseTransport InteractDistance="3.0" NpcId="1003584" XYZ="317.4333, -36.325, 352.8649" DialogOption="2"/>
       </If>
@@ -820,6 +820,24 @@ Authors:  Sodimm
     <If Condition="HasQuest(68678) and not IsQuestCompleted(68678) and GetQuestStep(68678) == 255">
       <GetTo ZoneId="399" XYZ="-613.1494, 146.8684, 58.53448"/>
       <TurnIn QuestId="68678" NpcId="1026202" XYZ="-611.6274, 146.8684, 57.87744"/>
+    </If>
+    <!-- By the Time You Hear This -->
+    <If Condition="not HasQuest(69131) and IsQuestCompleted(69190) and not IsQuestCompleted(69131)">
+      <GetTo ZoneId="819" XYZ="-131.1786, 0, -13.46894"/>
+      <If Condition="IsQuestAcceptQualified(69131)">
+        <PickupQuest QuestId="69131" NpcId="1028898" XYZ="-132.5856, 0, -14.02307"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 1">
+      <GetTo ZoneId="819" XYZ="75.64196, 0.08899535, -31.31644"/>
+      <TalkTo NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455" QuestId="69131" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 255">
+      <GetTo ZoneId="819" XYZ="76.22693, 0.0889954, -30.40345"/>
+      <TurnIn QuestId="69131" NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455"/>
     </If>
   </Order>
   <GrindAreas/>

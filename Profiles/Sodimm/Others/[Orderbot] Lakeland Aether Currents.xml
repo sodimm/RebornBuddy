@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Lakeland Aether Currents
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[Orderbot] Lakeland Aether Currents</Name>
+  <Order>
+    <GetTo ZoneId="813" XYZ="604.9438, 28.39697, 366.2012"/>
+    <!--9-->
+    <UseObject NpcId="2010024" XYZ="604.9438, 28.39697, 366.2012" Condition="GameObjectManager.GetObjectByNPCId(2010024).IsVisible"/>
+    <GetTo ZoneId="813" XYZ="441.4204, 8.38328, 218.6602"/>
+    <ClimbHill Start="441.4204, 8.38328, 218.6602" End="450.568, 13.36184, 203.9158"/>
+    <NoCombatMoveTo XYZ="432.0592, 13.99249, 125.9938"/>
+    <!--8-->
+    <UseObject NpcId="2010025" XYZ="432.0592, 13.99249, 125.9938" Condition="GameObjectManager.GetObjectByNPCId(2010025).IsVisible"/>
+    <RunCode Name="MoveForward"/>
+    <GetTo ZoneId="813" XYZ="705.6411, 24.19248, 3.015944"/>
+    <MoveTo XYZ="705.6411, 24.19248, 3.015944" Distance="1"/>
+    <Dismount/>
+    <ClimbHill Start="705.6411, 24.19248, 3.015944" End="706.9333, 27.62939, 8.007933"/>
+    <RunCode Name="2010026"/>
+    <MoveTo XYZ="702.3759, 30.48876, 2.899601" Distance="1" UseMesh="False"/>
+    <!--7-->
+    <UseObject NpcId="2010026" XYZ="702.2355, 30.47229, 1.235901" Condition="GameObjectManager.GetObjectByNPCId(2010026).IsVisible"/>
+    <MoveTo XYZ="709.9052, 24.19248, -1.722743" UseMesh="False"/>
+    <GetTo ZoneId="813" XYZ="794.1862, 32.82214, -14.75549"/>
+    <!--6-->
+    <UseObject NpcId="2010027" XYZ="794.1862, 32.82214, -14.75549" Condition="GameObjectManager.GetObjectByNPCId(2010027).IsVisible"/>
+    <GetTo ZoneId="813" XYZ="655.4512, 47.34875, -220.8439"/>
+    <!--5-->
+    <UseObject NpcId="2010028" XYZ="655.4512, 47.34875, -220.8439" Condition="GameObjectManager.GetObjectByNPCId(2010028).IsVisible"/>
+    <GetTo ZoneId="813" XYZ="528.4047, 42.80151, -340.1084"/>
+    <!--4-->
+    <UseObject NpcId="2010029" XYZ="528.4047, 42.80151, -340.1084" Condition="GameObjectManager.GetObjectByNPCId(2010029).IsVisible"/>
+    <GetTo ZoneId="813" XYZ="700.2517, 86.5033, -517.5708"/>
+    <!--3-->
+    <UseObject NpcId="2010030" XYZ="700.2517, 86.5033, -517.5708" Condition="GameObjectManager.GetObjectByNPCId(2010030).IsVisible"/>
+    <GetTo ZoneId="813" XYZ="-784.4049, 115.1849, -347.8229"/>
+    <RunCode Name="2010033"/>
+    <!--0-->
+    <UseObject NpcId="2010033" XYZ="-787.1367, 107.988, -354.7265" Condition="GameObjectManager.GetObjectByNPCId(2010033).IsVisible"/>
+    <MoveTo XYZ="-765.0089, 60.99402, -361.594" Distance="1" UseMesh="False"/>
+    <GetTo ZoneId="813" XYZ="-616.1073, 51.50115, -195.1725"/>
+    <MoveTo XYZ="-610.2711, 48.50741, -193.9888" Distance="1" UseMesh="False"/>
+    <MoveTo XYZ="-607.1392, 48.50741, -192.6686" Distance="1" UseMesh="False"/>
+    <MoveTo XYZ="-602.8813, 48.50741, -189.196" Distance="1" UseMesh="False"/>
+    <!--1-->
+    <UseObject NpcId="2010032" XYZ="-601.6785, 48.47791, -188.8304" Condition="GameObjectManager.GetObjectByNPCId(2010032).IsVisible"/>
+    <MoveTo XYZ="-599.1326, 29.06255, -194.9424" Distance="1" UseMesh="False"/>
+    <GetTo ZoneId="813" XYZ="-143.7215, 14.6239, -146.5056"/>
+    <Dismount/>
+    <MoveTo XYZ="-143.7215, 14.6239, -146.5056" Distance="1"/>
+    <!--2-->
+    <RunCode Name="2010031"/>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="MoveForward">
+      <![CDATA[
+          MovementManager.MoveForwardStart();
+          await Coroutine.Sleep(4000);
+          MovementManager.MoveForwardStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2010026">
+      <![CDATA[
+        var loc = new Vector3(702.4328f, 30.49964f, 8.131995f);
+
+        while (Core.Me.Location.Distance2D(loc) > 1)
+        {
+          MovementManager.SetFacing(loc);
+          MovementManager.MoveForwardStart();
+          MovementManager.Jump();
+          await Coroutine.Sleep(100);
+          MovementManager.MoveForwardStop();
+        }
+    
+        await Coroutine.Sleep(1000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2010031">
+      <![CDATA[
+        var target = GameObjectManager.GetObjectByNPCId(2010031);
+
+        if (target.IsVisible)  {  target.Interact();  }
+    
+        await Coroutine.Sleep(1000);		
+        await Coroutine.Wait(10000, ()=> !Core.Me.IsCasting);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2010033">
+      <![CDATA[
+        var loc = new Vector3(-787.1367f, 107.988f, -354.7265f);
+
+        while (Core.Me.Location.Distance2D(loc) > 1)
+        {
+          MovementManager.SetFacing(loc);
+          MovementManager.MoveForwardStart();
+          await Coroutine.Sleep(650);
+          MovementManager.Jump();
+          MovementManager.MoveForwardStop();
+        }
+    
+        await Coroutine.Sleep(1000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -15,6 +15,7 @@ Requirements: Must have MSQ: The Burden of Knowledge completed.
       <!--9-->
       <UseObject NpcId="2010064" XYZ="-405.9663, 7.156433, 506.5231" Condition="GameObjectManager.GetObjectByNPCId(2010064).IsVisible"/>
       <GetTo ZoneId="817" XYZ="-862.6984, -0.6, 198.159"/>
+	  <Dismount/>
       <RunCode Name="2010068"/>
       <!--5-->
       <UseObject NpcId="2010068" XYZ="-864.1337, 4.714966, 176.623" Condition="GameObjectManager.GetObjectByNPCId(2010068).IsVisible"/>
@@ -56,28 +57,24 @@ Requirements: Must have MSQ: The Burden of Knowledge completed.
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
     
         Navigator.PlayerMover.MoveTowards(loc2);
         await Coroutine.Sleep(1000);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
         
         Navigator.PlayerMover.MoveTowards(loc3);
         await Coroutine.Sleep(650);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
         
         Navigator.PlayerMover.MoveTowards(loc4);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
 
         Navigator.PlayerMover.MoveTowards(loc5);
-        await Coroutine.Sleep(1000);
+        await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();

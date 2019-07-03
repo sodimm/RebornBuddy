@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] The Tempest Aether Currents
+Authors:  Sodimm
+Requirements: Must have MSQ: The Illuminated Land completed.
+-->
+<Profile>
+  <Name>[Orderbot] The Tempest Aether Currents</Name>
+  <Order>
+    <If Condition="IsQuestCompleted(69187)">
+      <GetTo ZoneId="818" XYZ="715.0225, 398.825, 83.17688"/>
+      <!--6-->
+      <UseObject NpcId="2010077" XYZ="715.0225, 398.825, 83.17688" Condition="GameObjectManager.GetObjectByNPCId(2010077).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="904.8751, 385.275, -231.0369"/>
+      <!--5-->
+      <UseObject NpcId="2010078" XYZ="904.8751, 385.275, -231.0369" Condition="GameObjectManager.GetObjectByNPCId(2010078).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="603.4888, 455.1889, -608.3879"/>
+      <MoveTo XYZ="607.2633, 450.7056, -599.6338" Distance="1" UseMesh="False"/>
+      <!--8-->
+      <UseObject NpcId="2010075" XYZ="607.2633, 450.7056, -599.6338" Condition="GameObjectManager.GetObjectByNPCId(2010075).IsVisible"/>
+      <MoveTo XYZ="550.2717, 392.2116, -570.9776" UseMesh="False"/>
+      <GetTo ZoneId="818" XYZ="383.1994, 393.362, -707.8163"/>
+      <!--9-->
+      <UseObject NpcId="2010074" XYZ="383.1994, 393.362, -707.8163" Condition="GameObjectManager.GetObjectByNPCId(2010074).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="69.10803, 381.2771, -507.4693"/>
+      <!--7-->
+      <UseObject NpcId="2010076" XYZ="69.10803, 381.2771, -507.4693" Condition="GameObjectManager.GetObjectByNPCId(2010076).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="339.1012, 298.6953, -280.0184"/>
+      <!--4-->
+      <UseObject NpcId="2010079" XYZ="339.1012, 298.6953, -280.0184" Condition="GameObjectManager.GetObjectByNPCId(2010079).IsVisible"/>
+      <RunCode Name="BadMesh"/>
+      <GetTo ZoneId="818" XYZ="43.77808, 192.6146, -173.2968"/>
+      <!--3-->
+      <UseObject NpcId="2010080" XYZ="43.77808, 192.6146, -173.2968" Condition="GameObjectManager.GetObjectByNPCId(2010080).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="-347.8599, 124.071, -224.1398"/>
+      <!--2-->
+      <UseObject NpcId="2010081" XYZ="-347.8599, 124.071, -224.1398" Condition="GameObjectManager.GetObjectByNPCId(2010081).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="-722.3994, 93.058, -390.3716"/>
+      <!--1-->
+      <UseObject NpcId="2010082" XYZ="-722.3994, 93.058, -390.3716" Condition="GameObjectManager.GetObjectByNPCId(2010082).IsVisible"/>
+      <GetTo ZoneId="818" XYZ="-805.7222, 60.83765, -99.0769"/>
+      <!--0-->
+      <UseObject NpcId="2010083" XYZ="-805.7222, 60.83765, -99.0769" Condition="GameObjectManager.GetObjectByNPCId(2010083).IsVisible"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="BadMesh">
+      <![CDATA[
+        var loc1 = new Vector3(360.9949f, 301.024f, -270.2376f);
+        var loc2 = new Vector3(375.0332f, 302.3947f, -295.8937f);
+        var loc3 = new Vector3(347.5286f, 288.169f, -328.5484f);
+        var loc4 = new Vector3(339.9171f, 282.4768f, -355.5279f);
+        var loc5 = new Vector3(295.5555f, 271.9644f, -357.3546f);
+        var loc6 = new Vector3(273.2782f, 259.411f, -321.0667f);
+        var loc7 = new Vector3(277.5782f, 251.9542f, -289.098f);
+        var loc8 = new Vector3(306.1181f, 242.3637f, -263.6519f);
+        var loc9 = new Vector3(332.9348f, 235.6098f, -267.2523f);
+    
+        Navigator.PlayerMover.MoveTowards(loc1);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+ 
+        Navigator.PlayerMover.MoveTowards(loc2);
+        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+        
+        Navigator.PlayerMover.MoveTowards(loc3);
+        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+        
+        Navigator.PlayerMover.MoveTowards(loc4);
+        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(loc5);
+        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(loc6);
+        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(loc7);
+        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(loc8);
+        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(loc9);
+        while (Core.Me.Location.Distance2D(loc9) > 1) {  await Coroutine.Yield();  }		
+    
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

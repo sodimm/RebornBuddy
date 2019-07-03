@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile: [Orderbot] Lakeland Aether Current Quests
+Authors: TuckMeIntoBread, Sodimm.
+TODO: A Jobb Well Done Quest, add check to ensure MSQ has progressed far enough to pick up the quests.
+-->
+<Profile>
+  <Name>[Orderbot] Lakeland Aether Current Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Quest Pickups -->
+    <!-- The Astute Amaro Pickup -->
+    <If Condition="not HasQuest(68921) and not IsQuestCompleted(68921)">
+      <GetTo ZoneId="813" XYZ="-675.0093, 51.2151, -219.2736"/>
+      <If Condition="IsQuestAcceptQualified(68921)">
+        <PickupQuest QuestId="68921" NpcId="1031212" XYZ="-673.0907, 51.15794, -219.501"/>
+      </If>
+    </If>
+    <!-- An Unreasonable Request Pickup -->
+    <If Condition="not HasQuest(68922) and not IsQuestCompleted(68922)">
+      <GetTo ZoneId="813" XYZ="-699.3442, 61.99376, -350.9773"/>
+      <If Condition="IsQuestAcceptQualified(68922)">
+        <PickupQuest QuestId="68922" NpcId="1027419" XYZ="-700.7401, 61.99375, -353.6279"/>
+      </If>
+    </If>
+    <!-- Imperative Repairs -->
+    <If Condition="not HasQuest(68920) and not IsQuestCompleted(68920)">
+      <GetTo ZoneId="813" XYZ="-766.7798, 61.72048, -303.3688"/>
+      <If Condition="IsQuestAcceptQualified(68920)">
+        <PickupQuest QuestId="68920" NpcId="1027382" XYZ="-765.9266, 61.72048, -304.1886"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-798.8417, 115.1851, -318.8819"/>
+      </If>
+      <UseItem ItemId="2002831" NpcId="2010619" XYZ="-798.2758, 115.1598, -320.058" QuestId="68920" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-795.1429, 115.1849, -310.8866"/>
+      </If>
+      <UseItem ItemId="2002831" NpcId="2010613" XYZ="-794.7357, 115.1598, -310.3228" QuestId="68920" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 2">
+      <GetTo ZoneId="813" XYZ="-787.6724, 145.2151, -344.8785"/>
+      <UseItem ItemId="2002831" NpcId="2010620" XYZ="-789.0593, 146.7765, -344.1673" QuestId="68920" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 3">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-790.9148, 115.1849, -347.2802"/>
+      </If>
+      <UseItem ItemId="2002831" NpcId="2010618" XYZ="-792.1111, 115.1598, -346.4256" QuestId="68920" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 1 and GetQuestById(68920).GetTodoArgs(1, 0).Item1 == 3"/>
+    </If>
+    <If Condition="HasQuest(68920) and not IsQuestCompleted(68920) and GetQuestStep(68920) == 255">
+      <GetTo ZoneId="813" XYZ="-765.4781, 61.58692, -301.9384"/>
+      <TurnIn QuestId="68920" NpcId="1027382" XYZ="-765.9266, 61.72048, -304.1886"/>
+    </If>
+    <!-- The Astute Amaro -->
+    <If Condition="HasQuest(68921) and not IsQuestCompleted(68921) and GetQuestStep(68921) == 1">
+      <GetTo ZoneId="813" XYZ="-426.4322, 7.907925, -119.4296"/>
+      <TalkTo NpcId="1031214" XYZ="-425.2232, 7.879167, -120.8362" QuestId="68921" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68921) and not IsQuestCompleted(68921) and GetQuestStep(68921) == 2">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-458.8109, 0.8904356, 77.63301"/>
+      </If>
+      <TalkTo NpcId="1031216" XYZ="-460.441, 0.9406272, 79.39258" QuestId="68921" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68921) and not IsQuestCompleted(68921) and GetQuestStep(68921) == 3">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-462.5373, 1.08351, 78.00481"/>
+      </If>
+      <UseItem ItemId="2002832" NpcId="1031213" XYZ="-465.1103, 1.231928, 77.92773" QuestId="68921" StepId="3"/>
+    </If>
+    <!-- An Unreasonable Request -->
+    <If Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-147.7577, 28.47205, -128.6607"/>
+      </If>
+      <HandOver ItemId="2002833" NpcId="1027353" XYZ="-146.3188, 28.47206, -128.832" QuestId="68922" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-156.7361, 49.16942, -138.0723"/>
+      </If>
+      <TalkTo NpcId="1028317" XYZ="-157.6409, 49.16856, -137.3465" QuestId="68922" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 1">
+      <GetTo ZoneId="813" XYZ="-120.6582, 5.761635, -158.4946"/>
+      <TalkTo NpcId="1027368" XYZ="-120.6531, 5.761645, -159.7773" QuestId="68922" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 2">
+      <GetTo ZoneId="813" XYZ="-193.3299, 5.761792, -153.915"/>
+      <TalkTo NpcId="1031559" XYZ="-194.1711, 5.761844, -153.7957" QuestId="68922" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+      <WaitWhile Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 2 and GetQuestById(68922).GetTodoArgs(2, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(68922) and not IsQuestCompleted(68922) and GetQuestStep(68922) == 255">
+      <GetTo ZoneId="813" XYZ="-147.7582, 28.47204, -128.4235"/>
+      <TurnIn QuestId="68922" NpcId="1027353" XYZ="-146.3188, 28.47206, -128.832"/>
+    </If>
+    <!-- The Astute Amaro Turnin -->
+    <If Condition="HasQuest(68921) and not IsQuestCompleted(68921) and GetQuestStep(68921) == 255">
+      <GetTo ZoneId="813" XYZ="-674.8223, 51.20982, -219.2895"/>
+      <TurnIn QuestId="68921" NpcId="1031212" XYZ="-673.0907, 51.15794, -219.501"/>
+    </If>
+  </Order>
+</Profile>

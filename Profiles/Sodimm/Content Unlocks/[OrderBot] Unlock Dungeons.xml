@@ -821,7 +821,7 @@ Authors:  Sodimm
       <GetTo ZoneId="399" XYZ="-613.1494, 146.8684, 58.53448"/>
       <TurnIn QuestId="68678" NpcId="1026202" XYZ="-611.6274, 146.8684, 57.87744"/>
     </If>
-    <!-- By the Time You Hear This -->
+    <!-- [The Twinning] By the Time You Hear This -->
     <If Condition="not HasQuest(69131) and IsQuestCompleted(69190) and not IsQuestCompleted(69131)">
       <GetTo ZoneId="819" XYZ="-131.1786, 0, -13.46894"/>
       <If Condition="IsQuestAcceptQualified(69131)">
@@ -838,6 +838,36 @@ Authors:  Sodimm
     <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 255">
       <GetTo ZoneId="819" XYZ="76.22693, 0.0889954, -30.40345"/>
       <TurnIn QuestId="69131" NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455"/>
+    </If>
+    <!-- [Akadaemia Anyder] Akadaemia Anyder -->
+    <If Condition="not HasQuest(69132) and IsQuestCompleted(69190) and not IsQuestCompleted(69132)">
+      <GetTo ZoneId="820" XYZ="82.65393, -10.36872, 59.46068"/>
+      <If Condition="IsQuestAcceptQualified(69132)">
+        <PickupQuest QuestId="69132" NpcId="1031144" XYZ="84.33655, -10.49067, 59.49487"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 1">
+      <If Condition="not IsOnMap(818)">
+        <GetTo ZoneId="818" XYZ="-0.01491685, -276.906, 269.5677"/>
+      </If>
+      <TalkTo NpcId="1027772" XYZ="5.386414, -276.906, 271.5953" QuestId="69132" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 2">
+      <GetTo ZoneId="818" XYZ="-70.35913, -274.3316, 584.3067"/>
+      <TalkTo NpcId="1028056" XYZ="-68.37573, -274.3316, 579.3392" QuestId="69132" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 4">
+      <If Condition="not IsOnMap(818)">
+        <GetTo ZoneId="818" XYZ="-70.3502, -274.3316, 584.3105"/>
+      </If>
+      <TalkTo NpcId="1028056" XYZ="-68.37573, -274.3316, 579.3392" QuestId="69132" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 255">
+      <GetTo ZoneId="820" XYZ="81.08707, -10.321, 59.02909"/>
+      <TurnIn QuestId="69132" NpcId="1031144" XYZ="84.33655, -10.49067, 59.49487"/>
     </If>
   </Order>
   <GrindAreas/>

@@ -11,6 +11,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <LogMessage Message="You still need to unlock the Crystalline Mean from Katliss."/>
     </If>
     <!-- On the Trail of a Myth (Level 70) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 70."/>
+    </If>
     <If Condition="not HasQuest(68772) and not IsQuestCompleted(68772) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
       <GetTo ZoneId="819" XYZ="-4.714702, 20.186, -147.0918"/>
       <If Condition="IsQuestAcceptQualified(68772)">
@@ -32,6 +35,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <TurnIn QuestId="68772" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
     </If>
     <!-- Shedding Light on the Myth (Level 75) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 75">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+    </If>
     <If Condition="not HasQuest(68773) and not IsQuestCompleted(68773) and IsQuestCompleted(68772) and Core.Player.ClassLevel &gt; 74">
       <GetTo ZoneId="819" XYZ="-3.809883, 20.186, -147.4534"/>
       <If Condition="IsQuestAcceptQualified(68773)">
@@ -128,6 +134,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <TurnIn QuestId="68773" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
     </If>
     <!-- The Myth Takes Form (Level 80) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 80">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+    </If>
     <If Condition="not HasQuest(68774) and not IsQuestCompleted(68774) and IsQuestCompleted(68773) and Core.Player.ClassLevel &gt; 79">
       <GetTo ZoneId="819" XYZ="-4.16748, 20.186, -147.3527"/>
       <If Condition="IsQuestAcceptQualified(68774)">

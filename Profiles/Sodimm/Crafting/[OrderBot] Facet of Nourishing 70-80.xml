@@ -12,7 +12,10 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <LogMessage Message="You still need to unlock the Crystalline Mean from Katliss."/>
     </If>
     <!-- Friends of a Feather (Level 70) -->
-    <If Condition="not HasQuest(68769) and not IsQuestCompleted(68769) and IsQuestCompleted(69191)">
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+      <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+    </If>
+    <If Condition="not HasQuest(68769) and not IsQuestCompleted(68769) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
       <GetTo ZoneId="819" XYZ="-19.87827, 20.186, -132.0194"/>
       <If Condition="IsQuestAcceptQualified(68769)">
         <PickupQuest QuestId="68769" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
@@ -37,6 +40,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <TurnIn QuestId="68769" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
     </If>
     <!-- Where We Belong (Level 75) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 75">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+    </If>
     <If Condition="not HasQuest(68770) and not IsQuestCompleted(68770) and IsQuestCompleted(68769)">
       <GetTo ZoneId="819" XYZ="-19.98079, 20.186, -132.0263"/>
       <If Condition="IsQuestAcceptQualified(68770)">
@@ -85,6 +91,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <TurnIn QuestId="68770" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
     </If>
     <!-- Healing Old Wounds (Level 80) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 80">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+    </If>
     <If Condition="not HasQuest(68771) and not IsQuestCompleted(68771) and IsQuestCompleted(68770)">
       <GetTo ZoneId="819" XYZ="-19.74363, 20.186, -132.2663"/>
       <If Condition="IsQuestAcceptQualified(68771)">

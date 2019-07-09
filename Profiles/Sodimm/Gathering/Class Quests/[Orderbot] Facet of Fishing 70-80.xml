@@ -11,7 +11,10 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <LogMessage Message="You need to unlock the Crystalline Mean from Katliss first."/>
     </If>
     <!-- Well Eel Be Damned (Level 70) -->
-    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191)">
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 70."/>
+    </If>
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
       <GetTo ZoneId="819" XYZ="-10.79387, 20.186, -120.4802"/>
       <If Condition="IsQuestAcceptQualified(68775)">
         <PickupQuest QuestId="68775" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
@@ -32,6 +35,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       <TurnIn QuestId="68775" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
     </If>
     <!-- Fishing for Confidence (Level 75) -->
+    <If Condition="not HasQuest(68776) and not IsQuestCompleted(68776) and IsQuestCompleted(68775) and Core.Player.ClassLevel &lt; 75">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+    </If>
     <If Condition="not HasQuest(68776) and not IsQuestCompleted(68776) and IsQuestCompleted(68775) and Core.Player.ClassLevel &gt; 74">
       <GetTo ZoneId="819" XYZ="-10.71229, 20.186, -120.1012"/>
       <If Condition="IsQuestAcceptQualified(68776)">
@@ -84,6 +90,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       </If>
     </If>
     <!-- Morsel of the Deep (Level 80) -->
+    <If Condition="not HasQuest(68777) and not IsQuestCompleted(68777) and IsQuestCompleted(68776) and Core.Player.ClassLevel &lt; 80">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+    </If>
     <If Condition="not HasQuest(68777) and not IsQuestCompleted(68777) and IsQuestCompleted(68776) and Core.Player.ClassLevel &gt; 79">
       <GetTo ZoneId="819" XYZ="-10.84947, 20.186, -120.6805"/>
       <If Condition="IsQuestAcceptQualified(68777)">

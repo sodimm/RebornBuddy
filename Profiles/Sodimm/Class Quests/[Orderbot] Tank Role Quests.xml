@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Profile: [Orderbot] Tank Quests 70 - 80.
+Profile: [Orderbot] Tank Role Quests.
 Authors: TuckMeIntoBread, Sodimm.
 -->
 <Profile>
-  <Name>[Orderbot] Tank Quests 70-80</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Name>[Orderbot] Tank Role Quests</Name>
   <Order>
     <If Condition="ClassName == ClassJobType.Paladin or ClassName == ClassJobType.Warrior or ClassName == ClassJobType.DarkKnight or ClassName == ClassJobType.Gunbreaker">
       <!-- The Man with Too Many Scars (Level 70) -->
@@ -183,10 +182,13 @@ Authors: TuckMeIntoBread, Sodimm.
       </If>
     </If>
   </Order>
+  <GrindAreas/>
   <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

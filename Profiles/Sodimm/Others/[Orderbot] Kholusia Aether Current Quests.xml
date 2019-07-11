@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile: [Orderbot] Kholusia Aether Current Quests
+Authors: Sodimm.
+Requirements:  Completion of the following MSQ: A Fickle Existence, Meet the Tholls & Rich Veins of Hope.
+-->
+<Profile>
+  <Name>[Orderbot] Kholusia Current Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- A Plankless Task -->
+    <If Condition="IsQuestCompleted(68821) and not HasQuest(68896) and not IsQuestCompleted(68896)">
+      <GetTo ZoneId="814" XYZ="-310.0979, 19.39982, 406.5162"/>
+      <If Condition="IsQuestAcceptQualified(68896)">
+        <PickupQuest QuestId="68896" NpcId="1027452" XYZ="-310.6279, 19.40518, 405.2948"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68896) and not IsQuestCompleted(68896) and GetQuestStep(68896) == 1">
+      <GetTo ZoneId="814" XYZ="-450.7294, 8.987022, 536.5689"/>
+      <MoveTo XYZ="-446.2806, 7.657999, 536.1563" Distance="1" UseMesh="False"/>
+      <TalkTo NpcId="1030741" XYZ="-446.2806, 7.657999, 536.1563" Distance="4.5f" QuestId="68896" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68896) and not IsQuestCompleted(68896) and GetQuestStep(68896) == 2">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-450.7294, 8.987022, 536.5689"/>
+        <MoveTo XYZ="-446.2806, 7.657999, 536.1563" Distance="1" UseMesh="False"/>
+      </If>
+      <RunCode Name="68896"/>
+      <UseItem ItemId="2002688" NpcIds="2010260,2010286,2010287,2010288,2010261,2010289" QuestId="68896" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="-444.3885, 8.987488, 532.6771" Radius="10"/>
+          <HotSpot XYZ="-443.0152, 8.773865, 535.9731" Radius="10"/>
+          <HotSpot XYZ="-442.9236, 8.895996, 538.6892" Radius="10"/>
+          <HotSpot XYZ="-441.886, 8.590759, 542.3513" Radius="10"/>
+          <HotSpot XYZ="-444.6327, 8.804443, 544.5181" Radius="10"/>
+          <HotSpot XYZ="-443.473, 8.499207, 548.3024" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <If Condition="HasQuest(68896) and not IsQuestCompleted(68896) and GetQuestStep(68896) == 3">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-444.4311, 8.492847, 536.3561"/>
+      </If>
+      <TalkTo NpcId="1030741" XYZ="-446.2806, 7.657999, 536.1563" QuestId="68896" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68896) and not IsQuestCompleted(68896) and GetQuestStep(68896) == 255">
+      <GetTo ZoneId="814" XYZ="-309.364, 19.39425, 407.1985"/>
+      <TurnIn QuestId="68896" NpcId="1027452" XYZ="-310.6279, 19.40518, 405.2948"/>
+    </If>
+    <!-- Village of Woe -->
+    <If Condition="IsQuestCompleted(68821) and not HasQuest(68907) and not IsQuestCompleted(68907)">
+      <GetTo ZoneId="814" XYZ="-305.9456, 20.95898, 361.1356"/>
+      <If Condition="IsQuestAcceptQualified(68907)">
+        <PickupQuest QuestId="68907" NpcId="1030763" XYZ="-306.2334, 20.95657, 358.4191"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68907) and not IsQuestCompleted(68907) and GetQuestStep(68907) == 1">
+      <GetTo ZoneId="814" XYZ="-226.4287, 21.59275, 297.8407"/>
+      <WaitWhile Condition="HasQuest(68907) and not IsQuestCompleted(68907) and not GetQuestStep(68907) == 2"/>
+    </If>
+    <If Condition="HasQuest(68907) and not IsQuestCompleted(68907) and GetQuestStep(68907) == 2">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-226.2042, 21.57193, 299.7323"/>
+      </If>
+      <UseObject NpcId="1030764" XYZ="-226.4287, 21.59275, 297.8407" QuestId="68907" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68907) and not IsQuestCompleted(68907) and GetQuestStep(68907) == 3">
+      <GetTo ZoneId="814" XYZ="-282.9092, 35.28001, 206.2846"/>
+      <TalkTo NpcId="1030766" XYZ="-284.2299, 35.37314, 204.6692" QuestId="68907" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68907) and not IsQuestCompleted(68907) and GetQuestStep(68907) == 4">
+      <GetTo ZoneId="814" XYZ="-314.9098, 21.13547, 348.7303"/>
+      <TalkTo NpcId="1030794" XYZ="-317.2503, 21.04561, 349.1721" QuestId="68907" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68907) and not IsQuestCompleted(68907) and GetQuestStep(68907) == 255">
+      <GetTo ZoneId="814" XYZ="-283.3589, 35.30619, 205.8826"/>
+      <TurnIn QuestId="68907" NpcId="1030766" XYZ="-284.2299, 35.37314, 204.6692"/>
+    </If>
+    <!-- A Disagreeable Dwarf -->
+    <If Condition="IsQuestCompleted(69173) and not HasQuest(69092) and not IsQuestCompleted(69092)">
+      <GetTo ZoneId="814" XYZ="-447.2847, 417.1024, -610.7085"/>
+      <If Condition="IsQuestAcceptQualified(69092)">
+        <SoPickupQuest QuestId="69092" NpcId="1030776" XYZ="-450.8583, 417.1344, -610.8644"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69092) and not IsQuestCompleted(69092) and GetQuestStep(69092) == 1">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-430.9892, 417.2927, -675.2963"/>
+      </If>
+      <TalkTo NpcId="1030778" XYZ="-429.3126, 417.298, -677.2107" QuestId="69092" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69092) and not IsQuestCompleted(69092) and GetQuestStep(69092) == 2">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-438.4014, 417.2882, -639.3514"/>
+      </If>
+      <SoTalkTo NpcId="1030779" XYZ="-436.4844, 417.2195, -641.3824" QuestId="69092" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69092) and not IsQuestCompleted(69092) and GetQuestStep(69092) == 3">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-491.654, 417.1482, -608.3272"/>
+      </If>
+      <SoTalkTo NpcId="1030780" XYZ="-493.2479, 417.1531, -610.9866" QuestId="69092" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(69092) and not IsQuestCompleted(69092) and GetQuestStep(69092) == 255">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-398.1559, 417.5051, -659.8394"/>
+      </If>
+      <SoTurnIn ItemId="2002701" QuestId="69092" NpcId="1030800" XYZ="-396.6888, 417.5182, -657.9232"/>
+    </If>
+    <!-- Fugitive of Fear -->
+    <If Condition="IsQuestCompleted(69176) and not HasQuest(69073) and not IsQuestCompleted(69073)">
+      <GetTo ZoneId="814" XYZ="-130.5229, 354.3582, -178.4895"/>
+      <If Condition="IsQuestAcceptQualified(69073)">
+        <PickupQuest QuestId="69073" NpcId="1027956" XYZ="-128.7709, 354.3582, -179.1868"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69073) and not IsQuestCompleted(69073) and GetQuestStep(69073) == 1">
+      <GetTo ZoneId="814" XYZ="-515.1837, 334.1159, -7.864386"/>
+      <TalkTo NpcId="1030748" XYZ="-514.8852, 334.116, -9.262268" QuestId="69073" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69073) and not IsQuestCompleted(69073) and GetQuestStep(69073) == 2">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-506.4615, 333.0726, -112.5898"/>
+      </If>
+      <TalkTo NpcId="1030749" XYZ="-504.5701, 332.9331, -112.0775" QuestId="69073" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69073) and not IsQuestCompleted(69073) and GetQuestStep(69073) == 3">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="-506.4615, 333.0726, -112.5898"/>
+      </If>
+      <RunCode Name="69073"/>
+    </If>
+    <If Condition="HasQuest(69073) and not IsQuestCompleted(69073) and GetQuestStep(69073) == 255">
+      <GetTo ZoneId="814" XYZ="-130.435, 354.3582, -178.799"/>
+      <TurnIn QuestId="69073" NpcId="1027956" XYZ="-128.7709, 354.3582, -179.1868"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="68896">
+      <![CDATA[
+        MovementManager.SetFacing(1.565889f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(500);
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69073">
+      <![CDATA[
+        GameObject _target = GameObjectManager.GetObjectByNPCId(1030749);
+        
+        await Coroutine.Sleep(1000);
+    
+        _target.Target();
+    
+        ChatManager.SendChat("/soothe");
+    
+        while (ConditionParser.GetQuestStep(69073) == 3)
+        {
+      if (SelectString.IsOpen) {  SelectString.ClickSlot(1);  }
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

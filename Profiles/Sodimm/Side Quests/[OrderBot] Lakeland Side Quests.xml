@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Lakeland Side Quests
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Lakeland Side Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <RunCode Name="Disable_Flight"/>
+    <RunCode Name="Profile"/>
+    <!-- Classical Condition -->
+    <If Condition="IsQuestCompleted(68916) and not HasQuest(68918) and not IsQuestCompleted(68918)">
+      <GetTo ZoneId="813" XYZ="782.6533, 21.41485, -4.291597"/>
+      <If Condition="IsQuestAcceptQualified(68918)">
+        <PickupQuest QuestId="68918" NpcId="1027336" XYZ="782.2842, 21.41485, -3.158691"/>
+      </If>
+    </If>
+    <!-- Stock and Barrel -->
+    <If Condition="IsQuestCompleted(68916) and not HasQuest(68917) and not IsQuestCompleted(68917)">
+      <GetTo ZoneId="813" XYZ="774.7773, 23.03786, -53.06341"/>
+      <If Condition="IsQuestAcceptQualified(68917)">
+        <PickupQuest QuestId="68917" NpcId="1031145" XYZ="775.6923, 23.03786, -52.35376"/>
+      </If>
+    </If>
+    <!-- On Her Own -->
+    <If Condition="IsQuestCompleted(68858) and not HasQuest(68992) and not IsQuestCompleted(68992)">
+      <GetTo ZoneId="813" XYZ="792.8071, 23.03782, -68.16307"/>
+      <If Condition="IsQuestAcceptQualified(68992)">
+        <PickupQuest QuestId="68992" NpcId="1030707" XYZ="792.874, 23.03782, -68.13159"/>
+      </If>
+    </If>
+    <!-- You Had One Jobb -->
+    <If Condition="IsQuestCompleted(68858) and not HasQuest(68972) and not IsQuestCompleted(68972)">
+      <GetTo ZoneId="813" XYZ="734.475, 21.14688, -87.69926"/>
+      <If Condition="IsQuestAcceptQualified(68972)">
+        <PickupQuest QuestId="68972" NpcId="1031227" XYZ="733.3943, 21.14688, -88.09039"/>
+      </If>
+    </If>
+    <!-- Of Graveyards and Gremlins -->
+    <If Condition="IsQuestCompleted(68858) and not HasQuest(68973) and not IsQuestCompleted(68973)">
+      <GetTo ZoneId="813" XYZ="704.1055, 21.79854, -82.61489"/>
+      <If Condition="IsQuestAcceptQualified(68973)">
+        <PickupQuest QuestId="68973" NpcId="1027420" XYZ="702.3879, 21.79854, -81.34589"/>
+      </If>
+    </If>
+    <!-- Lofty Goals -->
+    <If Condition="IsQuestCompleted(68858) and not HasQuest(68971) and not IsQuestCompleted(68971)">
+      <GetTo ZoneId="813" XYZ="692.2733, 21.26946, -114.0806"/>
+      <If Condition="IsQuestAcceptQualified(68971)">
+        <PickupQuest QuestId="68971" NpcId="1031224" XYZ="692.1949, 21.27697, -115.5566"/>
+      </If>
+    </If>
+    <!-- Of Graveyards and Gremlins -->
+    <If Condition="HasQuest(68973) and not IsQuestCompleted(68973) and GetQuestStep(68973) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="723.2801, 22.15545, -169.7699"/>
+      </If>
+      <UseObject NpcIds="2010682,2010683,2010681" QuestId="68973" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="725.2155, 22.14075, -172.9916" Radius="10"/>
+          <HotSpot XYZ="743.7704, 22.84271, -163.1953" Radius="10"/>
+          <HotSpot XYZ="762.9053, 22.14075, -168.2003" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <!-- Classical Condition -->
+    <If Condition="HasQuest(68918) and not IsQuestCompleted(68918) and GetQuestStep(68918) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="410.8191, 5.799963, 116.2862" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1031147" XYZ="410.1167, 5.876922, 117.6317" QuestId="68918" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68918) and not IsQuestCompleted(68918) and GetQuestStep(68918) == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="96.98576, 10.12646, -82.97952" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="1031148" XYZ="96.48267, 10.23395, -84.03149" QuestId="68918" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68918) and not IsQuestCompleted(68918) and GetQuestStep(68918) == 3">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="408.6857, 5.657765, 116.8277" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1031147" XYZ="410.1167, 5.876922, 117.6317" QuestId="68918" StepId="3"/>
+    </If>
+    <!-- You Had One Jobb -->
+    <If Condition="HasQuest(68972) and not IsQuestCompleted(68972) and GetQuestStep(68972) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="335.5961, 117.4953, -222.4457" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <Grind GrindRef="68972" PostCombatDelay="3.0" While="HasQuest(68972) and not IsQuestCompleted(68972) and not GetQuestStep(68972) == 255"/>
+    </If>
+    <!-- Lofty Goals -->
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="235.4172, 134.8314, -207.4911" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1031225" XYZ="233.5698, 134.8314, -207.0192" QuestId="68971" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="35.89444, 161.104, -237.8292" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2010710" XYZ="39.10876, 163.653, -236.5912" Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="134.3664, 156.4204, -351.2945" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2010709" XYZ="132.5245, 157.6714, -352.285" Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="-2.490653, 157.4853, -341.8366" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <UseObject NpcId="2010708" XYZ="-0.869812, 157.4578, -340.7188" Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 2 and GetQuestById(68971).GetTodoArgs(2, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 3">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="173.3, 139.0552, -382.5362" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <SoTalkTo NpcId="1031226" XYZ="174.1207, 139.0552, -382.681" QuestId="68971" StepId="3"/>
+    </If>
+    <!-- On Her Own -->
+    <If Condition="HasQuest(68992) and not IsQuestCompleted(68992) and GetQuestStep(68992) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="-133.8725, 5.779211, -93.86209" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1030708" XYZ="-132.1889, 5.779211, -96.84906" QuestId="68992" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68992) and not IsQuestCompleted(68992) and GetQuestStep(68992) == 2">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-148.9294, 28.47204, -129.3276"/>
+      </If>
+      <TalkTo NpcId="1027353" XYZ="-146.3188, 28.47206, -128.832" QuestId="68992" StepId="2"/>
+    </If>
+    <!-- You've Got the Tatch -->
+    <If Condition="IsQuestCompleted(68922) and not HasQuest(68923) and not IsQuestCompleted(68923)">
+      <GetTo ZoneId="813" XYZ="-148.9294, 28.47204, -129.3276"/>
+      <If Condition="IsQuestAcceptQualified(68923)">
+        <PickupQuest QuestId="68923" NpcId="1027353" XYZ="-146.3188, 28.47206, -128.832"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68923) and not IsQuestCompleted(68923) and GetQuestStep(68923) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-153.0409, 5.779212, -106.5357"/>
+      </If>
+      <TalkTo NpcId="1027357" XYZ="-151.751, 5.779212, -106.92" QuestId="68923" StepId="1"/>
+    </If>
+    <!-- On Her Own -->
+    <If Condition="HasQuest(68992) and not IsQuestCompleted(68992) and GetQuestStep(68992) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-138.1632, 5.761643, -80.99892"/>
+      </If>
+      <TurnIn QuestId="68992" NpcId="1030709" XYZ="-137.3465, 5.76166, -79.54535"/>
+    </If>
+    <!-- Carrying On -->
+    <If Condition="IsQuestCompleted(68992) and not HasQuest(68993) and not IsQuestCompleted(68993)">
+      <GetTo ZoneId="813" XYZ="-138.1884, 5.761645, -80.80584"/>
+      <If Condition="IsQuestAcceptQualified(68993)">
+        <PickupQuest QuestId="68993" NpcId="1030709" XYZ="-137.3465, 5.76166, -79.54535"/>
+      </If>
+    </If>
+    <!-- Stock and Barrel -->
+    <If Condition="HasQuest(68917) and not IsQuestCompleted(68917) and GetQuestStep(68917) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="628.8527, 92.82875, -578.2639" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1031146" XYZ="630.4874, 92.82875, -578.4542" QuestId="68917" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68917) and not IsQuestCompleted(68917) and GetQuestStep(68917) == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        <FlyTo XYZ="591.3207, 97.7935, -649.9478" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <UseObject NpcIds="2010633,2010632,2010634" QuestId="68917" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="597.4059, 99.59558, -684.8402" Radius="10"/>
+          <HotSpot XYZ="574.6089, 97.8866, -678.5229" Radius="10"/>
+          <HotSpot XYZ="577.8439, 98.68005, -647.6082" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(68917) and not IsQuestCompleted(68917) and GetQuestStep(68917) == 3">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="627.8899, 92.82875, -581.2623" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <HandOver ItemId="2002854" NpcId="1031146" XYZ="630.4874, 92.82875, -578.4542" QuestId="68917" StepId="3"/>
+    </If>
+    <!-- You've Got the Tatch -->
+    <If Condition="HasQuest(68923) and not IsQuestCompleted(68923) and GetQuestStep(68923) == 255">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="-699.5266, 61.99376, -344.5727" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TurnIn ItemId="2002825" QuestId="68923" NpcId="1027419" XYZ="-700.7401, 61.99375, -353.6279"/>
+    </If>
+    <!-- Beers for Fears -->
+    <If Condition="IsQuestCompleted(68840) and not HasQuest(68925) and not IsQuestCompleted(68925)">
+      <GetTo ZoneId="813" XYZ="-759.4727, 115.185, -326.6826"/>
+      <If Condition="IsQuestAcceptQualified(68925)">
+        <PickupQuest QuestId="68925" NpcId="1027387" XYZ="-762.295, 115.185, -325.2156"/>
+      </If>
+    </If>
+    <!-- All That Heavenly Glory -->
+    <If Condition="IsQuestCompleted(68840) and not HasQuest(68924) and not IsQuestCompleted(68924)">
+      <GetTo ZoneId="813" XYZ="-780.283, 200.1388, -325.3488"/>
+      <If Condition="IsQuestAcceptQualified(68924)">
+        <PickupQuest QuestId="68924" NpcId="1027389" XYZ="-782.3453, 200.1388, -325.0324"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68925) and not IsQuestCompleted(68925) and GetQuestStep(68925) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-777.47, 202.179, -320.8483"/>
+      </If>
+      <HandOver ItemId="2002827" NpcId="1027381" XYZ="-775.2346, 202.0447, -321.6755" QuestId="68925" StepId="1"/>
+    </If>
+    <!-- Loot Justice Mode -->
+    <If Condition="IsQuestCompleted(68840) and not HasQuest(68926) and not IsQuestCompleted(68926)">
+      <GetTo ZoneId="813" XYZ="-715.3074, 52.03711, -169.0045"/>
+      <If Condition="IsQuestAcceptQualified(68926)">
+        <PickupQuest QuestId="68926" NpcId="1027379" XYZ="-714.8394, 52.07065, -166.064"/>
+      </If>
+    </If>
+    <!-- Beers for Fears -->
+    <If Condition="HasQuest(68925) and not IsQuestCompleted(68925) and GetQuestStep(68925) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-666.3232, 57.62082, -129.982"/>
+      </If>
+      <HandOver ItemId="2002827" NpcId="1027392" XYZ="-668.7877, 57.62082, -129.4423" QuestId="68925" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68925) and not IsQuestCompleted(68925) and GetQuestStep(68925) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-654.8065, 55.75751, -143.8353"/>
+      </If>
+      <HandOver ItemId="2002827" NpcId="1027391" XYZ="-654.4747, 55.75751, -142.8397" QuestId="68925" StepId="1"/>
+    </If>
+    <!-- Inglourious Bath Stewards -->
+    <If Condition="IsQuestCompleted(68840) and not HasQuest(68927) and not IsQuestCompleted(68927)">
+      <GetTo ZoneId="813" XYZ="-654.8065, 55.75751, -143.8353"/>
+      <If Condition="IsQuestAcceptQualified(68927)">
+        <PickupQuest QuestId="68927" NpcId="1027391" XYZ="-654.4747, 55.75751, -142.8397"/>
+      </If>
+    </If>
+    <!-- Beers for Fears -->
+    <If Condition="HasQuest(68925) and not IsQuestCompleted(68925) and GetQuestStep(68925) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-620.1018, 56.75788, -147.7344"/>
+      </If>
+      <HandOver ItemId="2002827" NpcId="1027395" XYZ="-618.0667, 56.75789, -148.2415" QuestId="68925" StepId="1"/>
+    </If>
+    <!-- Inglourious Bath Stewards -->
+    <If Condition="HasQuest(68927) and not IsQuestCompleted(68927) and GetQuestStep(68927) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="136" Name="The Ostall Imperative"/>
+      </If>
+      <FlyTo XYZ="-326.97, 111.2962, -677.9922" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1027371" XYZ="-327.657, 111.2962, -679.9573" QuestId="68927" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68927) and not IsQuestCompleted(68927) and GetQuestStep(68927) == 2">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-384.7846, 102.8203, -660.3278"/>
+      </If>
+      <HandOver ItemId="2002829" NpcId="1031169" XYZ="-386.1296, 102.8203, -660.1205" QuestId="68927" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68927) and not IsQuestCompleted(68927) and GetQuestStep(68927) == 2">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-370.6089, 103.571, -708.692"/>
+      </If>
+      <HandOver ItemId="2002829" NpcId="1031168" XYZ="-372.7627, 103.502, -706.1417" QuestId="68927" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68927) and not IsQuestCompleted(68927) and GetQuestStep(68927) == 3">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-327.4105, 111.2962, -677.9787"/>
+      </If>
+      <TalkTo NpcId="1027371" XYZ="-327.657, 111.2962, -679.9573" QuestId="68927" StepId="3"/>
+    </If>
+    <!-- All That Heavenly Glory -->
+    <If Condition="HasQuest(68924) and not IsQuestCompleted(68924) and GetQuestStep(68924) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="136" Name="The Ostall Imperative"/>
+      </If>
+      <FlyTo XYZ="-358.2513, -0.2770059, 55.65627" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <Grind GrindRef="68924" PostCombatDelay="3.0" While="HasQuest(68924) and not IsQuestCompleted(68924) and not GetQuestStep(68924) == 255"/>
+    </If>
+    <!-- Loot Justice Mode -->
+    <If Condition="HasQuest(68926) and not IsQuestCompleted(68926) and GetQuestStep(68926) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="136" Name="The Ostall Imperative"/>
+      </If>
+      <FlyTo XYZ="-678.9408, 0.1353213, 216.7362" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1031228" XYZ="-677.3938, 0.1353212, 219.1958" QuestId="68926" StepId="1"/>
+      <WaitWhile Condition="HasQuest(68926) and not IsQuestCompleted(68926) and not GetQuestStep(68926) == 2"/>
+    </If>
+    <If Condition="HasQuest(68926) and not IsQuestCompleted(68926) and GetQuestStep(68926) == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="136" Name="The Ostall Imperative"/>
+        <FlyTo XYZ="-678.2421, 0.1353211, 218.96" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <UseObject NpcId="2010628" XYZ="-677.4854, 0.1373291, 220.325" QuestId="68926" StepId="2"/>
+    </If>
+    <!-- Inglourious Bath Stewards -->
+    <If Condition="HasQuest(68927) and not IsQuestCompleted(68927) and GetQuestStep(68927) == 255">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="136" Name="The Ostall Imperative"/>
+      </If>
+      <FlyTo XYZ="-655.4445, 55.75751, -143.975" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TurnIn QuestId="68927" NpcId="1027391" XYZ="-654.4747, 55.75751, -142.8397"/>
+    </If>
+    <!-- Loot Justice Mode -->
+    <If Condition="HasQuest(68926) and not IsQuestCompleted(68926) and GetQuestStep(68926) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-713.4693, 52.07065, -165.9692"/>
+      </If>
+      <TurnIn ItemId="2002828" QuestId="68926" NpcId="1027379" XYZ="-714.8394, 52.07065, -166.064"/>
+    </If>
+    <!-- Beers for Fears -->
+    <If Condition="HasQuest(68925) and not IsQuestCompleted(68925) and GetQuestStep(68925) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-760.9651, 115.185, -326.5013"/>
+      </If>
+      <TurnIn QuestId="68925" NpcId="1027387" XYZ="-762.295, 115.185, -325.2156"/>
+    </If>
+    <!-- All That Heavenly Glory -->
+    <If Condition="HasQuest(68924) and not IsQuestCompleted(68924) and GetQuestStep(68924) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="-781.4312, 200.1388, -326.4146"/>
+      </If>
+      <TurnIn ItemId="2002826" QuestId="68924" NpcId="1027389" XYZ="-782.3453, 200.1388, -325.0324"/>
+      <MoveTo XYZ="-764.392, 200.1388, -292.7253"/>
+    </If>
+    <!-- Carrying On -->
+    <If Condition="HasQuest(68993) and not IsQuestCompleted(68993) and GetQuestStep(68993) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="790.0028, 21.38111, -29.7728" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1030710" XYZ="791.1345, 21.38111, -29.8009" QuestId="68993" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68993) and not IsQuestCompleted(68993) and GetQuestStep(68993) == 2">
+      <GetTo ZoneId="819" XYZ="82.75978, 0.7286999, 142.7183"/>
+      <TalkTo NpcId="1027985" XYZ="86.41174, 0.7401628, 143.7552" QuestId="68993" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68993) and not IsQuestCompleted(68993) and GetQuestStep(68993) == 255">
+      <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      <TurnIn QuestId="68993" NpcId="1030711" XYZ="778.2252, 23.03785, -67.0329"/>
+    </If>
+    <!-- Classical Condition -->
+    <If Condition="HasQuest(68918) and not IsQuestCompleted(68918) and GetQuestStep(68918) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="782.9807, 21.41485, -3.773717"/>
+      </If>
+      <TurnIn QuestId="68918" NpcId="1027336" XYZ="782.2842, 21.41485, -3.158691"/>
+    </If>
+    <!-- Stock and Barrel -->
+    <If Condition="HasQuest(68917) and not IsQuestCompleted(68917) and GetQuestStep(68917) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="774.8181, 23.03786, -53.05909"/>
+      </If>
+      <TurnIn QuestId="68917" NpcId="1031145" XYZ="775.6923, 23.03786, -52.35376"/>
+    </If>
+    <!-- You Had One Jobb -->
+    <If Condition="HasQuest(68972) and not IsQuestCompleted(68972) and GetQuestStep(68972) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="734.1879, 21.14688, -87.40942"/>
+      </If>
+      <TurnIn ItemId="2002830" QuestId="68972" NpcId="1031227" XYZ="733.3943, 21.14688, -88.09039"/>
+    </If>
+    <!-- Of Graveyards and Gremlins -->
+    <If Condition="HasQuest(68973) and not IsQuestCompleted(68973) and GetQuestStep(68973) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="703.7336, 21.79854, -81.65708"/>
+      </If>
+      <TurnIn QuestId="68973" NpcId="1027420" XYZ="702.3879, 21.79854, -81.34589"/>
+    </If>
+    <!-- Lofty Goals -->
+    <If Condition="HasQuest(68971) and not IsQuestCompleted(68971) and GetQuestStep(68971) == 255">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="692.6052, 21.26796, -113.9986"/>
+      </If>
+      <TurnIn QuestId="68971" NpcId="1031224" XYZ="692.1949, 21.27697, -115.5566"/>
+    </If>
+    <!-- In Father's Footsteps -->
+    <If Condition="IsQuestCompleted(68993) and not HasQuest(68994) and not IsQuestCompleted(68994)">
+      <GetTo ZoneId="813" XYZ="776.1447, 23.03785, -66.92895"/>
+      <If Condition="IsQuestAcceptQualified(68994)">
+        <PickupQuest QuestId="68994" NpcId="1030711" XYZ="778.2252, 23.03785, -67.0329"/>
+      </If>
+    </If>
+    <!-- Desperate Measures -->
+    <If Condition="not HasQuest(68919) and not IsQuestCompleted(68919)">
+      <GetTo ZoneId="813" XYZ="716.3999, 21.40117, -28.86915"/>
+      <If Condition="IsQuestAcceptQualified(68919)">
+        <PickupQuest QuestId="68919" NpcId="1028279" XYZ="715.053, 21.41357, -26.93219"/>
+      </If>
+    </If>
+    <!-- In Father's Footsteps -->
+    <If Condition="HasQuest(68994) and not IsQuestCompleted(68994) and GetQuestStep(68994) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="322.7461, 16.84647, -51.49905" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TalkTo NpcId="1030713" XYZ="324.5747, 15.67974, -47.34875" QuestId="68994" StepId="1"/>
+    </If>
+    <!-- Desperate Measures -->
+    <If Condition="HasQuest(68919) and not IsQuestCompleted(68919) and GetQuestStep(68919) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="427.8935, 4.532679, 30.91936" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <Grind GrindRef="68994" PostCombatDelay="3.0" While="HasQuest(68919) and not IsQuestCompleted(68919) and not GetQuestStep(68919) == 255"/>
+    </If>
+    <!-- In Father's Footsteps -->
+    <If Condition="HasQuest(68994) and not IsQuestCompleted(68994) and GetQuestStep(68994) == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        <FlyTo XYZ="427.8935, 4.532679, 30.91936" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <FlyTo XYZ="427.8935, 4.532679, 30.91936" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <Grind GrindRef="68994" PostCombatDelay="3.0" While="HasQuest(68994) and not IsQuestCompleted(68994) and GetQuestStep(68994) == 2"/>
+    </If>
+    <If Condition="HasQuest(68994) and not IsQuestCompleted(68994) and GetQuestStep(68994) == 255">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="322.7461, 16.84647, -51.49905" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TurnIn ItemId="2002667" QuestId="68994" NpcId="1030713" XYZ="324.5747, 15.67974, -47.34875"/>
+    </If>
+    <!-- Her True Calling -->
+    <If Condition="IsQuestCompleted(68994) and not HasQuest(68995) and not IsQuestCompleted(68995)">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        <FlyTo XYZ="324.6833, 16.05942, -48.75396" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68995)">
+        <PickupQuest QuestId="68995" NpcId="1030713" XYZ="324.5747, 15.67974, -47.34875"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68995) and not IsQuestCompleted(68995) and GetQuestStep(68995) == 1">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="532.612, 4.50883, -53.30719" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <WaitWhile Condition="HasQuest(68995) and not IsQuestCompleted(68995) and not GetQuestStep(68995) == 2"/>
+    </If>
+    <If Condition="HasQuest(68995) and not IsQuestCompleted(68995) and GetQuestStep(68995) == 2">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        <FlyTo XYZ="532.612, 4.50883, -53.30719" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      </If>
+      <UseObject NpcId="1030715" XYZ="530.8461, 4.500245, -54.24591" QuestId="68995" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68995) and not IsQuestCompleted(68995) and GetQuestStep(68995) == 255">
+      <If Condition="not IsOnMap(813)">
+        <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+      </If>
+      <FlyTo XYZ="775.3412, 23.03785, -65.26362" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <TurnIn QuestId="68995" NpcId="1030712" XYZ="778.1948, 23.03785, -65.78168"/>
+    </If>
+    <!-- Desperate Measures -->
+    <If Condition="HasQuest(68919) and not IsQuestCompleted(68919) and GetQuestStep(68919) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="68.76806, 0, 183.1119"/>
+      </If>
+      <TurnIn ItemId="2002851" QuestId="68919" NpcId="1027842" XYZ="71.48853, 1.490116E-08, 181.8417"/>
+    </If>
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="68972">
+      <Hotspots>
+        <Hotspot XYZ="338.0527, 117.3687, -220.1485" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8515"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68924">
+      <Hotspots>
+        <Hotspot XYZ="-358.2513, -0.2770059, 55.65627" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8501"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68994">
+      <Hotspots>
+        <Hotspot XYZ="427.8935, 4.532679, 30.91936" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8502"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+        {
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+          }
+          catch (Exception ex) {  }
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Profile">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "This profile assumes you can fly.\n Please ensure you are attuned to the Lakeland Aether Currents.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(6000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

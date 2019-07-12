@@ -40,11 +40,11 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
     </If>
     <If Condition="not HasQuest(68776) and not IsQuestCompleted(68776) and IsQuestCompleted(68775) and Core.Player.ClassLevel &gt; 74">
       <GetTo ZoneId="819" XYZ="-10.71229, 20.186, -120.1012"/>
-      <If Condition="IsQuestAcceptQualified(68776)">
-        <PickupQuest QuestId="68776" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
-      </If>
       <If Condition="not IsQuestAcceptQualified(68776)">
         <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68776)">
+        <PickupQuest QuestId="68776" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
       </If>
     </If>
     <If Condition="HasQuest(68776) and not IsQuestCompleted(68776) and GetQuestStep(68776) == 1">
@@ -95,11 +95,11 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
     </If>
     <If Condition="not HasQuest(68777) and not IsQuestCompleted(68777) and IsQuestCompleted(68776) and Core.Player.ClassLevel &gt; 79">
       <GetTo ZoneId="819" XYZ="-10.84947, 20.186, -120.6805"/>
-      <If Condition="IsQuestAcceptQualified(68777)">
-        <PickupQuest QuestId="68777" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
-      </If>
       <If Condition="not IsQuestAcceptQualified(68777)">
         <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68777)">
+        <PickupQuest QuestId="68777" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
       </If>
     </If>
     <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 1">

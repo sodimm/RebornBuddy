@@ -15,7 +15,7 @@ namespace ff14bot.NeoProfiles.Tags
         private readonly Queue<int> selectStringIndex = new Queue<int>();
         protected override void OnStart()
         {
-            if (selectStringIndex.Count > 0)
+            if (DialogOption.Length > 0)
             {
                 foreach (var i in DialogOption) { selectStringIndex.Enqueue(i); }
             }

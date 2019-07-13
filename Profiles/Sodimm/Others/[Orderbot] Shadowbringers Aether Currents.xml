@@ -134,6 +134,7 @@ Authors:  Sodimm
         </If>
         <TurnIn QuestId="68922" NpcId="1027353" XYZ="-146.3188, 28.47206, -128.832"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(813,14)">
         <GetTo ZoneId="813" XYZ="604.9438, 28.39697, 366.2012"/>
         <UseObject NpcId="2010024" XYZ="604.9438, 28.39697, 366.2012" Condition="not IsAetherCurrentCompleted(813,14)"/>
@@ -309,6 +310,7 @@ Authors:  Sodimm
         <GetTo ZoneId="816" XYZ="-77.7541, 38.15496, -532.3476"/>
         <TurnIn QuestId="68963" NpcId="1031025" XYZ="-79.75891, 37.96834, -531.8532"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(816,14)">
         <GetTo ZoneId="816" XYZ="-546.8987, 136.4004, 666.1324"/>
         <UseObject NpcId="2010054" XYZ="-546.8987, 136.4004, 666.1324" Condition="not IsAetherCurrentCompleted(816,14)"/>
@@ -457,6 +459,7 @@ Authors:  Sodimm
         <GetTo ZoneId="817" XYZ="493.7979, -6.555339, -227.7605"/>
         <TurnIn QuestId="69014" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(817,13)">
         <GetTo ZoneId="817" XYZ="-629.1753, 17.77667, 556.0234"/>
         <UseObject NpcId="2010065" XYZ="-629.1753, 17.77667, 556.0234" Condition="not IsAetherCurrentCompleted(817,13)"/>
@@ -604,6 +607,7 @@ Authors:  Sodimm
         <GetTo ZoneId="815" XYZ="-336.9016, 19.2985, 77.47129"/>
         <TurnIn ItemId="2002733" QuestId="69047" NpcId="1030807" XYZ="-336.6903, 19.24816, 75.91357"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(815,14)">
         <GetTo ZoneId="815" XYZ="420.7369, -63.37073, -552.2087"/>
         <UseObject NpcId="2010044" XYZ="420.7369, -63.37073, -552.2087" Condition="not IsAetherCurrentCompleted(815,14)"/>
@@ -783,6 +787,7 @@ Authors:  Sodimm
         <GetTo ZoneId="814" XYZ="-130.435, 354.3582, -178.799"/>
         <TurnIn QuestId="69073" NpcId="1027956" XYZ="-128.7709, 354.3582, -179.1868"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(814,13)">
         <GetTo ZoneId="814" XYZ="677.9125, 50.00378, 133.7147"/>
         <UseObject NpcId="2010035" XYZ="677.9125, 50.00378, 133.7147" Condition="not IsAetherCurrentCompleted(814,13)"/>
@@ -955,6 +960,7 @@ Authors:  Sodimm
         <GetTo ZoneId="818" XYZ="-360.2177, -260.1766, 280.8086"/>
         <TurnIn ItemId="2002614" QuestId="69130" NpcId="1027777" XYZ="-355.2453, -260.1766, 278.6754" InteractDistance="8.0"/>
       </If>
+      <!-- Open World -->
       <If Condition="not IsAetherCurrentCompleted(818,11)">
         <GetTo ZoneId="818" XYZ="715.0225, 398.825, 83.17688"/>
         <UseObject NpcId="2010077" XYZ="715.0225, 398.825, 83.17688" Condition="not IsAetherCurrentCompleted(818,11)"/>
@@ -1097,10 +1103,10 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="MoveForward">
       <![CDATA[
-          MovementManager.MoveForwardStart();
-          await Coroutine.Sleep(4000);
-          MovementManager.MoveForwardStop();
-        ]]>
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(4000);
+        MovementManager.MoveForwardStop();
+      ]]>
     </CodeChunk>
     <CodeChunk Name="2010026">
       <![CDATA[
@@ -1214,7 +1220,7 @@ Authors:  Sodimm
         var loc7 = new Vector3(277.5782f, 251.9542f, -289.098f);
         var loc8 = new Vector3(306.1181f, 242.3637f, -263.6519f);
         var loc9 = new Vector3(332.9348f, 235.6098f, -267.2523f);
-		
+    
         if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
     
         Navigator.PlayerMover.MoveTowards(loc1);
@@ -1321,7 +1327,7 @@ Authors:  Sodimm
     
         while (ConditionParser.GetQuestStep(69073) == 3)
         {
-      if (SelectString.IsOpen) {  SelectString.ClickSlot(1);  }
+          if (SelectString.IsOpen) {  SelectString.ClickSlot(1);  }
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }

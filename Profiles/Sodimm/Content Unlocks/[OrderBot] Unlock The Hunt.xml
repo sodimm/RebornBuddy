@@ -139,6 +139,64 @@
       </If>
       <TurnIn QuestId="68475" NpcId="1019009" InteractDistance="3.0" XYZ="-29.16003, 0.09999965, -46.18909"/>
     </If>
+    <!-- Nuts to You (Level 70) -->
+    <If Condition="IsQuestCompleted(68475) and IsQuestCompleted(68817) and not HasQuest(69133) and not IsQuestCompleted(69133) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="819" XYZ="46.24913, 0, 191.6066"/>
+      <If Condition="IsQuestAcceptQualified(69133)">
+        <PickupQuest QuestId="69133" NpcId="1031348" XYZ="47.13501, 7.450581E-09, 191.5769"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69133) and not IsQuestCompleted(69133) and GetQuestStep(69133) == 1">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-86.34093, 1.192093E-07, -92.94254"/>
+      </If>
+      <TalkTo NpcId="1027990" XYZ="-85.31323, 0, -93.24792" QuestId="69133" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69133) and not IsQuestCompleted(69133) and GetQuestStep(69133) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64005, 1.192093E-07, -83.98635"/>
+      </If>
+      <TurnIn QuestId="69133" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- Two Nuts Too Nutty (Level 73) -->
+    <If Condition="IsQuestCompleted(69133) and not HasQuest(69134) and not IsQuestCompleted(69134) and Core.Player.ClassLevel &gt; 72">
+      <GetTo ZoneId="819" XYZ="-87.38572, 5.960464E-08, -92.14148"/>
+      <If Condition="IsQuestAcceptQualified(69134)">
+        <PickupQuest QuestId="69134" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69134) and not IsQuestCompleted(69134) and GetQuestStep(69134) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.68562, 0, -83.97012"/>
+      </If>
+      <TurnIn QuestId="69134" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- How Do You Like Three Nuts (Level 76) -->
+    <If Condition="IsQuestCompleted(69134) and not HasQuest(69135) and not IsQuestCompleted(69135) and Core.Player.ClassLevel &gt; 75">
+      <GetTo ZoneId="819" XYZ="-87.5868, 5.960464E-08, -92.04501"/>
+      <If Condition="IsQuestAcceptQualified(69135)">
+        <PickupQuest QuestId="69135" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69135) and not IsQuestCompleted(69135) and GetQuestStep(69135) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64787, 1.192093E-07, -83.45335"/>
+      </If>
+      <TurnIn QuestId="69135" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- Too Many Nutters (Level 80) -->
+    <If Condition="IsQuestCompleted(69135) and not HasQuest(69136) and not IsQuestCompleted(69136) and Core.Player.ClassLevel &gt; 79">
+      <GetTo ZoneId="819" XYZ="-86.92426, 5.960464E-08, -91.96149"/>
+      <If Condition="IsQuestAcceptQualified(69136)">
+        <PickupQuest QuestId="69136" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69136) and not IsQuestCompleted(69136) and GetQuestStep(69136) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64819, 0, -83.52953"/>
+      </If>
+      <TurnIn QuestId="69136" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
   </Order>
   <GrindAreas/>
   <CodeChunks/>

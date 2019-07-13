@@ -1,6 +1,7 @@
 using Clio.XmlEngine;
 using ff14bot.RemoteWindows;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TreeSharp;
 using Action = TreeSharp.Action;
 
@@ -9,6 +10,7 @@ namespace ff14bot.NeoProfiles.Tags
     [XmlElement("SoTalkTo")]
     class SoTalkTo : TalkToTag
     {
+        [DefaultValue(new int[0])]
         [XmlAttribute("DialogOption")]
         public int[] DialogOption { get; set; }
 

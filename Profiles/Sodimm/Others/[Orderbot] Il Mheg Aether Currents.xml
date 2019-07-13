@@ -7,47 +7,57 @@ Requirements: Must have MSQ: Acht-la Ormh Inn completed.
 <Profile>
   <Name>[Orderbot] Il Mheg Aether Currents</Name>
   <Order>
-    <If Condition="IsQuestCompleted(68856)">
-      <GetTo ZoneId="816" XYZ="-546.8987, 136.4004, 666.1324"/>
-      <!--9-->
-      <UseObject NpcId="2010054" XYZ="-546.8987, 136.4004, 666.1324" Condition="GameObjectManager.GetObjectByNPCId(2010054).IsVisible"/>
-      <GetTo ZoneId="816" XYZ="67.55013, 14.66006, 586.3368"/>
-      <MoveTo XYZ="69.45226, 20.04325, 573.9194" Distance="1" UseMesh="False"/>
-      <MoveTo XYZ="79.78209, 21.41307, 574.2249" Distance="1" UseMesh="False"/>
-      <!--8-->
-      <UseObject NpcId="2010055" XYZ="82.29187, 22.44598, 572.6558" Condition="GameObjectManager.GetObjectByNPCId(2010055).IsVisible"/>
-      <MoveTo XYZ="81.87273, 12.45919, 558.4675" Distance="1" UseMesh="False"/>
-      <GetTo ZoneId="816" XYZ="-230.5139, 3.778076, 162.483"/>
-      <!--7-->
-      <UseObject NpcId="2010056" XYZ="-231.4336, 4.684509, 160.8147" Condition="GameObjectManager.GetObjectByNPCId(2010056).IsVisible"/>
-      <GetTo ZoneId="816" XYZ="-536.7549, 41.19366, 158.2687"/>
-      <RunCode Name="2010057"/>
-      <!--6-->
-      <UseObject NpcId="2010057" XYZ="-548.7603, 47.5929, 170.3059" Condition="GameObjectManager.GetObjectByNPCId(2010057).IsVisible"/>
-      <MoveTo XYZ="-539.8987, 39.56375, 148.9342" UseMesh="False"/>
-      <GetTo ZoneId="816" XYZ="-324.8481, 88.38784, -554.2283"/>
-      <ClimbHill Start="-324.8481, 88.38784, -554.2283" End="-329.8831, 95.69289, -561.4915"/>
-      <!--5-->
-      <UseObject NpcId="2010058" XYZ="-325.0324, 96.54382, -562.9511" Condition="GameObjectManager.GetObjectByNPCId(2010058).IsVisible"/>
-      <MoveTo XYZ="-324.8481, 88.38784, -554.2283" UseMesh="False"/>
-      <GetTo ZoneId="816" XYZ="32.10767, 102.6907, -854.0199"/>
-	  <Dismount/>
-      <RunCode Name="2010059"/>
-      <!--4-->
-      <UseObject NpcId="2010059" XYZ="12.83276, 110.7346, -851.2551" Condition="GameObjectManager.GetObjectByNPCId(2010059).IsVisible"/>
-      <MoveTo XYZ="10.33892, 103.3433, -857.1391" UseMesh="False"/>
-      <GetTo ZoneId="816" XYZ="130.1136, 70.69495, -639.2157"/>
-      <!--2-->
-      <UseObject NpcId="2010061" XYZ="130.1136, 70.69495, -639.2157" Condition="GameObjectManager.GetObjectByNPCId(2010061).IsVisible"/>
-      <GetTo ZoneId="816" XYZ="429.2396, 89.43923, -769.6451"/>
-      <!--1-->
-      <UseObject NpcId="2010062" XYZ="432.4559, 90.44019, -770.4128" Condition="GameObjectManager.GetObjectByNPCId(2010062).IsVisible"/>
-      <GetTo ZoneId="816" XYZ="184.0391, 4.776001, -422.1104"/>
-      <!--3-->
-      <UseObject NpcId="2010060" XYZ="184.0391, 4.776001, -422.1104" Condition="GameObjectManager.GetObjectByNPCId(2010060).IsVisible"/>
-      <GetTo ZoneId="816" XYZ="-56.26001, 111.4366, -325.124"/>
-      <!--0-->
-      <UseObject NpcId="2010063" XYZ="-56.26001, 111.4366, -325.124" Condition="GameObjectManager.GetObjectByNPCId(2010063).IsVisible"/>
+    <If Condition="not IsAetherCurrentZoneComplete(816) and IsQuestCompleted(68856)">
+      <If Condition="not IsAetherCurrentCompleted(816,9)">
+        <GetTo ZoneId="816" XYZ="-546.8987, 136.4004, 666.1324"/>
+        <UseObject NpcId="2010054" XYZ="-546.8987, 136.4004, 666.1324" Condition="not IsAetherCurrentCompleted(816,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,8)">
+        <GetTo ZoneId="816" XYZ="67.55013, 14.66006, 586.3368"/>
+        <MoveTo XYZ="69.45226, 20.04325, 573.9194" Distance="1" UseMesh="False"/>
+        <MoveTo XYZ="79.78209, 21.41307, 574.2249" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2010055" XYZ="82.29187, 22.44598, 572.6558" Condition="not IsAetherCurrentCompleted(816,8)"/>
+        <MoveTo XYZ="81.87273, 12.45919, 558.4675" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,7)">
+        <GetTo ZoneId="816" XYZ="-230.5139, 3.778076, 162.483"/>
+        <UseObject NpcId="2010056" XYZ="-231.4336, 4.684509, 160.8147" Condition="not IsAetherCurrentCompleted(816,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,6)">
+        <GetTo ZoneId="816" XYZ="-536.7549, 41.19366, 158.2687"/>
+        <RunCode Name="2010057"/>
+        <UseObject NpcId="2010057" XYZ="-548.7603, 47.5929, 170.3059" Condition="not IsAetherCurrentCompleted(816,6)"/>
+        <MoveTo XYZ="-539.8987, 39.56375, 148.9342" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,5)">
+        <GetTo ZoneId="816" XYZ="-324.8481, 88.38784, -554.2283"/>
+        <ClimbHill Start="-324.8481, 88.38784, -554.2283" End="-329.8831, 95.69289, -561.4915"/>
+        <UseObject NpcId="2010058" XYZ="-325.0324, 96.54382, -562.9511" Condition="not IsAetherCurrentCompleted(816,5)"/>
+        <MoveTo XYZ="-324.8481, 88.38784, -554.2283" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,4)">
+        <GetTo ZoneId="816" XYZ="32.10767, 102.6907, -854.0199"/>
+        <Dismount/>
+        <RunCode Name="2010059"/>
+        <UseObject NpcId="2010059" XYZ="12.83276, 110.7346, -851.2551" Condition="not IsAetherCurrentCompleted(816,4)"/>
+        <MoveTo XYZ="10.33892, 103.3433, -857.1391" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,2)">
+        <GetTo ZoneId="816" XYZ="130.1136, 70.69495, -639.2157"/>
+        <UseObject NpcId="2010061" XYZ="130.1136, 70.69495, -639.2157" Condition="not IsAetherCurrentCompleted(816,2)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,1)">
+        <GetTo ZoneId="816" XYZ="429.2396, 89.43923, -769.6451"/>
+        <UseObject NpcId="2010062" XYZ="432.4559, 90.44019, -770.4128" Condition="not IsAetherCurrentCompleted(816,1)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,3)">
+        <GetTo ZoneId="816" XYZ="184.0391, 4.776001, -422.1104"/>
+        <UseObject NpcId="2010060" XYZ="184.0391, 4.776001, -422.1104" Condition="not IsAetherCurrentCompleted(816,3)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(816,0)">
+        <GetTo ZoneId="816" XYZ="-56.26001, 111.4366, -325.124"/>
+        <UseObject NpcId="2010063" XYZ="-56.26001, 111.4366, -325.124" Condition="not IsAetherCurrentCompleted(816,0)"/>
+      </If>
     </If>
   </Order>
   <GrindAreas/>
@@ -78,7 +88,7 @@ Requirements: Must have MSQ: Acht-la Ormh Inn completed.
     
         Navigator.PlayerMover.MoveTowards(loc1);
         while (Core.Me.Location.Distance2D(loc1) > 0.5f) {  await Coroutine.Yield();  }
-		Navigator.PlayerMover.MoveStop();
+        Navigator.PlayerMover.MoveStop();
  
         Navigator.PlayerMover.MoveTowards(loc2);
         MovementManager.Jump();
@@ -91,12 +101,12 @@ Requirements: Must have MSQ: Acht-la Ormh Inn completed.
         Navigator.PlayerMover.MoveTowards(loc4);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc4) > 2) {  await Coroutine.Yield();  }
-		
+    
         Navigator.PlayerMover.MoveTowards(loc5);
-		await Coroutine.Sleep(500);
+        await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc5) > 0.5f) {  await Coroutine.Yield();  }
-		
+    
         Navigator.PlayerMover.MoveTowards(loc6);
         while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();

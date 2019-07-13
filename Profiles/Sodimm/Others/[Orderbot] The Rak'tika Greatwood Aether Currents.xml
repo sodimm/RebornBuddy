@@ -7,40 +7,50 @@ Requirements: Must have MSQ: The Burden of Knowledge completed.
 <Profile>
   <Name>[Orderbot] The Rak'tika Greatwood Aether Currents</Name>
   <Order>
-    <If Condition="IsQuestCompleted(68876)">
-      <GetTo ZoneId="817" XYZ="-629.1753, 17.77667, 556.0234"/>
-      <!--8-->
-      <UseObject NpcId="2010065" XYZ="-629.1753, 17.77667, 556.0234" Condition="GameObjectManager.GetObjectByNPCId(2010065).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="-405.9663, 7.156433, 506.5231"/>
-      <!--9-->
-      <UseObject NpcId="2010064" XYZ="-405.9663, 7.156433, 506.5231" Condition="GameObjectManager.GetObjectByNPCId(2010064).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="-862.6984, -0.6, 198.159"/>
-	  <Dismount/>
-      <RunCode Name="2010068"/>
-      <!--5-->
-      <UseObject NpcId="2010068" XYZ="-864.1337, 4.714966, 176.623" Condition="GameObjectManager.GetObjectByNPCId(2010068).IsVisible"/>
-      <MoveTo XYZ="-877.4058, -0.6, 172.7991" UseMesh="False"/>
-      <GetTo ZoneId="817" XYZ="-622.5834, 24.03296, -178.0881"/>
-      <!--6-->
-      <UseObject NpcId="2010067" XYZ="-622.5834, 24.03296, -178.0881" Condition="GameObjectManager.GetObjectByNPCId(2010067).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="-109.2605, -3.556301, 59.10063"/>
-      <!--7-->
-      <UseObject NpcId="2010066" XYZ="-107.9882, -2.243164, 56.68726" Condition="GameObjectManager.GetObjectByNPCId(2010066).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="338.6129, 24.12439, 203.1738"/>
-      <!--4-->
-      <UseObject NpcId="2010069" XYZ="338.6129, 24.12439, 203.1738" Condition="GameObjectManager.GetObjectByNPCId(2010069).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="513.9391, 33.92078, 72.92273"/>
-      <!--2-->
-      <UseObject NpcId="2010071" XYZ="513.9391, 33.92078, 72.92273" Condition="GameObjectManager.GetObjectByNPCId(2010071).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="657.0687, -38.04083, -271.1376"/>
-      <!--0-->
-      <UseObject NpcId="2010073" XYZ="657.0687, -38.04083, -271.1376" Condition="GameObjectManager.GetObjectByNPCId(2010073).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="357.1373, -9.658997, -297.2"/>
-      <!--3-->
-      <UseObject NpcId="2010070" XYZ="357.1373, -9.658997, -297.2" Condition="GameObjectManager.GetObjectByNPCId(2010070).IsVisible"/>
-      <GetTo ZoneId="817" XYZ="240.1617, -18.4787, -481.2543"/>
-      <!--1-->
-      <UseObject NpcId="2010072" XYZ="240.1617, -18.4787, -481.2543" Condition="GameObjectManager.GetObjectByNPCId(2010072).IsVisible"/>
+    <If Condition="not IsAetherCurrentZoneComplete(817) and IsQuestCompleted(68876)">
+      <If Condition="not IsAetherCurrentCompleted(817,8)">
+        <GetTo ZoneId="817" XYZ="-629.1753, 17.77667, 556.0234"/>
+        <UseObject NpcId="2010065" XYZ="-629.1753, 17.77667, 556.0234" Condition="not IsAetherCurrentCompleted(817,8)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,9)">
+        <GetTo ZoneId="817" XYZ="-405.9663, 7.156433, 506.5231"/>
+        <UseObject NpcId="2010064" XYZ="-405.9663, 7.156433, 506.5231" Condition="not IsAetherCurrentCompleted(817,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,5)">
+        <GetTo ZoneId="817" XYZ="-862.6984, -0.6, 198.159"/>
+        <Dismount/>
+        <RunCode Name="2010068"/>
+        <UseObject NpcId="2010068" XYZ="-864.1337, 4.714966, 176.623" Condition="not IsAetherCurrentCompleted(817,5)"/>
+        <MoveTo XYZ="-877.4058, -0.6, 172.7991" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,6)">
+        <GetTo ZoneId="817" XYZ="-622.5834, 24.03296, -178.0881"/>
+        <UseObject NpcId="2010067" XYZ="-622.5834, 24.03296, -178.0881" Condition="not IsAetherCurrentCompleted(817,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,7)">
+        <GetTo ZoneId="817" XYZ="-109.2605, -3.556301, 59.10063"/>
+        <UseObject NpcId="2010066" XYZ="-107.9882, -2.243164, 56.68726" Condition="not IsAetherCurrentCompleted(817,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,4)">
+        <GetTo ZoneId="817" XYZ="338.6129, 24.12439, 203.1738"/>
+        <UseObject NpcId="2010069" XYZ="338.6129, 24.12439, 203.1738" Condition="not IsAetherCurrentCompleted(817,4)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,2)">
+        <GetTo ZoneId="817" XYZ="513.9391, 33.92078, 72.92273"/>
+        <UseObject NpcId="2010071" XYZ="513.9391, 33.92078, 72.92273" Condition="not IsAetherCurrentCompleted(817,2)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,0)">
+        <GetTo ZoneId="817" XYZ="657.0687, -38.04083, -271.1376"/>
+        <UseObject NpcId="2010073" XYZ="657.0687, -38.04083, -271.1376" Condition="not IsAetherCurrentCompleted(817,0)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,3)">
+        <GetTo ZoneId="817" XYZ="357.1373, -9.658997, -297.2"/>
+        <UseObject NpcId="2010070" XYZ="357.1373, -9.658997, -297.2" Condition="not IsAetherCurrentCompleted(817,3)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(817,1)">
+        <GetTo ZoneId="817" XYZ="240.1617, -18.4787, -481.2543"/>
+        <UseObject NpcId="2010072" XYZ="240.1617, -18.4787, -481.2543" Condition="not IsAetherCurrentCompleted(817,1)"/>
+      </If>
     </If>
   </Order>
   <GrindAreas/>

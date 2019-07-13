@@ -7,40 +7,50 @@ Requirements: Must have MSQ: The Ladder completed. The transport may not be adde
 <Profile>
   <Name>[Orderbot] Kholusia Aether Currents</Name>
   <Order>
-    <If Condition="IsQuestCompleted(69169)">
-      <GetTo ZoneId="814" XYZ="677.9125, 50.00378, 133.7147"/>
-      <!--8-->
-      <UseObject NpcId="2010035" XYZ="677.9125, 50.00378, 133.7147" Condition="GameObjectManager.GetObjectByNPCId(2010035).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="650.5377, 0.3508911, 556.3896"/>
-      <!--9-->
-      <UseObject NpcId="2010034" XYZ="649.6583, 0.3547767, 555.3649" Condition="GameObjectManager.GetObjectByNPCId(2010034).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="115.3124, 54.91711, 764.3396"/>
-      <!--7-->
-      <UseObject NpcId="2010036" XYZ="115.3124, 54.91711, 764.3396" Condition="GameObjectManager.GetObjectByNPCId(2010036).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="-189.7155, 12.10034, 781.3076"/>
-      <!--6-->
-      <UseObject NpcId="2010037" XYZ="-189.7155, 12.10034, 781.3076" Condition="GameObjectManager.GetObjectByNPCId(2010037).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="-698.5497, -0.600795, 632.5412"/>
-      <!--5-->
-      <UseObject NpcId="2010038" XYZ="-698.5497, -0.600795, 632.5412" Condition="GameObjectManager.GetObjectByNPCId(2010038).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="-521.3245, 329.8846, -13.41278"/>
-      <!--4-->
-      <UseObject NpcId="2010039" XYZ="-521.3245, 329.8846, -13.41278" Condition="GameObjectManager.GetObjectByNPCId(2010039).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="-127.9774, 391.7144, -402.6093"/>
-      <!--3-->
-      <UseObject NpcId="2010040" XYZ="-127.9774, 391.7144, -402.6093" Condition="GameObjectManager.GetObjectByNPCId(2010040).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="-30.19238, 329.4344, -29.77593"/>
-      <RunCode Name="2010042"/>
-      <!--1-->
-      <UseObject NpcId="2010042" XYZ="-62.91296, 345.1133, -16.55609" Condition="GameObjectManager.GetObjectByNPCId(2010042).IsVisible"/>
-      <GetTo ZoneId="814" XYZ="629.926, 325.6839, -213.9039"/>
-      <MoveTo XYZ="636.501, 314.8569, -207.4986" Distance="1" UseMesh="False"/>
-      <!--0-->
-      <UseObject NpcId="2010043" XYZ="630.5486, 314.8394, -209.2165" Condition="GameObjectManager.GetObjectByNPCId(2010043).IsVisible"/>
-      <MoveTo XYZ="623.2635, 297.4876, -196.8805" Distance="1" UseMesh="False"/>
-      <GetTo ZoneId="814" XYZ="665.4611, 276.1119, -583.2456"/>
-      <!--2-->
-      <UseObject NpcId="2010041" XYZ="665.4611, 276.1119, -583.2456" Condition="GameObjectManager.GetObjectByNPCId(2010041).IsVisible"/>
+    <If Condition="not IsAetherCurrentZoneComplete(814) and IsQuestCompleted(69169)">
+      <If Condition="not IsAetherCurrentCompleted(814,8)">
+        <GetTo ZoneId="814" XYZ="677.9125, 50.00378, 133.7147"/>
+        <UseObject NpcId="2010035" XYZ="677.9125, 50.00378, 133.7147" Condition="not IsAetherCurrentCompleted(814,8)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,9)">
+        <GetTo ZoneId="814" XYZ="650.5377, 0.3508911, 556.3896"/>
+        <UseObject NpcId="2010034" XYZ="649.6583, 0.3547767, 555.3649" Condition="not IsAetherCurrentCompleted(814,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,7)">
+        <GetTo ZoneId="814" XYZ="115.3124, 54.91711, 764.3396"/>
+        <UseObject NpcId="2010036" XYZ="115.3124, 54.91711, 764.3396" Condition="not IsAetherCurrentCompleted(814,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,6)">
+        <GetTo ZoneId="814" XYZ="-189.7155, 12.10034, 781.3076"/>
+        <UseObject NpcId="2010037" XYZ="-189.7155, 12.10034, 781.3076" Condition="not IsAetherCurrentCompleted(814,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,5)">
+        <GetTo ZoneId="814" XYZ="-698.5497, -0.600795, 632.5412"/>
+        <UseObject NpcId="2010038" XYZ="-698.5497, -0.600795, 632.5412" Condition="not IsAetherCurrentCompleted(814,5)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,4)">
+        <GetTo ZoneId="814" XYZ="-521.3245, 329.8846, -13.41278"/>
+        <UseObject NpcId="2010039" XYZ="-521.3245, 329.8846, -13.41278" Condition="not IsAetherCurrentCompleted(814,4)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,3)">
+        <GetTo ZoneId="814" XYZ="-127.9774, 391.7144, -402.6093"/>
+        <UseObject NpcId="2010040" XYZ="-127.9774, 391.7144, -402.6093" Condition="not IsAetherCurrentCompleted(814,3)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,1)">
+        <GetTo ZoneId="814" XYZ="-30.19238, 329.4344, -29.77593"/>
+        <RunCode Name="2010042"/>
+        <UseObject NpcId="2010042" XYZ="-62.91296, 345.1133, -16.55609" Condition="not IsAetherCurrentCompleted(814,1)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,0)">
+        <GetTo ZoneId="814" XYZ="629.926, 325.6839, -213.9039"/>
+        <MoveTo XYZ="636.501, 314.8569, -207.4986" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2010043" XYZ="630.5486, 314.8394, -209.2165" Condition="not IsAetherCurrentCompleted(814,0)"/>
+        <MoveTo XYZ="623.2635, 297.4876, -196.8805" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(814,2)">
+        <GetTo ZoneId="814" XYZ="665.4611, 276.1119, -583.2456"/>
+        <UseObject NpcId="2010041" XYZ="665.4611, 276.1119, -583.2456" Condition="not IsAetherCurrentCompleted(814,2)"/>
+      </If>
     </If>
   </Order>
   <GrindAreas/>

@@ -123,17 +123,19 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
           <BuyItem ItemId="27583" ItemCount="30" DialogOption="6" InteractDistance="3.0" NpcId="1027429" XYZ="-309.7429, 20.96825, 366.9031"/>
         </If>
         <TeleportTo AetheryteId="141" Force="True"/>
-        <ExMoveTo XYZ="541.2173, 363.3687, -259.0786" AllowedVariance="5"/>
-        <ExMoveTo XYZ="508.099, 360.2909, -266.7766" AllowedVariance="5"/>
-        <ExMoveTo XYZ="472.4557, 346.0994, -272.0405" AllowedVariance="5"/>
-        <ExMoveTo XYZ="483.749, 329.7319, -290.8926" AllowedVariance="5"/>
-        <ExMoveTo XYZ="482.5421, 314.235, -283.8515" AllowedVariance="5"/>
+        <ExMoveTo XYZ="541.2173, 363.3687, -259.0786" AllowedVariance="3"/>
+        <ExMoveTo XYZ="520.6384, 365.0584, -264.3017" AllowedVariance="3"/>
+        <ExMoveTo XYZ="496.9315, 363.7943, -263.5386" AllowedVariance="3"/>
+        <ExMoveTo XYZ="472.7036, 346.2854, -274.3779" AllowedVariance="3"/>
+        <ExMoveTo XYZ="488.6065, 327.4386, -297.4819" AllowedVariance="3"/>
+        <ExMoveTo XYZ="490.6061, 316.672, -298.7566" AllowedVariance="1"/>
         <RunCode Name="Dismount"/>
         <WaitTimer WaitTime="2"/>
         <RunCode Name="Stealth"/>
         <WaitTimer WaitTime="1"/>
         <RunCode Name="DisableMount"/>
         <WaitTimer WaitTime="1"/>
+        <NoCombatMoveTo XYZ="474.119, 314.3235, -296.1143"/>
         <While Condition="not HqHasAtLeast(26751,1) and HasAtLeast(27583,1)">
           <ExFish Condition="not HqHasAtLeast(26751,1) and HasAtLeast(27583,1)" CordialType="Auto" MinFish="21" MaxFish="42" ShuffleFishSpots="True" SitRate=".69" EnableKeeper="True" Bait="Short Bill Minnow" Patience="Patience" MinimumGPPatience="650">
             <Keepers>
@@ -172,7 +174,9 @@ Requirements:  Manually complete the deliveries between quests to raise esteem l
       ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
       ]]></CodeChunk>
     <CodeChunk Name="Dismount"><![CDATA[
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
       ff14bot.Managers.ActionManager.Dismount();
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
       ]]></CodeChunk>
     <CodeChunk Name="EnableMount"><![CDATA[
       ff14bot.Settings.CharacterSettings.Instance.UseMount = true;

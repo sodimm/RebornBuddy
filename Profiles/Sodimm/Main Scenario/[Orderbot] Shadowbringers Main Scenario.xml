@@ -3362,7 +3362,7 @@ Authors:  Sodimm
       <WaitWhile Condition="HasQuest(69186) and not IsQuestCompleted(69186) and not GetQuestStep(69186) == 255"/>
       <RunCode Name="Role_Quests"/>
     </If>
-    <If Condition="not Core.Me.ClassLevel &gt; 79">
+    <If Condition="not Core.Me.ClassLevel &gt; 79 and HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
       <RunCode Name="Role_Quests"/>
     </If>
     <If Condition="Core.Me.ClassLevel &gt; 79 and HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
@@ -4209,8 +4209,8 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="Role_Quests">
       <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "If you have not done so, please complete your level 80 Role Quest.\n Restart this profile once completed.", TimeSpan.FromMilliseconds(59000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(60000);
+        Core.OverlayManager.AddToast(() => "If you have not done so, please complete your level 80 Role Quest.\n Restart this profile once completed.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
       ]]>
     </CodeChunk>
   </CodeChunks>

@@ -4806,8 +4806,16 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TurnIn QuestId="68719" NpcId="1026846" XYZ="-1.602234, 7.450581E-09, -9.658997"/>
     </If>
     <!-- A Brief Reprieve (Level 70) -->
+    <If Condition="not HasQuest(68720) and not IsQuestCompleted(68720)">
+      <If Condition="IsQuestAcceptQualified(68720)">
+        <PickupQuest QuestId="68720" NpcId="1026846" XYZ="-1.602234, 7.450581E-09, -9.658997"/>
+      </If>
+    </If>
     <If Condition="IsQuestCompleted(68719) and not HasQuest(68720) and not IsQuestCompleted(68720)">
-      <GetTo ZoneId="351" XYZ="-1.174884, 0, -7.034943"/>
+      <If Condition="not IsOnMap(351)">
+        <GetTo ZoneId="156" XYZ="21.79132, 21.25273, -632.7344"/>
+        <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(68720)">
         <PickupQuest QuestId="68720" NpcId="1026846" XYZ="-1.602234, 7.450581E-09, -9.658997"/>
       </If>

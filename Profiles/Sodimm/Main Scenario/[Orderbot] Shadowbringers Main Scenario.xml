@@ -30,7 +30,7 @@ Authors:  Sodimm
         <GetTo ZoneId="156" XYZ="351.4656, -25.9659, -373.1818"/>
       </If>
       <SoTalkTo NpcId="1029791" XYZ="351.4916, -26.42413, -370.8095" QuestId="68815" StepId="1"/>
-	  <WaitWhile Condition="not IsOnMap(842)"/>
+      <WaitWhile Condition="not IsOnMap(842)"/>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 2">
       <If Condition="not IsOnMap(842)">
@@ -38,11 +38,11 @@ Authors:  Sodimm
         <UseTransport InteractDistance="3.0" NpcId="1029791" XYZ="351.4916, -26.42413, -370.8095"/>
       </If>
       <TalkTo NpcId="1029792" XYZ="-47.07416, 1.720142, 45.97534" QuestId="68815" StepId="2"/>
-	  <WaitWhile Condition="HasQuest(68815) and not IsQuestCompleted(68815) and not GetQuestStep(68815) == 4"/>
+      <WaitWhile Condition="HasQuest(68815) and not IsQuestCompleted(68815) and not GetQuestStep(68815) == 4"/>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 4">
       <GetTo ZoneId="813" XYZ="485.4872, 8.898799, 315.3618"/>
-	  <RunCode Name="68815"/>
+      <RunCode Name="68815"/>
       <WaitWhile Condition="HasQuest(68815) and not IsQuestCompleted(68815) and not GetQuestStep(68815) == 255"/>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 255">
@@ -53,8 +53,8 @@ Authors:  Sodimm
     </If>
     <!-- City of the First (Level 70) -->
     <If Condition="IsQuestCompleted(68815) and not HasQuest(68816) and not IsQuestCompleted(68816)">
-	  <!-- GetTo tries to attune, but can't until this quest is picked up -->
-	  <If Condition="not IsOnMap(819)">
+      <!-- GetTo tries to attune, but can't until this quest is picked up -->
+      <If Condition="not IsOnMap(819)">
         <GetTo ZoneId="819" XYZ="-179.9048, 0, -0.1709962"/>
       </If>
       <If Condition="IsQuestAcceptQualified(68816)">
@@ -155,7 +155,7 @@ Authors:  Sodimm
     </If>
     <!-- A Still Tide (Level 70) -->
     <If Condition="IsQuestCompleted(68818) and not HasQuest(68819) and not IsQuestCompleted(68819)">
-	  <!-- GetTo will override the pick up trying to attune to Stilltide Aetheryte -->
+      <!-- GetTo will override the pick up trying to attune to Stilltide Aetheryte -->
       <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="801.1243, 1.359339, 251.2912"/>
       </If>
@@ -320,8 +320,8 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(820)">
         <GetTo ZoneId="820" XYZ="12.98615, 5.999998, 33.60206"/>
       </If>
-	  <!-- Quite a large wait for loading here -->
-	  <WaitTimer Time="10000"/>
+      <!-- Quite a large wait for loading here -->
+      <WaitTimer Time="10000"/>
       <RunCode Name="68822"/>
       <WaitWhile Condition="HasQuest(68822) and not IsQuestCompleted(68822) and not GetQuestStep(68822) == 8"/>
     </If>
@@ -890,6 +890,7 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(819)">
         <GetTo ZoneId="819" XYZ="-29.38691, -0.65, -50.29358"/>
       </If>
+      <WaitTimer Time="10000"/>
       <RunCode Name="68839"/>
       <WaitWhile Condition="HasQuest(68839) and not IsQuestCompleted(68839) and not GetQuestStep(68839) == 255"/>
     </If>
@@ -909,9 +910,17 @@ Authors:  Sodimm
       <TalkTo NpcId="1028945" XYZ="588.5555, 9.151089, 342.7328" QuestId="68840" StepId="1"/>
     </If>
     <If Condition="HasQuest(68840) and not IsQuestCompleted(68840) and GetQuestStep(68840) == 2">
+      <If Condition="not Core.Me.IsMounted">
+        <GetTo ZoneId="813" XYZ="589.9456, 8.75728, 340.565"/>
+        <TalkTo NpcId="1028945" XYZ="588.5555, 9.151089, 342.7328"/>
+      </If>
       <RunCode Name="688402"/>
     </If>
     <If Condition="HasQuest(68840) and not IsQuestCompleted(68840) and GetQuestStep(68840) == 3">
+      <If Condition="not Core.Me.IsMounted and not MovementManager.IsFlying">
+        <GetTo ZoneId="813" XYZ="-164.2221, 9.361096, -81.12333"/>
+        <TalkTo NpcId="1028946" XYZ="-165.1179, 5.761646, -80.55243"/>
+      </If>
       <RunCode Name="688403"/>
     </If>
     <If Condition="HasQuest(68840) and not IsQuestCompleted(68840) and GetQuestStep(68840) == 4">
@@ -988,7 +997,7 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(816)">
         <GetTo ZoneId="816" XYZ="-382.3653, 60.34946, 529.2402"/>
       </If>
-      <UseObject NpcId="2009816" XYZ="-382.8031, 60.74609, 530.5714" QuestId="68842" StepId="2"/>
+      <SoTalkTo NpcId="2009816" XYZ="-382.8031, 60.74609, 530.5714" QuestId="68842" StepId="2"/>
     </If>
     <If Condition="HasQuest(68842) and not IsQuestCompleted(68842) and GetQuestStep(68842) == 255">
       <If Condition="not IsOnMap(816)">
@@ -3626,14 +3635,14 @@ Authors:  Sodimm
      
         Navigator.PlayerMover.MoveTowards(_loc);
         while (!QuestLogManager.InCutscene) {  await Coroutine.Yield();  }
-		
-		Navigator.PlayerMover.MoveStop();
+    
+        Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
     <CodeChunk Name="68822">
       <![CDATA[
         var _perfume = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002575);
-        await Coroutine.Sleep(3000);
+        await Coroutine.Sleep(10000);
         if (_perfume != null)  {  _perfume.UseItem();  }
       ]]>
     </CodeChunk>
@@ -3646,7 +3655,7 @@ Authors:  Sodimm
     <CodeChunk Name="68839">
       <![CDATA[
         var _princesKiss = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002531);
-        await Coroutine.Sleep(3000);
+        await Coroutine.Sleep(10000);
         if (_princesKiss != null)  {  _princesKiss.UseItem();  }
       ]]>
     </CodeChunk>
@@ -3658,9 +3667,14 @@ Authors:  Sodimm
         var _loc4 = new Vector3(48.23268f, 48.70341f, 53.62906f);
         var _loc5 = new Vector3(-89.40802f, 52.65609f, -26.03757f);
         var _loc6 = new Vector3(-162.3296f, 9.585906f, -81.72881f);
-    
-        await CommonTasks.TakeOff();
- 
+
+        await Coroutine.Sleep(5000);
+
+        // CommonTasks.TakeOff() wont work here.
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.Jump();		
+        
         Navigator.PlayerMover.MoveTowards(_loc1);
         while (Core.Me.Location.Distance2D(_loc1) > 1) {  await Coroutine.Yield();  }
     
@@ -3694,7 +3708,17 @@ Authors:  Sodimm
         var _loc4 = new Vector3(-599.6016f, 70.73132f, -171.1624f);
         var _loc5 = new Vector3(-607.4213f, 67.64061f, -164.0321f);
         var _loc6 = new Vector3(-616.9761f, 58.79875f, -155.3741f);
- 
+
+        await Coroutine.Sleep(5000);
+
+        if (!MovementManager.IsFlying)
+        {
+          // CommonTasks.TakeOff() wont work here.
+          MovementManager.Jump();
+          await Coroutine.Sleep(250);
+          MovementManager.Jump();
+        }
+
         Navigator.PlayerMover.MoveTowards(_loc1);
         while (Core.Me.Location.Distance2D(_loc1) > 1) {  await Coroutine.Yield();  }
     
@@ -3740,8 +3764,9 @@ Authors:  Sodimm
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
-        await Coroutine.Sleep(1000);
+
+        // At least make it look like it's a human typing.		
+        await Coroutine.Sleep(5000);
         ChatManager.SendChat("/s Please, Feo Ul, I need you");
     
         while (ConditionParser.GetQuestStep(68846) == 2)
@@ -3749,8 +3774,9 @@ Authors:  Sodimm
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
-        await Coroutine.Sleep(1000);
+
+        // Longer wait on this one.		
+        await Coroutine.Sleep(8000);
         ChatManager.SendChat("/s O loveliest of branches, please grant me your succor!");
       ]]>
     </CodeChunk>
@@ -4082,7 +4108,7 @@ Authors:  Sodimm
     <CodeChunk Name="68875">
       <![CDATA[
         var _aetherialLamp = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002554);
-        await Coroutine.Sleep(500);
+        await Coroutine.Sleep(10000);
         if (_aetherialLamp != null)  {  _aetherialLamp.UseItem();  }
       ]]>
     </CodeChunk>

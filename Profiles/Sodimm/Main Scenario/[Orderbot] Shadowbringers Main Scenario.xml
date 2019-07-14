@@ -19,7 +19,7 @@ Authors:  Sodimm
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
       </If>
       <If Condition="IsQuestAcceptQualified(68815)">
-        <PickupQuest QuestId="67649" NpcId="1026990" XYZ="-2.426208, 7.450581E-09, -9.10968"/>
+        <PickupQuest QuestId="68815" NpcId="1026990" XYZ="-2.426208, 7.450581E-09, -9.10968"/>
       </If>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 1">
@@ -30,6 +30,7 @@ Authors:  Sodimm
         <GetTo ZoneId="156" XYZ="351.4656, -25.9659, -373.1818"/>
       </If>
       <SoTalkTo NpcId="1029791" XYZ="351.4916, -26.42413, -370.8095" QuestId="68815" StepId="1"/>
+	  <WaitWhile Condition="not IsOnMap(842)"/>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 2">
       <If Condition="not IsOnMap(842)">
@@ -37,9 +38,11 @@ Authors:  Sodimm
         <UseTransport InteractDistance="3.0" NpcId="1029791" XYZ="351.4916, -26.42413, -370.8095"/>
       </If>
       <TalkTo NpcId="1029792" XYZ="-47.07416, 1.720142, 45.97534" QuestId="68815" StepId="2"/>
+	  <WaitWhile Condition="HasQuest(68815) and not IsQuestCompleted(68815) and not GetQuestStep(68815) == 4"/>
     </If>
-    <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 3">
-      <GetTo ZoneId="819" XYZ="-179.9048, 0, -0.1709962"/>
+    <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 4">
+      <GetTo ZoneId="813" XYZ="485.4872, 8.898799, 315.3618"/>
+	  <RunCode Name="68815"/>
       <WaitWhile Condition="HasQuest(68815) and not IsQuestCompleted(68815) and not GetQuestStep(68815) == 255"/>
     </If>
     <If Condition="HasQuest(68815) and not IsQuestCompleted(68815) and GetQuestStep(68815) == 255">
@@ -50,7 +53,10 @@ Authors:  Sodimm
     </If>
     <!-- City of the First (Level 70) -->
     <If Condition="IsQuestCompleted(68815) and not HasQuest(68816) and not IsQuestCompleted(68816)">
-      <GetTo ZoneId="819" XYZ="-179.9048, 0, -0.1709962"/>
+	  <!-- GetTo tries to attune, but can't until this quest is picked up -->
+	  <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-179.9048, 0, -0.1709962"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(68816)">
         <PickupQuest QuestId="68816" NpcId="1028924" XYZ="-177.062, 0, 0.4838639"/>
       </If>
@@ -149,7 +155,10 @@ Authors:  Sodimm
     </If>
     <!-- A Still Tide (Level 70) -->
     <If Condition="IsQuestCompleted(68818) and not HasQuest(68819) and not IsQuestCompleted(68819)">
-      <GetTo ZoneId="814" XYZ="801.1243, 1.359339, 251.2912"/>
+	  <!-- GetTo will override the pick up trying to attune to Stilltide Aetheryte -->
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="801.1243, 1.359339, 251.2912"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(68819)">
         <PickupQuest QuestId="68819" NpcId="1029807" XYZ="802.2124, 1.272592, 253.0098"/>
       </If>
@@ -219,7 +228,7 @@ Authors:  Sodimm
       <UseObject NpcId="2009961" XYZ="168.3833, 40.11597, 567.1931" QuestId="68820" StepId="5"/>
     </If>
     <If Condition="HasQuest(68820) and not IsQuestCompleted(68820) and GetQuestStep(68820) == 6">
-      <If Condtion="not IsOnMap(814)">
+      <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="167.4992, 40.99535, 676.1387"/>
       </If>
       <TalkTo NpcId="1029814" XYZ="165.7892, 41.1413, 676.9663" QuestId="68820" StepId="6"/>
@@ -311,6 +320,8 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(820)">
         <GetTo ZoneId="820" XYZ="12.98615, 5.999998, 33.60206"/>
       </If>
+	  <!-- Quite a large wait for loading here -->
+	  <WaitTimer Time="10000"/>
       <RunCode Name="68822"/>
       <WaitWhile Condition="HasQuest(68822) and not IsQuestCompleted(68822) and not GetQuestStep(68822) == 8"/>
     </If>
@@ -336,7 +347,9 @@ Authors:  Sodimm
       </If>
     </If>
     <If Condition="HasQuest(68823) and not IsQuestCompleted(68823) and GetQuestStep(68823) == 1">
-      <GetTo ZoneId="820" XYZ="-23.45565, 82.27261, -18.27195"/>
+      <If Condition="not IsOnMap(820)">
+        <GetTo ZoneId="820" XYZ="-23.45565, 82.27261, -18.27195"/>
+      </If>
       <TalkTo NpcId="1029833" XYZ="-24.88751, 82.27261, -19.05853" QuestId="68823" StepId="1"/>
     </If>
     <If Condition="HasQuest(68823) and not IsQuestCompleted(68823) and GetQuestStep(68823) == 2">
@@ -524,15 +537,15 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(815)">
         <GetTo ZoneId="815" XYZ="206.5381, 4.029698, -292.9276"/>
       </If>
-      <TalkTo NpcId="2009936" XYZ="205.4016, 4.013123, -293.5988" QuestId="68829"/>
+      <TalkTo NpcId="2009936" XYZ="205.4016, 4.013123, -293.5988" InteractDistance="3.0" QuestId="68829"/>
     </If>
     <If Condition="HasQuest(68829) and not IsQuestCompleted(68829) and GetQuestStep(68829) == 1 and GetQuestById(68829).GetTodoArgs(1, 0).Item1 == 1">
       <GetTo ZoneId="815" XYZ="232.1442, 4.029699, -299.5598"/>
-      <TalkTo NpcId="2009934" XYZ="231.1589, 4.013123, -300.5569" QuestId="68829"/>
+      <TalkTo NpcId="2009934" XYZ="231.1589, 4.013123, -300.5569" InteractDistance="3.0" QuestId="68829"/>
     </If>
     <If Condition="HasQuest(68829) and not IsQuestCompleted(68829) and GetQuestStep(68829) == 1 and GetQuestById(68829).GetTodoArgs(1, 0).Item1 == 2">
       <GetTo ZoneId="815" XYZ="326.4479, 1.468583, -287.9315"/>
-      <SoTalkTo NpcId="2009935" DialogOption="1" XYZ="328.481, 1.449585, -289.5705" QuestId="68829"/>
+      <SoTalkTo NpcId="2009935" DialogOption="1" XYZ="328.481, 1.449585, -289.5705" InteractDistance="3.0" QuestId="68829"/>
     </If>
     <If Condition="HasQuest(68829) and not IsQuestCompleted(68829) and GetQuestStep(68829) == 255">
       <GetTo ZoneId="815" XYZ="311.9497, 1.468583, -157.2728"/>
@@ -605,7 +618,7 @@ Authors:  Sodimm
       <TurnIn QuestId="68831" NpcId="1029002" XYZ="271.3512, -45.26957, 334.4625"/>
     </If>
     <!-- Culling Their Ranks (Level 70) -->
-    <If Condition="IsQuestAcceptQualified(68831) and not HasQuest(68832) and not IsQuestCompleted(68832)">
+    <If Condition="IsQuestCompleted(68831) and not HasQuest(68832) and not IsQuestCompleted(68832)">
       <GetTo ZoneId="815" XYZ="270.2206, -45.25459, 332.6542"/>
       <If Condition="IsQuestAcceptQualified(68832)">
         <PickupQuest QuestId="68832" NpcId="1029002" XYZ="271.3512, -45.26957, 334.4625"/>
@@ -3092,7 +3105,7 @@ Authors:  Sodimm
       <TurnIn QuestId="69177" NpcId="1030253" XYZ="-141.2223, 352.3582, -188.9525"/>
     </If>
     <!-- A Breath of Respite (Level 78) -->
-    <If Condition="not HasQuest(69178) and not IsQuestCompleted(69178)">
+    <If Condition="IsQuestCompleted(69177) and not HasQuest(69178) and not IsQuestCompleted(69178)">
       <GetTo ZoneId="814" XYZ="-139.4529, 352.3582, -190.012"/>
       <If Condition="IsQuestAcceptQualified(69178)">
         <PickupQuest QuestId="69178" NpcId="1030253" XYZ="-141.2223, 352.3582, -188.9525"/>
@@ -3150,7 +3163,7 @@ Authors:  Sodimm
       <TurnIn QuestId="69179" NpcId="1030303" XYZ="109.2393, 0.01407149, 108.7205"/>
     </If>
     <!-- Reassuring the Masses (Level 79) -->
-    <If Condition="IsQuestCompleted(67179) and not HasQuest(69180) and not IsQuestCompleted(69180)">
+    <If Condition="IsQuestCompleted(69179) and not HasQuest(69180) and not IsQuestCompleted(69180)">
       <GetTo ZoneId="819" XYZ="63.3789, 1.716012, 251.9367"/>
       <If Condition="IsQuestAcceptQualified(69180)">
         <PickupQuest QuestId="69180" NpcId="1027231" XYZ="65.35437, 1.716012, 249.8359"/>
@@ -3230,7 +3243,7 @@ Authors:  Sodimm
       <TurnIn QuestId="69182" NpcId="1030327" XYZ="58.42676, 36.19769, -162.4018"/>
     </If>
     <!-- To Storm-tossed Seas (Level 79) -->
-    <If Condition="not HasQuest(69183) and not IsQuestCompleted(69183)">
+    <If Condition="IsQuestCompleted(69182) and not HasQuest(69183) and not IsQuestCompleted(69183)">
       <GetTo ZoneId="819" XYZ="59.18567, 36.19769, -165.6519"/>
       <If Condition="IsQuestAcceptQualified(69183)">
         <PickupQuest QuestId="69183" NpcId="1030327" XYZ="58.42676, 36.19769, -162.4018"/>
@@ -3605,10 +3618,22 @@ Authors:  Sodimm
         await Coroutine.Sleep(26000);
       ]]>
     </CodeChunk>
+    <CodeChunk Name="68815">
+      <![CDATA[
+        // GetTo can't get to 819 at this point, so move towards the transition point and wait for Cutscene.
+
+        var _loc = new Vector3(541.802f, 8.618705f, 330.2815f);
+     
+        Navigator.PlayerMover.MoveTowards(_loc);
+        while (!QuestLogManager.InCutscene) {  await Coroutine.Yield();  }
+		
+		Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
     <CodeChunk Name="68822">
       <![CDATA[
         var _perfume = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002575);
-        await Coroutine.Sleep(500);
+        await Coroutine.Sleep(3000);
         if (_perfume != null)  {  _perfume.UseItem();  }
       ]]>
     </CodeChunk>
@@ -3621,7 +3646,7 @@ Authors:  Sodimm
     <CodeChunk Name="68839">
       <![CDATA[
         var _princesKiss = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002531);
-        await Coroutine.Sleep(500);
+        await Coroutine.Sleep(3000);
         if (_princesKiss != null)  {  _princesKiss.UseItem();  }
       ]]>
     </CodeChunk>

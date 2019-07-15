@@ -358,7 +358,9 @@ Authors:  Sodimm
         <UseObject NpcId="2010060" XYZ="184.0391, 4.776001, -422.1104" Condition="not IsAetherCurrentCompleted(816,8)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(816,5)">
-        <GetTo ZoneId="816" XYZ="-56.26001, 111.4366, -325.124"/>
+        <GetTo ZoneId="816" XYZ="86.41762, 25.66877, -98.48716"/>
+        <RunCode Name="Lyhe_Ghia"/>
+        <NoCombatMoveTo XYZ="-56.26001, 111.4366, -325.124"/>
         <UseObject NpcId="2010063" XYZ="-56.26001, 111.4366, -325.124" Condition="not IsAetherCurrentCompleted(816,5)"/>
       </If>
     </If>
@@ -1009,8 +1011,7 @@ Authors:  Sodimm
   <GrindAreas/>
   <CodeChunks>
     <CodeChunk Name="68931">
-      <![CDATA[
-        
+      <![CDATA[        
         if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
         await Coroutine.Sleep(1000);
         ChatManager.SendChat("/s Kenn Gyuf");
@@ -1098,6 +1099,46 @@ Authors:  Sodimm
 
         Navigator.PlayerMover.MoveTowards(_exit);		
         while (MovementManager.IsDiving) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Lyhe_Ghia">
+      <![CDATA[
+        var _loc1 = new Vector3(86.41762f, 25.66877f, -98.48716f);
+        var _loc2 = new Vector3(36.43086f, 36.81553f, -114.6272f);
+        var _loc3 = new Vector3(-15.15595f, 57.50918f, -130.1993f);
+        var _loc4 = new Vector3(-12.4832f, 57.5609f, -143.8537f);
+        var _loc5 = new Vector3(15.22853f, 73.53532f, -177.5079f);
+        var _loc6 = new Vector3(-8.77778f, 89.31206f, -227.638f);
+        var _loc7 = new Vector3(-39.72607f, 96.66605f, -244.038f);
+        var _loc8 = new Vector3(-62.06381f, 105.2942f, -250.6125f);
+
+        if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc1);
+        while (Core.Me.Location.Distance2D(_loc1) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc2);
+        while (Core.Me.Location.Distance2D(_loc2) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc3);
+        while (Core.Me.Location.Distance2D(_loc3) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc4);
+        while (Core.Me.Location.Distance2D(_loc4) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc5);
+        while (Core.Me.Location.Distance2D(_loc5) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc6);
+        while (Core.Me.Location.Distance2D(_loc6) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc7);
+        while (Core.Me.Location.Distance2D(_loc7) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc8);
+        while (Core.Me.Location.Distance2D(_loc8) > 0.5f) {  await Coroutine.Yield();  }
+    
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>

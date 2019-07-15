@@ -9,7 +9,7 @@ Authors:  Sodimm
   <Order>
     <RunCode Name="Disable_Flight"/>
     <If Condition="not Core.Me.ClassLevel &gt; 79">
-      <BotSettings AutoEquip="1"/>
+      <!--<BotSettings AutoEquip="1"/>-->
     </If>
     <RunCode Name="Profile"/>
     <!-- (Patch 5.0) The Syrcus Trench (Level 70) -->
@@ -1135,7 +1135,7 @@ Authors:  Sodimm
     <If Condition="IsQuestCompleted(68847) and not HasQuest(68848) and not IsQuestCompleted(68848)">
       <GetTo ZoneId="816" XYZ="-356.0784, 46.90136, 483.5364"/>
       <If Condition="IsQuestAcceptQualified(68848)">
-        <PickupQuest QuestId="68848" NpcId="1027654" XYZ="-355.3063, 46.68421, 482.0172"/>
+        <PickupQuest QuestId="68848" NpcId="1030535" XYZ="-355.3063, 46.68421, 482.0172"/>
       </If>
     </If>
     <If Condition="HasQuest(68848) and not IsQuestCompleted(68848) and GetQuestStep(68848) == 1">
@@ -1188,7 +1188,7 @@ Authors:  Sodimm
     <If Condition="IsQuestCompleted(68849) and not HasQuest(68850) and not IsQuestCompleted(68850)">
       <GetTo ZoneId="816" XYZ="-146.0237, 99.8919, -848.6055"/>
       <If Condition="IsQuestAcceptQualified(68850)">
-        <PickupQuest QuestId="67650" NpcId="1029564" XYZ="-143.267, 100.1842, -848.9052"/>
+        <PickupQuest QuestId="68850" NpcId="1029564" XYZ="-143.267, 100.1842, -848.9052"/>
       </If>
     </If>
     <If Condition="HasQuest(68850) and not IsQuestCompleted(68850) and GetQuestStep(68850) == 1">
@@ -1216,17 +1216,26 @@ Authors:  Sodimm
         <PickupQuest QuestId="68851" NpcId="1029573" XYZ="-85.83203, 101.6589, -866.0563"/>
       </If>
     </If>
-    <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1">
+    <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(816)">
         <GetTo ZoneId="816" XYZ="-111.7723, 103.1051, -865.7816"/>
       </If>
-      <UseObject NpcIds="2009830,2009831,2009832" QuestId="68851" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="-111.7723, 103.1051, -865.7816" Radius="10"/>
-          <HotSpot XYZ="-39.84137, 116.2279, -839.292" Radius="10"/>
-          <HotSpot XYZ="25.43677, 100.6942, -902.3118" Radius="10"/>
-        </HotSpots>
-      </UseObject>
+      <UseObject NpcId="2009830" XYZ="-111.7723, 103.1051, -865.7816" Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="-49.04696, 104.576, -856.5419"/>
+      </If>
+      <MoveTo XYZ="-49.04696, 104.576, -856.5419" Distance="1"/>
+      <RunCode Name="68851"/>
+      <UseObject NpcId="2009831" XYZ="-39.84137, 116.2279, -839.292" Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 1"/>
+      <MoveTo XYZ="-33.62787, 105.4577, -866.9728" UseMesh="False"/> 
+    </If>
+    <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="-111.7723, 103.1051, -865.7816"/>
+      </If>
+      <UseObject NpcId="2009832" XYZ="25.43677, 100.6942, -902.3118" Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 2">
       <If Condition="not IsOnMap(816)">
@@ -1391,7 +1400,9 @@ Authors:  Sodimm
       </If>
     </If>
     <If Condition="HasQuest(68856) and not IsQuestCompleted(68856) and GetQuestStep(68856) == 1">
-      <GetTo ZoneId="816" XYZ="-142.0314, 115.2709, -273.7599"/>
+      <GetTo ZoneId="816" XYZ="86.41762, 25.66877, -98.48716"/>
+      <RunCode Name="68856"/>
+      <NoCombatMoveTo XYZ="-140.0103, 115.2709, -273.2854"/>
       <UseObject NpcId="2009840" XYZ="-143.3281, 116.8688, -274.1589" QuestId="68856" StepId="1"/>
     </If>
     <If Condition="HasQuest(68856) and not IsQuestCompleted(68856) and GetQuestStep(68856) == 2">
@@ -3782,21 +3793,55 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68849">
       <![CDATA[
-        var _mountSetting = ff14bot.Settings.CharacterSettings.Instance.UseMount;
+        await Coroutine.Sleep(1000);
     
-        if (_mountSetting)  {  _mountSetting = false;  }
-        else  { _mountSetting = true;  }  
+        if (ff14bot.Settings.CharacterSettings.Instance.UseMount)  {  ff14bot.Settings.CharacterSettings.Instance.UseMount = false;  }
+        else  { ff14bot.Settings.CharacterSettings.Instance.UseMount = true;  }      
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68851">
+      <![CDATA[
+        var _loc1 = new Vector3(-52.75473f, 108.8309f, -849.7969f);
+        var _loc2 = new Vector3(-52.50477f, 110.9332f, -846.3855f);
+        var _loc3 = new Vector3(-45.38649f, 110.9302f, -850.7144f);
+        var _loc4 = new Vector3(-40.53379f, 112.7251f, -847.2045f);
+        var _loc5 = new Vector3(-39.16035f, 114.1619f, -844.1552f);
+        var _loc6 = new Vector3(-39.3009f, 115.2815f, -841.8051f);
+ 
+        Navigator.PlayerMover.MoveTowards(_loc1);
+        while (Core.Me.Location.Distance2D(_loc1) > 0.5f) {  await Coroutine.Yield();  }
     
-        await Coroutine.Sleep(100);
+        Navigator.PlayerMover.MoveTowards(_loc2);
+        while (Core.Me.Location.Distance2D(_loc2) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc3);
+        while (Core.Me.Location.Distance2D(_loc3) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc4);
+        while (Core.Me.Location.Distance2D(_loc4) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc5);
+        while (Core.Me.Location.Distance2D(_loc5) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc6);
+        while (Core.Me.Location.Distance2D(_loc6) > 0.5f) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
     <CodeChunk Name="68852">
       <![CDATA[
+        var _loc = new Vector3(533.7747f, 109.4174f, -154.8044f);
         var _loc1 = new Vector3(537.673f, 111.6291f, -155.7962f);
         var _loc2 = new Vector3(540.9753f, 113.3808f, -155.477f);
         var _loc3 = new Vector3(544.9641f, 114.9403f, -155.3116f);
         var _loc4 = new Vector3(549.6824f, 117.2716f, -154.7098f);
- 
+
+        if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc);
+        while (Core.Me.Location.Distance2D(_loc) > 0.5f) {  await Coroutine.Yield();  }
+    
         Navigator.PlayerMover.MoveTowards(_loc1);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
@@ -3816,6 +3861,7 @@ Authors:  Sodimm
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(_loc4) > 1) {  await Coroutine.Yield();  }
+
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
@@ -3823,19 +3869,19 @@ Authors:  Sodimm
       <![CDATA[
         GameObject _target = null;
         int _step = 3;
-    
+
         if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
 
         if (ConditionParser.GetQuestStep(68853) == 3)  {  _target = GameObjectManager.GetObjectByNPCId(1027691);  }
         if (ConditionParser.GetQuestStep(68853) == 4)  {  _step = 4;  _target = GameObjectManager.GetObjectByNPCId(1027692);  }
         if (ConditionParser.GetQuestStep(68853) == 5)  {  _step = 5;  _target = GameObjectManager.GetObjectByNPCId(1027693);  }
-    
+
         await Coroutine.Sleep(1000);
-    
+
         _target.Target();
-    
+
         ChatManager.SendChat("/pet");
-    
+
         while (ConditionParser.GetQuestStep(68853) == _step)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
@@ -3875,6 +3921,46 @@ Authors:  Sodimm
         while (Core.Me.Location.Distance2D(_loc5) > 1) {  await Coroutine.Yield();  }
     
         await CommonTasks.StopAndDismount();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68856">
+      <![CDATA[
+        var _loc1 = new Vector3(86.41762f, 25.66877f, -98.48716f);
+        var _loc2 = new Vector3(36.43086f, 36.81553f, -114.6272f);
+        var _loc3 = new Vector3(-15.15595f, 57.50918f, -130.1993f);
+        var _loc4 = new Vector3(-12.4832f, 57.5609f, -143.8537f);
+        var _loc5 = new Vector3(15.22853f, 73.53532f, -177.5079f);
+        var _loc6 = new Vector3(-8.77778f, 89.31206f, -227.638f);
+        var _loc7 = new Vector3(-39.72607f, 96.66605f, -244.038f);
+        var _loc8 = new Vector3(-62.06381f, 105.2942f, -250.6125f);
+
+        if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc1);
+        while (Core.Me.Location.Distance2D(_loc1) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc2);
+        while (Core.Me.Location.Distance2D(_loc2) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc3);
+        while (Core.Me.Location.Distance2D(_loc3) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc4);
+        while (Core.Me.Location.Distance2D(_loc4) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc5);
+        while (Core.Me.Location.Distance2D(_loc5) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc6);
+        while (Core.Me.Location.Distance2D(_loc6) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc7);
+        while (Core.Me.Location.Distance2D(_loc7) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveTowards(_loc8);
+        while (Core.Me.Location.Distance2D(_loc8) > 0.5f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
     <CodeChunk Name="688613">

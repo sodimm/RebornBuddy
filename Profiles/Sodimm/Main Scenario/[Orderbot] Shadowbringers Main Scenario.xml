@@ -8,9 +8,9 @@ Authors:  Sodimm
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <RunCode Name="Disable_Flight"/>
-    <If Condition="not Core.Me.ClassLevel &gt; 79">
-      <!--<BotSettings AutoEquip="1"/>-->
-    </If>
+    <!--<If Condition="not Core.Me.ClassLevel &gt; 79">
+      <BotSettings AutoEquip="1"/>
+    </If>-->
     <RunCode Name="Profile"/>
     <!-- (Patch 5.0) The Syrcus Trench (Level 70) -->
     <If Condition="IsQuestCompleted(68721) and not HasQuest(68815) and not IsQuestCompleted(68815)">

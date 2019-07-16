@@ -1229,7 +1229,7 @@ Authors:  Sodimm
       <MoveTo XYZ="-49.04696, 104.576, -856.5419" Distance="1"/>
       <RunCode Name="68851"/>
       <UseObject NpcId="2009831" XYZ="-39.84137, 116.2279, -839.292" Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 1"/>
-      <MoveTo XYZ="-33.62787, 105.4577, -866.9728" UseMesh="False"/> 
+      <MoveTo XYZ="-33.62787, 105.4577, -866.9728" UseMesh="False"/>
     </If>
     <If Condition="HasQuest(68851) and not IsQuestCompleted(68851) and GetQuestStep(68851) == 1 and GetQuestById(68851).GetTodoArgs(1, 0).Item1 == 2">
       <If Condition="not IsOnMap(816)">
@@ -1702,8 +1702,13 @@ Authors:  Sodimm
     </If>
     <If Condition="HasQuest(68865) and not IsQuestCompleted(68865) and GetQuestStep(68865) == 2">
       <GetTo ZoneId="817" XYZ="-158.3112, 7.504869, -14.55397"/>
-      <UseObject NpcId="1029214" XYZ="-157.6409, 7.398206, -13.35168" QuestId="68865" StepId="2"/>
-      <WaitWhile Condition="HasQuest(68865) and not IsQuestCompleted(68865) and not GetQuestStep(68865) == 4"/>
+      <WaitWhile Condition="HasQuest(68865) and not IsQuestCompleted(68865) and not GetQuestStep(68865) == 3"/>
+    </If>
+    <If Condition="HasQuest(68865) and not IsQuestCompleted(68865) and GetQuestStep(68865) == 3">
+      <If Condition="not IsOnMap(817)">
+        <GetTo ZoneId="817" XYZ="-158.3112, 7.504869, -14.55397"/>
+      </If>
+      <UseObject NpcId="1029214" XYZ="-157.6409, 7.398206, -13.35168" QuestId="68865" StepId="3"/>
     </If>
     <If Condition="HasQuest(68865) and not IsQuestCompleted(68865) and GetQuestStep(68865) == 4">
       <GetTo ZoneId="817" XYZ="-230.9161, 20.73055, -50.48281"/>
@@ -1923,7 +1928,7 @@ Authors:  Sodimm
         <GetTo ZoneId="817" XYZ="148.5226, -19.26303, -427.2848"/>
       </If>
       <MoveTo XYZ="148.5226, -19.26303, -427.2848" Distance="1"/>
-      <RunCode Name="688713"/>
+      <RunCode Name="68871"/>
       <UseItem ItemId="2002552" NpcId="2009887" XYZ="124.3762, 10.87964, -429.4346" Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 3 and GetQuestById(68871).GetTodoArgs(3, 0).Item1 == 0"/>
       <MoveTo XYZ="149.5139, -19.26999, -427.4168" Distance="1" UseMesh="False"/>
     </If>
@@ -1932,7 +1937,7 @@ Authors:  Sodimm
         <GetTo ZoneId="817" XYZ="193.5523, -19.16317, -427.3897"/>
       </If>
       <MoveTo XYZ="193.5523, -19.16317, -427.3897" Distance="1"/>
-      <RunCode Name="688713"/>
+      <RunCode Name="68871"/>
       <UseItem ItemId="2002552" NpcId="2009890" XYZ="218.4634, 10.5744, -425.2537" Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 3 and GetQuestById(68871).GetTodoArgs(3, 0).Item1 == 1"/>
       <MoveTo XYZ="193.6682, -19.1361, -427.0147" Distance="1" UseMesh="False"/>
     </If>
@@ -1941,7 +1946,7 @@ Authors:  Sodimm
         <GetTo ZoneId="817" XYZ="195.6621, -19.64349, -516.6057"/>
       </If>
       <MoveTo XYZ="195.6621, -19.64349, -516.6057" Distance="1"/>
-      <RunCode Name="688713"/>
+      <RunCode Name="68871"/>
       <UseItem ItemId="2002552" NpcId="2009889" XYZ="218.9211, 8.957031, -514.4579" Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 3 and GetQuestById(68871).GetTodoArgs(3, 0).Item1 == 2"/>
       <MoveTo XYZ="194.5647, -19.67619, -516.3932" Distance="1" UseMesh="False"/>
     </If>
@@ -1950,7 +1955,7 @@ Authors:  Sodimm
         <GetTo ZoneId="817" XYZ="144.2598, -20, -508.2463"/>
       </If>
       <MoveTo XYZ="144.2598, -20, -508.2463" Distance="1"/>
-      <RunCode Name="688713"/>
+      <RunCode Name="68871"/>
       <UseItem ItemId="2002552" NpcId="2009888" XYZ="119.9207, 10.69653, -510.5211" Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 3 and GetQuestById(68871).GetTodoArgs(3, 0).Item1 == 3"/>
       <MoveTo XYZ="144.2598, -20, -508.2463" Distance="1" UseMesh="False"/>
     </If>
@@ -1961,8 +1966,7 @@ Authors:  Sodimm
     <If Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 5">
       <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
       <SelectStringOverride Index="3"/>
-      <TalkTo NpcId="1030946" XYZ="174.8342, -19.58986, -534.7708" QuestId="68871" StepId="5"/>
-      <!--<RunCode Name="688715"/>-->
+      <SoTalkTo NpcId="1030946" XYZ="174.8342, -19.58986, -534.7708" QuestId="68871" StepId="5"/>
     </If>
     <If Condition="HasQuest(68871) and not IsQuestCompleted(68871) and GetQuestStep(68871) == 255">
       <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
@@ -1976,44 +1980,63 @@ Authors:  Sodimm
       </If>
     </If>
     <If Condition="HasQuest(68872) and not IsQuestCompleted(68872) and GetQuestStep(68872) == 1">
-      <GetTo ZoneId="817" XYZ="121.0243, -8.781985, -891.2568"/>
+      <If Condition="not IsOnMap(817)">
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+      </If>
+      <!-- Bad Mesh -->
+      <RunCode Name="688721"/>
+      <!--<GetTo ZoneId="817" XYZ="121.0243, -8.781985, -891.2568"/>-->
       <TalkTo NpcId="1029242" XYZ="122.6978, -8.781985, -891.4168" QuestId="68872" StepId="1"/>
     </If>
     <If Condition="HasQuest(68872) and not IsQuestCompleted(68872) and GetQuestStep(68872) == 2">
-      <GetTo ZoneId="817" XYZ="217.7762, 11.20001, -711.9302"/>
+      <If Condition="not IsOnMap(817)">
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+        <!-- Bad Mesh -->
+        <RunCode Name="688721"/>
+      </If>
+      <!--<GetTo ZoneId="817" XYZ="217.7762, 11.20001, -711.9302"/>-->
+      <RunCode Name="688722"/>
       <UseObject NpcId="2010218" XYZ="220.1724, 12.4361, -711.9707" QuestId="68872" StepId="2"/>
     </If>
     <If Condition="HasQuest(68872) and not IsQuestCompleted(68872) and GetQuestStep(68872) == 3">
       <If Condition="not Core.Me.HasAura(404)">
-        <GetTo ZoneId="817" XYZ="217.7762, 11.20001, -711.9302"/>
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+        <!-- Bad Mesh -->
+        <RunCode Name="688721"/>
+        <RunCode Name="688722"/>
+        <!--<GetTo ZoneId="817" XYZ="217.7762, 11.20001, -711.9302"/>-->
         <UseObject NpcId="2010218" XYZ="220.1724, 12.4361, -711.9707" Condition="not Core.Me.HasAura(404)"/>
       </If>
-      <NoCombatMoveTo XYZ="176.9256, 1.218023, -764.4688"/>
-      <NoCombatMoveTo XYZ="197.0271, 1.218023, -767.4124"/>
-      <NoCombatMoveTo XYZ="196.438, 1.218023, -783.6002"/>
-      <NoCombatMoveTo XYZ="177.205, 1.218023, -792.2441"/>
-      <NoCombatMoveTo XYZ="120.7246, -8.781985, -868.0968"/>
-      <NoCombatMoveTo XYZ="117.6531, -8.781985, -846.8408"/>
-      <NoCombatMoveTo XYZ="99.17739, -8.781985, -849.3676"/>
-      <NoCombatMoveTo XYZ="99.95094, -8.781985, -886.5863"/>
+      <RunCode Name="688723"/>
       <UseObject NpcId="2010217" XYZ="115.4344, -7.400635, -895.4757" QuestId="68872" StepId="3"/>
     </If>
     <If Condition="HasQuest(68872) and not IsQuestCompleted(68872) and GetQuestStep(68872) == 255">
       <If Condition="not IsOnMap(817)">
-        <GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+        <!-- Bad Mesh -->
+        <RunCode Name="688721"/>
+        <!--<GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>-->
       </If>
       <TurnIn QuestId="68872" NpcId="1029242" XYZ="122.6978, -8.781985, -891.4168"/>
     </If>
     <!-- Legend of the Not-so-hidden Temple (Level 75)  -->
     <If Condition="IsQuestCompleted(68872) and not HasQuest(68873) and not IsQuestCompleted(68873)">
-      <GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>
+      <If Condition="not IsOnMap(817)">
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+        <!-- Bad Mesh -->
+        <RunCode Name="688721"/>
+        <!--<GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>-->
+      </If>
       <If Condition="IsQuestAcceptQualified(68873)">
         <PickupQuest QuestId="68873" NpcId="1029242" XYZ="122.6978, -8.781985, -891.4168"/>
       </If>
     </If>
     <If Condition="HasQuest(68873) and not IsQuestCompleted(68873) and GetQuestStep(68873) == 1">
       <If Condition="not IsOnMap(817)">
-        <GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>
+        <GetTo ZoneId="817" XYZ="174.8342, -19.58986, -534.7708"/>
+        <!-- Bad Mesh -->
+        <RunCode Name="688721"/>
+        <!--<GetTo ZoneId="817" XYZ="120.0231, -8.781985, -891.4398"/>-->
       </If>
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
@@ -2836,7 +2859,7 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="-451.1348, 8.987026, 546.1807"/>
       </If>
-      <UseObject NpcId="2010088" XYZ="-451.1348, 8.987026, 546.1807" UseDistance="3.0" QuestId="69169" StepId="3"/>
+      <UseObject NpcId="2010088" XYZ="-451.1348, 8.987026, 546.1807" UseDistance="3.0" BlacklistAfter="True" QuestId="69169" StepId="3"/>
     </If>
     <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3">
       <If Condition="not IsOnMap(814)">
@@ -4154,7 +4177,7 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
-    <CodeChunk Name="688713">
+    <CodeChunk Name="68871">
       <![CDATA[
         var _loc = new Vector3(127.5257f, 8.71689f, -427.1265f); 
         
@@ -4174,23 +4197,90 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
-    <!--<CodeChunk Name="688715">
+  LadyofCrowns
+    <CodeChunk Name="688721">
       <![CDATA[
-        var _target = GameObjectManager.GetObjectByNPCId(1030946);
-        var _cutSceneSelectStringOpen = RaptureAtkUnitManager.GetRawControls.Any(r => r.Name == "CutSceneSelectString");
-        
-        _target.Target();
-        _target.Interact();
-        
-        while (ConditionParser.GetQuestStep(68871) == 5)
+        if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
+
+        var vector3Array = new Vector3[]
         {
-          if (SelectYesno.IsOpen)  {  SelectYesno.ClickYes();  }
-          if (_cutSceneSelectStringOpen)  {  RaptureAtkUnitManager.GetWindowByName("CutSceneSelectString").SendAction(2,3,3,4,3);  }         
-          if (Talk.DialogOpen)  {  Talk.Next();  }
-          await Coroutine.Yield();
-        }    
+          new Vector3(187.9875f, -12.01839f, -560.6951f),
+          new Vector3(171.6447f, -7.618909f, -635.1947f),
+          new Vector3(163.6709f, -14.88091f, -707.7609f),
+          new Vector3(56.24888f, -18.78198f, -708.0459f),
+          new Vector3(55.75285f, -18.78254f, -756.5428f),
+          new Vector3(1.052492f, -28.78199f, -756.9686f),
+          new Vector3(0.7256389f, -28.68945f, -779.1631f),
+          new Vector3(17.55755f, -28.90045f, -815.8238f),
+          new Vector3(1.322136f, -28.79486f, -836.2879f),       
+          new Vector3(2.378944f, -28.78199f, -867.8986f),       
+          new Vector3(91.78398f, -8.781985f, -868.863f),      
+          new Vector3(102.6963f, -8.781985f, -884.329f),       
+          new Vector3(119.9901f, -8.781985f, -890.5149f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
       ]]>
-    </CodeChunk>-->
+    </CodeChunk>
+    <CodeChunk Name="688722">
+      <![CDATA[
+        if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
+
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(135.6971f, -8.781985f, -884.4702f),
+          new Vector3(144.5071f, -8.781985f, -869.3341f),
+          new Vector3(165.6126f, -8.781983f, -868.981f),
+          new Vector3(175.7367f, -8.781983f, -859.7769f),
+          new Vector3(176.4983f, 11.21801f, -722.4253f),
+          new Vector3(183.2491f, 11.21801f, -712.1313f),
+          new Vector3(217.7906f, 11.20001f, -712.3449f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="688723">
+      <![CDATA[
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(181.7987f, 11.21801f, -712.3212f),
+          new Vector3(176.0095f, 11.21801f, -720.659f),
+          new Vector3(176.4096f, 1.218023f, -762.5062f),
+          new Vector3(194.3531f, 1.218023f, -775.2605f),
+          new Vector3(181.801f, 1.218023f, -794.0653f),
+          new Vector3(176.9125f, 1.305836f, -821.2499f),
+          new Vector3(175.6824f, -8.781983f, -860.4199f),
+          new Vector3(166.3485f, -8.781983f, -866.9102f),
+          new Vector3(143.5255f, -8.781985f, -867.6976f),
+          new Vector3(119.945f, -8.781985f, -858.3066f),
+          new Vector3(109.0106f, -8.781985f, -849.2546f),
+          new Vector3(101.6008f, -8.781985f, -852.4489f),
+          new Vector3(102.5557f, -8.781985f, -883.3864f),
+          new Vector3(113.4033f, -8.781985f, -893.2141f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
     <CodeChunk Name="68875">
       <![CDATA[
         var _aetherialLamp = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002554);

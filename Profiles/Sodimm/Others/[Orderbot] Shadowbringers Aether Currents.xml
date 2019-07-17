@@ -650,14 +650,7 @@ Authors:  Sodimm
       </If>
       <If Condition="not IsAetherCurrentCompleted(815,5)">
         <GetTo ZoneId="815" XYZ="-305.9443, -62.86976, 432.674"/>
-        <Dismount/>
-        <NoCombatMoveTo XYZ="-305.9443, -62.86976, 432.674" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-280.9734, -50.28592, 432.7007" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-285.3748, -50.30337, 429.005" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-309.2464, -50.3067, 428.9902" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-308.5241, -50.3067, 425.4828" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-333.6388, -50.33368, 426.6938" Distance="1" UseMesh="False"/>
-        <NoCombatMoveTo XYZ="-332.4466, -50.33371, 417.7561" Distance="1" UseMesh="False"/>
+        <RunCode Name="2010053"/>
         <UseObject NpcId="2010053" XYZ="-332.4484, -50.33954, 418.8143" Condition="not IsAetherCurrentCompleted(815,5)"/>
       </If>
     </If>
@@ -1020,7 +1013,7 @@ Authors:  Sodimm
     <CodeChunk Name="68934">
       <![CDATA[
         MovementManager.StartDescending();
-        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
+        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }
         while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
         MovementManager.StopDescending();
         await Coroutine.Sleep(1000);
@@ -1029,7 +1022,7 @@ Authors:  Sodimm
     
         var _weed1 = new Vector3(-456.891f, -42.01599f, -231.5929f);
     
-        Navigator.PlayerMover.MoveTowards(_weed1);		
+        Navigator.PlayerMover.MoveTowards(_weed1);
         while (Core.Me.Location.Distance2D(_weed1) > 5) {  await Coroutine.Yield();  }
     
         await CommonTasks.StopAndDismount();
@@ -1046,7 +1039,7 @@ Authors:  Sodimm
     
         var _weed2 = new Vector3(-338.8644f, -35.1794f, -211.3806f);
     
-        Navigator.PlayerMover.MoveTowards(_weed2);		
+        Navigator.PlayerMover.MoveTowards(_weed2);
         while (Core.Me.Location.Distance2D(_weed2) > 8) {  await Coroutine.Yield();  }
     
         await CommonTasks.StopAndDismount();
@@ -1063,7 +1056,7 @@ Authors:  Sodimm
     
         var _weed3 = new Vector3(-342.3585f, -56.582f, -161.1658f);
     
-        Navigator.PlayerMover.MoveTowards(_weed3);		
+        Navigator.PlayerMover.MoveTowards(_weed3);
         while (Core.Me.Location.Distance2D(_weed3) > 5) {  await Coroutine.Yield();  }
     
         await CommonTasks.StopAndDismount();
@@ -1080,7 +1073,7 @@ Authors:  Sodimm
     
         var _weed4 = new Vector3(-346.9872f, -49.56383f, -124.0383f);
     
-        Navigator.PlayerMover.MoveTowards(_weed4);		
+        Navigator.PlayerMover.MoveTowards(_weed4);
         while (Core.Me.Location.Distance2D(_weed4) > 3) {  await Coroutine.Yield();  }
     
         await CommonTasks.StopAndDismount();
@@ -1097,48 +1090,35 @@ Authors:  Sodimm
     
         var _exit = new Vector3(-392.8139f, -0.6f, -116.0638f);
 
-        Navigator.PlayerMover.MoveTowards(_exit);		
+        Navigator.PlayerMover.MoveTowards(_exit);
         while (MovementManager.IsDiving) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
     <CodeChunk Name="Lyhe_Ghia">
       <![CDATA[
-        var _loc1 = new Vector3(86.41762f, 25.66877f, -98.48716f);
-        var _loc2 = new Vector3(36.43086f, 36.81553f, -114.6272f);
-        var _loc3 = new Vector3(-15.15595f, 57.50918f, -130.1993f);
-        var _loc4 = new Vector3(-12.4832f, 57.5609f, -143.8537f);
-        var _loc5 = new Vector3(15.22853f, 73.53532f, -177.5079f);
-        var _loc6 = new Vector3(-8.77778f, 89.31206f, -227.638f);
-        var _loc7 = new Vector3(-39.72607f, 96.66605f, -244.038f);
-        var _loc8 = new Vector3(-62.06381f, 105.2942f, -250.6125f);
-
         if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc1);
-        while (Core.Me.Location.Distance2D(_loc1) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc2);
-        while (Core.Me.Location.Distance2D(_loc2) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc3);
-        while (Core.Me.Location.Distance2D(_loc3) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc4);
-        while (Core.Me.Location.Distance2D(_loc4) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc5);
-        while (Core.Me.Location.Distance2D(_loc5) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc6);
-        while (Core.Me.Location.Distance2D(_loc6) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc7);
-        while (Core.Me.Location.Distance2D(_loc7) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc8);
-        while (Core.Me.Location.Distance2D(_loc8) > 0.5f) {  await Coroutine.Yield();  }
-    
+      
+        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(86.41762f, 25.66877f, -98.48716f),
+          new Vector3(36.43086f, 36.81553f, -114.6272f),
+          new Vector3(-15.15595f, 57.50918f, -130.1993f),
+          new Vector3(-12.4832f, 57.5609f, -143.8537f),
+          new Vector3(15.22853f, 73.53532f, -177.5079f),
+          new Vector3(-8.77778f, 89.31206f, -227.638f),
+          new Vector3(-39.72607f, 96.66605f, -244.038f),
+          new Vector3(-62.06381f, 105.2942f, -250.6125f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
@@ -1200,6 +1180,30 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
+    <CodeChunk Name="2010053">
+      <![CDATA[
+        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(-305.4146f, -62.86976f, 432.4416f),
+          new Vector3(-281.6668f, -50.29027f, 432.6295f),
+          new Vector3(-286.2914f, -50.30334f, 428.6368f),
+          new Vector3(-308.6731f, -50.3067f, 429.0031f),
+          new Vector3(-308.5061f, -50.3067f, 426.4303f),
+          new Vector3(-332.6071f, -50.33368f, 426.6283f),
+          new Vector3(-332.5388f, -50.3337f, 420.3345f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+
     <CodeChunk Name="2010057">
       <![CDATA[
         var target = GameObjectManager.GetObjectByNPCId(2010057);
@@ -1251,46 +1255,28 @@ Authors:  Sodimm
       ]]>
     </CodeChunk>
     <CodeChunk Name="BadMesh">
-      <![CDATA[
-        var loc1 = new Vector3(360.9949f, 301.024f, -270.2376f);
-        var loc2 = new Vector3(375.0332f, 302.3947f, -295.8937f);
-        var loc3 = new Vector3(347.5286f, 288.169f, -328.5484f);
-        var loc4 = new Vector3(339.9171f, 282.4768f, -355.5279f);
-        var loc5 = new Vector3(295.5555f, 271.9644f, -357.3546f);
-        var loc6 = new Vector3(273.2782f, 259.411f, -321.0667f);
-        var loc7 = new Vector3(277.5782f, 251.9542f, -289.098f);
-        var loc8 = new Vector3(306.1181f, 242.3637f, -263.6519f);
-        var loc9 = new Vector3(332.9348f, 235.6098f, -267.2523f);
-    
+      <![CDATA[    
         if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc1);
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
- 
-        Navigator.PlayerMover.MoveTowards(loc2);
-        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
-        
-        Navigator.PlayerMover.MoveTowards(loc3);
-        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
-        
-        Navigator.PlayerMover.MoveTowards(loc4);
-        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc5);
-        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc6);
-        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc7);
-        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc8);
-        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(loc9);
-        while (Core.Me.Location.Distance2D(loc9) > 1) {  await Coroutine.Yield();  }		
-    
+
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(360.9949f, 301.024f, -270.2376f),
+          new Vector3(375.0332f, 302.3947f, -295.8937f),
+          new Vector3(347.5286f, 288.169f, -328.5484f),
+          new Vector3(339.9171f, 282.4768f, -355.5279f),
+          new Vector3(295.5555f, 271.9644f, -357.3546f),
+          new Vector3(273.2782f, 259.411f, -321.0667f),
+          new Vector3(277.5782f, 251.9542f, -289.098f),
+          new Vector3(306.1181f, 242.3637f, -263.6519f),
+          new Vector3(332.9348f, 235.6098f, -267.2523f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>

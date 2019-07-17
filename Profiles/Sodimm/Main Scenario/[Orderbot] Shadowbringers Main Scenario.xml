@@ -2293,14 +2293,14 @@ Authors:  Sodimm
     </If>
     <If Condition="HasQuest(69145) and not IsQuestCompleted(69145) and GetQuestStep(69145) == 1">
       <If Condition="not IsOnMap(844)">
-        <GetTo ZoneId="844" XYZ="117.9979, 14.64903, 7.156433"/>
+        <GetTo ZoneId="819" XYZ="115.9231, 14.64907, 6.388192"/>
         <UseTransport InteractDistance="3.0" NpcId="1027230" XYZ="117.9979, 14.64903, 7.156433"/>
       </If>
       <SoTalkTo NpcId="1028923" XYZ="-0.01531982, -7.450581E-09, -6.027344" QuestId="69145" StepId="1"/>
     </If>
     <If Condition="HasQuest(69145) and not IsQuestCompleted(69145) and GetQuestStep(69145) == 2">
       <If Condition="not IsOnMap(844)">
-        <GetTo ZoneId="844" XYZ="117.9979, 14.64903, 7.156433"/>
+        <GetTo ZoneId="819" XYZ="115.9231, 14.64907, 6.388192"/>
         <UseTransport InteractDistance="3.0" NpcId="1027230" XYZ="117.9979, 14.64903, 7.156433"/>
       </If>
       <TalkTo NpcId="1029597" XYZ="2.487183, -7.450581E-09, 1.51062" QuestId="69145" StepId="2"/>
@@ -2321,6 +2321,7 @@ Authors:  Sodimm
     <If Condition="HasQuest(69145) and not IsQuestCompleted(69145) and GetQuestStep(69145) == 5">
       <GetTo ZoneId="813" XYZ="526.7331, -5.232692, 851.1409"/>
       <TalkTo NpcId="1028305" XYZ="525.658, -5.232692, 854.2457" QuestId="69145" StepId="5"/>
+      <WaitWhile Condition="HasQuest(69145) and not IsQuestCompleted(69145) and not GetQuestStep(69145) == 255"/>
     </If>
     <If Condition="HasQuest(69145) and not IsQuestCompleted(69145) and GetQuestStep(69145) == 255">
       <If Condition="not IsOnMap(815)">
@@ -2332,7 +2333,7 @@ Authors:  Sodimm
     <If Condition="IsQuestCompleted(69145) and not HasQuest(69146) and not IsQuestCompleted(69146)">
       <GetTo ZoneId="815" XYZ="-555.7542, 36.31599, -669.1152"/>
       <If Condition="IsQuestAcceptQualified(69146)">
-        <PickupQuest QuestId="69145" NpcId="1029615" XYZ="-556.6949, 36.58642, -670.0695"/>
+        <PickupQuest QuestId="69146" NpcId="1029615" XYZ="-556.6949, 36.58642, -670.0695"/>
       </If>
     </If>
     <If Condition="HasQuest(69146) and not IsQuestCompleted(69146) and GetQuestStep(69146) == 1">
@@ -2606,7 +2607,7 @@ Authors:  Sodimm
       <If Condition="not IsOnMap(815)">
         <GetTo ZoneId="815" XYZ="-424.9985, 17.22812, 7.797758"/>
       </If>
-      <UseItem ItemId="2002562" NpcIds="2009918,2009917,2009916" BlacklistAfter="True" QuestId="69153" StepId="3">
+      <UseItem ItemId="2002562" NpcIds="2009918,2009917,2009916" BlacklistAfter="True" WaitTime="3000" QuestId="69153" StepId="3">
         <HotSpots>
           <HotSpot XYZ="-453.0861, 11.70367, 185.5039" Radius="10"/>
           <HotSpot XYZ="-426.6575, 17.19684, 5.142273" Radius="10"/>
@@ -2855,23 +2856,23 @@ Authors:  Sodimm
       <GetTo ZoneId="814" XYZ="-457.6837, 8.987028, 535.5839"/>
       <TalkTo NpcId="1027288" XYZ="-457.3587, 8.987028, 537.0413" QuestId="69169" StepId="2"/>
     </If>
-    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3">
+    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3 and GetQuestById(69169).GetTodoArgs(3, 0).Item1 == 0">
       <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="-451.1348, 8.987026, 546.1807"/>
       </If>
-      <UseObject NpcId="2010088" XYZ="-451.1348, 8.987026, 546.1807" UseDistance="3.0" BlacklistAfter="True" QuestId="69169" StepId="3"/>
+      <UseObject NpcId="2010088" XYZ="-451.1348, 8.987026, 546.1807" UseDistance="3.0" Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3 and GetQuestById(69169).GetTodoArgs(3, 0).Item1 == 0"/>
     </If>
-    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3">
+    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3 and GetQuestById(69169).GetTodoArgs(3, 0).Item1 == 1">
       <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="-465.2389, 8.987029, 554.0947"/>
       </If>
-      <TalkTo NpcId="1027441" XYZ="-465.3239, 8.987028, 555.4131" QuestId="69169" StepId="3"/>
+      <TalkTo NpcId="1027441" XYZ="-465.3239, 8.987028, 555.4131" QuestId="69169"/>
     </If>
-    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3">
+    <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3 and GetQuestById(69169).GetTodoArgs(3, 0).Item1 == 2">
       <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="-458.325, 18.8181, 480.253"/>
       </If>
-      <UseObject NpcId="2010089" XYZ="-458.2437, 20.00452, 481.59" QuestId="69169" StepId="3"/>
+      <UseObject NpcId="2010089" XYZ="-458.2437, 20.00452, 481.59" Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 3 and GetQuestById(69169).GetTodoArgs(3, 0).Item1 == 2"/>
     </If>
     <If Condition="HasQuest(69169) and not IsQuestCompleted(69169) and GetQuestStep(69169) == 4">
       <If Condition="not IsOnMap(814)">
@@ -3948,41 +3949,28 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68856">
       <![CDATA[
-        var _loc1 = new Vector3(86.41762f, 25.66877f, -98.48716f);
-        var _loc2 = new Vector3(36.43086f, 36.81553f, -114.6272f);
-        var _loc3 = new Vector3(-15.15595f, 57.50918f, -130.1993f);
-        var _loc4 = new Vector3(-12.4832f, 57.5609f, -143.8537f);
-        var _loc5 = new Vector3(15.22853f, 73.53532f, -177.5079f);
-        var _loc6 = new Vector3(-8.77778f, 89.31206f, -227.638f);
-        var _loc7 = new Vector3(-39.72607f, 96.66605f, -244.038f);
-        var _loc8 = new Vector3(-62.06381f, 105.2942f, -250.6125f);
-
         if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc1);
-        while (Core.Me.Location.Distance2D(_loc1) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc2);
-        while (Core.Me.Location.Distance2D(_loc2) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc3);
-        while (Core.Me.Location.Distance2D(_loc3) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc4);
-        while (Core.Me.Location.Distance2D(_loc4) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc5);
-        while (Core.Me.Location.Distance2D(_loc5) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc6);
-        while (Core.Me.Location.Distance2D(_loc6) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc7);
-        while (Core.Me.Location.Distance2D(_loc7) > 0.5f) {  await Coroutine.Yield();  }
-    
-        Navigator.PlayerMover.MoveTowards(_loc8);
-        while (Core.Me.Location.Distance2D(_loc8) > 0.5f) {  await Coroutine.Yield();  }
-    
+      
+        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(86.41762f, 25.66877f, -98.48716f),
+          new Vector3(36.43086f, 36.81553f, -114.6272f),
+          new Vector3(-15.15595f, 57.50918f, -130.1993f),
+          new Vector3(-12.4832f, 57.5609f, -143.8537f),
+          new Vector3(15.22853f, 73.53532f, -177.5079f),
+          new Vector3(-8.77778f, 89.31206f, -227.638f),
+          new Vector3(-39.72607f, 96.66605f, -244.038f),
+          new Vector3(-62.06381f, 105.2942f, -250.6125f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
@@ -4197,7 +4185,6 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
-  LadyofCrowns
     <CodeChunk Name="688721">
       <![CDATA[
         if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
@@ -4312,21 +4299,10 @@ Authors:  Sodimm
         var _tooLargeToolBox = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002559);
         var _cutSceneSelectStringOpen = RaptureAtkUnitManager.GetRawControls.Any(r => r.Name == "CutSceneSelectString");
         
-        await Coroutine.Sleep(500);
+        await Coroutine.Sleep(1000);
         if (_tooLargeToolBox != null)  {  _tooLargeToolBox.UseItem();  }
         
         await Coroutine.Wait(10000, () => QuestLogManager.InCutscene);
-        
-        /*
-        while (QuestLogManager.InCutscene)
-        {
-          if (SelectYesno.IsOpen)  {  SelectYesno.ClickYes();  }
-          if (_step == 2 && _cutSceneSelectStringOpen)  {  RaptureAtkUnitManager.GetWindowByName("CutSceneSelectString").SendAction(2,3,1,4,3);  }
-          if (_step == 3 && _cutSceneSelectStringOpen)  {  RaptureAtkUnitManager.GetWindowByName("CutSceneSelectString").SendAction(2,3,2,4,3);  }         
-          if (Talk.DialogOpen)  {  Talk.Next();  }
-          await Coroutine.Yield();
-        }
-        */
       ]]>
     </CodeChunk>
     <CodeChunk Name="69183">

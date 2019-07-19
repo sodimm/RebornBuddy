@@ -199,6 +199,75 @@ Authors: Sodimm.
         <GetTo ZoneId="819" XYZ="0.9012823, 3.999817, 202.6213"/>
         <TurnIn QuestId="69164" NpcId="1030643" XYZ="-0.1679077, 3.999817, 201.9226"/>
       </If>
+      <If Condition="ClassName == ClassJobType.RedMage">
+        <!-- Succession of Steel (Level 80)-->
+        <If Condition="IsQuestCompleted(68123) and IsQuestCompleted(69164) and IsQuestCompleted(69190) and not HasQuest(68760) and not IsQuestCompleted(68760)">
+          <GetTo ZoneId="156" XYZ="54.2071, 20.44098, -675.8149"/>
+          <If Condition="IsQuestAcceptQualified(68760)">
+            <PickupQuest QuestId="68760" NpcId="1023610" XYZ="55.31384, 20.39794, -676.3562"/>
+          </If>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 1">
+          <If Condition="not IsOnMap(621)">
+            <GetTo ZoneId="621" XYZ="599.3932, 80.00002, 624.2109"/>
+          </If>
+          <TalkTo NpcId="1028372" XYZ="599.2369, 80.00002, 623.0715" QuestId="68760" StepId="1"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 2">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+          </If>
+          <FlyTo XYZ="281.2733, 11.64163, -527.8984" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1028374" XYZ="274.7692, 10.57234, -543.0533" QuestId="68760" StepId="2"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 3">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+          </If>
+          <FlyTo XYZ="79.67352, 19.14065, -586.2928" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <SoTalkTo NpcId="1028379" XYZ="81.49841, 10, -574.2123" QuestId="68760" StepId="3"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 4">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+            <FlyTo XYZ="122.226, 10, -515.8458" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          </If>
+          <TalkTo NpcId="1030849" XYZ="124.4067, 10, -515.5872" QuestId="68760"/>
+          <WaitWhile Condition="HasQuest(68760) and not IsQuestCompleted(68760) and not GetQuestStep(68760) == 5"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 5">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+          </If>
+          <FlyTo XYZ="267.6179, 10.40297, -533.0412" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1028374" XYZ="274.7692, 10.57234, -543.0533" QuestId="68760" StepId="5"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 6">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+          </If>
+          <FlyTo XYZ="-800.1416, 78.69614, -702.8173" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1028376" XYZ="-790.7988, 78.22368, -699.5804" QuestId="68760" StepId="6"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 7">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+          </If>
+          <FlyTo XYZ="55.86184, 20.13222, -775.577" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1028377" XYZ="51.34656, 24.66248, -787.9301" QuestId="68760" StepId="7"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 8">
+          <If Condition="not IsOnMap(621)">
+            <TeleportTo AetheryteId="102" Name="Porta Praetoria"/>
+            <FlyTo XYZ="52.72765, 24.6625, -785.945" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          </If>
+          <TalkTo NpcId="1028377" XYZ="51.34656, 24.66248, -787.9301" QuestId="68760" StepId="8"/>
+        </If>
+        <If Condition="HasQuest(68760) and not IsQuestCompleted(68760) and GetQuestStep(68760) == 255">
+          <GetTo ZoneId="156" XYZ="53.73206, 20.438, -676.1467"/>
+          <TurnIn QuestId="68760" NpcId="1030677" XYZ="55.31384, 20.39794, -676.3562"/>
+        </If>
+      </If>
     </If>
   </Order>
   <GrindAreas/>

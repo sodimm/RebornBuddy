@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Dancer Class Quests.
+Authors:  Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Dancer Class Quests.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Shall We Dance (Unlock) -->
+    <If Condition="not HasQuest(68785) and not IsQuestCompleted(68785)">
+      <GetTo ZoneId="129" XYZ="-70.89236, 20.00033, 41.06253"/>
+      <If Condition="IsQuestAcceptQualified(68785)">
+        <PickupQuest QuestId="68785" NpcId="1028721" XYZ="-70.54254, 20.00033, 42.16064"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68785) and not IsQuestCompleted(68785) and GetQuestStep(68785) == 1">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="129" XYZ="-112.0576, 5.999999, 188.3807"/>
+      </If>
+      <TalkTo NpcId="1028723" XYZ="-112.1386, 6, 189.6848" QuestId="68785" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68785) and not IsQuestCompleted(68785) and GetQuestStep(68785) == 2">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="129" XYZ="-112.1142, 5.999999, 185.6542"/>
+      </If>
+      <UseObject NpcId="2009763" XYZ="-112.0165, 6.027222, 184.863" QuestId="68785" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68785) and not IsQuestCompleted(68785) and GetQuestStep(68785) == 255">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="129" XYZ="-105.5038, 5.999999, 194.248"/>
+      </If>
+      <SoTurnIn QuestId="68785" NpcId="1028724" XYZ="-104.3259, 5.999999, 195.941"/>
+      <RunCode Name="68785"/>
+      <BotSettings AutoEquip="1"/>
+      <WaitTimer WaitTime="15"/>
+      <BotSettings AutoEquip="0"/>
+    </If>
+    <!-- Gamboling for Gil (Level 60) -->
+    <If Condition="IsQuestCompleted(68785) and not HasQuest(68786) and not IsQuestCompleted(68786)">
+      <GetTo ZoneId="129" XYZ="-105.0505, 5.999999, 195.252"/>
+      <If Condition="IsQuestAcceptQualified(68786)">
+        <PickupQuest QuestId="68786" NpcId="1028724" XYZ="-104.3259, 5.999999, 195.941"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68786) and not IsQuestCompleted(68786) and GetQuestStep(68786) == 1">
+      <GetTo ZoneId="137" XYZ="592.6295, 23.90904, 457.2405"/>
+      <TalkTo NpcId="1028730" XYZ="594.3236, 23.96858, 457.6943" QuestId="68786" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68786) and not IsQuestCompleted(68786) and GetQuestStep(68786) == 2">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="137" XYZ="481.5412, 16.4132, 449.2126"/>
+      </If>
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68786) and not IsQuestCompleted(68786) and GetQuestStep(68786) == 255">
+      <If Condition="not IsOnMap(129)">
+        <GetTo ZoneId="137" XYZ="479.5868, 16.43277, 449.0984"/>
+      </If>
+      <TurnIn QuestId="68786" NpcId="1028735" XYZ="480.186, 16.4324, 447.8064"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68785">
+      <![CDATA[
+        await Coroutine.Sleep(5000);
+        
+        var _weaponSlot = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+        var _crystalSlot = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.SoulCrystal];
+
+        // Have to split this, as it'll find the Soul Crystal first.
+        foreach(var item in InventoryManager.FilledInventoryAndArmory)
+        {
+          if (item.RawItemId == 27267)
+          {
+            item.UseItem();
+            await Coroutine.Wait(6000, () => !Core.Me.IsCasting);
+          }
+          
+          if (item.RawItemId == 27358) {  item.Move(_weaponSlot);  }
+        }
+        
+        foreach(var item in InventoryManager.FilledInventoryAndArmory) {  if (item.RawItemId == 25217) {  item.Move(_crystalSlot);  }  }
+
+        await Coroutine.Sleep(1000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

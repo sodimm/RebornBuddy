@@ -3237,8 +3237,10 @@ Authors:  Sodimm
       </If>
     </If>
     <If Condition="HasQuest(69181) and not IsQuestCompleted(69181) and GetQuestStep(69181) == 1">
-      <GetTo ZoneId="819" XYZ="-222.2736, 38.6147, -86.7256"/>
+      <GetTo ZoneId="819" XYZ="-195.8405, 1.192093E-07, -81.81522"/>
+	  <RunCode Name="69181"/>
       <UseObject NpcId="2010136" XYZ="-223.4684, 38.59009, -86.86963" QuestId="69181" StepId="1"/>
+	  <MoveTo XYZ="-180.156, 1.192093E-07, -74.98458" UseMesh="False" Distance="1"/>
     </If>
     <If Condition="HasQuest(69181) and not IsQuestCompleted(69181) and GetQuestStep(69181) == 2 and GetQuestById(69181).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="IsOnMap(819)">
@@ -3308,6 +3310,7 @@ Authors:  Sodimm
     <If Condition="HasQuest(69183) and not IsQuestCompleted(69183) and GetQuestStep(69183) == 3">
       <GetTo ZoneId="813" XYZ="-614.0067, 27.72864, 815.555"/>
       <SoTalkTo NpcId="1030333" Dialogoption="1" XYZ="-612.2377, 27.72864, 817.6547" QuestId="69183" StepId="3"/>
+	  <WaitWhile Condition="HasQuest(69183) and not IsQuestCompleted(69183) and not GetQuestStep(69183) == 255"/>
     </If>
     <If Condition="HasQuest(69183) and not IsQuestCompleted(69183) and GetQuestStep(69183) == 255">
       <GetTo ZoneId="818" XYZ="281.505, 414.7568, -858.151"/>
@@ -3357,17 +3360,17 @@ Authors:  Sodimm
       </If>
       <TalkTo NpcId="1030518" XYZ="400.3813, 363.6555, -439.6582" QuestId="69185" StepId="1"/>
     </If>
+    <If Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 2 and not IsTodoChecked(69185, 2, 1)">
+      <If Condition="not IsOnMap(818)">
+        <GetTo ZoneId="818" XYZ="324.801, 354.5316, -477.1926"/>
+      </If>
+      <UseItem ItemId="2002673" NpcId="2010142" XYZ="324.801, 354.5316, -477.1926" QuestId="69185" Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 2 and not IsTodoChecked(69185, 2, 1)"/>
+    </If>
     <If Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 2 and not IsTodoChecked(69185, 2, 0)">
       <If Condition="not IsOnMap(818)">
         <GetTo ZoneId="818" XYZ="405.5002, 361.2451, -415.4251"/>
       </If>
       <RunCode Name="Announce_Manual_Completion"/>
-    </If>
-    <If Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 2 and not IsTodoChecked(69185, 2, 1)">
-      <If Condition="not IsOnMap(818)">
-        <GetTo ZoneId="818" XYZ="324.801, 354.5316, -477.1926"/>
-      </If>
-      <UseItem ItemId="2002673" NpcId="2010142" XYZ="326.8329, 355.7946, -477.5311" QuestId="69185" Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 2 and not IsTodoChecked(69185, 2, 1)"/>
     </If>
     <If Condition="HasQuest(69185) and not IsQuestCompleted(69185) and GetQuestStep(69185) == 3">
       <If Condition="not IsOnMap(818)">
@@ -3383,7 +3386,7 @@ Authors:  Sodimm
       <GetTo ZoneId="818" XYZ="26.4468, 381.7419, -523.5912"/>
       <TurnIn QuestId="69185" NpcId="1030225" XYZ="28.82422, 381.8191, -524.4374"/>
     </If>
-    <!-- The Light of Inspiration (Level 80) -->
+    <!-- The Light of Inspiration (Level 79) -->
     <If Condition="IsQuestCompleted(69185) and not HasQuest(69186) and not IsQuestCompleted(69186)">
       <GetTo ZoneId="818" XYZ="26.4468, 381.7419, -523.5912"/>
       <If Condition="IsQuestAcceptQualified(69186)">
@@ -3404,19 +3407,20 @@ Authors:  Sodimm
       </If>
       <RunCode Name="69186"/>
       <WaitWhile Condition="HasQuest(69186) and not IsQuestCompleted(69186) and not GetQuestStep(69186) == 255"/>
+    </If>
+    <If Condition="not IsQuestCompleted(68784) and not IsQuestCompleted(68808) and not IsQuestCompleted(68814) and not IsQuestCompleted(69164)">
       <RunCode Name="Role_Quests"/>
     </If>
-    <If Condition="not Core.Me.ClassLevel &gt; 79 and HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
-      <RunCode Name="Role_Quests"/>
-    </If>
-    <If Condition="Core.Me.ClassLevel &gt; 79 and HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
-      <GetTo ZoneId="818" XYZ="640.3073, 402.24, 210.8794"/>
-      <SoTurnIn QuestId="69186" NpcId="1030586" XYZ="638.9716, 402.24, 212.787"/>
+    <If Condition="IsQuestCompleted(68784) and IsQuestCompleted(68808) and IsQuestCompleted(68814) and IsQuestCompleted(69164)">
+      <If Condition="HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
+        <GetTo ZoneId="818" XYZ="640.3073, 402.24, 210.8794"/>
+        <SoTurnIn QuestId="69186" NpcId="1030586" XYZ="638.9716, 402.24, 212.787"/>
+      </If>
     </If>
     <!-- The Illuminated Land (Level 80)  -->
     <If Condition="IsQuestCompleted(69186) and not HasQuest(69187) and not IsQuestCompleted(69187)">
       <GetTo ZoneId="818" XYZ="641.0081, 402.24, 209.3931"/>
-      <If Condition="IsQuestAcceptQualified(69186)">
+      <If Condition="IsQuestAcceptQualified(69187)">
         <PickupQuest QuestId="69187" NpcId="1030586" XYZ="638.9716, 402.24, 212.787"/>
       </If>
     </If>
@@ -3431,11 +3435,16 @@ Authors:  Sodimm
       <TalkTo NpcId="1031279" XYZ="514.6715, 356.5845, -268.5131" QuestId="69187" StepId="2"/>
     </If>
     <If Condition="HasQuest(69187) and not IsQuestCompleted(69187) and GetQuestStep(69187) == 3">
+	  <!-- GetTo may keep walking over the geyser -->
       <GetTo ZoneId="818" XYZ="403.1016, 303.3107, -245.2823"/>
       <TalkTo NpcId="1030570" XYZ="400.595, 303.5103, -245.1057" QuestId="69187" StepId="3"/>
     </If>
     <If Condition="HasQuest(69187) and not IsQuestCompleted(69187) and GetQuestStep(69187) == 4">
-      <GetTo ZoneId="818" XYZ="303.8245, 238.2643, -344.4436"/>
+      <If Condition="not IsOnMap(818)">
+        <GetTo ZoneId="818" XYZ="403.1016, 303.3107, -245.2823"/>
+      </If>
+	  <RunCode Name="69187"/>
+      <GetTo ZoneId="818" XYZ="303.8245, 238.2643, -344.4436"/>	  
       <TalkTo NpcId="1030532" XYZ="302.0217, 238.7522, -346.1509" QuestId="69187" StepId="4"/>
     </If>
     <If Condition="HasQuest(69187) and not IsQuestCompleted(69187) and GetQuestStep(69187) == 5">
@@ -3509,9 +3518,7 @@ Authors:  Sodimm
       <UseObject NpcId="2010147" XYZ="1.51062, -276.936, 261.6464" QuestId="69189" StepId="2"/>
     </If>
     <If Condition="HasQuest(69189) and not IsQuestCompleted(69189) and GetQuestStep(69189) == 3">
-      <If Condition="not IsOnMap(818)">
-        <GetTo ZoneId="818" XYZ="0.06965434, -276.906, 269.3676"/>
-      </If>
+      <GetTo ZoneId="818" XYZ="0.06965434, -276.906, 269.3676"/>
       <TalkTo NpcId="1027772" XYZ="5.386414, -276.906, 271.5953" InteractDistance="8.0" QuestId="69189" StepId="3"/>
     </If>
     <If Condition="HasQuest(69189) and not IsQuestCompleted(69189) and GetQuestStep(69189) == 4">
@@ -3525,9 +3532,7 @@ Authors:  Sodimm
       <UseObject NpcId="2010148" XYZ="285.6946, -272.7856, 672.0225" QuestId="69189" StepId="5"/>
     </If>
     <If Condition="HasQuest(69189) and not IsQuestCompleted(69189) and GetQuestStep(69189) == 6">
-      <If Condition="not IsOnMap(818)">
-        <GetTo ZoneId="818" XYZ="314.3522, -274.1735, 658.7352"/>
-      </If>
+      <GetTo ZoneId="818" XYZ="314.3522, -274.1735, 658.7352"/>
       <TalkTo NpcId="1027773" XYZ="316.4568, -274.1735, 653.6506" InteractDistance="8.0" QuestId="69189" StepId="6"/>
     </If>
     <If Condition="HasQuest(69189) and not IsQuestCompleted(69189) and GetQuestStep(69189) == 255">
@@ -4304,7 +4309,33 @@ Authors:  Sodimm
         
         await Coroutine.Wait(10000, () => QuestLogManager.InCutscene);
       ]]>
+    </CodeChunk>	
+    <CodeChunk Name="69181">
+      <![CDATA[
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(-195.8405f, 1.192093E-07f, -81.81522f),
+          new Vector3(-212.5937f, 8.898566f, -83.02216f),
+          new Vector3(-211.8621f, 8.898599f, -88.765f),
+          new Vector3(-197.1779f, 17.75974f, -87.26595f),
+          new Vector3(-197.6884f, 17.75973f, -81.76833f),
+          new Vector3(-212.4639f, 26.65731f, -83.30803f),
+          new Vector3(-211.8611f, 26.65728f, -88.52416f),
+          new Vector3(-196.7749f, 35.56873f, -86.70128f),
+          new Vector3(-197.4008f, 35.56873f, -82.18397f),
+          new Vector3(-222.9072f, 38.61477f, -86.57802f),
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
+      ]]>
     </CodeChunk>
+
     <CodeChunk Name="69183">
       <![CDATA[
         GameObject _target = null;
@@ -4389,6 +4420,32 @@ Authors:  Sodimm
       <![CDATA[ 
         Core.OverlayManager.AddToast(() => "If you have not done so, please complete your level 80 Role Quest.\n Restart this profile once completed.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69187">
+      <![CDATA[    
+        if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
+
+        var vector3Array = new Vector3[]
+        {
+          new Vector3(360.9949f, 301.024f, -270.2376f),
+          new Vector3(375.0332f, 302.3947f, -295.8937f),
+          new Vector3(347.5286f, 288.169f, -328.5484f),
+          new Vector3(339.9171f, 282.4768f, -355.5279f),
+          new Vector3(295.5555f, 271.9644f, -357.3546f),
+          new Vector3(273.2782f, 259.411f, -321.0667f),
+          new Vector3(277.5782f, 251.9542f, -289.098f),
+          new Vector3(306.1181f, 242.3637f, -263.6519f),
+          new Vector3(332.9348f, 235.6098f, -267.2523f)
+        };
+
+        foreach (var loc in vector3Array)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }        
+
+        Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
   </CodeChunks>

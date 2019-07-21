@@ -3060,6 +3060,7 @@ Authors:  Sodimm
         <GetTo ZoneId="814" XYZ="610.4, 278.207, -511.0002"/>
       </If>
       <TalkTo NpcId="1030375" XYZ="611.9325, 278.146, -512.4437" QuestId="69175" StepId="2"/>
+      <WaitWhile Condition="not Core.Me.HasAura(416)"/>
     </If>
     <If Condition="HasQuest(69175) and not IsQuestCompleted(69175) and GetQuestStep(69175) == 3">
       <If Condition="not Core.Me.HasAura(416)">

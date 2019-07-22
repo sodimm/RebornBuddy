@@ -400,10 +400,10 @@ Authors:  Sodimm
       </If>
       <FlyTo XYZ="-813.9286, 25.10179, -155.4678" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <TalkTo NpcId="1030415" XYZ="-816.495, 24.88758, -155.1995" QuestId="68936" StepId="1"/>
-      <WaitWhile Condition="not Core.Me.HasAura(416)"/>
+      <WaitWhile Condition="not Core.Me.HasAura(404)"/>
     </If>
     <If Condition="HasQuest(68936) and not IsQuestCompleted(68936) and GetQuestStep(68936) == 2">
-      <If Condition="not Core.Me.HasAura(416)">
+      <If Condition="not Core.Me.HasAura(404)">
         <If Condition="not IsOnMap(816)">
           <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
           <FlyTo XYZ="-813.9286, 25.10179, -155.4678" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
@@ -760,8 +760,10 @@ Authors:  Sodimm
     <If Condition="HasQuest(68951) and not IsQuestCompleted(68951) and GetQuestStep(68951) == 1">
       <If Condition="not IsOnMap(816)">
         <TeleportTo AetheryteId="146" Name="Wolekdorf"/>
+        <FlyTo XYZ="-543.0581, 72.79016, -407.4279" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
       </If>
-      <FlyTo XYZ="-168.991, 1.405617, -220.0175" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+	  <RunCode Name="68951"/>
+      <!--<FlyTo XYZ="-168.991, 1.405617, -220.0175" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>-->
       <UseItem ItemId="2002646" NpcId="2010193" XYZ="-166.0945, 2.334595, -220.1724" QuestId="68951" StepId="1"/>
     </If>
     <!-- Growing Pla Enni -->
@@ -1110,7 +1112,7 @@ Authors:  Sodimm
         <TeleportTo AetheryteId="146" Name="Wolekdorf"/>
       </If>
       <FlyTo XYZ="54.17983, -0.5999999, -275.7131" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
-      <SoTalkTo NpcIds="2010700" XYZ="52.14001, 0.3203735, -270.4357" QuestId="68956" StepId="1"/>
+      <SoTalkTo NpcId="2010700" XYZ="52.14001, 0.3203735, -270.4357" InteractDistance="3.0" QuestId="68956" StepId="1"/>
     </If>
     <!-- Not All Pixies -->
     <If Condition="HasQuest(68959) and not IsQuestCompleted(68959) and GetQuestStep(68959) == 1">
@@ -1499,13 +1501,14 @@ Authors:  Sodimm
     
         if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
     
-        await Coroutine.Sleep(1000);
+        await Coroutine.Sleep(3000);
     
         _target.Target();
+		_target.Face();
     
         ChatManager.SendChat("/s Lad Kenn");
     
-        while (ConditionParser.GetQuestById(68933).GetTodoArgs(1, 0).Item1 == 0)
+        while (ConditionParser.GetQuestStep(68933) != 255)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
@@ -1515,9 +1518,39 @@ Authors:  Sodimm
     <CodeChunk Name="68944">
       <![CDATA[
         var _succulentScent = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002608);
+		
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+
         await Coroutine.Sleep(3000);
+
         if (_succulentScent != null)  {  _succulentScent.UseItem();  }
+
         await Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68951">
+      <![CDATA[
+        var _flightpath = new Vector3[]
+        {
+          new Vector3(-446.5148f, 84.20917f, -352.3549f),
+          new Vector3(-337.526f, 37.72633f, -298.5085f),
+          new Vector3(-238.1404f, 13.14456f, -232.0278f),
+          new Vector3(-167.4125f, 2.053564f, -220.535f)
+        };
+
+        if (!Core.Me.IsMounted) { await CommonTasks.SummonFlyingMount(); }
+
+		if (!MovementManager.IsFlying)
+		{
+		  await CommonTasks.TakeOff();
+		  await Coroutine.Wait(3000, () => MovementManager.IsFlying);
+		}
+		
+        foreach (var v3 in _flightpath)
+        {
+          ff14bot.Pathing.Flightor.MoveTo(v3);
+          while (v3.Distance(Core.Me.Location) > 3f) { await Coroutine.Yield(); }
+        }
       ]]>
     </CodeChunk>
     <CodeChunk Name="68962">

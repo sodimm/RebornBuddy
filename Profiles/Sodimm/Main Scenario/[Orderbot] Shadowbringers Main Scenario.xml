@@ -3409,10 +3409,10 @@ Authors:  Sodimm
       <RunCode Name="69186"/>
       <WaitWhile Condition="HasQuest(69186) and not IsQuestCompleted(69186) and not GetQuestStep(69186) == 255"/>
     </If>
-    <If Condition="not IsQuestCompleted(68784) and not IsQuestCompleted(68808) and not IsQuestCompleted(68814) and not IsQuestCompleted(69164)">
+    <If Condition="not IsQuestCompleted(68784) and not IsQuestCompleted(68808) and not IsQuestCompleted(68814) and not IsQuestCompleted(69164) and HasQuest(69186) and not IsQuestCompleted(69186)">
       <RunCode Name="Role_Quests"/>
     </If>
-    <If Condition="IsQuestCompleted(68784) and IsQuestCompleted(68808) and IsQuestCompleted(68814) and IsQuestCompleted(69164)">
+    <If Condition="IsQuestCompleted(68784) or IsQuestCompleted(68808) or IsQuestCompleted(68814) or IsQuestCompleted(69164)">
       <If Condition="HasQuest(69186) and not IsQuestCompleted(69186) and GetQuestStep(69186) == 255">
         <GetTo ZoneId="818" XYZ="640.3073, 402.24, 210.8794"/>
         <SoTurnIn QuestId="69186" NpcId="1030586" XYZ="638.9716, 402.24, 212.787"/>

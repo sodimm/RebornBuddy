@@ -1212,13 +1212,6 @@ Authors:  Sodimm
       <GetTo ZoneId="816" XYZ="-389.867, 54.02066, 436.512"/>
       <TalkTo NpcId="1031030" XYZ="-390.8293, 54.33358, 434.9277" QuestId="68966" StepId="1"/>
     </If>
-    <!-- In His Mistress’s Name -->
-    <If Condition="IsQuestCompleted(68856) and IsQuestCompleted(68956) and not HasQuest(68961) and not IsQuestCompleted(68961)">
-      <GetTo ZoneId="816" XYZ="-295.0324, 40.32404, 456.1457"/>
-      <If Condition="IsQuestAcceptQualified(68961)">
-        <PickupQuest QuestId="68961" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
-      </If>
-    </If>
     <!-- The Key Ingredient -->
     <If Condition="HasQuest(68966) and not IsQuestCompleted(68966) and GetQuestStep(68966) == 2">
       <If Condition="not IsOnMap(816)">
@@ -1235,24 +1228,10 @@ Authors:  Sodimm
       <SelectStringOverride Index="1"/>
       <TalkTo NpcId="1031087" XYZ="-345.0523, 27.13289, 341.9089" QuestId="68966" StepId="3"/>
     </If>
-    <!-- In His Mistress’s Name -->
-    <If Condition="HasQuest(68961) and not IsQuestCompleted(68961) and GetQuestStep(68961) == 1">
-      <GetTo ZoneId="816" XYZ="365.0328, 87.00592, -712.5899"/>
-      <HandOver ItemId="2002881" NpcId="1027693" XYZ="364.2786, 87.00109, -715.4193" QuestId="68961" StepId="1"/>
-    </If>
     <!-- The Key Ingredient -->
     <If Condition="HasQuest(68966) and not IsQuestCompleted(68966) and GetQuestStep(68966) == 255">
-      <If Condition="not IsOnMap(816)">
-        <GetTo ZoneId="816" XYZ="438.66, 89.80748, -653.4194"/>
-      </If>
+      <GetTo ZoneId="816" XYZ="438.66, 89.80748, -653.4194"/>
       <TurnIn ItemId="2002751" QuestId="68966" NpcId="1031027" XYZ="440.2686, 90.10915, -651.2093"/>
-    </If>
-    <!-- Duplicity in the Depths -->
-    <If Condition="HasQuest(68968) and not IsQuestCompleted(68968) and GetQuestStep(68968) == 255">
-      <If Condition="not IsOnMap(816)">
-        <GetTo ZoneId="816" XYZ="357.2786, 86.57841, -690.723"/>
-      </If>
-      <TurnIn ItemId="2002886" QuestId="68968" NpcId="1031179" XYZ="353.8414, 86.52624, -691.2795"/>
     </If>
     <!-- A New Favorite -->
     <If Condition="IsQuestCompleted(68943) and IsQuestCompleted(68966) and not HasQuest(68967) and not IsQuestCompleted(68967)">
@@ -1266,6 +1245,13 @@ Authors:  Sodimm
         <GetTo ZoneId="816" XYZ="381.2514, 87.98692, -641.8118"/>
       </If>
       <TalkTo NpcId="1031287" XYZ="378.7136, 87.64063, -643.4272" QuestId="68967" StepId="1"/>
+    </If>
+    <!-- Duplicity in the Depths -->
+    <If Condition="HasQuest(68968) and not IsQuestCompleted(68968) and GetQuestStep(68968) == 255">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="357.2786, 86.57841, -690.723"/>
+      </If>
+      <TurnIn ItemId="2002886" QuestId="68968" NpcId="1031179" XYZ="353.8414, 86.52624, -691.2795"/>
     </If>
     <!-- In His Mistress’s Memory -->
     <If Condition="HasQuest(68956) and not IsQuestCompleted(68956) and GetQuestStep(68956) == 255">
@@ -1324,9 +1310,11 @@ Authors:  Sodimm
       <TurnIn QuestId="68955" NpcId="1027692" XYZ="382.1317, 86.55059, -617.0901"/>
     </If>
     <!-- In His Mistress’s Name -->
-    <If Condition="HasQuest(68961) and not IsQuestCompleted(68961) and GetQuestStep(68961) == 255">
-      <GetTo ZoneId="816" XYZ="-295.053, 40.32404, 458.0529"/>
-      <TurnIn QuestId="68961" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
+    <If Condition="IsQuestCompleted(68856) and IsQuestCompleted(68956) and not HasQuest(68961) and not IsQuestCompleted(68961)">
+      <GetTo ZoneId="816" XYZ="-295.0324, 40.32404, 456.1457"/>
+      <If Condition="IsQuestAcceptQualified(68961)">
+        <PickupQuest QuestId="68961" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
+      </If>
     </If>
     <!-- A New Favorite -->
     <If Condition="HasQuest(68967) and not IsQuestCompleted(68967) and GetQuestStep(68967) == 2">
@@ -1390,6 +1378,17 @@ Authors:  Sodimm
     <If Condition="HasQuest(68967) and not IsQuestCompleted(68967) and GetQuestStep(68967) == 255">
       <GetTo ZoneId="816" XYZ="438.5806, 89.56653, -655.2277"/>
       <TurnIn QuestId="68967" NpcId="1027695" XYZ="441.6418, 89.80711, -653.4371"/>
+    </If>
+    <!-- In His Mistress’s Name -->
+    <If Condition="HasQuest(68961) and not IsQuestCompleted(68961) and GetQuestStep(68961) == 1">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="365.0328, 87.00592, -712.5899"/>
+      </If>
+      <HandOver ItemId="2002881" NpcId="1027693" XYZ="364.2786, 87.00109, -715.4193" QuestId="68961" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68961) and not IsQuestCompleted(68961) and GetQuestStep(68961) == 255">
+      <GetTo ZoneId="816" XYZ="-295.053, 40.32404, 458.0529"/>
+      <TurnIn QuestId="68961" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
     </If>
   </Order>
   <GrindAreas>

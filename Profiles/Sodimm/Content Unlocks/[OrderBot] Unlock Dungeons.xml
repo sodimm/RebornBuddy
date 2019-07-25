@@ -822,7 +822,7 @@ Authors:  Sodimm
       <TurnIn QuestId="68678" NpcId="1026202" XYZ="-611.6274, 146.8684, 57.87744"/>
     </If>
     <!-- [The Twinning] By the Time You Hear This -->
-    <If Condition="not HasQuest(69131) and IsQuestCompleted(69190) and not IsQuestCompleted(69131)">
+    <If Condition="IsQuestCompleted(69190) and IsQuestCompleted(68678) and not HasQuest(69131) and IsQuestCompleted(69190) and not IsQuestCompleted(69131)">
       <GetTo ZoneId="819" XYZ="-131.1786, 0, -13.46894"/>
       <If Condition="IsQuestAcceptQualified(69131)">
         <PickupQuest QuestId="69131" NpcId="1028898" XYZ="-132.5856, 0, -14.02307"/>
@@ -840,30 +840,28 @@ Authors:  Sodimm
       <TurnIn QuestId="69131" NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455"/>
     </If>
     <!-- [Akadaemia Anyder] Akadaemia Anyder -->
-    <If Condition="not HasQuest(69132) and IsQuestCompleted(69190) and not IsQuestCompleted(69132)">
+    <If Condition="IsQuestCompleted(69131) and not HasQuest(69132) and IsQuestCompleted(69190) and not IsQuestCompleted(69132)">
       <GetTo ZoneId="820" XYZ="82.65393, -10.36872, 59.46068"/>
       <If Condition="IsQuestAcceptQualified(69132)">
         <PickupQuest QuestId="69132" NpcId="1031144" XYZ="84.33655, -10.49067, 59.49487"/>
       </If>
     </If>
     <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 1">
-      <If Condition="not IsOnMap(818)">
-        <GetTo ZoneId="818" XYZ="-0.01491685, -276.906, 269.5677"/>
-      </If>
-      <TalkTo NpcId="1027772" XYZ="5.386414, -276.906, 271.5953" QuestId="69132" StepId="1"/>
+      <GetTo ZoneId="818" XYZ="-0.01491685, -276.906, 269.5677"/>
+      <TalkTo NpcId="1027772" XYZ="-0.01491685, -276.906, 269.5677" InteractDistance="7.0" QuestId="69132" StepId="1"/>
     </If>
     <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 2">
-      <GetTo ZoneId="818" XYZ="-70.35913, -274.3316, 584.3067"/>
-      <TalkTo NpcId="1028056" XYZ="-68.37573, -274.3316, 579.3392" QuestId="69132" StepId="2"/>
+      <GetTo ZoneId="818" XYZ="-70.46259, -274.3316, 584.2511"/>
+      <TalkTo NpcId="1028056" XYZ="-70.46259, -274.3316, 584.2511" QuestId="69132" StepId="2"/>
     </If>
     <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 3">
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 4">
       <If Condition="not IsOnMap(818)">
-        <GetTo ZoneId="818" XYZ="-70.3502, -274.3316, 584.3105"/>
+        <GetTo ZoneId="818" XYZ="-70.46259, -274.3316, 584.2511"/>
       </If>
-      <TalkTo NpcId="1028056" XYZ="-68.37573, -274.3316, 579.3392" QuestId="69132" StepId="4"/>
+      <TalkTo NpcId="1028056" XYZ="-70.46259, -274.3316, 584.2511" InteractDistance="7.0" QuestId="69132" StepId="4"/>
     </If>
     <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 255">
       <GetTo ZoneId="820" XYZ="81.08707, -10.321, 59.02909"/>
@@ -872,15 +870,20 @@ Authors:  Sodimm
   </Order>
   <GrindAreas/>
   <CodeChunks>
-    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
         Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
-    <CodeChunk Name="Unlock_Normal_Mode"><![CDATA[ 
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Unlock_Normal_Mode">
+      <![CDATA[ 
         Core.OverlayManager.AddToast(() => "You must complete the Normal Mode version of this dungeon to proceed.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
-      ]]></CodeChunk>
-    <CodeChunk Name="Camp_Tranquil_Jump"><![CDATA[ 
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Camp_Tranquil_Jump">
+      <![CDATA[ 
         if (Core.Player.IsMounted)
         {
           await CommonTasks.StopAndDismount();
@@ -893,8 +896,10 @@ Authors:  Sodimm
         MovementManager.Jump();
         await Coroutine.Sleep(1500);
         MovementManager.MoveStop();
-      ]]></CodeChunk>
-    <CodeChunk Name="Disable_Flight"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
         foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
         {
           try
@@ -904,8 +909,10 @@ Authors:  Sodimm
           }
           catch (Exception ex) { }
         }
-      ]]></CodeChunk>
-    <CodeChunk Name="Sui-no-Sato"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Sui-no-Sato">
+      <![CDATA[
         if (MovementManager.IsSwimming)
         {
           MovementManager.StartDescending();
@@ -927,8 +934,10 @@ Authors:  Sodimm
 
         MovementManager.MoveForwardStop();
         await Coroutine.Sleep(2000);
-      ]]></CodeChunk>
-    <CodeChunk Name="Shisui_of_the_Violet_Tides"><![CDATA[
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Shisui_of_the_Violet_Tides">
+      <![CDATA[
         if (MovementManager.IsSwimming)
         {
           MovementManager.StartDescending();
@@ -946,6 +955,7 @@ Authors:  Sodimm
         }
 
         await Coroutine.Sleep(2000);
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

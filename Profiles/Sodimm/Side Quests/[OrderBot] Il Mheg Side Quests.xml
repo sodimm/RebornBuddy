@@ -732,14 +732,15 @@ Authors:  Sodimm
       </If>
       <FlyTo XYZ="-245.8139, 53.54874, -509.3534" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       <RunCode Name="68944"/>
-      <TalkTo NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="1"/>
+      <!--<TalkTo NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="1"/>-->
     </If>
     <If Condition="HasQuest(68944) and not IsQuestCompleted(68944) and GetQuestStep(68944) == 2">
       <If Condition="not IsOnMap(816)">
         <TeleportTo AetheryteId="146" Name="Wolekdorf"/>
         <FlyTo XYZ="-245.8139, 53.54874, -509.3534" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
       </If>
-      <UseObject NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="2"/>
+      <RunCode Name="68944"/>
+      <!--<UseObject NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="2"/>-->
     </If>
     <!-- One Good Trick Deserves Another -->
     <If Condition="HasQuest(68950) and not IsQuestCompleted(68950) and GetQuestStep(68950) == 1 and GetQuestById(68950).GetTodoArgs(1, 0).Item1 == 0">
@@ -762,7 +763,7 @@ Authors:  Sodimm
         <TeleportTo AetheryteId="146" Name="Wolekdorf"/>
         <FlyTo XYZ="-543.0581, 72.79016, -407.4279" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
       </If>
-	  <RunCode Name="68951"/>
+      <RunCode Name="68951"/>
       <!--<FlyTo XYZ="-168.991, 1.405617, -220.0175" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>-->
       <UseItem ItemId="2002646" NpcId="2010193" XYZ="-166.0945, 2.334595, -220.1724" QuestId="68951" StepId="1"/>
     </If>
@@ -1503,7 +1504,7 @@ Authors:  Sodimm
         await Coroutine.Sleep(3000);
     
         _target.Target();
-		_target.Face();
+        _target.Face();
     
         ChatManager.SendChat("/s Lad Kenn");
     
@@ -1517,18 +1518,42 @@ Authors:  Sodimm
     <CodeChunk Name="68944">
       <![CDATA[
         var _succulentScent = InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002608);
-		
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+    
+        if (Core.Me.IsMounted)
+        {
+          ActionManager.Dismount();
+          await Coroutine.Wait(3000, () => !Core.Me.IsMounted);
+        }
+
+        await Coroutine.Sleep(1000);
+
+        if (_succulentScent != null)
+        {
+          _succulentScent.UseItem();
+          await Coroutine.Wait(5000, () => !Core.Me.IsCasting);
+        }
 
         await Coroutine.Sleep(3000);
+    
+        var _target = GameObjectManager.GetObjectByNPCId(2010722);		
+    
+        while (ConditionParser.GetQuestStep(68944) != 255)
+        {
+          if (!Core.Me.HasTarget)
+          {
+            _target.Target();
+            _target.Interact();
+          }
 
-        if (_succulentScent != null)  {  _succulentScent.UseItem();  }
-
-        await Coroutine.Sleep(3000);
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
       ]]>
     </CodeChunk>
     <CodeChunk Name="68951">
       <![CDATA[
+        await Coroutine.Sleep(5000);
+    
         var _flightpath = new Vector3[]
         {
           new Vector3(-446.5148f, 84.20917f, -352.3549f),
@@ -1539,12 +1564,12 @@ Authors:  Sodimm
 
         if (!Core.Me.IsMounted) { await CommonTasks.SummonFlyingMount(); }
 
-		if (!MovementManager.IsFlying)
-		{
-		  await CommonTasks.TakeOff();
-		  await Coroutine.Wait(3000, () => MovementManager.IsFlying);
-		}
-		
+        if (!MovementManager.IsFlying)
+        {
+          await CommonTasks.TakeOff();
+          await Coroutine.Wait(3000, () => MovementManager.IsFlying);
+        }
+    
         foreach (var v3 in _flightpath)
         {
           ff14bot.Pathing.Flightor.MoveTo(v3);

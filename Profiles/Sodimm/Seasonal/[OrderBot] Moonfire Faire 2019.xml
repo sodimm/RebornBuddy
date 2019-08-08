@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Moonfire Faire 2019
+Authors:  Sodimm.
+Notes:    Jumping puzzle is not 100% foolproof.
+-->
+<Profile>
+  <Name>[OrderBot] Moonfire Faire 2019</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Feels Like Moonfire -->
+    <If Condition="not HasQuest(69199) and not IsQuestCompleted(69199)">
+      <GetTo ZoneId="128" XYZ="13.67993, 45.65599, 129.3141"/>
+      <If Condition="IsQuestAcceptQualified(69199)">
+        <PickupQuest QuestId="69199" NpcId="1031437" XYZ="14.32819, 45.66599, 131.3649"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69199) and not IsQuestCompleted(69199) and GetQuestStep(69199) == 1">
+      <GetTo ZoneId="137" XYZ="732.7911, 11.34909, 262.9894"/>
+      <TalkTo NpcId="1031438" XYZ="734.6456, 11.27637, 262.9586" QuestId="69199" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69199) and not IsQuestCompleted(69199) and GetQuestStep(69199) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.7911, 11.34909, 262.9894"/>
+      </If>
+      <TurnIn QuestId="69199" NpcId="1031438" XYZ="734.6456, 11.27637, 262.9586"/>
+    </If>
+    <!-- Anything You Can Do -->
+    <If Condition="not HasQuest(69200) and not IsQuestCompleted(69200)">
+      <GetTo ZoneId="137" XYZ="731.1017, 11.34909, 262.9241"/>
+      <If Condition="IsQuestAcceptQualified(69200)">
+        <PickupQuest QuestId="69200" NpcId="1031438" XYZ="734.6456, 11.27637, 262.9586"/>
+      </If>
+    </If>
+    <!-- High-flying Hijinks -->
+    <If Condition="not HasQuest(69201)">
+      <GetTo ZoneId="137" XYZ="767.8188, 9.479458, 341.1429"/>
+      <If Condition="IsQuestAcceptQualified(69201)">
+        <PickupQuest QuestId="69201" NpcId="1031440" XYZ="768.3679, 9.338646, 343.0074"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69201) and GetQuestStep(69201) == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="762.3204, 8.9, 350.3758"/>
+      </If>
+      <MoveTo XYZ="762.3204, 8.9, 350.3758"/>
+      <RunCode Name="69201_1"/>
+      <TalkTo NpcId="1031441" XYZ="763.5156, 23.0968, 446.2806" QuestId="69201" StepId="1"/>
+      <MoveTo XYZ="763.8587, 9.542375, 464.1657" Distance="1" UseMesh="False"/>
+    </If>
+    <If Condition="HasQuest(69201) and GetQuestStep(69201) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="764.4641, 9.608299, 466.12"/>
+      </If>
+      <MoveTo XYZ="764.4641, 9.608299, 466.12" Distance="0.2"/>
+      <RunCode Name="69201_2"/>
+      <TurnIn QuestId="69201" NpcId="1031442" XYZ="763.0884, 30.4288, 480.7355"/>
+      <MoveTo XYZ="749.3668, 9.602603, 481.1667" Distance="1" UseMesh="False"/>
+    </If>
+    <!-- Anything You Can Do -->
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 1">
+      <GetTo ZoneId="137" XYZ="732.8078, 11.34909, 262.789"/>
+      <HandOver ItemId="27993" NpcId="1031438" XYZ="734.6456, 11.27637, 262.9586" QuestId="69200" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 2">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="772.5251, 9.921766, 301.51"/>
+      </If>
+      <TalkTo NpcId="1031443" XYZ="773.1898, 9.870461, 302.6322" QuestId="69200" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 3">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="768.9954, 9.495935, 339.8784"/>
+      </If>
+      <TalkTo NpcId="1031439" XYZ="768.9478, 9.486593, 340.8712" QuestId="69200" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 4">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="740.4382, 8.9, 349.6891"/>
+      </If>
+      <UseObject NpcId="1031445" XYZ="738.5823, 8.9, 350.3623" QuestId="69200" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 5">
+      <GetTo ZoneId="137" XYZ="678.7034, 9.99255, 242.6577"/>
+      <TalkTo NpcId="1031447" XYZ="678.3398, 10.01217, 240.7721" QuestId="69200" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(69200) and not IsQuestCompleted(69200) and GetQuestStep(69200) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.8299, 11.34909, 262.6143"/>
+      </If>
+      <TurnIn QuestId="69200" NpcId="1031438" XYZ="734.6456, 11.27637, 262.9586"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="69201_1">
+      <![CDATA[
+        var _startPoint = new Vector3(762.1611f, 19.52458f, 375.4019f);
+        Navigator.PlayerMover.MoveTowards(_startPoint);
+    
+        while (!Core.Me.HasAura(1945)) {  await Coroutine.Yield();  }
+        await Coroutine.Sleep(5000);
+    
+        Navigator.PlayerMover.MoveTowards(_startPoint);
+        while (Core.Me.Distance(_startPoint) > 0.5f) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+
+        var jumpArray = new Vector3[]
+        {
+          new Vector3(762.1884f, 19.52458f, 382.4106f),
+          new Vector3(764.9159f, 19.52458f, 387.2154f),
+          new Vector3(759.6838f, 19.52458f, 392.789f),
+          new Vector3(764.5002f, 19.52458f, 398.085f),
+          new Vector3(759.5384f, 19.52458f, 401.4528f)
+        };
+
+        foreach (var loc in jumpArray)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          await Coroutine.Sleep(100);
+          MovementManager.Jump();
+          while (Core.Me.Distance(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }
+
+        Navigator.PlayerMover.MoveStop();
+    
+        var _finnicky = new Vector3(763.2892f, 19.52458f, 406.9012f);
+        Navigator.PlayerMover.MoveTowards(_finnicky);
+        await Coroutine.Sleep(50);
+        MovementManager.Jump();
+        while (Core.Me.Distance(_finnicky) > 0.5f) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveStop();
+
+        var moveArray = new Vector3[]
+        {
+          new Vector3(762.1524f, 19.48889f, 412.0234f),
+          new Vector3(757.489f, 19.4889f, 412.1297f),
+          new Vector3(757.3946f, 19.4891f, 419.9544f),
+          new Vector3(762.4301f, 19.48895f, 419.9693f),
+          new Vector3(762.2321f, 19.48923f, 422.3172f),
+          new Vector3(765.5502f, 19.4894f, 422.2339f)
+        };
+    
+        foreach (var loc in moveArray)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          while (Core.Me.Distance(loc) > 0.5f) {  await Coroutine.Yield();  }
+        }
+    
+        Navigator.PlayerMover.MoveStop();
+    
+        var jump1 = new Vector3(766.1498f, 20.50934f, 424.6439f);
+        Navigator.PlayerMover.MoveTowards(jump1);
+        MovementManager.Jump();
+        while (Core.Me.Distance(jump1) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var move1 = new Vector3(766.1604f, 20.50933f, 427.0595f);
+        Navigator.PlayerMover.MoveTowards(move1);
+        while (Core.Me.Distance(move1) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var jump2 = new Vector3(767.9432f, 21.51598f, 428.8263f);
+        Navigator.PlayerMover.MoveTowards(jump2);
+        MovementManager.Jump();
+        while (Core.Me.Distance(jump2) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var move2 = new Vector3(767.929f, 21.51598f, 431.1884f);
+        Navigator.PlayerMover.MoveTowards(move2);
+        while (Core.Me.Distance(move2) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var jump3 = new Vector3(766.1271f, 22.29407f, 432.8779f);
+        Navigator.PlayerMover.MoveTowards(jump3);
+        MovementManager.Jump();
+        while (Core.Me.Distance(jump3) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var move3 = new Vector3(766.1504f, 22.29407f, 435.7323f);
+        Navigator.PlayerMover.MoveTowards(move3);
+        while (Core.Me.Distance(move3) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var jump4 = new Vector3(767.91f, 23.14098f, 437.6476f);
+        Navigator.PlayerMover.MoveTowards(jump4);
+        MovementManager.Jump();
+        while (Core.Me.Distance(jump4) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var move4 = new Vector3(767.9312f, 23.09679f, 441.8514f);
+        Navigator.PlayerMover.MoveTowards(move4);
+        while (Core.Me.Distance(move4) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+    
+        var move5 = new Vector3(763.9673f, 23.0968f, 445.6505f);
+        Navigator.PlayerMover.MoveTowards(move5);
+        while (Core.Me.Distance(move5) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69201_2">
+      <![CDATA[
+        var move = new Vector3(765.3f, 9.962746f, 468.9756f);
+        Navigator.PlayerMover.MoveTowards(move);
+        MovementManager.Jump();
+        await Coroutine.Sleep(500);
+        Navigator.PlayerMover.MoveStop();
+        Navigator.PlayerMover.MoveTowards(move);
+        while (Core.Me.Distance(move) > 0.2f) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveStop();
+
+        var jumpArray1 = new Vector3[]
+        {
+          new Vector3(766.3592f, 11.65278f, 468.827f),
+          new Vector3(763.4512f, 12.73414f, 468.6212f),
+          new Vector3(760.8785f, 14.16303f, 468.646f),
+          new Vector3(763.8984f, 15.69616f, 468.8393f),
+          new Vector3(767.9867f, 15.69612f, 469.0836f),
+          new Vector3(769.5193f, 17.24462f, 469.1524f),
+          new Vector3(770.9167f, 18.7744f, 469.0096f),
+          new Vector3(767.9751f, 20.42052f, 467.702f),
+          new Vector3(763.4667f, 19.89463f, 468.9223f)          	
+        };
+
+        foreach (var loc in jumpArray1)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          await Coroutine.Sleep(80);
+          MovementManager.Jump();
+          await Coroutine.Sleep(280);
+          Navigator.PlayerMover.MoveStop();
+          await Coroutine.Sleep(500);
+        }
+    
+        var move1 = new Vector3(763.2386f, 19.89463f, 468.974f);
+        Navigator.PlayerMover.MoveTowards(move1);
+        while (Core.Me.Distance(move1) > 0.2f) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveStop();
+    
+        var jumpArray2 = new Vector3[]
+        {
+          new Vector3(762.4612f, 21.44464f, 468.9008f),
+          new Vector3(764.6799f, 22.94462f, 469.0601f),
+          new Vector3(762.4644f, 24.44465f, 468.9482f),
+          new Vector3(764.6402f, 25.94462f, 468.9904f),
+          new Vector3(762.548f, 27.44462f, 468.8354f),
+          new Vector3(764.5541f, 28.94463f, 469.0558f),
+          new Vector3(762.1279f, 30.44461f, 468.9381f)
+        };
+    
+        foreach (var loc in jumpArray2)
+        {
+          Navigator.PlayerMover.MoveTowards(loc);
+          await Coroutine.Sleep(80);
+          MovementManager.Jump();
+          await Coroutine.Sleep(280);
+          Navigator.PlayerMover.MoveStop();
+          await Coroutine.Sleep(500);
+        }
+    
+        Navigator.PlayerMover.MoveStop();
+
+        var move2 = new Vector3(763.3063f, 30.4288f, 478.2654f);
+        Navigator.PlayerMover.MoveTowards(move2);
+        while (Core.Me.Distance(move2) > 3) {  await Coroutine.Yield();  }
+    
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

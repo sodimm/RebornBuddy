@@ -7,7 +7,7 @@ Authors:  Sodimm
   <Name>[Orderbot] Shadowbringers Aether Currents</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Lakeland -->	
+    <!-- Lakeland -->
     <If Condition="not IsAetherCurrentZoneComplete(813) and IsQuestCompleted(68840)">
       <!-- A Jobb Well Done -->
       <If Condition="IsQuestCompleted(68837) and not HasQuest(68916) and not IsQuestCompleted(68916)">
@@ -140,7 +140,7 @@ Authors:  Sodimm
         <UseObject NpcId="2010024" XYZ="604.9438, 28.39697, 366.2012" Condition="not IsAetherCurrentCompleted(813,14)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,13)">
-        <GetTo ZoneId="813" XYZ="441.4204, 8.38328, 218.6602"/>	
+        <GetTo ZoneId="813" XYZ="441.4204, 8.38328, 218.6602"/>
         <ClimbHill Start="441.4204, 8.38328, 218.6602" End="450.568, 13.36184, 203.9158"/>
         <NoCombatMoveTo XYZ="432.0592, 13.99249, 125.9938"/>
         <UseObject NpcId="2010025" XYZ="432.0592, 13.99249, 125.9938" Condition="not IsAetherCurrentCompleted(813,13)"/>
@@ -161,25 +161,25 @@ Authors:  Sodimm
         <UseObject NpcId="2010027" XYZ="794.1862, 32.82214, -14.75549" Condition="not IsAetherCurrentCompleted(813,11)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,10)">
-        <GetTo ZoneId="813" XYZ="655.4512, 47.34875, -220.8439"/>	
+        <GetTo ZoneId="813" XYZ="655.4512, 47.34875, -220.8439"/>
         <UseObject NpcId="2010028" XYZ="655.4512, 47.34875, -220.8439" Condition="not IsAetherCurrentCompleted(813,10)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,9)">
-        <GetTo ZoneId="813" XYZ="528.4047, 42.80151, -340.1084"/>	
+        <GetTo ZoneId="813" XYZ="528.4047, 42.80151, -340.1084"/>
         <UseObject NpcId="2010029" XYZ="528.4047, 42.80151, -340.1084" Condition="not IsAetherCurrentCompleted(813,9)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,8)">
-        <GetTo ZoneId="813" XYZ="700.2517, 86.5033, -517.5708"/>	
+        <GetTo ZoneId="813" XYZ="700.2517, 86.5033, -517.5708"/>
         <UseObject NpcId="2010030" XYZ="700.2517, 86.5033, -517.5708" Condition="not IsAetherCurrentCompleted(813,8)"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,5)">
-        <GetTo ZoneId="813" XYZ="-784.4049, 115.1849, -347.8229"/>	
+        <GetTo ZoneId="813" XYZ="-784.4049, 115.1849, -347.8229"/>
         <RunCode Name="2010033"/>
         <UseObject NpcId="2010033" XYZ="-787.1367, 107.988, -354.7265" Condition="not IsAetherCurrentCompleted(813,5)"/>
         <MoveTo XYZ="-765.0089, 60.99402, -361.594" Distance="1" UseMesh="False"/>
       </If>
       <If Condition="not IsAetherCurrentCompleted(813,6)">
-        <GetTo ZoneId="813" XYZ="-616.1073, 51.50115, -195.1725"/>	
+        <GetTo ZoneId="813" XYZ="-616.1073, 51.50115, -195.1725"/>
         <MoveTo XYZ="-610.2711, 48.50741, -193.9888" Distance="1" UseMesh="False"/>
         <MoveTo XYZ="-607.1392, 48.50741, -192.6686" Distance="1" UseMesh="False"/>
         <MoveTo XYZ="-602.8813, 48.50741, -189.196" Distance="1" UseMesh="False"/>
@@ -414,7 +414,7 @@ Authors:  Sodimm
         </If>
       </If>
       <If Condition="HasQuest(69003) and not IsQuestCompleted(69003) and GetQuestStep(69003) == 1 and GetQuestById(69003).GetTodoArgs(1, 0).Item1 == 0">
-        <GetTo ZoneId="817" XYZ="556.4867, 27.24887, 150.657"/>
+        <GetTo ZoneId="817" XYZ="557.1024, 27.28193, 150.9372"/>
         <HandOver ItemId="2002887" NpcId="1031381" XYZ="558.6479, 27.37839, 152.4224" QuestId="69003"/>
       </If>
       <If Condition="HasQuest(69003) and not IsQuestCompleted(69003) and GetQuestStep(69003) == 1 and GetQuestById(69003).GetTodoArgs(1, 0).Item1 == 1">
@@ -999,12 +999,12 @@ Authors:  Sodimm
         <GetTo ZoneId="818" XYZ="-805.7222, 60.83765, -99.0769"/>
         <UseObject NpcId="2010083" XYZ="-805.7222, 60.83765, -99.0769" Condition="not IsAetherCurrentCompleted(818,5)"/>
       </If>
-    </If>	
+    </If>
   </Order>
   <GrindAreas/>
   <CodeChunks>
     <CodeChunk Name="68931">
-      <![CDATA[        
+      <![CDATA[
         if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
         await Coroutine.Sleep(1000);
         ChatManager.SendChat("/s Kenn Gyuf");
@@ -1017,77 +1017,77 @@ Authors:  Sodimm
         while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
         MovementManager.StopDescending();
         await Coroutine.Sleep(1000);
-    
+
         if (!Core.Me.IsMounted)  { await CommonTasks.SummonFlyingMount();  }
-    
+
         var _weed1 = new Vector3(-456.891f, -42.01599f, -231.5929f);
-    
+
         Navigator.PlayerMover.MoveTowards(_weed1);
         while (Core.Me.Location.Distance2D(_weed1) > 5) {  await Coroutine.Yield();  }
-    
+
         await CommonTasks.StopAndDismount();
-    
+
         GameObjectManager.GetObjectByNPCId(2010160).Interact();
-    
+
         while (ConditionParser.GetQuestById(68934).GetTodoArgs(1, 0).Item1 == 0)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
+
         if (!Core.Me.IsMounted)  { await CommonTasks.SummonFlyingMount();  }
-    
+
         var _weed2 = new Vector3(-338.8644f, -35.1794f, -211.3806f);
-    
+
         Navigator.PlayerMover.MoveTowards(_weed2);
         while (Core.Me.Location.Distance2D(_weed2) > 8) {  await Coroutine.Yield();  }
-    
+
         await CommonTasks.StopAndDismount();
-    
+
         GameObjectManager.GetObjectByNPCId(2010161).Interact();
-    
+
         while (ConditionParser.GetQuestById(68934).GetTodoArgs(1, 0).Item1 == 1)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
+
         if (!Core.Me.IsMounted)  { await CommonTasks.SummonFlyingMount();  }
-    
+
         var _weed3 = new Vector3(-342.3585f, -56.582f, -161.1658f);
-    
+
         Navigator.PlayerMover.MoveTowards(_weed3);
         while (Core.Me.Location.Distance2D(_weed3) > 5) {  await Coroutine.Yield();  }
-    
+
         await CommonTasks.StopAndDismount();
-    
+
         GameObjectManager.GetObjectByNPCId(2010159).Interact();
-    
+
         while (ConditionParser.GetQuestById(68934).GetTodoArgs(1, 0).Item1 == 2)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
+
         if (!Core.Me.IsMounted)  { await CommonTasks.SummonFlyingMount();  }
-    
+
         var _weed4 = new Vector3(-346.9872f, -49.56383f, -124.0383f);
-    
+
         Navigator.PlayerMover.MoveTowards(_weed4);
         while (Core.Me.Location.Distance2D(_weed4) > 3) {  await Coroutine.Yield();  }
-    
+
         await CommonTasks.StopAndDismount();
-    
+
         GameObjectManager.GetObjectByNPCId(2010158).Interact();
-    
+
         while (ConditionParser.GetQuestById(68934).GetTodoArgs(1, 0).Item1 == 3)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-    
+
         if (!Core.Me.IsMounted)  { await CommonTasks.SummonFlyingMount();  }
-    
+
         var _exit = new Vector3(-392.8139f, -0.6f, -116.0638f);
 
         Navigator.PlayerMover.MoveTowards(_exit);
@@ -1098,9 +1098,9 @@ Authors:  Sodimm
     <CodeChunk Name="Lyhe_Ghia">
       <![CDATA[
         if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
-      
+
         if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
-        
+
         var vector3Array = new Vector3[]
         {
           new Vector3(86.41762f, 25.66877f, -98.48716f),
@@ -1117,7 +1117,7 @@ Authors:  Sodimm
         {
           Navigator.PlayerMover.MoveTowards(loc);
           while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
-        }        
+        }
 
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -1141,7 +1141,7 @@ Authors:  Sodimm
           await Coroutine.Sleep(100);
           MovementManager.MoveForwardStop();
         }
-    
+
         await Coroutine.Sleep(1000);
       ]]>
     </CodeChunk>
@@ -1150,8 +1150,8 @@ Authors:  Sodimm
         var target = GameObjectManager.GetObjectByNPCId(2010031);
 
         if (target.IsVisible)  {  target.Interact();  }
-    
-        await Coroutine.Sleep(1000);		
+
+        await Coroutine.Sleep(1000);
         await Coroutine.Wait(10000, ()=> !Core.Me.IsCasting);
       ]]>
     </CodeChunk>
@@ -1167,14 +1167,14 @@ Authors:  Sodimm
           MovementManager.Jump();
           MovementManager.MoveForwardStop();
         }
-    
+
         await Coroutine.Sleep(1000);
       ]]>
     </CodeChunk>
     <CodeChunk Name="2010042">
       <![CDATA[
         var loc = new Vector3(-62.15416f, 344.1438f, -19.85907f);
-        
+
         Navigator.PlayerMover.MoveTowards(loc);
         while (Core.Me.Location.Distance2D(loc) > 1) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();
@@ -1198,7 +1198,7 @@ Authors:  Sodimm
         {
           Navigator.PlayerMover.MoveTowards(loc);
           while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
-        }        
+        }
 
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -1207,7 +1207,7 @@ Authors:  Sodimm
     <CodeChunk Name="2010057">
       <![CDATA[
         var target = GameObjectManager.GetObjectByNPCId(2010057);
-    
+
         MovementManager.SetFacing(target.Location);
 
         while (Core.Me.Location.Distance2D(target.Location) > 3)
@@ -1227,35 +1227,35 @@ Authors:  Sodimm
         var loc4 = new Vector3(21.35537f, 111.4771f, -847.0903f);
         var loc5 = new Vector3(15.94584f, 113.1476f, -847.0067f);
         var loc6 = new Vector3(13.3604f, 111.163f, -850.3327f);
-    
+
         Navigator.PlayerMover.MoveTowards(loc1);
         while (Core.Me.Location.Distance2D(loc1) > 0.5f) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();
- 
+
         Navigator.PlayerMover.MoveTowards(loc2);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
-        
+
         Navigator.PlayerMover.MoveTowards(loc3);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc3) > 2) {  await Coroutine.Yield();  }
-        
+
         Navigator.PlayerMover.MoveTowards(loc4);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc4) > 2) {  await Coroutine.Yield();  }
-    
+
         Navigator.PlayerMover.MoveTowards(loc5);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc5) > 0.5f) {  await Coroutine.Yield();  }
-    
+
         Navigator.PlayerMover.MoveTowards(loc6);
         while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
     <CodeChunk Name="BadMesh">
-      <![CDATA[    
+      <![CDATA[
         if (!Core.Me.IsMounted)  { await CommonTasks.MountUp();  }
 
         var vector3Array = new Vector3[]
@@ -1275,7 +1275,7 @@ Authors:  Sodimm
         {
           Navigator.PlayerMover.MoveTowards(loc);
           while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
-        }        
+        }
 
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -1287,22 +1287,22 @@ Authors:  Sodimm
         var loc3 = new Vector3(-863.0211f, 3.222263f, 190.5181f);
         var loc4 = new Vector3(-857.6687f, 2.512502f, 181.0687f);
         var loc5 = new Vector3(-862.1448f, 3.017954f, 172.0639f);
- 
+
         Navigator.PlayerMover.MoveTowards(loc1);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-    
+
         Navigator.PlayerMover.MoveTowards(loc2);
         await Coroutine.Sleep(1000);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
-        
+
         Navigator.PlayerMover.MoveTowards(loc3);
         await Coroutine.Sleep(650);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
-        
+
         Navigator.PlayerMover.MoveTowards(loc4);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
@@ -1318,13 +1318,13 @@ Authors:  Sodimm
     <CodeChunk Name="68980">
       <![CDATA[
         if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-    
+
         var target = GameObjectManager.GetObjectByNPCId(1029024);
-    
+
         await Coroutine.Sleep(1000);
-    
+
         ChatManager.SendChat("/s tuktu");
-    
+
         while (ConditionParser.GetQuestStep(68980) == 1)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
@@ -1345,13 +1345,13 @@ Authors:  Sodimm
     <CodeChunk Name="69073">
       <![CDATA[
         GameObject _target = GameObjectManager.GetObjectByNPCId(1030749);
-        
+
         await Coroutine.Sleep(1000);
-    
+
         _target.Target();
-    
+
         ChatManager.SendChat("/soothe");
-    
+
         while (ConditionParser.GetQuestStep(69073) == 3)
         {
           if (SelectString.IsOpen) {  SelectString.ClickSlot(1);  }

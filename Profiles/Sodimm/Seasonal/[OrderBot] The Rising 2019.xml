@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile: [OrderBot] The Rising 2019
+Authors: TuckMeIntoBread.
+-->
+<Profile>
+  <Name>The Rising 2019</Name>
+  <Order>
+    <!-- Message in a Bottle -->
+    <If Condition="not HasQuest(69196) and not IsQuestCompleted(69196)">
+      <GetTo ZoneId="137" XYZ="767.3597, 9.54521, 238.3846"/>
+      <If Condition="IsQuestAcceptQualified(69196)">
+        <PickupQuest QuestId="69196" NpcId="1031192" XYZ="768.5206, 9.528448, 237.2014"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 1 and GetQuestById(69196).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="774.5642, 9.521264, 333.1819"/>
+      </If>
+      <UseObject NpcId="2010615" XYZ="775.204, 9.47583, 334.4014" QuestId="69196" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 1 and GetQuestById(69196).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="761.2689, 9.506362, 341.4689"/>
+      </If>
+      <UseObject NpcId="2010614" XYZ="761.8372, 9.506287, 342.6107" QuestId="69196" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 1 and GetQuestById(69196).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="751.2735, 8.910779, 351.1156"/>
+      </If>
+      <UseObject NpcId="2010616" XYZ="751.1252, 8.895996, 352.407" QuestId="69196" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 2">
+      <GetTo ZoneId="137" XYZ="767.973, 9.546258, 238.8199"/>
+      <HandOver ItemIds="2002842,2002843,2002844" NpcId="1031192" XYZ="768.5206, 9.528448, 237.2014" QuestId="69196" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 3">
+      <GetTo ZoneId="128" XYZ="-7.997501, 39.99951, 81.61295"/>
+      <HandOver ItemId="2002847" NpcId="1031193" XYZ="-9.811584, 39.99992, 81.77307" QuestId="69196" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 4">
+      <GetTo ZoneId="130" XYZ="-20.28328, 10, -50.04089"/>
+      <TalkTo NpcId="1031195" XYZ="-21.16431, 10, -48.84418" QuestId="69196" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(69196) and not IsQuestCompleted(69196) and GetQuestStep(69196) == 255">
+      <GetTo ZoneId="137" XYZ="766.7974, 9.54058, 237.5926"/>
+      <TurnIn QuestId="69196" NpcId="1031192" XYZ="768.5206, 9.528448, 237.2014"/>
+    </If>
+    <!-- Repeatable -->
+    <!-- Messages from Distant Shores -->
+    <If Condition="not HasQuest(69197)">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="766.7974, 9.54058, 237.5926"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(69197)">
+        <PickupQuest QuestId="69197" NpcId="1031192" XYZ="768.5206, 9.528448, 237.2014"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69197) and GetQuestStep(69197) == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="747.0709, 8.9, 352.1039"/>
+      </If>
+      <UseObject NpcId="2010617" XYZ="746.8528, 8.895996, 353.5973" QuestId="69197" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69197) and GetQuestStep(69197) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="766.8579, 9.547487, 238.364"/>
+      </If>
+      <TurnIn ItemId="2002845" QuestId="69197" NpcId="1031192" XYZ="768.5206, 9.528448, 237.2014"/>
+    </If>
+  </Order>
+</Profile>

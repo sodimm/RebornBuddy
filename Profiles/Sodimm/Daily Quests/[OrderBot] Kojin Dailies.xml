@@ -1536,8 +1536,11 @@ Authors:  Sodimm.
         }
 		
 		await CommonTasks.StopAndDismount();
-	  
+	      #if RB_CN        
+        if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)  {  ChatManager.SendChat("/s 线轴");  }
+        #else
         if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)  {  ChatManager.SendChat("/s Itomaki");  }
+        #endif
 
         while (ConditionParser.GetQuestStep(68521) != 2)
         {

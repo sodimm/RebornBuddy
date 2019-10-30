@@ -1007,7 +1007,11 @@ Authors:  Sodimm
       <![CDATA[
         if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
         await Coroutine.Sleep(1000);
+        #if RB_CN
+        ChatManager.SendChat("/s 可恩·久付");
+        #else
         ChatManager.SendChat("/s Kenn Gyuf");
+        #endif
       ]]>
     </CodeChunk>
     <CodeChunk Name="68934">
@@ -1323,7 +1327,11 @@ Authors:  Sodimm
 
         await Coroutine.Sleep(1000);
 
+        #if RB_CN
+        ChatManager.SendChat("/s 野玫瑰");
+        #else
         ChatManager.SendChat("/s tuktu");
+        #endif
 
         while (ConditionParser.GetQuestStep(68980) == 1)
         {

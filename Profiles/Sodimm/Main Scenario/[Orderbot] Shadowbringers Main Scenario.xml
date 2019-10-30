@@ -3646,7 +3646,11 @@ Authors:  Sodimm
   <CodeChunks>
     <CodeChunk Name="Profile">
       <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "From Patch 5.1 onwards, this profile will assume you can fly.\n Please ensure you are attuned to the Shadowbringers zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        #if RB_CN
+        Core.OverlayManager.AddToast(() => "从5.1开始，脚本默认认为你已经可以飞行了。\n 请确保你都启用了5.0区域的风脉。", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        #else
+        Core.OverlayManager.AddToast(() => "From Patch 5.1 onwards, this profile will assume you can Fly.\n Please ensure you are attuned to the Shadowbringers zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));      
+        #endif
         await Coroutine.Sleep(6000);
       ]]>
     </CodeChunk>
@@ -3798,7 +3802,12 @@ Authors:  Sodimm
     <CodeChunk Name="68846">
       <![CDATA[
         await Coroutine.Sleep(1000);
+        
+        #if RB_CN
+        ChatManager.SendChat("/s 菲奥");
+        #else
         ChatManager.SendChat("/s Feo Ul");
+        #endif
     
         while (ConditionParser.GetQuestStep(68846) == 1)
         {
@@ -3808,7 +3817,12 @@ Authors:  Sodimm
 
         // At least make it look like it's a human typing.		
         await Coroutine.Sleep(5000);
+
+        #if RB_CN
+        ChatManager.SendChat("/s 菲奥帮帮我嘛");
+        #else
         ChatManager.SendChat("/s Please, Feo Ul, I need you");
+        #endif
     
         while (ConditionParser.GetQuestStep(68846) == 2)
         {
@@ -3818,7 +3832,11 @@ Authors:  Sodimm
 
         // Longer wait on this one.		
         await Coroutine.Sleep(8000);
+        #if RB_CN
+        ChatManager.SendChat("/s 我可爱又美丽的小树枝菲奥");
+        #else
         ChatManager.SendChat("/s O loveliest of branches, please grant me your succor!");
+        #endif
       ]]>
     </CodeChunk>
     <CodeChunk Name="68849">
@@ -4008,7 +4026,11 @@ Authors:  Sodimm
     
         _target.Target();
     
+        #if RB_CN
+        ChatManager.SendChat("/s 阿金托塔");
+        #else
         ChatManager.SendChat("/s allin tuta");
+        #endif
     
         while (ConditionParser.GetQuestById(68861).GetTodoArgs(4, 0).Item1 == _count)
         {

@@ -514,15 +514,8 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 
 			<!--  The Aesthetician of Il Mheg -->
 			<If Condition="GetQuestStep(69228) == 1">     
-				<If Condition="GetQuestById(69228).QuestI8BL == 2">
-					<FlyTo XYZ="-313.1297, 38.41087, 449.5651" />  
-					<UseObject NpcIds="2010860,2010862" XYZ="-313.1297, 38.41087, 449.5651" Radius="75" QuestId="69228" StepId="1" />
-				</If>
-				<If Condition="GetQuestById(69228).QuestI8BL == 6">
-					<FlyTo XYZ="-313.1297, 38.41087, 449.5651" />  
-					<UseObject NpcIds="2010862,2010863" XYZ="-313.1297, 38.41087, 449.5651" Radius="75"  QuestId="69228" StepId="1" />
-				</If>
-
+				<FlyTo XYZ="-313.1297, 38.41087, 449.5651" />  
+				<UseObject NpcIds="2010860,2010861,2010862,2010863" XYZ="-313.1297, 38.41087, 449.5651" Radius="75"  QuestId="69228" StepId="1" />
 			</If>
 
 			<!--  Sweet as Honey -->

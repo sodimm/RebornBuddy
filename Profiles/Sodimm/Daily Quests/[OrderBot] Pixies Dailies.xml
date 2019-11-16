@@ -650,7 +650,7 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 			<!--  Not the Beavers -->
 			<If Condition="GetQuestStep(69243) == 1">
 				<FlyTo XYZ="23.83244, 14.05823, 751.1464" Land="True" />
-				<WaitWhile Condition="HasQuest(69243) and GetQuestStep(69221) == 1"/>
+				<WaitWhile Condition="HasQuest(69243) and GetQuestStep(69243) == 1"/>
 				<!--<TalkTo InteractDistance="3.0" QuestId="69243" StepId="1" NpcId="1032170" XYZ="25.07056, 13.91434, 755.5809" />-->
 			</If>
 

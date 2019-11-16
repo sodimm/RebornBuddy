@@ -101,6 +101,77 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 			<PickupQuest NpcId="1031806" QuestId="69222" />
 		</If>
 
+		<!--  As the Heart Bids -->
+		<If Condition="IsQuestAcceptQualified(69223)">
+			<PickupQuest NpcId="1031806" QuestId="69223" />
+		</If>
+
+
+		<!--  As the Heart Bids -->
+		<If Condition="GetQuestStep(69223) &gt; 0">
+
+
+			<If Condition="GetQuestStep(69223) == 1">
+				<GetTo ZoneId="889" XYZ="-114.5082, 9.440079, -42.47797" />
+				<TalkTo InteractDistance="3.0" QuestId="69223" StepId="1" NpcId="1031883" XYZ="-116.0754, 9.440084, -41.42828" />
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 2">
+				<GetTo ZoneId="889" XYZ="-114.5082, 9.440079, -42.47797" />
+				<TalkTo InteractDistance="3.0" QuestId="69223" StepId="2" NpcId="1031881" XYZ="-115.0378, 9.440084, -38.65112" />
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 3">
+
+				<If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 0">
+					<GetTo ZoneId="816" XYZ="-293.0069, 40.32404, 457.8718" />
+					<TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567" />
+				</If>
+				<If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 1">
+					<GetTo ZoneId="816" XYZ="-85.86986, 101.7333, -852.8892" />
+					<FlyTo XYZ="-87.3627, 119.3281, -850.8953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+					<FlyTo XYZ="-108.0799, 108.4, -841.0948" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True" Land="True"/>
+					<TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639" />
+				</If>
+				<If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 2">
+					<GetTo ZoneId="816" XYZ="478.3861, 90.34687, -654.6541" />
+					<TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1031204" XYZ="481.9561, 90.43779, -656.0922" />
+				</If>
+
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 4">
+				<GetTo ZoneId="816" XYZ="-464.7432, 71.09718, 570.2627" />
+				<TalkTo InteractDistance="3.0" QuestId="69223" StepId="4" NpcId="1031807" XYZ="-465.9343, 71.48343, 571.8623" />
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 5">
+				<GetTo ZoneId="816" XYZ="-461.6005, 72.53142, 585.2968" />
+				<TalkTo InteractDistance="3.0" QuestId="69223" StepId="5" NpcId="1031808" XYZ="-461.5397, 72.51729, 586.4805" />
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 6">
+				<Log Message="Complete this duty on your own." />
+				<WaitWhile Condition="HasQuest(69223) and GetQuestStep(69223) == 6"/>
+			</If>
+
+
+			<If Condition="GetQuestStep(69223) == 8">
+				<TalkTo InteractDistance="3.0" QuestId="69223" StepId="8" NpcId="1031886" XYZ="38.34583, -4.639912, 24.76538" />
+			</If>
+
+			<If Condition="GetQuestStep(69223) == 255">
+				<GetTo ZoneId="816" XYZ="-463.7203, 71.72343, 573.7556" />
+				<TurnIn QuestId="69223" NpcId="1031806" ItemId="2001976" XYZ="-464.5914, 71.76874, 573.8766" />
+			</If> 
+
+		</If>
+
 
 		<!--  A Cry from the Ashes -->
 		<If Condition="GetQuestStep(69222) &gt; 0">

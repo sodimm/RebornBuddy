@@ -4912,11 +4912,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   <CodeChunks>
     <CodeChunk Name="Profile">
       <![CDATA[ 
-        #if RB_CN
-        Core.OverlayManager.AddToast(() => "从4.1开始，脚本默认认为你已经可以飞行了。\n 请确保你都启用了4.0区域的风脉。", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        #else
-        Core.OverlayManager.AddToast(() => "From Patch 4.1 onwards, this profile will assume you can Fly.\n Please ensure you are attuned to the Stormblood zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));      
-        #endif
+        Core.OverlayManager.AddToast(() => "From Patch 4.1 onwards, this profile will assume you can Fly.\n Please ensure you are attuned to the Stormblood zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(6000);
       ]]>
     </CodeChunk>

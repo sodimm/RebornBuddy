@@ -106,6 +106,27 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 			<PickupQuest NpcId="1031806" QuestId="69223" />
 		</If>
 
+		<!--  Forever and a Dream -->
+		<If Condition="IsQuestAcceptQualified(69224)">
+			<PickupQuest NpcId="1031806" QuestId="69224" />
+		</If>
+
+		<!--  Forever and a Dream -->
+		<If Condition="GetQuestStep(69224) &gt; 0">
+
+			<If Condition="GetQuestStep(69224) == 1">
+				<GetTo ZoneId="892" XYZ="55.58157, -6.182453, 10.16039" />
+				<TalkTo InteractDistance="3.0" QuestId="69224" StepId="1" NpcId="1031890" XYZ="55.64954, -6.167931, 8.041443" />
+			</If>
+
+			<If Condition="GetQuestStep(69224) == 255">
+				<GetTo ZoneId="816" XYZ="-464.1204, 71.64947, 573.1736" />
+				<TurnIn QuestId="69224" NpcId="1031806" ItemId="2001976" XYZ="-464.5914, 71.76874, 573.8766" />
+			</If>
+
+		</If>
+
+
 
 		<!--  As the Heart Bids -->
 		<If Condition="GetQuestStep(69223) &gt; 0">
@@ -395,7 +416,7 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 
 		<If Condition="not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
 
-			<FlyTo XYZ="-452.8528,70.86672,571.0655" />  
+			<FlyTo XYZ="-452.8528,70.86672,571.0655" Land="True" />  
 
 			<!--  I Dream of Shinies -->
 			<If Condition="IsQuestAcceptQualified(69230)">
@@ -538,6 +559,17 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 
 
 
+			<!--  A Porxie Before Swine -->
+			<If Condition="IsQuestAcceptQualified(69249)">
+				<PickupQuest NpcId="1031809" QuestId="69249" />
+			</If>
+
+			<!--  Pride-and-Seek -->
+			<If Condition="IsQuestAcceptQualified(69248)">
+				<PickupQuest NpcId="1031809" QuestId="69248" />
+			</If>
+
+
 		</If>
 
 		<If Condition="HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
@@ -598,7 +630,7 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 						<FlyTo XYZ="-774.2247, 53.85721, 105.7065" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
 						<SoUseSpell SpellId="18187" NpcId="2010892" UseDistance="5.0" XYZ="-774.2247, 53.85721, 105.7065" Condition="HasQuest(69234) and GetQuestStep(69234) == 2 and GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 0"/>
 					</If>
-					
+
 					<If Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 1">
 						<FlyTo XYZ="-801.7984, 25.28642, -106.4932" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
 						<SoUseSpell SpellId="18187" NpcId="2010893" UseDistance="5.0" XYZ="-802.3041,27.11523,-108.4459" Condition="HasQuest(69234) and GetQuestStep(69234) == 2 and GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 1"/>
@@ -754,8 +786,8 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 
 			<!--  Bring Your Water to the Slaughter -->
 			<If Condition="GetQuestStep(69242) == 1">
-				<FlyTo XYZ="159.9262, 0.3277669, 561.0931" Land="True" />
-				<UseObject NpcIds="2010905" XYZ="163.653, 0.289917, 563.1035"  Radius="25"  QuestId="69242" StepId="1"/>
+				<FlyTo XYZ="161.4593, 0.299998, 633.909" Land="True" />
+				<UseObject NpcIds="2010905" XYZ="164.0192,0.289917,640.2228"  Radius="25"  QuestId="69242" StepId="1"/>
 			</If>
 
 			<!--  Not the Beavers -->
@@ -778,6 +810,20 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 				<UseObject NpcIds="2010786" XYZ="493.4309, 94.86523, -285.7557"  Radius="25"  QuestId="69247" StepId="1"/>
 				<NoCombatMoveTo XYZ="479.6371, 90.93466, -345.1812" /> 
 			</If>
+
+
+			<!--  A Porxie Before Swine -->
+			<If Condition="GetQuestStep(69249) == 1">
+				<FlyTo XYZ="219.5939, 30.6263, -488.0251" AllowedVariance="3.0" Land="True"/>
+				<WaitWhile Condition="HasQuest(69249) and GetQuestStep(69249) == 1"/>
+			</If>
+
+
+			<!--  A Porxie Before Swine -->
+			<If Condition="GetQuestStep(69249) == 2">
+				<TalkTo InteractDistance="3.0" QuestId="69249" StepId="2" NpcId="1032211" XYZ="220.386, 30.80374, -489.5552" />
+			</If>
+
 
 			<!--  There's Always a Stupider Fish -->
 			<If Condition="GetQuestStep(69241) == 1">
@@ -990,6 +1036,12 @@ var positionDictionary = new Dictionary<uint,Vector3>()
 				<!--  What the Phooka -->
 				<If Condition="GetQuestStep(69246) == 255">
 					<TurnIn QuestId="69246" NpcId="1031809" ItemId="2002946" XYZ="-454.3069, 71.43217, 575.1278" />
+				</If> 
+
+
+				<!--  A Porxie Before Swine -->
+				<If Condition="GetQuestStep(69249) == 255">
+					<TurnIn QuestId="69249" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278" />
 				</If> 
 
 			</If> 

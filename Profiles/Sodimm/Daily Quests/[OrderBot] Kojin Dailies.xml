@@ -1,1467 +1,1248 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Profile [
+<!ENTITY dailyIds "68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538">
+]>
 <!--
-Profile:  [Orderbot] Kojin Dailies.
+Profile:  [OrderBot] Kojin Dailies.
 Authors:  Sodimm.
 -->
 <Profile>
-  <Name>[OrderBot] Kojin Dailies.</Name>
+  <Name>[OrderBot] Kojin Dailies</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!--  25/30 83% -->
-    <RunCode Name="Disable_Flight"/>
-    <RegisterDailies QuestIds="68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538"/>
+    <RegisterDailies QuestIds="&dailyIds;"/>
     <!-- Heaven-sent -->
     <If Condition="IsQuestCompleted(68026) and not HasQuest(68509) and not IsQuestCompleted(68509)">
       <If Condition="not IsOnMap(613)">
         <TeleportTo Name="Onkoro" AetheryteId="106"/>
       </If>
-      <FlyTo XYZ="-729.6101, 0.2552749, -404.9592" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+      <FlyTo XYZ="-729.6101, 0.2552749, -404.9592" Land="True"/>
       <If Condition="IsQuestAcceptQualified(68509)">
-        <PickupQuest QuestId="68509" NpcId="1024221" XYZ="-729.6101, 0.2552749, -404.9592"/>
+        <PickupQuest QuestId="68509" NpcId="1024221"/>
       </If>
     </If>
-    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106"/>
-      </If>
-      <FlyTo XYZ="312.6616, 0.8144541, 466.4121" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <SoTalkTo NpcId="1024222" XYZ="314.1068, 0.751186, 466.8802" QuestId="68509" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 2">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106"/>
-      </If>
-      <FlyTo XYZ="108.7367, 2.024746, 565.8908" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <WaitWhile Condition="HasQuest(68509) and not IsQuestCompleted(68509) and not GetQuestStep(68509) == 3"/>
-    </If>
-    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 3">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106"/>
-        <FlyTo XYZ="119.3332, 1.43602, 558.0864" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      </If>
-      <UseObject NpcId="1024226" XYZ="117.296, 1.740206, 561.2419" QuestId="68509" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(68509) and not IsQuestCompleted(68509) and GetQuestStep(68509) == 255">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106"/>
-      </If>
-      <FlyTo XYZ="652.0712, 3.239789, -58.64638" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
-    </If>
-    <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512) and not HasQuest(68513) and not HasQuest(68514) and not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538]))">
-      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-      <!-- Best Served Foul -->
-      <If Condition="IsQuestAcceptQualified(68515) and not HasQuest(68515)">
-        <PickupQuest QuestId="68515" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- A Real Pearler -->
-      <If Condition="IsQuestAcceptQualified(68516) and not HasQuest(68516)">
-        <PickupQuest QuestId="68516" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- You Have the Rite -->
-      <If Condition="IsQuestAcceptQualified(68517) and not HasQuest(68517)">
-        <PickupQuest QuestId="68517" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Krilled to Pieces -->
-      <If Condition="IsQuestAcceptQualified(68518) and not HasQuest(68518)">
-        <PickupQuest QuestId="68518" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tonight We Dine in Shells -->
-      <If Condition="IsQuestAcceptQualified(68519) and not HasQuest(68519)">
-        <PickupQuest QuestId="68519" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Pickles of Partnership -->
-      <If Condition="IsQuestAcceptQualified(68520) and not HasQuest(68520)">
-        <PickupQuest QuestId="68520" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Little Kojin Lost -->
-      <If Condition="IsQuestAcceptQualified(68521) and not HasQuest(68521)">
-        <PickupQuest QuestId="68521" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Much at Steak -->
-      <If Condition="IsQuestAcceptQualified(68522) and not HasQuest(68522)">
-        <PickupQuest QuestId="68522" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Confused Courier -->
-      <If Condition="IsQuestAcceptQualified(68523) and not HasQuest(68523)">
-        <PickupQuest QuestId="68523" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Buoyant Bounty -->
-      <If Condition="IsQuestAcceptQualified(68524) and not HasQuest(68524)">
-        <PickupQuest QuestId="68524" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Anala-lyze This -->
-      <If Condition="IsQuestAcceptQualified(68525) and not HasQuest(68525)">
-        <PickupQuest QuestId="68525" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Sand-sifting Specialist -->
-      <If Condition="IsQuestAcceptQualified(68526) and not HasQuest(68526)">
-        <PickupQuest QuestId="68526" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Forever Blowing Bubbles -->
-      <If Condition="IsQuestAcceptQualified(68527) and not HasQuest(68527)">
-        <PickupQuest QuestId="68527" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- No, Not the Boo Box -->
-      <If Condition="IsQuestAcceptQualified(68528) and not HasQuest(68528)">
-        <PickupQuest QuestId="68528" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Pleasure Doing Business -->
-      <If Condition="IsQuestAcceptQualified(68529) and not HasQuest(68529)">
-        <PickupQuest QuestId="68529" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Deep Turquoise Sea -->
-      <If Condition="IsQuestAcceptQualified(68530) and not HasQuest(68530)">
-        <PickupQuest QuestId="68530" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Holy Mother of Pearl -->
-      <If Condition="IsQuestAcceptQualified(68531) and not HasQuest(68531)">
-        <PickupQuest QuestId="68531" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Flotsam and Jetsam -->
-      <If Condition="IsQuestAcceptQualified(68532) and not HasQuest(68532)">
-        <PickupQuest QuestId="68532" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Clammed Up -->
-      <If Condition="IsQuestAcceptQualified(68533) and not HasQuest(68533)">
-        <PickupQuest QuestId="68533" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tale of Roe -->
-      <If Condition="IsQuestAcceptQualified(68534) and not HasQuest(68534)">
-        <PickupQuest QuestId="68534" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- You Blow It Up -->
-      <If Condition="IsQuestAcceptQualified(68535) and not HasQuest(68535)">
-        <PickupQuest QuestId="68535" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tentacles of Trade -->
-      <If Condition="IsQuestAcceptQualified(68536) and not HasQuest(68536)">
-        <PickupQuest QuestId="68536" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- The Hot-blooded Kojin -->
-      <If Condition="IsQuestAcceptQualified(68537) and not HasQuest(68537)">
-        <PickupQuest QuestId="68537" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Disciplinary Action -->
-      <If Condition="IsQuestAcceptQualified(68538) and not HasQuest(68538)">
-        <PickupQuest QuestId="68538" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-    </If>
-    <!-- Krilled to Pieces -->
-    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68518" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 2, 3, 6, 8, 9]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="195.056, -183.3066, -346.6087" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009234" UseDistance="5.0" XYZ="195.056, -183.3066, -346.6087" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="Array[int]([4, 5, 7]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="192.0653, -172.8085, -247.6387" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009236" UseDistance="5.0" XYZ="192.0653, -172.8085, -247.6387" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68518).QuestI8DH == 10">
-        <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 4, 10]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="81.19324, -197.7722, -266.8651" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009233" UseDistance="5.0" XYZ="81.19324, -197.7722, -266.8651" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([2, 6, 8]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="192.0653, -172.8085, -247.6387" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009236" UseDistance="5.0" XYZ="192.0653, -172.8085, -247.6387" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([3, 5, 7, 9]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 3, 4, 5, 6, 10]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="50.98035, -139.4218, -280.9644" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009235" UseDistance="5.0" XYZ="50.98035, -139.4218, -280.9644" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <If Condition="Array[int]([7, 8, 9]).Contains(GetQuestById(68518).QuestI8DH)">
-        <FlyTo XYZ="81.19324, -197.7722, -266.8651" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009233" UseDistance="5.0" XYZ="81.19324, -197.7722, -266.8651" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68518).QuestI8DH == 2">
-        <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="HasQuest(68518) and GetQuestStep(68518) == 2 and GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <Dismount/>
-    </If>
-    <!-- Sand-sifting Specialist -->
-    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68526" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="GetQuestById(68526).QuestI8DH == 4">
-        <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="Array[int]([2, 7, 10]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="286.3356, -74.60144, -499.0158" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009108" UseDistance="5.0" XYZ="286.3356, -74.60144, -499.0158" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="Array[int]([1, 3, 5, 6, 8, 9]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="239.1852, -74.99817, -464.9576" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009109" UseDistance="5.0" XYZ="239.1852, -74.99817, -464.9576" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([5, 6, 7, 10]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([2, 4, 9]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="560.1434, -75.54742, -410.8187" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009107" UseDistance="5.0" XYZ="560.1434, -75.54742, -410.8187" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([1, 3, 8]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="286.3356, -74.60144, -499.0158" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009108" UseDistance="5.0" XYZ="286.3356, -74.60144, -499.0158" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([2, 4, 6, 7, 8, 9]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="613.9467, -74.57086, -400.0458" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009105" UseDistance="5.0" XYZ="613.9467, -74.57086, -400.0458" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68526).QuestI8DH == 1">
-        <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <If Condition="Array[int]([3, 5, 10]).Contains(GetQuestById(68526).QuestI8DH)">
-        <FlyTo XYZ="560.1434, -75.54742, -410.8187" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	    <SoUseSpell SpellId="10013" NpcId="2009107" UseDistance="5.0" XYZ="560.1434, -75.54742, -410.8187" Condition="HasQuest(68526) and GetQuestStep(68526) == 2 and GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
-      </If>
-      <Dismount/>
-    </If>
-    <!-- A Real Pearler -->
-    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 3, 5, 6, 7, 8, 10]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="211.078, -135.1492, 56.16846" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009094" XYZ="211.078, -135.1492, 56.16846" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 2">
-        <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 4">
-        <FlyTo XYZ="196.2767, -146.685, 40.45166" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009080" XYZ="196.2767, -146.685, 40.45166" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 9">
-        <FlyTo XYZ="163.0426, -148.0583, 72.28198" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009095" XYZ="163.0426, -148.0583, 72.28198" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 4]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([2, 5]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="163.0426, -148.0583, 72.28198" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009095" XYZ="163.0426, -148.0583, 72.28198" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([3, 10]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="196.2767, -146.685, 40.45166" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009080" XYZ="196.2767, -146.685, 40.45166" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([6, 7]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="151.5677, -168.1087, 49.45447" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009081" XYZ="151.5677, -168.1087, 49.45447" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 8">
-        <FlyTo XYZ="134.2335, -161.2116, 70.45081" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009096" XYZ="134.2335, -161.2116, 70.45081" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 9">
-        <FlyTo XYZ="173.8154, -167.3457, 114.6105" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009084" XYZ="173.8154, -167.3457, 114.6105" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <If Condition="Array[int]([1, 3, 4, 7, 9]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="165.0873, -143.5417, 116.2279" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009083" XYZ="165.0873, -143.5417, 116.2279" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 2">
-        <FlyTo XYZ="173.8154, -167.3457, 114.6105" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009084" XYZ="173.8154, -167.3457, 114.6105" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 5">
-        <FlyTo XYZ="134.2335, -161.2116, 70.45081" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009096" XYZ="134.2335, -161.2116, 70.45081" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68516).QuestI8BL == 6">
-        <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="Array[int]([8, 10]).Contains(GetQuestById(68516).QuestI8BL)">
-        <FlyTo XYZ="151.5677, -168.1087, 49.45447" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009081" XYZ="151.5677, -168.1087, 49.45447" Condition="HasQuest(68516) and GetQuestStep(68516) == 1 and GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-    </If>
-    <!-- Forever Blowing Bubbles -->
-    <If Condition="HasQuest(68527) and GetQuestStep(68527) == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <FlyTo XYZ="223.3068, -110.4665, -283.8829" AllowedVariance="1.0" IgnoreIndoors="True"/>
-      <FlyTo XYZ="29.61768, -86.16772, -26.96277" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-      <RunCode Name="Announce_Manual_Completion"/>
-      <WaitTimer WaitTime="30"/>
-    </If>
-    <!-- Clammed Up ** 6, 7, 8, 9, 10 -->
-    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="Array[int]([1, 2, 4, 5]).Contains(GetQuestById(68533).QuestI8DL)">
-        <FlyTo XYZ="-77.74481, -180.6211, 33.15784" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009135" XYZ="-77.74481, -180.6211, 33.15784" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="GetQuestById(68533).QuestI8DL == 3">
-        <FlyTo XYZ="-150.1031, -167.01, 87.60205" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009136" XYZ="-150.1031, -167.01, 87.60205" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="Array[int]([1, 2, 4]).Contains(GetQuestById(68533).QuestI8DL)">
-        <FlyTo XYZ="-150.1031, -167.01, 87.60205" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009136" XYZ="-150.1031, -167.01, 87.60205" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68533).QuestI8DL == 3">
-        <FlyTo XYZ="-105.5308, -169.0093, -178.9174" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <FlyTo XYZ="-141.6801, -149.3401, -214.6487" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009137" XYZ="-141.6801, -149.3401, -214.6487" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68533).QuestI8DL == 5">
-        <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="Array[int]([1, 3]).Contains(GetQuestById(68533).QuestI8DL)">
-        <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="Array[int]([2, 4, 5]).Contains(GetQuestById(68533).QuestI8DL)">
-        <FlyTo XYZ="-105.5308, -169.0093, -178.9174" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <FlyTo XYZ="-141.6801, -149.3401, -214.6487" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009137" XYZ="-141.6801, -149.3401, -214.6487" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="Array[int]([1, 2, 3, 5]).Contains(GetQuestById(68533).QuestI8DL)">
-        <FlyTo XYZ="-131.7312, -191.9738, -6.118958" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009139" XYZ="-131.7312, -191.9738, -6.118958" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3"/>
-      </If>
-	  <If Condition="GetQuestById(68533).QuestI8DL == 4">
-        <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="HasQuest(68533) and GetQuestStep(68533) == 1 and GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3"/>
-      </If>
-    </If>
-    <!-- Tentacles of Trade -->
-    <If Condition="HasQuest(68536) and GetQuestStep(68536) == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="GetQuestById(68536).QuestI8CL == 1">
-        <FlyTo XYZ="-154.4061, -179.3393, 187.9758" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009146" XYZ="-154.4061, -179.3393, 187.9758" QuestId="68536" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68536).QuestI8CL == 2">
-        <FlyTo XYZ="-162.8291, -192.5231, 255.6344" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009150" XYZ="-162.8291, -192.5231, 255.6344" QuestId="68536" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68536).QuestI8CL == 3">
-        <FlyTo XYZ="-245.8076, -194.5068, 219.9893" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009148" XYZ="-245.8076, -194.5068, 219.9893" QuestId="68536" StepId="1"/>
-	  </If>
-    </If>
-    <!-- Deep Turquoise Sea ** 6, 7, 8, 9, 10 -->
-    <If Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <FlyTo XYZ="-243.1674, -336.8488, 409.3839" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 2">
-        <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68530).QuestI8BL)">
-        <FlyTo XYZ="-229.2668, -308.7358, 449.485" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009119" XYZ="-229.2668, -308.7358, 449.485" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="Array[int]([1, 5]).Contains(GetQuestById(68530).QuestI8BL)">
-        <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	</If>
-    <If Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 1">
-        <FlyTo XYZ="-249.5919, -325.948, 472.7092" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009123" XYZ="-249.5919, -325.948, 472.7092" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 2">
-        <FlyTo XYZ="-233.9361, -411.3985, 372.8236" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009120" XYZ="-233.9361, -411.3985, 372.8236" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 3">
-        <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 4">
-        <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 5">
-        <FlyTo XYZ="-229.2668, -308.7358, 449.485" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009119" XYZ="-229.2668, -308.7358, 449.485" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	</If>
-    <If Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-	  <If Condition="GetQuestById(68530).QuestI8BL == 2">
-        <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68530).QuestI8BL)">
-        <FlyTo XYZ="-249.5919, -325.948, 472.7092" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009123" XYZ="-249.5919, -325.948, 472.7092" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="Array[int]([1, 5]).Contains(GetQuestById(68530).QuestI8BL)">
-        <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="HasQuest(68530) and GetQuestStep(68530) == 1 and GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	</If>
-    <!-- You Have the Rite -->
-    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-      </If>
-      <If Condition="not MovementManager.IsDiving">
-        <RunCode Name="ExitTamamizu"/>
-      </If>
-      <FlyTo XYZ="52.66997, -194.2587, -175.0249" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-      <RunCode Name="EnterSuiNoSato"/>
-      <TalkTo NpcId="1024294" XYZ="-24.76544, -190.3894, -137.1024" QuestId="68517" StepId="1"/>
-      <MoveTo XYZ="15.6932, -197.987, -151.7496"/>
-	  <RunCode Name="ExitSuiNoSato"/>
-    </If>
-    <!-- The Hot-blooded Kojin -->
-    <If Condition="HasQuest(68537) and GetQuestStep(68537) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="GetQuestById(68537).QuestI8CH == 1">
-        <FlyTo XYZ="-727.7485, 4.288563, 188.5862" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024320" XYZ="-727.7485, 4.288563, 188.5862" QuestId="68537" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68537).QuestI8CH == 2">
-        <FlyTo XYZ="-869.9321, 36.02649, 280.293" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024322" XYZ="-869.9321, 36.02649, 280.293" QuestId="68537" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68537).QuestI8CH == 3">
-        <FlyTo XYZ="-607.7821, 7.003784, 184.8325" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024318" XYZ="-607.7821, 7.003784, 184.8325" QuestId="68537" StepId="1"/>
-	  </If>
-    </If>
-    <!-- You Blow it Up -->
-    <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="-842.3133, 36.02649, 319.9664" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-	  <NoCombatMoveTo XYZ="-842.3133, 36.02649, 319.9664" Distance="1.0"/>
-      <RunCode Name="68535"/>
-    </If>
-    <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="-842.3133, 36.02649, 319.9664" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      </If>
-	  <NoCombatMoveTo XYZ="-848.8746, 36.02649, 300.6484" Distance="1.0"/>
-      <RunCode Name="68535"/>
-    </If>
-    <If Condition="HasQuest(68535) and GetQuestStep(68535) == 1 and GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="-842.3133, 36.02649, 319.9664" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      </If>
-	  <NoCombatMoveTo XYZ="-873.5942, 35.99597, 318.8372" Distance="1.0"/>
-      <RunCode Name="68535"/>
-    </If>
-    <!-- Pleasure Doing Business -->
-    <If Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 0)">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="-747.4273, 1.579549, -478.3697" Land="True"/>
-	  <If Condition="GetQuestById(68529).QuestI8D == 1">
-        <TalkTo NpcId="1024310" XYZ="-795.0103, 21.34735, -466.2089" QuestId="68529"/>
-      </If>
-	  <If Condition="GetQuestById(68529).QuestI8D == 2">
-        <TalkTo NpcId="1024311" XYZ="-750.3929, 1.667969, -479.3317" QuestId="68529"/>
-	  </If>
-    </If>
-    <If Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 1)">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="-747.4273, 1.579549, -478.3697" Land="True"/>
-      </If>
-      <If Condition="Array[int]([17, 18]).Contains(GetQuestById(68529).QuestI8E)">
-        <TalkTo NpcId="1024312" XYZ="-792.0806, 8.039128, -444.419" QuestId="68529"/>
-      </If>
-	  <If Condition="Array[int]([33, 34]).Contains(GetQuestById(68529).QuestI8E)">
-        <TalkTo NpcId="1024313" XYZ="-764.126, 4.745544, -441.5198" QuestId="68529"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68529) and GetQuestStep(68529) == 1 and not IsTodoChecked(68529, 1, 2)">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="-747.4273, 1.579549, -478.3697" Land="True"/>
-      </If>
-	  <If Condition="Array[int]([17, 33]).Contains(GetQuestById(68529).QuestI8E)">
-        <TalkTo NpcId="1024314" XYZ="-784.4816, 7.70575, -456.9925" QuestId="68529"/>
-      </If>
-	  <If Condition="Array[int]([18, 34]).Contains(GetQuestById(68529).QuestI8E)">
-        <TalkTo NpcId="1024315" XYZ="-797.4823, 8.045045, -417.5632" QuestId="68529"/>
-      </If>
-    </If>
-    <!-- Flotsam and Jetsam ** 9, 10 -->
-    <If Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 1">
-        <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
-		<Dismount/>
-		<UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="Array[int]([2, 6]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
-		<Dismount/>
-		<UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 3">
-        <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
-		<Dismount/>
-		<UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 4">
-        <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
-		<Dismount/>
-		<UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="Array[int]([5, 7, 8]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="14.57233, -0.07635498, -352.8649"/>
-		<Dismount/>
-		<UseObject NpcId="2009130" XYZ="14.57233, -0.07635498, -352.8649" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 1">
-        <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
-		<Dismount/>
-		<UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="Array[int]([2, 6]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="284.9927, -0.1983643, -28.00031"/>
-		<Dismount/>
-		<UseObject NpcId="2009134" XYZ="284.9927, -0.1983643, -28.00031" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
-		<Dismount/>
-		<UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 5">
-        <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
-		<Dismount/>
-		<UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="Array[int]([7, 8]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
-		<Dismount/>
-		<UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="Array[int]([1, 7]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
-		<Dismount/>
-		<UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 2">
-        <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
-		<Dismount/>
-		<UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 3">
-        <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
-		<Dismount/>
-		<UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="Array[int]([4, 8]).Contains(GetQuestById(68532).QuestI8BL)">
-        <FlyTo XYZ="284.9927, -0.1983643, -28.00031"/>
-		<Dismount/>
-		<UseObject NpcId="2009134" XYZ="284.9927, -0.1983643, -28.00031" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 5">
-        <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
-		<Dismount/>
-		<UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-	  <If Condition="GetQuestById(68532).QuestI8BL == 6">
-        <FlyTo XYZ="14.57233, -0.07635498, -352.8649"/>
-		<Dismount/>
-		<UseObject NpcId="2009130" XYZ="14.57233, -0.07635498, -352.8649" Condition="HasQuest(68532) and GetQuestStep(68532) == 1 and GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-    </If>
-    <!-- Buoyant Bounty -->
-    <If Condition="HasQuest(68524) and GetQuestStep(68524) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68524).QuestI8CH == 1">
-        <FlyTo XYZ="399.8931, -0.1068726, -347.2191" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
-		<UseItem ItemId="2002405" NpcId="2009104" XYZ="399.8931, -0.1068726, -347.219" QuestId="68524" StepId="1"/>
-      </If>
-      <If Condition="GetQuestById(68524).QuestI8CH == 2">
-        <FlyTo XYZ="187.2434, -0.1068726, -477.7142" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
-		<UseItem ItemId="2002405" NpcId="2009103" XYZ="187.2434, -0.1068726, -477.7142" QuestId="68524" StepId="1"/>
-      </If>
-      <If Condition="GetQuestById(68524).QuestI8CH == 3">
-        <FlyTo XYZ="379.0798, -0.07635498, -494.316" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
-		<UseItem ItemId="2002405" NpcId="2009102" XYZ="379.0798, -0.07635498, -494.316" QuestId="68524" StepId="1"/>
-      </If>
-    </If>
-    <!-- Confused Courier -->
-    <If Condition="HasQuest(68523) and GetQuestStep(68523) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="136.6423, -0.06949949, -580.2354" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <TalkTo NpcId="1024300" XYZ="139.6047, -0.1353612, -578.1796" QuestId="68523" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68523) and GetQuestStep(68523) == 2 and GetQuestById(68523).GetTodoArgs(2, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68523).QuestI8CL == 2">
-        <FlyTo XYZ="30.8489, 1.117759, -531.1934" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <HandOver ItemId="2002404" NpcId="1024305" XYZ="30.71643, 1.185597, -529.778" QuestId="68523"/>
-      </If>
-      <If Condition="not GetQuestById(68523).QuestI8CL == 2">
-        <FlyTo XYZ="43.36669, 3.663673, -616.1827" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <HandOver ItemId="2002404" NpcId="1024303" XYZ="43.50342, 3.663673, -619.379" QuestId="68523"/>
-      </If>
-	</If>
-    <If Condition="HasQuest(68523) and GetQuestStep(68523) == 2 and GetQuestById(68523).GetTodoArgs(2, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68523).QuestI8CL == 1">
-        <FlyTo XYZ="30.8489, 1.117759, -531.1934" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <HandOver ItemId="2002404" NpcId="1024305" XYZ="30.71643, 1.185597, -529.778" QuestId="68523"/>
-      </If>
-      <If Condition="not GetQuestById(68523).QuestI8CL == 1">
-        <FlyTo XYZ="-12.34086, 3.144817, -621.0387" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <HandOver ItemId="2002404" NpcId="1024301" XYZ="-11.88684, 3.194641, -622.8885" QuestId="68523"/>
-      </If>
-    </If>
-    <!-- Much at Steak -->
-    <If Condition="HasQuest(68522) and GetQuestStep(68522) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68522).QuestI8C == 1">
-        <FlyTo XYZ="-309.4098, -0.4999999, -518.6631" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      </If>
-      <If Condition="GetQuestById(68522).QuestI8C == 2">
-        <FlyTo XYZ="165.3843, -0.4997907, -749.9154" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      </If>
-      <If Condition="GetQuestById(68522).QuestI8C == 3">
-        <FlyTo XYZ="-135.6018, -0.0343858, -805.613" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      </If>
-      <WaitWhile Condition="HasQuest(68522) and GetQuestStep(68522) == 1"/>
-    </If>
-    <!-- No, Not the Boo Box -->
-    <If Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 0">
-	  <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-	  </If>
-      <FlyTo XYZ="558.5259, -0.01531982, -516.9299" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <UseObject NpcIds="2009114,2009116" XYZ="558.5259, -0.01531982, -516.9299" Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 0"/>
-	</If>
-    <If Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 1">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-	  </If>
-      <FlyTo XYZ="633.1731, -0.01531982, -497.7951" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <UseObject NpcIds="2009111,2009113" XYZ="633.1731, -0.01531982, -497.7951" Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 1"/>
-	</If>
-    <If Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 2">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-	  </If>
-      <FlyTo XYZ="694.087, -0.01531982, -611.017" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <UseObject NpcIds="2009110,2009117" XYZ="694.087, -0.01531982, -611.017" Condition="HasQuest(68528) and GetQuestStep(68528) == 1 and GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 2"/>
-	</If>
-    <!-- Pickles of Partnership -->
-    <If Condition="HasQuest(68520) and GetQuestStep(68520) == 1 and GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68520).QuestI8CH == 1">
-        <FlyTo XYZ="537.1328, 33.65523, -811.1849" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <HandOver ItemId="2002426" NpcId="1019249" XYZ="537.1328, 33.65523, -811.1849" QuestId="68520"/>
-      </If>
-      <If Condition="GetQuestById(68520).QuestI8CH == 2">
-        <FlyTo XYZ="537.1328, 33.65523, -811.1849" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <HandOver ItemId="2002426" NpcId="1019249" XYZ="537.1328, 33.65523, -811.1849" QuestId="68520"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68520) and GetQuestStep(68520) == 1 and GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68520).QuestI8CH == 1">
-        <FlyTo XYZ="577.3556, 9.866471, -733.7911" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <HandOver ItemId="2002426" NpcId="1024420" XYZ="577.3556, 9.866471, -733.7911" QuestId="68520"/>
-      </If>
-      <If Condition="GetQuestById(68520).QuestI8CH == 2">
-        <FlyTo XYZ="724.8187, 1.369164, -814.4198" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <HandOver ItemId="2002426" NpcId="1024348" XYZ="724.8187, 1.369164, -814.4198" QuestId="68520"/>
-      </If>
-    </If>
-    <!-- Little Kojin Lost -->
-    <If Condition="HasQuest(68521) and GetQuestStep(68521) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="821.1222, 8.786834, -774.555"/>
-      <RunCode Name="68521"/>
-	</If>
-    <If Condition="HasQuest(68521) and GetQuestStep(68521) == 2">
-      <If Condition="not MovementManager.IsDiving">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="821.1222, 8.786834, -774.555"/>
-        <RunCode Name="68521"/>
-      </If>
-      <If Condition="GetQuestById(68521).QuestI8BH == 1">
-        <FlyTo XYZ="861.6616, -108.6595, -546.4103" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024295" XYZ="861.6616, -108.6595, -546.4103" QuestId="68521" StepId="2"/>
-      </If>
-      <If Condition="GetQuestById(68521).QuestI8BH == 2">
-        <FlyTo XYZ="891.783, -140.6119, -794.3694" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024345" XYZ="891.783, -140.6119, -794.3694" QuestId="68521" StepId="2"/>
-      </If>
-      <If Condition="GetQuestById(68521).QuestI8BH == 3">
-        <FlyTo XYZ="836.1486, -127.8554, -910.7042" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <UseObject NpcId="1024344" XYZ="836.1486, -127.8554, -910.7042" QuestId="68521" StepId="2"/>
-      </If>
-	</If>
-    <!-- Disciplinary Action -->
-    <If Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="Array[int]([1, 2, 5, 7, 8, 10]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="431.1904, -0.01531982, 521.8589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="429.1904, -0.01531982, 506.8589" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="Array[int]([3, 6, 9]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="255.8868, -0.5000001, 494.1028" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="253.2539, -0.01531982, 479.6062" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68538).QuestI8DL == 4">
-        <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
-    </If>
-    <If Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="Array[int]([1, 8, 10]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="255.8868, -0.5000001, 494.1028" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="253.2539, -0.01531982, 479.6062" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([2, 3, 5, 6]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <If Condition="Array[int]([4, 7, 9]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="-190.0653, -0.01531982, 643.2596" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="-192.0653, -0.01531982, 628.2596" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
-    </If>
-    <If Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="Array[int]([1, 5, 6]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="-190.0653, -0.01531982, 642.2596" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="-192.0653, -0.01531982, 628.2596" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="Array[int]([2, 3, 4, 7, 9, 10]).Contains(GetQuestById(68538).QuestI8DL)">
-        <FlyTo XYZ="-368.3823, -0.01531982, 878.6453" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="-370.3823, -0.01531982, 863.6453" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <If Condition="GetQuestById(68538).QuestI8DL == 8">
-        <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68538) and GetQuestStep(68538) == 1 and GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
-      </If>
-      <WaitWhile Condition="ObjectExistsWithId(6885)"/>
-    </If>
-    <!-- Tonight We Dine in Shells -->
-    <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68519).QuestI8DH == 1">
-        <FlyTo XYZ="-72.58722, 10.51343, 632.4102" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002401" NpcId="2009091" XYZ="-72.58722, 10.51343, 632.4102" Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68519).QuestI8DH == 2">
-        <FlyTo XYZ="29.49561, 3.005981, 527.7637" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseItem ItemId="2002401" NpcId="2009093" XYZ="29.49561, 3.005981, 527.7637" Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="38.86462, 18.20398, 712.7947" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <UseItem ItemId="2002401" NpcId="2009092" XYZ="38.86462, 18.20398, 712.7947" Condition="HasQuest(68519) and GetQuestStep(68519) == 1 and GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 1"/>
-    </If>
-    <!-- Anala-lyze This -->
-    <If Condition="HasQuest(68525) and GetQuestStep(68525) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="GetQuestById(68525).QuestI8CH == 1">
-        <FlyTo XYZ="52.26208, 18.84485, 576.4399" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009161" XYZ="52.26208, 18.84485, 576.4399" QuestId="68525" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68525).QuestI8CH == 2">
-        <FlyTo XYZ="29.58716, 51.40759, 771.3588" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009162" XYZ="29.58716, 51.40759, 771.3588" QuestId="68525" StepId="1"/>
-	  </If>
-	  <If Condition="GetQuestById(68525).QuestI8CH == 3">
-        <FlyTo XYZ="337.85, 5.81366, 685.2673" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009163" XYZ="337.85, 5.81366, 685.2673" QuestId="68525" StepId="1"/>
-	  </If>
-    </If>
-    <!-- Tale of Roe ** 9, 10 -->
-    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="Array[int]([1, 2]).Contains(GetQuestById(68534).QuestI8EH)">
-        <FlyTo XYZ="460.9902, 0.5645142, 889.494" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009101" XYZ="460.9902, 0.5645142, 889.494" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="Array[int]([3, 5, 7, 8]).Contains(GetQuestById(68534).QuestI8EH)">
-        <FlyTo XYZ="394.7661, 16.98328, 845.9448" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009100" XYZ="394.7661, 16.98328, 845.9448" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="GetQuestById(68534).QuestI8EH == 4">
-        <FlyTo XYZ="352.1018, -0.01531982, 860.3188" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009141" XYZ="352.1018, -0.01531982, 860.3188" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-	  <If Condition="GetQuestById(68534).QuestI8EH == 6">
-        <FlyTo XYZ="543.1753, -0.01531982, 685.7251" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009140" XYZ="543.1753, -0.01531982, 685.7251" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-	  <If Condition="Array[int]([1, 4, 5, 6]).Contains(GetQuestById(68534).QuestI8EH)">
-        <FlyTo XYZ="480.4607, 3.829956, 841.3672" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009142" XYZ="480.4607, 3.829956, 841.3672" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="Array[int]([2, 3]).Contains(GetQuestById(68534).QuestI8EH)">
-        <FlyTo XYZ="352.1018, -0.01531982, 860.3188" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009141" XYZ="352.1018, -0.01531982, 860.3188" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68534).QuestI8EH == 7">
-        <FlyTo XYZ="543.1753, -0.01531982, 685.7251" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009140" XYZ="543.1753, -0.01531982, 685.7251" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-	  <If Condition="GetQuestById(68534).QuestI8EH == 8">
-        <FlyTo XYZ="460.9902, 0.5645142, 889.494" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <UseItem ItemId="2002419" NpcId="2009101" XYZ="460.9902, 0.5645142, 889.494" Condition="HasQuest(68534) and GetQuestStep(68534) == 1 and GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(68534) and GetQuestStep(68534) == 2">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="823.3004, 5.923001, 866.6361" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <HandOver ItemId="2002420" NpcId="1024317" XYZ="823.3004, 5.923001, 866.6361" QuestId="68534" StepId="2"/>
-    </If>
-    <!-- A Real Pearler -->
-    <If Condition="HasQuest(68516) and GetQuestStep(68516) == 2">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="873.9298, 1.179207, 851.9568" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-      <HandOver ItemId="2002399" NpcId="1024460" XYZ="873.9298, 1.179207, 851.9568" QuestId="68516" StepId="2"/>
-    </If>
-    <!-- Holy Mother of Pearl -->
-    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="716.9872, -0.3000001, 142.1604" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 2">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="716.9872, -0.3000001, 142.1604" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      </If>
-      <UseItem ItemId="2002414" NpcIds="2009124,2009126,2009127,2009128,2009227,2008344,2008343" QuestId="68531" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="753.5667, 0.4119263, 121.7212" Radius="10"/>
-          <HotSpot XYZ="745.4185, 0.1677856, 95.75024" Radius="10"/>
-          <HotSpot XYZ="745.4489, 0.1677856, 95.78088" Radius="10"/>
-          <HotSpot XYZ="777.1571, 1.205444, 110.3685" Radius="10"/>
-          <HotSpot XYZ="708.0338, 3.005981, 152.575" Radius="10"/>
-          <HotSpot XYZ="785.5801, 1.235901, 21.86615" Radius="10"/>
-          <HotSpot XYZ="777.1876, 1.235901, 110.3685" Radius="10"/>
-        </HotSpots>
-      </UseItem>
-    </If>
-    <If Condition="HasQuest(68531) and GetQuestStep(68531) == 3">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="716.9872, -0.3000001, 142.1604" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      </If>
-      <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="3"/>
-    </If>
-    <!-- Best Served Foul -->
-    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 1">
-      <If Condition="not IsOnMap(613) or IsOnSubMap(2769)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <FlyTo XYZ="702.0458, 0.7776591, -25.6705" Land="True"/>
-      <TalkTo NpcId="1024538" XYZ="703.7003, 0.7387832, -26.0777" QuestId="68515" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 1">
-        <FlyTo XYZ="762.9358, 0.4425049, -286.7323" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009239" XYZ="762.9358, 0.4425049, -286.7323" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="762.9358, 0.4425049, -286.7323" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 2">
-        <FlyTo XYZ="620.2334, 0.1067505, -315.9076" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009240" XYZ="620.2334, 0.1067505, -315.9076" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="620.2334, 0.1067505, -315.9076" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 3">
-        <FlyTo XYZ="762.9358, 0.4425049, -286.7323" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009239" XYZ="762.9358, 0.4425049, -286.7323" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="762.9358, 0.4425049, -286.7323" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
-      </If>
-      <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
-    </If>
-    <If Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
-      <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 1">
-        <FlyTo XYZ="532.6465, 0.9917603, -201.2818" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009241" XYZ="532.6465, 0.9917603, -201.2818" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="532.6465, 0.9917603, -201.2818" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 2">
-        <FlyTo XYZ="532.6465, 0.9917603, -201.2818" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009241" XYZ="532.6465, 0.9917603, -201.2818" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="532.6465, 0.9917603, -201.2818" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <If Condition="GetQuestById(68515).QuestI8CL == 3">
-        <FlyTo XYZ="620.2334, 0.1067505, -315.9076" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <UseObject NpcId="2009240" XYZ="620.2334, 0.1067505, -315.9076" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
-        <UseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="620.2334, 0.1067505, -315.9076" InCombat="True" UseHealthPercent="2" Condition="HasQuest(68515) and GetQuestStep(68515) == 2 and GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
-      </If>
-      <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
-    </If>
-    <!-- You Have the Rite -->
-    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 2">
-      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-	  <MoveTo XYZ="366.9251, -119.9409, -291.1758" Distance="1"/>
-      <RunCode Name="68517"/>
-    </If>
-    <If Condition="HasQuest(68517) and GetQuestStep(68517) == 3">
-	  <If Condition="not IsOnMap(613)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-      </If>
-      <EmoteNPC Emote="pray" NpcId="2009085" XYZ="368.3986, -116.6247, -291.3406" QuestId="68517" StepId="3"/>
-    </If>
-    <!-- Buoyant Bounty -->
-    <If Condition="HasQuest(68524) and GetQuestStep(68524) == 2">
-      <If Condition="not IsOnSubMap(2769)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-      </If>
-      <HandOver ItemId="2002406" NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68524" StepId="2"/>
-    </If>
-    <If Condition="IsQuestCompleted(68509) and HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538]))">
-      <If Condition="not IsOnSubMap(2769)">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-      </If>
-      <!-- Best Served Foul -->
-      <If Condition="HasQuest(68515) and GetQuestStep(68515) == 255">
-        <TurnIn QuestId="68515" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- A Real Pearler -->
-      <If Condition="HasQuest(68516) and GetQuestStep(68516) == 255">
-        <TurnIn QuestId="68516" ItemId="2002428" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- You Have the Rite -->
-      <If Condition="HasQuest(68517) and GetQuestStep(68517) == 255">
-        <TurnIn QuestId="68517" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Krilled to Pieces -->
-      <If Condition="HasQuest(68518) and GetQuestStep(68518) == 255">
-        <TurnIn QuestId="68518" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tonight We Dine in Shells -->
-      <If Condition="HasQuest(68519) and GetQuestStep(68519) == 255">
-        <TurnIn QuestId="68519" ItemId="2002402" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Krilled to Pieces -->
-      <If Condition="HasQuest(68520) and GetQuestStep(68520) == 255">
-        <TurnIn QuestId="68520" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Little Kojin Lost -->
-      <If Condition="HasQuest(68521) and GetQuestStep(68521) == 255">
-        <TurnIn QuestId="68521" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Much at Steak -->
-      <If Condition="HasQuest(68522) and GetQuestStep(68522) == 255">
-        <TurnIn QuestId="68522" ItemId="2002403" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Confused Courier -->
-      <If Condition="HasQuest(68523) and GetQuestStep(68523) == 255">
-        <TurnIn QuestId="68523" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Buoyant Bounty -->
-      <If Condition="HasQuest(68524) and GetQuestStep(68524) == 255">
-        <TurnIn QuestId="68524" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Anala-lyze This -->
-      <If Condition="HasQuest(68525) and GetQuestStep(68525) == 255">
-        <TurnIn QuestId="68525" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Sand-sifting Specialist -->
-      <If Condition="HasQuest(68526) and GetQuestStep(68526) == 255">
-        <TurnIn QuestId="68526" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Forever Blowing Bubbles -->
-      <If Condition="HasQuest(68527) and GetQuestStep(68527) == 255">
-        <TurnIn QuestId="68527" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- No, Not the Boo Box -->
-      <If Condition="HasQuest(68528) and GetQuestStep(68528) == 255">
-        <TurnIn QuestId="68528" ItemIds="2002408,2002409" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Pleasure Doing Business -->
-      <If Condition="HasQuest(68529) and GetQuestStep(68529) == 255">
-        <TurnIn QuestId="68529" ItemIds="2002410,2002411,2002412" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Deep Turquoise Sea -->
-      <If Condition="HasQuest(68530) and GetQuestStep(68530) == 255">
-        <TurnIn QuestId="68530" ItemId="2002413" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Holy Mother of Pearl -->
-      <If Condition="HasQuest(68531) and GetQuestStep(68531) == 255">
-        <TurnIn QuestId="68531" ItemIds="2002410,2002411,2002412" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Flotsam and Jetsam -->
-      <If Condition="HasQuest(68532) and GetQuestStep(68532) == 255">
-        <TurnIn QuestId="68532" ItemId="2002415" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Clammed Up -->
-      <If Condition="HasQuest(68533) and GetQuestStep(68533) == 255">
-        <TurnIn QuestId="68533" ItemId="2002418" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tale of Roe -->
-      <If Condition="HasQuest(68534) and GetQuestStep(68534) == 255">
-        <TurnIn QuestId="68534" ItemId="2002421" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- You Blow It Up -->
-      <If Condition="HasQuest(68535) and GetQuestStep(68535) == 255">
-        <TurnIn QuestId="68535" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Tentacles of Trade -->
-      <If Condition="HasQuest(68536) and GetQuestStep(68536) == 255">
-        <TurnIn QuestId="68536" ItemId="2002423" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- The Hot-blooded Kojin -->
-      <If Condition="HasQuest(68537) and GetQuestStep(68537) == 255">
-        <TurnIn QuestId="68537" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-      <!-- Disciplinary Action -->
-      <If Condition="HasQuest(68538) and GetQuestStep(68538) == 255">
-        <TurnIn QuestId="68538" NpcId="1024217" InteractDistance="3.0" XYZ="394.3998, -119.5893, -232.2881"/>
-      </If>
-    </If>
-    <If Condition="IsQuestCompleted(68509) and not HasAtLeastOneQuest(Array[int]([68515,68516,68517,68518,68519,68520,68521,68522,68523,68524,68525,68526,68527,68528,68529,68530,68531,68532,68533,68534,68535,68536,68537,68538]))">
-      <!-- Under Wraps -->
-      <If Condition="IsQuestCompleted(68509) and not HasQuest(68510) and not IsQuestCompleted(68510)">
-        <If Condition="IsQuestAcceptQualified(68510)">
-          <PickupQuest QuestId="68510" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
-        </If>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 1">
-        <GetTo ZoneId="614" XYZ="462.9904, 56.63378, -156.7799"/>
-        <SoTalkTo NpcId="1024231" XYZ="463.4012, 56.86197, -157.9462" QuestId="68510" StepId="1"/>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 2">
-        <If Condition="not IsOnMap(614)">
-          <TeleportTo Name="Namai" AetheryteId="107"/>
-        </If>
-        <FlyTo XYZ="143.6658, 25.86379, 454.3949" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <RunCode Name="Announce_Manual_Completion"/>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 3">
-        <If Condition="not IsOnMap(614)">
-          <TeleportTo Name="Namai" AetheryteId="107"/>
-        </If>
-        <FlyTo XYZ="204.9109, 14.28261, 711.4144" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <RunCode Name="Announce_Manual_Completion"/>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 4">
-        <If Condition="not IsOnMap(614)">
-          <TeleportTo Name="Namai" AetheryteId="107"/>
-        </If>
-        <FlyTo XYZ="300.4438, 2.80657, 731.8773" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <TalkTo NpcId="1024238" XYZ="302.7236, 2.86196, 731.4412" QuestId="68510" StepId="4"/>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 5">
-        <If Condition="not IsOnMap(614)">
-          <TeleportTo Name="Namai" AetheryteId="107"/>
-        </If>
-        <FlyTo XYZ="181.4258, 6.071421, 554.3765" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <TalkTo NpcId="1024244" XYZ="181.1093, 6.110566, 553.2462" QuestId="68510" StepId="5"/>
-      </If>
-      <If Condition="HasQuest(68510) and not IsQuestCompleted(68510) and GetQuestStep(68510) == 255">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-        <TurnIn QuestId="68510" NpcId="1024215" InteractDistance="3.0" XYZ="400.0762, -119.5893, -247.5471"/>
-      </If>
-      <!-- The Value of Silence -->
-      <If Condition="IsQuestCompleted(68510) and not HasQuest(68511) and not IsQuestCompleted(68511)">
-        <If Condition="IsQuestAcceptQualified(68511)">
-          <PickupQuest QuestId="68511" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
-        </If>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 1">
-        <GetTo ZoneId="622" XYZ="540.5313, -19.50584, 414.7613"/>
-        <TalkTo NpcId="1024248" XYZ="539.4827, -19.50593, 416.0983" QuestId="68511" StepId="1"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 2 and GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 0">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <TalkTo NpcId="1024250" XYZ="561.2115, -19.50563, 365.2856" QuestId="68511"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 2 and GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 1">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <TalkTo NpcId="1024251" XYZ="553.6124, -19.50564, 314.7478" QuestId="68511"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 2 and GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 2">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <TalkTo NpcId="1024252" XYZ="571.2213, -19.50564, 296.4675" QuestId="68511"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 3">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <SoTalkTo NpcId="1024248" XYZ="539.4827, -19.50593, 416.0983" QuestId="68511" StepId="3"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 4">
-        <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <FlyTo XYZ="355.3063, -13.01989, 471.1222" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <SoTalkTo NpcId="1024253" XYZ="355.3063, -13.01989, 471.1222" QuestId="68511" StepId="4"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 5">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <FlyTo XYZ="474.558, -25.19345, 550.418" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <WaitWhile Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 5"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 6">
-	    <If Condition="not IsOnMap(622)">
-          <TeleportTo Name="Reunion" AetheryteId="109"/>
-        </If>
-        <FlyTo XYZ="355.3063, -13.01989, 471.1222" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <HandOver ItemId="2002427" NpcId="1024256" XYZ="355.7946, -12.9577, 470.2982" QuestId="68511" StepId="6"/>
-      </If>
-      <If Condition="HasQuest(68511) and not IsQuestCompleted(68511) and GetQuestStep(68511) == 255">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-        <TurnIn QuestId="68511" NpcId="1024215" InteractDistance="3.0" XYZ="400.0762, -119.5893, -247.5471"/>
-      </If>
-      <!-- Misdelivered -->
-      <If Condition="IsQuestCompleted(68511) and not HasQuest(68512) and not IsQuestCompleted(68512)">
-        <If Condition="IsQuestAcceptQualified(68512)">
-          <PickupQuest QuestId="68512" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
-        </If>
-      </If>
-      <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 1">
-        <GetTo ZoneId="628" XYZ="-130.8658, -4.999999, 179.0163"/>
-        <TalkTo NpcId="1024260" XYZ="-131.9143, -4.999999, 181.7501" QuestId="68512" StepId="1"/>
-      </If>
-      <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 2">
-        <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        <FlyTo XYZ="245.8831, 6.361267, 653.9565" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <WaitWhile Condition="HasQuest(68512) and not IsQuestCompleted(68512) and not GetQuestStep(68512) == 3"/>
-      </If>
-      <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 3">
+    <If Condition="GetQuestStep(68509) &gt; 0">
+      <If Condition="GetQuestStep(68509) == 1">
         <If Condition="not IsOnMap(613)">
           <TeleportTo Name="Onkoro" AetheryteId="106"/>
         </If>
-        <FlyTo XYZ="247.2921, 6.195127, 651.1696" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <TalkTo NpcId="1024264" XYZ="246.9061, 6.054259, 649.2561" QuestId="68512" StepId="3"/>
+        <FlyTo XYZ="312.6616, 0.8144541, 466.4121" Land="True"/>
+        <SoTalkTo NpcId="1024222" XYZ="314.1068, 0.751186, 466.8802" QuestId="68509" StepId="1"/>
       </If>
-      <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 4">
-        <GetTo ZoneId="628" XYZ="-130.0512, -4.999999, 181.9478"/>
-        <TalkTo NpcId="1024267" XYZ="-130.5715, -4.999999, 183.3677" QuestId="68512" StepId="4"/>
+      <If Condition="GetQuestStep(68509) == 2">
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Onkoro" AetheryteId="106"/>
+        </If>
+        <FlyTo XYZ="108.7367, 2.024746, 565.8908" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        <WaitWhile Condition="HasQuest(68509) and not IsQuestCompleted(68509) and not GetQuestStep(68509) == 3"/>
       </If>
-      <If Condition="HasQuest(68512) and not IsQuestCompleted(68512) and GetQuestStep(68512) == 255">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-        <TurnIn QuestId="68512" NpcId="1024215" InteractDistance="3.0" XYZ="400.0762, -119.5893, -247.5471"/>
+      <If Condition="GetQuestStep(68509) == 3">
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Onkoro" AetheryteId="106"/>
+          <FlyTo XYZ="119.3332, 1.43602, 558.0864" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+        </If>
+        <UseObject NpcId="1024226" XYZ="117.296, 1.740206, 561.2419" QuestId="68509" StepId="3"/>
       </If>
-      <!-- A Test of Courage -->
-      <If Condition="IsQuestCompleted(68512) and not HasQuest(68513) and not IsQuestCompleted(68513)">
+      <If Condition="GetQuestStep(68509) == 255">
+        <If Condition="not IsOnMap(613)">
+          <TeleportTo Name="Onkoro" AetheryteId="106"/>
+        </If>
+        <FlyTo XYZ="652.0712, 3.239789, -58.64638" Land="True"/>
+        <TurnIn QuestId="68509" NpcId="1024230" XYZ="652.0942, 3.245688, -59.00665"/>
+      </If>
+    </If>
+    <If Condition="IsQuestCompleted(68509)">
+      <If Condition="not HasQuest(68510) and not HasQuest(68511) and not HasQuest(68512) and not HasQuest(68513) and not HasQuest(68514) and not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+        <MoveTo XYZ="391.5337, -119.5893, -234.935" Distance="1"/>
+        <!-- Best Served Foul -->
+        <If Condition="IsQuestAcceptQualified(68515)">
+          <PickupQuest QuestId="68515" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- A Real Pearler -->
+        <If Condition="IsQuestAcceptQualified(68516)">
+          <PickupQuest QuestId="68516" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- You Have the Rite -->
+        <If Condition="IsQuestAcceptQualified(68517)">
+          <PickupQuest QuestId="68517" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Krilled to Pieces -->
+        <If Condition="IsQuestAcceptQualified(68518)">
+          <PickupQuest QuestId="68518" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Tonight We Dine in Shells -->
+        <If Condition="IsQuestAcceptQualified(68519)">
+          <PickupQuest QuestId="68519" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Pickles of Partnership -->
+        <If Condition="IsQuestAcceptQualified(68520)">
+          <PickupQuest QuestId="68520" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Little Kojin Lost -->
+        <If Condition="IsQuestAcceptQualified(68521)">
+          <PickupQuest QuestId="68521" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Much at Steak -->
+        <If Condition="IsQuestAcceptQualified(68522)">
+          <PickupQuest QuestId="68522" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Confused Courier -->
+        <If Condition="IsQuestAcceptQualified(68523)">
+          <PickupQuest QuestId="68523" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Buoyant Bounty -->
+        <If Condition="IsQuestAcceptQualified(68524)">
+          <PickupQuest QuestId="68524" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Anala-lyze This -->
+        <If Condition="IsQuestAcceptQualified(68525)">
+          <PickupQuest QuestId="68525" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Sand-sifting Specialist -->
+        <If Condition="IsQuestAcceptQualified(68526)">
+          <PickupQuest QuestId="68526" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Forever Blowing Bubbles -->
+        <If Condition="IsQuestAcceptQualified(68527)">
+          <PickupQuest QuestId="68527" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- No, Not the Boo Box -->
+        <If Condition="IsQuestAcceptQualified(68528)">
+          <PickupQuest QuestId="68528" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Pleasure Doing Business -->
+        <If Condition="IsQuestAcceptQualified(68529)">
+          <PickupQuest QuestId="68529" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Deep Turquoise Sea -->
+        <If Condition="IsQuestAcceptQualified(68530)">
+          <PickupQuest QuestId="68530" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Holy Mother of Pearl -->
+        <If Condition="IsQuestAcceptQualified(68531)">
+          <PickupQuest QuestId="68531" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Flotsam and Jetsam -->
+        <If Condition="IsQuestAcceptQualified(68532)">
+          <PickupQuest QuestId="68532" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Clammed Up -->
+        <If Condition="IsQuestAcceptQualified(68533)">
+          <PickupQuest QuestId="68533" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Tale of Roe -->
+        <If Condition="IsQuestAcceptQualified(68534)">
+          <PickupQuest QuestId="68534" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- You Blow It Up -->
+        <If Condition="IsQuestAcceptQualified(68535)">
+          <PickupQuest QuestId="68535" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Tentacles of Trade -->
+        <If Condition="IsQuestAcceptQualified(68536)">
+          <PickupQuest QuestId="68536" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- The Hot-blooded Kojin -->
+        <If Condition="IsQuestAcceptQualified(68537)">
+          <PickupQuest QuestId="68537" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+        <!-- Disciplinary Action -->
+        <If Condition="IsQuestAcceptQualified(68538)">
+          <PickupQuest QuestId="68538" NpcId="1024217" InteractDistance="5.0"/>
+        </If>
+      </If>
+      <If Condition="HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+		<If Condition="GetQuestStep(68518) == 1 or GetQuestStep(68526) == 1">
+          <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
+		</If>
+        <!-- Krilled to Pieces -->
+        <If Condition="GetQuestStep(68518) == 2">
+          <If Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0">
+            <If Condition="not MovementManager.IsDiving">
+              <RunCode Name="ExitTamamizu"/>
+            </If>
+            <If Condition="Array[int]([1, 2, 3, 6, 8, 9]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="195.056, -183.3066, -346.6087" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009234" UseDistance="5.0" XYZ="195.056, -183.3066, -346.6087" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([4, 5, 7]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="192.0653, -172.8085, -247.6387" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009236" UseDistance="5.0" XYZ="192.0653, -172.8085, -247.6387" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68518).QuestI8DH == 10">
+              <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+              <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
+            </If>
+            <If Condition="not MovementManager.IsDiving">
+              <RunCode Name="ExitTamamizu"/>
+            </If>
+            <If Condition="Array[int]([1, 4, 10]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="81.19324, -197.7722, -266.8651" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009233" UseDistance="5.0" XYZ="81.19324, -197.7722, -266.8651" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 6, 8]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="192.0653, -172.8085, -247.6387" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009236" UseDistance="5.0" XYZ="192.0653, -172.8085, -247.6387" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([3, 5, 7, 9]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+              <TalkTo NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486"/>
+            </If>
+            <If Condition="not MovementManager.IsDiving">
+              <RunCode Name="ExitTamamizu"/>
+            </If>
+            <If Condition="Array[int]([1, 3, 4, 5, 6, 10]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="50.98035, -139.4218, -280.9644" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009235" UseDistance="5.0" XYZ="50.98035, -139.4218, -280.9644" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([7, 8, 9]).Contains(GetQuestById(68518).QuestI8DH)">
+              <FlyTo XYZ="81.19324, -197.7722, -266.8651" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009233" UseDistance="5.0" XYZ="81.19324, -197.7722, -266.8651" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68518).QuestI8DH == 2">
+              <FlyTo XYZ="173.9985, -161.8525, -190.2953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009237" UseDistance="5.0" XYZ="173.9985, -161.8525, -190.2953" Condition="GetQuestById(68518).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <Dismount/>
+          </If>
+        </If>
+        <!-- Sand-sifting Specialist -->
+        <If Condition="GetQuestStep(68526) == 2">
+          <If Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0">
+            <If Condition="not MovementManager.IsDiving">
+              <RunCode Name="ExitTamamizu"/>
+            </If>
+            <If Condition="GetQuestById(68526).QuestI8DH == 4">
+              <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([2, 7, 10]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="286.3356, -74.60144, -499.0158" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009108" UseDistance="5.0" XYZ="286.3356, -74.60144, -499.0158" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([1, 3, 5, 6, 8, 9]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="239.1852, -74.99817, -464.9576" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009109" UseDistance="5.0" XYZ="239.1852, -74.99817, -464.9576" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1">
+            <If Condition="Array[int]([5, 6, 7, 10]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 4, 9]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="560.1434, -75.54742, -410.8187" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009107" UseDistance="5.0" XYZ="560.1434, -75.54742, -410.8187" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([1, 3, 8]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="286.3356, -74.60144, -499.0158" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009108" UseDistance="5.0" XYZ="286.3356, -74.60144, -499.0158" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2">
+            <If Condition="Array[int]([2, 4, 6, 7, 8, 9]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="613.9467, -74.57086, -400.0458" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009105" UseDistance="5.0" XYZ="613.9467, -74.57086, -400.0458" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68526).QuestI8DH == 1">
+              <FlyTo XYZ="539.2385, -56.26001, -364.889" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009106" UseDistance="5.0" XYZ="539.2385, -56.26001, -364.889" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([3, 5, 10]).Contains(GetQuestById(68526).QuestI8DH)">
+              <FlyTo XYZ="560.1434, -75.54742, -410.8187" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <SoUseSpell SpellId="10013" NpcId="2009107" UseDistance="5.0" XYZ="560.1434, -75.54742, -410.8187" Condition="GetQuestById(68526).GetTodoArgs(2, 0).Item1 == 2"/>
+            </If>
+            <Dismount/>
+          </If>
+        </If>
+        <!-- A Real Pearler -->
+        <If Condition="GetQuestStep(68516) == 1">
+          <If Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="Array[int]([1, 3, 5, 6, 7, 8, 10]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="211.078, -135.1492, 56.16846" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009094" XYZ="211.078, -135.1492, 56.16846" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 2">
+              <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 4">
+              <FlyTo XYZ="196.2767, -146.685, 40.45166" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009080" XYZ="196.2767, -146.685, 40.45166" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 9">
+              <FlyTo XYZ="163.0426, -148.0583, 72.28198" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009095" XYZ="163.0426, -148.0583, 72.28198" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="Array[int]([1, 4]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 5]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="163.0426, -148.0583, 72.28198" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009095" XYZ="163.0426, -148.0583, 72.28198" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([3, 10]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="196.2767, -146.685, 40.45166" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009080" XYZ="196.2767, -146.685, 40.45166" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([6, 7]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="151.5677, -168.1087, 49.45447" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009081" XYZ="151.5677, -168.1087, 49.45447" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 8">
+              <FlyTo XYZ="134.2335, -161.2116, 70.45081" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009096" XYZ="134.2335, -161.2116, 70.45081" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 9">
+              <FlyTo XYZ="173.8154, -167.3457, 114.6105" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009084" XYZ="173.8154, -167.3457, 114.6105" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2">
+            <If Condition="Array[int]([1, 3, 4, 7, 9]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="165.0873, -143.5417, 116.2279" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009083" XYZ="165.0873, -143.5417, 116.2279" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 2">
+              <FlyTo XYZ="173.8154, -167.3457, 114.6105" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009084" XYZ="173.8154, -167.3457, 114.6105" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 5">
+              <FlyTo XYZ="134.2335, -161.2116, 70.45081" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009096" XYZ="134.2335, -161.2116, 70.45081" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68516).QuestI8BL == 6">
+              <FlyTo XYZ="141.8632, -170.306, 96.75745" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009082" XYZ="141.8632, -170.306, 96.75745" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([8, 10]).Contains(GetQuestById(68516).QuestI8BL)">
+              <FlyTo XYZ="151.5677, -168.1087, 49.45447" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009081" XYZ="151.5677, -168.1087, 49.45447" Condition="GetQuestById(68516).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+          </If>
+        </If>
+        <!-- Forever Blowing Bubbles -->
+        <If Condition="GetQuestStep(68527) == 1">
+          <BotSettings BlockSkippingCutscenes="1"/>
+          <FlyTo XYZ="29.61768, -86.16772, -26.96277"/>
+		  <RunCode Name="Announce_Manual_Completion"/>
+          <WaitWhile Condition="not GetQuestStep(68527) == 255"/>
+          <BotSettings BlockSkippingCutscenes="0"/>
+        </If>
+        <!-- Clammed Up -->
+        <If Condition="GetQuestStep(68533) == 1">
+          <If Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="Array[int]([1, 2, 4, 5]).Contains(GetQuestById(68533).QuestI8DL)">
+              <FlyTo XYZ="-77.74481, -180.6211, 33.15784" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009135" XYZ="-77.74481, -180.6211, 33.15784" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68533).QuestI8DL == 3">
+              <FlyTo XYZ="-150.1031, -167.01, 87.60205" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009136" XYZ="-150.1031, -167.01, 87.60205" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="Array[int]([1, 2, 4]).Contains(GetQuestById(68533).QuestI8DL)">
+              <FlyTo XYZ="-150.1031, -167.01, 87.60205" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009136" XYZ="-150.1031, -167.01, 87.60205" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68533).QuestI8DL == 3">
+              <FlyTo XYZ="-105.5308, -169.0093, -178.9174" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <FlyTo XYZ="-141.6801, -149.3401, -214.6487" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009137" XYZ="-141.6801, -149.3401, -214.6487" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68533).QuestI8DL == 5">
+              <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2">
+            <If Condition="Array[int]([1, 3]).Contains(GetQuestById(68533).QuestI8DL)">
+              <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([2, 4, 5]).Contains(GetQuestById(68533).QuestI8DL)">
+              <FlyTo XYZ="-105.5308, -169.0093, -178.9174" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <FlyTo XYZ="-141.6801, -149.3401, -214.6487" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009137" XYZ="-141.6801, -149.3401, -214.6487" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3">
+            <If Condition="Array[int]([1, 2, 3, 5]).Contains(GetQuestById(68533).QuestI8DL)">
+              <FlyTo XYZ="-131.7312, -191.9738, -6.118958" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009139" XYZ="-131.7312, -191.9738, -6.118958" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3"/>
+            </If>
+            <If Condition="GetQuestById(68533).QuestI8DL == 4">
+              <FlyTo XYZ="-298.2376, -194.1711, -126.2075" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009138" XYZ="-298.2376, -194.1711, -126.2075" Condition="GetQuestById(68533).GetTodoArgs(1, 0).Item1 == 3"/>
+            </If>
+          </If>
+        </If>
+        <!-- Tentacles of Trade -->
+        <If Condition="GetQuestStep(68536) == 1">
+          <If Condition="GetQuestById(68536).QuestI8CL == 1">
+            <FlyTo XYZ="-154.4061, -179.3393, 187.9758" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="2009146" XYZ="-154.4061, -179.3393, 187.9758" QuestId="68536" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68536).QuestI8CL == 2">
+            <FlyTo XYZ="-162.8291, -192.5231, 255.6344" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="2009150" XYZ="-162.8291, -192.5231, 255.6344" QuestId="68536" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68536).QuestI8CL == 3">
+            <FlyTo XYZ="-245.8076, -194.5068, 219.9893" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="2009148" XYZ="-245.8076, -194.5068, 219.9893" QuestId="68536" StepId="1"/>
+          </If>
+        </If>
+        <!-- Deep Turquoise Sea -->
+        <If Condition="GetQuestStep(68530) == 1">
+		  <FlyTo XYZ="-279.071, -308.9542, 407.1427"/>
+          <If Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="GetQuestById(68530).QuestI8BL == 2">
+              <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68530).QuestI8BL)">
+              <FlyTo XYZ="-229.2668, -308.7358, 449.485" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009119" XYZ="-229.2668, -308.7358, 449.485" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([1, 5]).Contains(GetQuestById(68530).QuestI8BL)">
+              <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="GetQuestById(68530).QuestI8BL == 1">
+              <FlyTo XYZ="-249.5919, -325.948, 472.7092" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009123" XYZ="-249.5919, -325.948, 472.7092" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68530).QuestI8BL == 2">
+              <FlyTo XYZ="-233.9361, -411.3985, 372.8236" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009120" XYZ="-233.9361, -411.3985, 372.8236" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68530).QuestI8BL == 3">
+              <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68530).QuestI8BL == 4">
+              <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68530).QuestI8BL == 5">
+              <FlyTo XYZ="-229.2668, -308.7358, 449.485" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009119" XYZ="-229.2668, -308.7358, 449.485" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2">
+            <If Condition="GetQuestById(68530).QuestI8BL == 2">
+              <FlyTo XYZ="-286.0914, -367.422, 390.2494" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009122" XYZ="-286.0914, -367.422, 390.2494" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68530).QuestI8BL)">
+              <FlyTo XYZ="-249.5919, -325.948, 472.7092" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009123" XYZ="-249.5919, -325.948, 472.7092" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([1, 5]).Contains(GetQuestById(68530).QuestI8BL)">
+              <FlyTo XYZ="-279.6216, -366.8116, 408.6824" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <UseObject NpcId="2009121" XYZ="-279.6216, -366.8116, 408.6824" Condition="GetQuestById(68530).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+          </If>
+        </If>
+        <!-- You Have the Rite -->
+        <If Condition="GetQuestStep(68517) == 1">
+          <FlyTo XYZ="52.66997, -194.2587, -175.0249" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+          <RunCode Name="EnterSuiNoSato"/>
+          <TalkTo NpcId="1024294" XYZ="-24.76544, -190.3894, -137.1024" QuestId="68517" StepId="1"/>
+          <MoveTo XYZ="15.6932, -197.987, -151.7496"/>
+          <RunCode Name="ExitSuiNoSato"/>
+        </If>
+        <!-- The Hot-blooded Kojin -->
+        <If Condition="GetQuestStep(68537) == 1">
+		  <If Condition="MovementManager.IsDiving">
+		    <FlyTo XYZ="-536.8436, 42.38149, 175.8885"/>
+		  </If>
+          <If Condition="GetQuestById(68537).QuestI8CH == 1">
+            <FlyTo XYZ="-727.7485, 4.288563, 188.5862" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+            <UseObject NpcId="1024320" XYZ="-727.7485, 4.288563, 188.5862" QuestId="68537" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68537).QuestI8CH == 2">
+            <FlyTo XYZ="-869.9321, 36.02649, 280.293" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+            <UseObject NpcId="1024322" XYZ="-869.9321, 36.02649, 280.293" QuestId="68537" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68537).QuestI8CH == 3">
+            <FlyTo XYZ="-607.7821, 7.003784, 184.8325" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+            <UseObject NpcId="1024318" XYZ="-607.7821, 7.003784, 184.8325" QuestId="68537" StepId="1"/>
+          </If>
+        </If>
+        <!-- You Blow it Up -->
+        <If Condition="GetQuestStep(68535) == 1">
+		  <If Condition="MovementManager.IsDiving">
+		    <FlyTo XYZ="-536.8436, 42.38149, 175.8885"/>
+		  </If>
+          <If Condition="GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 0">
+            <FlyTo XYZ="-842.3133, 36.02649, 319.9664" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+            <NoCombatMoveTo XYZ="-842.3133, 36.02649, 319.9664" Distance="1.0"/>
+            <RunCode Name="68535"/>
+          </If>
+          <If Condition="GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 1">
+            <NoCombatMoveTo XYZ="-848.8746, 36.02649, 300.6484" Distance="1.0"/>
+            <RunCode Name="68535"/>
+          </If>
+          <If Condition="GetQuestById(68535).GetTodoArgs(1, 0).Item1 == 2">
+            <NoCombatMoveTo XYZ="-873.5942, 35.99597, 318.8372" Distance="1.0"/>
+            <RunCode Name="68535"/>
+          </If>
+        </If>
+        <!-- Pleasure Doing Business -->
+        <If Condition="GetQuestStep(68529) == 1">
+          <If Condition="not IsTodoChecked(68529, 1, 0)">
+            <FlyTo XYZ="-747.4273, 1.579549, -478.3697" Land="True"/>
+            <If Condition="GetQuestById(68529).QuestI8D == 1">
+              <TalkTo NpcId="1024310" XYZ="-795.0103, 21.34735, -466.2089" QuestId="68529"/>
+            </If>
+            <If Condition="GetQuestById(68529).QuestI8D == 2">
+              <TalkTo NpcId="1024311" XYZ="-750.3929, 1.667969, -479.3317" QuestId="68529"/>
+            </If>
+          </If>
+          <If Condition="not IsTodoChecked(68529, 1, 1)">
+            <If Condition="Array[int]([17, 18]).Contains(GetQuestById(68529).QuestI8E)">
+              <TalkTo NpcId="1024312" XYZ="-792.0806, 8.039128, -444.419" QuestId="68529"/>
+            </If>
+            <If Condition="Array[int]([33, 34]).Contains(GetQuestById(68529).QuestI8E)">
+              <TalkTo NpcId="1024313" XYZ="-764.126, 4.745544, -441.5198" QuestId="68529"/>
+            </If>
+          </If>
+          <If Condition="not IsTodoChecked(68529, 1, 2)">
+            <If Condition="Array[int]([17, 33]).Contains(GetQuestById(68529).QuestI8E)">
+              <TalkTo NpcId="1024314" XYZ="-784.4816, 7.70575, -456.9925" QuestId="68529"/>
+            </If>
+            <If Condition="Array[int]([18, 34]).Contains(GetQuestById(68529).QuestI8E)">
+              <TalkTo NpcId="1024315" XYZ="-797.4823, 8.045045, -417.5632" QuestId="68529"/>
+            </If>
+          </If>
+        </If>
+        <!-- Flotsam and Jetsam -->
+        <If Condition="GetQuestStep(68532) == 1">
+          <If Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="GetQuestById(68532).QuestI8BL == 1">
+              <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
+              <UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([2, 6]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
+              <UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 3">
+              <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
+              <UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 4">
+              <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
+              <UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([5, 7, 8]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="14.57233, -0.07635498, -352.8649"/>
+              <UseObject NpcId="2009130" XYZ="14.57233, -0.07635498, -352.8649" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="GetQuestById(68532).QuestI8BL == 1">
+              <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
+              <UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 6]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="284.9927, -0.1983643, -28.00031"/>
+              <UseObject NpcId="2009134" XYZ="284.9927, -0.1983643, -28.00031" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([3, 4]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
+              <UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 5">
+              <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
+              <UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([7, 8]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
+              <UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2">
+            <If Condition="Array[int]([1, 7]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="23.94141, -0.1983643, 192.7062"/>
+              <UseObject NpcId="2009133" XYZ="23.94141, -0.1983643, 192.7062" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 2">
+              <FlyTo XYZ="320.3936, -0.07635498, 2.731323"/>
+              <UseObject NpcId="2009129" XYZ="320.3936, -0.07635498, 2.731323" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 3">
+              <FlyTo XYZ="-48.69159, -0.04577637, -312.1844"/>
+              <UseObject NpcId="2009132" XYZ="-48.69159, -0.04577637, -312.1844" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([4, 8]).Contains(GetQuestById(68532).QuestI8BL)">
+              <FlyTo XYZ="284.9927, -0.1983643, -28.00031"/>
+              <UseObject NpcId="2009134" XYZ="284.9927, -0.1983643, -28.00031" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 5">
+              <FlyTo XYZ="90.13501, -0.04577637, 177.5082"/>
+              <UseObject NpcId="2009131" XYZ="90.13501, -0.04577637, 177.5082" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68532).QuestI8BL == 6">
+              <FlyTo XYZ="14.57233, -0.07635498, -352.8649"/>
+              <UseObject NpcId="2009130" XYZ="14.57233, -0.07635498, -352.8649" Condition="GetQuestById(68532).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+          </If>
+        </If>
+        <!-- Buoyant Bounty -->
+        <If Condition="GetQuestStep(68524) == 1">
+          <If Condition="GetQuestById(68524).QuestI8CH == 1">
+            <FlyTo XYZ="399.8931, -0.1068726, -347.2191"/>
+            <UseItem ItemId="2002405" NpcId="2009104" XYZ="399.8931, -0.1068726, -347.219" QuestId="68524" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68524).QuestI8CH == 2">
+            <FlyTo XYZ="187.2434, -0.1068726, -477.7142"/>
+            <UseItem ItemId="2002405" NpcId="2009103" XYZ="187.2434, -0.1068726, -477.7142" QuestId="68524" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68524).QuestI8CH == 3">
+            <FlyTo XYZ="379.0798, -0.07635498, -494.316"/>
+            <UseItem ItemId="2002405" NpcId="2009102" XYZ="379.0798, -0.07635498, -494.316" QuestId="68524" StepId="1"/>
+          </If>
+        </If>
+        <!-- Confused Courier -->
+        <If Condition="GetQuestStep(68523) == 1">
+          <FlyTo XYZ="136.6423, -0.06949949, -580.2354" Land="True"/>
+          <TalkTo NpcId="1024300" XYZ="139.6047, -0.1353612, -578.1796" QuestId="68523" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68523) == 2">
+          <If Condition="GetQuestById(68523).GetTodoArgs(2, 0).Item1 == 0">
+            <If Condition="not GetQuestById(68523).QuestI8CL == 2">
+              <FlyTo XYZ="43.36669, 3.663673, -616.1827" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002404" NpcId="1024303" XYZ="43.50342, 3.663673, -619.379" QuestId="68523"/>
+            </If>
+            <If Condition="GetQuestById(68523).QuestI8CL == 2">
+              <FlyTo XYZ="30.8489, 1.117759, -531.1934" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002404" NpcId="1024305" XYZ="30.71643, 1.185597, -529.778" QuestId="68523"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68523).GetTodoArgs(2, 0).Item1 == 1">
+            <If Condition="not GetQuestById(68523).QuestI8CL == 1">
+              <FlyTo XYZ="-12.34086, 3.144817, -621.0387" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002404" NpcId="1024301" XYZ="-11.88684, 3.194641, -622.8885" QuestId="68523"/>
+            </If>
+            <If Condition="GetQuestById(68523).QuestI8CL == 1">
+              <FlyTo XYZ="30.8489, 1.117759, -531.1934" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002404" NpcId="1024305" XYZ="30.71643, 1.185597, -529.778" QuestId="68523"/>
+            </If>
+          </If>
+        </If>
+        <!-- Much at Steak -->
+        <If Condition="GetQuestStep(68522) == 1">
+          <If Condition="GetQuestById(68522).QuestI8C == 1">
+            <FlyTo XYZ="-309.4098, -0.4999999, -518.6631" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          </If>
+          <If Condition="GetQuestById(68522).QuestI8C == 2">
+            <FlyTo XYZ="165.3843, -0.4997907, -749.9154" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          </If>
+          <If Condition="GetQuestById(68522).QuestI8C == 3">
+            <FlyTo XYZ="-135.6018, -0.0343858, -805.613" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          </If>
+          <WaitWhile Condition="not GetQuestStep(68522) == 255"/>
+        </If>
+        <!-- No, Not the Boo Box -->
+        <If Condition="GetQuestStep(68528) == 1">
+          <If Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 0">
+            <FlyTo XYZ="558.5259, -0.01531982, -516.9299" Land="True"/>
+            <UseObject NpcIds="2009114,2009116" XYZ="558.5259, -0.01531982, -516.9299" Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+          <If Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 1">
+            <FlyTo XYZ="633.1731, -0.01531982, -497.7951" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+            <UseObject NpcIds="2009111,2009113" XYZ="633.1731, -0.01531982, -497.7951" Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+          <If Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 2">
+            <FlyTo XYZ="694.087, -0.01531982, -611.017" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+            <UseObject NpcIds="2009110,2009117" XYZ="694.087, -0.01531982, -611.017" Condition="GetQuestById(68528).GetTodoArgs(1, 0).Item1 == 2"/>
+          </If>
+        </If>
+        <!-- Pickles of Partnership -->
+        <If Condition="GetQuestStep(68520) == 1">
+          <If Condition="GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="GetQuestById(68520).QuestI8CH == 1">
+              <FlyTo XYZ="537.1328, 33.65523, -811.1849" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002426" NpcId="1019249" XYZ="537.1328, 33.65523, -811.1849" QuestId="68520"/>
+            </If>
+            <If Condition="GetQuestById(68520).QuestI8CH == 2">
+              <FlyTo XYZ="537.1328, 33.65523, -811.1849" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002426" NpcId="1019249" XYZ="537.1328, 33.65523, -811.1849" QuestId="68520"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68520).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="GetQuestById(68520).QuestI8CH == 1">
+              <FlyTo XYZ="577.3556, 9.866471, -733.7911" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002426" NpcId="1024420" XYZ="577.3556, 9.866471, -733.7911" QuestId="68520"/>
+            </If>
+            <If Condition="GetQuestById(68520).QuestI8CH == 2">
+              <FlyTo XYZ="724.8187, 1.369164, -814.4198" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <HandOver ItemId="2002426" NpcId="1024348" XYZ="724.8187, 1.369164, -814.4198" QuestId="68520"/>
+            </If>
+          </If>
+        </If>
+        <!-- Little Kojin Lost -->
+        <If Condition="GetQuestStep(68521) == 1">
+          <FlyTo XYZ="829.0073, -122.179, -768.9174" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+          <RunCode Name="68521"/>
+        </If>
+        <If Condition="GetQuestStep(68521) == 2">
+          <If Condition="GetQuestById(68521).QuestI8BH == 1">
+            <FlyTo XYZ="861.6616, -108.6595, -546.4103" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="1024295" XYZ="861.6616, -108.6595, -546.4103" QuestId="68521" StepId="2"/>
+          </If>
+          <If Condition="GetQuestById(68521).QuestI8BH == 2">
+            <FlyTo XYZ="891.783, -140.6119, -794.3694" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="1024345" XYZ="891.783, -140.6119, -794.3694" QuestId="68521" StepId="2"/>
+          </If>
+          <If Condition="GetQuestById(68521).QuestI8BH == 3">
+            <FlyTo XYZ="836.1486, -127.8554, -910.7042" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <UseObject NpcId="1024344" XYZ="836.1486, -127.8554, -910.7042" QuestId="68521" StepId="2"/>
+          </If>
+        </If>
+        <!-- Disciplinary Action -->
+        <If Condition="GetQuestStep(68538) == 1">
+          <If Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="Array[int]([1, 2, 5, 7, 8, 10]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="431.1904, -0.01531982, 521.8589" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="429.1904, -0.01531982, 506.8589" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([3, 6, 9]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="255.8868, -0.5000001, 494.1028" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="253.2539, -0.01531982, 479.6062" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68538).QuestI8DL == 4">
+              <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="Array[int]([1, 8, 10]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="255.8868, -0.5000001, 494.1028" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="253.2539, -0.01531982, 479.6062" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 3, 5, 6]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([4, 7, 9]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="-190.0653, -0.01531982, 643.2596" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="-192.0653, -0.01531982, 628.2596" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2">
+            <If Condition="Array[int]([1, 5, 6]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="-190.0653, -0.01531982, 642.2596" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="-192.0653, -0.01531982, 628.2596" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="Array[int]([2, 3, 4, 7, 9, 10]).Contains(GetQuestById(68538).QuestI8DL)">
+              <FlyTo XYZ="-368.3823, -0.01531982, 878.6453" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="-370.3823, -0.01531982, 863.6453" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+            <If Condition="GetQuestById(68538).QuestI8DL == 8">
+              <FlyTo XYZ="96.01074, -0.01531982, 506.844" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+              <SoUseItem ItemId="2002424" NpcId="6885" XYZ="94.01074, -0.01531982, 491.844" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68538).GetTodoArgs(1, 0).Item1 == 2"/>
+            </If>
+          </If>
+        </If>
+        <!-- Tonight We Dine in Shells -->
+        <If Condition="GetQuestStep(68519) == 1">
+          <If Condition="GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="GetQuestById(68519).QuestI8DH == 1">
+              <FlyTo XYZ="-72.58722, 10.51343, 632.4102" Land="True"/>
+              <UseItem ItemId="2002401" NpcId="2009091" XYZ="-72.58722, 10.51343, 632.4102" Condition="GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68519).QuestI8DH == 2">
+              <FlyTo XYZ="29.49561, 3.005981, 527.7637" Land="True"/>
+              <UseItem ItemId="2002401" NpcId="2009093" XYZ="29.49561, 3.005981, 527.7637" Condition="GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 1">
+            <FlyTo XYZ="38.86462, 18.20398, 712.7947" Land="True"/>
+            <UseItem ItemId="2002401" NpcId="2009092" XYZ="38.86462, 18.20398, 712.7947" Condition="GetQuestById(68519).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+        </If>
+        <!-- Anala-lyze This -->
+        <If Condition="GetQuestStep(68525) == 1">
+          <If Condition="GetQuestById(68525).QuestI8CH == 1">
+            <FlyTo XYZ="52.26208, 18.84485, 576.4399" Land="True"/>
+            <UseObject NpcId="2009161" XYZ="52.26208, 18.84485, 576.4399" QuestId="68525" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68525).QuestI8CH == 2">
+            <FlyTo XYZ="29.58716, 51.40759, 771.3588" Land="True"/>
+            <UseObject NpcId="2009162" XYZ="29.58716, 51.40759, 771.3588" QuestId="68525" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(68525).QuestI8CH == 3">
+            <FlyTo XYZ="337.85, 5.81366, 685.2673" Land="True"/>
+            <UseObject NpcId="2009163" XYZ="337.85, 5.81366, 685.2673" QuestId="68525" StepId="1"/>
+          </If>
+        </If>
+        <!-- Tale of Roe -->
+        <If Condition="GetQuestStep(68534) == 1">
+          <If Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0">
+            <If Condition="Array[int]([1, 2]).Contains(GetQuestById(68534).QuestI8EH)">
+              <FlyTo XYZ="460.9902, 0.5645142, 889.494" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009101" XYZ="460.9902, 0.5645142, 889.494" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="Array[int]([3, 5, 7, 8]).Contains(GetQuestById(68534).QuestI8EH)">
+              <FlyTo XYZ="394.7661, 16.98328, 845.9448" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009100" XYZ="394.7661, 16.98328, 845.9448" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68534).QuestI8EH == 4">
+              <FlyTo XYZ="352.1018, -0.01531982, 860.3188" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009141" XYZ="352.1018, -0.01531982, 860.3188" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68534).QuestI8EH == 6">
+              <FlyTo XYZ="543.1753, -0.01531982, 685.7251" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009140" XYZ="543.1753, -0.01531982, 685.7251" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 0"/>
+            </If>
+          </If>
+          <If Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1">
+            <If Condition="Array[int]([1, 4, 5, 6]).Contains(GetQuestById(68534).QuestI8EH)">
+              <FlyTo XYZ="480.4607, 3.829956, 841.3672" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009142" XYZ="480.4607, 3.829956, 841.3672" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 3]).Contains(GetQuestById(68534).QuestI8EH)">
+              <FlyTo XYZ="352.1018, -0.01531982, 860.3188" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009141" XYZ="352.1018, -0.01531982, 860.3188" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68534).QuestI8EH == 7">
+              <FlyTo XYZ="543.1753, -0.01531982, 685.7251" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009140" XYZ="543.1753, -0.01531982, 685.7251" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68534).QuestI8EH == 8">
+              <FlyTo XYZ="460.9902, 0.5645142, 889.494" Land="True"/>
+              <UseItem ItemId="2002419" NpcId="2009101" XYZ="460.9902, 0.5645142, 889.494" Condition="GetQuestById(68534).GetTodoArgs(1, 0).Item1 == 1"/>
+            </If>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68534) == 2">
+          <FlyTo XYZ="823.3004, 5.923001, 866.6361" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <HandOver ItemId="2002420" NpcId="1024317" XYZ="823.3004, 5.923001, 866.6361" QuestId="68534" StepId="2"/>
+        </If>
+        <!-- A Real Pearler -->
+        <If Condition="GetQuestStep(68516) == 2">
+          <FlyTo XYZ="873.9298, 1.179207, 851.9568" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <HandOver ItemId="2002399" NpcId="1024460" XYZ="873.9298, 1.179207, 851.9568" QuestId="68516" StepId="2"/>
+        </If>
+        <!-- Holy Mother of Pearl -->
+        <If Condition="GetQuestStep(68531) == 1">
+          <FlyTo XYZ="716.9872, -0.3000001, 142.1604" Land="True"/>
+          <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68531) == 2">
+          <UseItem ItemId="2002414" NpcIds="2009124,2009126,2009127,2009128,2009227,2008344,2008343" QuestId="68531" StepId="2">
+            <HotSpots>
+              <HotSpot XYZ="753.5667, 0.4119263, 121.7212" Radius="10"/>
+              <HotSpot XYZ="745.4185, 0.1677856, 95.75024" Radius="10"/>
+              <HotSpot XYZ="745.4489, 0.1677856, 95.78088" Radius="10"/>
+              <HotSpot XYZ="777.1571, 1.205444, 110.3685" Radius="10"/>
+              <HotSpot XYZ="708.0338, 3.005981, 152.575" Radius="10"/>
+              <HotSpot XYZ="785.5801, 1.235901, 21.86615" Radius="10"/>
+              <HotSpot XYZ="777.1876, 1.235901, 110.3685" Radius="10"/>
+            </HotSpots>
+          </UseItem>
+        </If>
+        <If Condition="GetQuestStep(68531) == 3">
+          <TalkTo NpcId="1024316" XYZ="714.9614, -0.3, 140.3982" QuestId="68531" StepId="3"/>
+        </If>
+        <!-- Best Served Foul -->
+        <If Condition="GetQuestStep(68515) == 1">
+          <FlyTo XYZ="702.0458, 0.7776591, -25.6705" Land="True"/>
+          <TalkTo NpcId="1024538" XYZ="703.7003, 0.7387832, -26.0777" QuestId="68515" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68515) == 2">
+          <If Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0">
+            <If Condition="GetQuestById(68515).QuestI8CL == 1">
+              <FlyTo XYZ="762.9358, 0.4425049, -286.7323" Land="True"/>
+              <UseObject NpcId="2009239" XYZ="762.9358, 0.4425049, -286.7323" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="762.9358, 0.4425049, -286.7323" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68515).QuestI8CL == 2">
+              <FlyTo XYZ="620.2334, 0.1067505, -315.9076" Land="True"/>
+              <UseObject NpcId="2009240" XYZ="620.2334, 0.1067505, -315.9076" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="620.2334, 0.1067505, -315.9076" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(68515).QuestI8CL == 3">
+              <FlyTo XYZ="762.9358, 0.4425049, -286.7323" Land="True"/>
+              <UseObject NpcId="2009239" XYZ="762.9358, 0.4425049, -286.7323" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="762.9358, 0.4425049, -286.7323" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
+          </If>
+          <If Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1">
+            <If Condition="GetQuestById(68515).QuestI8CL == 1">
+              <FlyTo XYZ="532.6465, 0.9917603, -201.2818" Land="True"/>
+              <UseObject NpcId="2009241" XYZ="532.6465, 0.9917603, -201.2818" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="532.6465, 0.9917603, -201.2818" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68515).QuestI8CL == 2">
+              <FlyTo XYZ="532.6465, 0.9917603, -201.2818" Land="True"/>
+              <UseObject NpcId="2009241" XYZ="532.6465, 0.9917603, -201.2818" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="532.6465, 0.9917603, -201.2818" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="GetQuestById(68515).QuestI8CL == 3">
+              <FlyTo XYZ="620.2334, 0.1067505, -315.9076" Land="True"/>
+              <UseObject NpcId="2009240" XYZ="620.2334, 0.1067505, -315.9076" Condition="not ObjectExistsWithId(6873) and not ObjectExistsWithId(6874) and not ObjectExistsWithId(6875)"/>
+              <SoUseItem ItemId="2002398" NpcIds="6873,6874,6875" XYZ="620.2334, 0.1067505, -315.9076" InCombat="True" UseHealthPercent="2" Condition="GetQuestById(68515).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <WaitWhile Condition="ObjectExistsWithId(6873) and ObjectExistsWithId(6874) and ObjectExistsWithId(6875)"/>
+          </If>
+        </If>
+        <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
+          <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+          <!-- You Have the Rite -->
+          <If Condition="GetQuestStepGtLt(68517, 1, 255)">
+            <MoveTo XYZ="366.9251, -119.9409, -291.1758" Distance="1"/>
+            <RunCode Name="68517"/>
+          </If>
+          <!-- Buoyant Bounty -->
+          <If Condition="GetQuestStep(68524) == 2">
+            <HandOver ItemId="2002406" NpcId="1024218" XYZ="387.5638, -119.7953, -257.6486" QuestId="68524" StepId="2"/>
+          </If>
+          <MoveTo XYZ="391.5337, -119.5893, -234.935" Distance="1"/>
+          <!-- Best Served Foul -->
+          <If Condition="GetQuestStep(68515) == 255">
+            <TurnIn QuestId="68515" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- A Real Pearler -->
+          <If Condition="GetQuestStep(68516) == 255">
+            <TurnIn QuestId="68516" ItemId="2002428" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- You Have the Rite -->
+          <If Condition="GetQuestStep(68517) == 255">
+            <TurnIn QuestId="68517" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Krilled to Pieces -->
+          <If Condition="GetQuestStep(68518) == 255">
+            <TurnIn QuestId="68518" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Tonight We Dine in Shells -->
+          <If Condition="GetQuestStep(68519) == 255">
+            <TurnIn QuestId="68519" ItemId="2002402" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Krilled to Pieces -->
+          <If Condition="GetQuestStep(68520) == 255">
+            <TurnIn QuestId="68520" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Little Kojin Lost -->
+          <If Condition="GetQuestStep(68521) == 255">
+            <TurnIn QuestId="68521" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Much at Steak -->
+          <If Condition="GetQuestStep(68522) == 255">
+            <TurnIn QuestId="68522" ItemId="2002403" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Confused Courier -->
+          <If Condition="GetQuestStep(68523) == 255">
+            <TurnIn QuestId="68523" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Buoyant Bounty -->
+          <If Condition="GetQuestStep(68524) == 255">
+            <TurnIn QuestId="68524" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Anala-lyze This -->
+          <If Condition="GetQuestStep(68525) == 255">
+            <TurnIn QuestId="68525" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Sand-sifting Specialist -->
+          <If Condition="GetQuestStep(68526) == 255">
+            <TurnIn QuestId="68526" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Forever Blowing Bubbles -->
+          <If Condition="GetQuestStep(68527) == 255">
+            <TurnIn QuestId="68527" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- No, Not the Boo Box -->
+          <If Condition="GetQuestStep(68528) == 255">
+            <TurnIn QuestId="68528" ItemIds="2002408,2002409" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Pleasure Doing Business -->
+          <If Condition="GetQuestStep(68529) == 255">
+            <TurnIn QuestId="68529" ItemIds="2002410,2002411,2002412" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Deep Turquoise Sea -->
+          <If Condition="GetQuestStep(68530) == 255">
+            <TurnIn QuestId="68530" ItemId="2002413" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Holy Mother of Pearl -->
+          <If Condition="GetQuestStep(68531) == 255">
+            <TurnIn QuestId="68531" ItemIds="2002410,2002411,2002412" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Flotsam and Jetsam -->
+          <If Condition="GetQuestStep(68532) == 255">
+            <TurnIn QuestId="68532" ItemId="2002415" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Clammed Up -->
+          <If Condition="GetQuestStep(68533) == 255">
+            <TurnIn QuestId="68533" ItemId="2002418" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Tale of Roe -->
+          <If Condition="GetQuestStep(68534) == 255">
+            <TurnIn QuestId="68534" ItemId="2002421" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- You Blow It Up -->
+          <If Condition="GetQuestStep(68535) == 255">
+            <TurnIn QuestId="68535" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Tentacles of Trade -->
+          <If Condition="GetQuestStep(68536) == 255">
+            <TurnIn QuestId="68536" ItemId="2002423" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- The Hot-blooded Kojin -->
+          <If Condition="GetQuestStep(68537) == 255">
+            <TurnIn QuestId="68537" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+          <!-- Disciplinary Action -->
+          <If Condition="GetQuestStep(68538) == 255">
+            <TurnIn QuestId="68538" NpcId="1024217" InteractDistance="5.0" XYZ="394.3998, -119.5893, -232.2881"/>
+          </If>
+        </If>
+      </If>
+      <If Condition="not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <!-- Under Wraps -->
+        <If Condition="IsQuestAcceptQualified(68510)">
+          <PickupQuest QuestId="68510" NpcId="1024215"/>
+        </If>
+        <If Condition="GetQuestStep(68510) &gt; 0">
+          <If Condition="GetQuestStep(68510) == 1">
+            <GetTo ZoneId="614" XYZ="462.9904, 56.63378, -156.7799"/>
+            <SoTalkTo NpcId="1024231" XYZ="463.4012, 56.86197, -157.9462" QuestId="68510" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68510) == 2">
+            <If Condition="not IsOnMap(614)">
+              <TeleportTo Name="Namai" AetheryteId="107"/>
+            </If>
+            <FlyTo XYZ="143.6658, 25.86379, 454.3949" Land="True"/>
+            <RunCode Name="Announce_Manual_Completion"/>
+          </If>
+          <If Condition="GetQuestStep(68510) == 3">
+            <If Condition="not IsOnMap(614)">
+              <TeleportTo Name="Namai" AetheryteId="107"/>
+            </If>
+            <FlyTo XYZ="204.9109, 14.28261, 711.4144" Land="True"/>
+            <RunCode Name="Announce_Manual_Completion"/>
+          </If>
+          <If Condition="GetQuestStep(68510) == 4">
+            <If Condition="not IsOnMap(614)">
+              <TeleportTo Name="Namai" AetheryteId="107"/>
+            </If>
+            <FlyTo XYZ="300.4438, 2.80657, 731.8773" Land="True"/>
+            <TalkTo NpcId="1024238" XYZ="302.7236, 2.86196, 731.4412" QuestId="68510" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(68510) == 5">
+            <If Condition="not IsOnMap(614)">
+              <TeleportTo Name="Namai" AetheryteId="107"/>
+            </If>
+            <FlyTo XYZ="181.4258, 6.071421, 554.3765" Land="True"/>
+            <TalkTo NpcId="1024244" XYZ="181.1093, 6.110566, 553.2462" QuestId="68510" StepId="5"/>
+          </If>
+          <If Condition="GetQuestStep(68510) == 255">
+            <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+            <TurnIn QuestId="68510" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+          </If>
+        </If>
+        <!-- The Value of Silence -->
+        <If Condition="IsQuestAcceptQualified(68511)">
+          <PickupQuest QuestId="68511" NpcId="1024215"/>
+        </If>
+        <If Condition="GetQuestStep(68511) &gt; 0">
+          <If Condition="GetQuestStep(68511) == 1">
+            <GetTo ZoneId="622" XYZ="540.5313, -19.50584, 414.7613"/>
+            <TalkTo NpcId="1024248" XYZ="539.4827, -19.50593, 416.0983" QuestId="68511" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68511) == 2">
+            <If Condition="GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 0">
+              <If Condition="not IsOnMap(622)">
+                <TeleportTo Name="Reunion" AetheryteId="109"/>
+              </If>
+              <TalkTo NpcId="1024250" XYZ="561.2115, -19.50563, 365.2856" QuestId="68511"/>
+            </If>
+            <If Condition="GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 1">
+              <If Condition="not IsOnMap(622)">
+                <TeleportTo Name="Reunion" AetheryteId="109"/>
+              </If>
+              <TalkTo NpcId="1024251" XYZ="553.6124, -19.50564, 314.7478" QuestId="68511"/>
+            </If>
+            <If Condition="GetQuestById(68511).GetTodoArgs(2, 0).Item1 == 2">
+              <If Condition="not IsOnMap(622)">
+                <TeleportTo Name="Reunion" AetheryteId="109"/>
+              </If>
+              <TalkTo NpcId="1024252" XYZ="571.2213, -19.50564, 296.4675" QuestId="68511"/>
+            </If>
+          </If>
+          <If Condition="GetQuestStep(68511) == 3">
+            <If Condition="not IsOnMap(622)">
+              <TeleportTo Name="Reunion" AetheryteId="109"/>
+            </If>
+            <SoTalkTo NpcId="1024248" XYZ="539.4827, -19.50593, 416.0983" QuestId="68511" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(68511) == 4">
+            <If Condition="not IsOnMap(622)">
+              <TeleportTo Name="Reunion" AetheryteId="109"/>
+            </If>
+            <FlyTo XYZ="355.3063, -13.01989, 471.1222" Land="True"/>
+            <SoTalkTo NpcId="1024253" XYZ="355.3063, -13.01989, 471.1222" QuestId="68511" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(68511) == 5">
+            <If Condition="not IsOnMap(622)">
+              <TeleportTo Name="Reunion" AetheryteId="109"/>
+            </If>
+            <FlyTo XYZ="474.558, -25.19345, 550.418" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+            <WaitWhile Condition="not GetQuestStep(68511) == 6"/>
+          </If>
+          <If Condition="GetQuestStep(68511) == 6">
+            <If Condition="not IsOnMap(622)">
+              <TeleportTo Name="Reunion" AetheryteId="109"/>
+            </If>
+            <FlyTo XYZ="355.3063, -13.01989, 471.1222" Land="True"/>
+            <HandOver ItemId="2002427" NpcId="1024256" XYZ="355.7946, -12.9577, 470.2982" QuestId="68511" StepId="6"/>
+          </If>
+          <If Condition="GetQuestStep(68511) == 255">
+            <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+            <TurnIn QuestId="68511" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+          </If>
+        </If>
+        <!-- Misdelivered -->
+        <If Condition="IsQuestAcceptQualified(68512)">
+          <PickupQuest QuestId="68512" NpcId="1024215"/>
+        </If>
+        <If Condition="GetQuestStep(68512) &gt; 0">
+          <If Condition="GetQuestStep(68512) == 1">
+            <GetTo ZoneId="628" XYZ="-130.8658, -4.999999, 179.0163"/>
+            <TalkTo NpcId="1024260" XYZ="-131.9143, -4.999999, 181.7501" QuestId="68512" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68512) == 2">
+            <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+            <FlyTo XYZ="245.8831, 6.361267, 653.9565" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+            <WaitWhile Condition="not GetQuestStep(68512) == 3"/>
+          </If>
+          <If Condition="GetQuestStep(68512) == 3">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Onkoro" AetheryteId="106"/>
+            </If>
+            <FlyTo XYZ="247.2921, 6.195127, 651.1696" Land="True"/>
+            <TalkTo NpcId="1024264" XYZ="246.9061, 6.054259, 649.2561" QuestId="68512" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(68512) == 4">
+            <GetTo ZoneId="628" XYZ="-130.0512, -4.999999, 181.9478"/>
+            <TalkTo NpcId="1024267" XYZ="-130.5715, -4.999999, 183.3677" QuestId="68512" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(68512) == 255">
+            <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+            <TurnIn QuestId="68512" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+          </If>
+        </If>
+        <!-- A Test of Courage -->
         <If Condition="IsQuestAcceptQualified(68513)">
-          <PickupQuest QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+          <PickupQuest QuestId="68513" NpcId="1024215"/>
         </If>
-      </If>
-      <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 1">
-        <If Condition="not IsOnMap(613)">
-          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+        <If Condition="GetQuestStep(68513) &gt; 0">
+          <If Condition="GetQuestStep(68513) == 1">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+            </If>
+            <TalkTo NpcId="1024269" XYZ="330.6476, -116.8671, -202.472" QuestId="68513" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68513) == 2">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+            </If>
+            <UseObject NpcId="2009174" XYZ="321.9806, -120.0427, -250.4159" QuestId="68513" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(68513) == 3">
+            <If Condition="IsOnSubMap(2769)">
+              <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
+            </If>
+            <FlyTo XYZ="-645.8464, 1.400071, 264.53" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <RunCode Name="68513"/>
+            <RunCode Name="Announce_Manual_Completion"/>
+          </If>
+          <If Condition="GetQuestStep(68513) == 255">
+            <If Condition="not IsOnMap(613)">
+              <TeleportTo Name="Tamamizu" AetheryteId="105"/>
+            </If>
+            <SoTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+          </If>
         </If>
-        <TalkTo NpcId="1024269" XYZ="330.6476, -116.8671, -202.472" QuestId="68513" StepId="1"/>
-      </If>
-      <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 2">
-        <If Condition="not IsOnMap(613)">
-          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        </If>
-        <UseObject NpcId="2009174" XYZ="321.9806, -120.0427, -250.4159" QuestId="68513" StepId="2"/>
-      </If>
-      <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 3">
-        <If Condition="IsOnSubMap(2769)">
-          <TeleportTo Name="Onkoro" AetheryteId="106" Force="True"/>
-        </If>
-        <FlyTo XYZ="-645.8464, 1.400071, 264.53" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
-        <RunCode Name="68513"/>
-        <RunCode Name="Announce_Manual_Completion"/>
-      </If>
-      <If Condition="HasQuest(68513) and not IsQuestCompleted(68513) and GetQuestStep(68513) == 255">
-        <If Condition="not IsOnMap(613)">
-          <TeleportTo Name="Tamamizu" AetheryteId="105"/>
-        </If>
-        <SoTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
-      </If>
-      <!-- True-blue ** -->
-      <If Condition="IsQuestCompleted(68513) and not HasQuest(68514) and not IsQuestCompleted(68514)">
+        <!-- True-blue -->
         <If Condition="IsQuestAcceptQualified(68514)">
-          <PickupQuest QuestId="68514" NpcId="1024220" XYZ="400.0762, -119.5893, -247.5471"/>
+          <PickupQuest QuestId="68514" NpcId="1024220"/>
         </If>
-      </If>
-      <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 1">
-        <GetTo ZoneId="614" XYZ="-272.5581, 17.31996, 491.9967"/>
-        <SoTalkTo NpcId="1024423" XYZ="-272.572, 17.31996, 490.0129" QuestId="68514" StepId="1"/>
-      </If>
-      <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 2">
-        <GetTo ZoneId="622" XYZ="535.0673, -19.50566, 317.5482"/>
-        <TalkTo NpcId="1024425" XYZ="533.8063, -19.50565, 316.1517" QuestId="68514" StepId="2"/>
-      </If>
-      <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 3">
-        <GetTo ZoneId="628" XYZ="-129.8018, -4.999999, 181.6413"/>
-        <TalkTo NpcId="1024428" XYZ="-130.5715, -4.999999, 183.3677" QuestId="68514" StepId="3"/>
-      </If>
-      <If Condition="HasQuest(68514) and not IsQuestCompleted(68514) and GetQuestStep(68514) == 255">
-        <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
-        <TurnIn QuestId="68514" NpcId="1019178" InteractDistance="3.0" XYZ="319.6917, -120.0349, -250.9042"/>
+        <If Condition="GetQuestStep(68514) &gt; 0">
+          <If Condition="GetQuestStep(68514) == 1">
+            <If Condition="not IsOnMap(614)">
+              <TeleportTo Name="Namai" AetheryteId="107"/>
+            </If>
+            <FlyTo XYZ="-272.5581, 17.31996, 491.9967" Land="True" IgnoreIndoors="True"/>
+            <SoTalkTo NpcId="1024423" XYZ="-272.572, 17.31996, 490.0129" QuestId="68514" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68514) == 2">
+            <GetTo ZoneId="622" XYZ="535.0673, -19.50566, 317.5482"/>
+            <TalkTo NpcId="1024425" XYZ="533.8063, -19.50565, 316.1517" QuestId="68514" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(68514) == 3">
+            <GetTo ZoneId="628" XYZ="-129.8018, -4.999999, 181.6413"/>
+            <TalkTo NpcId="1024428" XYZ="-130.5715, -4.999999, 183.3677" QuestId="68514" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(68514) == 255">
+            <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+            <TurnIn QuestId="68514" NpcId="1019178" XYZ="319.6917, -120.0349, -250.9042"/>
+          </If>
+        </If>
       </If>
     </If>
   </Order>
   <GrindAreas/>
   <CodeChunks>
-    <CodeChunk Name="Disable_Flight">
-      <![CDATA[
-        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
-        {
-          try
-          {
-            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
-          }
-          catch (Exception ex) { }
-        }
-      ]]>
-    </CodeChunk>
     <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "手动完成。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
       ]]>
     </CodeChunk>
     <CodeChunk Name="ExitTamamizu">
       <![CDATA[        
-        var v1 = new Vector3(325.959f, -120.3188f, -308.8289f);
+        var v1 = new Vector3("325.959,-120.3188,-308.8289");
         var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
 
-        while (Core.Player.Location.Distance(v1) > 1f)
+        while (Core.Me.Distance(v1) > 1f)
         {
            ff14bot.Pathing.Flightor.MoveTo(p1);
            await Coroutine.Yield();
         }
-		
-        MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(4000);
-
-        while (!MovementManager.IsDiving)   {  await Coroutine.Yield();  }
-        while (CommonBehaviors.IsLoading)   {  await Coroutine.Yield();  }
     
+        MovementManager.MoveForwardStart();
+        await Coroutine.Wait(-1, () => MovementManager.IsDiving);
+    
+        await Coroutine.Sleep(5000);
         MovementManager.MoveForwardStart();
         await Coroutine.Sleep(4000);
         MovementManager.MoveStop();		
@@ -1471,33 +1252,28 @@ Authors:  Sodimm.
       <![CDATA[
         MovementManager.SetFacing(5.25f);
         MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(6000);
-
-        while (MovementManager.IsDiving)  {  await Coroutine.Yield();  }
-        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        await Coroutine.Wait(-1, () => !MovementManager.IsDiving);
+        MovementManager.MoveStop();		
       ]]>
     </CodeChunk>
     <CodeChunk Name="ExitSuiNoSato">
       <![CDATA[
         MovementManager.SetFacing(2.25f);
         MovementManager.MoveForwardStart();
-        await Coroutine.Sleep(6000);
-
-        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }
-        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        await Coroutine.Wait(-1, () => MovementManager.IsDiving);
+        MovementManager.MoveStop();		
       ]]>
     </CodeChunk>
     <CodeChunk Name="68513">
       <![CDATA[
         MovementManager.StartDescending();
-        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
-        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+        await Coroutine.Wait(-1, () => MovementManager.IsDiving);
         MovementManager.StopDescending();
 
-        var v1 = new Vector3(-666.8956f, -33.70721f, 268.1772f);
+        var v1 = new Vector3("-666.8956,-33.70721,268.1772");
         var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
   
-        while (Core.Player.Location.Distance(v1) > 3f)
+        while (Core.Me.Distance(v1) > 3f)
         {
            ff14bot.Pathing.Flightor.MoveTo(p1);
            await Coroutine.Yield();
@@ -1506,13 +1282,32 @@ Authors:  Sodimm.
     </CodeChunk>
     <CodeChunk Name="68517">
       <![CDATA[
+        var _emote = String.Empty;		
         var item = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.KeyItems).Where(r => r.RawItemId == 2002400).FirstOrDefault();
         
-		await Coroutine.Sleep(500);
+        await Coroutine.Sleep(500);
         
-		if (item != null)  {  item.UseItem();  }
+        if (item != null)  {  item.UseItem();  }
+        await Coroutine.Wait(-1, () => !Core.Me.IsCasting);
         
-		while (ConditionParser.GetQuestStep(68517) != 3)
+        while (ConditionParser.GetQuestStep(68517) != 3)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+#if RB_CN
+        _emote = "/w NEED CN TRANSLATION";
+#else
+        _emote = "/pray";
+#endif
+        var _obj = GameObjectManager.GetObjectByNPCId(2009085);
+        if (_obj.IsVisible)
+        {
+          _obj.Target();
+          ChatManager.SendChat(_emote);
+        }
+
+        while (ConditionParser.GetQuestStep(68517) != 255)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
@@ -1521,26 +1316,16 @@ Authors:  Sodimm.
     </CodeChunk>
     <CodeChunk Name="68521">
       <![CDATA[
-        MovementManager.StartDescending();
-        while (!MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
-        while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
-        MovementManager.StopDescending();
-		
-        var v1 = new Vector3(829.0073f, -122.179f, -768.9174f);
-        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
-  
-        while (Core.Player.Location.Distance(v1) > 2f)
-        {
-           ff14bot.Pathing.Flightor.MoveTo(p1);
-           await Coroutine.Yield();
-        }
-		
-		await CommonTasks.StopAndDismount();
-	      #if RB_CN        
-        if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)  {  ChatManager.SendChat("/s 线轴");  }
-        #else
-        if (GameObjectManager.GetObjectByNPCId(2009099).IsVisible)  {  ChatManager.SendChat("/s Itomaki");  }
-        #endif
+        var _say = String.Empty;
+
+        await CommonTasks.StopAndDismount();
+#if RB_CN
+        _say = "/s 线轴";
+#else
+        _say = "/s Itomaki";
+#endif
+        var _obj = GameObjectManager.GetObjectByNPCId(2009099);
+        if (_obj.IsVisible)  {  ChatManager.SendChat(_say);  }
 
         while (ConditionParser.GetQuestStep(68521) != 2)
         {
@@ -1551,25 +1336,34 @@ Authors:  Sodimm.
     </CodeChunk>
     <CodeChunk Name="68535">
       <![CDATA[
-        var locs = new List<Vector3>()
-        {
-          new Vector3(-842.3133f, 36.02649f, 319.9664f),
-          new Vector3(-848.8746f, 36.02649f, 300.6484f),
-          new Vector3(-873.5942f, 35.99597f, 318.8372f)
-        };
-		
-        var closest = locs.Where(r => r.Distance2D(Core.Me.Location) < 5f).FirstOrDefault();		
         var currentStep = ConditionParser.GetQuestById(68535).GetTodoArgs(1, 0).Item1;
         var item = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.KeyItems).Where(r => r.RawItemId == 2002422).FirstOrDefault();
-		
+        var locs = new List<Vector3>()
+        {
+          new Vector3("-842.3133,36.02649,319.9664"),
+          new Vector3("-848.8746,36.02649,300.6484"),
+          new Vector3("-873.5942,35.99597,318.8372")
+        };
+    
+        var closest = locs.Where(r => Core.Me.Distance(r) < 5f).FirstOrDefault();		
+    
         if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
-		
+    
         while (ConditionParser.GetQuestById(68535).GetTodoArgs(1, 0).Item1 == currentStep)
         {
+          if (Core.Me.Distance(closest) > 3f)
+          {
+            await CommonTasks.MoveTo(closest);
+            await Coroutine.Wait(-1, () => Core.Me.Distance(closest) <= 3f);
+          }
+
+          MovementManager.MoveStop();
+        
           if (item != null)
-		  { 
+          { 
             item.UseItem(closest);
-            await Coroutine.Wait(5000, () => !Core.Me.IsCasting);
+            await Coroutine.Sleep(500);
+            await Coroutine.Wait(-1, () => !Core.Me.IsCasting);
           }
 
           if (Talk.DialogOpen)  {  Talk.Next();  }
@@ -1578,6 +1372,5 @@ Authors:  Sodimm.
       ]]>
     </CodeChunk>
   </CodeChunks>
-  <GrindAreas>
-  </GrindAreas>
+  <GrindAreas/>
 </Profile>

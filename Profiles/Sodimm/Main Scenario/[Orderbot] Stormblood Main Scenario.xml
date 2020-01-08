@@ -4,6 +4,32 @@ Profile:  [Orderbot] Stormblood Main Scenario
 Authors:  Sodimm, TuckMeintoBread
 Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 -->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+ <!-- Rewards Accessories 370 ilvl
+                    0: Fending
+                    1: Slayer
+                    2: Aiming
+                    3: Healing
+                    4: Casting-->
+<!ENTITY TheDarknessBelow "3">
+
+
+<!-- Rewards Armor 370 ilvl
+                    0: Fending
+                    1: Maiming
+                    2: Striking-->
+<!ENTITY RiseofaNewSun "0">
+
+
+    <!-- Rewards Armor 370 ilvl
+                    0: Scouting
+                    1: Aiming
+                    2: Healing
+                    3: Casting-->
+<!ENTITY GosetsuandTsuyu "2">	
+]>
 <Profile>
   <Name>[OrderBot] Stormblood Main Scenario</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
@@ -3386,7 +3412,10 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <TeleportTo Name="The Ala Mhigan Quarter" AetheryteId="103"/>
         <FlyTo XYZ="530.8156, 70, 576.0128" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
-      <TurnIn QuestId="68499" NpcId="1024103" InteractDistance="3.0" XYZ="532.494, 70, 576.1653"/>
+      <TurnIn QuestId="68499" NpcId="1024103" InteractDistance="3.0" XYZ="532.494, 70, 576.1653" RewardSlot="&TheDarknessBelow;"/>
+	  <Dismount />
+	  <WaitTimer WaitTime="3" />
+	  <RunCode Name="Coffer" />
     </If>
     <!-- The Mad King's Trove (Level 70) -->
     <If Condition="IsQuestCompleted(68499) and not HasQuest(68500) and not IsQuestCompleted(68500)">
@@ -4049,7 +4078,10 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68565) and not IsQuestCompleted(68565) and GetQuestStep(68565) == 255">
       <GetTo ZoneId="628" XYZ="150.5564, 14.77572, 93.08349"/>
       <UseTransport InteractDistance="3.0" NpcId="1019070" XYZ="151.2017, 14.77572, 95.78088"/>
-      <TurnIn QuestId="68565" NpcId="1020622" InteractDistance="3.0" XYZ="0.04577637, 0, -2.304138"/>
+      <TurnIn QuestId="68565" NpcId="1020622" InteractDistance="3.0" XYZ="0.04577637, 0, -2.304138" RewarSlot="&RiseofaNewSun;"/>
+	  <Dismount />
+	  <WaitTimer WaitTime="3" />
+	  <RunCode Name="Coffer" />
     </If>
     <!-- (Patch 4.3) Gosetsu & Tsuyu (Level 70) -->
     <If Condition="IsQuestCompleted(68565) and not HasQuest(68606) and not IsQuestCompleted(68606)">
@@ -4079,7 +4111,10 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="IsOnMap(744)">
         <UseTransport InteractDistance="3.0" NpcId="2009289" XYZ="0.02468622, 0.9079783, 18.30971"/>
       </If>
-      <TurnIn QuestId="68606" NpcId="1025555" InteractDistance="3.0" XYZ="148.0582, -4.178733, 60.13574"/>
+      <TurnIn QuestId="68606" NpcId="1025555" InteractDistance="3.0" XYZ="148.0582, -4.178733, 60.13574" RewardSlot="&GosetsuandTsuyu;"/>
+	  <Dismount />
+	  <WaitTimer WaitTime="3" />
+	  <RunCode Name="Coffer" />
     </If>
     <!-- Gone Like the Morning Dew (Level 70) -->
     <If Condition="IsQuestCompleted(68606) and not HasQuest(68607) and not IsQuestCompleted(68607)">
@@ -5449,5 +5484,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         }
       ]]>
     </CodeChunk>
+	<CodeChunk Name="Coffer">
+			<![CDATA[		
+				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
+            {
+                bagslot.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]> 
+		</CodeChunk>
   </CodeChunks>
 </Profile>

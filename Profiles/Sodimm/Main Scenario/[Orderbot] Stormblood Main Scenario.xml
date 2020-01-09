@@ -5486,11 +5486,69 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </CodeChunk>
 	<CodeChunk Name="Coffer">
 			<![CDATA[		
-				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
-            {
-                bagslot.UseItem();
-                await Coroutine.Sleep(5000);
-            }
+				foreach(BagSlot slot in InventoryManager.FilledSlots)
+				{
+					if(slot.RawItemId == 26890)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26889)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26888)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26887)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26886)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26885)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26884)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26883)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26882)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26881)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26880)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+					if(slot.RawItemId == 26879)
+					{
+						slot.UseItem();
+						await Coroutine.Sleep(5000);						
+					}
+				}
 		]]> 
 		</CodeChunk>
   </CodeChunks>

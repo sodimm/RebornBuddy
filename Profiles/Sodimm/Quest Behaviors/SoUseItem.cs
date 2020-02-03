@@ -4,6 +4,7 @@ using ff14bot.Behavior;
 using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using ff14bot.RemoteWindows;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace ff14bot.NeoProfiles.Tags
                 return new Decorator(r => (r as GameObject) != null,
                     new PrioritySelector(
                         CommonBehaviors.MoveAndStop(r => ((GameObject)r).Location, r => UseDistance, false, r => null),
-                            new ActionRunCoroutine(async r => await UseItem((r as GameObject)))
+                            new ActionRunCoroutine(async r => await UseItem(ItemId, (r as GameObject), WaitTime, BlacklistAfter, BlacklistDuration))
                         )
                     );
             }
@@ -39,38 +40,79 @@ namespace ff14bot.NeoProfiles.Tags
             get
             {
                 return new PrioritySelector(r => Poi.Current.BattleCharacter,
-                    new ActionRunCoroutine(async r => await UseItem(Poi.Current.BattleCharacter))
+                    new ActionRunCoroutine(async r => await UseItem(ItemId, Poi.Current.BattleCharacter, WaitTime, BlacklistAfter, BlacklistDuration))
                     );
             }
         }
 
-        private BagSlot Item => InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemId) ?? null;
-        private async Task<bool> UseItem(GameObject who)
+        public static async Task<bool> UseItem(uint itemId, GameObject obj, int waitTime = 0, bool blacklistAfter = false, int blacklistDuration = 30)
         {
-            if (Item == null || who == null) { return false; }
+            var bagSlot = InventoryManager.FilledSlots.FirstOrDefault(s => s.RawItemId == itemId);
 
-            if (Core.Me.IsMounted) { await CommonTasks.StopAndDismount(); }
+            if (bagSlot == null) { return false; }
 
-            if (who.IsTargetable) { who.Target(); }
+            if (obj == null) { return false; }
 
-            if (Item.Item.IsGroundTargeting) { Item.UseItem(who.Location); } else { Item.UseItem(who); }
-
-            if (await Coroutine.Wait(5000, () => Core.Me.IsCasting))
+            while (true)
             {
-                if (await Coroutine.Wait(15000, () => !Core.Me.IsCasting))
+                if (Core.Me.IsDead) { return false; }
+
+                if (Talk.DialogOpen)
                 {
-                    if (await Coroutine.Wait(5000, () => ShortCircut(who))) { return false; }
+                    Talk.Next();
+                    await Coroutine.Sleep(300);
+                    continue;
+                }
+
+                if (MovementManager.IsMoving)
+                {
+                    await CommonTasks.StopMoving();
+                    await Coroutine.Sleep(300);
+                    continue;
+                }
+
+                if (Core.Me.IsMounted)
+                {
+                    await CommonTasks.StopAndDismount();
+                    await Coroutine.Sleep(300);
+                    continue;
+                }
+
+                if (Core.Me.CurrentTarget != obj)
+                {
+                    obj.Target();
+                    await Coroutine.Sleep(300);
+                    continue;
+                }
+
+                if (bagSlot.Item.IsGroundTargeting)
+                {
+                    bagSlot.UseItem(obj.Location);
+                }
+                else
+                {
+                    bagSlot.UseItem(obj);
+                }
+
+                if (await Coroutine.Wait(1000, () => Core.Me.IsCasting))
+                {
+                    if (await Coroutine.Wait(15000, () => !Core.Me.IsCasting))
+                    {
+                        if (await Coroutine.Wait(5000, () => !obj.IsValid || !obj.IsTargetable || !obj.IsVisible || !bagSlot.CanUse(obj)))
+                        {
+                            break;
+                        }
+                    }
+                }
+                else 
+                {
+                    return false;
                 }
             }
-            else
-            {
-                Log("We are not using the item for some reason!");
-                return false;
-            }
 
-            if (WaitTime > 0) { await Coroutine.Sleep(WaitTime); }
+            if (waitTime > 0) { await Coroutine.Sleep(waitTime); }
 
-            if (BlacklistAfter) { Blacklist.Add(who, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(BlacklistDuration), "BlacklistAfter"); }
+            if (blacklistAfter) { Blacklist.Add(obj, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(blacklistDuration), "BlacklistAfter"); }
 
             return true;
         }

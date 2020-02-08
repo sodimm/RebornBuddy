@@ -6,6 +6,8 @@ using ff14bot.Managers;
 using ff14bot.Objects;
 using ff14bot.RemoteWindows;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using TreeSharp;
@@ -18,7 +20,20 @@ namespace ff14bot.NeoProfiles.Tags
         [XmlAttribute("ItemId")]
         public uint ItemId { get; set; }
 
-        protected override void OnStartHunt() { }
+        [DefaultValue(new int[0])]
+        [XmlAttribute("DialogOption")]
+#pragma warning disable CA1819 // Properties should not return arrays
+        public int[] DialogOption { get; set; }
+#pragma warning restore CA1819 // Properties should not return arrays
+
+        private static readonly Queue<int> selectStringIndex = new Queue<int>();
+        protected override void OnStartHunt()
+        {
+            if (DialogOption.Length > 0)
+            {
+                foreach (var i in DialogOption) { selectStringIndex.Enqueue(i); }
+            }
+        }
 
         protected override void OnDoneHunt() { }
 
@@ -56,6 +71,12 @@ namespace ff14bot.NeoProfiles.Tags
             while (true)
             {
                 if (Core.Me.IsDead) { return false; }
+
+                if (SelectString.IsOpen)
+                {
+                    if (selectStringIndex.Count > 0) { SelectString.ClickSlot((uint)selectStringIndex.Dequeue()); }
+                    else { SelectString.ClickSlot(0); }
+                }
 
                 if (Talk.DialogOpen)
                 {

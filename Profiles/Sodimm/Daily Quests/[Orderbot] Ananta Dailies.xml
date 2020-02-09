@@ -1499,7 +1499,7 @@ Authors:  Sodimm
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -1509,15 +1509,7 @@ Authors:  Sodimm
     <CodeChunk Name="68588">
       <![CDATA[
         var _npcIds = new uint[] { 1025063, 1025064, 1025065, 1025066 };
-        var _emote1 = String.Empty;
-        var _emote2 = String.Empty;
-#if RB_CN
-        _emote1 = "/w NEED CN TRANSLATION";
-    _emote2 = "/w NEED CN TRANSLATION";
-#else
-        _emote1 = "/soothe";
-    _emote2 = "/rally";
-#endif        
+
         await CommonTasks.StopAndDismount();
     
         var activeId = 0u;
@@ -1535,11 +1527,11 @@ Authors:  Sodimm
         if (_obj.IsVisible)
         {
           _obj.Target();
-          if (activeId == 1025063 || activeId == 1025064)  {  ChatManager.SendChat(_emote1);  }
-      else {  ChatManager.SendChat(_emote2);  }
-    }
+          if (activeId == 1025063 || activeId == 1025064)  {  ChatManager.SendChat("/soothe");  }
+          else {  ChatManager.SendChat("/rally");  }
+        }
     
-    while (_obj != null && _obj.IsVisible && _obj.IsTargetable)
+        while (_obj != null && _obj.IsVisible && _obj.IsTargetable)
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();

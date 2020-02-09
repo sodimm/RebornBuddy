@@ -980,18 +980,9 @@ Authors:  Sodimm
   <CodeChunks>
     <CodeChunk Name="68884">
       <![CDATA[
-        var _emote1 = String.Empty;
-        var _emote2 = String.Empty;
-#if RB_CN
-        _emote1 = "/w NEED CN TRANSLATION";
-        _emote2 = "/w NEED CN TRANSLATION";
-#else
-        _emote1 = "/battlestance";
-        _emote2 = "/box";
-#endif        
         await CommonTasks.StopAndDismount();    
         GameObjectManager.GetObjectByNPCId(1029884).Target();    
-        if (ConditionParser.GetQuestStep(68884) == 1)  {  ChatManager.SendChat(_emote1);  }  else  {  ChatManager.SendChat(_emote2);  }
+        if (ConditionParser.GetQuestStep(68884) == 1)  {  ChatManager.SendChat("/battlestance");  }  else  {  ChatManager.SendChat("/box");  }
       ]]>
     </CodeChunk>
     <CodeChunk Name="69101">
@@ -1004,14 +995,8 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="69102">
       <![CDATA[
-        var _emote = String.Empty;
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/welcome";
-#endif        
         await CommonTasks.StopAndDismount();    
-        ChatManager.SendChat(_emote);
+        ChatManager.SendChat("/welcome");
       ]]>
     </CodeChunk>
     <CodeChunk Name="69104">
@@ -1041,15 +1026,9 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="69109">
       <![CDATA[
-        var _emote = String.Empty;
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/furious";
-#endif        
         await CommonTasks.StopAndDismount();    
         GameObjectManager.GetObjectByNPCId(1031117).Target();    
-        ChatManager.SendChat(_emote);
+        ChatManager.SendChat("/furious");
       ]]>
     </CodeChunk>
     <CodeChunk Name="69111">

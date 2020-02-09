@@ -795,7 +795,7 @@ Authors:  Mastahg, Sodimm
           </If>
           <If Condition="GetQuestStep(69223) == 6">
             <RunCode Name="Announce_Manual_Completion"/>
-            <WaitWhile Condition="GetQuestStep(69223) == 6"/>
+            <WaitWhile Condition="not GetQuestStep(69223) == 8"/>
           </If>
           <If Condition="GetQuestStep(69223) == 8">
             <TalkTo InteractDistance="3.0" QuestId="69223" StepId="8" NpcId="1031886" XYZ="38.34583, -4.639912, 24.76538"/>
@@ -828,7 +828,7 @@ Authors:  Mastahg, Sodimm
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -839,7 +839,7 @@ Authors:  Mastahg, Sodimm
       <![CDATA[
         var _say =  String.Empty;
 #if RB_CN
-        _say = "/w NEED CN TRANSLATION";
+        _say = "/s 超级小可爱";
 #else
         _say = "/s snae ling";
 #endif        
@@ -882,7 +882,7 @@ Authors:  Mastahg, Sodimm
       <![CDATA[
         var _say =  String.Empty;
 #if RB_CN
-        _say = "/w NEED CN TRANSLATION";
+        _say = "/s 河狸";
 #else
         _say = "/s Beaver";
 #endif        

@@ -1069,7 +1069,7 @@ Authors:  Sodimm
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -1086,37 +1086,19 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68902">
       <![CDATA[
-        var _emote = String.Empty;
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/doubt";
-#endif
         await CommonTasks.StopAndDismount();    
         GameObjectManager.GetObjectByNPCId(1030511).Target();    
-        ChatManager.SendChat(_emote);
+        ChatManager.SendChat("/doubt");
       ]]>
     </CodeChunk>
     <CodeChunk Name="69031">
       <![CDATA[
         uint activeId = 0;
-        var _emote1 = String.Empty;
-        var _emote2 = String.Empty;
-        var _emote3 = String.Empty;
-#if RB_CN
-        _emote1 = "/w NEED CN TRANSLATION";
-        _emote2 = "/w NEED CN TRANSLATION";
-        _emote3 = "/w NEED CN TRANSLATION";
-#else
-        _emote1 = "/comfort";
-        _emote2 = "/rally";
-        _emote3 = "/psych";
-#endif
         var _emoteDict = new Dictionary<uint, string>()
         {
-            { 1030969, _emote3 },
-            { 1030970, _emote2 },
-            { 1030971, _emote1 },
+            { 1030969, "/psych" },
+            { 1030970, "/rally" },
+            { 1030971, "/comfort" },
         };
 
         if (ConditionParser.GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 0) {  activeId = 1030971;  }
@@ -1130,27 +1112,15 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="69046">
       <![CDATA[
-        var _emote = String.Empty;
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/kneel";
-#endif
         await CommonTasks.StopAndDismount();    
-        ChatManager.SendChat(_emote);
+        ChatManager.SendChat("/kneel");
       ]]>
     </CodeChunk>
     <CodeChunk Name="69063">
       <![CDATA[
-        var _emote = String.Empty;
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/rally";
-#endif
         await CommonTasks.StopAndDismount();
         GameObjectManager.GetObjectByNPCId(1030720).Target();
-        ChatManager.SendChat(_emote);
+        ChatManager.SendChat("/rally");
       ]]>
     </CodeChunk>
     <CodeChunk Name="2002724">

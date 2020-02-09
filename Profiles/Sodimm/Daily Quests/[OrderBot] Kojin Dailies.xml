@@ -1221,7 +1221,7 @@ Authors:  Sodimm.
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -1282,7 +1282,6 @@ Authors:  Sodimm.
     </CodeChunk>
     <CodeChunk Name="68517">
       <![CDATA[
-        var _emote = String.Empty;		
         var item = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.KeyItems).Where(r => r.RawItemId == 2002400).FirstOrDefault();
         
         await Coroutine.Sleep(500);
@@ -1295,16 +1294,12 @@ Authors:  Sodimm.
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
         }
-#if RB_CN
-        _emote = "/w NEED CN TRANSLATION";
-#else
-        _emote = "/pray";
-#endif
+
         var _obj = GameObjectManager.GetObjectByNPCId(2009085);
         if (_obj.IsVisible)
         {
           _obj.Target();
-          ChatManager.SendChat(_emote);
+          ChatManager.SendChat("/pray");
         }
 
         while (ConditionParser.GetQuestStep(68517) != 255)

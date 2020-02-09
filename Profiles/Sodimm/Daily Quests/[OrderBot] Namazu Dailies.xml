@@ -365,49 +365,49 @@ Authors:  Sodimm, TuckMeIntoBread
         </If>
         <While Condition="HasItem(22694) and not HasAtLeast(22720, 3)">
           <!-- Happi Components -->
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+          <If Condition="ClassName == ClassJobType.Carpenter">
             <Synthesize RecipeId="32682"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100001"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+          <If Condition="ClassName == ClassJobType.Blacksmith">
             <Synthesize RecipeId="32709"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100015"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+          <If Condition="ClassName == ClassJobType.Armorer">
             <Synthesize RecipeId="32736"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100030"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+          <If Condition="ClassName == ClassJobType.Goldsmith">
             <Synthesize RecipeId="32763"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100075"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+          <If Condition="ClassName == ClassJobType.Leatherworker">
             <Synthesize RecipeId="32790"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100045"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+          <If Condition="ClassName == ClassJobType.Weaver">
             <Synthesize RecipeId="32817"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100060"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+          <If Condition="ClassName == ClassJobType.Alchemist">
             <Synthesize RecipeId="32844"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100090"/>
             </While>
           </If>
-          <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+          <If Condition="ClassName == ClassJobType.Culinarian">
             <Synthesize RecipeId="32871"/>
             <While Condition="CraftingManager.IsCrafting">
               <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -598,49 +598,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Finery Components -->
           <While Condition="HasItem(22699) and not HasAtLeast(22725, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32695"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32722"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32749"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32776"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32803"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32830"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32857"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32884"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -678,49 +678,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Ritual Implement Components -->
           <While Condition="HasItem(22700) and not HasItem(22726)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32696"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32723"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32750"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32777"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32804"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32831"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32858 "/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32885"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -742,49 +742,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Brazier Components -->
           <While Condition="HasItem(22701) and not HasAtLeast(22727, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32697"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32724"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32751"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32778"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32805"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32832"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32859"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32886"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -806,49 +806,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Uchiwa Components -->
           <While Condition="HasItem(22702) and not HasAtLeast(22728, 3)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32698"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32725"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32752"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32779"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32806"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32833"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32860"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32887"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -870,49 +870,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Trinket Components -->
           <While Condition="HasItem(22703) and not HasItem(22729)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32699"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32726"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32753"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32780"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32807"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32834"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32861"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32888"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -942,49 +942,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Catfish Lure Components -->
           <While Condition="HasItem(22704) and not HasAtLeast(22730, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32700"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32727"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32754"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32781"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32808"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32835"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32862"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32889"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1012,49 +1012,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Azim Steppe Souvenir Components -->
           <While Condition="HasItem(22705) and not HasItem(22731)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32701"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32728"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32755"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32782"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32809"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32836"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32863"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32890"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1082,49 +1082,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Hingan Ritual Paraphernalia -->
           <While Condition="HasItem(22706) and not HasAtLeast(22732, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32702"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32729"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32756"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32783"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32810"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32837"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32864"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32891"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1146,7 +1146,7 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Dzo Shear Components -->
           <While Condition="HasItem(22707) and not HasHqItem(22733)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32685"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1160,7 +1160,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32712"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1174,7 +1174,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32739"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1188,7 +1188,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32766"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1202,7 +1202,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32793"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1216,7 +1216,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32820"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1230,7 +1230,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32847"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1244,7 +1244,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32874"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1277,49 +1277,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Buuz Cooking Paraphernalia -->
           <While Condition="HasItem(22708) and not HasAtLeast(22734, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32703"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32730"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32757"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32784"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32811"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32838"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32865"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32892"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1344,49 +1344,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Mol Tea Ceremony Paraphernalia -->
           <While Condition="HasItem(22709) and not HasAtLeast(22735, 3)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32704"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32731"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32758"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32785"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32812"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32839"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32866"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32893"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1411,49 +1411,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Stable Supplies -->
           <While Condition="HasItem(22710) and not HasAtLeast(22736, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32690"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32717"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32744"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32771"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32798"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32825"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32852"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32879"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1475,49 +1475,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Drum Parts -->
           <While Condition="HasItem(22711) and not HasItem(22737)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32686"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32713"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32740"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32767"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32794"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32821"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32848"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32875"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1552,49 +1552,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Confetti-making Tools -->
           <While Condition="HasItem(22712) and not HasAtLeast(22738, 3)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32687"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32714"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32741"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32768"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32795"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32822"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32849"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32876"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1619,7 +1619,7 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Substitute Offering -->
           <While Condition="HasItem(22713) and not HasHqItem(22739)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32705"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1633,7 +1633,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32732"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1647,7 +1647,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32759"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1661,7 +1661,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32786"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1675,7 +1675,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32813"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1689,7 +1689,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32840"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1703,7 +1703,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32867"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1717,7 +1717,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32894"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1747,49 +1747,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Steeping Accessory -->
           <While Condition="HasItem(22714) and not HasAtLeast(22740, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32688"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32715"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32742"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32769"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32796"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32823"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32850"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32877"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -1818,7 +1818,7 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Pristine Fruit Figurine -->
           <While Condition="HasItem(22715) and not HasHqItem(22741)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32706"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1832,7 +1832,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32733"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1846,7 +1846,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32760"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1860,7 +1860,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32787"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1874,7 +1874,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32814"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1888,7 +1888,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32841"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1902,7 +1902,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32868"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1916,7 +1916,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32895"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -1946,49 +1946,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Land Diving Gear -->
           <While Condition="HasItem(22716) and not HasAtLeast(22742, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32707"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32734"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32761"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32788"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32815"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32842"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32869"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32896"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -2027,7 +2027,7 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Culinary Knife Component -->
           <While Condition="HasItem(22717) and not HasHqItem(22743)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32691"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2041,7 +2041,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32718"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2055,7 +2055,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32745"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2069,7 +2069,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32772"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2083,7 +2083,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32799"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2097,7 +2097,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32826"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2111,7 +2111,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32853"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2125,7 +2125,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32880"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2163,49 +2163,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Generous Gifts -->
           <While Condition="HasItem(22718) and not HasAtLeast(22744, 2)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32692"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32719"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32746"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32773"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32800"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32827"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32854"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32881"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -2230,7 +2230,7 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Korrigan Doll -->
           <While Condition="HasItem(22719) and not HasHqItem(22745)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32708"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2244,7 +2244,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32735"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2258,7 +2258,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32762"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2272,7 +2272,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32789"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2286,7 +2286,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32816"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2300,7 +2300,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32843"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2314,7 +2314,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32870"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2328,7 +2328,7 @@ Authors:  Sodimm, TuckMeIntoBread
                 </If>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32897"/>
               <While Condition="CraftingManager.IsCrafting">
                 <If Condition="CraftingManager.HQPercent &gt; 80">
@@ -2358,49 +2358,49 @@ Authors:  Sodimm, TuckMeIntoBread
           </If>
           <!-- Elixir Mixing Paraphernalia -->
           <While Condition="HasItem(23172) and not HasAtLeast(23173, 3)">
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+            <If Condition="ClassName == ClassJobType.Carpenter">
               <Synthesize RecipeId="32693"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100001"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+            <If Condition="ClassName == ClassJobType.Blacksmith">
               <Synthesize RecipeId="32720"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100015"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+            <If Condition="ClassName == ClassJobType.Armorer">
               <Synthesize RecipeId="32747"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100030"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+            <If Condition="ClassName == ClassJobType.Goldsmith">
               <Synthesize RecipeId="32774"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100075"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+            <If Condition="ClassName == ClassJobType.Leatherworker">
               <Synthesize RecipeId="32801"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100045"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+            <If Condition="ClassName == ClassJobType.Weaver">
               <Synthesize RecipeId="32828"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100060"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+            <If Condition="ClassName == ClassJobType.Alchemist">
               <Synthesize RecipeId="32855"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100090"/>
               </While>
             </If>
-            <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+            <If Condition="ClassName == ClassJobType.Culinarian">
               <Synthesize RecipeId="32882"/>
               <While Condition="CraftingManager.IsCrafting">
                 <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -2608,49 +2608,49 @@ Authors:  Sodimm, TuckMeIntoBread
             </If>
             <!-- Altar Components -->
             <While Condition="HasItem(22695) and not HasAtLeast(22721, 2)">
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+              <If Condition="ClassName == ClassJobType.Carpenter">
                 <Synthesize RecipeId="32683"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100001"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+              <If Condition="ClassName == ClassJobType.Blacksmith">
                 <Synthesize RecipeId="32710"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100015"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+              <If Condition="ClassName == ClassJobType.Armorer">
                 <Synthesize RecipeId="32737"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100030"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+              <If Condition="ClassName == ClassJobType.Goldsmith">
                 <Synthesize RecipeId="32764"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100075"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+              <If Condition="ClassName == ClassJobType.Leatherworker">
                 <Synthesize RecipeId="32791"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100045"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+              <If Condition="ClassName == ClassJobType.Weaver">
                 <Synthesize RecipeId="32818"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100060"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+              <If Condition="ClassName == ClassJobType.Alchemist">
                 <Synthesize RecipeId="32845"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100090"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+              <If Condition="ClassName == ClassJobType.Culinarian">
                 <Synthesize RecipeId="32872"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -2690,49 +2690,49 @@ Authors:  Sodimm, TuckMeIntoBread
             </If>
             <!-- Mikoshi Frippery -->
             <While Condition="HasItem(22696) and not HasAtLeast(22722, 2)">
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+              <If Condition="ClassName == ClassJobType.Carpenter">
                 <Synthesize RecipeId="32684"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100001"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+              <If Condition="ClassName == ClassJobType.Blacksmith">
                 <Synthesize RecipeId="32711"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100015"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+              <If Condition="ClassName == ClassJobType.Armorer">
                 <Synthesize RecipeId="32738"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100030"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+              <If Condition="ClassName == ClassJobType.Goldsmith">
                 <Synthesize RecipeId="32765"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100075"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+              <If Condition="ClassName == ClassJobType.Leatherworker">
                 <Synthesize RecipeId="32792"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100045"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+              <If Condition="ClassName == ClassJobType.Weaver">
                 <Synthesize RecipeId="32819"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100060"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+              <If Condition="ClassName == ClassJobType.Alchemist">
                 <Synthesize RecipeId="32846"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100090"/>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+              <If Condition="ClassName == ClassJobType.Culinarian">
                 <Synthesize RecipeId="32873"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <CraftAction Name="Basic Synthesis" ActionId="100105"/>
@@ -2808,7 +2808,7 @@ Authors:  Sodimm, TuckMeIntoBread
             </If>
             <!-- Ceremonial Bow Components -->
             <While Condition="HasItem(22697) and not HasHqItem(22723)">
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+              <If Condition="ClassName == ClassJobType.Carpenter">
                 <Synthesize RecipeId="32689"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2825,7 +2825,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+              <If Condition="ClassName == ClassJobType.Blacksmith">
                 <Synthesize RecipeId="32716"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2842,7 +2842,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+              <If Condition="ClassName == ClassJobType.Armorer">
                 <Synthesize RecipeId="32743"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2859,7 +2859,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+              <If Condition="ClassName == ClassJobType.Goldsmith">
                 <Synthesize RecipeId="32770"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2876,7 +2876,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+              <If Condition="ClassName == ClassJobType.Leatherworker">
                 <Synthesize RecipeId="32797"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2893,7 +2893,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+              <If Condition="ClassName == ClassJobType.Weaver">
                 <Synthesize RecipeId="32824"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2910,7 +2910,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+              <If Condition="ClassName == ClassJobType.Alchemist">
                 <Synthesize RecipeId="32851"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2927,7 +2927,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+              <If Condition="ClassName == ClassJobType.Culinarian">
                 <Synthesize RecipeId="32878"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -2991,7 +2991,7 @@ Authors:  Sodimm, TuckMeIntoBread
             </If>
             <!-- Effigy Components -->
             <While Condition="HasItem(22698) and not HasHqItem(22724)">
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Carpenter">
+              <If Condition="ClassName == ClassJobType.Carpenter">
                 <Synthesize RecipeId="32694"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3008,7 +3008,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Blacksmith">
+              <If Condition="ClassName == ClassJobType.Blacksmith">
                 <Synthesize RecipeId="32721"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3025,7 +3025,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Armorer">
+              <If Condition="ClassName == ClassJobType.Armorer">
                 <Synthesize RecipeId="32748"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3042,7 +3042,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Goldsmith">
+              <If Condition="ClassName == ClassJobType.Goldsmith">
                 <Synthesize RecipeId="32775"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3059,7 +3059,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Leatherworker">
+              <If Condition="ClassName == ClassJobType.Leatherworker">
                 <Synthesize RecipeId="32802"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3076,7 +3076,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Weaver">
+              <If Condition="ClassName == ClassJobType.Weaver">
                 <Synthesize RecipeId="32829"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3093,7 +3093,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Alchemist">
+              <If Condition="ClassName == ClassJobType.Alchemist">
                 <Synthesize RecipeId="32856"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3110,7 +3110,7 @@ Authors:  Sodimm, TuckMeIntoBread
                   </If>
                 </While>
               </If>
-              <If Condition="Core.Player.CurrentJob == Enums.ClassJobType.Culinarian">
+              <If Condition="ClassName == ClassJobType.Culinarian">
                 <Synthesize RecipeId="32883"/>
                 <While Condition="CraftingManager.IsCrafting">
                   <If Condition="Core.Player.CurrentCPPercent == 100">
@@ -3189,7 +3189,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -3250,7 +3250,7 @@ Authors:  Sodimm, TuckMeIntoBread
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "转到工艺课。";
+        _msg = "请切换到生产职业。";
 #else
         _msg = "Please switch to a Craft Class.";
 #endif
@@ -3263,9 +3263,9 @@ Authors:  Sodimm, TuckMeIntoBread
         var _say = String.Empty;
         if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
 #if RB_CN
-        _say = "/w NEED CN TRANSLATION。";
+        _say = "/s 大鲶鱼保佑";
 #else
-        _say = "/say his whiskers";
+        _say = "/s his whiskers";
 #endif     
         ChatManager.SendChat("/say his whiskers");
         await Coroutine.Sleep(2000);

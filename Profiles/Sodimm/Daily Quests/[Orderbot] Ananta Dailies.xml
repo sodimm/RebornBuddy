@@ -1499,7 +1499,7 @@ Authors:  Sodimm
       <![CDATA[
         var _msg = String.Empty;
 #if RB_CN
-        _msg = "手动完成。";
+        _msg = "请手动完成下一个任务。";
 #else
         _msg = "Complete the next objective manually.";
 #endif
@@ -1512,11 +1512,11 @@ Authors:  Sodimm
         var _emote1 = String.Empty;
         var _emote2 = String.Empty;
 #if RB_CN
-        _emote1 = "/w NEED CN TRANSLATION";
-    _emote2 = "/w NEED CN TRANSLATION";
+        _emote1 = "/soothe";
+        _emote2 = "/rally";
 #else
         _emote1 = "/soothe";
-    _emote2 = "/rally";
+        _emote2 = "/rally";
 #endif        
         await CommonTasks.StopAndDismount();
     

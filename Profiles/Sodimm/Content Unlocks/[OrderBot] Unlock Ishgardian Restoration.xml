@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf - 8"?>
+<!--
+  Profile: Unlock Ishgardian Restoration
+  Authors: TuckMeIntoBread, sodimm
+-->
+<Profile>
+  <Name>Unlock Ishgardian Restoration</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Towards the Firmament -->
+    <If Condition="not HasQuest(69208) and not IsQuestCompleted(69208)">
+      <GetTo ZoneId="418" XYZ="-73.12334, 9.262423, 17.14463"/>
+      <If Condition="IsQuestAcceptQualified(69208)">
+        <PickupQuest QuestId="69208" NpcId="2010850" XYZ="-74.54034, 10.69653, 16.73914"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69208) and not IsQuestCompleted(69208) and GetQuestStep(69208) == 1">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="151.6942, -20, 63.12635"/>
+      </If>
+      <TalkTo NpcId="1031682" XYZ="152.9716, -20, 63.76746" QuestId="69208" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69208) and not IsQuestCompleted(69208) and GetQuestStep(69208) == 2">
+      <GetTo ZoneId="419" XYZ="-142.3477, -12.63491, -33.13378"/>
+      <TalkTo NpcId="2010920" XYZ="-141.1307, -12.64978, -33.58521" QuestId="69208" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69208) and not IsQuestCompleted(69208) and GetQuestStep(69208) == 3">
+      <If Condition="not IsOnMap(419)">
+        <GetTo ZoneId="419" XYZ="-140.0322, -12.63491, -34.21566"/>
+      </If>
+      <TalkTo NpcId="1031989" XYZ="-139.1776, -12.63491, -33.95135" QuestId="69208" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(69208) and not IsQuestCompleted(69208) and GetQuestStep(69208) == 4">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="152.0171, -20, 63.29646"/>
+      </If>
+      <SoHandOver ItemId="2002954" NpcId="1031682" XYZ="152.9716, -20, 63.76746" QuestId="69208" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(69208) and not IsQuestCompleted(69208) and GetQuestStep(69208) == 255">
+      <GetTo ZoneId="886" XYZ="-6.056108, -16, 163.6595"/>
+      <TurnIn ItemId="0" QuestId="69208" NpcId="1031684" XYZ="-7.156494, -16, 163.4698"/>
+    </If>
+  </Order>
+</Profile>
+

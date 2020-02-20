@@ -322,225 +322,6 @@ Authors:  Sodimm
         </If>
       </If>
       <If Condition="IsQuestCompleted(68875)">
-        <!-- In His Memory -->
-        <If Condition="not HasQuest(68981) and not IsQuestCompleted(68981)">
-          <FlyTo XYZ="-242.8507, -2.488483, 328.061"/>
-          <FlyTo XYZ="-314.4352, 6.263806, 702.2255" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68981)">
-            <PickupQuest QuestId="68981" NpcId="1029024"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68981) &gt; 0">
-          <If Condition="GetQuestStep(68981) == 1">
-            <FlyTo XYZ="-295.5836, 7.499601, 595.0201" Land="True"/>
-            <TalkTo NpcId="1029878" XYZ="-295.1248, 7.516978, 591.821" QuestId="68981" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68981) == 2">
-            <UseObject NpcId="2009794" XYZ="-444.8157, 2.426147, 530.2357" QuestId="68981" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68981) == 3">
-            <TalkTo NpcId="1029879" XYZ="-445.4872, 2.466572, 531.3344" QuestId="68981" StepId="3"/>
-          </If>
-          <If Condition="HasQuest(68981) and not IsQuestCompleted(68981) and GetQuestStep(68981) == 255">
-            <FlyTo XYZ="-316.0768, 6.052368, 703.2286" Land="True"/>
-            <TurnIn ItemId="2002539" QuestId="68981" NpcId="1029024" XYZ="-301.5335, 8.681433, 711.2992"/>
-          </If>
-        </If>
-        <!-- Pick Their Poison -->
-        <If Condition="not HasQuest(68982) and not IsQuestCompleted(68982)">
-          <FlyTo XYZ="-314.4352, 6.263806, 702.2255" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68982)">
-            <PickupQuest QuestId="68982" NpcId="1029024"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68982) &gt; 0">
-          <If Condition="GetQuestStep(68982) == 1">
-            <FlyTo XYZ="-337.4237, 1.37022, 534.5729" Land="True"/>
-            <UseItem ItemId="2002540" NpcIds="2009929, 2009930, 2009931" XYZ="-337.4237, 1.37022, 534.5729" QuestId="68982" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68982) == 2">
-            <FlyTo XYZ="-434.5213, 0.7337074, 630.9113" Land="True"/>
-            <TalkTo NpcId="1029881" XYZ="-431.632, 0.8263966, 627.985" QuestId="68982" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68982) == 255">
-            <GetTo ZoneId="817" XYZ="-129.6721, -17.218, 314.1363"/>
-            <TurnIn QuestId="68982" NpcId="1029883" XYZ="-130.3884, -16.54532, 316.7316"/>
-          </If>
-        </If>
-        <!-- Slither Along -->
-        <If Condition="not HasQuest(69193) and not IsQuestCompleted(69193)">
-          <FlyTo XYZ="-521.477, 0.2871356, 228.6318" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(69193)">
-            <PickupQuest QuestId="69193" NpcId="1029876"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69193) &gt; 0">
-          <If Condition="GetQuestStep(69193) == 1">
-            <TalkTo NpcId="1029876" XYZ="-524.712, 0.08067317, 227.0389" QuestId="69193" StepId="1"/>
-            <WaitWhile Condition="not Core.Me.HasAura(404)"/>
-          </If>
-          <If Condition="GetQuestStep(69193) == 2">
-            <If Condition="not Core.Me.HasAura(404)">
-              <FlyTo XYZ="-521.477, 0.2871356, 228.6318" Land="True"/>
-              <TalkTo NpcId="1029876" XYZ="-524.712, 0.08067317, 227.0389"/>
-            </If>
-            <NoCombatMoveTo XYZ="-28.56154, -24.68954, 318.321"/>
-            <TalkTo NpcId="1030819" XYZ="-27.39001, -24.5606, 320.119" QuestId="69193" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(69193) == 255">
-            <GetTo ZoneId="817" XYZ="-30.64284, -24.71987, 316.4047"/>
-            <TurnIn QuestId="69193" NpcId="1030824" XYZ="-28.73273, -23.69542, 320.3936"/>
-          </If>
-        </If>
-        <!-- Snake the Lead -->
-        <If Condition="not HasQuest(69194) and not IsQuestCompleted(69194)">
-          <GetTo ZoneId="817" XYZ="-30.67826, -24.72022, 316.3749"/>
-          <If Condition="IsQuestAcceptQualified(69194)">
-            <PickupQuest QuestId="69194" NpcId="1030819"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69194) &gt; 0">
-          <If Condition="GetQuestStep(69194) == 1">
-            <FlyTo XYZ="-339.7848, 14.33539, -169.8082" Land="True"/>
-            <UseObject NpcId="2010352" XYZ="-339.7848, 14.33539, -169.8082" QuestId="69194" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(69194) == 255">
-            <GetTo ZoneId="817" XYZ="-29.54988, -24.64722, 318.2987"/>
-            <TurnIn ItemId="2002702" QuestId="69194" NpcId="1030818" XYZ="-28.64117, -24.63142, 318.9899"/>
-          </If>
-        </If>
-        <!-- Snakes in the Grass -->
-        <If Condition="not HasQuest(69195) and not IsQuestCompleted(69195)">
-          <GetTo ZoneId="817" XYZ="-30.76242, -24.68009, 317.0132"/>
-          <If Condition="IsQuestAcceptQualified(69195)">
-            <PickupQuest QuestId="69195" NpcId="1030818"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69195) &gt; 0">
-          <If Condition="GetQuestStep(69195) == 1">
-            <FlyTo XYZ="-242.8507, -2.488483, 328.061"/>
-            <FlyTo XYZ="-441.7386, -0.3, 725.0002" AllowedVariance="1.0" Land="True"/>
-            <UseObject NpcId="1030827" XYZ="-438.468, -0.3, 725.1239" QuestId="69195" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(69195) == 2">
-            <TalkTo NpcId="1030827" XYZ="-438.468, -0.3, 725.1239" QuestId="69195" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(69195) == 3">
-            <FlyTo XYZ="-500.8593, 7.462271, 96.40591" AllowedVariance="1.0" Land="True"/>
-            <WaitWhile Condition="not GetQuestStep(69195) == 4"/>
-          </If>
-          <If Condition="GetQuestStep(69195) == 4">
-            <UseObject NpcId="2010522" XYZ="-501.5488, 7.461609, 96.94055" QuestId="69195" StepId="4"/>
-          </If>
-          <If Condition="GetQuestStep(69195) == 255">
-            <GetTo ZoneId="817" XYZ="-29.97344, -24.72886, 316.6966"/>
-            <TurnIn ItemId="2002703" QuestId="69195" NpcId="1030818" XYZ="-28.64117, -24.63142, 318.9899"/>
-          </If>
-        </If>
-        <!-- Seeing Eye to Eye -->
-        <If Condition="not HasQuest(69015) and not IsQuestCompleted(69015)">
-          <GetTo ZoneId="817" XYZ="494.3526, -6.555339, -228.1822"/>
-          <If Condition="IsQuestAcceptQualified(69015)">
-            <PickupQuest QuestId="69015" NpcId="1027716"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69015) &gt; 0">
-          <If Condition="GetQuestStep(69015) == 1">
-            <If Condition="GetQuestById(69015).GetTodoArgs(1, 0).Item1 == 0">
-              <If Condition="not IsOnMap(817)">
-                <GetTo ZoneId="817" XYZ="396.1042, 20.42252, -209.3717"/>
-              </If>
-              <TalkTo NpcId="1031012" XYZ="395.0103, 20.42252, -211.8105" QuestId="69015"/>
-            </If>
-            <If Condition="GetQuestById(69015).GetTodoArgs(1, 0).Item1 == 1">
-              <If Condition="not IsOnMap(817)">
-                <GetTo ZoneId="817" XYZ="432.5894, 34.13806, -146.9578"/>
-              </If>
-              <TalkTo NpcId="1031150" XYZ="433.8596, 34.13806, -145.3727" QuestId="69015"/>
-            </If>
-            <If Condition="GetQuestById(69015).GetTodoArgs(1, 0).Item1 == 2">
-              <If Condition="not IsOnMap(817)">
-                <GetTo ZoneId="817" XYZ="397.9147, 33.63778, -104.4716"/>
-              </If>
-              <TalkTo NpcId="1031151" XYZ="401.2054, 33.63778, -104.3259" QuestId="69015"/>
-            </If>
-          </If>
-          <If Condition="GetQuestStep(69015) == 255">
-            <If Condition="not IsOnMap(817)">
-              <GetTo ZoneId="817" XYZ="494.8156, -6.555339, -227.9604"/>
-            </If>
-            <TurnIn QuestId="69015" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
-            <!-- Moves too quickly here and will pickup wrong quest. Wait 5 -->
-            <WaitTimer WaitTime="5"/>
-          </If>
-        </If>
-        <!-- Mending Fences -->
-        <If Condition="not HasQuest(69016) and not IsQuestCompleted(69016)">
-          <GetTo ZoneId="817" XYZ="491.6394, -6.555339, -228.3523"/>
-          <If Condition="IsQuestAcceptQualified(69016)">
-            <PickupQuest QuestId="69016" NpcId="1027716"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69016) &gt; 0">
-          <If Condition="GetQuestStep(69016) == 1">
-            <FlyTo XYZ="566.1274, 26.73273, 131.7219" AllowedVariance="1.0" Land="True"/>
-            <TalkTo NpcId="1031007" XYZ="566.2775, 26.78341, 133.7758" QuestId="69016" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 2">
-            <Grind GrindRef="69016" PostCombatDelay="3.0" While="not GetQuestStep(69016) == 3"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 3">
-            <FlyTo XYZ="566.5524, 26.74218, 131.862" Land="True"/>
-            <HandOver ItemId="2002744" NpcId="1031007" XYZ="566.2775, 26.78341, 133.7758" QuestId="69016" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 4">
-            <FlyTo XYZ="271.2872, 12.99995, 133.828" Land="True"/>
-            <TalkTo NpcId="1031008" XYZ="269.9778, 13.09954, 134.5997" QuestId="69016" StepId="4"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 5">
-            <FlyTo XYZ="251.1539, 11.59855, 44.30059" Land="True"/>
-            <UseObject NpcIds="2010449, 2010450, 2010451" XYZ="251.1539, 11.59855, 44.30059" Radius="80" QuestId="69016" StepId="5"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 6">
-            <FlyTo XYZ="272.9597, 12.87177, 134.6086" Land="True"/>
-            <HandOver ItemId="2002745" NpcId="1031008" XYZ="269.9778, 13.09954, 134.5997" QuestId="69016" StepId="6"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 7">
-            <FlyTo XYZ="440.2991, 11.78777, 172.3506" AllowedVariance="1.0" Land="True"/>
-            <WaitWhile Condition="not GetQuestStep(69016) == 8"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 8">
-            <UseObject NpcId="1031010" XYZ="441.062, 11.94816, 173.8766" QuestId="69016" StepId="8"/>
-          </If>
-          <If Condition="GetQuestStep(69016) == 255">
-            <GetTo ZoneId="817" XYZ="495.6052, -6.555339, -228.0023"/>
-            <TurnIn QuestId="69016" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
-          </If>
-        </If>
-        <!-- Hearts as One -->
-        <If Condition="not HasQuest(69017) and not IsQuestCompleted(69017)">
-          <GetTo ZoneId="817" XYZ="494.2946, -6.555339, -229.1481"/>
-          <If Condition="IsQuestAcceptQualified(69017)">
-            <PickupQuest QuestId="69017" NpcId="1031006"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(69017) &gt; 0">
-          <If Condition="GetQuestStep(69017) == 1">
-            <FlyTo XYZ="168.2077, -20, -468.8308" Land="True"/>
-            <TalkTo NpcId="1031001" XYZ="167.7118, -20, -471.0002" QuestId="69017" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(69017) == 2">
-            <MoveTo XYZ="168.6127, -20, -483.2505" Distance="1"/>
-            <WaitWhile Condition="not GetQuestStep(69017) == 3"/>
-          </If>
-          <If Condition="GetQuestStep(69017) == 3">
-            <TalkTo NpcId="1031001" XYZ="167.7118, -20, -471.0002" QuestId="69017" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(69017) == 255">
-            <GetTo ZoneId="817" XYZ="494.1233, -6.555339, -227.2492"/>
-            <TurnIn QuestId="69017" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
-          </If>
-        </If>
         <!-- Blessings of the Wood -->
         <If Condition="not HasQuest(68998) and not IsQuestCompleted(68998)">
           <GetTo ZoneId="817" XYZ="492.709, -6.555339, -228.3662"/>
@@ -700,13 +481,6 @@ Authors:  Sodimm
             <PickupQuest QuestId="69021" NpcId="1031405"/>
           </If>
         </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="not HasQuest(69018) and not IsQuestCompleted(69018)">
-          <GetTo ZoneId="817" XYZ="464.8101, 18.97871, -61.70484"/>
-          <If Condition="IsQuestAcceptQualified(69018)">
-            <PickupQuest QuestId="69018" NpcId="1031152"/>
-          </If>
-        </If>
         <!-- Talk of the Town -->
         <If Condition="GetQuestStep(68999) == 1">
           <If Condition="GetQuestById(68999).GetTodoArgs(1, 0).Item1 == 1">
@@ -858,11 +632,6 @@ Authors:  Sodimm
           <RunCode Name="68998"/>
           <WaitWhile Condition="not GetQuestStep(68998) == 255"/>
         </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="GetQuestStep(69018) == 1">
-          <FlyTo XYZ="160.731, -4.782966, 299.2759" Land="True"/>
-          <TalkTo NpcId="1031156" XYZ="160.1434, -4.755591, 297.2609" QuestId="69018" StepId="1"/>
-        </If>
         <!-- Paying Respects -->
         <If Condition="GetQuestStep(68996) == 1">
           <TalkTo NpcId="1031351" XYZ="155.5352, -8.688142, 324.0558" QuestId="68996" StepId="1"/>
@@ -917,14 +686,6 @@ Authors:  Sodimm
             <FlyTo XYZ="168.5191, -28.21481, 713.8091" Land="True"/>
             <UseItem ItemId="2002568" NpcId="2009941" XYZ="168.5664, -27.63416, 710.2921" Condition="GetQuestById(68996).GetTodoArgs(2, 0).Item1 == 3"/>
           </If>
-        </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="GetQuestStep(69018) == 2">
-          <MoveTo XYZ="180.5599, -26.7611, 785.8853" Distance="1"/>
-          <WaitWhile Condition="not GetQuestStep(69018) == 3"/>
-        </If>
-        <If Condition="GetQuestStep(69018) == 3">
-          <TalkTo NpcId="1031160" XYZ="179.7665, -26.7851, 785.3054" QuestId="69018" StepId="3"/>
         </If>
         <!-- A Sight Unseen -->
         <If Condition="GetQuestStep(69000) == 5">
@@ -1080,11 +841,6 @@ Authors:  Sodimm
           <GetTo ZoneId="817" XYZ="494.6247, -6.555339, -226.9088"/>
           <TurnIn QuestId="68998" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
         </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="GetQuestStep(69018) == 4">
-          <GetTo ZoneId="817" XYZ="494.6247, -6.555339, -226.9088"/>
-          <TalkTo NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333" QuestId="69018" StepId="4"/>
-        </If>
         <!-- A Sight Unseen -->
         <If Condition="GetQuestStep(69000) == 255">
           <GetTo ZoneId="817" XYZ="504.9677, -6.594436, -224.4487"/>
@@ -1095,35 +851,9 @@ Authors:  Sodimm
           <FlyTo XYZ="170.1078, -3.131506, -341.611" Land="True"/>
           <Grind GrindRef="69013" PostCombatDelay="3.0" While="not GetQuestStep(69013) == 255"/>
         </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="GetQuestStep(69018) == 5">
-          <FlyTo XYZ="174.2503, -1.533677, -590.4535" Land="True"/>
-          <UseObject NpcId="2010458" XYZ="101.152, -18.78394, -672.2057" Condition="GetQuestById(69018).GetTodoArgs(5, 0).Item1 == 0"/>
-          <NoCombatMoveTo XYZ="41.6472, -18.79408, -755.4222"/>
-          <NoCombatMoveTo XYZ="0.8893917, -28.78199, -756.1647" Distance="1" UseMesh="False"/>
-          <NoCombatMoveTo XYZ="11.13355, -28.78199, -868.7456"/>
-          <NoCombatMoveTo XYZ="89.40889, -8.689719, -868.1639" Distance="1" UseMesh="False"/>
-          <NoCombatMoveTo XYZ="175.8409, -8.781983, -855.1169"/>
-          <NoCombatMoveTo XYZ="175.8767, 1.342482, -819.7747" Distance="1" UseMesh="False"/>
-          <NoCombatMoveTo XYZ="175.8659, 1.218021, -750.228"/>
-          <NoCombatMoveTo XYZ="175.6488, 11.21801, -712.8939" Distance="1" UseMesh="False"/>
-          <UseObject NpcIds="2010456, 2010457" XYZ="212.9833, 11.20001, -711.6729" QuestId="69018" StepId="5"/>
-        </If>
-        <If Condition="GetQuestStep(69018) == 6">
-          <NoCombatMoveTo XYZ="174.6428, 11.21801, -710.0117"/>
-          <NoCombatMoveTo XYZ="165.0055, -14.81537, -703.5443" UseMesh="False"/>
-          <FlyTo XYZ="169.1896, -19.85068, -532.8555" AllowedVariance="1.0" Land="True"/>
-          <TalkTo NpcId="1031164" XYZ="169.0547, -19.903, -530.2052" QuestId="69018" StepId="6"/>
-        </If>
-        <!-- Hand-me-downs -->
         <If Condition="GetQuestStep(69013) == 255">
           <GetTo ZoneId="817" XYZ="333.4002, 20.51081, -215.5892"/>
           <TurnIn ItemId="2002893" QuestId="69013" NpcId="1031395" XYZ="333.1196, 20.51081, -213.3058"/>
-        </If>
-        <!-- Protectors of the Wood -->
-        <If Condition="GetQuestStep(69018) == 255">
-          <GetTo ZoneId="817" XYZ="497.1208, -6.555339, -226.2119"/>
-          <TurnIn ItemId="2002840" QuestId="69018" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333"/>
         </If>
       </If>
     </If>
@@ -1155,16 +885,6 @@ Authors:  Sodimm
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="8598"/>
-      </TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-    </GrindArea>
-    <GrindArea Name="69016">
-      <Hotspots>
-        <Hotspot XYZ="601.3121, 23.19687, 86.96118" Radius="120"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8607"/>
       </TargetMobs>
       <MinLevel/>
       <MaxLevel/>
@@ -1242,7 +962,10 @@ Authors:  Sodimm
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
         ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
-        while (Core.Me.Distance(_loc) > 3f) { await Coroutine.Yield(); }
+        while (Core.Me.Distance(_loc) > 3f)
+        {
+          await Coroutine.Yield();
+        }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(1031345).Location);
         await Coroutine.Wait(-1, () => !MovementManager.IsFlying);    
@@ -1261,18 +984,21 @@ Authors:  Sodimm
         };
 
         await CommonTasks.MountUp();
-        foreach (var point in _pointDict)
+        foreach (var _kvp in _pointDict)
         {
-          if (point.Key == 2 || point.Key == 4)
+          if (_kvp.Key == 2 || _kvp.Key == 4)
           {
-            Navigator.PlayerMover.MoveTowards(point.Value);
-            while (Core.Me.Distance(point.Value) > 0.5f) {  await Coroutine.Yield();  }
+            Navigator.PlayerMover.MoveTowards(_kvp.Value);
+            while (Core.Me.Distance(_kvp.Value) > 0.5f)
+            {
+              await Coroutine.Yield();
+            }
           }
           else
           {
-            while (Core.Me.Distance(point.Value) > 3f)
+            while (Core.Me.Distance(_kvp.Value) > 3f)
             {
-              await CommonTasks.MoveTo(point.Value);
+              await CommonTasks.MoveTo(_kvp.Value);
               await Coroutine.Yield();
             }
           }		  
@@ -1289,7 +1015,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="1029142">
       <![CDATA[	  
-        var _flightpath = new Vector3[]
+        var _points = new Vector3[]
         {
           new Vector3("-473.4789, 7.648839, 494.1001"),
           new Vector3("-547.4718, 7.043744, 517.9699"),
@@ -1299,10 +1025,13 @@ Authors:  Sodimm
         await CommonTasks.SummonFlyingMount();
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
-        foreach (var v3 in _flightpath)
+        foreach (var _loc in _points)
         {
-          ff14bot.Pathing.Flightor.MoveTo(v3, checkIndoors: false);
-          while (Core.Me.Distance(v3) > 3f) { await Coroutine.Yield(); }
+          ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
+          while (Core.Me.Distance(_loc) > 3f)
+          {
+            await Coroutine.Yield();
+          }
         }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(1029142).Location);
@@ -1321,18 +1050,21 @@ Authors:  Sodimm
         };
 
         await CommonTasks.MountUp();
-        foreach (var point in _pointDict)
+        foreach (var _kvp in _pointDict)
         {
-          if (point.Key == 1 || point.Key == 3)
+          if (_kvp.Key == 1 || _kvp.Key == 3)
           {
-            Navigator.PlayerMover.MoveTowards(point.Value);
-            while (Core.Me.Distance(point.Value) > 0.5f) {  await Coroutine.Yield();  }
+            Navigator.PlayerMover.MoveTowards(_kvp.Value);
+            while (Core.Me.Distance(_kvp.Value) > 0.5f)
+            {
+              await Coroutine.Yield();
+            }
           }
           else
           {
-            while (Core.Me.Distance(point.Value) > 3f)
+            while (Core.Me.Distance(_kvp.Value) > 3f)
             {
-              await CommonTasks.MoveTo(point.Value);
+              await CommonTasks.MoveTo(_kvp.Value);
               await Coroutine.Yield();
             }
           }		  
@@ -1342,7 +1074,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="2009777">
       <![CDATA[	  
-        var _flightpath = new Vector3[]
+        var _points = new Vector3[]
         {
           new Vector3("-743.6628, 11.98283, 210.4417"),
           new Vector3("-714.9147, 18.95661, 153.675")
@@ -1351,10 +1083,13 @@ Authors:  Sodimm
         await CommonTasks.SummonFlyingMount();
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
-        foreach (var v3 in _flightpath)
+        foreach (var _loc in _points)
         {
-          ff14bot.Pathing.Flightor.MoveTo(v3, checkIndoors: false);
-          while (Core.Me.Distance(v3) > 3f) { await Coroutine.Yield(); }
+          ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
+          while (Core.Me.Distance(_loc) > 3f)
+          {
+           await Coroutine.Yield();
+          }
         }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(2009777).Location);
@@ -1364,7 +1099,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="2009778">
       <![CDATA[	  
-        var _flightpath = new Vector3[]
+        var _points = new Vector3[]
         {
           new Vector3("-686.7984, 9.451248, 128.0777"),
           new Vector3("-666.9833, 20.06252, 193.8452"),
@@ -1374,10 +1109,13 @@ Authors:  Sodimm
         await CommonTasks.SummonFlyingMount();
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
-        foreach (var v3 in _flightpath)
+        foreach (var _loc in _points)
         {
-          ff14bot.Pathing.Flightor.MoveTo(v3, checkIndoors: false);
-          while (Core.Me.Distance(v3) > 3f) { await Coroutine.Yield(); }
+          ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
+          while (Core.Me.Distance(_loc) > 3f)
+          {
+            await Coroutine.Yield();
+          }
         }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(2009778).Location);
@@ -1387,7 +1125,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="2009779">
       <![CDATA[	  
-        var _flightpath = new Vector3[]
+        var _points = new Vector3[]
         {
           new Vector3("-672.3635, 17.01191, 244.1326"),
           new Vector3("-708.9172, 15.1089, 260.0553"),
@@ -1397,10 +1135,13 @@ Authors:  Sodimm
         await CommonTasks.SummonFlyingMount();
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
-        foreach (var v3 in _flightpath)
+        foreach (var _loc in _points)
         {
-          ff14bot.Pathing.Flightor.MoveTo(v3, checkIndoors: false);
-          while (Core.Me.Distance(v3) > 3f) { await Coroutine.Yield(); }
+          ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
+          while (Core.Me.Distance(_loc) > 3f)
+          {
+            await Coroutine.Yield();
+          }
         }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(2009779).Location);
@@ -1416,7 +1157,10 @@ Authors:  Sodimm
         await CommonTasks.TakeOff();
         await Coroutine.Wait(-1, () => MovementManager.IsFlying);
         ff14bot.Pathing.Flightor.MoveTo(_loc, checkIndoors: false);
-        while (Core.Me.Distance(_loc) > 3f) { await Coroutine.Yield(); }
+        while (Core.Me.Distance(_loc) > 3f)
+        {
+          await Coroutine.Yield();
+        }
     
         Navigator.PlayerMover.MoveTowards(GameObjectManager.GetObjectByNPCId(2009780).Location);
         await Coroutine.Wait(-1, () => !MovementManager.IsFlying);    

@@ -8,64 +8,6 @@ Authors:  Sodimm
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <If Condition="IsAetherCurrentZoneComplete(816)">
-      <If Condition="IsQuestCompleted(68931)">
-        <!-- When Beavers Cry -->
-        <If Condition="not HasQuest(68932) and not IsQuestCompleted(68932)">
-          <GetTo ZoneId="816" XYZ="-369.3234, 66.46775, 557.9116"/>
-          <If Condition="IsQuestAcceptQualified(68932)">
-            <PickupQuest QuestId="68932" NpcId="1030266"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68932) &gt; 0">
-          <If Condition="GetQuestStep(68932) == 1">
-            <TalkTo NpcId="1030268" XYZ="-225.0554, 45.94715, 576.8978" QuestId="68932" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68932) == 2">
-            <FlyTo XYZ="-41.47679, 24.13553, 738.9005" Land="True"/>
-            <HandOver ItemId="2002615" NpcId="1030261" XYZ="-40.51276, 24.16025, 741.0239" QuestId="68932" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68932) == 3">
-            <FlyTo XYZ="-224.0729, 45.65162, 577.8471" Land="True"/>
-            <TalkTo NpcId="1030268" XYZ="-225.0554, 45.94715, 576.8978" QuestId="68932" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68932) == 255">
-            <FlyTo XYZ="-367.6661, 66.86359, 557.1526" Land="True"/>
-            <TurnIn QuestId="68932" NpcId="1030266" XYZ="-367.6661, 66.86359, 557.1526"/>
-          </If>
-        </If>
-        <!-- And Then There Were None -->
-        <If Condition="not HasQuest(68933) and not IsQuestCompleted(68933)">
-          <GetTo ZoneId="816" XYZ="-367.6661, 66.86359, 557.1526"/>
-          <If Condition="IsQuestAcceptQualified(68933)">
-            <PickupQuest QuestId="68933" NpcId="1030266"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68933) &gt; 0">
-          <If Condition="GetQuestStep(68933) == 1">
-            <If Condition="GetQuestById(68933).GetTodoArgs(1, 0).Item1 == 0">
-              <FlyTo XYZ="-44.64986, 24.30842, 739.8549" Land="True"/>
-              <TalkTo NpcId="1030261" XYZ="-40.51276, 24.16025, 741.0239" QuestId="68933"/>
-            </If>
-            <If Condition="GetQuestById(68933).GetTodoArgs(1, 0).Item1 == 1">
-              <TalkTo NpcId="1030263" XYZ="-45.27356, 24.30665, 743.3126" QuestId="68933"/>
-            </If>
-          </If>
-          <If Condition="GetQuestStep(68933) == 2">
-            <FlyTo XYZ="-233.0664, 48.04917, 590.8481" Land="True"/>
-            <TalkTo NpcId="1030270" XYZ="-266.3768, 50.97794, 582.6962" QuestId="68933" StepId="2"/>
-            <MoveTo XYZ="-233.0664, 48.04917, 590.8481"/>
-          </If>
-          <If Condition="GetQuestStep(68933) == 3">
-            <FlyTo XYZ="-40.65997, 24.24273, 743.1862" Land="True"/>
-            <RunCode Name="68933"/>
-            <WaitWhile Condition="not GetQuestStep(68933) == 255"/>
-          </If>
-          <If Condition="GetQuestStep(68933) == 255">
-            <FlyTo XYZ="-365.1491, 67.51232, 562.3182" AllowedVariance="1.0" Land="True"/>
-            <TurnIn QuestId="68933" NpcId="1030269" XYZ="-364.065, 67.96838, 561.2419"/>
-          </If>
-        </If>
-      </If>
       <If Condition="IsQuestCompleted(68847)">
         <!-- Counting Pixies -->
         <If Condition="not HasQuest(68938) and not IsQuestCompleted(68938)">
@@ -246,122 +188,6 @@ Authors:  Sodimm
           <If Condition="GetQuestStep(68936) == 255">
             <GetTo ZoneId="816" XYZ="-606.0121, 31.64781, -181.9028"/>
             <TurnIn QuestId="68936" NpcId="1030416" XYZ="-606.0121, 31.64781, -181.9028"/>
-          </If>
-        </If>
-      </If>
-      <If Condition="IsQuestCompleted(68934)">
-        <!-- Bewitched Books -->
-        <If Condition="not HasQuest(68935) and not IsQuestCompleted(68935)">
-          <FlyTo XYZ="-612.7422, 37.14296, -240.9621" AllowedVariance="1.0" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68935)">
-            <PickupQuest QuestId="68935" NpcId="1030618"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68935) &gt; 0">
-          <If Condition="GetQuestStep(68935) == 1">
-            <If Condition="GetQuestById(68935).GetTodoArgs(1, 0).Item1 == 0">
-              <SoTalkTo NpcId="1031477" XYZ="-626.9475, 35.86156, -217.1816" QuestId="68935"/>
-            </If>
-            <If Condition="GetQuestById(68935).GetTodoArgs(1, 0).Item1 == 1">
-              <SoTalkTo NpcId="1031478" XYZ="-630.1519, 35.86156, -245.0752" QuestId="68935"/>
-            </If>
-            <If Condition="GetQuestById(68935).GetTodoArgs(1, 0).Item1 == 2">
-              <SoTalkTo NpcId="1031479" XYZ="-652.1249, 37.36151, -229.2363" QuestId="68935"/>
-            </If>
-            <If Condition="GetQuestStep(68935) == 255">
-              <GetTo ZoneId="816" XYZ="-613.3975, 36.54754, -215.4117"/>
-              <TurnIn QuestId="68935" NpcId="1030618" XYZ="-613.3975, 36.54754, -215.4117"/>
-            </If>
-          </If>
-        </If>
-      </If>
-      <If Condition="IsQuestCompleted(68940)">
-        <!-- Painting for Praise -->
-        <If Condition="not HasQuest(68941) and not IsQuestCompleted(68941)">
-          <FlyTo XYZ="-286.6166, 40.32404, 444.5309" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68941)">
-            <SoPickupQuest QuestId="68941" NpcId="1030838"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68941) &gt; 0">
-          <If Condition="GetQuestStep(68941) == 1">
-            <FlyTo XYZ="-109.5362, 16.40147, 428.0208" Land="True"/>
-            <UseObject NpcIds="2010365, 2010366, 2010367" QuestId="68941" StepId="1">
-              <HotSpots>
-                <HotSpot XYZ="-99.38208, 18.05139, 440.2686" Radius="10"/>
-                <HotSpot XYZ="-94.01086, 19.51624, 473.1975" Radius="10"/>
-                <HotSpot XYZ="-168.9632, 27.45093, 473.106" Radius="10"/>
-              </HotSpots>
-            </UseObject>
-          </If>
-          <If Condition="GetQuestStep(68941) == 2">
-            <FlyTo XYZ="-287.3995, 40.32404, 445.0284" Land="True"/>
-            <HandOver ItemId="2002719" NpcId="1030838" XYZ="-285.9083, 40.32404, 444.4188" QuestId="68941" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68941) == 3">
-            <FlyTo XYZ="-696.418, 38.44049, -27.0224" AllowedVariance="1.0" Land="True"/>
-            <TalkTo NpcId="1030844" XYZ="-696.7727, 38.73372, -28.36658" QuestId="68941" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68941) == 4">
-            <FlyTo XYZ="-286.8072, 40.32404, 445.2488" Land="True"/>
-            <TalkTo NpcId="1030838" XYZ="-285.9083, 40.32404, 444.4188" QuestId="68941" StepId="4"/>
-          </If>
-          <If Condition="GetQuestStep(68941) == 255">
-            <GetTo ZoneId="816" XYZ="-285.9083, 40.32404, 444.4188"/>
-            <TurnIn QuestId="68941" NpcId="1030838" XYZ="-285.9083, 40.32404, 444.4188"/>
-          </If>
-        </If>
-        <!-- Gifts to Gladden -->
-        <If Condition="not HasQuest(68942) and not IsQuestCompleted(68942)">
-          <GetTo ZoneId="816" XYZ="-285.9083, 40.32404, 444.4188"/>
-          <If Condition="IsQuestAcceptQualified(68942)">
-            <SoPickupQuest QuestId="68942" NpcId="1030838"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68942) &gt; 0">
-          <If Condition="GetQuestStep(68942) == 1">
-            <If Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 0">
-              <FlyTo XYZ="-355.8277, 46.11957, 420.4698" Land="True"/>
-              <UseObject NpcId="2010368" XYZ="-356.8628, 46.64673, 419.3942" Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 0"/>
-            </If>
-            <If Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 1">
-              <UseObject NpcId="2010369" XYZ="-397.879, 51.7738, 383.505" Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 1"/>
-            </If>
-            <If Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 2">
-              <FlyTo XYZ="-269.8951, 31.36528, 344.3551" Land="True"/>
-              <UseObject NpcId="2010370" XYZ="-268.1774, 31.8761, 344.0452" Condition="GetQuestById(68942).GetTodoArgs(1, 0).Item1 == 2"/>
-            </If>
-          </If>
-          <If Condition="GetQuestStep(68942) == 2">
-            <HandOver ItemId="2002720" NpcId="1030845" XYZ="-320.1495, 20.88075, 298.4512" QuestId="68942" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68942) == 255">
-            <FlyTo XYZ="-287.3532, 40.32404, 445.7331" Land="True"/>
-            <TurnIn QuestId="68942" NpcId="1030838" XYZ="-285.9083, 40.32404, 444.4188"/>
-          </If>
-        </If>
-        <!-- The Dependable Darling -->
-        <If Condition="not HasQuest(68943) and not IsQuestCompleted(68943)">
-          <GetTo ZoneId="816" XYZ="-287.3532, 40.32404, 445.7331" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68943)">
-            <SoPickupQuest QuestId="68943" NpcId="1030838"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68943) &gt; 0">
-          <If Condition="GetQuestStep(68943) == 1">
-            <FlyTo XYZ="-625.2694, 52.05191, 369.2864" Land="True"/>
-            <TalkTo NpcId="1030721" XYZ="-626.2455, 52.02998, 368.7341" QuestId="68943" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68943) == 2">
-            <FlyTo XYZ="-910.9484, 35.31905, 301.1672" AllowedVariance="1.0" Land="True"/>
-            <WaitWhile Condition="not GetQuestStep(68943) == 3"/>
-          </If>
-          <If Condition="GetQuestStep(68943) == 3">
-            <TalkTo NpcId="1030846" XYZ="-910.9484, 35.31905, 301.1672" QuestId="68943" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68943) == 255">
-            <GetTo ZoneId="816" XYZ="-286.5663, 40.32404, 444.9671"/>
-            <TurnIn QuestId="68943" NpcId="1030838" XYZ="-285.9083, 40.32404, 444.4188"/>
           </If>
         </If>
       </If>
@@ -652,128 +478,6 @@ Authors:  Sodimm
           <GetTo ZoneId="816" XYZ="69.7489, 110.6929, -883.6957"/>
           <TurnIn ItemId="2002641" QuestId="68945" NpcId="1028044" XYZ="69.7489, 110.6929, -883.6957"/>
           <MoveTo XYZ="-134.3879, 58.97334, -682.8563"/>
-        </If>
-      </If>
-      <If Condition="IsQuestCompleted(68963)">
-        <!-- A Costly Meal -->
-        <If Condition="not HasQuest(68964) and not IsQuestCompleted(68964)">
-          <FlyTo XYZ="-81.00876, 37.59087, -530.2339" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68964)">
-            <PickupQuest QuestId="68964" NpcId="1031025"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68964) &gt; 0">
-          <If Condition="GetQuestStep(68964) == 1">
-            <FlyTo ZoneId="816" XYZ="444.5576, 89.81304, -653.379" Land="True"/>
-            <TalkTo NpcId="1027695" XYZ="441.6418, 89.80711, -653.4371" QuestId="68964" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68964) == 2">
-            <TalkTo NpcId="1031026" XYZ="354.6959, 87.44878, -711.7876" QuestId="68964" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68964) == 255">
-            <FlyTo XYZ="-76.1348, 38.14192, -531.8198" Land="True"/>
-            <TurnIn QuestId="68964" NpcId="1031025" XYZ="-79.75891, 37.96834, -531.8532"/>
-          </If>
-        </If>
-        <!-- By Way of Reparation -->
-        <If Condition="not HasQuest(68965) and not IsQuestCompleted(68965)">
-          <GetTo ZoneId="816" XYZ="-76.1348, 38.14192, -531.8198"/>
-          <If Condition="IsQuestAcceptQualified(68965)">
-            <PickupQuest QuestId="68965" NpcId="1031025"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68965) &gt; 0">
-          <If Condition="GetQuestStep(68965) == 1">
-            <FlyTo XYZ="440.4404, 89.77537, -653.7169" Land="True"/>
-            <TalkTo NpcId="1027695" XYZ="441.6418, 89.80711, -653.4371" QuestId="68965" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68965) == 2">
-            <TalkTo NpcId="1031028" XYZ="435.0499, 89.67002, -654.2916" QuestId="68965" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68965) == 3">
-            <FlyTo XYZ="206.147, 72.76377, -752.7782" Land="True"/>
-            <UseObject NpcId="2010484" XYZ="204.9133, 73.50269, -756.466" QuestId="68965" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68965) == 255">
-            <FlyTo XYZ="41.3741, 53.59414, -650.704" Land="True"/>
-            <TurnIn ItemId="2002750" QuestId="68965" NpcId="1030716" XYZ="37.76599, 53.89019, -649.2866"/>
-          </If>
-        </If>
-        <!-- The Key Ingredient -->
-        <If Condition="not HasQuest(68966) and not IsQuestCompleted(68966)">
-          <GetTo ZoneId="816" XYZ="41.3741, 53.59414, -650.704"/>
-          <If Condition="IsQuestAcceptQualified(68966)">
-            <PickupQuest QuestId="68966" NpcId="1030716"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68966) &gt; 0">
-          <If Condition="GetQuestStep(68966) == 1">
-            <GetTo ZoneId="816" XYZ="-389.867, 54.02066, 436.512"/>
-            <TalkTo NpcId="1031030" XYZ="-390.8293, 54.33358, 434.9277" QuestId="68966" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68966) == 2">
-            <FlyTo XYZ="-344.0547, 27.16314, 344.5365" Land="True"/>
-            <TalkTo NpcId="1031087" XYZ="-345.0523, 27.13289, 341.9089" QuestId="68966" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68966) == 3">
-            <SelectStringOverride Index="1"/>
-            <TalkTo NpcId="1031087" XYZ="-345.0523, 27.13289, 341.9089" QuestId="68966" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68966) == 255">
-            <GetTo ZoneId="816" XYZ="438.66, 89.80748, -653.4194"/>
-            <TurnIn ItemId="2002751" QuestId="68966" NpcId="1031027" XYZ="440.2686, 90.10915, -651.2093"/>
-          </If>
-        </If>
-        <!-- A New Favorite -->
-        <If Condition="not HasQuest(68967) and not IsQuestCompleted(68967)">
-          <GetTo ZoneId="816" XYZ="438.5806, 89.56653, -655.2277"/>
-          <If Condition="IsQuestAcceptQualified(68967)">
-            <SoPickupQuest QuestId="68967" NpcId="1027695"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68967) &gt; 0">
-          <If Condition="GetQuestStep(68967) == 1">
-            <TalkTo NpcId="1031287" XYZ="378.7136, 87.64063, -643.4272" QuestId="68967" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 2">
-            <GetTo ZoneId="816" XYZ="-242.0234, 22.78154, 401.8768"/>
-            <TalkTo NpcId="1031288" XYZ="-242.0234, 22.78154, 401.8768" QuestId="68967" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 3">
-            <FlyTo XYZ="-504.8369, 69.55636, 519.7488" Land="True"/>
-            <TalkTo NpcId="1031290" XYZ="-508.1712, 69.79543, 520.2562" QuestId="68967" StepId="3"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 4">
-            <TalkTo NpcId="1031290" XYZ="-508.1712, 69.79543, 520.2562" QuestId="68967" StepId="4"/>
-            <WaitWhile Condition="not Core.Me.HasAura(416)"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 5">
-            <If Condition="not Core.Me.HasAura(416)">
-              <TalkTo NpcId="1031290" XYZ="-508.1712, 69.79543, 520.2562"/>
-            </If>
-            <UseObject NpcId="2010639, 2010640" QuestId="68967" StepId="5">
-              <HotSpots>
-                <HotSpot XYZ="-625.5742, 49.36292, 345.3269" Radius="10"/>
-                <HotSpot XYZ="-427.0237, 21.53046, 216.6322" Radius="10"/>
-              </HotSpots>
-            </UseObject>
-            <RunCode Name="68967"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 6">
-            <FlyTo XYZ="-504.6719, 69.53488, 520.338" Land="True"/>
-            <HandOver ItemId="2002855" NpcId="1031290" XYZ="-508.1712, 69.79543, 520.2562" QuestId="68967" StepId="6"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 7">
-            <FlyTo XYZ="-777.4319, 47.3499, 165.7892" AllowedVariance="1.0" Land="True"/>
-            <WaitWhile Condition="not GetQuestStep(68967) == 8"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 8">
-            <TalkTo NpcId="1031297" XYZ="-777.4319, 47.3499, 165.7892" QuestId="68967" StepId="8"/>
-          </If>
-          <If Condition="GetQuestStep(68967) == 255">
-            <GetTo ZoneId="816" XYZ="438.5806, 89.56653, -655.2277"/>
-            <TurnIn QuestId="68967" NpcId="1027695" XYZ="441.6418, 89.80711, -653.4371"/>
-          </If>
         </If>
       </If>
       <If Condition="IsQuestCompleted(68854)">
@@ -1135,10 +839,13 @@ Authors:  Sodimm
         };
 
         await CommonTasks.StopAndDismount();
-        foreach (var loc in _points)
+        foreach (var _loc in _points)
         {
-          Navigator.PlayerMover.MoveTowards(loc);
-          while (Core.Me.Distance(loc) > 0.5f) {  await Coroutine.Yield();  }
+          Navigator.PlayerMover.MoveTowards(_loc);
+          while (Core.Me.Distance(_loc) > 0.5f)
+          {
+            await Coroutine.Yield();
+          }
         }
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -1154,24 +861,15 @@ Authors:  Sodimm
         };
 
         await CommonTasks.StopAndDismount();
-        foreach (var loc in _points)
+        foreach (var _loc in _points)
         {
-          Navigator.PlayerMover.MoveTowards(loc);
-          while (Core.Me.Distance(loc) > 0.5f) {  await Coroutine.Yield();  }
+          Navigator.PlayerMover.MoveTowards(_loc);
+          while (Core.Me.Distance(_loc) > 0.5f)
+          {
+            await Coroutine.Yield();
+          }
         }
         Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="68933">
-      <![CDATA[
-        var _say = String.Empty;
-#if RB_CN
-        _say = "/s 拉德·可恩";
-#else
-        _say = "/s Lad Kenn";
-#endif
-        await CommonTasks.StopAndDismount();    
-        ChatManager.SendChat(_say);
       ]]>
     </CodeChunk>
     <CodeChunk Name="68944">
@@ -1195,11 +893,6 @@ Authors:  Sodimm
         await CommonTasks.StopAndDismount();        
         GameObjectManager.GetObjectByNPCId(1031526).Target();    
         ChatManager.SendChat(_say);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="68967">
-      <![CDATA[
-        ChatManager.SendChat("/statusoff \"" + Core.Me.GetAuraById(416).LocalizedName + "\"");
       ]]>
     </CodeChunk>
     <CodeChunk Name="68969">

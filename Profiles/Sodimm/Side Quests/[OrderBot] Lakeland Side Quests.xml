@@ -496,92 +496,6 @@ Authors:  Sodimm
           <TurnIn ItemId="2002826" QuestId="68924" NpcId="1027389" XYZ="-782.3453, 200.1388, -325.0324"/>
         </If>
       </If>
-      <If Condition="IsQuestCompleted(68916)">
-        <!-- Classical Condition -->
-        <If Condition="not HasQuest(68918) and not IsQuestCompleted(68918)">
-          <GetTo ZoneId="813" XYZ="782.6533, 21.41485, -4.291597"/>
-          <If Condition="IsQuestAcceptQualified(68918)">
-            <PickupQuest QuestId="68918" NpcId="1027336"/>
-          </If>
-        </If>
-        <!-- Stock and Barrel -->
-        <If Condition="not HasQuest(68917) and not IsQuestCompleted(68917)">
-          <GetTo ZoneId="813" XYZ="774.7773, 23.03786, -53.06341"/>
-          <If Condition="IsQuestAcceptQualified(68917)">
-            <PickupQuest QuestId="68917" NpcId="1031145"/>
-          </If>
-        </If>
-        <!-- Classical Condition -->
-        <If Condition="GetQuestStep(68918) == 1">
-          <FlyTo XYZ="410.8191, 5.799963, 116.2862" Land="True"/>
-          <TalkTo NpcId="1031147" XYZ="410.1167, 5.876922, 117.6317" QuestId="68918" StepId="1"/>
-        </If>
-        <If Condition="GetQuestStep(68918) == 2">
-          <FlyTo XYZ="96.98576, 10.12646, -82.97952" Land="True"/>
-          <UseObject NpcId="1031148" XYZ="96.48267, 10.23395, -84.03149" QuestId="68918" StepId="2"/>
-        </If>
-        <If Condition="GetQuestStep(68918) == 3">
-          <FlyTo XYZ="408.6857, 5.657765, 116.8277" Land="True"/>
-          <TalkTo NpcId="1031147" XYZ="410.1167, 5.876922, 117.6317" QuestId="68918" StepId="3"/>
-        </If>
-        <!-- Stock and Barrel -->
-        <If Condition="GetQuestStep(68917) == 1">
-          <FlyTo XYZ="628.8527, 92.82875, -578.2639" Land="True"/>
-          <TalkTo NpcId="1031146" XYZ="630.4874, 92.82875, -578.4542" QuestId="68917" StepId="1"/>
-        </If>
-        <If Condition="GetQuestStep(68917) == 2">
-          <UseObject NpcIds="2010632, 2010633, 2010634" XYZ="574.6089, 97.8866, -678.5229" QuestId="68917" StepId="2"/>
-        </If>
-        <If Condition="GetQuestStep(68917) == 3">
-          <FlyTo XYZ="627.8899, 92.82875, -581.2623" Land="True"/>
-          <HandOver ItemId="2002854" NpcId="1031146" XYZ="630.4874, 92.82875, -578.4542" QuestId="68917" StepId="3"/>
-        </If>
-        <!-- Classical Condition -->
-        <If Condition="GetQuestStep(68918) == 255">
-          <FlyTo XYZ="782.2842, 21.41485, -3.158691" Land="True"/>
-          <TurnIn QuestId="68918" NpcId="1027336" XYZ="782.2842, 21.41485, -3.158691"/>
-        </If>
-        <!-- Stock and Barrel -->
-        <If Condition="GetQuestStep(68917) == 255">
-          <GetTo ZoneId="813" XYZ="775.6923, 23.03786, -52.35376"/>
-          <TurnIn QuestId="68917" NpcId="1031145" XYZ="775.6923, 23.03786, -52.35376"/>
-        </If>
-        <!-- Desperate Measures -->
-        <If Condition="not HasQuest(68919) and not IsQuestCompleted(68919)">
-          <GetTo ZoneId="813" XYZ="716.3999, 21.40117, -28.86915"/>
-          <If Condition="IsQuestAcceptQualified(68919)">
-            <PickupQuest QuestId="68919" NpcId="1028279"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68919) &gt; 0">
-          <If Condition="GetQuestStep(68919) == 1">
-            <FlyTo XYZ="427.8935, 4.532679, 30.91936" Land="True"/>
-            <Grind GrindRef="68994" PostCombatDelay="3.0" While="not GetQuestStep(68919) == 255"/>
-          </If>
-          <If Condition="GetQuestStep(68919) == 255">
-            <GetTo ZoneId="819" XYZ="71.48853, 1.490116E-08, 181.8417"/>
-            <TurnIn ItemId="2002851" QuestId="68919" NpcId="1027842" XYZ="71.48853, 1.490116E-08, 181.8417"/>
-          </If>
-        </If>
-      </If>
-      <If Condition="IsQuestCompleted(68922)">
-        <!-- You've Got the Tatch -->
-        <If Condition="not HasQuest(68923) and not IsQuestCompleted(68923)">
-          <FlyTo XYZ="-135.2216, 14.62388, -115.0681" AllowedVariance="0.5" Land="True"/>
-          <If Condition="IsQuestAcceptQualified(68923)">
-            <PickupQuest QuestId="68923" NpcId="1027353"/>
-          </If>
-        </If>
-        <If Condition="GetQuestStep(68923) &gt; 0">
-          <If Condition="GetQuestStep(68923) == 1">
-            <TalkTo NpcId="1027357" XYZ="-151.751, 5.779212, -106.92" QuestId="68923" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(68923) == 255">
-            <FlyTo XYZ="-698.0555, 61.99376, -345.1398" AllowedVariance="1.0" Land="True"/>
-            <TurnIn ItemId="2002825" QuestId="68923" NpcId="1027419" XYZ="-700.7401, 61.99375, -353.6279"/>
-          </If>
-        </If>
-      </If>
       <If Condition="IsQuestCompleted(68858)">
         <!-- On Her Own -->
         <If Condition="not HasQuest(68992) and not IsQuestCompleted(68992)">
@@ -902,9 +816,9 @@ Authors:  Sodimm
           <TurnIn ItemId="2002818" QuestId="69108" NpcId="1027351" XYZ="-238.056, 1.186876, 749.0502"/>
         </If>
       </If>
-      <If Condition="IsQuestCompleted(68995) and IsQuestCompleted(69072)">
+      <If Condition="IsQuestCompleted(69072)">
         <!-- Flowering Friendships -->
-        <If Condition="not HasQuest(69051) and not IsQuestCompleted(69051)">
+        <If Condition="IsQuestCompleted(68995) and not HasQuest(69051) and not IsQuestCompleted(69051)">
           <GetTo ZoneId="813" XYZ="-643.5132, 55.75751, -143.6853"/>
           <If Condition="IsQuestAcceptQualified(69051)">
             <PickupQuest QuestId="69051" NpcId="1030680"/>
@@ -966,23 +880,20 @@ Authors:  Sodimm
       <MinLevel/>
       <MaxLevel/>
     </GrindArea>
-    <GrindArea Name="68994">
-      <Hotspots>
-        <Hotspot XYZ="427.8935, 4.532679, 30.91936" Radius="120"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8502"/>
-      </TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-    </GrindArea>
   </GrindAreas>
   <CodeChunks>
     <CodeChunk Name="68884">
       <![CDATA[
         await CommonTasks.StopAndDismount();    
         GameObjectManager.GetObjectByNPCId(1029884).Target();    
-        if (ConditionParser.GetQuestStep(68884) == 1)  {  ChatManager.SendChat("/battlestance");  }  else  {  ChatManager.SendChat("/box");  }
+        if (ConditionParser.GetQuestStep(68884) == 1)
+        {
+          ChatManager.SendChat("/battlestance");
+        }
+        else
+        {
+          ChatManager.SendChat("/box");
+        }
       ]]>
     </CodeChunk>
     <CodeChunk Name="69101">
@@ -1016,10 +927,13 @@ Authors:  Sodimm
         };
     
         await Coroutine.Sleep(3000);    
-        foreach (var loc in _points)
+        foreach (var _loc in _points)
         {
-          Navigator.PlayerMover.MoveTowards(loc);
-          while (Core.Me.Location.Distance2D(loc) > 0.5f) {  await Coroutine.Yield();  }
+          Navigator.PlayerMover.MoveTowards(_loc);
+          while (Core.Me.Location.Distance2D(_loc) > 0.5f)
+          {
+            await Coroutine.Yield();
+          }
         }
         Navigator.PlayerMover.MoveStop();
       ]]>

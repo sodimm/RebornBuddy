@@ -8,22 +8,27 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoTalkTo")]
-    class SoTalkTo : TalkToTag
+    public class SoTalkTo : TalkToTag
     {
         [DefaultValue(new int[0])]
         [XmlAttribute("DialogOption")]
         public int[] DialogOption { get; set; }
 
         private readonly Queue<int> selectStringIndex = new Queue<int>();
+
         protected override void OnStart()
         {
             if (DialogOption.Length > 0)
             {
-                foreach (var i in DialogOption) { selectStringIndex.Enqueue(i); }
+                foreach (var i in DialogOption)
+                {
+                    selectStringIndex.Enqueue(i);
+                }
             }
 
             base.OnStart();
         }
+
         protected override Composite CreateBehavior()
         {
             return new PrioritySelector(

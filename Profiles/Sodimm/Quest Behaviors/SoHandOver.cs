@@ -7,7 +7,7 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoHandOver")]
-    class SoHandOver : HandOverTag
+    public class SoHandOver : HandOverTag
     {
         [DefaultValue(0)]
         [XmlAttribute("DialogOption")]

@@ -11,12 +11,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using TreeSharp;
 
-namespace ff14bot.NeoProfiles
+namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoTransport")]
     public class SoTransport : ProfileBehavior
     {
-        public override bool HighPriority => true;
+        public override bool HighPriority
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         private bool _done;
 
@@ -25,13 +31,21 @@ namespace ff14bot.NeoProfiles
             get
             {
                 if (IsStepComplete)
+                {
                     return true;
+                }
 
                 return _done;
             }
         }
 
-        public override string StatusText => $"Transporting for {QuestName}.";
+        public override string StatusText
+        {
+            get
+            {
+                return $"Transporting for {QuestName}.";
+            }
+        }
 
         [XmlAttribute("NpcId")]
         public int NpcId { get; set; }
@@ -46,7 +60,6 @@ namespace ff14bot.NeoProfiles
         [XmlAttribute("BlacklistAfter")]
         [DefaultValue(false)]
         public bool BlacklistAfter { get; set; }
-
 
         public GameObject NPC
         {
@@ -102,19 +115,26 @@ namespace ff14bot.NeoProfiles
         protected bool ShortCircuit(GameObject obj)
         {
             if (!obj.IsValid || !obj.IsTargetable || !obj.IsVisible)
+            {
                 return true;
+            }
 
             if (Core.Player.InCombat && !InCombat)
+            {
                 return true;
+            }
 
             if (Talk.DialogOpen)
+            {
                 return true;
+            }
 
             return false;
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnDone()

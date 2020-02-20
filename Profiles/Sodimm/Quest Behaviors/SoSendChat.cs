@@ -1,15 +1,16 @@
 ﻿using Buddy.Coroutines;
+using Clio.Utilities;
 using Clio.XmlEngine;
+using ff14bot.Behavior;
+using ff14bot.Enums;
 using ff14bot.Managers;
+using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using TreeSharp;
-using System;
-using Clio.Utilities;
-using ff14bot.Behavior;
-using System.Linq;
 
-namespace ff14bot.NeoProfiles
+namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoSendChat")]
     public class SoSendChat : ProfileBehavior
@@ -28,11 +29,12 @@ namespace ff14bot.NeoProfiles
             get { return Position; }
             set { Position = value; }
         }
+
         public Vector3 Position;
 
-        [XmlAttribute("GearSet")]
-        [DefaultValue(0)]
-        public int GearSet { get; set; }
+        [XmlAttribute("SwitchClass")]
+        [DefaultValue(null)]
+        public string SwitchClass { get; set; }
 
         [XmlAttribute("RemoveAura")]
         [DefaultValue(0)]
@@ -59,9 +61,10 @@ namespace ff14bot.NeoProfiles
         public int Delay { get; set; }
 
         private string currentPrefRoutine = null;
+
         protected override void OnStart()
         {
-            if (GearSet > 0)
+            if (!string.IsNullOrWhiteSpace(SwitchClass))
             {
                 if (RoutineManager.PreferedRoutine != null)
                 {
@@ -84,7 +87,9 @@ namespace ff14bot.NeoProfiles
             get
             {
                 if (QuestId > 0 && StepId > 0)
+                {
                     return IsStepComplete;
+                }
 
                 return _done;
             }
@@ -105,9 +110,11 @@ namespace ff14bot.NeoProfiles
 
             await Coroutine.Sleep(Delay);
 
-            if (GearSet > 0)
+            if (!string.IsNullOrWhiteSpace(SwitchClass))
             {
-                if (GearsetManager.ActiveGearset.Index == GearSet)
+                ClassJobType _job;
+                Enum.TryParse(SwitchClass, true, out _job);
+                if (GearsetManager.ActiveGearset.Class == _job)
                 {
                     Log("Desired Gearset is already active");
                     _done = true;
@@ -116,7 +123,7 @@ namespace ff14bot.NeoProfiles
 
                 foreach (var gs in GearsetManager.GearSets)
                 {
-                    if (gs.Index == GearSet)
+                    if (gs.Class == _job)
                     {
                         Log($"Changing your Gearset to {gs.Class}.");
                         gs.Activate();
@@ -202,7 +209,7 @@ namespace ff14bot.NeoProfiles
 
         protected override void OnDone()
         {
-            if (GearSet > 0)
+            if (!string.IsNullOrWhiteSpace(SwitchClass))
             {
                 RoutineManager.PreferedRoutine = currentPrefRoutine;
                 RoutineManager.PickRoutineFired -= OnPickRoutineFired;

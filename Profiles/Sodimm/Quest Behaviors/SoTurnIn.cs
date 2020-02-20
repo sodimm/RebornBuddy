@@ -9,7 +9,7 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoTurnIn")]
-    class SoTurnIn : TurnInTag
+    public class SoTurnIn : TurnInTag
     {
         [DefaultValue(new int[0])]
         [XmlAttribute("DialogOption")]
@@ -21,15 +21,20 @@ namespace ff14bot.NeoProfiles.Tags
 
         private bool doneEmote;
         private readonly Queue<int> selectStringIndex = new Queue<int>();
+
         protected override void OnStart()
         {
             if (DialogOption.Length > 0)
             {
-                foreach (var i in DialogOption) { selectStringIndex.Enqueue(i); }
+                foreach (var i in DialogOption) 
+                {
+                    selectStringIndex.Enqueue(i);
+                }
             }
 
             base.OnStart();
         }
+
         protected override Composite CreateBehavior()
         {
             return new PrioritySelector(

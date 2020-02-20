@@ -4,7 +4,6 @@ using Clio.XmlEngine;
 using ff14bot.Behavior;
 using ff14bot.Helpers;
 using ff14bot.Managers;
-using ff14bot.NeoProfiles.Tags;
 using ff14bot.Objects;
 using ff14bot.RemoteWindows;
 using System;
@@ -13,15 +12,26 @@ using System.Threading.Tasks;
 using TreeSharp;
 using Action = TreeSharp.Action;
 
-namespace ff14bot.NeoProfiles
+namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoEmoteNpc")]
-
     public class SoEmoteNpc : HuntBehavior
     {
-        public override bool HighPriority => true;
+        public override bool HighPriority
+        {
+            get
+            {
+                return true;
+            }
+        }
 
-        public override string StatusText => $"Using {Emote} for {QuestName}.";
+        public override string StatusText
+        {
+            get
+            {
+                return $"Using {Emote} for {QuestName}.";
+            }
+        }
 
         [XmlAttribute("Emote")]
         public string Emote { get; set; }
@@ -94,12 +104,12 @@ namespace ff14bot.NeoProfiles
 
         protected override void OnStartHunt()
         {
-            Log("Started");
+
         }
 
         protected override void OnDoneHunt()
         {
-            Log("Finished");
+
         }
     }
 }

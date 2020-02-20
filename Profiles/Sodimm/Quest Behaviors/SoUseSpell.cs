@@ -11,26 +11,54 @@ using System.ComponentModel;
 using System.Linq;
 using TreeSharp;
 using Action = TreeSharp.Action;
-namespace ff14bot.NeoProfiles
+
+namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoUseSpell")]
     public class SoUseSpellTag : ProfileBehavior
     {
-        protected SoUseSpellTag() { Hotspots = new IndexedList<HotSpot>(); }
+        protected SoUseSpellTag()
+        {
+            Hotspots = new IndexedList<HotSpot>();
+        }
 
-        public override bool HighPriority { get { return true; } }
+        public override bool HighPriority
+        { 
+            get
+            {
+                return true;
+            } 
+        }
 
-        private SpellData Spell { get { return DataManager.GetSpellData(SpellId); } }
+        private SpellData Spell
+        { 
+            get
+            {
+                return DataManager.GetSpellData(SpellId);
+            }
+        }
 
-        public override string StatusText => $"Using ability {Spell.LocalizedName} for {QuestName}.";
+        public override string StatusText
+        {
+            get
+            {
+                return $"Using ability {Spell.LocalizedName} for {QuestName}.";
+            }
+        }
 
         public sealed override bool IsDone
         {
             get
             {
-                if (IsQuestComplete) { return true; }
+                if (IsQuestComplete)
+                { 
+                    return true; 
+                }
 
-                if (IsStepComplete) { return true; }
+                if (IsStepComplete)
+                {
+                    return true; 
+                }
 
                 if (Conditional != null)
                 {
@@ -58,7 +86,14 @@ namespace ff14bot.NeoProfiles
 
         [XmlAttribute("XYZ")]
         public Vector3 XYZ { get; set; }
-        public HotSpot Position { get { return Hotspots.CurrentOrDefault; } }
+
+        public HotSpot Position
+        {
+            get
+            { 
+                return Hotspots.CurrentOrDefault;
+            } 
+        }
 
         [XmlAttribute("Radius")]
         [DefaultValue(50f)]
@@ -69,13 +104,17 @@ namespace ff14bot.NeoProfiles
 
         [XmlAttribute("Condition")]
         public string Condition { get; set; }
+
         public Func<bool> Conditional { get; set; }
 
         public void SetupConditional()
         {
             try
             {
-                if (Conditional == null && !string.IsNullOrEmpty(Condition)) { Conditional = ScriptManager.GetCondition(Condition); }
+                if (Conditional == null && !string.IsNullOrEmpty(Condition)) 
+                {
+                    Conditional = ScriptManager.GetCondition(Condition);
+                }
             }
             catch (Exception ex)
             {
@@ -99,9 +138,15 @@ namespace ff14bot.NeoProfiles
 
         protected bool ShortCircuit(GameObject obj)
         {
-            if (!obj.IsValid || !obj.IsTargetable || !obj.IsVisible) { return true; }
+            if (!obj.IsValid || !obj.IsTargetable || !obj.IsVisible)
+            {
+                return true;
+            }
 
-            if (Talk.DialogOpen) { return true; }
+            if (Talk.DialogOpen)
+            {
+                return true; 
+            }
 
             return false;
         }
@@ -136,19 +181,30 @@ namespace ff14bot.NeoProfiles
         }
 
         private GameObject _target;
+
         public GameObject Target
         {
             get
             {
                 if (_target != null)
                 {
-                    if (!_target.IsValid || !_target.IsTargetable || !_target.IsVisible) { _target = null; }
-                    else { return _target; }
+                    if (!_target.IsValid || !_target.IsTargetable || !_target.IsVisible)
+                    { 
+                        _target = null; 
+                    }
+                    else 
+                    { 
+                        return _target;
+                    }
                 }
 
                 _target = GetObject();
 
-                if (_target != null) { Log($"Target set to {_target.EnglishName}."); }
+                if (_target != null)
+                {
+                    Log($"Target set to {_target.EnglishName}.");
+                }
+
                 return _target;
             }
         }
@@ -160,7 +216,10 @@ namespace ff14bot.NeoProfiles
             float closest = float.MaxValue;
             foreach (var obj in possible)
             {
-                if (obj.DistanceSqr() < 1) { return obj; }
+                if (obj.DistanceSqr() < 1)
+                {
+                    return obj; 
+                }
 
                 HotSpot target = null;
                 foreach (var hotspot in Hotspots)
@@ -178,10 +237,15 @@ namespace ff14bot.NeoProfiles
 
                 if (target != null)
                 {
-                    while (Hotspots.Current != target) { Hotspots.Next(); }
+                    while (Hotspots.Current != target)
+                    {
+                        Hotspots.Next();
+                    }
+
                     return obj;
                 }
             }
+
             return null;
         }
 
@@ -207,6 +271,9 @@ namespace ff14bot.NeoProfiles
             }
         }
 
-        protected override void OnDone() { }
+        protected override void OnDone()
+        {
+
+        }
     }
 }

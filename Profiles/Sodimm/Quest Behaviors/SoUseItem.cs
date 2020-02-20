@@ -22,20 +22,25 @@ namespace ff14bot.NeoProfiles.Tags
 
         [DefaultValue(new int[0])]
         [XmlAttribute("DialogOption")]
-#pragma warning disable CA1819 // Properties should not return arrays
         public int[] DialogOption { get; set; }
-#pragma warning restore CA1819 // Properties should not return arrays
 
         private static readonly Queue<int> selectStringIndex = new Queue<int>();
+
         protected override void OnStartHunt()
         {
             if (DialogOption.Length > 0)
             {
-                foreach (var i in DialogOption) { selectStringIndex.Enqueue(i); }
+                foreach (var i in DialogOption) 
+                {
+                    selectStringIndex.Enqueue(i);
+                }
             }
         }
 
-        protected override void OnDoneHunt() { }
+        protected override void OnDoneHunt()
+        {
+
+        }
 
         public override Composite CustomLogic
         {
@@ -64,18 +69,33 @@ namespace ff14bot.NeoProfiles.Tags
         {
             var bagSlot = InventoryManager.FilledSlots.FirstOrDefault(s => s.RawItemId == itemId);
 
-            if (bagSlot == null) { return false; }
+            if (bagSlot == null)
+            {
+                return false;
+            }
 
-            if (obj == null) { return false; }
+            if (obj == null)
+            { 
+                return false;
+            }
 
             while (true)
             {
-                if (Core.Me.IsDead) { return false; }
+                if (Core.Me.IsDead)
+                {
+                    return false;
+                }
 
                 if (SelectString.IsOpen)
                 {
-                    if (selectStringIndex.Count > 0) { SelectString.ClickSlot((uint)selectStringIndex.Dequeue()); }
-                    else { SelectString.ClickSlot(0); }
+                    if (selectStringIndex.Count > 0)
+                    {
+                        SelectString.ClickSlot((uint)selectStringIndex.Dequeue());
+                    }
+                    else 
+                    { 
+                        SelectString.ClickSlot(0); 
+                    }
                 }
 
                 if (Talk.DialogOpen)
@@ -125,15 +145,21 @@ namespace ff14bot.NeoProfiles.Tags
                         }
                     }
                 }
-                else 
+                else
                 {
                     return false;
                 }
             }
 
-            if (waitTime > 0) { await Coroutine.Sleep(waitTime); }
+            if (waitTime > 0)
+            { 
+                await Coroutine.Sleep(waitTime);
+            }
 
-            if (blacklistAfter) { Blacklist.Add(obj, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(blacklistDuration), "BlacklistAfter"); }
+            if (blacklistAfter)
+            {
+                Blacklist.Add(obj, BlacklistFlags.SpecialHunt, TimeSpan.FromSeconds(blacklistDuration), "BlacklistAfter");
+            }
 
             return true;
         }

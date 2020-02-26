@@ -1462,9 +1462,11 @@ Authors:  Sodimm
         <GetTo ZoneId="815" XYZ="124.7424, 27.17627, -197.8943"/>
         <UseObject NpcId="2010051" XYZ="124.7424, 27.17627, -197.8943" Condition="not IsAetherCurrentCompleted(815,7)"/>
       </If>
-      <If Condition="not IsAetherCurrentCompleted(815,6)">
+      <If Condition="not IsAetherCurrentCompleted(815,6) or not IsAetherCurrentCompleted(815,5)">
         <GetTo ZoneId="815" XYZ="-474.1427, 45.6483, -239.9329"/>
         <UseTransport InteractDistance="3.0" NpcId="1031660" XYZ="-474.7845, 45.5522, -237.4456"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(815,6)">
         <GetTo ZoneId="815" XYZ="148.7296, -56.99249, 703.2729"/>
         <UseObject NpcId="2010052" XYZ="148.7296, -56.99249, 703.2729" Condition="not IsAetherCurrentCompleted(815,6)"/>
       </If>

@@ -11,7 +11,7 @@ Requires: ExBuddy.
   <Name>[OrderBot] Qitari Dailies</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Progress 22/40 (55%) -->
+    <!-- Progress 23/40 (57.5%) -->
     <RegisterDailies QuestIds="&dailyIds;"/>
     <!-- The Stewards of Note -->
     <If Condition="IsQuestCompleted(68877) and IsQuestCompleted(69018) and not HasQuest(69330) and not IsQuestCompleted(69330)">
@@ -239,7 +239,7 @@ Requires: ExBuddy.
                 <HotSpots>
                   <HotSpot XYZ="125.6611, 23.67915, 26.65348" Radius="80"/>
                 </HotSpots>
-                <Slot>1</Slot>
+                <Slot>2</Slot>
                 <GatheringSkillOrder/>
               </Gather>
             </If>
@@ -326,6 +326,14 @@ Requires: ExBuddy.
               </Fish>
             </If>
           </If>
+        </If>
+
+        <!-- The Deliberating Doll -->
+		
+        <!-- Legends of the Ronkan Temple -->
+        <If Condition="GetQuestStep(69362) == 1">
+          <FlyTo XYZ="-387.0118, 9.38836, 241.6727" Land="True"/>
+          <UseObject NpcId="2010997" XYZ="-399.527, 10.6355, 241.5045" QuestId="69362" StepId="1"/>
         </If>
 
         <!-- Lake Tusi Mek'ta -->
@@ -694,6 +702,10 @@ Requires: ExBuddy.
         <!-- La-hee -->
         <If Condition="GetQuestStep(69355) == 255">
           <TurnIn QuestId="69355" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+        </If>
+        <!-- Legends of the Ronkan Temple -->
+        <If Condition="GetQuestStep(69362) == 255">
+          <TurnIn ItemId="2002979" QuestId="69362" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
         </If>
         <!-- By the Power Invested in Scree -->
         <If Condition="GetQuestStep(69359) == 255">

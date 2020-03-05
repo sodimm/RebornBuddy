@@ -11,7 +11,7 @@ Requires: ExBuddy.
   <Name>[OrderBot] Qitari Dailies</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Progress 29/40 (72.5%) -->
+    <!-- Progress 33/40 (82.5%) -->
     <RegisterDailies QuestIds="&dailyIds;"/>
     <!-- The Stewards of Note -->
     <If Condition="IsQuestCompleted(68877) and IsQuestCompleted(69018) and not HasQuest(69330) and not IsQuestCompleted(69330)">
@@ -169,9 +169,7 @@ Requires: ExBuddy.
       </If>
       <If Condition="HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
         <TeleportTo Name="Fanow" AetheryteId="143"/>
-
         <!-- K'mul Astropolis -->
-
         <!-- Where the Sun Don't Shine (Miner/Botanist) -->
         <If Condition="GetQuestStep(69343) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
@@ -230,6 +228,39 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
+        <!-- Meat and Greet (Miner/Botanist) -->
+        <If Condition="GetQuestStep(69357) == 255">
+          <If Condition="ClassName == ClassJobType.Miner">
+            <If Condition="not HasAtLeast(29529, 3)">
+              <FlyTo XYZ="454.8189, -4.059467, -459.7967" Land="True"/>
+              <Gather While="not HasAtLeast(29529, 3)">
+                <GatherObject>Rocky Outcrop</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="454.8189, -4.059467, -459.7967" Radius="30"/>
+                </HotSpots>
+                <Slot>2</Slot>
+                <GatheringSkillOrder>
+                  <GatheringSkill SpellId="270"/>
+                </GatheringSkillOrder>
+              </Gather>
+            </If>
+          </If>
+          <If Condition="ClassName == ClassJobType.Botanist">
+            <If Condition="not HasAtLeast(29555, 3)">
+              <FlyTo XYZ="460.4822, -0.543457, -478.5377" Land="True"/>
+              <Gather While="not HasAtLeast(29555, 3)">
+                <GatherObject>Lush Vegetation Patch</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="460.4822, -0.543457, -478.5377" Radius="55"/>
+                </HotSpots>
+                <Slot>6</Slot>
+                <GatheringSkillOrder>
+                  <GatheringSkill SpellId="271"/>
+                </GatheringSkillOrder>
+              </Gather>
+            </If>
+          </If>
+        </If>
         <!-- Her Splendid Materials (Miner/Botanist) -->
         <If Condition="GetQuestStep(69363) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
@@ -263,20 +294,17 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
         <!-- The Morning Stars -->
-
         <!-- La-hee -->
         <If Condition="GetQuestStep(69355) == 1">
           <FlyTo XYZ="148.3982, -19.99687, -461.9892" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
           <RunCode Name="69355"/>
           <TalkTo NpcId="1032413" XYZ="144.3655, -19.98285, -459.8001" QuestId="69355" StepId="1"/>
         </If>
-
         <!-- The Blind Forest of Yx'Maja -->
-
         <!-- A Tool's Errand (Miner/Botanist) -->
         <If Condition="GetQuestStep(69342) == 255">
+          <FlyTo XYZ="464.2629, 68.56606, -87.98548"/>
           <If Condition="ClassName == ClassJobType.Miner">
             <If Condition="not HasAtLeast(29517, 3)">
               <FlyTo XYZ="134.526, 24.72299, 33.11506" Land="True"/>
@@ -333,9 +361,36 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
+        <!-- The Qitari Book of Records (Miner/Botanist) -->
+        <If Condition="GetQuestStep(69356) == 255">
+          <If Condition="ClassName == ClassJobType.Miner">
+            <If Condition="not HasAtLeast(29528, 3)">
+              <FlyTo XYZ="134.526, 24.72299, 33.11506" Land="True"/>
+              <Gather While="not HasAtLeast(29528, 3)">
+                <GatherObject>Mineral Deposit</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="134.526, 24.72299, 33.11506" Radius="80"/>
+                </HotSpots>
+                <Slot>5</Slot>
+                <GatheringSkillOrder/>
+              </Gather>
+            </If>
+          </If>
+          <If Condition="ClassName == ClassJobType.Botanist">
+            <If Condition="not HasAtLeast(29554, 3)">
+              <FlyTo XYZ="285.2726, 10.15231, -1.368362" Land="True"/>
+              <Gather While="not HasAtLeast(29554, 3)">
+                <GatherObject>Lush Vegetation Patch</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="285.2726, 10.15231, -1.368362" Radius="40"/>
+                </HotSpots>
+                <Slot>5</Slot>
+                <GatheringSkillOrder/>
+              </Gather>
+            </If>
+          </If>
+        </If>
         <!-- Fanow -->
-
         <!-- Marks of Friendship -->
         <If Condition="GetQuestStep(69349) == 1">
           <If Condition="GetQuestById(69349).GetTodoArgs(1, 0).Item1 == 0">
@@ -349,13 +404,11 @@ Requires: ExBuddy.
             <HandOver ItemId="2002978" NpcId="1027713" XYZ="446.7078, 34.05174, -117.1741" QuestId="69349"/>
           </If>
         </If>
-
         <!-- Great Vessel of Ronka -->
         <If Condition="GetQuestStep(69359) == 1 or GetQuestStep(69368) == 1">
           <FlyTo XYZ="791.0349, -45.83972, -202.5477" Land="True"/>
           <TalkTo NpcId="1032663" XYZ="793.9727, -45.81176, -188.037"/>
         </If>
-
         <!-- By the Power Invested in Scree -->
         <If Condition="GetQuestStep(69359) == 2">
           <If Condition="GetQuestById(69359).GetTodoArgs(2, 0).Item1 == 0">
@@ -376,14 +429,11 @@ Requires: ExBuddy.
           <SoUseSpell SpellId="20030" NpcId="2010998" XYZ="-676.2017, 0.2512251, 208.8768" QuestId="69368" StepId="2"/>
           <Dismount/>
         </If>
-
         <!-- Navigation Aid -->
-        <If Condition="HasAtLeastOneQuest(Array[int]([69343,69345,69346,69347,69348,69350,69351,69353,69354,69360,69361,69362,69369]))">
+        <If Condition="GetQuestStepGtLt(69346, 0, 255) or GetQuestStepGtLt(69362, 0, 255) or (ClassName == ClassJobType.Miner and ((GetQuestStep(69344) == 255 and not HasAtLeast(29519, 3)) or (GetQuestStep(69353) == 255 and not HasAtLeast(29526, 3)) or (GetQuestStep(69358) == 255 and not HasAtLeast(29530, 3)) or (GetQuestStep(69360) == 255 and not HasAtLeast(29531, 3)))) or (ClassName == ClassJobType.Botanist and ((GetQuestStep(69344) == 255 and not HasAtLeast(29545, 3)) or (GetQuestStep(69353) == 255 and not HasAtLeast(29552, 3)) or (GetQuestStep(69358) == 255 and not HasAtLeast(29556, 3)) or (GetQuestStep(69360) == 255 and not HasAtLeast(29557, 3)))) or (ClassName == ClassJobType.Fisher and ((GetQuestStep(69343) == 255 and not HasItem(29570)) or (GetQuestStep(69344) == 255 and not HasItem(29571)) or (GetQuestStep(69345) == 255 and not HasItem(29572)) or (GetQuestStep(69347) == 255 and not HasItem(29573)) or (GetQuestStep(69348) == 255 and not HasItem(29574)) or (GetQuestStep(69351) == 255 and not HasItem(29576)) or (GetQuestStep(69353) == 255 and not HasItem(29578)) or (GetQuestStep(69354) == 255 and not HasItem(29579)) or (GetQuestStep(69356) == 255 and not HasItem(29580)) or (GetQuestStep(69357) == 255 and not HasItem(29581)) or (GetQuestStep(69360) == 255 and not HasItem(29583)) or (GetQuestStep(69361) == 255 and not HasItem(29584)) or (GetQuestStep(69369) == 255 and not HasItem(29589)))) or (ClassName == ClassJobType.Miner and ((GetQuestStep(69345) == 255 and not HasAtLeast(29520, 3)) or (GetQuestStep(69348) == 255 and not HasAtLeast(29522, 3)) or (GetQuestStep(69354) == 255 and not HasAtLeast(29527, 3)) or (GetQuestStep(69361) == 255 and not HasAtLeast(29532, 3)) or (GetQuestStep(69369) == 255 and not HasHqItem(29537)))) or ( ClassName == ClassJobType.Botanist and ((GetQuestStep(69345) == 255 and not HasAtLeast(29546, 3)) or (GetQuestStep(69348) == 255 and not HasAtLeast(29548, 3)) or (GetQuestStep(69354) == 255 and not HasAtLeast(29553, 3)) or (GetQuestStep(69361) == 255 and not HasAtLeast(29558, 3)) or (GetQuestStep(69369) == 255 and not HasHqItem(29563)))) or (ClassName == ClassJobType.Fisher and ((GetQuestStep(69342) == 255 and not HasItem(29569)) or (GetQuestStep(69350) == 255 and not HasItem(29575)) or (GetQuestStep(69352) == 255 and not HasItem(29577)) or (GetQuestStep(69358) == 255 and not HasItem(29582)) or (GetQuestStep(69363) == 255 and not HasItem(29585))))">
           <TeleportTo Name="Slitherbough" AetheryteId="142" Force="True"/>
         </If>
-
         <!-- Slitherbough -->
-
         <!-- Power to the Vegetables -->
         <If Condition="GetQuestStep(69346) == 1">
           <GetTo ZoneId="817" XYZ="-75.46133, -19.44594, 295.7319"/>
@@ -392,9 +442,7 @@ Requires: ExBuddy.
         <If Condition="GetQuestStep(69346) == 2">
           <TalkTo NpcId="1027741" XYZ="-80.33875, -19.10103, 299.8245" QuestId="69346" StepId="2"/>
         </If>
-
         <!-- The Lozatl -->
-
         <!-- Mother's Recipe (Fisher) -->
         <If Condition="GetQuestStep(69345) == 255">
           <If Condition="ClassName == ClassJobType.Fisher">
@@ -434,9 +482,7 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
         <!-- The Red Chalice -->
-
         <!-- Where the Sun Don't Shine (Fisher) -->
         <If Condition="GetQuestStep(69343) == 255">
           <If Condition="ClassName == ClassJobType.Fisher">
@@ -450,17 +496,63 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
+        <!-- The Qitari Book of Records (Fisher) -->
+        <If Condition="GetQuestStep(69356) == 255">
+          <If Condition="ClassName == ClassJobType.Fisher">
+            <If Condition="not HasItem(29580)">
+              <FlyTo XYZ="-586.3536, -0.6, -21.45126" Land="True"/>
+              <Fish BaitId="27582" Condition="not HasItem(29580)">
+                <FishSpots>
+                  <FishSpot XYZ="-586.3536, -0.6, -21.45126" Heading="4.815977"/>
+                </FishSpots>
+              </Fish>
+            </If>
+          </If>
+        </If>
         <!-- The Deliberating Doll -->
-
         <!-- Legends of the Ronkan Temple -->
         <If Condition="GetQuestStep(69362) == 1">
           <FlyTo XYZ="-387.0118, 9.38836, 241.6727" Land="True"/>
           <UseObject NpcId="2010997" XYZ="-399.527, 10.6355, 241.5045" QuestId="69362" StepId="1"/>
         </If>
-
         <!-- Lake Tusi Mek'ta -->
-
+        <!-- A Touch of Home (Miner/Botanist/Fisher) -->
+        <If Condition="GetQuestStep(69344) == 255">
+          <If Condition="ClassName == ClassJobType.Miner">
+            <If Condition="not HasAtLeast(29519, 3)">
+              <FlyTo XYZ="-855.321, -43.15541, 120.1549"/>
+              <ExGather While="not HasAtLeast(29519, 3)">
+                <GatherObject>Rocky Outcrop</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="-855.321, -43.15541, 120.1549" Radius="45"/>
+                </HotSpots>
+                <Slot>2</Slot>
+              </ExGather>
+            </If>
+          </If>
+          <If Condition="ClassName == ClassJobType.Botanist">
+            <If Condition="not HasAtLeast(29545, 3)">
+              <FlyTo XYZ="-847.7817, -41.58629, 213.0577"/>
+              <ExGather While="not HasAtLeast(29545, 3)">
+                <GatherObject>Lush Vegetation Patch</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="-847.7817, -41.58629, 213.0577" Radius="35"/>
+                </HotSpots>
+                <Slot>6</Slot>
+              </ExGather>
+            </If>
+          </If>
+          <If Condition="ClassName == ClassJobType.Fisher">
+            <If Condition="not HasItem(29571)">
+              <FlyTo XYZ="-603.197, -0.3, 204.7538" AllowedVariance="2.0" Land="True"/>
+              <Fish BaitId="27582" Condition="not HasItem(29571)">
+                <FishSpots>
+                  <FishSpot XYZ="-603.197, -0.3, 204.7538" Heading="4.032687"/>
+                </FishSpots>
+              </Fish>
+            </If>
+          </If>
+        </If>
         <!-- Rational Thinking (Fisher) -->
         <If Condition="GetQuestStep(69347) == 255">
           <If Condition="ClassName == ClassJobType.Fisher">
@@ -497,11 +589,11 @@ Requires: ExBuddy.
         <If Condition="GetQuestStep(69353) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
             <If Condition="not HasAtLeast(29526, 3)">
-              <FlyTo XYZ="-857.3897, -42.06714, 129.185"/>
+              <FlyTo XYZ="-855.321, -43.15541, 120.1549"/>
               <ExGather While="not HasAtLeast(29526, 3)">
                 <GatherObject>Rocky Outcrop</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-857.3897, -42.06714, 129.185" Radius="45"/>
+                  <HotSpot XYZ="-855.321, -43.15541, 120.1549" Radius="45"/>
                 </HotSpots>
                 <Slot>1</Slot>
               </ExGather>
@@ -537,13 +629,29 @@ Requires: ExBuddy.
         <If Condition="GetQuestStep(69354) == 255">
           <If Condition="ClassName == ClassJobType.Fisher">
             <If Condition="not HasItem(29579)">
-              <FlyTo XYZ="-873.2761, -41.96618, 433.5296"/>
+              <FlyTo XYZ="-871.3484, -43.55986, 427.0609"/>
               <ExSpearFish GigId="0" While="not HasItem(29579)">
                 <Items>
                   <SpearFish Name="Splendid Cockle"/>
                 </Items>
                 <HotSpots>
-                  <HotSpot XYZ="-873.2761, -41.96618, 433.5296" Radius="30"/>
+                  <HotSpot XYZ="-871.3484, -43.55986, 427.0609" Radius="30"/>
+                </HotSpots>
+              </ExSpearFish>
+            </If>
+          </If>
+        </If>
+        <!-- Meat and Greet (Fisher) -->
+        <If Condition="GetQuestStep(69357) == 255">
+          <If Condition="ClassName == ClassJobType.Fisher">
+            <If Condition="not HasItem(29581)">
+              <FlyTo XYZ="-871.3484, -43.55986, 427.0609"/>
+              <ExSpearFish GigId="0" While="not HasItem(29581)">
+                <Items>
+                  <SpearFish Name="Splendid Night's Bass"/>
+                </Items>
+                <HotSpots>
+                  <HotSpot XYZ="-871.3484, -43.55986, 427.0609" Radius="30"/>
                 </HotSpots>
               </ExSpearFish>
             </If>
@@ -553,11 +661,11 @@ Requires: ExBuddy.
         <If Condition="GetQuestStep(69360) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
             <If Condition="not HasAtLeast(29531, 3)">
-              <FlyTo XYZ="-857.3897, -42.06714, 129.185"/>
+              <FlyTo XYZ="-855.321, -43.15541, 120.1549"/>
               <ExGather While="not HasAtLeast(29531, 3)">
                 <GatherObject>Rocky Outcrop</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-857.3897, -42.06714, 129.185" Radius="45"/>
+                  <HotSpot XYZ="-855.321, -43.15541, 120.1549" Radius="45"/>
                 </HotSpots>
                 <Slot>3</Slot>
               </ExGather>
@@ -577,10 +685,10 @@ Requires: ExBuddy.
           </If>
           <If Condition="ClassName == ClassJobType.Fisher">
             <If Condition="not HasItem(29583)">
-              <FlyTo XYZ="-603.2407, -0.3, 204.6792" AllowedVariance="2.0" Land="True"/>
+              <FlyTo XYZ="-603.197, -0.3, 204.7538" AllowedVariance="2.0" Land="True"/>
               <Fish BaitId="27582" Condition="not HasItem(29583)">
                 <FishSpots>
-                  <FishSpot XYZ="-603.2407, -0.3, 204.6792" Heading="4.032687"/>
+                  <FishSpot XYZ="-603.197, -0.3, 204.7538" Heading="4.032687"/>
                 </FishSpots>
               </Fish>
             </If>
@@ -602,9 +710,7 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
         <!-- The Husk -->
-
         <!-- Rational Thinking (Miner/Botanist) -->
         <If Condition="GetQuestStep(69347) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
@@ -613,7 +719,7 @@ Requires: ExBuddy.
               <Gather While="not HasAtLeast(29521, 3)">
                 <GatherObject>Rocky Outcrop</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-716.3811, 1.824811, 570.2968" Radius="30"/>
+                  <HotSpot XYZ="-716.3811, 1.824811, 570.2968" Radius="25"/>
                 </HotSpots>
                 <Slot>1</Slot>
                 <GatheringSkillOrder/>
@@ -622,11 +728,11 @@ Requires: ExBuddy.
           </If>
           <If Condition="ClassName == ClassJobType.Botanist">
             <If Condition="not HasAtLeast(29547, 3)">
-              <FlyTo XYZ="-667.9101, 1.95889, 596.185" Land="True"/>
+              <FlyTo XYZ="-660.3229, 1.543434, 597.3525" Land="True"/>
               <Gather While="not HasAtLeast(29547, 3)">
                 <GatherObject>Lush Vegetation Patch</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-667.9101, 1.95889, 596.185" Radius="35"/>
+                  <HotSpot XYZ="-660.3229, 1.543434, 597.3525" Radius="35"/>
                 </HotSpots>
                 <Slot>1</Slot>
                 <GatheringSkillOrder/>
@@ -638,11 +744,11 @@ Requires: ExBuddy.
         <If Condition="GetQuestStep(69350) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
             <If Condition="not HasAtLeast(29523, 3)">
-              <FlyTo XYZ="-717.3539, 1.83125, 569.8522" Land="True"/>
+              <FlyTo XYZ="-716.0963, 1.710768, 569.2929" Land="True"/>
               <Gather While="not HasAtLeast(29523, 3)">
                 <GatherObject>Rocky Outcrop</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-717.3539, 1.83125, 569.8522" Radius="30"/>
+                  <HotSpot XYZ="-716.0963, 1.710768, 569.2929" Radius="25"/>
                 </HotSpots>
                 <Slot>5</Slot>
                 <GatheringSkillOrder/>
@@ -655,7 +761,7 @@ Requires: ExBuddy.
               <Gather While="not HasAtLeast(29549, 3)">
                 <GatherObject>Lush Vegetation Patch</GatherObject>
                 <HotSpots>
-                  <HotSpot XYZ="-659.3412, 1.13052, 594.4838" Radius="40"/>
+                  <HotSpot XYZ="-660.3229, 1.543434, 597.3525" Radius="40"/>
                 </HotSpots>
                 <Slot>5</Slot>
                 <GatheringSkillOrder/>
@@ -663,16 +769,42 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
-
+        <!-- I Have Never Exploded (Miner/Botanist) -->
+        <If Condition="GetQuestStep(69358) == 255">
+          <If Condition="ClassName == ClassJobType.Miner">
+            <If Condition="not HasAtLeast(29530, 3)">
+              <FlyTo XYZ="-716.0963, 1.710768, 569.2929" Land="True"/>
+              <Gather While="not HasAtLeast(29530, 3)">
+                <GatherObject>Rocky Outcrop</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="-716.0963, 1.710768, 569.2929" Radius="25"/>
+                </HotSpots>
+                <Slot>2</Slot>
+                <GatheringSkillOrder/>
+              </Gather>
+            </If>
+          </If>
+          <If Condition="ClassName == ClassJobType.Botanist">
+            <If Condition="not HasAtLeast(29556, 3)">
+              <FlyTo XYZ="-667.9101, 1.95889, 596.185" Land="True"/>
+              <Gather While="not HasAtLeast(29556, 3)">
+                <GatherObject>Lush Vegetation Patch</GatherObject>
+                <HotSpots>
+                  <HotSpot XYZ="-660.3229, 1.543434, 597.3525" Radius="35"/>
+                </HotSpots>
+                <Slot>2</Slot>
+                <GatheringSkillOrder/>
+              </Gather>
+            </If>
+          </If>
+        </If>
         <!-- Navigation Aid -->
-        <If Condition="HasAtLeastOneQuest(Array[int]([69342,69345,69348,69350,69352,69354,69361,69363,69369]))">
+        <If Condition="(ClassName == ClassJobType.Miner and ((GetQuestStep(69345) == 255 and not HasAtLeast(29520, 3)) or (GetQuestStep(69348) == 255 and not HasAtLeast(29522, 3)) or (GetQuestStep(69354) == 255 and not HasAtLeast(29527, 3)) or (GetQuestStep(69361) == 255 and not HasAtLeast(29532, 3)) or (GetQuestStep(69369) == 255 and not HasHqItem(29537)))) or (ClassName == ClassJobType.Botanist and ((GetQuestStep(69345) == 255 and not HasAtLeast(29546, 3)) or (GetQuestStep(69348) == 255 and not HasAtLeast(29548, 3)) or (GetQuestStep(69354) == 255 and not HasAtLeast(29553, 3)) or (GetQuestStep(69361) == 255 and not HasAtLeast(29558, 3)) or (GetQuestStep(69369) == 255 and not HasHqItem(29563)))) or (ClassName == ClassJobType.Fisher and ((GetQuestStep(69342) == 255 and not HasItem(29569)) or (GetQuestStep(69350) == 255 and not HasItem(29575)) or (GetQuestStep(69352) == 255 and not HasItem(29577)) or (GetQuestStep(69358) == 255 and not HasItem(29582)) or (GetQuestStep(69363) == 255 and not HasItem(29585))))">
           <FlyTo XYZ="-121.5054, 69.05805, 476.7119"/>
           <FlyTo XYZ="38.96817, 28.62447, 518.3196"/>
           <FlyTo XYZ="107.4985, 31.77735, 604.5151"/>
         </If>
-
         <!-- Mjrns Regret -->
-
         <!-- A Tool's Errand (Fisher) -->
         <If Condition="GetQuestStep(69342) == 255">
           <If Condition="ClassName == ClassJobType.Fisher">
@@ -799,6 +931,19 @@ Requires: ExBuddy.
             </If>
           </If>
         </If>
+        <!-- I Have Never Exploded (Fisher) -->
+        <If Condition="GetQuestStep(69358) == 255">
+          <If Condition="ClassName == ClassJobType.Fisher">
+            <If Condition="not HasItem(29582)">
+              <FlyTo XYZ="220.6852, -24.86437, 709.2048" Land="True"/>
+              <Fish BaitId="27582" Condition="not HasItem(29582)">
+                <FishSpots>
+                  <FishSpot XYZ="231.1881, -27.42256, 715.1515" Heading="1.04429"/>
+                </FishSpots>
+              </Fish>
+            </If>
+          </If>
+        </If>
         <!-- There's No Clean Like Qhoterl Clean (Miner/Botanist) -->
         <If Condition="GetQuestStep(69361) == 255">
           <If Condition="ClassName == ClassJobType.Miner">
@@ -911,6 +1056,10 @@ Requires: ExBuddy.
           <If Condition="GetQuestStep(69343) == 255">
             <TurnIn ItemId="29518" QuestId="69343" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
+          <!-- A Touch of Home -->
+          <If Condition="GetQuestStep(69344) == 255">
+            <TurnIn ItemId="29519" QuestId="69344" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
           <!-- Mother's Recipe -->
           <If Condition="GetQuestStep(69345) == 255">
             <TurnIn ItemId="29520" QuestId="69345" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
@@ -943,6 +1092,18 @@ Requires: ExBuddy.
           <If Condition="GetQuestStep(69354) == 255">
             <TurnIn ItemId="29527" QuestId="69354" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
+          <!-- The Qitari Book of Records -->
+          <If Condition="GetQuestStep(69356) == 255">
+            <TurnIn ItemId="29528" QuestId="69356" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- Meat and Greet -->
+          <If Condition="GetQuestStep(69357) == 255">
+            <TurnIn ItemId="29529" QuestId="69357" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- I Have Never Exploded -->
+          <If Condition="GetQuestStep(69358) == 255">
+            <TurnIn ItemId="29530" QuestId="69358" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
           <!-- Rock 'n Ronka -->
           <If Condition="GetQuestStep(69360) == 255">
             <TurnIn ItemId="29531" QuestId="69360" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
@@ -968,6 +1129,10 @@ Requires: ExBuddy.
           <!-- Where the Sun Don't Shine -->
           <If Condition="GetQuestStep(69343) == 255">
             <TurnIn ItemId="29544" QuestId="69343" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- A Touch of Home -->
+          <If Condition="GetQuestStep(69344) == 255">
+            <TurnIn ItemId="29545" QuestId="69344" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
           <!-- Mother's Recipe -->
           <If Condition="GetQuestStep(69345) == 255">
@@ -1001,6 +1166,18 @@ Requires: ExBuddy.
           <If Condition="GetQuestStep(69354) == 255">
             <TurnIn ItemId="29553" QuestId="69354" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
+          <!-- The Qitari Book of Records -->
+          <If Condition="GetQuestStep(69356) == 255">
+            <TurnIn ItemId="29554" QuestId="69356" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- Meat and Greet -->
+          <If Condition="GetQuestStep(69357) == 255">
+            <TurnIn ItemId="29555" QuestId="69357" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- I Have Never Exploded -->
+          <If Condition="GetQuestStep(69358) == 255">
+            <TurnIn ItemId="29556" QuestId="69358" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
           <!-- Rock 'n Ronka -->
           <If Condition="GetQuestStep(69360) == 255">
             <TurnIn ItemId="29557" QuestId="69360" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
@@ -1026,6 +1203,10 @@ Requires: ExBuddy.
           <!-- Where the Sun Don't Shine -->
           <If Condition="GetQuestStep(69343) == 255">
             <TurnIn ItemId="29570" QuestId="69343" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- A Touch of Home -->
+          <If Condition="GetQuestStep(69344) == 255">
+            <TurnIn ItemId="29571" QuestId="69344" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
           <!-- Mother's Recipe -->
           <If Condition="GetQuestStep(69345) == 255">
@@ -1058,6 +1239,18 @@ Requires: ExBuddy.
           <!-- If It's Broke, Fix It -->
           <If Condition="GetQuestStep(69354) == 255">
             <TurnIn ItemId="29579" QuestId="69354" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- The Qitari Book of Records -->
+          <If Condition="GetQuestStep(69356) == 255">
+            <TurnIn ItemId="29580" QuestId="69356" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- Meat and Greet -->
+          <If Condition="GetQuestStep(69357) == 255">
+            <TurnIn ItemId="29581" QuestId="69357" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
+          </If>
+          <!-- I Have Never Exploded -->
+          <If Condition="GetQuestStep(69358) == 255">
+            <TurnIn ItemId="29582" QuestId="69358" NpcId="1032643" XYZ="787.0145, -45.82774, -218.555"/>
           </If>
           <!-- Rock 'n Ronka -->
           <If Condition="GetQuestStep(69360) == 255">

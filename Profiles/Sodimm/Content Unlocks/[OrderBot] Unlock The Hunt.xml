@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!--
+ Profile:  [OrderBot] Unlock The Hunt.
+ Authors:  Sodimm.
+ -->
+<Profile>
+  <Name>[OrderBot] Unlock The Hunt (Maelstrom)</Name>
+  <Order>
+    <!-- Let the Hunt Begin (Maelstrom) (Level 50) -->
+    <If Condition="not HasQuest(67100) and not IsQuestCompleted(67100) and Core.Player.ClassLevel &gt; 49">
+      <GetTo ZoneId="128" XYZ="75.1119, 40, 77.09135"/>
+      <If Condition="IsQuestAcceptQualified(67100)">
+        <PickupQuest QuestId="67100" NpcId="1003550" InteractDistance="3.0" XYZ="76.85962, 39.99632, 78.99597"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67100) and not IsQuestCompleted(67100) and GetQuestStep(67100) == 255">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="94.46349, 40.24808, 62.14104"/>
+      </If>
+      <TurnIn QuestId="67100" NpcId="1009552" InteractDistance="3.0" XYZ="96.02502, 40.24715, 60.68506"/>
+    </If>
+    <!-- Let the Clan Hunt Begin (Level 53) -->
+    <If Condition="IsQuestCompleted(67100) and not HasQuest(67655) and not IsQuestCompleted(67655) and Core.Player.ClassLevel &gt; 52">
+      <GetTo ZoneId="418" XYZ="84.94198, 24, 28.70415"/>
+      <If Condition="IsQuestAcceptQualified(67655)">
+        <PickupQuest QuestId="67655" NpcId="1012256" InteractDistance="3.0" XYZ="86.96118, 24, 30.3501"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67655) and not IsQuestCompleted(67655) and GetQuestStep(67655) == 1">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="93.50382, 15.00001, 30.1342"/>
+      </If>
+      <TalkTo NpcId="1012225" XYZ="90.10449, 15.09468, 30.04492" QuestId="67655" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67655) and not IsQuestCompleted(67655) and GetQuestStep(67655) == 255">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="73.97091, 23.97913, 19.93001"/>
+      </If>
+      <TurnIn QuestId="67655" NpcId="2005909" InteractDistance="3.0" XYZ="73.89941, 24.3075, 22.04926"/>
+    </If>
+    <!-- Better Bill Hunting (Level 56) -->
+    <If Condition="IsQuestCompleted(67655) and not HasQuest(67656) and not IsQuestCompleted(67656) and Core.Player.ClassLevel &gt; 55">
+      <GetTo ZoneId="418" XYZ="71.87206, 23.97913, 18.95611"/>
+      <If Condition="IsQuestAcceptQualified(67656)">
+        <PickupQuest QuestId="67656" NpcId="1012226" InteractDistance="3.0" XYZ="71.73267, 23.97913, 20.85907"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67656) and not IsQuestCompleted(67656) and GetQuestStep(67656) == 1">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="93.50382, 15.00001, 30.1342"/>
+      </If>
+      <TalkTo NpcId="1012225" XYZ="90.10449, 15.09468, 30.04492" QuestId="67656" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67656) and not IsQuestCompleted(67656) and GetQuestStep(67656) == 255">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="73.97091, 23.97913, 19.93001"/>
+      </If>
+      <TurnIn QuestId="67656" NpcId="2005909" InteractDistance="3.0" XYZ="73.89941, 24.3075, 22.04926"/>
+    </If>
+    <!-- Top Marks (Level 59) -->
+    <If Condition="IsQuestCompleted(67656) and not HasQuest(67657) and not IsQuestCompleted(67657) and Core.Player.ClassLevel &gt; 58">
+      <GetTo ZoneId="478" XYZ="19.28799, 205.3152, 36.45713"/>
+      <If Condition="IsQuestAcceptQualified(67657)">
+        <PickupQuest QuestId="67657" NpcId="1013721" InteractDistance="3.0" XYZ="17.38, 205.3869, 37.49133"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67657) and not IsQuestCompleted(67657) and GetQuestStep(67657) == 1">
+      <GetTo ZoneId="418" XYZ="93.50382, 15.00001, 30.1342"/>
+      <TalkTo NpcId="1012225" XYZ="90.10449, 15.09468, 30.04492" QuestId="67657" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67657) and not IsQuestCompleted(67657) and GetQuestStep(67657) == 255">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="73.97091, 23.97913, 19.93001"/>
+      </If>
+      <TurnIn QuestId="67657" NpcId="2005909" InteractDistance="3.0" XYZ="73.89941, 24.3075, 22.04926"/>
+    </If>
+    <!-- Elite and Dangerous (Level 60) -->
+    <If Condition="IsQuestCompleted(67657) and not HasQuest(67658) and not IsQuestCompleted(67658) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="418" XYZ="93.50382, 15.00001, 30.1342"/>
+      <If Condition="IsQuestAcceptQualified(67658)">
+        <PickupQuest QuestId="67658" NpcId="1012225" InteractDistance="3.0" XYZ="90.10449, 15.09468, 30.04492"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67658) and not IsQuestCompleted(67658) and GetQuestStep(67658) == 255">
+      <If Condition="not IsOnMap(418)">
+        <GetTo ZoneId="418" XYZ="73.97091, 23.97913, 19.93001"/>
+      </If>
+      <TurnIn QuestId="67658" NpcId="2005909" InteractDistance="3.0" XYZ="73.89941, 24.3075, 22.04926"/>
+    </If>
+    <!-- One-star Veteran Clan Hunt (Level 61) -->
+    <If Condition="IsQuestCompleted(67658) and not HasQuest(68472) and not IsQuestCompleted(68472) and Core.Player.ClassLevel &gt; 60">
+      <GetTo ZoneId="628" XYZ="-42.60759, -2.9, -50.7553"/>
+      <If Condition="IsQuestAcceptQualified(68472)">
+        <PickupQuest QuestId="68472" NpcId="1019007" InteractDistance="3.0" XYZ="-42.52698, -2.9, -47.95917"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68472) and not IsQuestCompleted(68472) and GetQuestStep(68472) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-27.51189, 0.09999883, -45.08738"/>
+      </If>
+      <TurnIn QuestId="68472" NpcId="1019009" InteractDistance="3.0" XYZ="-29.16003, 0.09999965, -46.18909"/>
+    </If>
+    <!-- Two-star Veteran Clan Hunt (Level 63) -->
+    <If Condition="IsQuestCompleted(68472) and not HasQuest(68473) and not IsQuestCompleted(68473) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="628" XYZ="-42.60759, -2.9, -50.7553"/>
+      <If Condition="IsQuestAcceptQualified(68473)">
+        <PickupQuest QuestId="68473" NpcId="1019007" InteractDistance="3.0" XYZ="-42.52698, -2.9, -47.95917"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68473) and not IsQuestCompleted(68473) and GetQuestStep(68473) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-27.51189, 0.09999883, -45.08738"/>
+      </If>
+      <TurnIn QuestId="68473" NpcId="1019009" InteractDistance="3.0" XYZ="-29.16003, 0.09999965, -46.18909"/>
+    </If>
+    <!-- Three-star Veteran Clan Hunt (Level 66) -->
+    <If Condition="IsQuestCompleted(68473) and not HasQuest(68474) and not IsQuestCompleted(68474) and Core.Player.ClassLevel &gt; 65">
+      <GetTo ZoneId="628" XYZ="-42.60759, -2.9, -50.7553"/>
+      <If Condition="IsQuestAcceptQualified(68474)">
+        <PickupQuest QuestId="68474" NpcId="1019007" InteractDistance="3.0" XYZ="-42.52698, -2.9, -47.95917"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68474) and not IsQuestCompleted(68474) and GetQuestStep(68474) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-27.51189, 0.09999883, -45.08738"/>
+      </If>
+      <TurnIn QuestId="68474" NpcId="1019009" InteractDistance="3.0" XYZ="-29.16003, 0.09999965, -46.18909"/>
+    </If>
+    <!-- Elite Veteran Clan Hunt (Level 70) -->
+    <If Condition="IsQuestCompleted(68474) and not HasQuest(68475) and not IsQuestCompleted(68475) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="628" XYZ="-42.60759, -2.9, -50.7553"/>
+      <If Condition="IsQuestAcceptQualified(68475)">
+        <PickupQuest QuestId="68475" NpcId="1019007" InteractDistance="3.0" XYZ="-42.52698, -2.9, -47.95917"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68475) and not IsQuestCompleted(68475) and GetQuestStep(68475) == 255">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="-27.51189, 0.09999883, -45.08738"/>
+      </If>
+      <TurnIn QuestId="68475" NpcId="1019009" InteractDistance="3.0" XYZ="-29.16003, 0.09999965, -46.18909"/>
+    </If>
+    <!-- Nuts to You (Level 70) -->
+    <If Condition="IsQuestCompleted(68475) and IsQuestCompleted(68817) and not HasQuest(69133) and not IsQuestCompleted(69133) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="819" XYZ="46.24913, 0, 191.6066"/>
+      <If Condition="IsQuestAcceptQualified(69133)">
+        <PickupQuest QuestId="69133" NpcId="1031348" XYZ="47.13501, 7.450581E-09, 191.5769"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69133) and not IsQuestCompleted(69133) and GetQuestStep(69133) == 1">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-86.34093, 1.192093E-07, -92.94254"/>
+      </If>
+      <TalkTo NpcId="1027990" XYZ="-85.31323, 0, -93.24792" QuestId="69133" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69133) and not IsQuestCompleted(69133) and GetQuestStep(69133) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64005, 1.192093E-07, -83.98635"/>
+      </If>
+      <TurnIn QuestId="69133" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- Two Nuts Too Nutty (Level 73) -->
+    <If Condition="IsQuestCompleted(69133) and not HasQuest(69134) and not IsQuestCompleted(69134) and Core.Player.ClassLevel &gt; 72">
+      <GetTo ZoneId="819" XYZ="-87.38572, 5.960464E-08, -92.14148"/>
+      <If Condition="IsQuestAcceptQualified(69134)">
+        <PickupQuest QuestId="69134" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69134) and not IsQuestCompleted(69134) and GetQuestStep(69134) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.68562, 0, -83.97012"/>
+      </If>
+      <TurnIn QuestId="69134" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- How Do You Like Three Nuts (Level 76) -->
+    <If Condition="IsQuestCompleted(69134) and not HasQuest(69135) and not IsQuestCompleted(69135) and Core.Player.ClassLevel &gt; 75">
+      <GetTo ZoneId="819" XYZ="-87.5868, 5.960464E-08, -92.04501"/>
+      <If Condition="IsQuestAcceptQualified(69135)">
+        <PickupQuest QuestId="69135" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69135) and not IsQuestCompleted(69135) and GetQuestStep(69135) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64787, 1.192093E-07, -83.45335"/>
+      </If>
+      <TurnIn QuestId="69135" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+    <!-- Too Many Nutters (Level 80) -->
+    <If Condition="IsQuestCompleted(69135) and not HasQuest(69136) and not IsQuestCompleted(69136) and Core.Player.ClassLevel &gt; 79">
+      <GetTo ZoneId="819" XYZ="-86.92426, 5.960464E-08, -91.96149"/>
+      <If Condition="IsQuestAcceptQualified(69136)">
+        <PickupQuest QuestId="69136" NpcId="1027990" XYZ="-85.31323, 0, -93.24792"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69136) and not IsQuestCompleted(69136) and GetQuestStep(69136) == 255">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-90.64819, 0, -83.52953"/>
+      </If>
+      <TurnIn QuestId="69136" NpcId="1027988" XYZ="-88.57867, 0.07107823, -83.66528"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks/>
+</Profile>

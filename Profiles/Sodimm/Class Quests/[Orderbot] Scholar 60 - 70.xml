@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Scholar Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Scholar Class Quests.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- The Vanishing Act (Level 60) -->
+    <If Condition="not HasQuest(68459) and not IsQuestCompleted(68459) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="128" XYZ="-3.4473, 44.99989, -250.4281"/>
+      <If Condition="IsQuestAcceptQualified(68459)">
+        <PickupQuest QuestId="68459" NpcId="1006757" XYZ="-3.4473, 44.99989, -250.4281"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68459) and not IsQuestCompleted(68459) and GetQuestStep(68459) == 1">
+      <GetTo ZoneId="139" XYZ="207.6963, -3.22297, 42.68508"/>
+      <TalkTo NpcId="1013135" XYZ="207.6963, -3.22297, 42.68508" QuestId="68459" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68459) and not IsQuestCompleted(68459) and GetQuestStep(68459) == 2">
+      <GetTo ZoneId="128" XYZ="94.98811, 40.24767, 61.48925"/>
+      <TalkTo NpcId="1009552" XYZ="94.98811, 40.24767, 61.48925" QuestId="68459" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68459) and not IsQuestCompleted(68459) and GetQuestStep(68459) == 3">
+      <GetTo ZoneId="140" XYZ="-479.7151, 23.11401, -316.9414"/>
+      <TalkTo NpcId="1021904" XYZ="-479.7151, 23.11401, -316.9414" QuestId="68459" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68459) and not IsQuestCompleted(68459) and GetQuestStep(68459) == 255">
+      <GetTo ZoneId="139" XYZ="206.9098, -3.094107, 42.23856"/>
+      <TurnIn QuestId="68459" NpcId="1013135" XYZ="206.9098, -3.094107, 42.23856"/>
+    </If>
+    <!-- A Safe Place to Hide (Level 63) -->
+    <If Condition="IsQuestCompleted(68459) and not HasQuest(68460) and not IsQuestCompleted(68460) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="139" XYZ="206.9098, -3.094107, 42.23856"/>
+      <If Condition="IsQuestAcceptQualified(68460)">
+        <PickupQuest QuestId="68460" NpcId="1013135" XYZ="206.9098, -3.094107, 42.23856"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 1">
+      <GetTo ZoneId="128" XYZ="-3.61024, 44.99989, -250.3358"/>
+      <TalkTo NpcId="1006757" XYZ="-3.61024, 44.99989, -250.3358" QuestId="68460" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 2">
+      <GetTo ZoneId="153" XYZ="-221.0965, 20.87381, 352.6577"/>
+      <TalkTo NpcId="1021905" XYZ="-221.0965, 20.87381, 352.6577" QuestId="68460" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 3">
+      <GetTo ZoneId="153" XYZ="-230.8649, 1.370054, 406.3635"/>
+      <UseObject NpcId="2008554" XYZ="-230.8649, 1.370054, 406.3635" QuestId="68460" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 4">
+      <GetTo ZoneId="153" XYZ="-183.3312, 0.3556948, 463.0353"/>
+      <UseObject NpcId="2008555" XYZ="-183.3312, 0.3556948, 463.0353" QuestId="68460" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 5">
+      <GetTo ZoneId="153" XYZ="-82.59705, 1.248474, 396.2433"/>
+      <UseObject NpcId="2008556" XYZ="-82.59705, 1.248474, 396.2433" QuestId="68460" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 6">
+      <GetTo ZoneId="153" XYZ="-70.00949, 0.9378428, 360.6397"/>
+      <WaitWhile Condition="HasQuest(68460) and not IsQuestCompleted(68460) and not GetQuestStep(68460) == 7"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 7">
+      <GetTo ZoneId="153" XYZ="-69.69701, 0.9380779, 361.001"/>
+      <SoUseSpell SpellId="185" NpcIds="1021910" XYZ="-69.69701, 0.9380779, 361.001" QuestId="68460" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68460) and not IsQuestCompleted(68460) and GetQuestStep(68460) == 255">
+      <GetTo ZoneId="153" XYZ="-221.3742, 21.2288, 362.6841"/>
+      <TurnIn QuestId="68460" NpcId="1021911" XYZ="-221.3742, 21.2288, 362.6841"/>
+    </If>
+    <!-- In Loving Memory (Level 65) -->
+    <If Condition="IsQuestCompleted(68460) and not HasQuest(68461) and not IsQuestCompleted(68461) and Core.Player.ClassLevel &gt; 64">
+      <GetTo ZoneId="153" XYZ="-221.2379, 21.2019, 362.4214"/>
+      <If Condition="IsQuestAcceptQualified(68461)">
+        <PickupQuest QuestId="68461" NpcId="1021911" XYZ="-221.2379, 21.2019, 362.4214"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68461) and not IsQuestCompleted(68461) and GetQuestStep(68461) == 1">
+      <GetTo ZoneId="153" XYZ="161.0377, 37.56068, 170.2736"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68461) and not IsQuestCompleted(68461) and GetQuestStep(68461) == 255">
+      <GetTo ZoneId="153" XYZ="-221.2767, 21.15087, 361.8848"/>
+      <TurnIn QuestId="68461" NpcId="1021911" XYZ="-221.2767, 21.15087, 361.8848"/>
+    </If>
+    <!-- The Chase (Level 68) -->
+    <If Condition="IsQuestCompleted(68461) and not HasQuest(68462) and not IsQuestCompleted(68462) and Core.Player.ClassLevel &gt; 67">
+      <GetTo ZoneId="153" XYZ="-221.2767, 21.15087, 361.8848"/>
+      <If Condition="IsQuestAcceptQualified(68462)">
+        <PickupQuest QuestId="68462" NpcId="1021911" XYZ="-221.2767, 21.15087, 361.8848"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 1">
+      <GetTo ZoneId="139" XYZ="207.0407, -3.086612, 42.57274"/>
+      <TalkTo NpcId="1013135" XYZ="207.0407, -3.086612, 42.57274" QuestId="68462" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 2">
+      <GetTo ZoneId="153" XYZ="-221.2196, 21.21092, 362.5386"/>
+      <TalkTo NpcId="1021911" XYZ="-221.2196, 21.21092, 362.5386" QuestId="68462" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 3">
+      <GetTo ZoneId="153" XYZ="-160.0049, 2.088836, 176.3843"/>
+      <UseObject NpcId="2008557" XYZ="-160.0049, 2.088836, 176.3843" QuestId="68462" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 4">
+      <GetTo ZoneId="153" XYZ="-149.6138, 4.746195, 52.64581"/>
+      <UseObject NpcId="2008558" XYZ="-149.6138, 4.746195, 52.64581" QuestId="68462" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 5">
+      <GetTo ZoneId="153" XYZ="-249.9689, 16.80344, 19.18657"/>
+      <UseObject NpcId="2008559" XYZ="-249.9689, 16.80344, 19.18657" QuestId="68462" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68462) and not IsQuestCompleted(68462) and GetQuestStep(68462) == 255">
+      <GetTo ZoneId="153" XYZ="-221.827, 21.2042, 362.2461"/>
+      <TurnIn QuestId="68462" NpcId="1021911" XYZ="-221.827, 21.2042, 362.2461"/>
+    </If>
+    <!-- Our Unsung Heroes (Level 70) -->
+    <If Condition="IsQuestCompleted(68462) and not HasQuest(68463) and not IsQuestCompleted(68463) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="153" XYZ="-221.827, 21.2042, 362.2461"/>
+      <If Condition="IsQuestAcceptQualified(68463)">
+        <PickupQuest QuestId="68463" NpcId="1021911" XYZ="-221.827, 21.2042, 362.2461"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 1">
+      <GetTo ZoneId="153" XYZ="-342.9939, -0.4467317, 447.9733"/>
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 3">
+      <GetTo ZoneId="153" XYZ="-220.9579, 21.22143, 362.8069"/>
+      <TalkTo NpcId="1021911" XYZ="-220.9579, 21.22143, 362.8069" QuestId="68463" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 4">
+      <GetTo ZoneId="139" XYZ="207.0911, -3.102423, 42.53002"/>
+      <TalkTo NpcId="1013135" XYZ="207.0911, -3.102423, 42.53002" QuestId="68463" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 5 and GetQuestById(68463).QuestI8AH == 0">
+      <GetTo ZoneId="139" XYZ="207.5604, -3.1434, 41.95698"/>
+      <TalkTo NpcId="1021919" XYZ="207.5604, -3.1434, 41.95698" QuestId="68463" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 5 and GetQuestById(68463).QuestI8AH == 1">
+      <GetTo ZoneId="139" XYZ="207.5604, -3.1434, 41.95698"/>
+      <TalkTo NpcId="1013135" XYZ="207.5604, -3.1434, 41.95698" QuestId="68463" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68463) and not IsQuestCompleted(68463) and GetQuestStep(68463) == 255">
+      <GetTo ZoneId="139" XYZ="207.4898, -3.213531, 42.37048"/>
+      <TurnIn QuestId="68463" NpcId="1021918" XYZ="207.4898, -3.213531, 42.37048"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

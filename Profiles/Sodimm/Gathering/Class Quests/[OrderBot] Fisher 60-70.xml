@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Fisher Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+Required Quest Completion:  A Realm Reborn & Heavensward Fisher Quests.
+-->
+<Profile>
+  <Name>[OrderBot] Fisher Class Quests.</Name>
+  <BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(67625)">
+      <LogMessage Message="You haven't finished all of the Heavensward Fisher quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67625)"/>
+    </If>
+    <!-- Whither Wawalago Wanders (Level 60) -->
+    <If Condition="not HasQuest(68431) and not IsQuestCompleted(68431) and IsQuestCompleted(67625) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="129" XYZ="-166.7897, 4.550005, 164.9324"/>
+      <If Condition="IsQuestAcceptQualified(68431)">
+        <PickupQuest QuestId="68431" NpcId="1000857" XYZ="-165.2705, 5.250006, 164.2938"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68431) and not IsQuestCompleted(68431) and GetQuestStep(68431) == 1">
+      <GetTo ZoneId="129" XYZ="-154.7512, 3.999996, 200.2754"/>
+      <TalkTo NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161" QuestId="68431" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68431) and not IsQuestCompleted(68431) and GetQuestStep(68431) == 2">
+      <GetTo ZoneId="129" XYZ="-167.0733, 4.550005, 165.076"/>
+      <TalkTo NpcId="1000857" XYZ="-165.2705, 5.250006, 164.2938" QuestId="68431" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68431) and not IsQuestCompleted(68431) and GetQuestStep(68431) == 3">
+      <GetTo ZoneId="135" XYZ="202.3066, 25.5065, 777.0341"/>
+      <UseObject NpcId="2008204" XYZ="202.3499, 25.40625, 776.3026" QuestId="68431" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68431) and not IsQuestCompleted(68431) and GetQuestStep(68431) == 255">
+      <GetTo ZoneId="129" XYZ="-154.3983, 3.999996, 200.2688"/>
+      <TurnIn QuestId="68431" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      <WaitTimer WaitTime="2"/>
+    </If>
+    <!-- A New Fishing Ex-spear-ience (Level 61) -->
+    <If Condition="not HasQuest(68458) and not IsQuestCompleted(68458) and IsQuestCompleted(68020) and IsQuestCompleted(66643) and Core.Player.ClassLevel &gt; 60">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <NoCombatMoveTo XYZ="373.4206, -120.0014, -276.3537"/>
+      <If Condition="IsQuestAcceptQualified(68458)">
+        <PickupQuest QuestId="68458" NpcId="1021362" XYZ="374.7769, -119.9926, -277.058"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68458) and not IsQuestCompleted(68458) and GetQuestStep(68458) == 255">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <NoCombatMoveTo XYZ="327.994, -120.3422, -306.8709"/>
+      <RunCode Name="Move_Forward"/>
+      <ExMoveTo XYZ="293.8948, -98.65965, -411.4322" Distance="1"/>
+      <TurnIn QuestId="68458" NpcId="1023621" XYZ="294.1786, -98.43597, -413.3516"/>
+      <WaitTimer WaitTime="2"/>
+    </If>
+    <!-- A Rousing Reunion (Level 63) -->
+    <If Condition="not HasQuest(68432) and not IsQuestCompleted(68432) and IsQuestCompleted(68431) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="129" XYZ="-154.3983, 3.999995, 200.2688"/>
+      <If Condition="IsQuestAcceptQualified(68432)">
+        <PickupQuest QuestId="68432" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68432) and not IsQuestCompleted(68432) and GetQuestStep(68432) == 1">
+      <GetTo ZoneId="612" XYZ="-230.2826, 60.08427, -635.1107"/>
+      <TalkTo NpcId="1021396" XYZ="-229.7856, 60.06992, -635.7367" QuestId="68432" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68432) and not IsQuestCompleted(68432) and GetQuestStep(68432) == 2">
+      <While Condition="(not NqHasAtLeast(17949,3)) and (not HqHasAtLeast(17949,3))">
+        <If Condition="not HasAtLeast(20613,30)">
+          <GetTo ZoneId="612" XYZ="-633.1337, 130.1206, -524.772"/>
+          <BuyItem ItemId="20613" ItemCount="99" DialogOption="6" InteractDistance="3.0" NpcId="1019513" XYZ="-634.1802, 130.086, -526.0853"/>
+        </If>
+        <GetTo ZoneId="612" XYZ="-230.2826, 60.08427, -635.1107"/>
+        <Fish Mooch="0" Bait="Salmon Roe" MinFish="5" MaxFish="10" ShuffleFishSpots="True" Condition="(not NqHasAtLeast(17949,3)) and (not HqHasAtLeast(17949,3))" Loops="0">
+          <FishSpots>
+            <FishSpot XYZ="-227.874, 58.57102, -631.8412" Heading="1.291"/>
+            <FishSpot XYZ="-216.2178, 58.57102, -651.6249" Heading="1.315"/>
+          </FishSpots>
+        </Fish>
+      </While>
+      <If Condition="(NqHasAtLeast(17949,3)) or (HqHasAtLeast(17949,3))">
+        <GetTo ZoneId="612" XYZ="-228.8071, 60.00172, -635.4457"/>
+        <HandOver ItemIds="17949" RequiresHq="False" NpcId="1021396" XYZ="-229.7856, 60.06992, -635.7367" QuestId="68432" StepId="2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68432) and not IsQuestCompleted(68432) and GetQuestStep(68432) == 255">
+      <GetTo ZoneId="129" XYZ="-154.2569, 3.999995, 200.3749"/>
+      <SoTurnIn QuestId="68432" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      <WaitTimer WaitTime="2"/>
+    </If>
+    <!-- Search for the Spawning Grounds (Level 65) -->
+    <If Condition="not HasQuest(68433) and not IsQuestCompleted(68433) and IsQuestCompleted(68432) and Core.Player.ClassLevel &gt; 64">
+      <GetTo ZoneId="129" XYZ="-154.2569, 3.999995, 200.3749"/>
+      <If Condition="IsQuestAcceptQualified(68433)">
+        <PickupQuest QuestId="68433" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 1">
+      <GetTo ZoneId="628" XYZ="32.3497, 2.999999, -70.13274"/>
+      <TalkTo NpcId="1021398" XYZ="31.50977, 3, -71.33594" QuestId="68433" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 2">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <NoCombatMoveTo XYZ="369.4008, -120.0138, -280.4698"/>
+      <TalkTo NpcId="1021399" XYZ="370.0465, -120.0139, -281.9715" QuestId="68433" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 3">
+      <TeleportTo Name="Onokoro" AetheryteId="106" Force="True"/>
+      <NoCombatMoveTo XYZ="526.4575, 0.05002415, -244.5874"/>
+      <TalkTo NpcId="1021402" XYZ="524.5593, -0.007716715, -244.8616" QuestId="68433" StepId="3"/>
+      <NoCombatMoveTo XYZ="532.2314, 0.8364315, -230.2563" UseMesh="False"/>
+    </If>
+    <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 4">
+      <While Condition="not HqHasAtLeast(17950,3)">
+        <If Condition="not HasAtLeast(20617,99)">
+          <GetTo ZoneId="613" XYZ="94.41652, 2.080172, -610.312"/>
+          <BuyItem ItemId="20617" ItemCount="99" DialogOption="6" InteractDistance="3.0" NpcId="1021501" XYZ="93.21729, 2.087148, -612.3598"/>
+        </If>
+        <If Condition="Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(523.2509, -0.2715912, -601.7201)) &gt; 15">
+          <NoCombatMoveTo XYZ="578.4175, 9.866471, -738.9065"/>
+          <NoCombatMoveTo XYZ="533.3317, 0.6011348, -594.0529"/>
+        </If>
+        <Fish Mooch="0" Bait="Live Shrimp" MinFish="10" MaxFish="30" ShuffleFishSpots="True" Patience="Patience2" MinimumGPPatience="650" Condition="not HqHasAtLeast(17950,3)">
+          <FishSpots>
+            <FishSpot XYZ="523.2509, -0.2715912, -601.7201" Heading="2.82"/>
+            <FishSpot XYZ="542.1569, 0.1687593, -602.0763" Heading="3.91"/>
+          </FishSpots>
+          <PatienceTugs>
+            <PatienceTug Mooch="0" TugType="Light"/>
+          </PatienceTugs>
+        </Fish>
+      </While>
+      <If Condition="HqHasAtLeast(17950,3)">
+        <If Condition="not IsOnMap(613)">
+          <GetTo ZoneId="613" XYZ="524.022, -0.02368379, -245.8521"/>
+        </If>
+        <If Condition="IsOnMap(613) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(523.2509, -0.2715912, -601.7201)) &lt; 25">
+          <NoCombatMoveTo XYZ="578.4175, 9.866471, -738.9065"/>
+        </If>
+        <NoCombatMoveTo XYZ="524.022, -0.02368379, -245.8521"/>
+        <HandOver ItemIds="17950" RequiresHq="True" NpcId="1021402" XYZ="524.5593, -0.007716715, -244.8616" QuestId="68433" StepId="4"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68433) and not IsQuestCompleted(68433) and GetQuestStep(68433) == 255">
+      <GetTo ZoneId="129" XYZ="-154.1505, 3.999996, 200.1491"/>
+      <TurnIn QuestId="68433" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      <WaitTimer WaitTime="2"/>
+    </If>
+    <!-- Always a Bigger Fish (Level 68) -->
+    <If Condition="not HasQuest(68434) and not IsQuestCompleted(68434) and IsQuestCompleted(68433) and Core.Player.ClassLevel &gt; 67">
+      <GetTo ZoneId="129" XYZ="-154.1505, 3.999995, 200.1491"/>
+      <If Condition="IsQuestAcceptQualified(68434)">
+        <PickupQuest QuestId="68434" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 1">
+      <GetTo ZoneId="135" XYZ="202.1144, 25.57058, 777.3224"/>
+      <UseObject NpcId="2008206" XYZ="202.3499, 25.40625, 776.3026" QuestId="68434" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="-777.3011, 4.763442, -500.0761"/>
+      </If>
+      <If Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="-777.3011, 4.763442, -500.0761"/>
+        <TalkTo NpcId="1021405" XYZ="-778.6221, 4.763442, -499.9619" QuestId="68434" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 0"/>
+      </If>
+      <If Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="-776.3621, 4.785435, -482.8165"/>
+        <TalkTo NpcId="1021404" XYZ="-776.8826, 4.785435, -481.5595" QuestId="68434" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 2">
+        <NoCombatMoveTo XYZ="-750.5695, 1.573402, -456.356"/>
+        <TalkTo NpcId="1021403" XYZ="-750.9728, 1.579246, -455.4971" QuestId="68434" StepId="2"/>
+        <WaitWhile Condition="GetQuestById(68434).GetTodoArgs(2, 0).Item1 == 2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 3">
+      <GetTo ZoneId="628" XYZ="-75.57348, -6.999999, -41.52385"/>
+      <TalkTo NpcId="1021406" XYZ="-74.6319, -6.999999, -41.9776" QuestId="68434" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 4">
+      <GetTo ZoneId="614" XYZ="470.5002, 70.50627, -47.74347"/>
+      <TalkTo NpcId="1021408" XYZ="470.0541, 70.50159, -47.04364" QuestId="68434" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 5">
+      <If Condition="not HqHasAtLeast(17951,3)">
+        <GetTo ZoneId="614" XYZ="473.6446, 70.4106, -46.08875"/>
+        <NoCombatMoveTo XYZ="-560.9194, 36.27979, 647.9481"/>
+        <RunCode Name="GoSwimming"/>
+      </If>
+      <RunCode Name="TruthOfOceans"/>
+      <While Condition="not HqHasAtLeast(17951,3)">
+        <ExSpearFish VeteranTradeDepth="2" GigId="2" GatherStrategy="FishAndGo">
+          <Items>
+            <SpearFish Name="Ichthyosaur"/>
+          </Items>
+          <HotSpots>
+            <HotSpot Radius="80" XYZ="-497.6103, -106.693, 681.0361"/>
+            <HotSpot Radius="80" XYZ="-595.7624, -120.9816, 735.4556"/>
+            <HotSpot Radius="80" XYZ="-618.3608, -93.06483, 523.8447"/>
+          </HotSpots>
+        </ExSpearFish>
+        <WaitTimer WaitTime="2"/>
+        <ExSpearFish Loops="1" Collect="False" VeteranTradeDepth="6" GigId="0">
+          <Items>
+            <SpearFish Name="Dafangshi"/>
+          </Items>
+          <HotSpots>
+            <HotSpot Radius="200" XYZ="-444.7553, -103.2112, 774.0907"/>
+          </HotSpots>
+        </ExSpearFish>
+        <WaitTimer WaitTime="2"/>
+      </While>
+      <If Condition="HqHasAtLeast(17951,3)">
+        <GetTo ZoneId="614" XYZ="473.6446, 70.4106, -46.08875"/>
+        <NoCombatMoveTo XYZ="703.4661, 2.646878, 514.4102"/>
+        <HandOver ItemIds="17951" RequiresHq="True" NpcId="1021409" XYZ="703.1814, 2.949344, 513.6339" QuestId="68434" StepId="5"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 6">
+      <GetTo ZoneId="613" XYZ="-750.0164, 1.560868, -454.9615"/>
+      <HandOver ItemIds="2002180" NpcId="1021403" XYZ="-750.9728, 1.579246, -455.4971" QuestId="68434" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 7">
+      <TeleportTo Name="Tamamizu" AetheryteId="105" Force="True"/>
+      <GetTo ZoneId="613" XYZ="358.5697, -119.9633, -240.6343"/>
+      <HandOver ItemIds="2002180" NpcId="1021412" XYZ="359.3347, -119.9429, -239.2767" QuestId="68434" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68434) and not IsQuestCompleted(68434) and GetQuestStep(68434) == 255">
+      <GetTo ZoneId="129" XYZ="-154.8356, 3.999995, 199.8452"/>
+      <TurnIn QuestId="68434" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      <WaitTimer WaitTime="2"/>
+    </If>
+    <!-- Farewell, and Thanks for the Fish (Level 70) -->
+    <If Condition="not HasQuest(68435) and not IsQuestCompleted(68435) and IsQuestCompleted(68434) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="129" XYZ="-154.8356, 3.999995, 199.8452"/>
+      <If Condition="IsQuestAcceptQualified(68435)">
+        <PickupQuest QuestId="68435" NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68435) and not IsQuestCompleted(68435) and GetQuestStep(68435) == 1">
+      <GetTo ZoneId="628" XYZ="-74.1769, -6.999999, -40.62537"/>
+      <TalkTo NpcId="1021407" XYZ="-73.16705, -6.999999, -40.66534" QuestId="68435" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68435) and not IsQuestCompleted(68435) and GetQuestStep(68435) == 2">
+      <GetTo ZoneId="613" XYZ="-749.3661, 1.556574, -457.3727"/>
+      <TalkTo NpcId="1021416" XYZ="-751.0033, 1.581719, -457.2977" QuestId="68435" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68435) and not IsQuestCompleted(68435) and GetQuestStep(68435) == 255">
+      <While Condition="not HqHasAtLeast(17952,5)">
+        <If Condition="not HasAtLeast(20617,99)">
+          <GetTo ZoneId="613" XYZ="94.41652, 2.080172, -610.312"/>
+          <BuyItem ItemId="20617" ItemCount="99" DialogOption="6" InteractDistance="3.0" NpcId="1021501" XYZ="93.21729, 2.087148, -612.3598"/>
+        </If>
+        <If Condition="not IsOnMap(613)">
+          <GetTo ZoneId="613" XYZ="95.49872, 0.568496, -552.3418"/>
+        </If>
+        <Fish Mooch="0" Bait="Live Shrimp" MinFish="20" MaxFish="50" ShuffleFishSpots="True" Patience="Patience2" MinimumGPPatience="650" Condition="not HqHasAtLeast(17952,5)">
+          <FishSpots>
+            <FishSpot XYZ="94.0839, -0.06910139, -539.1041" Heading="6.21"/>
+            <FishSpot XYZ="149.8477, -0.07072884, -584.2156" Heading="0.73"/>
+          </FishSpots>
+          <PatienceTugs>
+            <PatienceTug Mooch="0" TugType="Heavy"/>
+          </PatienceTugs>
+        </Fish>
+      </While>
+      <If Condition="HqHasAtLeast(17952,5)">
+        <GetTo ZoneId="613" XYZ="-749.6351, 1.559595, -456.9331"/>
+        <SoTurnIn ItemIds="17952" RequiresHq="True" QuestId="68435" NpcId="1021416" XYZ="-751.0033, 1.581719, -457.2977"/>
+      </If>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="TruthOfOceans"><![CDATA[
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
+      if(!Core.Player.HasAura(1173))	{	ff14bot.Managers.ActionManager.DoAction(7911, Core.Player);
+      await Buddy.Coroutines.Coroutine.Sleep(2000);	}	]]></CodeChunk>
+    <CodeChunk Name="GoSwimming"><![CDATA[	var esc = new Vector3(-556.7548f, -50.22544f, 665.1617f);
+      await Buddy.Coroutines.Coroutine.Sleep(1000);
+      Navigator.PlayerMover.MoveTowards(esc);
+      await Buddy.Coroutines.Coroutine.Sleep(10000);
+      Navigator.PlayerMover.MoveStop();	]]></CodeChunk>
+    <CodeChunk Name="Move_Forward"><![CDATA[
+        await Coroutine.Sleep(500);
+        MovementManager.SetFacing(3.76f);
+        await Coroutine.Sleep(500);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(3000);
+        MovementManager.MoveStop();
+        await Coroutine.Sleep(500);
+        ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

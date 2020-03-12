@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<!--
+Profile name: [OrderBot] BTN/MIN Cluster Farm
+Profile aim: Gather 500 of each cluster, and stop.
+Profile author: Sodimm.
+Profile version: 1.6.
+Class/Job requirement: Botanist & Miner.
+Required Level: 50
+Required aetherytes: Revenant's Toll.
+Profile instruction: Set your Miner's Gear Set number to "1" (ONE). Set your Botanist's Gear Set Number to "2" (TWO). Start the profile as a combat class.
+-->
+<Profile>
+  <Name>[OrderBot] BTN/MIN Cluster Farm v1.6</Name>
+  <KillRadius>50</KillRadius>
+  <CodeChunks>
+    <CodeChunk Name="UseStealth"><![CDATA[
+			SpellData data;
+			if (!Core.Me.HasAura("Stealth") && ActionManager.CurrentActions.TryGetValue("Stealth", out data) && ActionManager.CanCast(data, Core.Me))
+			{
+				ActionManager.DoAction("Stealth", Core.Me);
+				await Coroutine.Sleep(500);
+			}
+		]]></CodeChunk>
+    <CodeChunk Name="DisableMount"><![CDATA[
+			ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+		]]></CodeChunk>
+    <CodeChunk Name="EnableMount"><![CDATA[
+			ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+		]]></CodeChunk>
+    <CodeChunk Name="Dismount"><![CDATA[
+			ActionManager.Dismount();
+		]]></CodeChunk>
+    <CodeChunk Name="MIN"><![CDATA[
+			ff14bot.Managers.ChatManager.SendChat("/gs change 1");
+			await Coroutine.Sleep(3000);
+		]]></CodeChunk>
+    <CodeChunk Name="BTN"><![CDATA[
+			ff14bot.Managers.ChatManager.SendChat("/gs change 2");
+			await Coroutine.Sleep(3000);
+		]]></CodeChunk>
+  </CodeChunks>
+  <Order>
+    <If Condition="not IsOnMap(156)">
+      <TeleportTo Name="Revenant's Toll" AetheryteId="24"/>
+    </If>
+    <While condition="True">
+      <If Condition="IsTimeBetween(0,13)">
+        <MoveTo XYZ="509.2175, -3.772751, -426.0106" Name="Botanist's Hotspot"/>
+        <RunCode Name="Dismount"/>
+        <RunCode Name="BTN"/>
+        <RunCode Name="UseStealth"/>
+        <RunCode Name="DisableMount"/>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(14) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>2</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(15) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>5</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(16) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>3</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(17) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>6</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(18) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>1</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(0,13) and ItemCount(19) &lt; 500">
+          <GatherObject>Unspoiled Mature Tree</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="509.2175, -3.772751, -426.0106"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Blessed Harvest II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Field Mastery II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>4</Slot>
+        </Gather>
+      </If>
+      <If Condition="IsTimeBetween(13,24)">
+        <MoveTo XYZ="345.458, -4.698928, -482.9557" Name="Miner's Hotspot"/>
+        <RunCode Name="Dismount"/>
+        <RunCode Name="MIN"/>
+        <RunCode Name="UseStealth"/>
+        <RunCode Name="DisableMount"/>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(14) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>2</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(15) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>5</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(16) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>3</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(17) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>6</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(18) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>1</Slot>
+        </Gather>
+        <Gather while="IsTimeBetween(13,24) and ItemCount(19) &lt; 500">
+          <GatherObject>Unspoiled Rocky Outcrop</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="360" XYZ="345.458, -4.698928, -482.9557"/>
+          </HotSpots>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="King's Yield II" TimesToCast="1"/>
+            <GatheringSkill SpellName="Sharp Vision II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+          <Slot>4</Slot>
+        </Gather>
+      </If>
+    </While>
+    <RunCode Name="EnableMount"/>
+  </Order>
+</Profile>

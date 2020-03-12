@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile:  [Orderbot] Shadowbringers Aether Currents
+Authors:  y2krazy, Sodimm
+-->
+<Profile>
+  <Name>[Orderbot] Heavensward Aether Currents</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Coerthas Western Highlands -->
+    <If Condition="IsQuestCompleted(67144)">
+      <!-- Bridge Over Frozen Water -->
+      <If Condition="not IsQuestCompleted(67280) and not HasQuest(67280)">
+        <GetTo ZoneId="397" XYZ="493.1563, 200.2377, 663.0197"/>
+        <If Condition="IsQuestAcceptQualified(67280)">
+          <PickupQuest NpcId="1011240" QuestId="67280"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67280) &gt; 0">
+        <If Condition="GetQuestStep(67280) == 1">
+          <GetTo ZoneId="397" XYZ="458.0518, 161.7498, -262.45"/>
+          <Grind GrindRef="67280" PostCombatDelay="3.0" While="not GetQuestStep(67280) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67280) == 255">
+          <GetTo ZoneId="397" XYZ="493.1563, 200.2377, 663.0197"/>
+          <TurnIn QuestId="67280" NpcId="1011240" XYZ="493.1563, 200.2377, 663.0197"/>
+        </If>
+      </If>
+      <!-- For All the Nights to Come -->
+      <If Condition="IsQuestCompleted(67142) and not IsQuestCompleted(67647) and not HasQuest(67647)">
+        <GetTo ZoneId="397" XYZ="-279.5605, 127.0813, 13.59576"/>
+        <If Condition="IsQuestAcceptQualified(67647)">
+          <PickupQuest NpcId="1011911" QuestId="67647"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67647) &gt; 0">
+        <If Condition="GetQuestStep(67647) == 1">
+          <GetTo ZoneId="397" XYZ="-87.81573, 87.189, -735.0424"/>
+          <TalkTo NpcId="1013746" XYZ="-87.81573, 87.189, -735.0424" QuestId="67647" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67647) == 2">
+          <RunCode Name="Announce_Manual_Completion"/>
+        </If>
+        <If Condition="GetQuestStep(67647) == 255">
+          <GetTo ZoneId="397" XYZ="-279.5605, 127.0813, 13.59576"/>
+          <TurnIn ItemId="2001883" QuestId="67647" NpcId="1011911" XYZ="-279.5605, 127.0813, 13.59576"/>
+        </If>
+      </If>
+      <!-- Baby Steps -->
+      <If Condition="not IsQuestCompleted(67296) and not HasQuest(67296)">
+        <GetTo ZoneId="397" XYZ="-288.8686, 127.0664, 13.19904"/>
+        <If Condition="IsQuestAcceptQualified(67296)">
+          <PickupQuest NpcId="1011907" QuestId="67296"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67296) &gt; 0">
+        <If Condition="GetQuestStep(67296) == 1">
+          <GetTo ZoneId="397" XYZ="-383.8947, 116.7741, -102.1182"/>
+          <Grind GrindRef="67296" PostCombatDelay="3.0" While="not GetQuestStep(67296) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67296) == 255">
+          <GetTo ZoneId="397" XYZ="-288.8686, 127.0664, 13.19904"/>
+          <TurnIn QuestId="67296" NpcId="1011907" XYZ="-288.8686, 127.0664, 13.19904"/>
+        </If>
+      </If>
+      <!-- Protecting What's Important -->
+      <If Condition="not IsQuestCompleted(67295) and not HasQuest(67295)">
+        <GetTo ZoneId="397" XYZ="-298.2681, 126.6705, -1.419189"/>
+        <If Condition="IsQuestAcceptQualified(67295)">
+          <PickupQuest NpcId="1011910" QuestId="67295"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67295) &gt; 0">
+        <If Condition="GetQuestStep(67295) == 1">
+          <GetTo ZoneId="397" XYZ="-142.4411, 110.1172, -37.57337"/>
+          <Grind GrindRef="67295" PostCombatDelay="3.0" While="not GetQuestStep(67295) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67295) == 255">
+          <GetTo ZoneId="397" XYZ="-298.2681, 126.6705, -1.419189"/>
+          <TurnIn QuestId="67295" NpcId="1011910" XYZ="-298.2681, 126.6705, -1.419189"/>
+        </If>
+      </If>
+      <!-- Open World -->
+      <If Condition="not IsAetherCurrentCompleted(397,14)">
+        <GetTo ZoneId="397" XYZ="402.0293, 191.5159, 561.4252"/>
+        <UseObject NpcId="2005536" XYZ="402.0293, 191.5159, 561.4252" Condition="not IsAetherCurrentCompleted(397,14)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,6)">
+        <GetTo ZoneId="397" XYZ="375.326, 161.6388, -159.35"/>
+        <UseObject NpcId="2006193" XYZ="375.326, 161.6388, -159.35" Condition="not IsAetherCurrentCompleted(397,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,7)">
+        <GetTo ZoneId="397" XYZ="328.5114, 168.6274, 183.1539"/>
+        <UseObject NpcId="2006192" XYZ="328.5114, 168.6274, 183.1539" Condition="not IsAetherCurrentCompleted(397,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,13)">
+        <GetTo ZoneId="397" XYZ="627.2831, 78.41602, 225.9403"/>
+        <UseObject NpcId="2006186" XYZ="627.2831, 78.41602, 225.9403" Condition="not IsAetherCurrentCompleted(397,13)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,12)">
+        <GetTo ZoneId="397" XYZ="435.6338, 171.2269, -554.9074"/>
+        <Dismount/>
+        <RunCode Name="2006187"/>
+        <MoveTo XYZ="436.0315, 170.1193, -545.9077" UseMesh="False"/>
+        <MoveTo XYZ="445.1338, 171.2269, -545.1742" UseMesh="False"/>
+        <MoveTo XYZ="443.9939, 171.2269, -533.9135" UseMesh="False"/>
+        <MoveTo XYZ="450.0945, 171.2269, -536.9135" UseMesh="False"/>
+        <UseObject NpcId="2006187" XYZ="451.5297, 171.2214, -535.6985" Condition="not IsAetherCurrentCompleted(397,12)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,9)">
+        <GetTo ZoneId="397" XYZ="-660.1511, 135.5153, -376.6384"/>
+        <UseObject NpcId="2006190" XYZ="-660.1511, 135.5153, -376.6384" Condition="not IsAetherCurrentCompleted(397,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,11)">
+        <GetTo ZoneId="397" XYZ="-100.4807, 88.09033, -682.2462"/>
+        <UseObject NpcId="2006188" XYZ="-100.4807, 88.09033, -682.2462" Condition="not IsAetherCurrentCompleted(397,11)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,10)">
+        <GetTo ZoneId="397" XYZ="-334.0353, 133.9894, -10.14728"/>
+        <UseObject NpcId="2006189" XYZ="-334.0353, 133.9894, -10.14728" Condition="not IsAetherCurrentCompleted(397,10)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,8)">
+        <GetTo ZoneId="397" XYZ="-311.4824, 96.20813, -191.6381"/>
+        <UseObject NpcId="2006191" XYZ="-311.4824, 96.20813, -191.6381" Condition="not IsAetherCurrentCompleted(397,8)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(397,5)">
+        <GetTo ZoneId="397" XYZ="-85.67944, 111.1313, -61.87543"/>
+        <UseObject NpcId="2006194" XYZ="-85.67944, 111.1313, -61.87543" Condition="not IsAetherCurrentCompleted(397,5)"/>
+      </If>
+    </If>
+    <!-- The Dravanian Forelands -->
+    <If Condition="IsQuestCompleted(67153)">
+      <!-- Some Bad News -->
+      <If Condition="not IsQuestCompleted(67307) and not HasQuest(67307)">
+        <GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
+        <If Condition="IsQuestAcceptQualified(67307)">
+          <PickupQuest NpcId="1011916" QuestId="67307"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67307) &gt; 0">
+        <If Condition="GetQuestStep(67307) == 1">
+          <If Condition="GetQuestById(67307).GetTodoArgs(1, 0).Item1 == 0">
+            <GetTo ZoneId="398" XYZ="711.1161, -36.39083, 198.1079"/>
+            <TalkTo NpcId="1011923" XYZ="711.1161, -36.39083, 198.1079" QuestId="67307"/>
+          </If>
+          <If Condition="GetQuestById(67307).GetTodoArgs(1, 0).Item1 == 1">
+            <GetTo ZoneId="398" XYZ="849.0576, -37.66994, -39.56665"/>
+            <TalkTo NpcId="1011924" XYZ="849.0576, -37.66994, -39.56665" QuestId="67307"/>
+          </If>
+          <If Condition="GetQuestById(67307).GetTodoArgs(1, 0).Item1 == 2">
+            <GetTo ZoneId="398" XYZ="675.6691, -19.5401, -340.323"/>
+            <NoCombatMoveTo XYZ="682.945, -19.77036, -327.5137" Distance="1"/>
+            <RunCode Name="MoveForward"/>
+            <TalkTo NpcId="1011932" XYZ="685.9692, -24.38285, -269.0624" QuestId="67307"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67307) == 255">
+          <GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
+          <TurnIn QuestId="67307" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079"/>
+        </If>
+      </If>
+      <!-- A Lesson in Humility -->
+      <If Condition="not IsQuestCompleted(67338) and not HasQuest(67338)">
+        <GetTo ZoneId="398" XYZ="-305.562, 39.04307, 22.9953"/>
+        <If Condition="IsQuestAcceptQualified(67338)">
+          <PickupQuest NpcId="1011937" QuestId="67338"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67338) &gt; 0">
+        <If Condition="GetQuestStep(67338) == 1">
+          <GetTo ZoneId="398" XYZ="-411.5206, -35.095, 231.464"/>
+          <TalkTo NpcId="1013406" XYZ="-411.5206, -35.095, 231.464" QuestId="67338" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 2">
+          <GetTo ZoneId="398" XYZ="-431.3565, -34.77514, 249.9151"/>
+          <WaitWhile Condition="not GetQuestStep(67338) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 3">
+          <GetTo ZoneId="398" XYZ="-408.4078, -34.19166, 238.4832"/>
+          <TalkTo NpcId="1013407" XYZ="-408.4078, -34.19166, 238.4832" QuestId="67338" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 4">
+          <GetTo ZoneId="398" XYZ="-431.3565, -34.77514, 249.9151"/>
+          <WaitWhile Condition="not GetQuestStep(67338) == 5"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 5">
+          <GetTo ZoneId="398" XYZ="-409.8726, -34.65094, 234.8821"/>
+          <TalkTo NpcId="1013408" XYZ="-409.8726, -34.65094, 234.8821" QuestId="67338" StepId="5"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 6">
+          <GetTo ZoneId="398" XYZ="-431.3565, -34.77514, 249.9151"/>
+          <WaitWhile Condition="not GetQuestStep(67338) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67338) == 255">
+          <GetTo ZoneId="398" XYZ="-305.562, 39.04307, 22.9953"/>
+          <TurnIn QuestId="67338" NpcId="1011937" XYZ="-305.562, 39.04307, 22.9953"/>
+        </If>
+      </If>
+      <!-- Stolen Munitions -->
+      <If Condition="not IsQuestCompleted(67326) and not HasQuest(67326)">
+        <GetTo ZoneId="398" XYZ="72.31982, -49.153, -142.5694"/>
+        <If Condition="IsQuestAcceptQualified(67326)">
+          <PickupQuest NpcId="1011929" QuestId="67326"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67326) &gt; 0">
+        <If Condition="GetQuestStep(67326) == 1">
+          <GetTo ZoneId="398" XYZ="169.0192, -109.5845, 597.6518"/>
+          <Grind GrindRef="67326" PostCombatDelay="3.0" While="not GetQuestStep(67326) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67326) == 255">
+          <GetTo ZoneId="398" XYZ="72.31982, -49.153, -142.5694"/>
+          <TurnIn QuestId="67326" NpcId="1011929" ItemId="2001614" XYZ="72.31982, -49.153, -142.5694"/>
+        </If>
+      </If>
+      <!-- The Hunter Becomes the Kweh -->
+      <If Condition="not IsQuestCompleted(67333) and not HasQuest(67333)">
+        <GetTo ZoneId="398" XYZ="470.1163, -49.89133, 22.38989"/>
+        <If Condition="IsQuestAcceptQualified(67333)">
+          <PickupQuest NpcId="1011916" QuestId="67333"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67333) &gt; 0">
+        <If Condition="GetQuestStep(67333) == 1">
+          <If Condition="GetQuestById(67333).GetTodoArgs(1, 0).Item1 == 0">
+            <GetTo ZoneId="398" XYZ="713.429, -36.46737, 197.3796"/>
+            <TalkTo NpcId="1011923" XYZ="713.429, -36.46737, 197.3796" QuestId="67333"/>
+          </If>
+          <If Condition="GetQuestById(67333).GetTodoArgs(1, 0).Item1 == 1">
+            <GetTo ZoneId="398" XYZ="847.2927, -37.66238, -38.70405"/>
+            <TalkTo NpcId="1011924" XYZ="847.2927, -37.66238, -38.70405" QuestId="67333"/>
+          </If>
+          <If Condition="GetQuestById(67333).GetTodoArgs(1, 0).Item1 == 2">
+            <GetTo ZoneId="398" XYZ="675.6691, -19.5401, -340.323"/>
+            <NoCombatMoveTo XYZ="682.945, -19.77036, -327.5137" Distance="1"/>
+            <RunCode Name="MoveForward"/>
+            <TalkTo NpcId="1011932" XYZ="684.6665, -24.41711, -268.053" QuestId="67333"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67333) == 255">
+          <GetTo ZoneId="398" XYZ="470.1163, -49.89133, 22.38989"/>
+          <TurnIn QuestId="67333" NpcId="1011916" XYZ="470.1163, -49.89133, 22.38989"/>
+        </If>
+      </If>
+      <!-- Open World -->
+      <If Condition="not IsAetherCurrentCompleted(398,14)">
+        <GetTo ZoneId="398" XYZ="765.0111, -15.82361, 289.082"/>
+        <UseObject NpcId="2006195" XYZ="765.0111, -15.82361, 289.082" Condition="not IsAetherCurrentCompleted(398,14)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,13)">
+        <GetTo ZoneId="398" XYZ="868.406, -38.28497, -29.52625"/>
+        <UseObject NpcId="2006196" XYZ="868.406, -38.28497, -29.52625" Condition="not IsAetherCurrentCompleted(398,13)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,12)">
+        <GetTo ZoneId="398" XYZ="433.5544, -47.77606, -286.244"/>
+        <UseObject NpcId="2006197" XYZ="433.5544, -47.77606, -286.244" Condition="not IsAetherCurrentCompleted(398,12)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,11)">
+        <GetTo ZoneId="398" XYZ="489.6771, -51.28564, 54.0321"/>
+        <UseObject NpcId="2006198" XYZ="489.6771, -51.28564, 54.0321" Condition="not IsAetherCurrentCompleted(398,11)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,10)">
+        <GetTo ZoneId="398" XYZ="98.92419, -50.8584, -134.6609"/>
+        <UseObject NpcId="2006199" XYZ="98.92419, -50.8584, -134.6609" Condition="not IsAetherCurrentCompleted(398,10)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,6)">
+        <GetTo ZoneId="398" XYZ="-261.7991, -61.66174, 352.4376"/>
+        <UseObject NpcId="2006203" XYZ="-261.7991, -61.66174, 352.4376" Condition="not IsAetherCurrentCompleted(398,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,9)">
+        <GetTo ZoneId="398" XYZ="207.3853, -96.26923, 374.6547"/>
+        <UseObject NpcId="2006200" XYZ="207.3853, -96.26923, 374.6547" Condition="not IsAetherCurrentCompleted(398,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,5)">
+        <GetTo ZoneId="398" XYZ="406.7596, -89.82996, 686.6101"/>
+        <UseObject NpcId="2006204" XYZ="406.7596, -89.82996, 686.6101" Condition="not IsAetherCurrentCompleted(398,5)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,7)">
+        <GetTo ZoneId="398" XYZ="-405.356, -35.41626, 222.7053"/>
+        <UseObject NpcId="2006202" XYZ="-405.356, -35.41626, 222.7053" Condition="not IsAetherCurrentCompleted(398,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(398,8)">
+        <GetTo ZoneId="398" XYZ="-480.2778, -5.996826, -425.2842"/>
+        <UseObject NpcId="2006201" XYZ="-480.2778, -5.996826, -425.2842" Condition="not IsAetherCurrentCompleted(398,8)"/>
+      </If>
+    </If>
+    <!-- The Churning Mists -->
+    <If Condition="IsQuestCompleted(67170)">
+      <!-- The Bathing Bully -->
+      <If Condition="not IsQuestCompleted(67355) and not HasQuest(67355)">
+        <GetTo ZoneId="400" XYZ="363.241, -73.25598, 678.4314"/>
+        <If Condition="IsQuestAcceptQualified(67355)">
+          <PickupQuest NpcId="1012284" QuestId="67355"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67355) &gt; 0">
+        <If Condition="GetQuestStep(67355) == 1">
+          <GetTo ZoneId="400" XYZ="714.7452, -50.23019, 407.4195"/>
+          <Grind GrindRef="67355" PostCombatDelay="3.0" While="not GetQuestStep(67355) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67355) == 255">
+          <GetTo ZoneId="400" XYZ="363.241, -73.25598, 678.4314"/>
+          <TurnIn QuestId="67355" NpcId="1012284" XYZ="363.241, -73.25598, 678.4314"/>
+        </If>
+      </If>
+      <!-- Waiting to Inhale -->
+      <If Condition="not IsQuestCompleted(67371) and not HasQuest(67371)">
+        <GetTo ZoneId="400" XYZ="517.9064, -1.191711, -354.6349"/>
+        <If Condition="IsQuestAcceptQualified(67371)">
+          <PickupQuest NpcId="1013434" QuestId="67371"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67371) &gt; 0">
+        <If Condition="GetQuestStep(67371) == 1">
+          <GetTo ZoneId="400" XYZ="537.2871, -8.29427, -335.9211"/>
+          <Grind GrindRef="67371" PostCombatDelay="3.0" While="not GetQuestStep(67371) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67371) == 255">
+          <GetTo ZoneId="400" XYZ="517.9064, -1.191711, -354.6349"/>
+          <TurnIn QuestId="67371" NpcId="1013434" XYZ="517.9064, -1.191711, -354.6349"/>
+        </If>
+      </If>
+      <!-- Road Kill -->
+      <If Condition="not IsQuestCompleted(67359) and not HasQuest(67359)">
+        <GetTo ZoneId="400" XYZ="247.1199, -42.33362, 565.3314"/>
+        <If Condition="IsQuestAcceptQualified(67359)">
+          <PickupQuest NpcId="1012285" QuestId="67359"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67359) &gt; 0">
+        <If Condition="GetQuestStep(67359) == 1">
+          <GetTo ZoneId="400" XYZ="432.7348, -31.88561, 196.7521"/>
+          <Grind GrindRef="67359" PostCombatDelay="3.0" While="not GetQuestStep(67359) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67359) == 255">
+          <GetTo ZoneId="400" XYZ="-47.04364, -8.866012, 165.9418"/>
+          <TurnIn QuestId="67359" NpcId="1012288" XYZ="-47.04364, -8.866012, 165.9418"/>
+        </If>
+      </If>
+      <!-- Hide Your Moogles -->
+      <If Condition="not IsQuestCompleted(67364) and not HasQuest(67364)">
+        <GetTo ZoneId="400" XYZ="-511.6354, 50, 348.9565"/>
+        <If Condition="IsQuestAcceptQualified(67364)">
+          <PickupQuest NpcId="1013420" QuestId="67364"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67364) &gt; 0">
+        <If Condition="GetQuestStep(67364) == 1">
+          <If Condition="GetQuestById(67364).GetTodoArgs(1, 0).Item1 == 0">
+            <GetTo ZoneId="400" XYZ="-498.9335, 57.26135, 436.7102"/>
+            <TalkTo NpcId="1013424" XYZ="-498.9335, 57.26135, 436.7102" QuestId="67364"/>
+          </If>
+          <If Condition="GetQuestById(67364).GetTodoArgs(1, 0).Item1 == 1">
+            <GetTo ZoneId="400" XYZ="-452.8425, 44.7454, 417.0107"/>
+            <TalkTo NpcId="1013425" XYZ="-452.8425, 44.7454, 417.0107" QuestId="67364"/>
+          </If>
+          <If Condition="GetQuestById(67364).GetTodoArgs(1, 0).Item1 == 2">
+            <GetTo ZoneId="400" XYZ="-456.751, 43.32316, 387.6946"/>
+            <ClimbHill Start="-456.751, 43.32316, 387.6946" End="-445.2233, 50.70994, 387.7384"/>
+            <ClimbHill Start="-445.2233, 50.70994, 387.7384" End="-439.85, 53.84184, 385.2048"/>
+            <MoveTo XYZ="-442.5448, 53.88261, 378.4454" Distance="1" UseMesh="False"/>
+            <MoveTo XYZ="-454.1716, 53.5063, 379.4364" Distance="1" UseMesh="False"/>
+            <TalkTo NpcId="1013421" XYZ="-454.1716, 53.5063, 379.4364" QuestId="67364"/>
+            <MoveTo XYZ="-463.1111, 42.99546, 382.9499" Distance="1" UseMesh="False"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67364) == 255">
+          <GetTo ZoneId="400" XYZ="-511.6354, 50, 348.9565"/>
+          <TurnIn QuestId="67364" NpcId="1013420" XYZ="-511.6354, 50, 348.9565"/>
+        </If>
+      </If>
+      <!-- Open World -->
+      <If Condition="not IsAetherCurrentCompleted(400,13)">
+        <GetTo ZoneId="400" XYZ="421.1894, -43.04549, 661.7982"/>
+        <UseObject NpcId="2006216" XYZ="421.1894, -43.04549, 661.7982" Condition="not IsAetherCurrentCompleted(400,13)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,6)">
+        <GetTo ZoneId="400" XYZ="669.3064, -32.39496, 563.6224"/>
+        <UseObject NpcId="2006223" XYZ="669.3064, -32.39496, 563.6224" Condition="not IsAetherCurrentCompleted(400,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,14)">
+        <GetTo ZoneId="400" XYZ="296.8948, -35.935, 291.371"/>
+        <UseObject NpcId="2006215" XYZ="296.8948, -35.935, 291.371" Condition="not IsAetherCurrentCompleted(400,14)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,7)">
+        <GetTo ZoneId="400" XYZ="595.2894, -11.89169, -344.529"/>
+        <UseObject NpcId="2006222" XYZ="601.8004, -9.475891, -336.3242" Condition="not IsAetherCurrentCompleted(400,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,5)">
+        <GetTo ZoneId="400" XYZ="340.0167, -25.37579, -130.541"/>
+        <UseObject NpcId="2006224" XYZ="340.0167, -25.37579, -130.541" Condition="not IsAetherCurrentCompleted(400,5)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,8)">
+        <GetTo ZoneId="400" XYZ="272.6445, -13.4525, 180.1947"/>
+        <MoveTo XYZ="265.7668, -11.41952, 185.1255" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2006221" XYZ="246.601, -11.55109, 180.8651" Condition="not IsAetherCurrentCompleted(400,8)"/>
+        <MoveTo XYZ="243.0246, -21.86147, 170.7207" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,12)">
+        <GetTo ZoneId="400" XYZ="-86.93073, -8.712891, 245.655"/>
+        <UseObject NpcId="2006217" XYZ="-86.93073, -8.712891, 245.655" Condition="not IsAetherCurrentCompleted(400,12)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,9)">
+        <GetTo ZoneId="400" XYZ="-74.2962, -0.2289429, 378.7441"/>
+        <UseObject NpcId="2006220" XYZ="-74.2962, -0.2289429, 378.7441" Condition="not IsAetherCurrentCompleted(400,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,10)">
+        <GetTo ZoneId="400" XYZ="-273.8715, 30.37311, 570.6412"/>
+        <Dismount/>
+        <MoveTo XYZ="-278.7672, 37.12512, 555.5656" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2006219" XYZ="-278.7672, 37.12512, 555.5656" Condition="not IsAetherCurrentCompleted(400,10)"/>
+        <MoveTo XYZ="-283.196, 35.35236, 552.0666" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(400,11)">
+        <GetTo ZoneId="400" XYZ="-775.2651, 123.7354, 243.7018"/>
+        <UseObject NpcId="2006218" XYZ="-775.2651, 123.7354, 243.7018" Condition="not IsAetherCurrentCompleted(400,11)"/>
+      </If>
+    </If>
+    <!-- The Sea of Clouds -->
+    <If Condition="IsQuestCompleted(67183)">
+      <!-- Clipped Wings -->
+      <If Condition="not IsQuestCompleted(67284) and not HasQuest(67284)">
+        <GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
+        <If Condition="IsQuestAcceptQualified(67284)">
+          <PickupQuest NpcId="1011952" QuestId="67284"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67284) &gt; 0">
+        <If Condition="GetQuestStep(67284) == 1">
+          <GetTo ZoneId="401" XYZ="-481.1719, -165.427, 608.4476"/>
+          <Grind GrindRef="67284" PostCombatDelay="3.0" While="not GetQuestStep(67284) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67284) == 255">
+          <GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
+          <TurnIn QuestId="67284" ItemId="2001599" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038"/>
+        </If>
+      </If>
+      <!-- Honoring the Past -->
+      <If Condition="not IsQuestCompleted(67410) and not HasQuest(67410)">
+        <GetTo ZoneId="419" XYZ="12.93354, 15.96505, -15.44089"/>
+        <If Condition="IsQuestAcceptQualified(67410)">
+          <PickupQuest NpcId="1014720" QuestId="67410"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67410) &gt; 0">
+        <If Condition="GetQuestStep(67410) == 1">
+          <GetTo ZoneId="401" XYZ="-656.1703, -117.3894, 492.451"/>
+          <HandOver ItemId="2001807" NpcId="1012055" XYZ="-656.1703, -117.3894, 492.451" QuestId="67410" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67410) == 255">
+          <GetTo ZoneId="401" XYZ="-278.5767, -184.589, 740.3099"/>
+          <TurnIn QuestId="67410" ItemId="2001807" NpcId="1011952" XYZ="-278.5767, -184.589, 740.3099"/>
+        </If>
+      </If>
+      <!-- Sleepless in Ok' Zundu -->
+      <If Condition="not IsQuestCompleted(67445) and not HasQuest(67445)">
+        <GetTo ZoneId="401" XYZ="-647.0283, -51.05719, -417.7463"/>
+        <If Condition="IsQuestAcceptQualified(67445)">
+          <PickupQuest NpcId="1012069" QuestId="67445"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67445) &gt; 0">
+        <If Condition="GetQuestStep(67445) == 1">
+          <If Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 0">
+            <GetTo ZoneId="401" XYZ="226.2306, 12.93093, -624.3665"/>
+            <UseObject NpcIds="2005824" XYZ="204.8523, 12.74121, -596.2158" Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+          <If Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 1">
+            <GetTo ZoneId="401" XYZ="224.9332, 12.86334, -653.3456"/>
+            <UseObject NpcIds="2005826" XYZ="224.9332, 12.86334, -653.3456" Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+          <If Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 2">
+            <GetTo ZoneId="401" XYZ="244.3427, 38.34583, -564.3549"/>
+            <UseObject NpcIds="2005825" XYZ="244.3427, 38.34583, -564.3549" Condition="GetQuestById(67445).GetTodoArgs(1, 0).Item1 == 2"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67445) == 255">
+          <GetTo ZoneId="401" XYZ="-647.0283, -51.05719, -417.7463"/>
+          <TurnIn QuestId="67445" NpcId="1012069" ItemId="2001670" XYZ="-647.0283, -51.05719, -417.7463"/>
+        </If>
+      </If>
+      <!-- Flying the Nest -->
+      <If Condition="not IsQuestCompleted(67446) and not HasQuest(67446)">
+        <GetTo ZoneId="401" XYZ="-597.0398, -51.05185, -387.0451"/>
+        <If Condition="IsQuestAcceptQualified(67446)">
+          <PickupQuest NpcId="1012068" QuestId="67446"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67446) &gt; 0">
+        <If Condition="GetQuestStep(67446) == 1">
+          <GetTo ZoneId="401" XYZ="-647.0283, -51.05719, -417.7463"/>
+          <If Condition="GetQuestById(67446).GetTodoArgs(1, 0).Item1 == 0">
+            <TalkTo NpcId="1012069" XYZ="-647.0283, -51.05719, -417.7463" QuestId="67446"/>
+          </If>
+          <If Condition="GetQuestById(67446).GetTodoArgs(1, 0).Item1 == 1">
+            <TalkTo NpcId="1012071" XYZ="-568.3833, -50.60525, -449.1188" QuestId="67446"/>
+          </If>
+          <If Condition="GetQuestById(67446).GetTodoArgs(1, 0).Item1 == 2">
+            <TalkTo NpcId="1012072" XYZ="-568.5969, -50.64948, -452.1096" QuestId="67446"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(67446) == 255">
+          <GetTo ZoneId="401" XYZ="-373.4341, -55.21164, -630.0908"/>
+          <RunCode Name="67446"/>
+          <TurnIn QuestId="67446" NpcId="1014171" XYZ="-373.4341, -55.21164, -630.0908"/>
+        </If>
+      </If>
+      <!-- Open World -->
+      <If Condition="not IsAetherCurrentCompleted(401,13)">
+        <GetTo ZoneId="401" XYZ="-657.6039, -123.8093, 517.3193"/>
+        <MoveTo XYZ="-664.271, -124.8036, 524.8033" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2006226" XYZ="-664.271, -124.8036, 524.8033" Condition="not IsAetherCurrentCompleted(401,13)"/>
+        <MoveTo XYZ="-657.6039, -123.8093, 517.3193" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,14)">
+        <GetTo ZoneId="401" XYZ="-595.0256, -166.2471, 582.4215"/>
+        <UseObject NpcId="2006225" XYZ="-595.0256, -166.2471, 582.4215" Condition="not IsAetherCurrentCompleted(401,14)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,12)">
+        <GetTo ZoneId="401" XYZ="-313.6187, -185.3513, 755.4589"/>
+        <UseObject NpcId="2006227" XYZ="-313.6187, -185.3513, 755.4589" Condition="not IsAetherCurrentCompleted(401,12)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,11)">
+        <GetTo ZoneId="401" XYZ="-747.097, -57.11456, 163.8361"/>
+        <UseObject NpcId="2006228" XYZ="-747.097, -57.11456, 163.8361" Condition="not IsAetherCurrentCompleted(401,11)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,10)">
+        <GetTo ZoneId="401" XYZ="-754.3656, -13.87734, -120.4015"/>
+        <Dismount/>
+        <RunCode Name="2006229"/>
+        <MoveTo XYZ="-759.4263, -9.201294, -110.8568" Distance="1" UseMesh="False"/>
+        <UseObject NpcId="2006229" XYZ="-759.4263, -9.201294, -110.8568" Condition="not IsAetherCurrentCompleted(401,10)"/>
+        <MoveTo XYZ="-753.8975, -13.87735, -119.7341" Distance="1" UseMesh="False"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,5)">
+        <GetTo ZoneId="401" XYZ="-564.8127, -36.698, -349.0807"/>
+        <UseObject NpcId="2006234" XYZ="-564.8127, -36.698, -349.0807" Condition="not IsAetherCurrentCompleted(401,5)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,6)">
+        <GetTo ZoneId="401" XYZ="-499.1379, -55.86328, -536.7056"/>
+        <UseObject NpcId="2006233" XYZ="-499.1379, -55.86328, -536.7056" Condition="not IsAetherCurrentCompleted(401,6)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,7)">
+        <GetTo ZoneId="401" XYZ="-366.4149, -56.26001, -659.6018"/>
+        <UseObject NpcId="2006232" XYZ="-366.4149, -56.26001, -659.6018" Condition="not IsAetherCurrentCompleted(401,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,8)">
+        <GetTo ZoneId="401" XYZ="-180.3159, -14.96918, -543.1144"/>
+        <UseObject NpcId="2006231" XYZ="-180.3159, -14.96918, -543.1144" Condition="not IsAetherCurrentCompleted(401,8)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(401,9)">
+        <GetTo ZoneId="401" XYZ="238.7578, 26.19971, -579.7666"/>
+        <UseObject NpcId="2006230" XYZ="238.7578, 26.19971, -579.7666" Condition="not IsAetherCurrentCompleted(401,9)"/>
+      </If>
+    </If>
+    <!-- The Dravanian Hinterlands -->
+    <If Condition="IsQuestCompleted(67196)">
+      <!-- Louder than Words -->
+      <If Condition="not IsQuestCompleted(67472) and not HasQuest(67472)">
+        <GetTo ZoneId="399" XYZ="-28.39703, 100.9697, -186.4195"/>
+        <If Condition="IsQuestAcceptQualified(67472)">
+          <PickupQuest NpcId="1012287" QuestId="67472"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67472) &gt; 0">
+        <If Condition="GetQuestStep(67472) == 1">
+          <GetTo ZoneId="399" XYZ="57.10491, 83.32266, -218.4489"/>
+          <WaitWhile Condition="not GetQuestStep(67472) == 2"/>
+        </If>
+        <If Condition="GetQuestStep(67472) == 2">
+          <GetTo ZoneId="399" XYZ="105.1743, 63.32292, -218.451"/>
+          <WaitWhile Condition="not GetQuestStep(67472) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(67472) == 255">
+          <GetTo ZoneId="399" XYZ="-28.39703, 100.9697, -186.4195"/>
+          <TurnIn QuestId="67472" NpcId="1012287" XYZ="-28.39703, 100.9697, -186.4195"/>
+        </If>
+      </If>
+      <!-- Ebb and Aetherflow -->
+      <If Condition="not IsQuestCompleted(67481) and not HasQuest(67481)">
+        <GetTo ZoneId="478" XYZ="72.40405, 205.6816, 31.63196"/>
+        <If Condition="IsQuestAcceptQualified(67481)">
+          <PickupQuest NpcId="1012102" QuestId="67481"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67481) &gt; 0">
+        <If Condition="GetQuestStep(67481) == 1">
+          <GetTo ZoneId="399" XYZ="497.3224, 83.73499, 19.55668"/>
+          <UseObject NpcIds="2005877,2005878,2005879" XYZ="497.3224, 83.73499, 19.55668" QuestId="67481" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67481) == 255">
+          <GetTo ZoneId="478" XYZ="72.40405, 205.6816, 31.63196"/>
+          <TurnIn QuestId="67481" ItemId="2001696" NpcId="1012102" XYZ="72.40405, 205.6816, 31.63196"/>
+        </If>
+      </If>
+      <!-- Taking Stock -->
+      <If Condition="not IsQuestCompleted(67499) and not HasQuest(67499)">
+        <GetTo ZoneId="478" XYZ="-26.84064, 206.5, 28.67163"/>
+        <If Condition="IsQuestAcceptQualified(67499)">
+          <PickupQuest NpcId="1012133" QuestId="67499"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(67499) &gt; 0">
+        <If Condition="GetQuestStep(67499) == 1">
+          <GetTo ZoneId="399" XYZ="-475.761, 155.8605, -209.7658"/>
+          <TalkTo NpcId="1013651" XYZ="-475.761, 155.8605, -209.7658" QuestId="67499" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67499) == 2">
+          <GetTo ZoneId="399" XYZ="-403.2807, 155.3521, 82.84119"/>
+          <WaitWhile Condition="not GetQuestStep(67499) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(67499) == 3">
+          <GetTo ZoneId="399" XYZ="-403.2807, 155.3521, 82.84119"/>
+          <UseObject NpcId="2005885" XYZ="-403.2807, 155.3521, 82.84119" QuestId="67499" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(67499) == 255">
+          <GetTo ZoneId="399" XYZ="-475.761, 155.8605, -209.7658"/>
+          <TurnIn QuestId="67499" NpcId="1013651" ItemId="2001699" XYZ="-475.761, 155.8605, -209.7658"/>
+        </If>
+      </If>
+      <!-- Saro Roggo's Common Life -->
+      <If Condition="not IsQuestCompleted(67502) and not HasQuest(67502)">
+        <GetTo ZoneId="399" XYZ="-488.7923, 138.9333, 741.0543"/>
+        <UseTransport NpcId="2005336" InteractDistance="3.0" XYZ="-488.7923, 138.9333, 741.0543"/>
+        <If Condition="IsQuestAcceptQualified(67502)">
+          <PickupQuest NpcId="1012141" QuestId="67502"/>
+        </If>
+        <UseTransport NpcId="2005337" InteractDistance="3.0" XYZ="7.765594, 38.9395, -50.9989"/>
+      </If>
+      <If Condition="GetQuestStep(67502) &gt; 0">
+        <If Condition="GetQuestStep(67502) == 1">
+          <GetTo ZoneId="399" XYZ="-471.8548, 137.4075, 705.5619"/>
+          <UseObject NpcIds="2006061,2006062,2006063" XYZ="-471.8548, 137.4075, 705.5619" QuestId="67502" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(67502) == 255">
+          <GetTo ZoneId="399" XYZ="-488.7923, 138.9333, 741.0543"/>
+          <UseTransport NpcId="2005336" InteractDistance="2.5" XYZ="-488.7923, 138.9333, 741.0543"/>
+          <TurnIn QuestId="67502" NpcId="1012141" XYZ="35.6908, 38.43, 12.98535"/>
+          <UseTransport NpcId="2005337" InteractDistance="3.0" XYZ="7.765594, 38.9395, -50.9989"/>
+        </If>
+      </If>
+      <!-- Open World -->
+      <If Condition="not IsAetherCurrentCompleted(399,10)">
+        <GetTo ZoneId="399" XYZ="-199.6643, 110.7653, -449.9428"/>
+        <UseObject NpcId="2006209" XYZ="-199.6643, 110.7653, -449.9428" Condition="not IsAetherCurrentCompleted(399,10)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,11)">
+        <GetTo ZoneId="399" XYZ="98.89368, 73.07532, -174.3649"/>
+        <UseObject NpcId="2006208" XYZ="98.89368, 73.07532, -174.3649" Condition="not IsAetherCurrentCompleted(399,11)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,13)">
+        <GetTo ZoneId="399" XYZ="348.3481, 84.33655, -58.85406"/>
+        <UseObject NpcId="2006206" XYZ="348.3481, 84.33655, -58.8540" Condition="not IsAetherCurrentCompleted(399,13)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,12)">
+        <GetTo ZoneId="399" XYZ="468.2091, 86.78419, -29.68172"/>
+        <UseObject NpcId="2006207" XYZ="468.2091, 86.78419, -29.68172" Condition="not IsAetherCurrentCompleted(399,12)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,14)">
+        <GetTo ZoneId="399" XYZ="729.2133, 134.9354, 150.8964"/>
+        <UseObject NpcId="2006205" XYZ="729.2133, 134.9354, 150.8964" Condition="not IsAetherCurrentCompleted(399,14)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,9)">
+        <GetTo ZoneId="399" XYZ="-486.0762, 148.9127, -281.1475"/>
+        <UseObject NpcId="2006210" XYZ="-486.0762, 148.9127, -281.1475" Condition="not IsAetherCurrentCompleted(399,9)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,8)">
+        <GetTo ZoneId="399" XYZ="-392.5689, 154.8333, 111.162"/>
+        <UseObject NpcId="2006211" XYZ="-392.5689, 154.8333, 111.162" Condition="not IsAetherCurrentCompleted(399,8)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,5)">
+        <GetTo ZoneId="399" XYZ="-455.1003, 139.208, 671.3817"/>
+        <UseObject NpcId="2006214" XYZ="-455.1003, 139.208, 671.3817" Condition="not IsAetherCurrentCompleted(399,5)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,7)">
+        <GetTo ZoneId="399" XYZ="-48.60004, 152.3613, 722.0721"/>
+        <UseObject NpcId="2006212" XYZ="-48.60004, 152.3613, 722.0721" Condition="not IsAetherCurrentCompleted(399,7)"/>
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(399,6)">
+        <GetTo ZoneId="399" XYZ="131.1207, 219.3179, 719.0203"/>
+        <UseObject NpcId="2006213" XYZ="131.1207, 219.3179, 719.0203" Condition="not IsAetherCurrentCompleted(399,6)"/>
+      </If>
+    </If>
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="67280">
+      <Hotspots>
+        <Hotspot XYZ="412.0077, 162.327, -176.6836" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3474"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67284">
+      <Hotspots>
+        <Hotspot XYZ="-481.1719, -165.427, 608.4476" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3494"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67295">
+      <Hotspots>
+        <Hotspot XYZ="-73.46559, 103.3808, -52.77872" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3485"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67296">
+      <Hotspots>
+        <Hotspot XYZ="-396.3525, 118.1586, -141.6539" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3482"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67326">
+      <Hotspots>
+        <Hotspot XYZ="169.0192, -109.5845, 597.6518" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3573"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67355">
+      <Hotspots>
+        <Hotspot XYZ="714.7452, -50.23019, 407.4195" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3614"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67359">
+      <Hotspots>
+        <Hotspot XYZ="452.8487, -24.88893, 110.8987" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3620"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="67371">
+      <Hotspots>
+        <Hotspot XYZ="537.2871, -8.29427, -335.9211" Radius="90"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3615"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "请手动完成下一个任务。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="MoveForward">
+      <![CDATA[
+        await Coroutine.Sleep(500);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(2000);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67446">
+      <![CDATA[
+        var _say =  String.Empty;
+#if RB_CN
+        _say = "/s 起来";
+#else
+        _say = "/s Wake up!";
+#endif        
+        await CommonTasks.StopAndDismount();
+        ChatManager.SendChat(_say);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2006187">
+      <![CDATA[
+        await Coroutine.Sleep(500);
+        MovementManager.SetFacing(0.007050514f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(1000);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(5000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2006229">
+      <![CDATA[
+        await Coroutine.Sleep(500);
+        MovementManager.SetFacing(5.956687f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(1000);
+        MovementManager.MoveForwardStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

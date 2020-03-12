@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] All Saint's Wake 2018
+Authors:  Sodimm
+Notes:    You may need to change your Transfiguration if the Bat doesn't work, just switch and restart the profile.
+-->
+<Profile>
+  <Name>[OrderBot] All Saint's Wake 2018</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- The Sinister Soiree -->
+    <If Condition="not HasQuest(68705) and not IsQuestCompleted(68705)">
+      <GetTo ZoneId="133" XYZ="-41.13276, 7.099894, -135.9021"/>
+      <If Condition="IsQuestAcceptQualified(68705)">
+        <PickupQuest QuestId="68705" NpcId="1026652" XYZ="-41.76398, 7.159529, -137.1024"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 1">
+      <GetTo ZoneId="133" XYZ="-49.88494, 6.499993, -91.10951"/>
+      <SoTalkTo NpcId="1026653" DialogOption="1" XYZ="-50.00385, 6.5, -89.7384" QuestId="68705" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 2">
+      <GetTo ZoneId="133" XYZ="-49.84861, 6.750294, -129.8711"/>
+      <UseObject NpcId="2009645" XYZ="-50.12598, 6.729187, -130.7241" QuestId="68705" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 3">
+      <GetTo ZoneId="133" XYZ="-93.94975, 6.77646, -139.0674"/>
+      <UseObject NpcId="2009631" XYZ="-94.92645, 6.668152, -139.8185" QuestId="68705" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 4">
+      <GetTo ZoneId="133" XYZ="-42.349, 7.09237, -135.8007"/>
+      <TalkTo NpcId="1026652" XYZ="-41.76398, 7.159529, -137.1024" QuestId="68705" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 5">
+      <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+      <SoTalkTo NpcId="1026672" XYZ="-47.13519, 6.746052, -109.1173" QuestId="68705" StepId="5"/>
+      <WaitWhile Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 255 and not IsOnMap(809)"/>
+    </If>
+    <If Condition="HasQuest(68705) and not IsQuestCompleted(68705) and GetQuestStep(68705) == 255">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <TurnIn QuestId="68705" NpcId="1026656" XYZ="0.3814697, -0.0002908483, -10.26941"/>
+    </If>
+    <!-- The Parlous Ploy -->
+    <If Condition="not HasQuest(68706)">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68706)">
+        <PickupQuest QuestId="68706" NpcId="1026656" XYZ="0.3814697, -0.0002908483, -10.26941"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68706) and GetQuestStep(68706) == 1">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996" QuestId="68706" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68706) and GetQuestStep(68706) == 2 and GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <If Condition="not Core.Me.HasAura(565)">
+        <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+      </If>
+      <SoUseSpell SpellId="13265" NpcId="1026673" XYZ="54.73401, 0, 28.7937" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(68706) and GetQuestStep(68706) == 2 and GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <If Condition="not Core.Me.HasAura(565)">
+        <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+      </If>
+      <If Condition="GetQuestById(68706).QuestI8C == 1">
+        <SoUseSpell SpellId="13265" NpcId="1026674" XYZ="26.56592, 0, 89.58569" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1"/>
+        <MoveTo XYZ="16.72012, 0, 58.54409"/>
+        <MoveTo XYZ="-15.06865, 0, 57.10649"/>
+        <MoveTo XYZ="-17.02732, 0, 77.41967"/>
+      </If>
+      <If Condition="GetQuestById(68706).QuestI8C == 2">
+        <SoUseSpell SpellId="13265" NpcId="1026675" XYZ="27.573, 0, 59.06763" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1"/>
+        <MoveTo XYZ="-15.06865, 0, 57.10649"/>
+        <MoveTo XYZ="-17.02732, 0, 77.41967"/>
+      </If>
+      <If Condition="GetQuestById(68706).QuestI8C == 3">
+        <MoveTo XYZ="16.72012, 0, 58.54409"/>
+        <MoveTo XYZ="-15.06865, 0, 57.10649"/>
+        <MoveTo XYZ="-17.02732, 0, 77.41967"/>
+        <SoUseSpell SpellId="13265" NpcId="1026676" XYZ="-6.240967, -7.450581E-09, 89.86035" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(68706).QuestI8C == 4">
+        <SoUseSpell SpellId="13265" NpcId="1026677" XYZ="-19.91309, 0, 57.08398" QuestId="68706" Condition="GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 1"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68706) and GetQuestStep(68706) == 2 and GetQuestById(68706).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <If Condition="not Core.Me.HasAura(565)">
+        <TalkTo NpcId="1026657" XYZ="1.571594, -0.0003617965, 8.895996"/>
+      </If>
+      <MoveTo XYZ="-40.16502, 0, -1.463736"/>
+      <SoUseSpell SpellId="13265" NpcId="1026679" XYZ="-60.89874, 0, -45.45667" QuestId="68706" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68706) and GetQuestStep(68706) == 255">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <TurnIn QuestId="68706" NpcId="1026656" XYZ="0.3814697, -0.0002908483, -10.26941"/>
+    </If>
+    <!-- The Sordid Cipher -->
+    <If Condition="not HasQuest(68707) and not IsQuestCompleted(68707)">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68707)">
+        <SoPickupQuest QuestId="68707" NpcId="1026655" XYZ="2.487183, -0.0002658963, -10.26941"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68707) and not IsQuestCompleted(68707) and GetQuestStep(68707) == 1">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <UseObject NpcId="2009632" XYZ="-2.609314, 17.01373, -0.07635498" BlacklistAfter="True" QuestId="68707" StepId="1"/>
+      <WaitWhile Condition="HasQuest(68707) and not IsQuestCompleted(68707) and not GetQuestStep(68707) == 2"/>
+    </If>
+    <If Condition="HasQuest(68707) and not IsQuestCompleted(68707) and GetQuestStep(68707) == 2">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <UseItem ItemId="2002493" NpcIds="2009633, 2009634, 2009635, 2009636, 2009637, 2009638" WaitTime="3000" BlacklistAfter="True" QuestId="68707" StepId="2">
+        <HotSpots>
+          <HotSpot XYZ="-36.85059, -18.81439, -47.68445" Radius="10"/>
+          <HotSpot XYZ="-8.712891, -18.81439, -46.37219" Radius="10"/>
+          <HotSpot XYZ="43.38135, -18.81439, -46.43323" Radius="10"/>
+          <HotSpot XYZ="-43.01526, -18.81439, 43.74756" Radius="10"/>
+          <HotSpot XYZ="9.658875, -18.81439, 47.5929" Radius="10"/>
+          <HotSpot XYZ="38.49854, -18.81439, 47.65393" Radius="10"/>
+        </HotSpots>
+      </UseItem>
+    </If>
+    <If Condition="HasQuest(68707) and not IsQuestCompleted(68707) and GetQuestStep(68707) == 3">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <TalkTo NpcId="1026681" XYZ="5.142273, -18.8, 2.761841" QuestId="68707" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68707) and not IsQuestCompleted(68707) and GetQuestStep(68707) == 4">
+      <If Condition="not IsOnMap(809)">
+        <GetTo ZoneId="133" XYZ="-47.6091, 6.818552, -110.3728"/>
+        <UseTransport InteractDistance="3.0" NpcId="1026654" XYZ="-47.13519, 6.746052, -109.1173"/>
+      </If>
+      <TalkTo NpcId="1026656" XYZ="0.3814697, -0.0002908483, -10.26941" QuestId="68707" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68707) and not IsQuestCompleted(68707) and GetQuestStep(68707) == 255">
+      <GetTo ZoneId="133" XYZ="-42.6369, 7.109181, -136.1636"/>
+      <TurnIn QuestId="68707" NpcId="1026652" XYZ="-41.76398, 7.159529, -137.1024"/>
+    </If>
+    <!-- The Macabre Manor -->
+    <If Condition="not HasQuest(68708) and not IsQuestCompleted(68708)">
+      <GetTo ZoneId="133" XYZ="-44.33098, 7.073728, -135.4099"/>
+      <If Condition="IsQuestAcceptQualified(68708)">
+        <PickupQuest QuestId="68708" NpcId="1026652" XYZ="-41.76398, 7.159529, -137.1024"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68708) and not IsQuestCompleted(68708) and GetQuestStep(68708) == 255">
+      <GetTo ZoneId="133" XYZ="-53.97701, 6.499972, -95.46432"/>
+      <TurnIn QuestId="68708" NpcId="1026683" XYZ="-55.22247, 6.499977, -94.56018"/>
+    </If>
+  </Order>
+</Profile>

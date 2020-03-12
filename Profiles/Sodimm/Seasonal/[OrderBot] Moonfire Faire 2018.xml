@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Moonfire Faire 2018
+Authors:  TuckMeIntoBread.
+
+DO NOT leave it running AFK. The jump puzzles are far from perfect, keep an eye on it in case it spazzes out. Not designed with ninja/sprint movement speed in mind.
+-->
+<Profile>
+  <Name>[OrderBot] Moonfire Faire 2018</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Jump to the Beach -->
+    <If Condition="not HasQuest(68671) and not IsQuestCompleted(68671)">
+      <If Condition="not IsOnMap(128)">
+        <GetTo ZoneId="128" XYZ="12.76116, 45.66599, 131.1003"/>
+      </If>
+      <NoCombatMoveTo XYZ="12.76116, 45.66599, 131.1003"/>
+      <If Condition="IsQuestAcceptQualified(68671)">
+        <PickupQuest QuestId="68671" NpcId="1026032" XYZ="14.32819, 45.66599, 131.3649"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68671) and not IsQuestCompleted(68671) and GetQuestStep(68671) == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.0653, 11.34909, 263.4245"/>
+      </If>
+      <NoCombatMoveTo XYZ="732.0653, 11.34909, 263.4245"/>
+      <TalkTo NpcId="1026033" XYZ="734.676, 11.30682, 262.9282" QuestId="68671" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68671) and not IsQuestCompleted(68671) and GetQuestStep(68671) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.0653, 11.34909, 263.4245"/>
+      </If>
+      <NoCombatMoveTo XYZ="732.0653, 11.34909, 263.4245"/>
+      <TurnIn QuestId="68671" NpcId="1026033" XYZ="734.676, 11.30682, 262.9282"/>
+    </If>
+    <!-- Eorzean Nimble Warrior -->
+    <If Condition="not HasQuest(68672) and not IsQuestCompleted(68672) and not IsQuestCompleted(68673) and not IsQuestAcceptQualified(68673)">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="767.2148, 9.47754, 341.6707"/>
+      </If>
+      <NoCombatMoveTo XYZ="767.2148, 9.47754, 341.6707"/>
+      <If Condition="IsQuestAcceptQualified(68672)">
+        <PickupQuest QuestId="68672" NpcId="1026034" XYZ="768.1848, 9.336287, 343.0686"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68672) == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="767.2148, 9.47754, 341.6707"/>
+      </If>
+      <NoCombatMoveTo XYZ="762.0504, 8.9, 357.9073" Distance="0.5"/>
+      <WaitTimer WaitTime="3"/>
+      <NoCombatMoveTo XYZ="762.0073, 19.52458, 376.6605" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump1"/>
+      <NoCombatMoveTo XYZ="762.2077, 19.52458, 386.8676" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump2"/>
+      <NoCombatMoveTo XYZ="762.1543, 19.52458, 393.9551" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump3"/>
+      <NoCombatMoveTo XYZ="764.6393, 19.52458, 399.7553" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump4"/>
+      <NoCombatMoveTo XYZ="760.1171, 19.52456, 405.3347" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump5"/>
+      <NoCombatMoveTo XYZ="764.9547, 18.87296, 410.66" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump6"/>
+      <NoCombatMoveTo XYZ="760.5966, 18.87295, 414.679" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump7"/>
+      <NoCombatMoveTo XYZ="763.375, 18.90349, 422.602" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump8"/>
+      <NoCombatMoveTo XYZ="763.2759, 20.11483, 429.6716" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump9"/>
+      <NoCombatMoveTo XYZ="763.1658, 21.58521, 435.6513" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="1Jump10"/>
+      <NoCombatMoveTo XYZ="763.3185, 23.09679, 443.922" Distance="0.2" UseMesh="False"/>
+      <TalkTo NpcId="1026035" XYZ="763.4851, 23.09679, 445.9755" QuestId="68672" StepId="1"/>
+      <NoCombatMoveTo XYZ="763.1685, 9.721695, 469.5698" UseMesh="False"/>
+    </If>
+    <If Condition="GetQuestStep(68672) == 2">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="750.0502, 8.9, 511.9743"/>
+      </If>
+      <NoCombatMoveTo XYZ="748.649, 8.9, 520.341" Distance="0.2"/>
+      <WaitTimer WaitTime="3"/>
+      <NoCombatMoveTo XYZ="742.1182, 22.41034, 532.1995" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="739.3026, 22.36675, 538.3097" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="733.3274, 22.36675, 535.7797" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="729.9684, 22.36675, 543.3834" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="736.4348, 22.36674, 546.1765" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="735.0092, 22.36674, 549.8279" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="740.3384, 22.36675, 552.2265" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="737.6298, 22.36674, 558.2861" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="735.6724, 21.28641, 560.4897" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="733.8677, 21.28641, 563.8591" Distance="0.1" UseMesh="False"/>
+      <WaitTimer WaitTime="1"/>
+      <RunCode Name="2Jump1"/>
+      <WaitTimer WaitTime="2"/>
+      <NoCombatMoveTo XYZ="732.0105, 22.47861, 571.3498" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="732.8055, 21.31131, 573.9307" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="730.9935, 21.3113, 579.4058" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="2Jump2"/>
+      <WaitTimer WaitTime="2"/>
+      <NoCombatMoveTo XYZ="725.6956, 23.00616, 586.4691" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="721.0365, 23.00616, 589.2692" Distance="0.2" UseMesh="False"/>
+      <TalkTo NpcId="1026036" XYZ="720.3936, 23.00616, 590.3867" QuestId="68672" StepId="2"/>
+      <NoCombatMoveTo XYZ="708.6078, 9.667486, 615.5809" UseMesh="False"/>
+    </If>
+    <If Condition="GetQuestStep(68672) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="701.6603, 13.5547, 642.7952"/>
+      </If>
+      <NoCombatMoveTo XYZ="701.6603, 13.5547, 642.7952" Distance="0.2"/>
+      <RunCode Name="3Jump1"/>
+      <NoCombatMoveTo XYZ="700.999, 14.76761, 646.4403" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump2"/>
+      <NoCombatMoveTo XYZ="702.4976, 16.45764, 646.937" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump3"/>
+      <NoCombatMoveTo XYZ="699.358, 17.539, 645.5401" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump4"/>
+      <NoCombatMoveTo XYZ="696.2503, 18.9679, 644.3154" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump5"/>
+      <NoCombatMoveTo XYZ="698.9038, 20.50103, 645.5198" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump6"/>
+      <NoCombatMoveTo XYZ="702.6714, 20.50099, 646.9323" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump7"/>
+      <NoCombatMoveTo XYZ="703.9669, 22.04949, 647.4171" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump8"/>
+      <NoCombatMoveTo XYZ="706.7049, 23.57926, 648.4534" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump9"/>
+      <NoCombatMoveTo XYZ="702.8751, 25.22539, 645.7067" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump10"/>
+      <NoCombatMoveTo XYZ="698.6036, 24.6995, 645.6159" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump11"/>
+      <NoCombatMoveTo XYZ="697.4747, 26.2495, 645.0427" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump12"/>
+      <NoCombatMoveTo XYZ="700.2523, 27.74949, 646.3106" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump13"/>
+      <NoCombatMoveTo XYZ="697.3094, 29.24952, 645.1213" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump14"/>
+      <NoCombatMoveTo XYZ="700.6688, 30.74949, 646.4994" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump15"/>
+      <NoCombatMoveTo XYZ="697.3669, 32.24949, 645.0983" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump16"/>
+      <NoCombatMoveTo XYZ="700.5642, 33.7495, 646.4303" Distance="0.2" UseMesh="False"/>
+      <RunCode Name="3Jump17"/>
+      <NoCombatMoveTo XYZ="697.4558, 35.24948, 645.7788" Distance="0.2" UseMesh="False"/>
+      <NoCombatMoveTo XYZ="695.4549, 35.23367, 653.7327" Distance="0.2" UseMesh="False"/>
+      <TurnIn QuestId="68672" NpcId="1026037" XYZ="695.2467, 35.23367, 654.9325"/>
+      <NoCombatMoveTo XYZ="694.4883, 12.42102, 630.3882" UseMesh="False"/>
+    </If>
+    <!-- If at First You Don't Succeed, Give Up -->
+    <If Condition="not HasQuest(68673) and not IsQuestCompleted(68673)">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.5654, 11.34909, 263.7856"/>
+      </If>
+      <NoCombatMoveTo XYZ="732.5654, 11.34909, 263.7856"/>
+      <If Condition="IsQuestAcceptQualified(68673)">
+        <PickupQuest QuestId="68673" NpcId="1026033" XYZ="734.676, 11.30682, 262.9282"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68673) and not IsQuestCompleted(68673) and GetQuestStep(68673) == 1">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="771.7955, 9.971092, 300.7054"/>
+      </If>
+      <NoCombatMoveTo XYZ="771.7955, 9.971092, 300.7054"/>
+      <UseObject NpcId="2009575" XYZ="772.7931, 9.903015, 301.2588" QuestId="68673" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68673) and not IsQuestCompleted(68673) and GetQuestStep(68673) == 2">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="739.4332, 8.9, 349.2085"/>
+      </If>
+      <NoCombatMoveTo XYZ="739.4332, 8.9, 349.2085"/>
+      <SoTalkTo NpcId="1026041" XYZ="738.4907, 8.9, 350.3623" QuestId="68673" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68673) and not IsQuestCompleted(68673) and GetQuestStep(68673) == 3">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="543.3836, 8.72472, 360.0711"/>
+      </If>
+      <NoCombatMoveTo XYZ="543.3836, 8.72472, 360.0711"/>
+      <TalkTo NpcId="1026044" XYZ="543.0228, 8.72472, 359.2736" QuestId="68673" StepId="3"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <If Condition="HasQuest(68673) and not IsQuestCompleted(68673) and GetQuestStep(68673) == 4">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="543.3836, 8.72472, 360.0711"/>
+      </If>
+      <NoCombatMoveTo XYZ="543.3836, 8.72472, 360.0711"/>
+      <EmoteNPC Emote="splash" NpcId="1026044" XYZ="543.0228, 8.72472, 359.2736" QuestId="68673" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68673) and not IsQuestCompleted(68673) and GetQuestStep(68673) == 255">
+      <If Condition="not IsOnMap(137)">
+        <GetTo ZoneId="137" XYZ="732.274, 11.34909, 263.1053"/>
+      </If>
+      <NoCombatMoveTo XYZ="732.274, 11.34909, 263.1053"/>
+      <TurnIn QuestId="68673" NpcId="1026033" XYZ="734.676, 11.30682, 262.9282"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="3Jump17"><![CDATA[
+        MovementManager.SetFacing(4.26f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump16"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump15"><![CDATA[
+        MovementManager.SetFacing(4.26f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump14"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump13"><![CDATA[
+        MovementManager.SetFacing(4.26f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump12"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump11"><![CDATA[
+        MovementManager.SetFacing(4.26f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(300);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump10"><![CDATA[
+        MovementManager.SetFacing(4.55f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(50);
+        MovementManager.Jump();
+        await Coroutine.Sleep(150);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump9"><![CDATA[
+        MovementManager.SetFacing(3.90f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump8"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump7"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump6"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump5"><![CDATA[
+        MovementManager.SetFacing(1.20f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump4"><![CDATA[
+        MovementManager.SetFacing(4.32f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump3"><![CDATA[
+        MovementManager.SetFacing(4.32f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(100);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump2"><![CDATA[
+        MovementManager.SetFacing(1.19f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(300);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="3Jump1"><![CDATA[
+        MovementManager.SetFacing(5.92f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(450);
+        MovementManager.Jump();
+        await Coroutine.Sleep(350);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="2Jump1"><![CDATA[
+        MovementManager.SetFacing(0.45f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(10);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="2Jump2"><![CDATA[
+        MovementManager.SetFacing(5.05f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(80);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump1"><![CDATA[
+        MovementManager.SetFacing(0.02f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump2"><![CDATA[
+        MovementManager.SetFacing(0.02f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(650);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump3"><![CDATA[
+        MovementManager.SetFacing(0.42f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(450);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump4"><![CDATA[
+        MovementManager.SetFacing(5.59f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(450);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump5"><![CDATA[
+        MovementManager.SetFacing(0.63f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(450);
+        MovementManager.Jump();
+        await Coroutine.Sleep(650);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump6"><![CDATA[
+        MovementManager.SetFacing(5.54f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(400);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump7"><![CDATA[
+        MovementManager.SetFacing(0.28f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(400);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump8"><![CDATA[
+        MovementManager.SetFacing(0.01f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump9"><![CDATA[
+        MovementManager.SetFacing(0.01f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+    <CodeChunk Name="1Jump10"><![CDATA[
+        MovementManager.SetFacing(0.01f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(250);
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(500);
+      ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

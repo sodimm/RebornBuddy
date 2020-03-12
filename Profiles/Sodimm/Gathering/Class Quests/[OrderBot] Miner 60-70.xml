@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Miner Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+Required Quest Completion:  A Realm Reborn & Heavensward Miner Quests.
+-->
+<Profile>
+  <Name>[OrderBot] Miner Class Quests.</Name>
+  <BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(67620)">
+      <LogMessage Message="You haven't finished all of the Heavensward Miner quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67620)"/>
+    </If>
+    <!-- Gift of the Gob (Level 60) -->
+    <If Condition="not HasQuest(68090) and not IsQuestCompleted(68090) and IsQuestCompleted(67620) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="131" XYZ="-17.52845, 6.2, 157.5762"/>
+      <If Condition="IsQuestAcceptQualified(68090)">
+        <PickupQuest QuestId="68090" NpcId="1002298" XYZ="-17.52845, 6.2, 157.5762"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 1">
+      <GetTo ZoneId="131" XYZ="1.556316, 7.599999, 153.5215"/>
+      <TalkTo NpcId="1002282" XYZ="1.556316, 7.599999, 153.5215" QuestId="68090" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 2">
+      <GetTo ZoneId="478" XYZ="54.72661, 207.3399, -7.817912"/>
+      <HandOver ItemIds="2002057" NpcId="1019863" XYZ="54.72661, 207.3399, -7.817912" QuestId="68090" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 3">
+      <GetTo ZoneId="478" XYZ="81.93546, 214.1, -91.00903"/>
+      <TalkTo NpcId="1019864" XYZ="81.93546, 214.1, -91.00903" QuestId="68090" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 255">
+      <GetTo ZoneId="478" XYZ="54.56663, 207.3399, -8.392662"/>
+      <TurnIn QuestId="68090" NpcId="1019863" XYZ="54.56663, 207.3399, -8.392662"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Thick Skin (Level 63) -->
+    <If Condition="not HasQuest(68091) and not IsQuestCompleted(68091) and IsQuestCompleted(68090) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="478" XYZ="54.56663, 207.3399, -8.392662"/>
+      <If Condition="IsQuestAcceptQualified(68091)">
+        <PickupQuest QuestId="68091" NpcId="1019863" XYZ="54.56663, 207.3399, -8.392662"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 1">
+      <GetTo ZoneId="478" XYZ="82.15173, 214.1, -90.85959"/>
+      <TalkTo NpcId="1019864" XYZ="82.15173, 214.1, -90.85959" QuestId="68091" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 2">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="82.18562, 214.1398, -89.06767"/>
+      </If>
+        <NoCombatMoveTo XYZ="82.18562, 214.1398, -89.06767"/>
+        <TalkTo NpcId="1020988" XYZ="82.18562, 214.1398, -89.06767" QuestId="68091" StepId="2"/>
+		<WaitTimer WaitTime="1"/>
+        <NoCombatMoveTo XYZ="68.92119, 214.06, -94.11052"/>
+        <TalkTo NpcId="1020990" XYZ="68.92119, 214.06, -94.11052" QuestId="68091" StepId="2"/>
+		<WaitTimer WaitTime="1"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 3">
+      <GetTo ZoneId="478" XYZ="80.87506, 214.1, -90.63407"/>
+      <TalkTo NpcId="1019864" XYZ="80.87506, 214.1, -90.63407" QuestId="68091" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(68091) == 4">
+      <If Condition="not IsOnMap(612) and not HqHasAtLeast(17941,3)">
+        <GetTo ZoneId="612" XYZ="-623.1875, 130, -501.985"/>
+      </If>
+      <ExMoveTo XYZ="103.7293, 60.11446, -401.8943"/>
+      <While Condition="not HqHasAtLeast(17941,3)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17941,3)">
+          <GatherObject>Mineral Deposit</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="103.7293, 60.11446, -401.8943" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="74.9348, 46.07985, -281.6801" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="260.8215, 47.52863, -300.0539" name="Mineral Deposits"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Beggar's Mythril Ore</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Unearth II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+      <If Condition="HqHasAtLeast(17941,3)">
+        <GetTo ZoneId="478" XYZ="81.84147, 214.1, -91.26829"/>
+        <HandOver ItemIds="17941" RequiresHq="True" NpcId="1019864" XYZ="81.84147, 214.1, -91.26829" QuestId="68091" StepId="4"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 255">
+      <GetTo ZoneId="478" XYZ="54.85791, 207.3399, -8.434767"/>
+      <TurnIn QuestId="68091" NpcId="1019863" XYZ="54.85791, 207.3399, -8.434767"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Pedal to the Metal (Level 65) -->
+    <If Condition="not HasQuest(68092) and not IsQuestCompleted(68092) and IsQuestCompleted(68091) and Core.Player.ClassLevel &gt; 64">
+      <GetTo ZoneId="478" XYZ="54.85791, 207.3399, -8.434767"/>
+      <If Condition="IsQuestAcceptQualified(68092)">
+        <PickupQuest QuestId="68092" NpcId="1019863" XYZ="54.85791, 207.3399, -8.434767"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 1">
+      <GetTo ZoneId="478" XYZ="81.58314, 214.1, -91.16619"/>
+      <TalkTo NpcId="1019864" XYZ="81.58314, 214.1, -91.16619" QuestId="68092" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 2">
+        <NoCombatMoveTo XYZ="83.96628, 213.1, -80.65591"/>
+        <TalkTo NpcId="1020989" XYZ="83.96628, 213.1, -80.65591" QuestId="68092" StepId="2"/>
+        <WaitTimer WaitTime="1"/>
+        <NoCombatMoveTo XYZ="59.0507, 214.1314, -74.6472"/>
+        <TalkTo NpcId="1019865" XYZ="59.0507, 214.1314, -74.6472" QuestId="68092" StepId="2"/>
+        <WaitTimer WaitTime="1"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 3">
+      <GetTo ZoneId="478" XYZ="82.1475, 214.1, -90.50778"/>
+      <TalkTo NpcId="1019864" XYZ="82.1475, 214.1, -90.50778" QuestId="68092" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 4">
+      <GetTo ZoneId="478" XYZ="-65.9585, 206.5002, 6.767703"/>
+      <TalkTo NpcId="1019866" XYZ="-65.81219, 206.5002, 4.379272" QuestId="68092" StepId="4"/>
+    </If>
+    <If Condition="not HqHasAtLeast(17942,5) and GetQuestStep(68092) == 5">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="91.30017, 3.033221, -576.0388"/>
+      </If>
+      <ExMoveTo XYZ="63.82051, 34.01744, 658.9822"/>
+      <While Condition="not HqHasAtLeast(17942,5)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17942,5)">
+          <GatherObject>Mineral Deposit</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="63.82051, 34.01744, 658.9822" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="132.173, 36.3882, 786.7529" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="216.2265, 30.78921, 713.9532" name="Mineral Deposits"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Feather Iron Ore</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Unearth III" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+    </If>
+    <If Condition="HqHasAtLeast(17942,5) and GetQuestStep(68092) == 5">
+      <GetTo ZoneId="478" XYZ="81.84147, 214.1, -91.26829"/>
+      <HandOver ItemIds="17942" RequiresHq="True" NpcId="1019864" XYZ="81.84147, 214.1, -91.26829" QuestId="68092" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 6">
+      <GetTo ZoneId="478" XYZ="81.00075, 214.1, -90.66446"/>
+      <TalkTo NpcId="1019864" XYZ="81.00075, 214.1, -90.66446" QuestId="68092" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 255">
+      <GetTo ZoneId="478" XYZ="54.88151, 207.3399, -8.167487"/>
+      <TurnIn QuestId="68092" NpcId="1019863" XYZ="54.88151, 207.3399, -8.167487"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Where the Money Takes You (Level 68) -->
+    <If Condition="not HasQuest(68093) and not IsQuestCompleted(68093) and IsQuestCompleted(68092) and Core.Player.ClassLevel &gt; 67">
+      <GetTo ZoneId="478" XYZ="54.88151, 207.3399, -8.167487"/>
+      <If Condition="IsQuestAcceptQualified(68093)">
+        <PickupQuest QuestId="68093" NpcId="1019863" XYZ="54.88151, 207.3399, -8.167487"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 1">
+      <GetTo ZoneId="478" XYZ="-18.99101, 211.2449, -29.65191"/>
+      <TalkTo NpcId="1013713" XYZ="-18.99101, 211.2449, -29.65191" QuestId="68093" StepId="1"/>
+    </If>
+    <If Condition="not HqHasAtLeast(17943,5) and GetQuestStep(68093) == 2">
+      <If Condition="not IsOnMap(614)">
+        <GetTo ZoneId="614" XYZ="425.4329, 68.56503, -91.49094"/>
+      </If>
+      <ExMoveTo XYZ="730.9883, 133.998, -89.34129"/>
+      <While Condition="not HqHasAtLeast(17943,8)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17943,8)">
+          <GatherObject>Mineral Deposit</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="721.6832, 103.0148, -118.0634" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="803.8521, 132.3213, 15.8978" name="Mineral Deposits"/>
+            <HotSpot Radius="50" XYZ="888.9707, 145.6119, -135.4026" name="Mineral Deposits"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Serpentine</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Unearth III" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+    </If>
+    <If Condition="HqHasAtLeast(17943,8) and GetQuestStep(68093) == 2">
+      <GetTo ZoneId="478" XYZ="-19.1375, 211.2449, -29.66669"/>
+      <HandOver ItemIds="17943" RequiresHq="True" NpcId="1013713" XYZ="-19.1375, 211.2449, -29.66669" QuestId="68093" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 3">
+      <GetTo ZoneId="478" XYZ="54.66451, 207.3399, -8.335993"/>
+      <SoHandOver ItemIds="2002058" NpcId="1019863" XYZ="54.66451, 207.3399, -8.335993" QuestId="68093" StepId="3" DialogOption="0"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 4">
+      <GetTo ZoneId="478" XYZ="72.3007, 205.752, 23.80656"/>
+      <TalkTo NpcId="1012097" XYZ="72.3007, 205.752, 23.80656" QuestId="68093" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 5">
+      <GetTo ZoneId="478" XYZ="81.13557, 214.1, -92.38631"/>
+      <TalkTo NpcId="1019867" XYZ="81.13557, 214.1, -92.38631" QuestId="68093" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 255">
+      <GetTo ZoneId="478" XYZ="54.71909, 207.3399, -7.805041"/>
+      <TurnIn QuestId="68093" NpcId="1019863" XYZ="54.71909, 207.3399, -7.805041"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- A Miner Success (Level 70) -->
+    <If Condition="not HasQuest(68094) and not IsQuestCompleted(68094) and IsQuestCompleted(68093) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="478" XYZ="54.71909, 207.3399, -7.805041"/>
+      <If Condition="IsQuestAcceptQualified(68094)">
+        <PickupQuest QuestId="68094" NpcId="1019863" XYZ="54.71909, 207.3399, -7.805041"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 1">
+      <GetTo ZoneId="478" XYZ="80.87847, 214.1, -92.12641"/>
+      <TalkTo NpcId="1019867" XYZ="80.87847, 214.1, -92.12641" QuestId="68094" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 2">
+      <GetTo ZoneId="131" XYZ="-18.04254, 6.2, 157.418"/>
+      <TalkTo NpcId="1002298" XYZ="-18.04254, 6.2, 157.418" QuestId="68094" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68094) == 3">
+      <If Condition="not HasAtLeast(17944,5)">
+        <If Condition="not IsOnMap(620)">
+          <GetTo ZoneId="620" XYZ="119.5055, 118.1558, -753.5763"/>
+        </If>
+        <ExMoveTo XYZ="283.588, 140.9948, -461.9317"/>
+        <WaitWhile Condition="Condition.IsTimeBetween(22,8.1) or Condition.IsTimeBetween(10,20.1)"/>
+        <If Condition="IsTimeBetween(8,10) or IsTimeBetween(20,22)">
+          <ExGather loops="1" SpawnTimeout="5" While="not HasAtLeast(17994,5)">
+            <GatherObjects>
+              <GatherObject>Unspoiled Mineral Deposit</GatherObject>
+            </GatherObjects>
+            <ItemNames>
+              <ItemName>Pummelite</ItemName>
+            </ItemNames>
+            <GatherRotation>Yield</GatherRotation>
+            <HotSpots>
+              <HotSpot XYZ="283.588, 140.9948, -461.9317" Radius="200"/>
+            </HotSpots>
+          </ExGather>
+        </If>
+      </If>
+      <If Condition="HasAtLeast(17944,5)">
+        <GetTo ZoneId="478" XYZ="81.02125, 214.1, -92.38254"/>
+        <HandOver ItemIds="17944" NpcId="1019867" XYZ="81.02125, 214.1, -92.38254" QuestId="68094" StepId="3"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 4">
+      <GetTo ZoneId="399" XYZ="-501.4042, 145.8107, -371.4518"/>
+      <TalkTo NpcId="1019872" XYZ="-501.4042, 145.8107, -371.4518" QuestId="68094" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 5">
+      <GetTo ZoneId="399" XYZ="-501.4042, 145.8107, -371.4518"/>
+      <TalkTo NpcId="1019876" XYZ="-501.4042, 145.8107, -371.4518" QuestId="68094" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 6">
+      <GetTo ZoneId="399" XYZ="-547.8834, 155.8443, -510.7159"/>
+      <TalkTo NpcId="1019877" XYZ="-547.8834, 155.8443, -510.7159" QuestId="68094" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 255">
+      <GetTo ZoneId="131" XYZ="-18.1387, 6.2, 157.5993"/>
+      <TurnIn QuestId="68094" NpcId="1002298" XYZ="-18.1387, 6.2, 157.5993"/>
+    </If>
+  </Order>
+</Profile>

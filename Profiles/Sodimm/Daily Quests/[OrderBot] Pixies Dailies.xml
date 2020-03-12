@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Profile [
+<!ENTITY dailyIds "69225,69226,69227,69228,69229,69230,69231,69232,69233,69234,69235,69236,69237,69238,69239,69240,69241,69242,69243,69244,69245,69246,69247,69248,69249,69250,69251,69252">
+]>
+<!--
+Profile:  [OrderBot] Pixie Dailies
+Authors:  Mastahg, Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Pixie Dailies</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <RegisterDailies QuestIds="&dailyIds;"/>
+    <!-- Manic Pixie Dream Realm -->
+    <If Condition="IsQuestCompleted(68857) and not HasQuest(69219) and not IsQuestCompleted(69219)">
+      <GetTo ZoneId="819" XYZ="93.15471, 0, 203.0647"/>
+      <If Condition="IsQuestAcceptQualified(69219)">
+        <PickupQuest QuestId="69219" NpcId="1031839" XYZ="95.6283, 1.490116E-08, 204.1199"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69219) &gt; 0">
+      <If Condition="GetQuestStep(69219) == 1">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        </If>
+        <FlyTo XYZ="153.6752, 0.254169, 652.4897" Land="True"/>
+        <TalkTo NpcId="1031843" XYZ="152.4833, 0.2176677, 655.4512" QuestId="69219" StepId="1"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 2">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        </If>
+        <FlyTo XYZ="-197.2317, 1.701041, 736.2337" Land="True"/>
+        <TalkTo NpcId="1031845" XYZ="-200.0916, 2.204837, 737.8804" QuestId="69219" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 3">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+          <FlyTo XYZ="234.8956, 11.21871, 742.1489" Land="True"/>
+        </If>
+        <MoveTo XYZ="233.6309, 11.04326, 740.2302" Distance="1"/>
+        <WaitWhile Condition="not GetQuestStep(69219) == 4"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 4">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+          <FlyTo XYZ="234.8956, 11.21871, 742.1489" Land="True"/>
+        </If>
+        <TalkTo NpcId="1031847" XYZ="231.9219, 9.887029, 726.7413" QuestId="69219" StepId="4"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 5">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo AetheryteId="132" Name="Fort Jobb"/>
+        </If>
+        <FlyTo XYZ="-200.1233, 2.221155, 737.9545" Land="True"/>
+        <TalkTo NpcId="1031846" XYZ="-204.7609, 2.464985, 739.9557" QuestId="69219" StepId="5"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 6">
+        <If Condition="not IsOnMap(816)">
+          <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+        </If>
+        <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+        <UseTransport NpcId="1031808" XYZ="-461.5397, 72.51729, 586.4805"/>
+        <WaitWhile Condition="not GetQuestStep(69219) == 8"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 8">
+        <If Condition="not IsOnMap(889)">
+          <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+          <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+          <UseTransport NpcId="1031808" XYZ="-461.5397, 72.51729, 586.4805"/>
+        </If>
+        <TalkTo NpcId="1031850" XYZ="55.58862, -1.653294, 48.59985" QuestId="69219" StepId="8"/>
+        <WaitWhile Condition="not GetQuestStep(69219) == 10"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 10">
+        <If Condition="not IsOnMap(889)">
+          <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+          <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+          <UseTransport NpcId="1031808" XYZ="-461.5397, 72.51729, 586.4805"/>
+        </If>
+        <TalkTo NpcId="1032348" XYZ="-18.29565, 6.882263, -67.33813" QuestId="69219" StepId="10"/>
+      </If>
+      <If Condition="GetQuestStep(69219) == 255">
+        <If Condition="not IsOnMap(816)">
+          <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+        </If>
+        <FlyTo XYZ="-459.8403, 70.94588, 570.2498" Land="True"/>
+        <TurnIn QuestId="69219" NpcId="1031806" XYZ="-464.5914, 71.76874, 573.8766"/>
+      </If>
+    </If>
+    <If Condition="IsQuestCompleted(69219)">
+      <If Condition="not HasQuest(69220) and not HasQuest(69221) and not HasQuest(69222) and not HasQuest(69223) and not HasQuest(69224) and not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <TeleportTo Name="Lydha Lran" AetheryteId="144"/>
+        <FlyTo XYZ="-452.8528,70.86672,571.0655" Land="True"/>
+        <!-- Where There's Wool, There's a Way -->
+        <If Condition="IsQuestAcceptQualified(69225)">
+          <PickupQuest NpcId="1031809" QuestId="69225"/>
+        </If>
+        <!-- A Flowery Frolick -->
+        <If Condition="IsQuestAcceptQualified(69226)">
+          <PickupQuest NpcId="1031809" QuestId="69226"/>
+        </If>
+        <!-- Sharing Is Caring -->
+        <If Condition="IsQuestAcceptQualified(69227)">
+          <PickupQuest NpcId="1031809" QuestId="69227"/>
+        </If>
+        <!-- The Aesthetician of Il Mheg -->
+        <If Condition="IsQuestAcceptQualified(69228)">
+          <PickupQuest NpcId="1031809" QuestId="69228"/>
+        </If>
+        <!-- Sweet as Honey -->
+        <If Condition="IsQuestAcceptQualified(69229)">
+          <PickupQuest NpcId="1031809" QuestId="69229"/>
+        </If>
+        <!-- I Dream of Shinies -->
+        <If Condition="IsQuestAcceptQualified(69230)">
+          <PickupQuest NpcId="1031809" QuestId="69230"/>
+        </If>
+        <!-- The Wonder of Witchweed -->
+        <If Condition="IsQuestAcceptQualified(69231)">
+          <PickupQuest NpcId="1031809" QuestId="69231"/>
+        </If>
+        <!-- Of Marvelous Mallow -->
+        <If Condition="IsQuestAcceptQualified(69232)">
+          <PickupQuest NpcId="1031809" QuestId="69232"/>
+        </If>
+        <!-- The Moss Fungus Menace -->
+        <If Condition="IsQuestAcceptQualified(69233)">
+          <PickupQuest NpcId="1031809" QuestId="69233"/>
+        </If>
+        <!-- Porxine Perfection -->
+        <If Condition="IsQuestAcceptQualified(69234)">
+          <PickupQuest NpcId="1031809" QuestId="69234"/>
+        </If>
+        <!-- The Big Sleep -->
+        <If Condition="IsQuestAcceptQualified(69235)">
+          <PickupQuest NpcId="1031809" QuestId="69235"/>
+        </If>
+        <!-- Best of Boat Worlds -->
+        <If Condition="IsQuestAcceptQualified(69236)">
+          <PickupQuest NpcId="1031809" QuestId="69236"/>
+        </If>
+        <!-- Amazing Graze -->
+        <If Condition="IsQuestAcceptQualified(69237)">
+          <PickupQuest NpcId="1031809" QuestId="69237"/>
+        </If>
+        <!-- Pure Imagination -->
+        <If Condition="IsQuestAcceptQualified(69238)">
+          <PickupQuest NpcId="1031809" QuestId="69238"/>
+        </If>
+        <!-- Raiders of the Lost Pork -->
+        <If Condition="IsQuestAcceptQualified(69239)">
+          <PickupQuest NpcId="1031809" QuestId="69239"/>
+        </If>
+        <!-- Pebble without a Cause -->
+        <If Condition="IsQuestAcceptQualified(69240)">
+          <PickupQuest NpcId="1031809" QuestId="69240"/>
+        </If>
+        <!-- There's Always a Stupider Fish -->
+        <If Condition="IsQuestAcceptQualified(69241)">
+          <PickupQuest NpcId="1031809" QuestId="69241"/>
+        </If>
+        <!-- Bring Your Water to the Slaughter -->
+        <If Condition="IsQuestAcceptQualified(69242)">
+          <PickupQuest NpcId="1031809" QuestId="69242"/>
+        </If>
+        <!-- Not the Beavers -->
+        <If Condition="IsQuestAcceptQualified(69243)">
+          <PickupQuest NpcId="1031809" QuestId="69243"/>
+        </If>
+        <!-- The Once and Future Marchioness -->
+        <If Condition="IsQuestAcceptQualified(69244)">
+          <PickupQuest NpcId="1031809" QuestId="69244"/>
+        </If>
+        <!-- No Accounting for Taste -->
+        <If Condition="IsQuestAcceptQualified(69245)">
+          <PickupQuest NpcId="1031809" QuestId="69245"/>
+        </If>
+        <!-- What the Phooka -->
+        <If Condition="IsQuestAcceptQualified(69246)">
+          <PickupQuest NpcId="1031809" QuestId="69246"/>
+        </If>
+        <!-- No Grown-ups Allowed -->
+        <If Condition="IsQuestAcceptQualified(69247)">
+          <PickupQuest NpcId="1031809" QuestId="69247"/>
+        </If>
+        <!-- Pride-and-Seek -->
+        <If Condition="IsQuestAcceptQualified(69248)">
+          <PickupQuest NpcId="1031809" QuestId="69248"/>
+        </If>
+        <!-- A Porxie Before Swine -->
+        <If Condition="IsQuestAcceptQualified(69249)">
+          <PickupQuest NpcId="1031809" QuestId="69249"/>
+        </If>
+        <!-- Snot My Problem -->
+        <If Condition="IsQuestAcceptQualified(69250)">
+          <PickupQuest NpcId="1031809" QuestId="69250"/>
+        </If>
+        <!-- Aim High -->
+        <If Condition="IsQuestAcceptQualified(69251)">
+          <PickupQuest NpcId="1031809" QuestId="69251"/>
+        </If>
+        <!-- The Chaser -->
+        <If Condition="IsQuestAcceptQualified(69252)">
+          <PickupQuest NpcId="1031809" QuestId="69252"/>
+        </If>
+      </If>
+      <If Condition="HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <TeleportTo Name="Lydha Lran" AetheryteId="144"/>
+		<If Condition="GetQuestStep(69234) == 1 or GetQuestStep(69250) == 1">
+          <TalkTo NpcId="1031811" XYZ="-442.4659, 70.68616, 573.6934"/>
+		</If>
+        <!-- Porxine Perfection -->
+        <If Condition="GetQuestStep(69234) == 2">
+		  <If Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 0">
+            <If Condition="Array[int]([1, 2]).Contains(GetQuestById(69234).QuestI8CH)">
+              <FlyTo XYZ="-850.1474,36.13097,299.2457" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+              <SoUseSpell SpellId="18187" NpcId="2010891" UseDistance="5.0" XYZ="-852.0485,37.67456,298.1155" Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+            <If Condition="GetQuestById(69234).QuestI8CH == 3">
+              <FlyTo XYZ="-774.2247, 53.85721, 105.7065" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+              <SoUseSpell SpellId="18187" NpcId="2010892" UseDistance="5.0" XYZ="-774.2247, 53.85721, 105.7065" Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 0"/>
+            </If>
+          </If>
+		  <If Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 1">
+            <If Condition="GetQuestById(69234).QuestI8CH == 1">
+              <FlyTo XYZ="-774.2247, 53.85721, 105.7065" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+              <SoUseSpell SpellId="18187" NpcId="2010892" UseDistance="5.0" XYZ="-774.2247, 53.85721, 105.7065" Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+            <If Condition="Array[int]([2, 3]).Contains(GetQuestById(69234).QuestI8CH)">
+              <FlyTo XYZ="-801.7984, 25.28642, -106.4932" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+              <SoUseSpell SpellId="18187" NpcId="2010893" UseDistance="5.0" XYZ="-802.3041,27.11523,-108.4459" Condition="GetQuestById(69234).GetTodoArgs(2, 0).Item1 == 1"/>
+            </If>
+          </If>		
+          <Dismount/>
+        </If>
+        <!-- Snot My Problem -->
+        <If Condition="GetQuestStep(69250) == 2">
+          <If Condition="GetQuestById(69250).GetTodoArgs(2, 0).Item1 == 0">
+            <FlyTo XYZ="-28.66123, 31.23332, -502.8555" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+            <SoUseSpell SpellId="18187" NpcId="2010922" UseDistance="5.0" XYZ="-27.8783, 30.44165, -505.3941" Condition="GetQuestById(69250).GetTodoArgs(2, 0).Item1 == 0"/>
+          </If>
+          <If Condition="GetQuestById(69250).GetTodoArgs(2, 0).Item1 == 1">
+            <FlyTo XYZ="-53.68454, 56.09547, -669.3045" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+            <SoUseSpell SpellId="18187" NpcId="2010923" UseDistance="5.0" XYZ="-53.02521, 55.95483, -671.2902" Condition="GetQuestById(69250).GetTodoArgs(2, 0).Item1 == 1"/>
+          </If>
+          <Dismount/>
+        </If>
+        <!-- Where There's Wool, There's a Way -->
+        <If Condition="GetQuestStep(69225) == 1">
+          <FlyTo XYZ="-233.6436,48.17633,590.3309"/>
+          <UseObject NpcIds="2010856,2010857,2010858" XYZ="-233.6436,48.17633,590.3309" QuestId="69225" StepId="1"/>
+          <NoCombatMoveTo XYZ="-233.6436,48.17633,590.3309"/>
+        </If>
+        <!-- A Flowery Frolick -->
+        <If Condition="GetQuestStep(69226) == 1">
+          <FlyTo Land="true" XYZ="-735.9016, 78.99287, 455.830"/>
+          <UseObject NpcId="2010859" XYZ="-743.8621,78.96533,457.145" QuestId="69226" StepId="1"/>
+        </If>
+        <!-- Sharing Is Caring -->
+        <If Condition="GetQuestStep(69227) == 1">
+          <FlyTo XYZ="-493.1009,41.81654,-296.1621" Land="True"/>
+          <RunCode Name="69227"/>
+        </If>
+        <!-- The Aesthetician of Il Mheg -->
+        <If Condition="GetQuestStep(69228) == 1">
+          <FlyTo XYZ="-313.1297, 38.41087, 449.5651"/>
+          <UseObject NpcIds="2010860,2010861,2010862,2010863" XYZ="-313.1297, 38.41087, 449.5651" QuestId="69228" StepId="1"/>
+        </If>
+        <!-- Sweet as Honey -->
+        <If Condition="GetQuestStep(69229) == 1">
+          <FlyTo XYZ="-8.163526,15.61089,643.2602"/>
+          <UseObject NpcId="2010864" XYZ="3.890991,13.90094,637.2321" QuestId="69229" StepId="1"/>
+        </If>
+        <!-- I Dream of Shinies -->
+        <If Condition="GetQuestStep(69230) == 1">
+          <FlyTo XYZ="-343.4759, 25.87267, -241.296" IgnoreIndoors="True"/>
+          <RunCode Name="69230"/>
+          <FlyTo XYZ="-388.4368, 29.2003, -225.1293" IgnoreIndoors="True"/>
+        </If>
+        <!-- The Wonder of Witchweed -->
+        <If Condition="GetQuestStep(69231) == 1">
+          <FlyTo XYZ="-506.9714,77.05835,-411.4272" Land="True"/>
+          <UseObject NpcId="2010868" XYZ="-504.326,77.22583,-410.1168" QuestId="69231" StepId="1"/>
+        </If>
+        <!-- Of Marvelous Mallow -->
+        <If Condition="GetQuestStep(69232) == 1">
+          <FlyTo XYZ="-184.029,3.418402,-249.355" Land="True" IgnoreIndoors="True"/>
+          <UseObject NpcIds="2010888,2010889" XYZ="-184.029,3.418402,-249.355" QuestId="69232" StepId="1"/>
+        </If>
+        <!-- The Moss Fungus Menace -->
+        <If Condition="GetQuestStep(69233) == 1">
+          <FlyTo XYZ="7.206357, 34.1074, -608.3488" Land="True"/>
+          <UseObject NpcId="2010890" XYZ="10.02515, 32.94421, -608.6061" QuestId="69233" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69233) == 1">
+          <FlyTo XYZ="-40.75595, 49.65583, -640.057" Land="True"/>
+          <UseObject NpcId="2010890" XYZ="-35.41626, 48.23376, -636.3165" QuestId="69233" StepId="1"/>
+        </If>
+        <!-- The Big Sleep -->
+        <If Condition="GetQuestStep(69235) == 1">
+          <If Condition="GetQuestById(69235).QuestI8CH == 1">
+            <FlyTo XYZ="-103.7213, 110.4785, -196.2435" Land="True"/>
+            <TalkTo NpcId="1032183" XYZ="-105.6077, 110.2984, -196.9788" QuestId="69286" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(69235).QuestI8CH == 2">
+            <FlyTo XYZ="-195.6009,164.6073,-217.9443" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+            <FlyTo XYZ="-185.2903, 154.7919, -262.8978" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+            <TalkTo NpcId="1032185" XYZ="-185.2903, 154.7919, -262.8978" QuestId="69235" StepId="1"/>
+            <MoveTo XYZ="-193.9557,154.7919,-230.3104"/>
+            <FlyTo XYZ="-190.5987,111.8491,-207.7171" IgnoreIndoors="True"/>
+          </If>
+          <If Condition="GetQuestById(69235).QuestI8CH == 3">
+            <FlyTo XYZ="-247.6362, 114.405, -304.0714" Land="True"/>
+            <TalkTo NpcId="1032184" XYZ="-226.2761, 114.6107, -305.6535" QuestId="69235" StepId="1"/>
+            <MoveTo XYZ="-247.6362, 114.405, -304.0714"/>
+          </If>
+        </If>
+        <!-- Best of Boat Worlds -->
+        <If Condition="GetQuestStep(69236) == 1">
+          <FlyTo XYZ="268.5129,33.70715,-78.14148" Land="True"/>
+          <UseObject NpcId="2010894" XYZ="268.5129,33.70715,-78.14148" QuestId="69236" StepId="1"/>
+        </If>
+        <!-- Pure Imagination -->
+        <If Condition="GetQuestStep(69238) == 1">
+          <FlyTo XYZ="447.4947, 182.1235, 300.0285"/>
+          <FlyTo XYZ="757.7023,187.0125,170.2198"/>
+          <UseObject NpcIds="2010898,2010899,2010900" XYZ="765.8655,187.3044,163.5309" QuestId="69238" StepId="1"/>
+          <WaitTimer WaitTime="5"/>
+        </If>
+        <!-- Amazing Graze -->
+        <If Condition="GetQuestStep(69237) == 1">
+          <FlyTo XYZ="-233.6436,48.17633,590.3309"/>
+          <TalkTo NpcId="1032261" XYZ="-258.381, 50.97794, 601.2206" QuestId="69237" StepId="1"/>
+          <NoCombatMoveTo XYZ="-233.6436,48.17633,590.3309"/>
+        </If>
+        <If Condition="GetQuestStep(69237) == 2">
+          <If Condition="not IsOnSubMap(3161) and not IsOnSubMap(3146)">
+            <FlyTo XYZ="520.084, 202.2718, 315.8661"/>
+          </If>
+          <FlyTo XYZ="726.0002,188.8607,265.6998"/>
+          <UseObject NpcIds="2010895,2010896,2010897" XYZ="726.0002,188.8607,265.6998" QuestId="69237" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(69237) == 3">
+          <FlyTo XYZ="-233.6436,48.17633,590.3309"/>
+          <HandOver ItemId="2002934" NpcId="1032261" XYZ="-258.381, 50.97794, 601.2206" QuestId="69237" StepId="3"/>
+          <NoCombatMoveTo XYZ="-233.6436,48.17633,590.3309"/>
+        </If>
+        <!-- Raiders of the Lost Pork -->
+        <If Condition="GetQuestStep(69239) == 1">
+          <FlyTo XYZ="-437.0982, 25.33957, 252.0434" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <UseObject NpcIds="1032167,1032168,1032169" XYZ="-431.3573, 24.7205, 251.606" QuestId="69239" StepId="1"/>
+        </If>
+        <!-- Pebble without a Cause -->
+        <If Condition="GetQuestStep(69240) == 1">
+          <FlyTo XYZ="-398.7063, -0.4, -5.116957"/>
+          <UseObject NpcIds="2010901,2010902,2010903" XYZ="-395.4681, -0.07635498, -0.1679077" QuestId="69240" Step="1"/>
+        </If>
+        <!-- There's Always a Stupider Fish -->
+        <If Condition="GetQuestStep(69241) == 1">
+          <If Condition="GetQuestById(69241).QuestI8BL == 1">
+            <FlyTo XYZ="-189.868, -66.94135, 13.04639" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+            <UseObject NpcId="2010910" XYZ="-189.868, -66.94135, 13.04639" QuestId="69241" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(69241).QuestI8BL == 2">
+            <FlyTo XYZ="-113.9391, -36.08759, 87.6936" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+            <UseObject NpcId="2010911" XYZ="-113.9391, -36.08759, 87.6936" QuestId="69241" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(69241).QuestI8BL == 3">
+            <FlyTo XYZ="-164.9348, -50.91937, 71.15283" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+            <UseObject NpcId="2010904" XYZ="-164.9348, -50.91937, 71.15283" QuestId="69241" StepId="1"/>
+          </If>
+        </If>
+        <!-- Bring Your Water to the Slaughter -->
+        <If Condition="GetQuestStep(69242) == 1">
+          <FlyTo XYZ="161.4593, 0.299998, 633.909" Land="True"/>
+          <UseObject NpcId="2010905" XYZ="164.0192,0.289917,640.2228" QuestId="69242" StepId="1"/>
+        </If>
+        <!-- Not the Beavers -->
+        <If Condition="GetQuestStep(69243) == 1">
+          <FlyTo XYZ="23.83244, 14.05823, 751.1464" Land="True"/>
+		  <RunCode Name="Announce_Manual_Completion"/>
+          <WaitWhile Condition="not GetQuestStep(69243) == 255"/>
+        </If>
+        <!-- The Once and Future Marchioness -->
+        <If Condition="GetQuestStep(69244) == 1">
+          <FlyTo XYZ="38.51172, 4.784579, 378.2114" Land="True"/>
+          <UseObject NpcIds="2010906,2010907,2010908" XYZ="47.95898, 4.714966, 384.9087" QuestId="69244" StepId="1"/>
+        </If>
+        <!-- No Accounting for Taste -->
+        <If Condition="GetQuestStep(69245) == 1">
+          <FlyTo XYZ="-254.0672, 1.341959, 222.3893"/>
+          <UseObject NpcId="2010909" XYZ="-242.0844, 0.8391724, 223.8041" QuestId="69245" Step="1"/>
+        </If>
+        <!-- What the Phooka -->
+        <If Condition="GetQuestStep(69246) == 1">
+          <FlyTo XYZ="-82.94001, 89.80834, -179.4455" Land="True"/>
+          <UseItem ItemId="2002945" NpcId="1032204" XYZ="-81.86469, 88.12085, -175.0668" QuestId="69246" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69246) == 2">
+          <FlyTo XYZ="-117.0524, 112.5308, -348.315" Land="True"/>
+          <UseItem ItemId="2002945" NpcId="1032205" XYZ="-114.2139, 112.903, -350.576" QuestId="69246" StepId="2"/>
+        </If>
+        <!-- No Grown-ups Allowed -->
+        <If Condition="GetQuestStep(69247) == 1">
+          <FlyTo XYZ="479.6371, 90.93466, -345.1812" Land="True"/>
+          <UseObject NpcId="2010786" XYZ="493.4309, 94.86523, -285.7557" QuestId="69247" StepId="1"/>
+          <NoCombatMoveTo XYZ="479.6371, 90.93466, -345.1812"/>
+        </If>
+        <!-- A Porxie Before Swine -->
+        <If Condition="GetQuestStep(69249) == 1">
+          <FlyTo XYZ="219.5939, 30.6263, -488.0251" AllowedVariance="3.0" Land="True"/>
+          <WaitWhile Condition="not GetQuestStep(69249) == 2"/>
+        </If>
+        <If Condition="GetQuestStep(69249) == 2">
+          <TalkTo NpcId="1032211" XYZ="220.386, 30.80374, -489.5552" QuestId="69249" StepId="2"/>
+        </If>
+        <!-- Aim High -->
+        <If Condition="GetQuestStep(69251) == 1">
+          <FlyTo XYZ="-479.3922, 83.07233, 634.0925" Land="True"/>
+          <UseObject NpcId="2010788" XYZ="-480.0946, 83.45154, 635.9197" QuestId="69251" StepId="1"/>
+        </If>
+        <!-- The Chaser -->
+        <If Condition="GetQuestStep(69252) == 1">
+          <GetTo ZoneId="816" XYZ="8.136286, 100.161, -882.8734"/>
+          <UseItem ItemId="2002943" NpcIds="1032202, 1032203" XYZ="10.84912, 100.161, -886.2288" QuestId="69252" StepId="1"/>
+        </If>
+        <!-- Pride-and-Seek -->
+        <If Condition="GetQuestStep(69248) == 1">
+          <GetTo ZoneId="816" XYZ="66.52809, 103.1226, -798.4789"/>
+          <RunCode Name="69248"/>
+        </If>
+        <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
+          <TeleportTo Name="Lydha Lran" AetheryteId="144" Force="True"/>
+          <FlyTo XYZ="-452.8528,70.86672,571.0655" Land="True"/>
+          <!-- Where There's Wool, There's a Way -->
+          <If Condition="GetQuestStep(69225) == 255">
+            <TurnIn QuestId="69225" NpcId="1031809" ItemId="2002920" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- A Flowery Frolick -->
+          <If Condition="GetQuestStep(69226) == 255">
+            <TurnIn QuestId="69226" NpcId="1031809" ItemId="2002921" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Sharing Is Caring -->
+          <If Condition="GetQuestStep(69227) == 255">
+            <TurnIn QuestId="69227" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Aesthetician of Il Mheg -->
+          <If Condition="GetQuestStep(69228) == 255">
+            <TurnIn QuestId="69228" NpcId="1031809" ItemId="2002925" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Sweet as Honey -->
+          <If Condition="GetQuestStep(69229) == 255">
+            <TurnIn QuestId="69229" NpcId="1031809" ItemId="2002926" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- I Dream of Shinies -->
+          <If Condition="GetQuestStep(69230) == 255">
+            <TurnIn QuestId="69230" NpcId="1031809" ItemId="2002968" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Wonder of Witchweed -->
+          <If Condition="GetQuestStep(69231) == 255">
+            <TurnIn QuestId="69231" NpcId="1031809" ItemId="2002928" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Of Marvelous Mallow -->
+          <If Condition="GetQuestStep(69232) == 255">
+            <TurnIn QuestId="69232" NpcId="1031809" ItemId="2002931" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Moss Fungus Menace -->
+          <If Condition="GetQuestStep(69233) == 255">
+            <TurnIn QuestId="69233" NpcId="1031809" ItemId="2002932" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Porxine Perfection -->
+          <If Condition="GetQuestStep(69234) == 255">
+            <TurnIn QuestId="69234" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Big Sleep -->
+          <If Condition="GetQuestStep(69235) == 255">
+            <TurnIn QuestId="69235" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Best of Boat Worlds -->
+          <If Condition="GetQuestStep(69236) == 255">
+            <TurnIn QuestId="69236" NpcId="1031809" ItemId="2002933" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Amazing Graze -->
+          <If Condition="GetQuestStep(69237) == 255">
+            <TurnIn QuestId="69237" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Pure Imagination -->
+          <If Condition="GetQuestStep(69238) == 255">
+            <TurnIn QuestId="69238" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Raiders of the Lost Pork -->
+          <If Condition="GetQuestStep(69239) == 255">
+            <TurnIn QuestId="69239" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Pebble without a Cause -->
+          <If Condition="GetQuestStep(69240) == 255">
+            <TurnIn QuestId="69240" NpcId="1031809" ItemId="2002938" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- There's Always a Stupider Fish -->
+          <If Condition="GetQuestStep(69241) == 255">
+            <TurnIn QuestId="69241" NpcId="1031809" ItemId="2002939" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Bring Your Water to the Slaughter -->
+          <If Condition="GetQuestStep(69242) == 255">
+            <TurnIn QuestId="69242" NpcId="1031809" ItemId="2002940" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Not the Beavers -->
+          <If Condition="GetQuestStep(69243) == 255">
+            <TurnIn QuestId="69243" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Once and Future Marchioness -->
+          <If Condition="GetQuestStep(69244) == 255">
+            <TurnIn QuestId="69244" NpcId="1031809" ItemId="2002941" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- No Accounting for Taste -->
+          <If Condition="GetQuestStep(69245) == 255">
+            <TurnIn QuestId="69245" NpcId="1031809" ItemId="2002942" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- What the Phooka -->
+          <If Condition="GetQuestStep(69246) == 255">
+            <TurnIn QuestId="69246" NpcId="1031809" ItemId="2002946" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- No Grown-ups Allowed -->
+          <If Condition="GetQuestStep(69247) == 255">
+            <TurnIn QuestId="69247" NpcId="1031809" ItemId="2002947" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Pride-and-Seek -->
+          <If Condition="GetQuestStep(69248) == 255">
+            <TurnIn QuestId="69248" NpcId="1031809" ItemId="2002946" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- A Porxie Before Swine -->
+          <If Condition="GetQuestStep(69249) == 255">
+            <TurnIn QuestId="69249" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Snot My Problem -->
+          <If Condition="GetQuestStep(69250) == 255">
+            <TurnIn QuestId="69250" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- Aim High -->
+          <If Condition="GetQuestStep(69251) == 255">
+            <TurnIn QuestId="69251" NpcId="1031809" ItemId="2002948" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+          <!-- The Chaser -->
+          <If Condition="GetQuestStep(69252) == 255">
+            <TurnIn QuestId="69252" NpcId="1031809" XYZ="-454.3069, 71.43217, 575.1278"/>
+          </If>
+        </If>
+      </If>
+      <If Condition="not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
+        <!-- Sustenance for the Soul -->
+        <If Condition="IsQuestAcceptQualified(69220)">
+          <PickupQuest NpcId="1031806" QuestId="69220"/>
+        </If>
+        <If Condition="GetQuestStep(69220) &gt; 0">
+          <If Condition="GetQuestStep(69220) == 1 or GetQuestStep(69220) == 2">
+            <If Condition="not IsOnMap(889)">
+              <GetTo ZoneId="889" XYZ="60.47144,-1.605133,53.54382"/>
+            </If>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="1" NpcId="1031853" XYZ="60.47144, -1.605133, 53.54382"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="2" NpcId="1031852" XYZ="59.03711, -1.799774, 56.56519"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 3">
+            <GetTo ZoneId="816" XYZ="74.78442, 98.85969, -820.8896"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="3" NpcId="1031855" XYZ="74.78442, 98.85969, -820.8896"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 4">
+            <GetTo ZoneId="814" XYZ="-211.3527, 16.63259, 427.3289"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="4" NpcId="1031858" XYZ="-211.3527, 16.63259, 427.3289"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 5">
+            <GetTo ZoneId="814" XYZ="-217.4564, 21.4813, 356.9237"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="5" NpcId="1031860" XYZ="-217.4564, 21.4813, 356.9237"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 6">
+            <GetTo ZoneId="814" XYZ="-137.7432,11.93931,336.3851"/>
+            <WaitWhile Condition="not GetQuestStep(69220) == 7"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 7">
+            <GetTo ZoneId="814" XYZ="-149.8589, 13.08482, 341.1764"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="7" NpcId="1031861" XYZ="-149.8589, 13.08482, 341.1764"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 8">
+            <GetTo ZoneId="814" XYZ="-217.4564, 21.4813, 356.9237"/>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="8" NpcId="1031860" XYZ="-217.4564, 21.4813, 356.9237"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 9">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport InteractDistance="3.0" NpcId="1031891" XYZ="-461.5397, 72.51729, 586.4805"/>
+            </If>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="9" NpcId="1031863" XYZ="60.37988, 31.0353, -110.7653"/>
+            <WaitWhile Condition="not GetQuestStep(69220) == 11"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 11">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport InteractDistance="3.0" NpcId="1031891" XYZ="-461.5397, 72.51729, 586.4805"/>
+            </If>
+            <TalkTo InteractDistance="3.0" QuestId="69220" StepId="11" NpcId="1032350" XYZ="63.79797, 30.26618, -103.4715"/>
+          </If>
+          <If Condition="GetQuestStep(69220) == 255">
+            <GetTo ZoneId="816" XYZ="-464.5914, 71.76874, 573.8766"/>
+            <TurnIn QuestId="69220" NpcId="1031806" ItemId="2001976" XYZ="-464.5914, 71.76874, 573.8766"/>
+          </If>
+        </If>
+        <!-- The Heart's Oasis -->
+        <If Condition="IsQuestAcceptQualified(69221)">
+          <SoPickupQuest QuestId="69221" NpcId="1031806" XYZ="-464.5914, 71.76874, 573.8766"/>
+        </If>
+        <If Condition="GetQuestStep(69221) &gt; 0">
+          <If Condition="GetQuestStep(69221) == 1">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1031866" XYZ="78.6908, 0.1588759, 50.0343" QuestId="69221" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 2">
+            <If Condition="not IsOnMap(889)">
+              <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+              <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1031865" XYZ="76.37134, 0.1588759, 51.98743" QuestId="69221" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 3">
+            <GetTo ZoneId="815" XYZ="302.6576, 1.468583, -311.4126"/>
+            <TalkTo NpcId="1031867" XYZ="303.1509, 1.468583, -313.3441" QuestId="69221" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 4">
+            <If Condition="not IsOnMap(815)">
+              <GetTo ZoneId="815" XYZ="202.7424, 7.155827, -137.3507"/>
+            </If>
+            <TalkTo NpcId="1031869" XYZ="201.0681, 7.155827, -138.8113" QuestId="69221" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 5">
+            <If Condition="not IsOnMap(815)">
+              <GetTo ZoneId="815" XYZ="354.963, -19.5651, -5.399465"/>
+            </If>
+            <MoveTo XYZ="355.5504, -19.55113, -4.196289" Distance="1"/>
+            <WaitWhile Condition="not GetQuestStep(69221) == 6"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 6">
+            <If Condition="not IsOnMap(815)">
+              <GetTo ZoneId="815" XYZ="351.5468, -18.94146, -13.80862"/>
+            </If>
+            <TalkTo NpcId="1031871" XYZ="350.0571, -18.54481, -15.79315" QuestId="69221" StepId="6"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 7">
+            <GetTo ZoneId="815" XYZ="203.2946, 7.155827, -136.2686"/>
+            <TalkTo NpcId="1031869" XYZ="201.0681, 7.155827, -138.8113" QuestId="69221" StepId="7"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 8">
+            <If Condition="not IsOnMap(889)">
+              <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+              <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1032030" XYZ="90.40967, 40.45613, -105.4857" QuestId="69221" StepId="8"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 9">
+            <If Condition="not IsOnMap(889)">
+              <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+              <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1032352" XYZ="95.99438, 38.90625, -89.37213" QuestId="69221" StepId="9"/>
+          </If>
+          <If Condition="GetQuestStep(69221) == 255">
+            <GetTo ZoneId="816" XYZ="-463.8915, 71.77123, 574.0013"/>
+            <TurnIn QuestId="69221" NpcId="1031806" XYZ="-464.5914, 71.76874, 573.8766"/>
+          </If>
+        </If>
+        <!-- A Cry from the Ashes -->
+        <If Condition="IsQuestAcceptQualified(69222)">
+          <PickupQuest QuestId="69222" NpcId="1031806" XYZ="-464.5914, 71.76874, 573.8766"/>
+        </If>
+        <If Condition="GetQuestStep(69222) &gt; 0">
+          <If Condition="GetQuestStep(69222) == 1">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1031875" XYZ="63.55383, -6.256149, -4.68457" QuestId="69222" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 2">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1031873" XYZ="62.57715, -6.269508, -1.297058" QuestId="69222" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 3">
+            <GetTo ZoneId="817" XYZ="-142.0052, -18.4777, 300.4308"/>
+            <TalkTo NpcId="1031876" XYZ="-143.9994, -18.5196, 300.5264" QuestId="69222" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 4">
+            <If Condition="not IsOnMap(817)">
+              <GetTo ZoneId="817" XYZ="-41.16146, -19.0206, 271.0402"/>
+            </If>
+            <TalkTo NpcId="1031878" XYZ="-42.64899, -18.50922, 270.3135" QuestId="69222" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 5">
+            <If Condition="not IsOnMap(817)">
+              <GetTo ZoneId="817" XYZ="-278.4924, 16.53576, 247.6691"/>
+            </If>
+            <MoveTo XYZ="-278.4924, 16.53576, 247.6691" Distance="1"/>
+            <WaitWhile Condition="not GetQuestStep(69222) == 6"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 6">
+            <If Condition="not IsOnMap(817)">
+              <GetTo ZoneId="817" XYZ="-277.1705, 15.4523, 260.9578"/>
+            </If>
+            <TalkTo NpcId="1031879" XYZ="-276.936, 15.25055, 263.2028" QuestId="69222" StepId="6"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 7">
+            <GetTo ZoneId="817" XYZ="-40.81879, -19.0206, 270.9592"/>
+            <TalkTo NpcId="1032280" XYZ="-42.03864, -18.9975, 270.5881" QuestId="69222" StepId="7"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 8">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1032032" XYZ="-2.517761, 25.88701, -107.0726" QuestId="69222" StepId="8"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 9">
+            <If Condition="not IsOnMap(889)">
+              <If Condition="not IsOnMap(816)">
+                <TeleportTo AetheryteId="144" Name="Lydha Lran"/>
+                <FlyTo XYZ="-452.9554, 71.05677, 572.1346" Land="True"/>
+              </If>
+              <UseTransport NpcId="1031892" XYZ="-461.5702, 72.51754, 586.4805"/>
+            </If>
+            <TalkTo NpcId="1032032" XYZ="-2.517761, 25.88701, -107.0726" QuestId="69222" StepId="9"/>
+          </If>
+          <If Condition="GetQuestStep(69222) == 255">
+            <GetTo ZoneId="816" XYZ="-463.0409, 71.62067, 573.3404"/>
+            <TurnIn QuestId="69222" NpcId="1031806" XYZ="-464.5914, 71.76874, 573.8766"/>
+          </If>
+        </If>
+        <!-- As the Heart Bids -->
+        <If Condition="IsQuestAcceptQualified(69223)">
+          <PickupQuest NpcId="1031806" QuestId="69223"/>
+        </If>
+        <If Condition="GetQuestStep(69223) &gt; 0">
+          <If Condition="GetQuestStep(69223) == 1">
+            <GetTo ZoneId="889" XYZ="-103.0214, 8.881907, -38.05749"/>
+            <TalkTo InteractDistance="3.0" QuestId="69223" StepId="1" NpcId="1031883" XYZ="-116.0754, 9.440084, -41.42828"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 2">
+            <GetTo ZoneId="889" XYZ="-114.5082, 9.440079, -42.47797"/>
+            <TalkTo InteractDistance="3.0" QuestId="69223" StepId="2" NpcId="1031881" XYZ="-115.0378, 9.440084, -38.65112"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 3">
+            <If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 0">
+              <GetTo ZoneId="816" XYZ="-293.0069, 40.32404, 457.8718"/>
+              <TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
+            </If>
+            <If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 1">
+              <GetTo ZoneId="816" XYZ="-85.86986, 101.7333, -852.8892"/>
+              <FlyTo XYZ="-87.3627, 119.3281, -850.8953" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+              <FlyTo XYZ="-108.0799, 108.4, -841.0948" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True" Land="True"/>
+              <TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639"/>
+            </If>
+            <If Condition="GetQuestById(69223).GetTodoArgs(2, 0).Item1 == 2">
+              <GetTo ZoneId="816" XYZ="478.3861, 90.34687, -654.6541"/>
+              <TalkTo InteractDistance="3.0" QuestId="69223" StepId="3" NpcId="1031204" XYZ="481.9561, 90.43779, -656.0922"/>
+            </If>
+          </If>
+          <If Condition="GetQuestStep(69223) == 4">
+            <GetTo ZoneId="816" XYZ="-464.7432, 71.09718, 570.2627"/>
+            <TalkTo InteractDistance="3.0" QuestId="69223" StepId="4" NpcId="1031807" XYZ="-465.9343, 71.48343, 571.8623"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 5">
+            <GetTo ZoneId="816" XYZ="-461.6005, 72.53142, 585.2968"/>
+            <TalkTo InteractDistance="3.0" QuestId="69223" StepId="5" NpcId="1031808" XYZ="-461.5397, 72.51729, 586.4805"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 6">
+            <RunCode Name="Announce_Manual_Completion"/>
+            <WaitWhile Condition="not GetQuestStep(69223) == 8"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 8">
+            <TalkTo InteractDistance="3.0" QuestId="69223" StepId="8" NpcId="1031886" XYZ="38.34583, -4.639912, 24.76538"/>
+          </If>
+          <If Condition="GetQuestStep(69223) == 255">
+            <GetTo ZoneId="816" XYZ="-463.7203, 71.72343, 573.7556"/>
+            <TurnIn QuestId="69223" NpcId="1031806" ItemId="2001976" XYZ="-464.5914, 71.76874, 573.8766"/>
+          </If>
+        </If>
+        <!-- Forever and a Dream -->
+        <If Condition="IsQuestAcceptQualified(69224)">
+          <PickupQuest NpcId="1031806" QuestId="69224"/>
+        </If>
+        <If Condition="GetQuestStep(69224) &gt; 0">
+          <If Condition="GetQuestStep(69224) == 1">
+            <GetTo ZoneId="892" XYZ="55.58157, -6.182453, 10.16039"/>
+            <TalkTo InteractDistance="3.0" QuestId="69224" StepId="1" NpcId="1031890" XYZ="55.64954, -6.167931, 8.041443"/>
+          </If>
+          <If Condition="GetQuestStep(69224) == 255">
+            <GetTo ZoneId="816" XYZ="-464.1204, 71.64947, 573.1736"/>
+            <TurnIn QuestId="69224" NpcId="1031806" ItemId="2001976" XYZ="-464.5914, 71.76874, 573.8766"/>
+          </If>
+        </If>
+      </If>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "请手动完成下一个任务。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69227">
+      <![CDATA[
+        var _say =  String.Empty;
+#if RB_CN
+        _say = "/s 超级小可爱";
+#else
+        _say = "/s snae ling";
+#endif        
+        var positionDictionary = new Dictionary<uint,Vector3>()
+        {
+          {1032140,new Vector3("-459.8917,42.65948,-305.7145")},
+          {1032141,new Vector3("-473.4722,45.36511,-311.6656")},
+          {1032142,new Vector3("-472.7398,50.09534,-328.2673")}
+        };
+
+        await CommonTasks.StopAndDismount();
+
+        var activeId = 0u;
+        foreach(var id in positionDictionary.Keys)
+        {
+          var gameobj = GameObjectManager.GetObjectByNPCId(id);
+          if (gameobj != null && gameobj.IsTargetable)
+          {
+            activeId = id;
+            break;
+          }
+        }
+
+        while (Core.Me.Distance(positionDictionary[activeId]) > 3f)
+        {
+          await CommonTasks.MoveTo(positionDictionary[activeId]);
+          await Coroutine.Yield();
+        }
+
+        if (GameObjectManager.GetObjectByNPCId(activeId).IsVisible)  {  ChatManager.SendChat(_say);  }
+
+        while (ConditionParser.GetQuestStep(69227) != 255)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69248">
+      <![CDATA[
+        var _say =  String.Empty;
+#if RB_CN
+        _say = "/s 河狸";
+#else
+        _say = "/s Beaver";
+#endif        
+        var concealedPixie = GameObjectManager.GetObjectByNPCId(1032208);
+        await CommonTasks.StopAndDismount();
+
+        if (concealedPixie.IsVisible)  {  ChatManager.SendChat(_say);  }
+
+        while (ConditionParser.GetQuestStep(69248) != 255)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69230">
+      <![CDATA[				
+        var diveToLocation = new Vector3("-328.463,-50.55911,-254.9518");
+        var houseLocation = new Vector3("-337.0634,-53.65659,-277.9061");
+
+        // Dive underwater.
+        while (Core.Me.Distance(diveToLocation) > 1f)
+        {
+          Navigator.PlayerMover.MoveTowards(diveToLocation);
+          await Coroutine.Yield();
+        }
+
+        // Move into House of the First Light.
+        while (Core.Me.Distance(houseLocation) > 1f)
+        {
+          Navigator.PlayerMover.MoveTowards(houseLocation);
+          await Coroutine.Yield();
+        }
+
+        // Get object.
+        var relicsDictionary = new Dictionary<uint,Vector3>()
+        {
+          {2010865,new Vector3("-335.5917,-53.75763,-277.9126")},
+          {2010866,new Vector3("-335.5917,-54.1543,-293.4158")},
+          {2010867,new Vector3("-351.6442,-53.6355,-295.7352")}
+        };
+
+        var activeId = 0u;
+        foreach (var id in relicsDictionary.Keys)
+        {
+          var obj = GameObjectManager.GetObjectByNPCId(id);
+          if (obj != null && obj.IsTargetable)
+          {
+            activeId = id;
+            break;
+          }
+        }
+
+        // Let Flightor do the rest.
+        while (Core.Me.Distance(relicsDictionary[activeId]) > 5f)
+        {
+          var flightParams = new ff14bot.Pathing.FlyToParameters(relicsDictionary[activeId]) {  CheckIndoors = false  };
+          ff14bot.Pathing.Flightor.MoveTo(flightParams);
+          await Coroutine.Yield();
+        }
+
+        Navigator.PlayerMover.MoveStop();
+        
+        if (GameObjectManager.GetObjectByNPCId(activeId).IsVisible)  {  GameObjectManager.GetObjectByNPCId(activeId).Interact();  }
+
+        while (ConditionParser.GetQuestStep(69230) != 255)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+
+        // If position 2, exit thru door or Flightor gets stuck.
+        if (activeId == 2010866)
+        {
+          var exitLoc = new Vector3("-332.3985,-53.90364,-260.3446");
+          
+          while (Core.Me.Distance(exitLoc) > 1f)
+          {
+            Navigator.PlayerMover.MoveTowards(exitLoc);
+            await Coroutine.Yield();
+          }
+        }
+        
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

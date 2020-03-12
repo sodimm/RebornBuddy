@@ -1848,9 +1848,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <!-- We Must Rebuild  (Level 4)-->
     <If Condition="IsQuestCompleted(66130) and not HasQuest(66131) and not IsQuestCompleted(66131)">
-      <If Condition="not IsOnMap(130)">
-        <GetTo ZoneId="130" XYZ="21.69085, 6.999996, -80.55646"/>
-      </If>
+      <GetTo ZoneId="130" XYZ="21.69085, 6.999996, -80.55646"/>
       <If Condition="IsQuestAcceptQualified(66131)">
         <PickupQuest NpcId="1001353" QuestId="66131" XYZ="21.07263, 7.45, -78.78235"/>
       </If>
@@ -2467,35 +2465,35 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TurnIn QuestId="66209" NpcId="1000972" XYZ="17.79586, 40.21601, -5.386823"/>
     </If>
     <!-- It's Probably Pirates (Level 15) -->
-    <If Condition="(IsQuestCompleted(66209) or IsQuestCompleted(66210)) and not HasQuest(65781) and not IsQuestCompleted(65781)">
+    <If Condition="(IsQuestCompleted(66209) or IsQuestCompleted(66210)) and not HasQuest(66211) and not IsQuestCompleted(66211)">
       <GetTo ZoneId="128" XYZ="17.72645, 40.21601, -5.355656"/>
-      <If Condition="IsQuestAcceptQualified(65781)">
-        <PickupQuest QuestId="65781" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>
+      <If Condition="IsQuestAcceptQualified(66211)">
+        <PickupQuest QuestId="66211" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>
       </If>
     </If>
-    <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 1">
+    <If Condition="HasQuest(66211) and not IsQuestCompleted(66211) and GetQuestStep(66211) == 1">
       <GetTo ZoneId="129" XYZ="-190.0682, 0.9999908, 208.3384"/>
-      <TalkTo NpcId="1003621" XYZ="-192.0653, 0.9999907, 208.6671" QuestId="65781" StepId="1"/>
+      <TalkTo NpcId="1003621" XYZ="-192.0653, 0.9999907, 208.6671" QuestId="66211" StepId="1"/>
     </If>
-    <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 2">
+    <If Condition="HasQuest(66211) and not IsQuestCompleted(66211) and GetQuestStep(66211) == 2">
       <GetTo ZoneId="129" XYZ="-190.0682, 0.9999908, 208.3384"/>
       <UseTransport NpcId="1000868" DialogOption="0" XYZ="-192.0043, 0.9999907, 211.6884"/>
       <GetTo ZoneId="138" XYZ="355.9353, -15.98308, 138.4059"/>
-      <TalkTo NpcId="1017075" XYZ="356.5575, -15.97664, 136.7361" QuestId="65781" StepId="2"/>
+      <TalkTo NpcId="1017075" XYZ="356.5575, -15.97664, 136.7361" QuestId="66211" StepId="2"/>
     </If>
-    <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 3">
+    <If Condition="HasQuest(66211) and not IsQuestCompleted(66211) and GetQuestStep(66211) == 3">
       <GetTo ZoneId="138" XYZ="335.9414, 9.47468, 18.97115"/>
-      <TalkTo NpcId="1004472" XYZ="335.4086, 9.635179, 17.13586" QuestId="65781" StepId="3"/>
+      <TalkTo NpcId="1004472" XYZ="335.4086, 9.635179, 17.13586" QuestId="66211" StepId="3"/>
     </If>
-    <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 4">
+    <If Condition="HasQuest(66211) and not IsQuestCompleted(66211) and GetQuestStep(66211) == 4">
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
-    <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 255">
+    <If Condition="HasQuest(66211) and not IsQuestCompleted(66211) and GetQuestStep(66211) == 255">
       <GetTo ZoneId="128" XYZ="16.20745, 40.19998, -5.131207"/>
-      <TurnIn QuestId="65781" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>
+      <TurnIn QuestId="66211" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>
     </If>
     <!-- Call of the Forest (Level 15) -->
-    <If Condition="IsQuestCompleted(65781) and not HasQuest(66212) and not IsQuestCompleted(66212)">
+    <If Condition="IsQuestCompleted(66211) and not HasQuest(66212) and not IsQuestCompleted(66212)">
       <GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
       <If Condition="IsQuestAcceptQualified(66212)">
         <PickupQuest NpcId="1000972" QuestId="66212" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -2732,7 +2730,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1003977" XYZ="-200.2747, -28.35033, 324.7576" QuestId="66158" StepId="1"/>
     </If>
     <If Condition="HasQuest(66158) and not IsQuestCompleted(66158) and GetQuestStep(66158) == 2">
-      <GetTo ZoneId="145" XYZ="-95.17059, -27.02374, 274.0062"/>
+      <GetTo ZoneId="145" XYZ="-97.42068, -28.07942, 273.7143"/>
       <UseObject NpcId="2001410" XYZ="-95.17059, -27.02374, 274.0062" QuestId="66158" StepId="2"/>
     </If>
     <If Condition="HasQuest(66158) and not IsQuestCompleted(66158) and GetQuestStep(66158) == 3">
@@ -2930,7 +2928,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TurnIn QuestId="66047" NpcId="1005122" XYZ="39.29187, 1.214808, 0.8086548"/>
     </If>
     <!-- The Company You Keep (Maelstrom) (Level 20) -->
-    <If Condition="IsQuestCompleted(66047) and not HasQuest(66217) and not IsQuestCompleted(66217)">
+    <If Condition="IsQuestCompleted(66047) and not IsQuestCompleted(66216) and not IsQuestCompleted(66217) and not IsQuestCompleted(66218) and not HasQuest(66217)">
       <If Condition="not IsOnMap(212)">
         <GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
         <UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>

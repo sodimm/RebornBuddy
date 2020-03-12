@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile:  [Orderbot] Facet of Fishing 70-80
+Authors:  TuckMeIntoBread, Sodimm
+Requirements:  Manually complete the deliveries between quests to raise esteem level.
+-->
+<Profile>
+  <Name>[Orderbot] Facet of Fishing 70-80.xml</Name>
+  <Order>
+    <If Condition="not IsQuestCompleted(69191)">
+      <LogMessage Message="You need to unlock the Crystalline Mean from Katliss first."/>
+    </If>
+    <!-- Well Eel Be Damned (Level 70) -->
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 70."/>
+    </If>
+    <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="819" XYZ="-10.79387, 20.186, -120.4802"/>
+      <If Condition="IsQuestAcceptQualified(68775)">
+        <PickupQuest QuestId="68775" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68775) and not IsQuestCompleted(68775) and GetQuestStep(68775) == 1">
+      <If Condition="not IsOnMap(813)">
+        <GetTo ZoneId="813" XYZ="16.0346, 2.271104, 670.5416"/>
+      </If>
+      <TalkTo NpcId="2009924" XYZ="16.92224, 2.304016, 669.8862" QuestId="68775" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68775) and not IsQuestCompleted(68775) and GetQuestStep(68775) == 2">
+      <GetTo ZoneId="819" XYZ="-68.83064, -36.75002, -273.4254"/>
+      <TalkTo NpcId="1028472" XYZ="-66.81934, -36.75003, -273.2739" QuestId="68775" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68775) and not IsQuestCompleted(68775) and GetQuestStep(68775) == 255">
+      <GetTo ZoneId="819" XYZ="-10.94289, 20.186, -121.0833"/>
+      <TurnIn QuestId="68775" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
+    </If>
+    <!-- Fishing for Confidence (Level 75) -->
+    <If Condition="not HasQuest(68776) and not IsQuestCompleted(68776) and IsQuestCompleted(68775) and Core.Player.ClassLevel &lt; 75">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+    </If>
+    <If Condition="not HasQuest(68776) and not IsQuestCompleted(68776) and IsQuestCompleted(68775) and Core.Player.ClassLevel &gt; 74">
+      <GetTo ZoneId="819" XYZ="-10.71229, 20.186, -120.1012"/>
+      <If Condition="not IsQuestAcceptQualified(68776)">
+        <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68776)">
+        <PickupQuest QuestId="68776" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68776) and not IsQuestCompleted(68776) and GetQuestStep(68776) == 1">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="-58.06894, -27.236, -271.9059"/>
+      </If>
+      <TalkTo NpcId="1028473" XYZ="-59.18976, -27.236, -270.1915" QuestId="68776" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68776) and not IsQuestCompleted(68776) and GetQuestStep(68776) == 2">
+      <GetTo ZoneId="816" XYZ="-437.6337, 53.89465, -331.4755"/>
+      <TalkTo NpcId="1028474" XYZ="-435.752, 53.79563, -332.2347" QuestId="68776" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68776) and not IsQuestCompleted(68776) and GetQuestStep(68776) == 255">
+      <If Condition="not HqHasAtLeast(26750,1)">
+        <If Condition="not HasAtLeast(27582,30)">
+          <TeleportTo AetheryteId="136" Force="True"/>
+          <NoCombatMoveTo XYZ="-782.6193, 53.08034, -226.8733"/>
+          <BuyItem ItemId="27582" ItemCount="30" DialogOption="6" InteractDistance="3.0" NpcId="1027383" XYZ="-785.0309, 53.1209, -226.8864"/>
+        </If>
+        <If Condition="not IsOnMap(816)">
+          <TeleportTo AetheryteId="144" Force="True"/>
+          <GetTo XYZ="-446.0968, 53.40549, -331.0983" ZoneId="816"/>
+        </If>
+        <While Condition="not HqHasAtLeast(26750,1)">
+          <ExFish Condition="not HqHasAtLeast(26750,1)" CordialType="Auto" MinFish="21" MaxFish="42" ShuffleFishSpots="True" SitRate=".69" EnableKeeper="True" Bait="Fruit Worm" Patience="Patience" MinimumGPPatience="600">
+            <Keepers>
+              <Keeper Name="Calico Trout"/>
+            </Keepers>
+            <PatienceTugs>
+              <PatienceTug Mooch="0" TugType="Light"/>
+            </PatienceTugs>
+            <FishSpots>
+              <FishSpot XYZ="-432.787, 54.00128, -337.9579" Heading="1.216132"/>
+              <FishSpot XYZ="-450.145, 40.72704, -302.4533" Heading="1.13198"/>
+              <FishSpot XYZ="-459.5988, 36.67262, -286.9029" Heading="0.8837504"/>
+            </FishSpots>
+          </ExFish>
+        </While>
+      </If>
+      <If Condition="HqHasAtLeast(26750,1)">
+        <GetTo ZoneId="819" XYZ="-13.41727, 20.186, -121.4135"/>
+        <TurnIn ItemId="26750" RequiresHq="True" QuestId="68776" NpcId="1031217" XYZ="-13.62634, 20.186, -119.5239"/>
+      </If>
+    </If>
+    <!-- Morsel of the Deep (Level 80) -->
+    <If Condition="not HasQuest(68777) and not IsQuestCompleted(68777) and IsQuestCompleted(68776) and Core.Player.ClassLevel &lt; 80">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+    </If>
+    <If Condition="not HasQuest(68777) and not IsQuestCompleted(68777) and IsQuestCompleted(68776) and Core.Player.ClassLevel &gt; 79">
+      <GetTo ZoneId="819" XYZ="-10.84947, 20.186, -120.6805"/>
+      <If Condition="not IsQuestAcceptQualified(68777)">
+        <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68777)">
+        <PickupQuest QuestId="68777" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 1">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="718.0083, 26.8354, 298.2742"/>
+      </If>
+      <TalkTo NpcId="1028475" XYZ="719.173, 26.88617, 298.3901" QuestId="68777" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 2">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="696.4266, 28.11746, 276.382"/>
+      </If>
+      <TalkTo NpcId="1028476" XYZ="695.1246, 28.11749, 274.9218" QuestId="68777" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 3">
+      <If Condition="not HqHasAtLeast(26751,1)">
+        <!-- The Norvrandt Slope -->
+        <If Condition="not HasAtLeast(27583,30)">
+          <TeleportTo AetheryteId="147" Force="True"/>
+          <NoCombatMoveTo XYZ="-308.4398, 20.96954, 367.8362"/>
+          <BuyItem ItemId="27583" ItemCount="30" DialogOption="6" InteractDistance="3.0" NpcId="1027429" XYZ="-309.7429, 20.96825, 366.9031"/>
+        </If>
+        <TeleportTo AetheryteId="141" Force="True"/>
+        <ExMoveTo XYZ="541.2173, 363.3687, -259.0786" AllowedVariance="3"/>
+        <ExMoveTo XYZ="520.6384, 365.0584, -264.3017" AllowedVariance="3"/>
+        <ExMoveTo XYZ="496.9315, 363.7943, -263.5386" AllowedVariance="3"/>
+        <ExMoveTo XYZ="472.7036, 346.2854, -274.3779" AllowedVariance="3"/>
+        <ExMoveTo XYZ="488.6065, 327.4386, -297.4819" AllowedVariance="3"/>
+        <ExMoveTo XYZ="490.6061, 316.672, -298.7566" AllowedVariance="1"/>
+        <RunCode Name="Dismount"/>
+        <WaitTimer WaitTime="2"/>
+        <RunCode Name="Stealth"/>
+        <WaitTimer WaitTime="1"/>
+        <RunCode Name="DisableMount"/>
+        <WaitTimer WaitTime="1"/>
+        <NoCombatMoveTo XYZ="474.119, 314.3235, -296.1143"/>
+        <While Condition="not HqHasAtLeast(26751,1) and HasAtLeast(27583,1)">
+          <ExFish Condition="not HqHasAtLeast(26751,1) and HasAtLeast(27583,1)" CordialType="Auto" MinFish="21" MaxFish="42" ShuffleFishSpots="True" SitRate=".69" EnableKeeper="True" Bait="Short Bill Minnow" Patience="Patience" MinimumGPPatience="650">
+            <Keepers>
+              <Keeper Name="Prospero Eel"/>
+            </Keepers>
+            <PatienceTugs>
+              <PatienceTug Mooch="0" TugType="Light"/>
+            </PatienceTugs>
+            <FishSpots>
+              <FishSpot XYZ="479.9915, 314.0299, -285.929" Heading="3.765421"/>
+              <FishSpot XYZ="457.6009, 313.0442, -290.5108" Heading="3.879628"/>
+              <FishSpot XYZ="443.5319, 312.4396, -289.7353" Heading="5.593211"/>
+            </FishSpots>
+          </ExFish>
+        </While>
+        <RunCode Name="EnableMount"/>
+      </If>
+      <If Condition="HqHasAtLeast(26751,1)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-10.28311, 20.186, -120.0586"/>
+        </If>
+        <HandOver ItemId="26751" RequiresHq="True" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882" QuestId="68777" StepId="3"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 4">
+      <GetTo ZoneId="819" XYZ="-4.323796, 0, -62.4097"/>
+      <TalkTo NpcId="1029869" XYZ="-3.799561, -7.301569E-07, -63.70642" QuestId="68777" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68777) and not IsQuestCompleted(68777) and GetQuestStep(68777) == 255">
+      <GetTo ZoneId="819" XYZ="-10.7853, 20.186, -120.459"/>
+      <TurnIn QuestId="68777" NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="DisableMount"><![CDATA[
+      ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]></CodeChunk>
+    <CodeChunk Name="Dismount"><![CDATA[
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
+      ff14bot.Managers.ActionManager.Dismount();
+      await Buddy.Coroutines.Coroutine.Sleep(2000);
+      ]]></CodeChunk>
+    <CodeChunk Name="EnableMount"><![CDATA[
+      ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]></CodeChunk>
+    <CodeChunk Name="Stealth"><![CDATA[
+      SpellData data;
+      if (!Core.Me.HasAura(47) && ActionManager.CurrentActions.TryGetValue(298, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(298, Core.Me);
+      ]]></CodeChunk>
+  </CodeChunks>
+</Profile>

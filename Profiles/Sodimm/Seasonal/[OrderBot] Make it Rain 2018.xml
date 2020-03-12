@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Make It Rain 2018
+Authors:  TuckMeIntoBread
+Version:  1.0.0
+-->
+<Profile>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+  <!-- Trouble in Paradise -->
+  <If Condition="not HasQuest(68669) and not IsQuestCompleted(68669)">
+    <If Condition="not IsOnMap(130)">
+      <GetTo ZoneId="130" XYZ="-89.58316, 4, -104.311"/>
+    </If>
+    <NoCombatMoveTo XYZ="-89.58316, 4, -104.311"/>
+    <If Condition="IsQuestAcceptQualified(68669)">
+      <PickupQuest QuestId="68669" NpcId="1025929" XYZ="-89.09741, 4, -102.4949"/>
+    </If>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 1">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="-52.35903, 0.0196861, 4.353826"/>
+    </If>
+    <NoCombatMoveTo XYZ="-52.35903, 0.0196861, 4.353826"/>
+    <TalkTo NpcId="1025930" XYZ="-53.08618, 3.576279E-06, 4.806519" QuestId="68669" StepId="1"/>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 2">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="81.49911, -5, -5.02953"/>
+    </If>
+    <NoCombatMoveTo XYZ="81.49911, -5, -5.02953"/>
+    <TalkTo NpcId="1025931" XYZ="81.49841, -5, -6.149414" QuestId="68669" StepId="2"/>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 3">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="29.44374, 3.999729, 37.49324"/>
+    </If>
+    <NoCombatMoveTo XYZ="29.44374, 3.999729, 37.49324"/>
+    <TalkTo NpcId="1011074" XYZ="28.51904, 3.999729, 37.9187" QuestId="68669" StepId="3"/>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 4">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="-12.21956, 3.282878, -39.03158"/>
+    </If>
+    <NoCombatMoveTo XYZ="-12.21956, 3.282878, -39.03158"/>
+    <SoTalkTo NpcId="2009554" XYZ="-12.52765, 3.219604, -38.13239" QuestId="68669" StepId="4"/>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 5">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="-13.99145, 3.277664, -78.91512"/>
+    </If>
+    <NoCombatMoveTo XYZ="-13.99145, 3.277664, -78.91512"/>
+    <SoTalkTo NpcId="1025956" XYZ="-14.1452, 3.275341, -80.18622" QuestId="68669" StepId="5"/>
+  </If>
+  <If Condition="HasQuest(68669) and not IsQuestCompleted(68669) and GetQuestStep(68669) == 255">
+    <If Condition="not IsOnMap(144)">
+      <GetTo ZoneId="144" XYZ="-51.58146, 3.695488E-06, 5.022093"/>
+    </If>
+    <NoCombatMoveTo XYZ="-51.58146, 3.695488E-06, 5.022093"/>
+    <TurnIn QuestId="68669" NpcId="1025930" XYZ="-53.08618, 3.576279E-06, 4.806519"/>
+  </If>
+  <If Condition="IsQuestCompleted(68669)">
+  <LogMessage Message="You're done!"/>
+  </If>
+  </Order>
+</Profile>

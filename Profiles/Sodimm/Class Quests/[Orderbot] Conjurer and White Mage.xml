@@ -341,24 +341,22 @@ Authors:  Sodimm, TuckMeIntoBread.
         </SimpleDuty>
       </If>
       <If Condition="HasQuest(66615) and not IsQuestCompleted(66615) and GetQuestStep(66615) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn QuestId="66615" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn QuestId="66615" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
     </If>
     <If Condition="ClassName == ClassJobType.WhiteMage">
       <!-- Only You Can Prevent Forest Ire (Level 35) -->
       <If Condition="IsQuestCompleted(66615) and not HasQuest(66616) and not IsQuestCompleted(66616) and Core.Player.ClassLevel &gt; 34">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(66616)">
-            <PickupQuest QuestId="66616" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+        </If>
+        <If Condition="IsQuestAcceptQualified(66616)">
+          <PickupQuest QuestId="66616" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(66616) and not IsQuestCompleted(66616) and GetQuestStep(66616) == 1">
@@ -366,22 +364,20 @@ Authors:  Sodimm, TuckMeIntoBread.
         <UseObject NpcId="2002392" XYZ="-416.5561, 60.99023, -148.6381" QuestId="66616" StepId="1"/>
       </If>
       <If Condition="HasQuest(66616) and not IsQuestCompleted(66616) and GetQuestStep(66616) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn NpcId="1006751" QuestId="66616" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn NpcId="1006751" QuestId="66616" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
       <!-- O Brother, Where Art Thou (Level 40) -->
       <If Condition="IsQuestCompleted(66616) and not HasQuest(66617) and not IsQuestCompleted(66617) and Core.Player.ClassLevel &gt; 39">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(66617)">
-            <PickupQuest QuestId="66617" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+		</If>
+        <If Condition="IsQuestAcceptQualified(66617)">
+          <PickupQuest QuestId="66617" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(66617) and not IsQuestCompleted(66617) and GetQuestStep(66617) == 1">
@@ -393,22 +389,20 @@ Authors:  Sodimm, TuckMeIntoBread.
         <UseObject NpcId="2002394" XYZ="-271.5343, 13.74835, -51.77393" UseDistance="1" QuestId="66617" StepId="2"/>
       </If>
       <If Condition="HasQuest(66617) and not IsQuestCompleted(66617) and GetQuestStep(66617) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn NpcId="1006751" QuestId="66617" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn NpcId="1006751" QuestId="66617" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
       <!-- Following in His Footsteps (Level 45) -->
       <If Condition="IsQuestCompleted(66617) and not HasQuest(66618) and not IsQuestCompleted(66618) and Core.Player.ClassLevel &gt; 44">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(66618)">
-            <PickupQuest QuestId="66618" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+        </If>
+        <If Condition="IsQuestAcceptQualified(66618)">
+          <PickupQuest QuestId="66618" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 1 and not IsTodoChecked(66618, 1, 0)">
@@ -424,58 +418,50 @@ Authors:  Sodimm, TuckMeIntoBread.
         <SoEmoteNpc Emote="pray" NpcId="2002398" XYZ="-253.4677, 60.68506, -43.90027" QuestId="66618" StepId="1"/>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 2">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TalkTo NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="66618" StepId="2"/>
         </If>
+        <TalkTo NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="66618" StepId="2"/>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 3">
         <GetTo ZoneId="154" XYZ="107.8354, 7.70575, -45.15149"/>
         <UseObject NpcId="2002399" XYZ="107.8354, 7.70575, -45.15149" QuestId="66618" StepId="3"/>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 4">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <HandOver ItemId="2000943" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="66618" StepId="4"/>
         </If>
+        <HandOver ItemId="2000943" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="66618" StepId="4"/>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 5">
         <GetTo ZoneId="180" XYZ="117.3265, 75.39478, -246.54"/>
         <SoEmoteNpc Emote="pray" NpcId="2002400" XYZ="117.3265, 75.39478, -246.54" QuestId="66618" StepId="5"/>
       </If>
       <If Condition="HasQuest(66618) and not IsQuestCompleted(66618) and GetQuestStep(66618) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn NpcId="1006751" QuestId="66618" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn NpcId="1006751" QuestId="66618" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
       <!-- Yearn for the Urn (Level 45) -->
       <If Condition="IsQuestCompleted(66618) and not HasQuest(66619) and not IsQuestCompleted(66619) and Core.Player.ClassLevel &gt; 44">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(66619)">
-            <PickupQuest QuestId="66619" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+        </If>
+        <If Condition="IsQuestAcceptQualified(66619)">
+          <PickupQuest QuestId="66619" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(66619) and not IsQuestCompleted(66619) and GetQuestStep(66619) == 1">
-        <If Condition="not IsOnMap(153)">
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
           <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        </If>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TalkTo NpcId="1007861" XYZ="-138.5978, 8.561091, 281.2085" QuestId="66619" StepId="1"/>
-          <MoveTo XYZ="-129.4763, 0.4033523, 285.6855" UseMesh="False"/>
         </If>
+        <TalkTo NpcId="1007861" XYZ="-138.5978, 8.561091, 281.2085" QuestId="66619" StepId="1"/>
       </If>
       <If Condition="HasQuest(66619) and not IsQuestCompleted(66619) and GetQuestStep(66619) == 2">
         <GetTo ZoneId="153" XYZ="42.51701, 9.193242, -95.36703"/>
@@ -489,22 +475,20 @@ Authors:  Sodimm, TuckMeIntoBread.
         <UseObject NpcId="2002403" XYZ="151.5374, 18.11243, -127.306" QuestId="66619" StepId="3"/>
       </If>
       <If Condition="HasQuest(66619) and not IsQuestCompleted(66619) and GetQuestStep(66619) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
         <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn QuestId="66619" NpcId="1006751" ItemId="2000944" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn QuestId="66619" NpcId="1006751" ItemId="2000944" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
       <!-- Heart of the Forest (Level 50) -->
       <If Condition="IsQuestCompleted(66619) and not HasQuest(66620) and not IsQuestCompleted(66620) and Core.Player.ClassLevel &gt; 49">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(66620)">
-            <PickupQuest QuestId="66620" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+        </If>
+        <If Condition="IsQuestAcceptQualified(66620)">
+          <PickupQuest QuestId="66620" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(66620) and not IsQuestCompleted(66620) and GetQuestStep(66620) == 1">
@@ -524,22 +508,20 @@ Authors:  Sodimm, TuckMeIntoBread.
         <RunCode Name="Announce_Manual_Completion"/>
       </If>
       <If Condition="HasQuest(66620) and not IsQuestCompleted(66620) and GetQuestStep(66620) == 255">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <TurnIn NpcId="1006751" QuestId="66620" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
+        <TurnIn NpcId="1006751" QuestId="66620" XYZ="-139.4522, 8.712891, 281.6968"/>
       </If>
       <!-- Taint Misbehaving (Level 50) -->
       <If Condition="IsQuestCompleted(65964) and IsQuestCompleted(66620) and not HasQuest(67255) and not IsQuestCompleted(67255) and Core.Player.ClassLevel &gt; 49">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
-        <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+        <If Condition="not IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
-          <If Condition="IsQuestAcceptQualified(67255)">
-            <PickupQuest QuestId="67255" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
-          </If>
+        </If>
+        <If Condition="IsQuestAcceptQualified(67255)">
+          <PickupQuest QuestId="67255" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
         </If>
       </If>
       <If Condition="HasQuest(67255) and not IsQuestCompleted(67255) and GetQuestStep(67255) == 1">
@@ -718,9 +700,8 @@ Authors:  Sodimm, TuckMeIntoBread.
       </If>
       <!-- Hands of Healing (Level 60) -->
       <If Condition="IsQuestCompleted(67260) and not HasQuest(67261) and not IsQuestCompleted(67261) and Core.Player.ClassLevel &gt; 57">
-        <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
         <If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
-          <NoCombatMoveTo XYZ="-143.6555, 8.149665, 269.7762"/>
+          <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
           <RunCode Name="Camp_Tranquil_Jump"/>
           <If Condition="IsQuestAcceptQualified(67261)">
             <PickupQuest QuestId="67261" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>

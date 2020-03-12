@@ -2,357 +2,207 @@
 <!--
 Profile:  [Orderbot] Vath Dailies.
 Authors:  Sodimm.
+Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow. Having it too close will cause the quest to not update.
 -->
 <Profile>
   <Name>[OrderBot] Vath Dailies.</Name>
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
-    <!-- Register Dailies -->
+    <RunCode Name="Disable_Flight"/>
     <RegisterDailies QuestIds="67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816"/>
-    <!-- Pick Ups -->
-    <If Condition="not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
+    <!-- The Naming of Vath -->
+    <If Condition="IsQuestCompleted(67152) and not HasQuest(67791) and not IsQuestCompleted(67791)">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="73.2578, -49.15313, -141.3029" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <If Condition="IsQuestAcceptQualified(67791)">
+        <PickUpQuest QuestId="67791" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 1">
+      <GetTo ZoneId="398" XYZ="447.3792, -51.1414, 108.5374"/>
+      <TalkTo NpcId="1016835" XYZ="447.3792, -51.1414, 108.5374" QuestId="67791" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="212.4208, -58.00725, -228.0767" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="222.156, -74.93713, 122.5146" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006874" XYZ="222.156, -74.93713, 122.5146" QuestId="67791" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 4">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="212.4208, -58.00725, -228.0767" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <HandOver ItemId="2001949" NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 5">
+      <GetTo ZoneId="398" XYZ="469.5785, -49.89133, 23.68363"/>
+      <TalkTo NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" QuestId="67791" StepId="5"/>
+      <MoveTo XYZ="471.6711, -51.1414, 38.15268"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 6">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="73.2578, -49.15313, -141.3029" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67791" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 7">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="73.2578, -49.15313, -141.3029" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <TalkTo NpcId="1016837" XYZ="58.88452, -48, -171.0689" QuestId="67791" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 8">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="73.2578, -49.15313, -141.3029" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016837" XYZ="58.88452, -48, -171.0689"/>
+      </If>
+      <FlyTo XYZ="215.137, -87.32745, 217.9446" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006876" UseDistance="5.0" XYZ="215.137, -87.32745, 217.9446" QuestId="67791" StepId="8"/>
+      <Dismount/>
+    </If>
+    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 255">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <SoTurnIn QuestId="67791" NpcId="1016837" InteractDistance="3.0" XYZ="58.88452, -48, -171.0689"/>
+    </If>
+    <If Condition="IsQuestCompleted(67791) and not HasQuest(67792) and not HasQuest(67793) and not HasQuest(67794) and not HasQuest(67795) and not HasQuest(67796) and not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
       <!-- Getting the Shaft -->
-      <If Condition="not HasQuest(67797)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67797)">
-          <PickUpQuest NpcId="1016803" QuestId="67797" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67797) and not HasQuest(67797)">
+        <PickUpQuest QuestId="67797" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Breath of Fresh Air -->
-      <If Condition="not HasQuest(67798)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67798)">
-          <PickUpQuest NpcId="1016803" QuestId="67798" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67798) and not HasQuest(67798)">
+        <PickUpQuest QuestId="67798" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Bugging the Bugs -->
-      <If Condition="not HasQuest(67799)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67799)">
-          <PickUpQuest NpcId="1016803" QuestId="67799" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67799) and not HasQuest(67799)">
+        <PickUpQuest QuestId="67799" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Too Much to Bear -->
-      <If Condition="not HasQuest(67800)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67800)">
-          <PickUpQuest NpcId="1016803" QuestId="67800" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67800) and not HasQuest(67800)">
+        <PickUpQuest QuestId="67800" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- The Foodstuff of Champions -->
-      <If Condition="not HasQuest(67801)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67801)">
-          <PickUpQuest QuestId="67801" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67801) and not HasQuest(67801)">
+        <PickUpQuest QuestId="67801" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- A Long Shot -->
-      <If Condition="not HasQuest(67802)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67802)">
-          <PickUpQuest QuestId="67802" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67802) and not HasQuest(67802)">
+        <PickUpQuest QuestId="67802" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Where the Silver Dew Grows -->
-      <If Condition="not HasQuest(67803)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67803)">
-          <PickUpQuest QuestId="67803" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67803) and not HasQuest(67803)">
+        <PickUpQuest QuestId="67803" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- The Caelumtree Wine Spree -->
-      <If Condition="not HasQuest(67804)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67804)">
-          <PickUpQuest QuestId="67804" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67804) and not HasQuest(67804)">
+        <PickUpQuest QuestId="67804" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Ploughing Ahead -->
-      <If Condition="not HasQuest(67805)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67805)">
-          <PickUpQuest QuestId="67805" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67805) and not HasQuest(67805)">
+        <PickUpQuest QuestId="67805" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- At Full Pelt -->
-      <If Condition="not HasQuest(67806)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67806)">
-          <PickUpQuest QuestId="67806" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67806) and not HasQuest(67806)">
+        <PickUpQuest QuestId="67806" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Failure to Deliver -->
-      <If Condition="not HasQuest(67807)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67807)">
-          <PickUpQuest QuestId="67807" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67807) and not HasQuest(67807)">
+        <PickUpQuest QuestId="67807" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Shoo Fly, Don't Bother Me -->
-      <If Condition="not HasQuest(67808)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67808)">
-          <PickUpQuest QuestId="67808" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67808) and not HasQuest(67808)">
+        <PickUpQuest QuestId="67808" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- All About the Eggs -->
-      <If Condition="not HasQuest(67809)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67809)">
-          <PickUpQuest QuestId="67809" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67809) and not HasQuest(67809)">
+        <PickUpQuest QuestId="67809" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Smells Like Trouble -->
-      <If Condition="not HasQuest(67810)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67810)">
-          <PickUpQuest QuestId="67810" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67810) and not HasQuest(67810)">
+        <PickUpQuest QuestId="67810" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- When Hunting Goes Wrong -->
-      <If Condition="not HasQuest(67811)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67811)">
-          <PickUpQuest QuestId="67811" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67811) and not HasQuest(67811)">
+        <PickUpQuest QuestId="67811" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Flea Troubles -->
-      <If Condition="not HasQuest(67812)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67812)">
-          <PickUpQuest QuestId="67812" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67812) and not HasQuest(67812)">
+        <PickUpQuest QuestId="67812" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Fifty Shades of Yellow -->
-      <If Condition="not HasQuest(67813)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67813)">
-          <PickUpQuest QuestId="67813" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67813) and not HasQuest(67813)">
+        <PickUpQuest QuestId="67813" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- A Romp Around the Foothills -->
-      <If Condition="not HasQuest(67814)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67814)">
-          <PickUpQuest QuestId="67814" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67814) and not HasQuest(67814)">
+        <PickUpQuest QuestId="67814" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Neighborhood Squabbles -->
-      <If Condition="not HasQuest(67815)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67815)">
-          <PickUpQuest QuestId="67815" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67815) and not HasQuest(67815)">
+        <PickUpQuest QuestId="67815" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Not for the Faint of Heart -->
-      <If Condition="not HasQuest(67816)">
-        <If Condition="not IsOnMap(398)">
-          <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-        </If>
-        <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-        <If Condition="IsQuestAcceptQualified(67816)">
-          <PickUpQuest QuestId="67816" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-        </If>
+      <If Condition="IsQuestAcceptQualified(67816) and not HasQuest(67816)">
+        <PickUpQuest QuestId="67816" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
     </If>
-    <!-- Quests in the Open World -->
-    <!-- Fifty Shades of Yellow -->
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 0">
+    <!-- Getting the Shaft -->
+    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-113.3899, -34.45324, -206.653"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="-113.3899, -34.45324, -206.653"/>
-      <SoEmoteNpc Emote="s Uhm Ala" NpcIds="1016871" XYZ="-113.3899, -34.45324, -206.653" QuestId="67813" UseTimes="1" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 0"/>
+      <FlyTo XYZ="352.2545, -51.07196, -46.9826" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006881" XYZ="352.2545, -51.07196, -46.9826" Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 0"/>
     </If>
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 1">
+    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-178.1796, -35.40849, -80.0946"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="-178.1796, -35.40849, -80.0946"/>
-      <SoEmoteNpc Emote="s Uhm Ala" NpcIds="1016873" XYZ="-178.1796, -35.40849, -80.0946" QuestId="67813" UseTimes="1" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 1"/>
+      <FlyTo XYZ="31.41821, -65.32391, 111.7418" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006883" XYZ="31.41821, -65.32391, 111.7418" Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 1"/>
     </If>
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 2">
+    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-42.95416, -33.57399, -24.49078"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="-42.95416, -33.57399, -24.49078"/>
-      <SoEmoteNpc Emote="s Uhm Ala" NpcIds="1016872" XYZ="-42.95416, -33.57399, -24.49078" QuestId="67813" UseTimes="1" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 2"/>
+      <FlyTo XYZ="307.0573, -66.54462, 163.4393" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006882" XYZ="307.0573, -66.54462, 163.4393" Condition="HasQuest(67797) and GetQuestStep(67797) == 1 and GetQuestById(67797).GetTodoArgs(1, 0).Item1 == 2"/>
     </If>
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 2">
+    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 255">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-399.2523, 96.07059, -43.01526"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="-399.2523, 96.07059, -43.01526"/>
-      <SoEmoteNpc Emote="s Uhm Ala" NpcIds="1016874" XYZ="-399.2523, 96.07059, -43.01526" QuestId="67813" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 3">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-399.2523, 96.07059, -43.01526"/>
-      </If>
-      <NoCombatMoveTo XYZ="-399.2523, 96.07059, -43.01526"/>
-      <HandOver NpcId="1016874" ItemId="2001968" XYZ="-399.2523, 96.07059, -43.01526" QuestId="67813" StepId="3"/>
-    </If>
-    <!--      <!{1}** A Romp Around the Foothills **{1}>
-      <SoMoveTo XYZ="-265.3845, -30.1, 103.5592" QuestId="67814" StepId="1" MapId="398" />
-      <SoTalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="1" NoFlight="True" MapId="398" />
-      <SoMoveTo XYZ="-265.3845, -30.1, 103.5592" QuestId="67814" StepId="2" NoFlight="True" MapId="398" />
-      <SoTalkTo NpcId="1016876" XYZ="148.4855, 65.56322, -644.0986" QuestId="67814" StepId="2" MapId="398" />
-      <SoTalkTo NpcId="1016877" XYZ="212.2377, 52.20549, -777.676" QuestId="67814" StepId="3" MapId="398" />
-      <SoMoveTo XYZ="220.566, 49.51518, -818.9502" QuestId="67814" StepId="4" NoFlight="True" MapId="398" />
-      <SoTalkTo NpcId="1016878" XYZ="210.3151, 59.65556, -919.0662" QuestId="67814" StepId="4" MapId="398" />
-      <SoMoveTo XYZ="220.566, 49.51518, -818.9502" QuestId="67814" StepId="5" MapId="398" />
-      <SoMoveTo XYZ="148.4855, 65.56322, -644.0986" QuestId="67814" StepId="5" NoFlight="True" MapId="398" />
-      <SoMoveTo XYZ="-265.3845, -30.1, 103.5592" QuestId="67814" StepId="5" MapId="398" />
-      <SoTalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="5" NoFlight="True" MapId="398" />
-      <SoTurnIn QuestId="67814" NpcId="1016803" XYZ="58.45544, -48, -170.6133" NoFlight="True" MapId="398" />
--->
-    <!-- Smells Like Trouble -->
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-155.4131, -71.12238, 387.2892"/>
-      </If>
-      <NoCombatMoveTo XYZ="-155.4131, -71.12238, 387.2892"/>
-      <UseObject NpcIds="2006932" XYZ="-155.4131, -71.12238, 387.2892" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-80.03363, -71.67163, 412.4666"/>
-      </If>
-      <NoCombatMoveTo XYZ="-80.03363, -71.67163, 412.4666"/>
-      <UseObject NpcIds="2006933" XYZ="-80.03363, -71.67163, 412.4666" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-105.0279, -69.68799, 350.637"/>
-      </If>
-      <NoCombatMoveTo XYZ="-105.0279, -69.68799, 350.637"/>
-      <UseObject NpcIds="2006934" XYZ="-105.0279, -69.68799, 350.637" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-46.18909, -47.2572, 241.9318"/>
-      </If>
-      <NoCombatMoveTo XYZ="-46.18909, -47.2572, 241.9318"/>
-      <UseObject NpcIds="2006935" XYZ="-46.18909, -47.2572, 241.9318" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-83.57367, -48.17273, 231.8914"/>
-      </If>
-      <NoCombatMoveTo XYZ="-83.57367, -48.17273, 231.8914"/>
-      <UseObject NpcIds="2006936" XYZ="-83.57367, -48.17273, 231.8914" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-42.28278, -32.73065, 183.3065"/>
-      </If>
-      <NoCombatMoveTo XYZ="-42.28278, -32.73065, 183.3065"/>
-      <UseObject NpcIds="2006937" XYZ="-42.28278, -32.73065, 183.3065" QuestId="67810" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <HandOver ItemIds="2001965,2001966" NpcId="1016803" XYZ="58.45544, -48, -170.6133" QuestId="67810" StepId="2"/>
-    </If>
-    <!-- When Hunting Goes Wrong -->
-    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 1 and GetQuestById(67811).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-272.2363, -35.40849, 219.0737"/>
-      </If>
-      <NoCombatMoveTo XYZ="-272.2363, -35.40849, 219.0737"/>
-      <TalkTo NpcId="1016865" XYZ="-272.2363, -35.40849, 219.0737" QuestId="67811"/>
-    </If>
-    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 1 and GetQuestById(67811).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-452.3232, -35.35204, 174.3037"/>
-      </If>
-      <NoCombatMoveTo XYZ="-452.3232, -35.35204, 174.3037"/>
-      <TalkTo NpcId="1016864" XYZ="-452.3232, -35.35204, 174.3037" QuestId="67811"/>
-    </If>
-    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-397.0551, -34.19241, 243.1219"/>
-      </If>
-      <NoCombatMoveTo XYZ="-397.0551, -34.19241, 243.1219"/>
-      <TalkTo NpcId="1016866" XYZ="-397.0551, -34.19241, 243.1219" QuestId="67811" StepId="2"/>
-      <WaitWhile Condition="GetQuestStep(67811) == 2"/>
-    </If>
-    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 3">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-397.0551, -34.19241, 243.1219"/>
-      </If>
-      <NoCombatMoveTo XYZ="-397.0551, -34.19241, 243.1219"/>
-      <TalkTo NpcId="1016866" XYZ="-397.0551, -34.19241, 243.1219" QuestId="67811" StepId="3"/>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67797" ItemId="2001951" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- Breath of Fresh Air -->
     <If Condition="HasQuest(67798) and GetQuestStep(67798) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="284.5349, -67.61273, 83.87878"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="284.5349, -67.61273, 83.87878"/>
-      <UseObject NpcIds="2006885,2006884,2006886" QuestId="67798" StepId="1" MapId="398">
+      <FlyTo XYZ="284.5349, -67.61273, 83.87878" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006885,2006884,2006886" QuestId="67798" StepId="1">
         <HotSpots>
           <HotSpot XYZ="284.5349, -67.61273, 83.87878" Radius="10"/>
           <HotSpot XYZ="294.9417, -68.92505, 129.1981" Radius="10"/>
@@ -362,45 +212,203 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67798) and GetQuestStep(67798) == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="58.45544, -48, -170.6133" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <HandOver ItemId="2001952" NpcId="1016803" XYZ="58.45544, -48, -170.6133" QuestId="67798" StepId="2"/>
     </If>
     <If Condition="HasQuest(67798) and GetQuestStep(67798) == 3 and not IsTodoChecked(67798, 3, 0)">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="535.3016, -51.34064, 65.29333"/>
-      </If>
-      <NoCombatMoveTo XYZ="535.3016, -51.34064, 65.29333"/>
+      <GetTo ZoneId="398" XYZ="535.3016, -51.34064, 65.29333"/>
       <HandOver ItemId="2001953" NpcId="1011917" XYZ="535.3016, -51.34064, 65.29333" QuestId="67798"/>
     </If>
     <If Condition="HasQuest(67798) and GetQuestStep(67798) == 3 and not IsTodoChecked(67798, 3, 1)">
       <If Condition="not IsOnMap(398)">
         <GetTo ZoneId="398" XYZ="448.5693, -51.1414, 108.9341"/>
       </If>
-      <NoCombatMoveTo XYZ="448.5693, -51.1414, 108.9341"/>
       <HandOver ItemId="2001953" NpcId="1011922" XYZ="448.5693, -51.1414, 108.9341" QuestId="67798"/>
     </If>
-    <!-- Getting the Shaft -->
-    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 1">
+    <!-- Bugging the Bugs -->
+    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="352.2545, -51.07196, -46.9826"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="352.2545, -51.07196, -46.9826"/>
-      <UseObject NpcIds="2006881,2006883,2006882" QuestId="67797" StepId="1">
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67799" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="523.4302, -49.37012, 90.86743" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006887" UseDistance="5.0" XYZ="523.4302, -50.37012, 90.86743" QuestId="67799" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="517.4791, -49.64471, 89.00586" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006970" UseDistance="5.0" XYZ="517.4791, -50.64471, 89.00586" QuestId="67799" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 4 and GetQuestById(67799).GetTodoArgs(4, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="689.7229, -51.26221, 62.08887" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006889" UseDistance="5.0" XYZ="689.7229, -52.26221, 62.08887" Condition="HasQuest(67799) and GetQuestStep(67799) == 4 and GetQuestById(67799).GetTodoArgs(4, 0).Item1 == 0"/>
+	</If>
+    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 4 and GetQuestById(67799).GetTodoArgs(4, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="586.1753, -36.9798, 257.3739" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006888" UseDistance="5.0" XYZ="586.1753, -37.9798, 257.3739" Condition="HasQuest(67799) and GetQuestStep(67799) == 4 and GetQuestById(67799).GetTodoArgs(4, 0).Item1 == 1"/>
+      <Dismount/>
+	</If>
+    <!-- Too Much to Bear -->
+    <If Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="707.7285, -50.0954, -151.4763" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006873" XYZ="707.7285, -50.0954, -151.4763" Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="559.7161, -41.24518, -333.1808" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006871" XYZ="559.7161, -41.24518, -333.1808" Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="333.8215, -47.53192, -331.5328" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006872" XYZ="333.8215, -47.53192, -331.5328" Condition="HasQuest(67800) and GetQuestStep(67800) == 1 and GetQuestById(67800).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <!-- The Foodstuff of Champions -->
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="223.2242, -123.6134, 697.6272" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006894" XYZ="223.2242, -123.6134, 697.6272" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="209.1554, -123.1251, 767.9102" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006892" XYZ="209.1554, -123.1251, 767.9102" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="291.0353, -119.4019, 664.6676" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006893" XYZ="291.0353, -119.4019, 664.6676" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="419.5466, -101.0605, 542.4734" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006896" XYZ="419.5466, -101.0605, 542.4734" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="359.884, -112.1691, 594.5983" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006895" XYZ="359.884, -112.1691, 594.5983" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="111.8638, -119.0356, 617.4868" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006898" XYZ="111.8638, -119.0356, 617.4868" Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 2"/>
+    </If>
+    <!-- A Long Shot -->
+    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and not IsTodoChecked(67802, 1, 1)">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="20.00452, -84.00098, 282.1545" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006903,2006904,2006905" Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and not IsTodoChecked(67802, 1, 1)">
         <HotSpots>
-          <HotSpot XYZ="352.2545, -51.07196, -46.9826" Radius="10"/>
-          <HotSpot XYZ="31.41821, -65.32391, 111.7418" Radius="10"/>
-          <HotSpot XYZ="307.0573, -66.54462, 163.4393" Radius="10"/>
+          <HotSpot XYZ="20.00452, -84.00098, 282.1545" Radius="10"/>
+          <HotSpot XYZ="52.68933, -100.5723, 317.1283" Radius="10"/>
+          <HotSpot XYZ="6.301941, -100.2061, 351.4304" Radius="10"/>
         </HotSpots>
       </UseObject>
+    </If>
+    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and not IsTodoChecked(67802, 1, 0)">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-317.4944, -80.55243, 632.5933" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006902,2006901,2006900" Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and not IsTodoChecked(67802, 1, 0)">
+        <HotSpots>
+          <HotSpot XYZ="-317.4944, -80.55243, 632.5933" Radius="10"/>
+          <HotSpot XYZ="-336.965, -80.55243, 655.085" Radius="10"/>
+          <HotSpot XYZ="-379.7513, -75.21173, 669.2759" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 255">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67802" ItemIds="2001956,2001957" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+    </If>
+    <!-- Where the Silver Dew Grows -->
+    <If Condition="HasQuest(67803) and GetQuestStep(67803) == 1 and not GetQuestById(67803).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-303.3646, -80.52191, 734.1573" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006907,2006908,2006906,2006909" Condition="HasQuest(67803) and GetQuestStep(67803) == 1 and not GetQuestById(67803).GetTodoArgs(1, 0).Item1 == 2">
+        <HotSpots>
+          <HotSpot XYZ="-303.3646, -80.52191, 734.1573" Radius="10"/>
+          <HotSpot XYZ="-305.745, -68.13159, 812.7717" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67803) and GetQuestStep(67803) == 1 and GetQuestById(67803).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-178.5153, -86.16772, 775.845" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcIds="2006907,2006908,2006906,2006909" QuestId="67803" StepId="1">
+        <HotSpots>
+          <HotSpot XYZ="-178.5153, -86.16772, 775.845" Radius="10"/>
+          <HotSpot XYZ="-124.3763, -86.07617, 763.6987" Radius="10"/>
+        </HotSpots>
+      </UseObject>
+    </If>
+    <If Condition="HasQuest(67803) and GetQuestStep(67803) == 255">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67803" ItemId="2001958" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- The Caelumtree Wine Spree -->
     <If Condition="HasQuest(67804) and GetQuestStep(67804) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="566.7964, -20.55396, -530.2052"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="566.7964, -20.55396, -530.2052"/>
+      <FlyTo XYZ="566.7964, -20.55396, -530.2052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <UseObject NpcIds="2006913,2006914,2006912" QuestId="67804" StepId="1">
         <HotSpots>
           <HotSpot XYZ="566.7964, -20.55396, -530.2052" Radius="10"/>
@@ -411,639 +419,885 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67804) and GetQuestStep(67804) == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="58.45544, -48, -170.6133" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       <HandOver ItemId="2001959" NpcId="1016803" XYZ="58.45544, -48, -170.6133" QuestId="67804" StepId="2"/>
-    </If>
-    <!-- A Long Shot -->
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 1).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="20.00452, -84.00098, 282.1545"/>
-      </If>
-      <NoCombatMoveTo XYZ="20.00452, -84.00098, 282.1545"/>
-      <UseObject NpcIds="2006903" XYZ="20.00452, -84.00098, 282.1545" QuestId="67802" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 1).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="52.68933, -100.5723, 317.1283"/>
-      </If>
-      <NoCombatMoveTo XYZ="52.68933, -100.5723, 317.1283"/>
-      <UseObject NpcIds="2006904" XYZ="52.68933, -100.5723, 317.1283" QuestId="67802" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 1).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="6.301941, -100.2061, 351.4304"/>
-      </If>
-      <NoCombatMoveTo XYZ="6.301941, -100.2061, 351.4304"/>
-      <UseObject NpcIds="2006905" XYZ="6.301941, -100.2061, 351.4304" QuestId="67802" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-317.4944, -80.55243, 632.5933"/>
-      </If>
-      <NoCombatMoveTo XYZ="-317.4944, -80.55243, 632.5933"/>
-      <UseObject NpcIds="2006902" XYZ="-317.4944, -80.55243, 632.5933" QuestId="67802" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-336.965, -80.55243, 655.085"/>
-      </If>
-      <NoCombatMoveTo XYZ="-336.965, -80.55243, 655.085"/>
-      <UseObject NpcIds="2006901" XYZ="-336.965, -80.55243, 655.085" QuestId="67802" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 1 and GetQuestById(67802).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-379.7513, -75.21173, 669.2759"/>
-      </If>
-      <NoCombatMoveTo XYZ="-379.7513, -75.21173, 669.2759"/>
-      <UseObject NpcIds="2006900" XYZ="-379.7513, -75.21173, 669.2759" QuestId="67802" UseTimes="1"/>
-    </If>
-    <!-- Not for the Faint of Heart -->
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-348.6075, 27.19297, -51.69416"/>
-      </If>
-      <NoCombatMoveTo XYZ="-348.6075, 27.19297, -51.69416"/>
-      <TalkTo NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-341.4855, 30.70428, -37.97264"/>
-      </If>
-      <UseObject NpcIds="2006950" XYZ="-450.9499, -7.705872, -222.614" QuestId="67816" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 3">
-      <SoTransport NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 4">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-341.4855, 30.70428, -37.97264"/>
-      </If>
-      <UseObject NpcIds="2006951" XYZ="-388.3574, -10.23883, -268.5741" QuestId="67816" StepId="4"/>
-    </If>
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 5">
-      <SoTransport NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="5"/>
-      <NoCombatMoveTo XYZ="-348.6075, 27.19297, -51.69416"/>
-    </If>
-    <!-- Neighborhood Squabbles -->
-    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="204.6387, -106.4318, 360.5554"/>
-      </If>
-      <NoCombatMoveTo XYZ="154.4365, -112.5048, 445.1514"/>
-      <UseObject NpcIds="2006948" XYZ="154.4365, -112.5048, 445.1514" UseDistance="1.0" QuestId="67815" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="205.9814, -109.5446, 389.7306"/>
-      </If>
-      <NoCombatMoveTo XYZ="205.9814, -109.5446, 389.7306"/>
-      <UseObject NpcIds="2006947" XYZ="205.9814, -109.5446, 389.7306" QuestId="67815" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="204.6387, -106.4318, 360.5554"/>
-      </If>
-      <NoCombatMoveTo XYZ="204.6387, -106.4318, 360.5554"/>
-      <UseObject NpcIds="2006945" XYZ="204.6387, -106.4318, 360.5554" QuestId="67815" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 3">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="153.0022, -86.28979, 418.4481"/>
-      </If>
-      <NoCombatMoveTo XYZ="153.0022, -86.28979, 418.4481"/>
-      <UseObject NpcIds="2006946" XYZ="153.0022, -86.28979, 418.4481" QuestId="67815" UseTimes="1"/>
-    </If>
-    <!-- The Foodstuff of Champions -->
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="419.5466, -101.0605, 542.4734"/>
-      </If>
-      <NoCombatMoveTo XYZ="419.5466, -101.0605, 542.4734"/>
-      <UseObject NpcIds="2006896" XYZ="419.5466, -101.0605, 542.4734" QuestId="67801" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="359.884, -112.1691, 594.5983"/>
-      </If>
-      <NoCombatMoveTo XYZ="359.884, -112.1691, 594.5983"/>
-      <UseObject NpcIds="2006895" XYZ="359.884, -112.1691, 594.5983" QuestId="67801" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 1).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="111.8638, -119.0356, 617.4868"/>
-      </If>
-      <NoCombatMoveTo XYZ="111.8638, -119.0356, 617.4868"/>
-      <UseObject NpcIds="2006898" XYZ="111.8638, -119.0356, 617.4868" QuestId="67801" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 0">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="223.2242, -123.6134, 697.6272"/>
-      </If>
-      <NoCombatMoveTo XYZ="223.2242, -123.6134, 697.6272"/>
-      <UseObject NpcIds="2006894" XYZ="223.2242, -123.6134, 697.6272" QuestId="67801" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="209.1554, -123.1251, 767.9102"/>
-      </If>
-      <NoCombatMoveTo XYZ="209.1554, -123.1251, 767.9102"/>
-      <UseObject NpcIds="2006892" XYZ="209.1554, -123.1251, 767.9102" QuestId="67801" UseTimes="1"/>
-    </If>
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 1 and GetQuestById(67801).GetTodoArgs(1, 0).Item1 == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="291.0353, -119.4019, 664.6676"/>
-      </If>
-      <NoCombatMoveTo XYZ="291.0353, -119.4019, 664.6676"/>
-      <UseObject NpcIds="2006893" XYZ="291.0353, -119.4019, 664.6676" QuestId="67801" UseTimes="1"/>
-    </If>
-    <!-- Where the Silver Dew Grows -->
-    <If Condition="HasQuest(67803) and GetQuestStep(67803) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-303.3646, -80.52191, 734.1573"/>
-      </If>
-      <NoCombatMoveTo XYZ="-303.3646, -80.52191, 734.1573"/>
-      <UseObject NpcIds="2006907,2006908,2006906,2006909" QuestId="67803" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="-303.3646, -80.52191, 734.1573" Radius="10"/>
-          <HotSpot XYZ="-305.745, -68.13159, 812.7717" Radius="10"/>
-          <HotSpot XYZ="-178.5153, -86.16772, 775.845" Radius="10"/>
-          <HotSpot XYZ="-124.3763, -86.07617, 763.6987" Radius="10"/>
-        </HotSpots>
-      </UseObject>
-      <WaitWhile Condition="Core.Me.InCombat"/>
-    </If>
-    <!-- Failure to Deliver -->
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-566.6743, -97.34781, 481.0101"/>
-      </If>
-      <NoCombatMoveTo XYZ="-566.6743, -97.34781, 481.0101"/>
-      <TalkTo NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-481.0102, -93.18689, 474.6927"/>
-      </If>
-      <NoCombatMoveTo XYZ="-481.0102, -93.18689, 474.6927"/>
-      <UseObject NpcIds="2006922" XYZ="-481.0102, -93.18689, 474.6927" QuestId="67807" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 3">
-      <SoTransport NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 4">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="-480.1252, -92.94275, 478.0498"/>
-      </If>
-      <NoCombatMoveTo XYZ="-480.1252, -92.94275, 478.0498"/>
-      <UseObject NpcIds="2006923" XYZ="-480.1252, -92.94275, 478.0498" Radius="15" QuestId="67807" StepId="4"/>
-    </If>
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 5">
-      <SoTransport NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="5"/>
-    </If>
-    <!-- All About The Eggs -->
-    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="510.3684, -26.0777, -592.3705"/>
-      </If>
-      <NoCombatMoveTo XYZ="510.3684, -26.0777, -592.3705"/>
-      <UseObject NpcIds="2006930" XYZ="510.3684, -26.0777, -592.3705" QuestId="67809" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="358.8159, -51.98755, -137.8958"/>
-      </If>
-      <NoCombatMoveTo XYZ="358.8159, -51.98755, -137.8958"/>
-      <UseItem ItemId="2001963" NpcIds="2006931" XYZ="358.8159, -51.98755, -137.8958" QuestId="67809" StepId="2"/>
-    </If>
-    <!-- At Full Pelt -->
-    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="448.5693, -51.1414, 108.9341"/>
-      </If>
-      <NoCombatMoveTo XYZ="448.5693, -51.1414, 108.9341"/>
-      <TalkTo NpcId="1011922" XYZ="448.5693, -51.1414, 108.9341" QuestId="67806" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="329.4879, -45.48718, -262.1348"/>
-      </If>
-      <NoCombatMoveTo XYZ="329.4879, -45.48718, -262.1348"/>
-      <UseItem ItemId="2001961" NpcIds="2006920,2006919,2006918" QuestId="67806" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="329.4879, -45.48718, -262.1348" Radius="10"/>
-          <HotSpot XYZ="535.4543, -32.39496, -410.605" Radius="10"/>
-          <HotSpot XYZ="475.7, -44.17493, -231.4642" Radius="10"/>
-        </HotSpots>
-      </UseItem>
-    </If>
-    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 3">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="448.5693, -51.1414, 108.9341"/>
-      </If>
-      <NoCombatMoveTo XYZ="448.5693, -51.1414, 108.9341"/>
-      <HandOver ItemId="2001962" QuestId="67806" NpcId="1011922" XYZ="448.5693, -51.1414, 108.9341" StepId="3"/>
-    </If>
-    <!-- Too Much to Bear -->
-    <If Condition="HasQuest(67800) and GetQuestStep(67800) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="707.7285, -50.0954, -151.4763"/>
-      </If>
-      <NoCombatMoveTo XYZ="707.7285, -50.0954, -151.4763"/>
-      <UseObject NpcIds="2006873,2006871,2006872" QuestId="67800" StepId="1">
-        <HotSpots>
-          <HotSpot XYZ="707.7285, -50.0954, -151.4763" Radius="10"/>
-          <HotSpot XYZ="559.7161, -41.24518, -333.1808" Radius="10"/>
-          <HotSpot XYZ="333.8215, -47.53192, -331.5328" Radius="10"/>
-        </HotSpots>
-      </UseObject>
-    </If>
-    <!-- Quests on the Kongamato -->
-    <!-- Bugging the Bugs -->
-    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="74.20459, -48.53359, -171.1299"/>
-      </If>
-      <NoCombatMoveTo XYZ="74.20459, -48.53359, -171.1299"/>
-      <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67799" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 2">
-      <SoUseSpell SpellId="5872" NpcIds="2006887" XYZ="523.4302, -50.37012, 90.86743" QuestId="67799" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 3">
-      <SoUseSpell SpellId="5872" NpcIds="2006970" XYZ="517.4791, -50.64471, 89.00586" Radius="10" QuestId="67799" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 4">
-      <SoUseSpell SpellId="5872" NpcIds="2006889,2006888" QuestId="67799" StepId="4">
-        <HotSpots>
-          <HotSpot XYZ="689.7229, -52.26221, 62.08887" Radius="10"/>
-          <HotSpot XYZ="586.1753, -37.9798, 257.3739" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
     </If>
     <!-- Ploughing Ahead -->
     <If Condition="HasQuest(67805) and GetQuestStep(67805) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="74.20459, -48.53359, -171.1299"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="74.20459, -48.53359, -171.1299"/>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
       <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67805" StepId="1"/>
     </If>
     <If Condition="HasQuest(67805) and GetQuestStep(67805) == 2">
-      <SoUseSpell SpellId="5872" NpcIds="2006915" XYZ="96.45227, -66.2395, 616.6017" QuestId="67805" StepId="2"/>
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="96.45227, -65.2395, 616.6017" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006915" UseDistance="5.0" XYZ="96.45227, -66.2395, 616.6017" QuestId="67805" StepId="2"/>
     </If>
     <If Condition="HasQuest(67805) and GetQuestStep(67805) == 3">
-      <SoUseSpell SpellId="5872" NpcIds="1016857" XYZ="-150.042, -56.89721, 541.9547" QuestId="67805" StepId="3"/>
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="-150.042, -55.89721, 541.9547" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="1016857" UseDistance="5.0" XYZ="-150.042, -56.89721, 541.9547" QuestId="67805" StepId="3"/>
     </If>
     <If Condition="HasQuest(67805) and GetQuestStep(67805) == 4">
-      <SoUseSpell SpellId="5872" NpcIds="2006917" XYZ="-625.0859, -49.94281, 491.02" QuestId="67805" StepId="4"/>
-      <RunCode Name="Dismount"/>
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="-625.0859, -48.94281, 491.02" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006917" UseDistance="5.0" XYZ="-625.0859, -49.94281, 491.02" QuestId="67805" StepId="4"/>
+      <Dismount/>
+    </If>
+    <!-- At Full Pelt -->
+    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="448.5693, -51.1414, 108.9341" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1011922" XYZ="448.5693, -51.1414, 108.9341" QuestId="67806" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="329.4879, -45.48718, -262.1348" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseItem ItemId="2001961" NpcId="2006920" XYZ="329.4879, -45.48718, -262.1348" Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="535.4543, -32.39496, -410.605" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseItem ItemId="2001961" NpcId="2006919" XYZ="535.4543, -32.39496, -410.605" Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="475.7, -44.17493, -231.4642" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseItem ItemId="2001961" NpcId="2006918" XYZ="475.7, -44.17493, -231.4642" Condition="HasQuest(67806) and GetQuestStep(67806) == 2 and GetQuestById(67806).GetTodoArgs(2, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="448.5693, -51.1414, 108.9341" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <HandOver ItemId="2001962" NpcId="1011922" XYZ="448.5693, -51.1414, 108.9341" QuestId="67806" StepId="3"/>
+    </If>
+    <!-- Failure to Deliver -->
+    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-566.6743, -97.34781, 481.0101" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-481.0102, -93.18689, 474.6927" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <UseObject NpcId="2006922" XYZ="-481.0102, -93.18689, 474.6927" QuestId="67807" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 3">
+      <If Condition="not Core.Me.HasAura(404)">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-481.0102, -93.18689, 474.6927" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <UseObject NpcId="2006922" XYZ="-481.0102, -93.18689, 474.6927" Condition="not Core.Me.HasAura(404)"/>
+      </If>
+      <NoCombatMoveTo XYZ="-566.6743, -97.34781, 481.0101"/>
+      <TalkTo NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 4">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-480.1252, -92.94275, 478.0498" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <UseObject NpcId="2006923" XYZ="-480.1252, -92.94275, 478.0498" QuestId="67807" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 5">
+      <If Condition="not Core.Me.HasAura(404)">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-480.1252, -92.94275, 478.0498" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <UseObject NpcId="2006923" XYZ="-480.1252, -92.94275, 478.0498" Condition="not Core.Me.HasAura(404)"/>
+      </If>
+      <NoCombatMoveTo XYZ="-566.6743, -97.34781, 481.0101"/>
+      <TalkTo NpcId="1016859" XYZ="-566.6743, -97.34781, 481.0101" QuestId="67807" StepId="5"/>
     </If>
     <!-- Shoo Fly, Don't Bother Me -->
     <If Condition="HasQuest(67808) and GetQuestStep(67808) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="74.20459, -48.53359, -171.1299"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="74.20459, -48.53359, -171.1299"/>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
       <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67808" StepId="1"/>
     </If>
     <If Condition="HasQuest(67808) and GetQuestStep(67808) == 2">
-      <SoUseSpell SpellId="5872" NpcIds="2006924" XYZ="-190.2648, -104.7532, 512.932" QuestId="67808" StepId="2"/>
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="-190.4199, -103.2995, 513.0756" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+      <SoUseSpell SpellId="5872" NpcId="2006924" UseDistance="5.0" XYZ="-190.2648, -104.7532, 512.932" QuestId="67808" StepId="2"/>
     </If>
-    <If Condition="HasQuest(67808) and GetQuestStep(67808) == 3">
-      <SoUseSpell SpellId="5872" NpcIds="2006925,2006926" QuestId="67808" StepId="3" MapId="398">
-        <HotSpots>
-          <HotSpot XYZ="-13.44324, -129.2897, 712.2148" Radius="10"/>
-          <HotSpot XYZ="45.15137, -132.1584, 685.7556" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
+    <If Condition="HasQuest(67808) and GetQuestStep(67808) == 3 and GetQuestById(67808).GetTodoArgs(3, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="-13.31378, -127.5998, 712.2664" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+	  <SoUseSpell SpellId="5872" NpcId="2006925" UseDistance="5.0" XYZ="-13.44324, -129.2897, 712.2148" Condition="HasQuest(67808) and GetQuestStep(67808) == 3 and GetQuestById(67808).GetTodoArgs(3, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67808) and GetQuestStep(67808) == 3 and GetQuestById(67808).GetTodoArgs(3, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
+      </If>
+      <FlyTo XYZ="45.16249, -130.1656, 685.901" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+	  <SoUseSpell SpellId="5872" NpcId="2006926" UseDistance="5.0" XYZ="45.15137, -132.1584, 685.7556" Condition="HasQuest(67808) and GetQuestStep(67808) == 3 and GetQuestById(67808).GetTodoArgs(3, 0).Item1 == 1"/>
+      <Dismount/>
+    </If>
+    <!-- All About The Eggs -->
+    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="510.3684, -26.0777, -592.3705" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006930" XYZ="510.3684, -26.0777, -592.3705" QuestId="67809" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="358.8159, -51.98755, -137.8958" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseItem ItemId="2001963" NpcId="2006931" XYZ="358.8159, -51.98755, -137.8958" QuestId="67809" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 255">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <TurnIn QuestId="67809" ItemId="2001964" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+    </If>
+    <!-- Fifty Shades of Yellow -->
+    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-113.4606, -34.45324, -201.7718" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <RunCode Name="67813"/>
+    </If>
+    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-172.7959, -35.40849, -79.72566" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <RunCode Name="67813"/>
+    </If>
+    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-47.981, -33.88902, -23.15998" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <RunCode Name="67813"/>
+    </If>
+    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-403.5543, 96.20687, -45.45369" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <RunCode Name="67813"/>
+    </If>
+    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-399.2523, 96.07059, -43.01526" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <HandOver ItemId="2001968" NpcId="1016874" XYZ="-399.2523, 96.07059, -43.01526" QuestId="67813" StepId="3"/>
+    </If>
+    <!-- Smells Like Trouble -->
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-155.4131, -71.12238, 387.2892" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006932" XYZ="-155.4131, -71.12238, 387.2892" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-80.03363, -71.67163, 412.4666" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006933" XYZ="-80.03363, -71.67163, 412.4666" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-105.0279, -69.68799, 350.637" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006934" XYZ="-105.0279, -69.68799, 350.637" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-46.18909, -47.2572, 241.9318" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006935" XYZ="-46.18909, -47.2572, 241.9318" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-83.57367, -48.17273, 231.8914" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006936" XYZ="-83.57367, -48.17273, 231.8914" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-42.28278, -32.73065, 183.3065" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006937" XYZ="-42.28278, -32.73065, 183.3065" Condition="HasQuest(67810) and GetQuestStep(67810) == 1 and GetQuestById(67810).GetTodoArgs(1, 1).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="58.45544, -48, -170.6133" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <HandOver ItemIds="2001965,2001966" NpcId="1016803" XYZ="58.45544, -48, -170.6133" QuestId="67810" StepId="2"/>
+    </If>
+    <!-- When Hunting Goes Wrong -->
+    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 1 and GetQuestById(67811).GetTodoArgs(1, 0).Item1 == 0">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="-267.2579, -35.50129, 220.5643" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016865" XYZ="-272.2363, -35.40849, 219.0737" QuestId="67811"/>
+    </If>
+    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 1 and GetQuestById(67811).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-448.9801, -35.40849, 178.0301" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>	  
+      <NoCombatMoveTo XYZ="-448.9801, -35.40849, 178.0301"/>
+      <TalkTo NpcId="1016864" XYZ="-452.3232, -35.35204, 174.3037" QuestId="67811" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-397.0551, -34.19241, 243.1219" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <NoCombatMoveTo XYZ="-397.0551, -34.19241, 243.1219"/>
+      <TalkTo NpcId="1016866" XYZ="-397.0551, -34.19241, 243.1219" QuestId="67811" StepId="2"/>
+      <WaitWhile Condition="HasQuest(67811) and not GetQuestStep(67811) == 3"/>
+    </If>
+    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-397.0551, -34.19241, 243.1219" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <TalkTo NpcId="1016866" XYZ="-397.0551, -34.19241, 243.1219" QuestId="67811" StepId="3"/>
     </If>
     <!-- Flea Troubles -->
     <If Condition="HasQuest(67812) and GetQuestStep(67812) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="74.20459, -48.53359, -171.1299"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="74.20459, -48.53359, -171.1299"/>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
       <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299" QuestId="67812" StepId="1"/>
     </If>
-    <If Condition="HasQuest(67812) and GetQuestStep(67812) == 2">
-      <SoUseSpell SpellId="5872" NpcIds="2006938,2006940,2006939" QuestId="67812" StepId="2">
-        <HotSpots>
-          <HotSpot XYZ="-178.8816, 179.8885, 4.257263" Radius="10"/>
-          <HotSpot XYZ="-311.8181, -29.49573, 143.6331" Radius="10"/>
-          <HotSpot XYZ="-313.8018, -29.49573, 102.0981" Radius="10"/>
-        </HotSpots>
-      </SoUseSpell>
-      <RunCode Name="Dismount"/>
-    </If>
-    <!-- Turn Ins -->
-    <!-- Getting the Shaft -->
-    <If Condition="HasQuest(67797) and GetQuestStep(67797) == 255">
+    <If Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67797" ItemId="2001951" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-178.3236, 180.9144, 4.696454" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+	  <SoUseSpell SpellId="5872" NpcId="2006938" UseDistance="5.0" XYZ="-178.5764, 179.1472, 5.081238" Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 0"/>
     </If>
-    <!-- Breath of Fresh Air -->
-    <If Condition="HasQuest(67798) and GetQuestStep(67798) == 255">
+    <If Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67798" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-311.3557, -28.47739, 143.0531" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+	  <SoUseSpell SpellId="5872" NpcId="2006940" UseDistance="5.0" XYZ="-311.5435, -29.9906, 143.1448" Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 1"/>
     </If>
-    <!-- Bugging the Bugs -->
-    <If Condition="HasQuest(67799) and GetQuestStep(67799) == 255">
+    <If Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1017031" XYZ="74.20459, -48.53359, -171.1299"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67799" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-314.0981, -28.74002, 102.3392" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True"/>
+	  <SoUseSpell SpellId="5872" NpcId="2006939" UseDistance="5.0" XYZ="-314.0154, -30.1, 103.7156" Condition="HasQuest(67812) and GetQuestStep(67812) == 2 and GetQuestById(67812).GetTodoArgs(2, 0).Item1 == 2"/>
+      <Dismount/>
     </If>
-    <!-- Too Much to Bear -->
-    <If Condition="HasQuest(67800) and GetQuestStep(67800) == 255">
+    <!-- A Romp Around the Foothills -->
+    <If Condition="HasQuest(67814) and GetQuestStep(67814) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67800" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-272.0125, -26.31813, 93.12688" Land="True"/>
+      <TalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="1"/>
+      <NoCombatMoveTo XYZ="-272.0125, -26.31813, 93.12688"/>
     </If>
-    <!-- The Foodstuffs of Champions -->
-    <If Condition="HasQuest(67801) and GetQuestStep(67801) == 255">
+    <If Condition="HasQuest(67814) and GetQuestStep(67814) == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67801" ItemIds="2001954,2001955" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="147.6327, 66.38829, -642.2832" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016876" XYZ="148.4855, 65.56322, -644.0986" QuestId="67814" StepId="2"/>
     </If>
-    <!-- A Long Shot -->
-    <If Condition="HasQuest(67802) and GetQuestStep(67802) == 255">
+    <If Condition="HasQuest(67814) and GetQuestStep(67814) == 3">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67802" ItemIds="2001956,2001957" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="210.8155, 52.2036, -776.0998" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016877" XYZ="212.2377, 52.20549, -777.676" QuestId="67814" StepId="3"/>
     </If>
-    <!-- Where the Silver Dew Grows -->
-    <If Condition="HasQuest(67803) and GetQuestStep(67803) == 255">
+    <If Condition="HasQuest(67814) and GetQuestStep(67814) == 4">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="210.8155, 52.2036, -776.0998" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67803" ItemId="2001958" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <RunCode Name="67814a"/>
+      <TalkTo NpcId="1016878" XYZ="210.3151, 59.65556, -919.0662" QuestId="67814" StepId="4"/>
+      <RunCode Name="67814b"/>
     </If>
-    <!-- The Caelumtree Wine Spree -->
-    <If Condition="HasQuest(67804) and GetQuestStep(67804) == 255">
+    <If Condition="HasQuest(67814) and GetQuestStep(67814) == 5">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="74.90649, -48, -175.6771"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="74.90649, -48, -175.6771"/>
-      <TurnIn QuestId="67804" ItemIds="2001960" NpcId="1016855" XYZ="74.90649, -48, -175.6771"/>
-    </If>
-    <!-- Ploughing Ahead -->
-    <If Condition="HasQuest(67805) and GetQuestStep(67805) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67805" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- At Full Pelt -->
-    <If Condition="HasQuest(67806) and GetQuestStep(67806) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67806" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- Failure to Deliver -->
-    <If Condition="HasQuest(67807) and GetQuestStep(67807) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67807" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- Shoo Fly, Don't Bother Me -->
-    <If Condition="HasQuest(67808) and GetQuestStep(67808) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67808" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- All About The Eggs -->
-    <If Condition="HasQuest(67809) and GetQuestStep(67809) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67809" ItemId="2001964" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- Smells Like Trouble -->
-    <If Condition="HasQuest(67810) and GetQuestStep(67810) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="67.94836, -48.43746, -168.2307"/>
-      </If>
-      <NoCombatMoveTo XYZ="67.94836, -48.43746, -168.2307"/>
-      <TurnIn QuestId="67810" ItemId="2001967" NpcId="1016863" XYZ="67.94836, -48.43746, -168.2307"/>
-    </If>
-    <!-- When Hunting Goes Wrong -->
-    <If Condition="HasQuest(67811) and GetQuestStep(67811) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67811" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- Flea Troubles -->
-    <If Condition="HasQuest(67812) and GetQuestStep(67812) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67812" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
-    </If>
-    <!-- Fifty Shades of Yellow -->
-    <If Condition="HasQuest(67813) and GetQuestStep(67813) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67813" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-272.0125, -26.31813, 93.12688" Land="True"/>
+      <TalkTo NpcId="1016875" XYZ="-274.0978, -22.97101, 22.81219" QuestId="67814" StepId="5"/>
     </If>
     <!-- Neighborhood Squabbles -->
-    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 255">
+    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 0">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67815" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="154.4365, -112.5048, 445.1514" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006948" XYZ="154.4365, -112.5048, 445.1514" UseDistance="1.0" Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 0"/>
+    </If>
+    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 1">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="205.9814, -109.5446, 389.7306" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006947" XYZ="205.9814, -109.5446, 389.7306" Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 1"/>
+    </If>
+    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 2">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="204.6387, -106.4318, 360.5554" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <UseObject NpcId="2006945" XYZ="204.6387, -106.4318, 360.5554" Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 2"/>
+    </If>
+    <If Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 3">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo XYZ="153.0022, -86.28979, 418.4481" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <UseObject NpcId="2006946" XYZ="153.0022, -86.28979, 418.4481" Condition="HasQuest(67815) and GetQuestStep(67815) == 1 and GetQuestById(67815).GetTodoArgs(1, 0).Item1 == 3"/>
     </If>
     <!-- Not for the Faint of Heart -->
-    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 255">
+    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 1">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.45544, -48, -170.6133"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
       </If>
-      <NoCombatMoveTo XYZ="58.45544, -48, -170.6133"/>
-      <TurnIn QuestId="67816" NpcId="1016803" XYZ="58.45544, -48, -170.6133"/>
+      <FlyTo XYZ="-200.3226, 67.88288, 137.1624" IgnoreIndoors="True"/>
+      <FlyTo XYZ="-348.6075, 27.19297, -51.69416" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      <TalkTo NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="1"/>
     </If>
-    <!-- Reputation & Unlock Quests -->
-    <!-- The Naming of Vath -->
-    <If Condition="not HasQuest(67791) and not IsQuestCompleted(67791)">
+    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 2">
       <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="73.19751, -49.19563, -139.0555"/>
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-348.6075, 27.19297, -51.69416" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
-      <NoCombatMoveTo XYZ="73.19751, -49.19563, -139.0555"/>
-      <If Condition="IsQuestAcceptQualified(67791)">
-        <PickUpQuest QuestId="67791" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555"/>
-      </If>
+      <UseObject NpcId="2006950" XYZ="-450.9499, -7.705872, -222.614" QuestId="67816" StepId="2"/>
     </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 1">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="447.3792, -51.1414, 108.5374"/>
-      </If>
-      <NoCombatMoveTo XYZ="447.3792, -51.1414, 108.5374"/>
-      <TalkTo NpcId="1016835" XYZ="447.3792, -51.1414, 108.5374" QuestId="67791" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 2">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767"/>
-      </If>
-      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767"/>
-      <TalkTo NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 3">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="222.156, -74.93713, 122.5146"/>
-      </If>
-      <NoCombatMoveTo XYZ="222.156, -74.93713, 122.5146"/>
-      <UseObject NpcIds="2006874" XYZ="222.156, -74.93713, 122.5146" QuestId="67791" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 4">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="212.4208, -58.00725, -228.0767"/>
-      </If>
-      <NoCombatMoveTo XYZ="212.4208, -58.00725, -228.0767"/>
-      <HandOver ItemId="2001949" NpcId="1016836" XYZ="212.4208, -58.00725, -228.0767" QuestId="67791" StepId="4"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 5">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
-      </If>
-      <NoCombatMoveTo XYZ="470.0236, -49.89133, 20.37079"/>
-      <TalkTo NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" QuestId="67791" StepId="5"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 6">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="474.1268, -51.1414, 38.58637"/>
-      </If>
-      <NoCombatMoveTo XYZ="474.1268, -51.1414, 38.58637"/>
-      <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67791" StepId="6"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 7">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689"/>
-      <TalkTo NpcId="1016837" XYZ="58.88452, -48, -171.0689" QuestId="67791" StepId="7"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 8">
-      <SoUseSpell SpellId="5872" NpcIds="2006876" XYZ="215.137, -87.32745, 217.9446" QuestId="67791" StepId="8"/>
-      <RunCode Name="Dismount"/>
-    </If>
-    <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 255">
-      <If Condition="not IsOnMap(398)">
-        <GetTo ZoneId="398" XYZ="58.88452, -48, -171.0689"/>
-      </If>
-      <NoCombatMoveTo XYZ="58.88452, -48, -171.0689"/>
-      <SoTurnIn QuestId="67791" NpcId="1016837" XYZ="58.88452, -48, -171.0689" DialogOption="0"/>
-    </If>
-    <!--    <If Condition="not IsQuestCompleted(67792)">
-          <!{1}** Adventurers Don't Get Cold Feet **{1}>
-          <SoPickUpQuest NpcId="1016802" QuestId="67792" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <SoTalkTo NpcId="1016841" XYZ="842.9846, -8.926967, 338.2467" QuestId="67792" StepId="1" MapId="398" />
-          <SoTalkTo NpcId="1016841" XYZ="842.9846, -8.926967, 338.2467" QuestId="67792" StepId="2" MapId="398" />
-          <SoTalkTo NpcId="1016842" XYZ="-791.9585, 113.9319, -624.5975" QuestId="67792" StepId="3" MapId="397" />
-          <SoTalkTo NpcId="1011907" XYZ="-288.8686, 127.0664, 13.19904" QuestId="67792" StepId="4" MapId="397" />
-          <SoUseItem ItemId="2001950" NpcIds="2006877" XYZ="-276.6309, 122.2705, -45.02942" Radius="5" QuestId="67792" StepId="5" MapId="397" />
-          <SoTalkTo NpcId="1016890" XYZ="-273.9147, 122.3617, -43.32043" QuestId="67792" StepId="6" MapId="397" />
-          <SoTalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67792" StepId="7" MapId="398" />
-          <SoTalkTo NpcId="1016843" XYZ="103.1663, -50.70595, -184.3138" QuestId="67792" StepId="8" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67792" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          </If>
+    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 3">
+      <If Condition="not Core.Me.HasAura(404)">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-348.6075, 27.19297, -51.69416" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         </If>
-        <If Condition="not IsQuestCompleted(67793)">
-          <!{1}** An Acquired Taste **{1}>
-          <SoPickUpQuest QuestId="67793" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <SoTalkTo NpcId="1016844" XYZ="-743.0991, -117.7506, 574.8531" QuestId="67793" StepId="1" MapId="398" />
-          <SoTalkTo NpcId="1016844" XYZ="-743.0991, -117.7506, 574.8531" QuestId="67793" StepId="2" MapId="398" />
-          <SoMoveTo Condition="HasQuest(67793) and GetQuestStep(67793) == 3 and not IsOnMap(399)" XYZ="-800.0378, -121.7777, 577.9705" QuestId="67793" Distance="0" MapId="398" />
-          <SoTalkTo NpcId="1016845" XYZ="508.7205, 77.65831, 119.2186" QuestId="67793" StepId="3" />
-          <SoTalkTo NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" QuestId="67793" StepId="4" AetheryteId="75" />
-          <SoTalkTo NpcId="1012132" XYZ="43.01514, 206.0469, 56.50415" QuestId="67793" StepId="5" AetheryteId="75" />
-          <SoMoveTo Condition="HasQuest(67793) and GetQuestStep(67793) == 6 and not IsOnMap(399)" XYZ="150.6015, 207, 115.9817" QuestId="67793" 	Distance="0" AetheryteId="75" />
-          <SoTalkTo NpcId="1016996" XYZ="-85.80151, 100.8765, -325.185" QuestId="67793" StepId="6" />
-          <SoTalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67793" StepId="7" MapId="398" />
-          <SoTalkTo NpcId="1016848" XYZ="286.7627, -112.2676, 424.5516" QuestId="67793" StepId="8" MapId="398" />
-          <SoEmoteNpc Emote="s Deftarm!" NpcIds="1016848" XYZ="286.7627, -112.2676, 424.5516" QuestId="67793" StepId="9" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67793" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          </If>
+        <UseObject NpcId="2006950" XYZ="-450.9499, -7.705872, -222.614" Condition="not Core.Me.HasAura(404)"/>
+      </If>
+      <NoCombatMoveTo XYZ="-412.1614, 2.644562, -145.1286"/>
+      <TalkTo NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 4">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo XYZ="-348.6075, 27.19297, -51.69416" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+      </If>
+      <UseObject NpcId="2006951" XYZ="-388.3574, -10.23883, -268.5741" QuestId="67816" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(67816) and GetQuestStep(67816) == 5">
+      <If Condition="not Core.Me.HasAura(404)">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-348.6075, 27.19297, -51.69416" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
         </If>
-        <If Condition="not IsQuestCompleted(67794)">
-          <!{1}**  Your Enemy and Mine (ExBuddy HATES Anyx Trine) **{1}>
-          <SoPickUpQuest QuestId="67794" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <SoTalkTo NpcId="1016849" XYZ="-209.4606, -46.08357, 222.5222" QuestId="67794" StepId="1" MapId="398" />
-          <SoMoveTo XYZ="-269.1552, 36.21046, -61.84367" QuestId="67794" />
-          <SoMoveTo XYZ="-341.4855, 30.70428, -37.97264" QuestId="67794" />
-          <SoTalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67794" StepId="2" MapId="398" />
-          <SoMoveTo XYZ="-341.4855, 30.70428, -37.97264" QuestId="67794" />
-          <SoTalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" DialogOption="1" QuestId="67794" StepId="3" MapId="398" />
-          <SoGrind NpcIds="4716" XYZ="-68.87684, -33.66226, -166.414" Radius="15" QuestId="67794" StepId="4" Objective="0" Count="1" MapId="398" />
-          <SoGrind NpcIds="4716" XYZ="-68.86517, -34.4971, 91.60564" Radius="15" QuestId="67794" StepId="4" Objective="0" Count="2" MapId="398" />
-          <SoTalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" QuestId="67794" StepId="5" MapId="398" />
-          <SoTalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" QuestId="67794" StepId="6" MapId="398" />
-          <SoMoveTo XYZ="-341.4855, 30.70428, -37.97264" QuestId="67794" />
-          <SoTalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67794" StepId="7" MapId="398" />
-          <SoMoveTo XYZ="-341.4855, 30.70428, -37.97264" QuestId="67794" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67794" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" MapId="398" />
-          </If>
-        </If>
-        <If Condition="not IsQuestCompleted(67795)">
-          <!{1}** Resistance Is Futile **{1}>
-          <SoPickUpQuest QuestId="67795" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <SoTalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67795" StepId="1" MapId="398" />
-          <SoMoveTo XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="2" MapId="398" />
-          <SoTalkTo NpcId="1016851" XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="3" MapId="398" />
-          <SoTalkTo NpcId="1016891" XYZ="297.2915, -119.9126, 681.1168" QuestId="67795" StepId="4" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67795" NpcId="1016802" ItemId="2001956" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          </If>
-        </If>
-        <If Condition="not IsQuestCompleted(67796)">
-          <!{1}** A Symbiotic Friendship **{1}>
-          <SoPickUpQuest QuestId="67796" NpcId="1016802" XYZ="53.36072, -48, -169.9703" MapId="398" />
-          <If Condition="&doTurnIn;">
-            <SoTurnIn QuestId="67796" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" MapId="398" /> 
-          </If>
+        <UseObject NpcId="2006951" XYZ="-388.3574, -10.23883, -268.5741" Condition="not Core.Me.HasAura(404)"/>
+      </If>
+      <NoCombatMoveTo XYZ="-412.1614, 2.644562, -145.1286"/>
+      <TalkTo NpcId="1016879" XYZ="-412.1614, 2.644562, -145.1286" QuestId="67816" StepId="5"/>
+      <NoCombatMoveTo XYZ="-341.1052, 30.31062, -39.426"/>
+    </If>
+    <If Condition="not HasQuest(67791) and not HasQuest(67792) and not HasQuest(67793) and not HasQuest(67794) and not HasQuest(67795) and not HasQuest(67796) and HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
+      <If Condition="not IsOnMap(398)">
+        <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+      </If>
+      <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+      <!-- Breath of Fresh Air -->
+      <If Condition="HasQuest(67798) and GetQuestStep(67798) == 255">
+        <TurnIn QuestId="67798" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Bugging the Bugs -->
+      <If Condition="HasQuest(67799) and GetQuestStep(67799) == 255">
+        <TurnIn QuestId="67799" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Too Much to Bear -->
+      <If Condition="HasQuest(67800) and GetQuestStep(67800) == 255">
+        <TurnIn QuestId="67800" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- The Foodstuffs of Champions -->
+      <If Condition="HasQuest(67801) and GetQuestStep(67801) == 255">
+        <TurnIn QuestId="67801" ItemIds="2001954,2001955" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- The Caelumtree Wine Spree -->
+      <If Condition="HasQuest(67804) and GetQuestStep(67804) == 255">
+        <TurnIn QuestId="67804" ItemIds="2001960" NpcId="1016855" InteractDistance="3.0" XYZ="74.90649, -48, -175.6771"/>
+      </If>
+      <!-- Ploughing Ahead -->
+      <If Condition="HasQuest(67805) and GetQuestStep(67805) == 255">
+        <TurnIn QuestId="67805" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- At Full Pelt -->
+      <If Condition="HasQuest(67806) and GetQuestStep(67806) == 255">
+        <TurnIn QuestId="67806" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Failure to Deliver -->
+      <If Condition="HasQuest(67807) and GetQuestStep(67807) == 255">
+        <TurnIn QuestId="67807" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Shoo Fly, Don't Bother Me -->
+      <If Condition="HasQuest(67808) and GetQuestStep(67808) == 255">
+        <TurnIn QuestId="67808" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Smells Like Trouble -->
+      <If Condition="HasQuest(67810) and GetQuestStep(67810) == 255">
+        <TurnIn QuestId="67810" ItemId="2001967" InteractDistance="3.0" NpcId="1016863" XYZ="67.94836, -48.43746, -168.2307"/>
+      </If>
+      <!-- When Hunting Goes Wrong -->
+      <If Condition="HasQuest(67811) and GetQuestStep(67811) == 255">
+        <TurnIn QuestId="67811" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Flea Troubles -->
+      <If Condition="HasQuest(67812) and GetQuestStep(67812) == 255">
+        <TurnIn QuestId="67812" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Fifty Shades of Yellow -->
+      <If Condition="HasQuest(67813) and GetQuestStep(67813) == 255">
+        <TurnIn QuestId="67813" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- A Romp Around the Foothills -->
+      <If Condition="HasQuest(67814) and GetQuestStep(67814) == 255">
+        <TurnIn QuestId="67814" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Neighborhood Squabbles -->
+      <If Condition="HasQuest(67815) and GetQuestStep(67815) == 255">
+        <TurnIn QuestId="67815" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+      <!-- Not for the Faint of Heart -->
+      <If Condition="HasQuest(67816) and GetQuestStep(67816) == 255">
+        <TurnIn QuestId="67816" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      </If>
+    </If>
+    <If Condition="IsQuestCompleted(67791) and not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
+      <!-- Adventurers Don't Get Cold Feet -->
+      <If Condition="IsQuestCompleted(67791) and not HasQuest(67792) and not IsQuestCompleted(67792)">
+        <If Condition="IsQuestAcceptQualified(67792)">
+          <PickUpQuest QuestId="67792" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
         </If>
       </If>
--->
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 1">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="840.2444, -9.57581, 336.681" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016841" XYZ="842.9846, -8.926967, 338.2467" QuestId="67792" StepId="1"/>
+        <WaitWhile Condition="HasQuest(67792) and not IsQuestCompleted(67792) and not GetQuestStep(67792) == 2"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 2">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="840.2444, -9.57581, 336.681" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016841" XYZ="842.9846, -8.926967, 338.2467" QuestId="67792" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 3">
+        <GetTo ZoneId="397" XYZ="-795.0075, 114.7794, -626.2208"/>
+        <TalkTo NpcId="1016842" XYZ="-791.9585, 113.9319, -624.5975" QuestId="67792" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 4">
+        <If Condition="not IsOnMap(397)">
+          <GetTo ZoneId="397" XYZ="474.8097, 212.5399, 721.9003"/>
+        </If>
+        <FlyTo XYZ="-289.0188, 127.007, 11.11862" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1011907" XYZ="-288.8686, 127.0664, 13.19904" QuestId="67792" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 5">
+        <If Condition="not IsOnMap(397)">
+          <GetTo ZoneId="397" XYZ="474.8097, 212.5399, 721.9003"/>
+          <FlyTo XYZ="-277.094, 122.6686, -42.82142" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <UseItem ItemId="2001950" NpcId="2006877" XYZ="-276.6309, 122.2705, -45.02942" QuestId="67792" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 6">
+        <If Condition="not IsOnMap(397)">
+          <GetTo ZoneId="397" XYZ="474.8097, 212.5399, 721.9003"/>
+          <FlyTo XYZ="-277.094, 122.6686, -42.82142" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016890" XYZ="-273.9147, 122.3617, -43.32043" QuestId="67792" StepId="6"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 7">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67792" StepId="7"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 8">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016843" XYZ="103.1663, -50.70595, -184.3138" QuestId="67792" StepId="8"/>
+      </If>
+      <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 255">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TurnIn QuestId="67792" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+      </If>
+      <!-- An Acquired Taste -->
+      <If Condition="IsQuestCompleted(67792) and not HasQuest(67793) and not IsQuestCompleted(67793)">
+        <If Condition="IsQuestAcceptQualified(67793)">
+          <PickUpQuest QuestId="67793" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 1">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-740.1677, -117.5515, 573.769" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016844" XYZ="-743.0991, -117.7506, 574.8531" QuestId="67793" StepId="1"/>
+        <WaitWhile Condition="HasQuest(67793) and not IsQuestCompleted(67793) and not GetQuestStep(67793) == 2"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 2">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-740.2689, -117.5605, 573.8848" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016844" XYZ="-743.0991, -117.7506, 574.8531" QuestId="67793" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 3">
+        <If Condition="not IsOnMap(399)">
+          <GetTo ZoneId="399" XYZ="892.5683, 159.1987, 184.9486"/>
+        </If>
+        <FlyTo XYZ="511.0801, 78.01077, 120.9659" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016845" XYZ="508.7205, 77.65831, 119.2186" QuestId="67793" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 4">
+        <GetTo ZoneId="478" XYZ="73.9588, 206.2009, 21.10348"/>
+        <TalkTo NpcId="1012097" XYZ="73.3501, 205.8896, 23.48358" QuestId="67793" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 5">
+        <GetTo ZoneId="478" XYZ="44.20381, 206.0156, 55.16836"/>
+        <TalkTo NpcId="1012132" XYZ="43.01514, 206.0472, 56.50415" QuestId="67793" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 6">
+        <If Condition="not IsOnMap(399)">
+          <GetTo ZoneId="399" XYZ="-218.2741, 104.4513, -602.5139"/>
+        </If>
+        <FlyTo XYZ="-87.95806, 100.8781, -326.7398" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016996" XYZ="-85.80151, 100.8765, -325.185" QuestId="67793" StepId="6"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 7">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="73.22803, -49.14258, -141.9205" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67793" StepId="7"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 8">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="286.8316, -111.9741, 421.0862" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016848" XYZ="286.7627, -112.2676, 424.5516" QuestId="67793" StepId="8"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 9">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="286.7627, -112.2676, 424.5516" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <EmoteNPC Emote="s Deftarm!" NpcId="1016848" XYZ="286.7627, -112.2676, 424.5516" WaitTime="15000" QuestId="67793" StepId="9"/>
+      </If>
+      <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 255">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67793" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+      </If>
+      <!--  Your Enemy and Mine -->
+      <If Condition="IsQuestCompleted(67793) and not HasQuest(67794) and not IsQuestCompleted(67794)">
+        <If Condition="IsQuestAcceptQualified(67794)">
+          <PickUpQuest QuestId="67794" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 1">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-209.4606, -46.08357, 222.5222" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016849" XYZ="-209.4606, -46.08357, 222.5222" QuestId="67794" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 2">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-285.6337, 39.04305, 53.72693" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67794" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 3">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-120.7957, 61.40114, 37.72859" IgnoreIndoors="True"/>
+        <FlyTo XYZ="-181.8663, -35.40849, -72.03759" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <SoTalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" DialogOption="1" QuestId="67794" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 4 and GetQuestById(67794).GetTodoArgs(4, 0).Item1 == 0">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-69.8578, -33.73056, -165.8905" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <WaitWhile Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 4 and GetQuestById(67794).GetTodoArgs(4, 0).Item1 == 0"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 4 and GetQuestById(67794).GetTodoArgs(4, 0).Item1 == 1">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-68.97246, -34.18768, 92.66094" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <WaitWhile Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 4 and GetQuestById(67794).GetTodoArgs(4, 0).Item1 == 1"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 5">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-181.8663, -35.40849, -72.03759" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" QuestId="67794" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 6">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="-181.8663, -35.40849, -72.03759" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016850" XYZ="-187.3655, -34.77133, -70.42041" QuestId="67794" StepId="6"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 7">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="-285.6337, 39.04305, 53.72693" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67794" StepId="7"/>
+      </If>
+      <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 255">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67794" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/>
+      </If>
+      <!-- Resistance Is Futile -->
+      <If Condition="IsQuestCompleted(67794) and not HasQuest(67795) and not IsQuestCompleted(67795)">
+        <If Condition="IsQuestAcceptQualified(67795)">
+          <PickUpQuest QuestId="67795" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 1">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="73.19751, -49.19563, -139.0555" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67795" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 2">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="230.8842, -103.3896, 588.6777" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <WaitWhile Condition="HasQuest(67795) and not IsQuestCompleted(67795) and not GetQuestStep(67795) == 3"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 3">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+          <FlyTo XYZ="230.8842, -103.3896, 588.6777" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TalkTo NpcId="1016851" XYZ="230.8842, -103.3896, 588.6777" QuestId="67795" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 4">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo XYZ="297.2915, -119.9126, 681.1168" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+        <TalkTo NpcId="1016891" XYZ="297.2915, -119.9126, 681.1168" QuestId="67795" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 255">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        </If>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        <TurnIn QuestId="67795" ItemId="2001956" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+      </If>
+      <!-- A Symbiotic Friendship -->
+      <If Condition="IsQuestCompleted(67795) and not HasQuest(67796) and not IsQuestCompleted(67796)">
+        <If Condition="IsQuestAcceptQualified(67796)">
+          <PickUpQuest QuestId="67796" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(67796) and not IsQuestCompleted(67796) and GetQuestStep(67796) == 255">
+        <If Condition="not IsOnMap(398)">
+          <TeleportTo Name="Tailfeather" AetheryteId="76"/>
+        <FlyTo Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
+        </If>
+        <TurnIn QuestId="67796" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/> 
+      </If>
+    </If>
   </Order>
+  <GrindAreas/>
   <CodeChunks>
-    <CodeChunk Name="Dismount"><![CDATA[
-        if(Core.Player.IsMounted)
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
         {
-          await CommonTasks.StopAndDismount();
-          await Coroutine.Sleep(500);
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+          }
+          catch (Exception ex) {  }
         }
-      ]]></CodeChunk>
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67813">
+      <![CDATA[
+        var currentStep = ConditionParser.GetQuestById(67813).GetTodoArgs(1, 0).Item1;
+        var ids = new HashSet<int>() { 1016871, 1016872, 1016873, 1016874 };
+    
+        if (Core.Me.IsMounted)  {  await CommonTasks.StopAndDismount();  }
+    
+        await Coroutine.Sleep(2000);
+    
+        var obj = GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(r => r.IsTargetable && ids.Contains((int)r.NpcId)).FirstOrDefault();
+
+        obj.Face();
+        obj.Target();
+
+        ChatManager.SendChat("/s Uhm Ala");
+    
+        while (ConditionParser.GetQuestStep(67813) == 2)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+    
+        while (ConditionParser.GetQuestStep(67813) == 1 && ConditionParser.GetQuestById(67813).GetTodoArgs(1, 0).Item1 == currentStep)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67814a">
+      <![CDATA[
+        var v1 = new Vector3(220.534f, 55.52545f, -797.7146f);
+        var v2 = new Vector3(211.495f, 60.53117f, -911.8719f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+        var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+    
+        await CommonTasks.TakeOff();
+        await CommonTasks.AscendTo(55f);		
+        MovementManager.MoveStop();		
+
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+
+        while (Core.Player.Location.Distance(v2) > 2f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p2);
+           await Coroutine.Yield();
+        }
+    
+        MovementManager.MoveStop();
+        await CommonTasks.Land();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="67814b">
+      <![CDATA[
+        var v1 = new Vector3(220.534f, 55.52545f, -797.7146f);
+        var v2 = new Vector3(210.8155f, 55.2036f, -776.0998f);
+        var p1 = new ff14bot.Pathing.FlyToParameters(v1) { CheckIndoors = false };
+        var p2 = new ff14bot.Pathing.FlyToParameters(v2) { CheckIndoors = false };
+
+        if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+    
+        await CommonTasks.TakeOff();
+        await CommonTasks.AscendTo(55f);		
+        MovementManager.MoveStop();		
+
+        while (Core.Player.Location.Distance(v1) > 3f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p1);
+           await Coroutine.Yield();
+        }
+
+        while (Core.Player.Location.Distance(v2) > 2f)
+        {
+           ff14bot.Pathing.Flightor.MoveTo(p2);
+           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Botanist Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+Required Quest Completion:  A Realm Reborn & Heavensward Botanist Quests.
+-->
+<Profile>
+  <Name>[OrderBot] Botanist Class Quests.</Name>
+  <BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(67588)">
+      <LogMessage Message="You haven't finished all of the Heavensward Botanist quests yet!"/>
+      <WaitWhile Condition="not IsQuestCompleted(67588)"/>
+    </If>
+    <!-- Never Meet Your Heroes (Level 60) -->
+    <If Condition="not HasQuest(68156) and not IsQuestCompleted(68156) and IsQuestCompleted(67588) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="133" XYZ="-233.4523, 6.247627, -169.1969"/>
+      <If Condition="IsQuestAcceptQualified(68156)">
+        <PickupQuest QuestId="68156" NpcId="1000815" XYZ="-233.4523, 6.247627, -169.1969"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68156) and not IsQuestCompleted(68156) and GetQuestStep(68156) == 1">
+      <GetTo ZoneId="478" XYZ="-44.56588, 209.2288, -90.81387"/>
+      <TalkTo NpcId="1021349" XYZ="-44.56588, 209.2288, -90.81387" QuestId="68156" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68156) and not IsQuestCompleted(68156) and GetQuestStep(68156) == 255">
+      <GetTo ZoneId="478" XYZ="-44.56588, 209.2288, -90.81387"/>
+      <TurnIn QuestId="68156" NpcId="1021349" XYZ="-44.56588, 209.2288, -90.81387"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- You Say Popoto, I Say... (Level 63) -->
+    <If Condition="not HasQuest(68157) and not IsQuestCompleted(68157) and IsQuestCompleted(68156) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="478" XYZ="-44.56588, 209.2288, -90.81387"/>
+      <If Condition="IsQuestAcceptQualified(68157)">
+        <PickupQuest QuestId="68157" NpcId="1021349" XYZ="-44.56588, 209.2288, -90.81387"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 1">
+      <GetTo ZoneId="132" XYZ="7.248971, -0.3256242, 6.911566"/>
+      <TalkTo NpcId="1021350" XYZ="7.248971, -0.3256242, 6.911566" QuestId="68157" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 2">
+      <GetTo ZoneId="133" XYZ="-233.5398, 6.245102, -169.8389"/>
+      <TalkTo NpcId="1000815" XYZ="-233.5398, 6.245102, -169.8389" QuestId="68157" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 3">
+      <GetTo ZoneId="612" XYZ="-445.9644, 52.73912, 32.5323"/>
+      <TalkTo NpcId="1021352" XYZ="-445.9644, 52.73912, 32.5323" QuestId="68157" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 4">
+      <If Condition="not IsOnMap(612)">
+        <GetTo ZoneId="612" XYZ="-445.9644, 52.73912, 32.5323"/>
+      </If>
+      <ExMoveTo XYZ="-445.9644, 52.73912, 32.5323"/>
+      <While Condition="not HqHasAtLeast(17945,3)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17945,3)">
+          <GatherObject>Lush Vegetation Patch</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="-502.3639, 60.66821, 126.7967" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-410.7567, 59.24068, 141.7181" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-508.7202, 58.42949, 250.6547" name="Vegetation Patches"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Wild Popoto</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Leaf Turn II" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+    </If>
+    <If Condition="GetQuestStep(68157) == 4 and HqHasAtLeast(17945,3)">
+      <GetTo ZoneId="612" XYZ="-445.4772, 52.69365, 32.55148"/>
+      <HandOver ItemIds="17945" RequiresHq="True" NpcId="1021352" XYZ="-445.4772, 52.69365, 32.55148" QuestId="68157" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 255">
+      <GetTo ZoneId="478" XYZ="-44.95714, 209.2252, -90.96803"/>
+      <TurnIn QuestId="68157" NpcId="1021349" XYZ="-44.95714, 209.2252, -90.96803"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Walking for Walker's (Level 65) -->
+    <If Condition="not HasQuest(68158) and not IsQuestCompleted(68158) and IsQuestCompleted(68157) and Core.Player.ClassLevel &gt; 64">
+      <GetTo ZoneId="478" XYZ="-44.95714, 209.2252, -90.96803"/>
+      <If Condition="IsQuestAcceptQualified(68158)">
+        <PickupQuest QuestId="68158" NpcId="1021349" XYZ="-44.95714, 209.2252, -90.96803"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 1">
+      <GetTo ZoneId="133" XYZ="-233.8733, 6.235486, -169.9786"/>
+      <TalkTo NpcId="1000815" XYZ="-233.8733, 6.235486, -169.9786" QuestId="68158" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 2">
+      <If Condition="not IsOnMap(135)">
+        <GetTo ZoneId="135" XYZ="536.1068, 88.99999, -71.85416"/>
+      </If>
+      <While Condition="GetQuestById(68158).GetTodoArgs(2, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="536.1068, 88.99999, -71.85416"/>
+        <TalkTo NpcId="1002659" XYZ="536.1068, 88.99999, -71.85416" QuestId="68158" StepId="2"/>
+      </While>
+      <While Condition="GetQuestById(68158).GetTodoArgs(2, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="536.1068, 88.99999, -71.85416"/>
+        <TalkTo NpcId="1002657" XYZ="536.1068, 88.99999, -71.85416" QuestId="68158" StepId="2"/>
+      </While>
+    </If>
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 3">
+      <GetTo ZoneId="135" XYZ="563.4178, 84.48011, -99.415"/>
+      <TalkTo NpcId="1021353" XYZ="563.4178, 84.48011, -99.415" QuestId="68158" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(68158) == 4">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="58.82053, 4, 66.71966"/>
+      </If>
+      <While Condition="GetQuestById(68158).GetTodoArgs(4, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="58.82053, 4, 66.71966"/>
+        <TalkTo NpcId="1019064" XYZ="58.82053, 4, 66.71966" QuestId="68158" StepId="4"/>
+      </While>
+      <While Condition="GetQuestById(68158).GetTodoArgs(4, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="79.15508, 4, 57.17901"/>
+        <TalkTo NpcId="1019065" XYZ="79.15508, 4, 57.17901" QuestId="68158" StepId="4"/>
+      </While>
+    </If>
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 5">
+      <GetTo ZoneId="613" XYZ="-732.6594, 1.960285, -610.0832"/>
+      <TalkTo NpcId="1019233" XYZ="-732.6594, 1.960285, -610.0832" QuestId="68158" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(68158) == 255 and not HqHasAtLeast(17946,5)">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="-732.6594, 1.960285, -610.0832"/>
+      </If>
+      <ExMoveTo XYZ="-729.5807, 7.868481, -637.3498"/>
+      <While Condition="not HqHasAtLeast(17946,5)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17946,5)">
+          <GatherObject>Lush Vegetation Patch</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="-729.5807, 7.868481, -637.3498" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-671.324, 21.51215, -806.5954" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-493.8026, 37.08654, -685.4167" name="Vegetation Patches"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Walker's Popoto</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Leaf Turn III" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+    </If>
+    <If Condition="GetQuestStep(68158) == 255 and HqHasAtLeast(17946,5)">
+      <GetTo ZoneId="478" XYZ="-44.67389, 209.2242, -90.67441"/>
+      <TurnIn ItemIds="17946" RequiresHq="True" QuestId="68158" NpcId="1021349" XYZ="-44.67389, 209.2242, -90.67441"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- The White Death (Level 68) -->
+    <If Condition="not HasQuest(68159) and not IsQuestCompleted(68159) and IsQuestCompleted(68158) and Core.Player.ClassLevel &gt; 67">
+      <GetTo ZoneId="478" XYZ="-44.67389, 209.2242, -90.67441"/>
+      <If Condition="IsQuestAcceptQualified(68159)">
+        <PickupQuest QuestId="68159" NpcId="1021349" XYZ="-44.67389, 209.2242, -90.67441"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 1">
+      <GetTo ZoneId="133" XYZ="-233.5393, 6.245116, -170.4607"/>
+      <TalkTo NpcId="1000815" XYZ="-233.5393, 6.245116, -170.4607" QuestId="68159" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 2">
+      <GetTo ZoneId="478" XYZ="-46.29791, 209.2066, -87.10259"/>
+      <UseObject NpcId="2008181" XYZ="-46.29791, 209.2066, -87.10259" QuestId="68159" StepId="2"/>
+      <WaitWhile Condition="GetQuestStep(68159) == 2"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 3">
+      <GetTo ZoneId="478" XYZ="-46.29791, 209.2066, -87.10259"/>
+      <UseObject NpcId="2008181" XYZ="-46.29791, 209.2066, -87.10259" QuestId="68159" StepId="3"/>
+      <WaitWhile Condition="GetQuestStep(68159) == 3"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 4">
+      <GetTo ZoneId="478" XYZ="-44.63303, 209.2276, -90.81181"/>
+      <SoHandOver ItemIds="2002166" NpcId="1021349" XYZ="-44.63303, 209.2276, -90.81181" QuestId="68159" StepId="4" DialogOption="1"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 5">
+      <GetTo ZoneId="478" XYZ="74.81849, 214.12, -91.51659"/>
+      <HandOver ItemIds="2002167" NpcId="1017106" XYZ="74.81849, 214.12, -91.51659" QuestId="68159" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and not HqHasAtLeast(17947,8)">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="-251.0513, 7.35932, -263.1426"/>
+      </If>
+      <ExMoveTo XYZ="-251.0513, 7.35932, -263.1426"/>
+      <RunCode Name="GoSwimming"/>
+      <ExMoveTo XYZ="-251.1348, -73.0573, -268.9804"/>
+      <While Condition="not HqHasAtLeast(17947,8)">
+        <ExGather DiscoverUnknowns="true" Loops="1" While="not HqHasAtLeast(17947,8)">
+          <GatherObject>Lush Vegetation Patch</GatherObject>
+          <HotSpots>
+            <HotSpot Radius="50" XYZ="-346.3779, -128.4674, -234.2198" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-376.5031, -66.45665, -415.4398" name="Vegetation Patches"/>
+            <HotSpot Radius="50" XYZ="-535.8922, -86.04285, -421.3477" name="Vegetation Patches"/>
+          </HotSpots>
+          <ItemNames>
+            <ItemName>Nanoriso</ItemName>
+          </ItemNames>
+          <GatheringSkillOrder>
+            <GatheringSkill SpellName="Leaf Turn III" TimesToCast="1"/>
+          </GatheringSkillOrder>
+        </ExGather>
+      </While>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and HqHasAtLeast(17947,8)">
+      <GetTo ZoneId="478" XYZ="74.53394, 214.12, -91.56881"/>
+      <HandOver ItemIds="17947" RequiresHq="True" NpcId="1017106" XYZ="74.53394, 214.12, -91.56881" QuestId="68159" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 255">
+      <GetTo ZoneId="478" XYZ="-44.62869, 209.2269, -90.77264"/>
+      <TurnIn ItemIds="2002168" QuestId="68159" NpcId="1021349" XYZ="-44.62869, 209.2269, -90.77264"/>
+      <WaitTimer WaitTime="3"/>
+    </If>
+    <!-- Edgyth's Winning Streak (Level 70) -->
+    <If Condition="not HasQuest(68160) and not IsQuestCompleted(68160) and IsQuestCompleted(68159) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="478" XYZ="-44.62869, 209.2269, -90.77264"/>
+      <If Condition="IsQuestAcceptQualified(68160)">
+        <PickupQuest QuestId="68160" NpcId="1021349" XYZ="-44.62869, 209.2269, -90.77264"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 1">
+      <GetTo ZoneId="133" XYZ="-233.303, 6.252198, -170.7122"/>
+      <TalkTo NpcId="1000815" XYZ="-233.303, 6.252198, -170.7122" QuestId="68160" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 2">
+      <GetTo ZoneId="612" XYZ="-600.5614, 130, -483.7271"/>
+      <TalkTo NpcId="1021358" XYZ="-600.5614, 130, -483.7271" QuestId="68160" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 3">
+      <GetTo ZoneId="620" XYZ="-263.3452, 256.9996, 696.3071"/>
+      <TalkTo NpcId="1021359" XYZ="-263.3452, 256.9996, 696.3071" QuestId="68160" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 4">
+      <If Condition="not IsOnMap(620)">
+        <GetTo ZoneId="620" XYZ="-263.3452, 256.9996, 696.3071"/>
+      </If>
+      <While Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 0">
+        <NoCombatMoveTo XYZ="-277.3094, 258.9065, 781.6879"/>
+        <TalkTo NpcId="1021591" XYZ="-277.3094, 258.9065, 781.6879" QuestId="68160" StepId="4"/>
+        <WaitWhile Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 0"/>
+      </While>
+      <While Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 1">
+        <NoCombatMoveTo XYZ="-233.5301, 258.9065, 782.9395"/>
+        <TalkTo NpcId="1021595" XYZ="-233.5301, 258.9065, 782.9395" QuestId="68160" StepId="4"/>
+        <WaitWhile Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 1"/>
+      </While>
+      <While Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 2">
+        <NoCombatMoveTo XYZ="-218.7188, 257.5265, 738.5011"/>
+        <TalkTo NpcId="1020870" XYZ="-218.7188, 257.5265, 738.5011" QuestId="68160" StepId="4"/>
+        <WaitWhile Condition="GetQuestById(68160).GetTodoArgs(4, 0).Item1 == 2"/>
+      </While>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 5">
+      <GetTo ZoneId="620" XYZ="-243.6874, 257.5265, 744.6713"/>
+      <TalkTo NpcId="1022381" XYZ="-243.6874, 257.5265, 744.6713" QuestId="68160" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and not HasAtLeast(17948,5)">
+      <If Condition="not IsOnMap(621)">
+        <GetTo ZoneId="621" XYZ="-651.8341, 50.00002, -5.081966"/>
+      </If>
+      <ExMoveTo XYZ="-739.371, 112.4997, -634.7165"/>
+      <WaitWhile Condition="Condition.IsTimeBetween(18,4.1) or Condition.IsTimeBetween(6,16.1)"/>
+      <If Condition="Condition.IsTimeBetween(4,6) or Condition.IsTimeBetween(16,18)">
+        <ExGather loops="1" SpawnTimeout="5" While="not HqHasAtLeast(17948,5)">
+          <GatherObjects>
+            <GatherObject>Unspoiled Lush Vegetation Patch</GatherObject>
+          </GatherObjects>
+          <ItemNames>
+            <ItemName>Rhalgr's Streak</ItemName>
+          </ItemNames>
+          <GatherRotation>Quality</GatherRotation>
+          <HotSpots>
+            <HotSpot XYZ="-739.371, 112.4997, -634.7165" Radius="120"/>
+          </HotSpots>
+        </ExGather>
+      </If>
+    </If>
+    <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and HasAtLeast(17948,5)">
+      <GetTo ZoneId="478" XYZ="-44.54691, 209.2032, -89.48778"/>
+      <SoTurnIn ItemIds="17948" QuestId="68160" NpcId="1021349" XYZ="-44.54691, 209.2032, -89.48778"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="GoSwimming"><![CDATA[	var esc = new Vector3(-251.1348f, -73.0573f, -268.9804f);
+      await Buddy.Coroutines.Coroutine.Sleep(1000);
+      Navigator.PlayerMover.MoveTowards(esc);
+      await Buddy.Coroutines.Coroutine.Sleep(10000);
+      Navigator.PlayerMover.MoveStop();	]]></CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile:  [Orderbot] Facet of Gathering 70-80
+Authors:  TuckMeIntoBread, Sodimm
+Requirements:  Manually complete the deliveries between quests to raise esteem level.
+-->
+<Profile>
+  <Name>[Orderbot] Facet of Gathering 70-80.xml</Name>
+  <Order>
+    <If Condition="not IsQuestCompleted(69191)">
+      <LogMessage Message="You still need to unlock the Crystalline Mean from Katliss."/>
+    </If>
+    <!-- On the Trail of a Myth (Level 70) -->
+    <If Condition="not HasQuest(68772) and not IsQuestCompleted(68772) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 70."/>
+    </If>
+    <If Condition="not HasQuest(68772) and not IsQuestCompleted(68772) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="819" XYZ="-4.714702, 20.186, -147.0918"/>
+      <If Condition="IsQuestAcceptQualified(68772)">
+        <PickupQuest QuestId="68772" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68772) and not IsQuestCompleted(68772) and GetQuestStep(68772) == 1">
+      <If Condition="not IsOnMap(819)">
+        <GetTo ZoneId="819" XYZ="48.48602, 36.19769, -160.9608"/>
+      </If>
+      <TalkTo NpcId="1028494" XYZ="49.36292, 36.19769, -162.2493" QuestId="68772" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68772) and not IsQuestCompleted(68772) and GetQuestStep(68772) == 2">
+      <GetTo ZoneId="819" XYZ="-138.1481, -47.64912, -200.0208"/>
+      <TalkTo NpcId="1027834" XYZ="-139.2996, -47.6492, -201.4954" QuestId="68772" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68772) and not IsQuestCompleted(68772) and GetQuestStep(68772) == 255">
+      <GetTo ZoneId="819" XYZ="-1.869381, 20.186, -147.9888"/>
+      <TurnIn QuestId="68772" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
+    </If>
+    <!-- Shedding Light on the Myth (Level 75) -->
+    <If Condition="not HasQuest(68773) and not IsQuestCompleted(68773) and IsQuestCompleted(68772) and Core.Player.ClassLevel &lt; 75">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+    </If>
+    <If Condition="not HasQuest(68773) and not IsQuestCompleted(68773) and IsQuestCompleted(68772) and Core.Player.ClassLevel &gt; 74">
+      <GetTo ZoneId="819" XYZ="-3.809883, 20.186, -147.4534"/>
+      <If Condition="IsQuestAcceptQualified(68773)">
+        <PickupQuest QuestId="68773" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
+      </If>
+      <If Condition="not IsQuestAcceptQualified(68773)">
+        <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68773) and not IsQuestCompleted(68773) and GetQuestStep(68773) == 1">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="-399.2275, 56.67156, 452.3026"/>
+      </If>
+      <If Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 0">
+        <TalkTo NpcId="1028500" XYZ="-400.1069, 56.97806, 451.8959" QuestId="68773" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+        <WaitWhile Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 0"/>
+      </If>
+      <If Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 1">
+        <TalkTo NpcId="1028499" XYZ="-470.0847, 70.15228, 481.9561" QuestId="68773" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+        <WaitWhile Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 2">
+        <TalkTo NpcId="1028498" XYZ="-508.7816, 72.42643, 533.5621" QuestId="68773" StepId="1" UseTimes="1" BlacklistAfter="True"/>
+        <WaitWhile Condition="GetQuestById(68773).GetTodoArgs(1, 0).Item1 == 2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68773) and not IsQuestCompleted(68773) and GetQuestStep(68773) == 2">
+      <If Condition="not IsOnMap(816)">
+        <GetTo ZoneId="816" XYZ="-588.8309, 91.01351, 578.4518"/>
+      </If>
+      <TalkTo NpcId="1028496" XYZ="-586.511, 90.98404, 579.6139" QuestId="68773" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68773) and not IsQuestCompleted(68773) and GetQuestStep(68773) == 3">
+      <GetTo ZoneId="816" XYZ="-493.7771, 3.591703, -80.89781"/>
+      <TalkTo NpcId="1028503" XYZ="-496.4218, 3.886272, -80.8576" QuestId="68773" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68773) and not IsQuestCompleted(68773) and GetQuestStep(68773) == 4">
+      <If Condition="not HqHasAtLeast(26756,1)">
+        <TeleportTo AetheryteId="144" Force="True"/>
+        <If Condition="Core.Me.CurrentJob == ClassJobType.Botanist">
+          <EtxFlyTo XYZ="-354.446, 23.08115, 60.79652"/>
+          <ExGather DisableRotationOverride="True" DiscoverUnknowns="False" AlwaysGather="False" CordialType="None" CordialTime="Auto" While="not HqHasAtLeast(26756,1)">
+            <GatherObject>Lush Vegetation Patch</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="80" XYZ="-354.446, 23.08115, 60.79652"/>
+              <HotSpot Radius="80" XYZ="-508.4822, 56.0336, 136.9711"/>
+              <HotSpot Radius="80" XYZ="-486.3957, 31.66829, -59.64216"/>
+            </HotSpots>
+            <GatherSpots>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-361.8045, 1.20373, 65.41784" NodeLocation="-369.2836, 2.426147, 59.43384" UnStealthAfter="False"/>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-361.8045, 1.20373, 65.41784" NodeLocation="-371.2062, 2.731323, 62.54675" UnStealthAfter="False"/>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-361.8045, 1.20373, 65.41784" NodeLocation="-364.5184, 2.827268, 75.15063" UnStealthAfter="False"/>
+            </GatherSpots>
+            <Items>
+              <GatherItem Name="Ancient Animal Skin"/>
+            </Items>
+            <GatheringSkillOrder>
+              <GatheringSkill SpellName="Leaf Turn III" TimesToCast="1"/>
+            </GatheringSkillOrder>
+          </ExGather>
+        </If>
+        <If Condition="Core.Me.CurrentJob == ClassJobType.Miner">
+          <EtxFlyTo XYZ="-672.1629, 40.61583, -45.65775"/>
+          <ExGather DisableRotationOverride="True" DiscoverUnknowns="False" AlwaysGather="False" CordialType="None" CordialTime="Auto" While="not HqHasAtLeast(26756,1)">
+            <GatherObject>Mineral Deposit</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="80" XYZ="-672.1629, 40.61583, -45.65775"/>
+              <HotSpot Radius="80" XYZ="-804.8734, 38.31002, -84.95183"/>
+              <HotSpot Radius="80" XYZ="-728.5278, 39.69315, -234.6434"/>
+            </HotSpots>
+            <GatherSpots>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-753.3963, 39.82502, -227.0422" NodeLocation="-737.2408, 41.78712, -233.9198" UnStealthAfter="False"/>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-753.3963, 39.82502, -227.0422" NodeLocation="-722.2858, 39.77468, -240.3376" UnStealthAfter="False"/>
+              <StealthApproachGatherSpot ReturnToApproachLocation="False" StealthLocation="-753.3963, 39.82502, -227.0422" NodeLocation="-768.4069, 36.44799, -205.5456" UnStealthAfter="False"/>
+            </GatherSpots>
+            <Items>
+              <GatherItem Name="Ancient Animal Skin"/>
+            </Items>
+            <GatheringSkillOrder>
+              <GatheringSkill SpellName="Unearth III" TimesToCast="1"/>
+            </GatheringSkillOrder>
+          </ExGather>
+        </If>
+      </If>
+      <If Condition="HqHasAtLeast(26756,1)">
+        <If Condition="not IsOnMap(816)">
+          <GetTo ZoneId="816" XYZ="-495.3739, 3.912965, -78.02477"/>
+        </If>
+        <HandOver ItemId="26756" RequiresHq="True" NpcId="1028501" XYZ="-494.4076, 3.763135, -78.78235" QuestId="68773" StepId="4"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68773) and not IsQuestCompleted(68773) and GetQuestStep(68773) == 255">
+      <GetTo ZoneId="819" XYZ="-4.432796, 20.186, -147.4226"/>
+      <TurnIn QuestId="68773" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
+    </If>
+    <!-- The Myth Takes Form (Level 80) -->
+    <If Condition="not HasQuest(68774) and not IsQuestCompleted(68774) and IsQuestCompleted(68773) and Core.Player.ClassLevel &lt; 80">
+      <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+    </If>
+    <If Condition="not HasQuest(68774) and not IsQuestCompleted(68774) and IsQuestCompleted(68773) and Core.Player.ClassLevel &gt; 79">
+      <GetTo ZoneId="819" XYZ="-4.16748, 20.186, -147.3527"/>
+      <If Condition="IsQuestAcceptQualified(68774)">
+        <PickupQuest QuestId="68774" NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128"/>
+      </If>
+      <If Condition="not IsQuestAcceptQualified(68774)">
+        <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68774) and not IsQuestCompleted(68774) and GetQuestStep(68774) == 1">
+      <GetTo ZoneId="814" XYZ="117.8691, 361.2709, -464.0801"/>
+      <TalkTo NpcId="1028504" XYZ="119.0356, 361.4944, -463.8895" QuestId="68774" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68774) and not IsQuestCompleted(68774) and GetQuestStep(68774) == 2">
+      <If Condition="not HqHasAtLeast(26757,1)">
+        <TeleportTo AetheryteId="139" Force="True"/>
+        <If Condition="Core.Me.CurrentJob == ClassJobType.Botanist">
+          <EtxFlyTo XYZ="-292.0947, 408.4106, -385.8703"/>
+          <ExGather DisableRotationOverride="True" DiscoverUnknowns="False" AlwaysGather="False" CordialType="None" CordialTime="Auto" While="not HqHasAtLeast(26757,1)">
+            <GatherObject>Lush Vegetation Patch</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="80" XYZ="-292.0947, 408.4106, -385.8703"/>
+              <HotSpot Radius="80" XYZ="-464.4693, 389.632, -411.6394"/>
+              <HotSpot Radius="80" XYZ="-407.6467, 382.782, -304.9147"/>
+            </HotSpots>
+            <Items>
+              <GatherItem Name="Black Aethersand"/>
+            </Items>
+            <GatheringSkillOrder>
+              <GatheringSkill SpellName="Leaf Turn III" TimesToCast="1"/>
+            </GatheringSkillOrder>
+          </ExGather>
+        </If>
+        <If Condition="Core.Me.CurrentJob == ClassJobType.Miner">
+          <EtxFlyTo XYZ="14.04764, 373.5479, -97.67836"/>
+          <ExGather DisableRotationOverride="True" DiscoverUnknowns="False" AlwaysGather="False" CordialType="None" CordialTime="Auto" While="not HqHasAtLeast(26757,1)">
+            <GatherObject>Rocky Outcrop</GatherObject>
+            <HotSpots>
+              <HotSpot Radius="80" XYZ="14.04764, 373.5479, -97.67836"/>
+              <HotSpot Radius="80" XYZ="112.1345, 348.5742, -161.2232"/>
+              <HotSpot Radius="80" XYZ="71.53813, 357.7542, -238.5098"/>
+            </HotSpots>
+            <Items>
+              <GatherItem Name="Black Aethersand"/>
+            </Items>
+            <GatheringSkillOrder>
+              <GatheringSkill SpellName="Unearth III" TimesToCast="1"/>
+            </GatheringSkillOrder>
+          </ExGather>
+        </If>
+      </If>
+      <If Condition="HqHasAtLeast(26757,1)">
+        <If Condition="not IsOnMap(814)">
+          <GetTo ZoneId="814" XYZ="117.9899, 361.2784, -464.2806"/>
+        </If>
+        <HandOver ItemId="26757" RequiresHq="True" NpcId="1028504" XYZ="119.0356, 361.4944, -463.8895" QuestId="68774" StepId="2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68774) and not IsQuestCompleted(68774) and GetQuestStep(68774) == 3">
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="124.3071, 361.2132, -470.8473"/>
+      </If>
+      <UseItem ItemId="2002566" NpcId="2009806" XYZ="125.5969, 361.1658, -471.3054" QuestId="68774" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68774) and not IsQuestCompleted(68774) and GetQuestStep(68774) == 255">
+      <GetTo ZoneId="819" XYZ="-4.653654, 20.186, -147.8322"/>
+      <TurnIn QuestId="68774" NpcId="1031128" XYZ="-3.158691, 20.186, -148.9128"/>
+    </If>
+  </Order>
+</Profile>

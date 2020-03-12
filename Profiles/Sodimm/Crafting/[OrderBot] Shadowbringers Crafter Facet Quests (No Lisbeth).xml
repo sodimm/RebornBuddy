@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile:  [OrderBot] Shadowbringers Crafter Facet Quests
+Authors:  TuckMeIntoBread, Sodimm
+Requirements:  Manually complete the deliveries between quests to raise esteem level.
+-->
+<Profile>
+  <Name>[OrderBot] Shadowbringers Crafter Facet Quests.xml</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(69191)">
+      <LogMessage Message="You still need to unlock the Crystalline Mean from Katliss."/>
+    </If>
+    <!-- Facet of Forging (BLM/ARM/GSM) -->
+    <If Condition="ClassName == ClassJobType.Blacksmith or ClassName == ClassJobType.Armorer or ClassName == ClassJobType.Goldsmith">
+      <!-- Iola, Forgemaster (Level 70) -->
+      <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+      </If>
+      <If Condition="not HasQuest(68763) and not IsQuestCompleted(68763) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
+        <GetTo ZoneId="819" XYZ="7.037117, 20.186, -125.8212"/>
+        <If Condition="IsQuestAcceptQualified(68763)">
+          <PickupQuest QuestId="68763" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68763) and not IsQuestCompleted(68763) and GetQuestStep(68763) == 1">
+        <GetTo ZoneId="819" XYZ="75.61285, 35.99969, -136.8578"/>
+        <TalkTo NpcId="1028448" XYZ="76.98169, 35.99969, -135.6985" QuestId="68763" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68763) and not IsQuestCompleted(68763) and GetQuestStep(68763) == 255">
+        <GetTo ZoneId="819" XYZ="10.16452, 20.186, -126.4121"/>
+        <TurnIn QuestId="68763" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+      </If>
+      <!-- To Struggle Nu Mou (Level 75) -->
+      <If Condition="not HasQuest(68764) and not IsQuestCompleted(68764) and IsQuestCompleted(68763) and Core.Player.ClassLevel &lt; 75">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+      </If>
+      <If Condition="not HasQuest(68764) and not IsQuestCompleted(68764) and IsQuestCompleted(68763) and Core.Player.ClassLevel &gt; 74">
+        <GetTo ZoneId="819" XYZ="8.962004, 20.186, -126.8976"/>
+        <If Condition="not IsQuestAcceptQualified(68764)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68764)">
+          <SoPickupQuest QuestId="68764" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68764) and not IsQuestCompleted(68764) and GetQuestStep(68764) == 1">
+        <GetTo ZoneId="813" XYZ="-312.6768, 113.5664, -823.3962"/>
+        <TalkTo NpcId="1028450" XYZ="-311.9402, 113.8508, -824.4602" QuestId="68764" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68764) and not IsQuestCompleted(68764) and GetQuestStep(68764) == 2">
+        <GetTo ZoneId="816" XYZ="-137.6529, 58.26736, -670.1262"/>
+        <TalkTo NpcId="1028451" XYZ="-138.9639, 58.34806, -670.6798" QuestId="68764" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68764) and not IsQuestCompleted(68764) and GetQuestStep(68764) == 3">
+        <GetTo ZoneId="816" XYZ="-14.81049, 104.3882, -862.7785"/>
+        <TalkTo NpcId="1028452" XYZ="-14.51135, 104.4872, -861.6312" QuestId="68764" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68764) and not IsQuestCompleted(68764) and GetQuestStep(68764) == 4">
+        <GetTo ZoneId="819" XYZ="7.69167, 20.186, -127.0519"/>
+        <TalkTo NpcId="1027233" XYZ="9.292725, 20.186, -124.5594" QuestId="68764" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68764) and not IsQuestCompleted(68764) and GetQuestStep(68764) == 255">
+        <If Condition="not HqHasAtLeast(27237,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either BSM, ARM, or GSM, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27253,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27237,1)">
+          <GetTo ZoneId="819" XYZ="7.69167, 20.186, -127.0519"/>
+          <TurnIn ItemId="27237" RequiresHq="True" QuestId="68764" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+        </If>
+      </If>
+      <!-- The Iron Bellows (Level 80) -->
+      <If Condition="not HasQuest(68765) and not IsQuestCompleted(68765) and IsQuestCompleted(68764) and Core.Player.ClassLevel &lt; 80">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+      </If>
+      <If Condition="not HasQuest(68765) and not IsQuestCompleted(68765) and IsQuestCompleted(68764) and Core.Player.ClassLevel &gt; 79">
+        <GetTo ZoneId="819" XYZ="9.365549, 20.186, -127.0168"/>
+        <If Condition="not IsQuestAcceptQualified(68765)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68765)">
+          <PickupQuest QuestId="68765" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68765) and not IsQuestCompleted(68765) and GetQuestStep(68765) == 1">
+        <GetTo ZoneId="819" XYZ="-17.66608, 3.999817, 192.7701"/>
+        <TalkTo NpcId="1028454" XYZ="-17.4411, 3.999817, 191.9432" QuestId="68765" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68765) and not IsQuestCompleted(68765) and GetQuestStep(68765) == 2">
+        <If Condition="not HqHasAtLeast(27239,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either BSM, ARM, or GSM, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27239,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27239,1)">
+          <If Condition="not IsOnMap(819)">
+            <GetTo ZoneId="819" XYZ="-18.03432, 3.999817, 193.5314"/>
+          </If>
+          <HandOver ItemId="27239" RequiresHq="True" NpcId="1028454" XYZ="-17.4411, 3.999817, 191.9432" QuestId="68765" StepId="2"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68765) and not IsQuestCompleted(68765) and GetQuestStep(68765) == 3">
+        <GetTo ZoneId="819" XYZ="-94.77162, -4.200067, 133.8898"/>
+        <TalkTo NpcId="1028458" XYZ="-96.66595, -4.200001, 133.1654" QuestId="68765" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68765) and not IsQuestCompleted(68765) and GetQuestStep(68765) == 4">
+        <GetTo ZoneId="819" XYZ="-18.13508, 3.999817, 193.2975"/>
+        <TalkTo NpcId="1028454" XYZ="-17.4411, 3.999817, 191.9432" QuestId="68765" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68765) and not IsQuestCompleted(68765) and GetQuestStep(68765) == 255">
+        <GetTo ZoneId="819" XYZ="7.728308, 20.186, -126.5668"/>
+        <TurnIn QuestId="68765" NpcId="1027233" XYZ="9.292725, 20.186, -124.5594"/>
+      </If>
+    </If>
+    <!-- Facet of Crafting (CRP/LTW/WVR) -->
+    <If Condition="ClassName == ClassJobType.Carpenter or ClassName == ClassJobType.Leatherworker or ClassName == ClassJobType.Weaver">
+      <!-- Cherished Memories (Level 70) -->
+      <If Condition="not HasQuest(68766) and not IsQuestCompleted(68766) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+      </If>
+      <If Condition="not HasQuest(68766) and not IsQuestCompleted(68766) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
+        <GetTo ZoneId="819" XYZ="8.775464, 20.186, -141.0599"/>
+        <If Condition="IsQuestAcceptQualified(68766)">
+          <PickupQuest QuestId="68766" NpcId="1028326" XYZ="10.94067, 20.186, -142.5345"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68766) and not IsQuestCompleted(68766) and GetQuestStep(68766) == 1">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-20.86212, 19.99979, -30.68132"/>
+        </If>
+        <TalkTo NpcId="1028436" XYZ="-19.39423, 19.99979, -29.58728" QuestId="68766" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68766) and not IsQuestCompleted(68766) and GetQuestStep(68766) == 255">
+        <GetTo ZoneId="819" XYZ="8.081221, 20.186, -137.3418"/>
+        <TurnIn QuestId="68766" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315"/>
+      </If>
+      <!-- For Sentimental Reasons (Level 75) -->
+      <If Condition="not HasQuest(68767) and not IsQuestCompleted(68767) and IsQuestCompleted(68766) and Core.Player.ClassLevel &lt; 75">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 75."/>
+      </If>
+      <If Condition="not HasQuest(68767) and not IsQuestCompleted(68767) and IsQuestCompleted(68766) and Core.Player.ClassLevel &gt; 74">
+        <GetTo ZoneId="819" XYZ="7.736668, 20.186, -139.3228"/>
+        <If Condition="not IsQuestAcceptQualified(68767)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68767)">
+          <PickupQuest QuestId="68767" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68767) and not IsQuestCompleted(68767) and GetQuestStep(68767) == 1">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-54.45682, 3.999817, 199.4802"/>
+        </If>
+        <TalkTo NpcId="1028438" XYZ="-55.83282, 3.999817, 198.6571" QuestId="68767" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68767) and not IsQuestCompleted(68767) and GetQuestStep(68767) == 2">
+        <GetTo ZoneId="819" XYZ="10.02578, 20.186, -139.429"/>
+        <SoTalkTo NpcId="1027234" DialogOption="1" XYZ="10.23871, 20.186, -138.2315" QuestId="68767" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68767) and not IsQuestCompleted(68767) and GetQuestStep(68767) == 255">
+        <If Condition="not HqHasAtLeast(27245,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either CRP, WVR, or LTW, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27245,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27245,1)">
+          <GetTo ZoneId="819" XYZ="10.02578, 20.186, -139.429"/>
+          <TurnIn ItemId="27245" RequiresHq="True" QuestId="68767" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315"/>
+        </If>
+      </If>
+      <!-- The Notes of Bond Restoring (Level 80) -->
+      <If Condition="not HasQuest(68768) and not IsQuestCompleted(68768) and IsQuestCompleted(68767) and Core.Player.ClassLevel &lt; 80">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 80."/>
+      </If>
+      <If Condition="not HasQuest(68768) and not IsQuestCompleted(68768) and IsQuestCompleted(68767) and Core.Player.ClassLevel &gt; 79">
+        <GetTo ZoneId="819" XYZ="7.188652, 20.186, -139.2599"/>
+        <If Condition="not IsQuestAcceptQualified(68768)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68768)">
+          <PickupQuest QuestId="68768" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68768) and not IsQuestCompleted(68768) and GetQuestStep(68768) == 1">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="9.599176, 20.186, -141.4957"/>
+        </If>
+        <SoTalkTo NpcId="1028326" XYZ="10.94067, 20.186, -142.5345" QuestId="68768" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68768) and not IsQuestCompleted(68768) and GetQuestStep(68768) == 2">
+        <If Condition="not HqHasAtLeast(27247,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either CRP, WVR, or LTW, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27247,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27247,1)">
+          <If Condition="not IsOnMap(819)">
+            <GetTo ZoneId="819" XYZ="8.02634, 20.186, -139.935"/>
+          </If>
+          <HandOver ItemId="27247" RequiresHq="True" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315" QuestId="68768" StepId="2"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68768) and not IsQuestCompleted(68768) and GetQuestStep(68768) == 3">
+        <GetTo ZoneId="819" XYZ="-54.42677, 3.999817, 199.2582"/>
+        <TalkTo NpcId="1028438" XYZ="-55.83282, 3.999817, 198.6571" QuestId="68768" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68768) and not IsQuestCompleted(68768) and GetQuestStep(68768) == 4">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-54.42677, 3.999817, 199.2582"/>
+        </If>
+        <TalkTo NpcId="1028438" XYZ="-55.83282, 3.999817, 198.6571" QuestId="68768" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68768) and not IsQuestCompleted(68768) and GetQuestStep(68768) == 255">
+        <GetTo ZoneId="819" XYZ="7.864693, 20.186, -139.6785"/>
+        <TurnIn QuestId="68768" NpcId="1027234" XYZ="10.23871, 20.186, -138.2315"/>
+      </If>
+    </If>
+    <!-- Facet of Nourishing (CUL/ALC) -->
+    <If Condition="ClassName == ClassJobType.Alchemist or ClassName == ClassJobType.Culinarian">
+      <!-- Friends of a Feather (Level 70) -->
+      <If Condition="not HasQuest(68775) and not IsQuestCompleted(68775) and IsQuestCompleted(69191) and Core.Player.ClassLevel &lt; 70">
+        <LogMessage Message="You aren't high enough level to accept the quest yet. You need to be 70."/>
+      </If>
+      <If Condition="not HasQuest(68769) and not IsQuestCompleted(68769) and IsQuestCompleted(69191) and Core.Player.ClassLevel &gt; 69">
+        <GetTo ZoneId="819" XYZ="-19.87827, 20.186, -132.0194"/>
+        <If Condition="IsQuestAcceptQualified(68769)">
+          <PickupQuest QuestId="68769" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68769) and not IsQuestCompleted(68769) and GetQuestStep(68769) == 1">
+        <GetTo ZoneId="819" XYZ="53.47564, 36.19769, -178.1339"/>
+        <TalkTo NpcId="1028481" XYZ="52.96399, 36.19769, -179.4614" QuestId="68769" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68769) and not IsQuestCompleted(68769) and GetQuestStep(68769) == 2">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="54.1333, 36.19769, -179.9113"/>
+        </If>
+        <EmoteNPC Emote="pet" NpcId="1028482" XYZ="54.18469, 36.19769, -182.6964" QuestId="68769" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68769) and not IsQuestCompleted(68769) and GetQuestStep(68769) == 3">
+        <GetTo ZoneId="819" XYZ="-129.398, 0, -65.22559"/>
+        <TalkTo NpcId="1029854" XYZ="-130.2053, 0, -63.95056" QuestId="68769" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68769) and not IsQuestCompleted(68769) and GetQuestStep(68769) == 255">
+        <GetTo ZoneId="819" XYZ="-19.95126, 20.186, -131.7272"/>
+        <TurnIn QuestId="68769" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+      </If>
+      <!-- Where We Belong (Level 75) -->
+      <If Condition="not HasQuest(68770) and not IsQuestCompleted(68770) and IsQuestCompleted(68769) and Core.Player.ClassLevel &lt; 75">
+        <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 75."/>
+      </If>
+      <If Condition="not HasQuest(68770) and not IsQuestCompleted(68770) and IsQuestCompleted(68769)">
+        <GetTo ZoneId="819" XYZ="-19.98079, 20.186, -132.0263"/>
+        <If Condition="not IsQuestAcceptQualified(68770)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68770)">
+          <PickupQuest QuestId="68770" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 1">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-127.7985, 0, -64.33401"/>
+        </If>
+        <TalkTo NpcId="1028484" XYZ="-129.3508, 0, -62.91296" QuestId="68770" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 2">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-127.7985, 0, -64.33401"/>
+        </If>
+        <SoSendChat Say="everything will be fine" NpcId="1028484" XYZ="-129.3508, 0, -62.91296" QuestId="68770" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 3">
+        <If Condition="not HqHasAtLeast(27253,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either ALC or CUL, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27253,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27253,1)">
+          <If Condition="not IsOnMap(819)">
+            <GetTo ZoneId="819" XYZ="-129.1288, 0, -66.50261"/>
+          </If>
+          <HandOver ItemId="27253" RequiresHq="True" NpcId="1030659" XYZ="-131.1514, 0, -65.53754" QuestId="68770" StepId="3"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 4">
+        <GetTo ZoneId="816" XYZ="-490.3106, 69.47037, 570.2024"/>
+        <TalkTo NpcId="1028485" XYZ="-492.3934, 69.70277, 570.1838" QuestId="68770" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 5">
+        <GetTo ZoneId="816" XYZ="339.7574, 87.3213, -709.988"/>
+        <TalkTo NpcId="1028487" XYZ="337.85, 87.30014, -710.6584" QuestId="68770" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(68770) and not IsQuestCompleted(68770) and GetQuestStep(68770) == 255">
+        <GetTo ZoneId="819" XYZ="-19.58057, 20.186, -131.8304"/>
+        <TurnIn QuestId="68770" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+      </If>
+      <!-- Healing Old Wounds (Level 80) -->
+      <If Condition="not HasQuest(68771) and not IsQuestCompleted(68771) and IsQuestCompleted(68770) and Core.Player.ClassLevel &lt; 80">
+        <LogMessage Message="You aren't high enough level to accept the next quest yet. You need to be 80."/>
+      </If>
+      <If Condition="not HasQuest(68771) and not IsQuestCompleted(68771) and IsQuestCompleted(68770)">
+        <GetTo ZoneId="819" XYZ="-19.74363, 20.186, -132.2663"/>
+        <If Condition="not IsQuestAcceptQualified(68771)">
+          <LogMessage Message="Can't pick up the quest. You may still manually need to raise your esteem level."/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(68771)">
+          <PickupQuest QuestId="68771" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 1">
+        <GetTo ZoneId="819" XYZ="-130.0696, 0, -66.97832"/>
+        <TalkTo NpcId="1030659" XYZ="-131.1514, 0, -65.53754" QuestId="68771" StepId="1"/>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 2">
+        <If Condition="not HqHasAtLeast(27255,1)">
+          <!-- TODO: Call Lisbeth to craft it for us.
+  Type can be either ALC or CUL, conditional for whatever class we're currently on? Json may need updating for v4 when Saga adds back orderbot functionality.
+  <Lisbeth Json="[{'Item': 27255,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/> -->
+          <LogMessage Message="Please manually craft the required item."/>
+        </If>
+        <If Condition="HqHasAtLeast(27255,1)">
+          <If Condition="not IsOnMap(819)">
+            <GetTo ZoneId="819" XYZ="-129.7589, 0, -67.16715"/>
+          </If>
+          <HandOver ItemId="27255" RequiresHq="True" NpcId="1030659" XYZ="-131.1514, 0, -65.53754" QuestId="68771" StepId="2"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 3">
+        <GetTo ZoneId="813" XYZ="355.2938, 3.787517, 223.0079"/>
+        <TalkTo NpcId="1028489" XYZ="355.4285, 3.828937, 224.1702" QuestId="68771" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 4">
+        <GetTo ZoneId="819" XYZ="30.7549, 36.20521, -207.8439"/>
+        <TalkTo NpcId="1028491" XYZ="29.25146, 36.20521, -207.3854" QuestId="68771" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 5">
+        <GetTo ZoneId="819" XYZ="-129.848, 0, -65.91407"/>
+        <TalkTo NpcId="1030659" XYZ="-131.1514, 0, -65.53754" QuestId="68771" StepId="5"/>
+      </If>
+      <If Condition="HasQuest(68771) and not IsQuestCompleted(68771) and GetQuestStep(68771) == 255">
+        <GetTo ZoneId="819" XYZ="-19.85457, 20.186, -131.5319"/>
+        <TurnIn QuestId="68771" NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748"/>
+      </If>
+    </If>
+      <!-- For Every Child a Star (All Facets Completed) -->
+      <If Condition="not HasQuest(68778) and not IsQuestCompleted(68778) and IsQuestCompleted(68765) and IsQuestCompleted(68768) and IsQuestCompleted(68771) and IsQuestCompleted(68774) and IsQuestCompleted(68777) and (ClassName == ClassJobType.Blacksmith or ClassName == ClassJobType.Armorer or ClassName == ClassJobType.Goldsmith or ClassName == ClassJobType.Carpenter or ClassName == ClassJobType.Leatherworker or ClassName == ClassJobType.Weaver or ClassName == ClassJobType.Alchemist or ClassName == ClassJobType.Culinarian or ClassName == ClassJobType.Miner or ClassName == ClassJobType.Botanist or ClassName == ClassJobType.Fisher)">
+        <GetTo ZoneId="819" XYZ="-11.62381, 20.1973, -137.6586"/>
+        <If Condition="IsQuestAcceptQualified(68778)">
+          <PickupQuest QuestId="68778" NpcId="1027232" XYZ="-9.323303, 20.1973, -136.5225"/>
+        </If>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 1 and GetQuestById(68778).GetTodoArgs(1, 0).Item1 == 0">
+        <GetTo ZoneId="819" XYZ="58.35938, -3.623962E-05, 195.6867"/>
+        <TalkTo NpcId="1031093" XYZ="59.80005, -4.971027E-05, 197.0702" QuestId="68778" StepId="1" BlacklistAfter="True" UseTimes="1"/>
+        <WaitWhile Condition="GetQuestById(68778).GetTodoArgs(1, 0).Item1 == 0"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 1 and GetQuestById(68778).GetTodoArgs(1, 0).Item1 == 1">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="58.35938, -3.623962E-05, 195.6867"/>
+        </If>
+        <TalkTo NpcId="1031091" XYZ="60.44092, -2.157688E-05, 194.2015" QuestId="68778" StepId="1" BlacklistAfter="True" UseTimes="1"/>
+        <WaitWhile Condition="GetQuestById(68778).GetTodoArgs(1, 0).Item1 == 1"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 1 and GetQuestById(68778).GetTodoArgs(1, 0).Item1 == 2">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="60.28194, -3.659725E-05, 195.7404"/>
+        </If>
+        <TalkTo NpcId="1031092" XYZ="62.48572, -2.63676E-05, 194.6898" QuestId="68778" StepId="1" BlacklistAfter="True" UseTimes="1"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 2">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-11.34783, 20.1973, -137.2286"/>
+        </If>
+        <SoTalkTo NpcId="1027232" XYZ="-9.323303, 20.1973, -136.5225" QuestId="68778" StepId="2"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 3 and not IsTodoChecked(68778, 3, 0)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="7.054665, 20.186, -125.7544"/>
+        </If>
+        <TalkTo NpcId="1027233" XYZ="9.292725, 20.186, -124.5594" QuestId="68778" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 3 and not IsTodoChecked(68778, 3, 1)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="8.470873, 20.186, -136.5764"/>
+        </If>
+        <TalkTo NpcId="1027234" XYZ="10.23871, 20.186, -138.2315" QuestId="68778" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 3 and not IsTodoChecked(68778, 3, 2)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-18.47774, 20.186, -128.8418"/>
+        </If>
+        <TalkTo NpcId="1027235" XYZ="-19.51636, 20.186, -130.1748" QuestId="68778" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 3 and not IsTodoChecked(68778, 3, 3)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-4.208803, 20.186, -147.4427"/>
+        </If>
+        <TalkTo NpcId="1027236" XYZ="-3.158691, 20.186, -148.9128" QuestId="68778" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 3 and not IsTodoChecked(68778, 3, 4)">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-10.54172, 20.186, -120.4908"/>
+        </If>
+        <TalkTo NpcId="1027237" XYZ="-8.957031, 20.186, -119.1882" QuestId="68778" StepId="3"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 4">
+        <If Condition="not IsOnMap(819)">
+          <GetTo ZoneId="819" XYZ="-9.289503, 20.1973, -134.3633"/>
+        </If>
+        <TalkTo NpcId="1027232" XYZ="-9.323303, 20.1973, -136.5225" QuestId="68778" StepId="4"/>
+      </If>
+      <If Condition="HasQuest(68778) and not IsQuestCompleted(68778) and GetQuestStep(68778) == 255">
+        <GetTo ZoneId="819" XYZ="-125.7504, 0, 13.38252"/>
+        <TurnIn QuestId="68778" NpcId="2010514" XYZ="-125.3835, -0.01531982, 14.38922"/>
+      </If>
+  </Order>
+</Profile>

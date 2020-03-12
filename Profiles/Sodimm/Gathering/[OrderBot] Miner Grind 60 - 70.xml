@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Miner Grind 60 - 70.
+Authors:  Sodimm, TuckMeIntoBread.
+Required Botbases:  Lisbeth.
+-->
+<Profile>
+  <Name>[OrderBot] Miner Grind 60 - 70.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory>..\..\..\..\BotBases\Lisbeth</BehaviorDirectory>
+  <Order>
+    <BotSettings AutoEquip="1"/>
+    <!-- (Class Quest) Gift of the Gob (Level 60) -->
+    <If Condition="not HasQuest(68090) and not IsQuestCompleted(68090) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-17.52845, 6.2, 157.5762"/>
+      </If>
+      <NoCombatMoveTo XYZ="-17.52845, 6.2, 157.5762"/>
+      <If Condition="IsQuestAcceptQualified(68090)">
+        <PickupQuest QuestId="68090" NpcId="1002298" XYZ="-17.52845, 6.2, 157.5762"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 1">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="1.556316, 7.599999, 153.5215"/>
+      </If>
+      <NoCombatMoveTo XYZ="1.556316, 7.599999, 153.5215"/>
+      <TalkTo NpcId="1002282" XYZ="1.556316, 7.599999, 153.5215" QuestId="68090" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 2">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.72661, 207.3399, -7.817912"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.72661, 207.3399, -7.817912"/>
+      <HandOver ItemIds="2002057" NpcId="1019863" XYZ="54.72661, 207.3399, -7.817912" QuestId="68090" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 3">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.93546, 214.1, -91.00903"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.93546, 214.1, -91.00903"/>
+      <TalkTo NpcId="1019864" XYZ="81.93546, 214.1, -91.00903" QuestId="68090" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68090) and not IsQuestCompleted(68090) and GetQuestStep(68090) == 255">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.56663, 207.3399, -8.392662"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.56663, 207.3399, -8.392662"/>
+      <TurnIn QuestId="68090" NpcId="1019863" XYZ="54.56663, 207.3399, -8.392662"/>
+    </If>
+    <!-- Grind Gyr Abanian Alumen > 62 -->
+    <While Condition="Core.Player.ClassLevel &lt; 62">
+      <Lisbeth Json="[{'Item': 19910,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Food': 19831,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Buy Main Hand (Shichiho) -->
+    <If Condition="Core.Player.ClassLevel &lt; 63 and not HasItem(19514)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="77.70811, 4.000001, 51.71025"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.70811, 4.000001, 51.71025"/>
+      <BuyItemPlus ItemId="19514" ItemCount="1" NpcId="1018987" XYZ="77.77527, 4.836539, 49.11877" DialogOption1="2"/>
+      <!-- High Steel Dolabra -->
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+    </If>
+    <!-- Grind Koppranickel Sand > 63 -->
+    <While Condition="Core.Player.ClassLevel &lt; 63">
+      <Lisbeth Json="[{'Item': 19950,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Buy Off Hand (Shichiho) -->
+    <If Condition="Core.Player.ClassLevel &lt; 64 and not HasItem(19525)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="77.70811, 4.000001, 51.71025"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.70811, 4.000001, 51.71025"/>
+      <BuyItemPlus ItemId="19525" ItemCount="1" NpcId="1018987" XYZ="77.77527, 4.836539, 49.11877" DialogOption1="2"/>
+      <!-- High Steel Sledgehammer -->
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+    </If>
+    <!-- (Class Quest) Thick Skin (Level 63) -->
+    <If Condition="not HasQuest(68091) and not IsQuestCompleted(68091) and Core.Player.ClassLevel &gt; 62">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.56663, 207.3399, -8.392662"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.56663, 207.3399, -8.392662"/>
+      <If Condition="IsQuestAcceptQualified(68091)">
+        <PickupQuest QuestId="68091" NpcId="1019863" XYZ="54.56663, 207.3399, -8.392662"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="82.15173, 214.1, -90.85959"/>
+      </If>
+      <NoCombatMoveTo XYZ="82.15173, 214.1, -90.85959"/>
+      <TalkTo NpcId="1019864" XYZ="82.15173, 214.1, -90.85959" QuestId="68091" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 2 and GetQuestById(68091).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="82.18562, 214.1398, -89.06767"/>
+      </If>
+      <NoCombatMoveTo XYZ="82.18562, 214.1398, -89.06767"/>
+      <TalkTo NpcId="1020988" XYZ="82.18562, 214.1398, -89.06767" QuestId="68091"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 2 and GetQuestById(68091).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="68.92119, 214.06, -94.11052"/>
+      </If>
+      <NoCombatMoveTo XYZ="68.92119, 214.06, -94.11052"/>
+      <TalkTo NpcId="1020990" XYZ="68.92119, 214.06, -94.11052" QuestId="68091"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 3">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="80.87506, 214.1, -90.63407"/>
+      </If>
+      <NoCombatMoveTo XYZ="80.87506, 214.1, -90.63407"/>
+      <TalkTo NpcId="1019864" XYZ="80.87506, 214.1, -90.63407" QuestId="68091" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 4">
+      <While Condition="not HqHasAtLeast(17941,3)">
+        <Lisbeth Json="[{'Item': 17941,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+        <!-- Wild Popotoes -->
+      </While>
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.84147, 214.1, -91.26829"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.84147, 214.1, -91.26829"/>
+      <HandOver ItemId="17941" RequiresHq="True" NpcId="1019864" XYZ="81.84147, 214.1, -91.26829" QuestId="68091" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 255">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.85791, 207.3399, -8.434767"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.85791, 207.3399, -8.434767"/>
+      <TurnIn QuestId="68091" NpcId="1019863" XYZ="54.85791, 207.3399, -8.434767"/>
+    </If>
+    <!-- Grind Koppranickel Sand > 64 -->
+    <While Condition="Core.Player.ClassLevel &lt; 64">
+      <Lisbeth Json="[{'Item': 19950,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Grind Doman Iron Ore > 65 -->
+    <While Condition="Core.Player.ClassLevel &lt; 65">
+      <Lisbeth Json="[{'Item': 19953,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Buy Main Hand (Shichiho) -->
+    <If Condition="Core.Player.ClassLevel &lt; 66 and not HasItem(19535)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="77.70811, 4.000001, 51.71025"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.70811, 4.000001, 51.71025"/>
+      <BuyItemPlus ItemId="19535" ItemCount="1" NpcId="1018987" XYZ="77.77527, 4.836539, 49.11877" DialogOption1="2"/>
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+    </If>
+    <!-- Buy Left Side (Muto) -->
+    <If Condition="Core.Player.ClassLevel &lt; 66 and not HasItem(19637) and not HasItem(19638) and not HasItem(19639) and not HasItem(19640) and not HasItem(19641)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="35.1244, 4.000001, 51.93355"/>
+      </If>
+      <NoCombatMoveTo XYZ="35.1244, 4.000001, 51.93355"/>
+      <BuyItemPlus ItemIds="19637,19638,19639,19640,19641" ItemCounts="1,1,1,1,1" NpcId="1018989" XYZ="35.172, 4.836555, 49.24084" DialogOption1="3"/>
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+    </If>
+    <!-- (Class Quest) Pedal to the Metal (Level 65) -->
+    <If Condition="not HasQuest(68092) and not IsQuestCompleted(68092) and Core.Player.ClassLevel &gt; 64">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.85791, 207.3399, -8.434767"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.85791, 207.3399, -8.434767"/>
+      <If Condition="IsQuestAcceptQualified(68092)">
+        <PickupQuest QuestId="68092" NpcId="1019863" XYZ="54.85791, 207.3399, -8.434767"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.58314, 214.1, -91.16619"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.58314, 214.1, -91.16619"/>
+      <TalkTo NpcId="1019864" XYZ="81.58314, 214.1, -91.16619" QuestId="68092" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 2 and GetQuestById(68092).GetTodoArgs(2, 0).Item1 == 0">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="83.96628, 213.1, -80.65591"/>
+      </If>
+      <NoCombatMoveTo XYZ="83.96628, 213.1, -80.65591"/>
+      <TalkTo NpcId="1020989" XYZ="83.96628, 213.1, -80.65591" QuestId="68092"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 2 and GetQuestById(68092).GetTodoArgs(2, 0).Item1 == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="59.0507, 214.1314, -74.6472"/>
+      </If>
+      <NoCombatMoveTo XYZ="59.0507, 214.1314, -74.6472"/>
+      <TalkTo NpcId="1019865" XYZ="59.0507, 214.1314, -74.6472" QuestId="68092"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 3">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="82.1475, 214.1, -90.50778"/>
+      </If>
+      <NoCombatMoveTo XYZ="82.1475, 214.1, -90.50778"/>
+      <TalkTo NpcId="1019864" XYZ="82.1475, 214.1, -90.50778" QuestId="68092" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 4">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="-63.21496, 206.5002, 22.57584"/>
+      </If>
+      <NoCombatMoveTo XYZ="-63.21496, 206.5002, 22.57584"/>
+      <TalkTo NpcId="1019866" XYZ="-63.21496, 206.5002, 22.57584" QuestId="68092" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 5">
+      <While Condition="not HqHasAtLeast(17942,5)">
+        <Lisbeth Json="[{'Item': 17942,'Group': 0,'Amount': 5,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+        <!-- Wild Popotoes -->
+      </While>
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.84147, 214.1, -91.26829"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.84147, 214.1, -91.26829"/>
+      <HandOver ItemId="17942" RequiresHq="True" NpcId="1019864" XYZ="81.84147, 214.1, -91.26829" QuestId="68092" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 6">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.00075, 214.1, -90.66446"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.00075, 214.1, -90.66446"/>
+      <TalkTo NpcId="1019864" XYZ="81.00075, 214.1, -90.66446" QuestId="68092" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 255">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.88151, 207.3399, -8.167487"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.88151, 207.3399, -8.167487"/>
+      <TurnIn QuestId="68092" NpcId="1019863" XYZ="54.88151, 207.3399, -8.167487"/>
+    </If>
+    <!-- Grind Doman Iron Ore > 68 -->
+    <While Condition="Core.Player.ClassLevel &lt; 68">
+      <Lisbeth Json="[{'Item': 19953,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Buy Tools (Shichiho) -->
+    <If Condition="Core.Player.ClassLevel &lt; 69 and not HasItem(19556) and not HasItem(19567)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="77.70811, 4.000001, 51.71025"/>
+      </If>
+      <NoCombatMoveTo XYZ="77.70811, 4.000001, 51.71025"/>
+      <BuyItemPlus ItemIds="19556,19567" ItemCounts="1,1" NpcId="1018987" XYZ="77.77527, 4.836539, 49.11877" DialogOption1="2"/>
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+    </If>
+    <!-- Buy Left Side (Muto) -->
+    <If Condition="Core.Player.ClassLevel &lt; 69 and not HasItem(19647) and not HasItem(19648) and not HasItem(19649) and not HasItem(19650) and not HasItem(19651)">
+      <If Condition="not IsOnMap(628)">
+        <GetTo ZoneId="628" XYZ="35.1244, 4.000001, 51.93355"/>
+      </If>
+      <NoCombatMoveTo XYZ="35.1244, 4.000001, 51.93355"/>
+      <BuyItemPlus ItemIds="19647,19648,19649,19650,19651" ItemCounts="1,1,1,1,1" NpcId="1018989" XYZ="35.172, 4.836555, 49.24084" DialogOption1="3"/>
+      <LogMessage Message="Waiting 30s for AutoEquip"/>
+      <WaitTimer WaitTime="30"/>
+      <LogMessage Message="It is recommended that you buy the Marid Leather gathering accessories at this point."/>
+      <WaitTimer WaitTime="60"/>
+    </If>
+    <!-- (Class Quest) Where the Money Takes You (Level 68) -->
+    <If Condition="not HasQuest(68093) and not IsQuestCompleted(68093) and Core.Player.ClassLevel &gt; 67">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.88151, 207.3399, -8.167487"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.88151, 207.3399, -8.167487"/>
+      <If Condition="IsQuestAcceptQualified(68093)">
+        <PickupQuest QuestId="68093" NpcId="1019863" XYZ="54.88151, 207.3399, -8.167487"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="-18.99101, 211.2449, -29.65191"/>
+      </If>
+      <NoCombatMoveTo XYZ="-18.99101, 211.2449, -29.65191"/>
+      <TalkTo NpcId="1013713" XYZ="-18.99101, 211.2449, -29.65191" QuestId="68093" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 2">
+      <While Condition="not HqHasAtLeast(17943,8)">
+        <Lisbeth Json="[{'Item': 17943,'Group': 0,'Amount': 8,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+        <!-- Wild Popotoes -->
+      </While>
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="-19.1375, 211.2449, -29.66669"/>
+      </If>
+      <NoCombatMoveTo XYZ="-19.1375, 211.2449, -29.66669"/>
+      <HandOver ItemId="17943" RequiresHq="True" NpcId="1013713" XYZ="-19.1375, 211.2449, -29.66669" QuestId="68093" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 3">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.66451, 207.3399, -8.335993"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.66451, 207.3399, -8.335993"/>
+      <SoHandOver ItemId="2002058" NpcId="1019863" XYZ="54.66451, 207.3399, -8.335993" QuestId="68093" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 4">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="72.3007, 205.752, 23.80656"/>
+      </If>
+      <NoCombatMoveTo XYZ="72.3007, 205.752, 23.80656"/>
+      <TalkTo NpcId="1012097" XYZ="72.3007, 205.752, 23.80656" QuestId="68093" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 5">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="81.13557, 214.1, -92.38631"/>
+      </If>
+      <NoCombatMoveTo XYZ="81.13557, 214.1, -92.38631"/>
+      <TalkTo NpcId="1019867" XYZ="81.13557, 214.1, -92.38631" QuestId="68093" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 255">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.71909, 207.3399, -7.805041"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.71909, 207.3399, -7.805041"/>
+      <TurnIn QuestId="68093" NpcId="1019863" XYZ="54.71909, 207.3399, -7.805041"/>
+    </If>
+    <!-- Grind Durium Ore > 69 -->
+    <While Condition="Core.Player.ClassLevel &lt; 69">
+      <Lisbeth Json="[{'Item': 19954,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- Grind Molybdenum Ore > 70 -->
+    <While Condition="Core.Player.ClassLevel &lt; 70">
+      <Lisbeth Json="[{'Item': 19957,'Group': 0,'Amount': 12,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/>
+    </While>
+    <!-- (Class Quest) A Miner Success (Level 70) -->
+    <If Condition="not HasQuest(68094) and not IsQuestCompleted(68094) and Core.Player.ClassLevel &gt; 69">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="54.71909, 207.3399, -7.805041"/>
+      </If>
+      <NoCombatMoveTo XYZ="54.71909, 207.3399, -7.805041"/>
+      <If Condition="IsQuestAcceptQualified(68094)">
+        <PickupQuest QuestId="68094" NpcId="1019863" XYZ="54.71909, 207.3399, -7.805041"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 1">
+      <If Condition="not IsOnMap(478)">
+        <GetTo ZoneId="478" XYZ="80.87847, 214.1, -92.12641"/>
+      </If>
+      <NoCombatMoveTo XYZ="80.87847, 214.1, -92.12641"/>
+      <TalkTo NpcId="1019867" XYZ="80.87847, 214.1, -92.12641" QuestId="68094" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 2">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-18.04254, 6.2, 157.418"/>
+      </If>
+      <NoCombatMoveTo XYZ="-18.04254, 6.2, 157.418"/>
+      <TalkTo NpcId="1002298" XYZ="-18.04254, 6.2, 157.418" QuestId="68094" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 3">
+      <If Condition="not HasAtLeast(17944,5)">
+        <If Condition="not IsOnMap(620)">
+          <GetTo ZoneId="620" XYZ="119.5055, 118.1558, -753.5763"/>
+        </If>
+        <ExMoveTo XYZ="283.588, 140.9948, -461.9317"/>
+        <WaitWhile Condition="Condition.IsTimeBetween(22,8.1) or Condition.IsTimeBetween(10,20.1)"/>
+        <If Condition="IsTimeBetween(8,10) or IsTimeBetween(20,22)">
+          <ExGather loops="1" SpawnTimeout="5" While="not HasAtLeast(17994,5)">
+            <GatherObjects>
+              <GatherObject>Unspoiled Mineral Deposit</GatherObject>
+            </GatherObjects>
+            <ItemNames>
+              <ItemName>Pummelite</ItemName>
+            </ItemNames>
+            <GatherRotation>Yield</GatherRotation>
+            <HotSpots>
+              <HotSpot XYZ="283.588, 140.9948, -461.9317" Radius="200"/>
+            </HotSpots>
+          </ExGather>
+        </If>
+      </If>
+      <If Condition="HasAtLeast(17944,5)">
+        <If Condition="not IsOnMap(478)">
+          <GetTo ZoneId="478" XYZ="81.02125, 214.1, -92.38254"/>
+        </If>
+        <NoCombatMoveTo XYZ="81.02125, 214.1, -92.38254"/>
+        <HandOver ItemId="17944" NpcId="1019867" XYZ="81.02125, 214.1, -92.38254" QuestId="68094" StepId="3"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 4">
+      <If Condition="not IsOnMap(399)">
+        <GetTo ZoneId="399" XYZ="-501.4042, 145.8107, -371.4518"/>
+      </If>
+      <NoCombatMoveTo XYZ="-501.4042, 145.8107, -371.4518"/>
+      <TalkTo NpcId="1019872" XYZ="-501.4042, 145.8107, -371.4518" QuestId="68094" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 5">
+      <If Condition="not IsOnMap(399)">
+        <GetTo ZoneId="399" XYZ="-501.4042, 145.8107, -371.4518"/>
+      </If>
+      <NoCombatMoveTo XYZ="-501.4042, 145.8107, -371.4518"/>
+      <TalkTo NpcId="1019876" XYZ="-501.4042, 145.8107, -371.4518" QuestId="68094" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 6">
+      <If Condition="not IsOnMap(399)">
+        <GetTo ZoneId="399" XYZ="-547.8834, 155.8443, -510.7159"/>
+      </If>
+      <NoCombatMoveTo XYZ="-547.8834, 155.8443, -510.7159"/>
+      <TalkTo NpcId="1019877" XYZ="-547.8834, 155.8443, -510.7159" QuestId="68094" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68094) and not IsQuestCompleted(68094) and GetQuestStep(68094) == 255">
+      <If Condition="not IsOnMap(131)">
+        <GetTo ZoneId="131" XYZ="-18.1387, 6.2, 157.5993"/>
+      </If>
+      <NoCombatMoveTo XYZ="-18.1387, 6.2, 157.5993"/>
+      <TurnIn QuestId="68094" NpcId="1002298" XYZ="-18.1387, 6.2, 157.5993"/>
+    </If>
+  </Order>
+</Profile>

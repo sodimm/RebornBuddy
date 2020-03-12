@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Ahm Araeng Side Quests
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Ahm Araeng Side Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="IsAetherCurrentZoneComplete(815)">
+      <TeleportTo Name="Mord Souq" AetheryteId="140"/>
+      <If Condition="IsQuestCompleted(68828)">
+        <!-- Pass the Parcel -->
+        <If Condition="not HasQuest(68902) and not IsQuestCompleted(68902)">
+          <If Condition="IsQuestAcceptQualified(68902)">
+            <PickupQuest QuestId="68902" NpcId="2010652"/>
+          </If>
+        </If>
+        <!-- A Shiver Down the Spine -->
+        <If Condition="not HasQuest(68901) and not IsQuestCompleted(68901)">
+          <If Condition="IsQuestAcceptQualified(68901)">
+            <PickupQuest QuestId="68901" NpcId="1030503"/>
+          </If>
+        </If>
+        <!-- Mollycoddled Mord -->
+        <If Condition="not HasQuest(68899) and not IsQuestCompleted(68899)">
+          <If Condition="IsQuestAcceptQualified(68899)">
+            <PickupQuest QuestId="68899" NpcId="1027879"/>
+          </If>
+        </If>
+        <!-- Worm Food -->
+        <If Condition="not HasQuest(68897) and not IsQuestCompleted(68897)">
+          <If Condition="IsQuestAcceptQualified(68897)">
+            <PickupQuest QuestId="68897" NpcId="1030500"/>
+          </If>
+        </If>
+        <!-- Pass the Parcel -->
+        <If Condition="GetQuestStep(68902) == 1">
+          <TalkTo NpcId="1030511" XYZ="335.6831, 1.468583, -211.3527" QuestId="68902" StepId="1"/>
+        </If>
+        <!-- The Most Succulent of Succulents -->
+        <If Condition="not HasQuest(68898) and not IsQuestCompleted(68898)">
+          <If Condition="IsQuestAcceptQualified(68898)">
+            <PickupQuest QuestId="68898" NpcId="1027896"/>
+          </If>
+        </If>
+        <!-- Worm Food -->
+        <If Condition="GetQuestStep(68897) == 1">
+          <TalkTo NpcId="1030501" XYZ="369.6191, -10.39712, -146.0136" QuestId="68897" StepId="1"/>
+        </If>
+        <!-- Pass the Parcel -->
+        <If Condition="GetQuestStep(68902) == 2">
+          <FlyTo XYZ="307.0861, -12.12221, -87.89468" Land="True"/>
+          <TalkTo NpcId="1030512" XYZ="303.7003, -12.18367, -86.68658" QuestId="68902" StepId="2"/>
+          <WaitWhile Condition="not GetQuestStep(68902) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(68902) == 3">
+          <TalkTo NpcId="1030512" XYZ="303.7003, -12.18367, -86.68658" QuestId="68902" StepId="3"/>
+        </If>
+        <!-- Worm Food -->
+        <If Condition="GetQuestStep(68897) == 2">
+          <FlyTo XYZ="422.2509, -23.92944, -16.71959" AllowedVariance="3.0" Land="True"/>
+          <UseItem ItemId="2002619" NpcId="2010130" XYZ="423.7278, -23.97198, -14.81659" QuestId="68897" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68897) == 3">
+          <UseObject NpcIds="2010126, 2010127, 2010128, 2010129" XYZ="422.7477, -23.93225, -15.36221" QuestId="68897" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(68897) == 4">
+          <FlyTo XYZ="371.8037, -10.70082, -142.6045" AllowedVariance="3.0" Land="True"/>
+          <HandOver ItemId="2002620" NpcId="1030501" XYZ="369.6191, -10.39712, -146.0136" QuestId="68897" StepId="4"/>
+        </If>
+        <!-- The Most Succulent of Succulents -->
+        <If Condition="GetQuestStep(68898) == 1">
+          <FlyTo XYZ="467.856, -30.68115, -215.9189" Land="True"/>
+          <UseObject NpcId="2010131" XYZ="469.2913, -30.93011, -217.6089" QuestId="68898" StepId="1"/>
+        </If>
+        <!-- A Shiver Down the Spine -->
+        <If Condition="GetQuestStep(68901) == 1">
+          <FlyTo XYZ="468.132, -32.80048, -283.7653" Land="True"/>
+          <MoveTo XYZ="450.6473, -28.9408, -333.5495" Distance="1"/>
+          <WaitWhile Condition="not GetQuestStep(68901) == 2"/>
+        </If>
+        <If Condition="GetQuestStep(68901) == 2">
+          <UseObject NpcIds="1030504, 1030505" XYZ="450.6473, -28.9408, -333.5495" QuestId="68901" StepId="2"/>
+          <MoveTo XYZ="468.132, -32.80048, -283.7653" Distance="1"/>
+        </If>
+        <!-- Mollycoddled Mord -->
+        <If Condition="GetQuestStep(68899) == 1">
+          <FlyTo XYZ="411.7131, -31.55603, -413.3373" AllowedVariance="0.5" Land="True"/>
+          <RunCode Name="68899"/>
+          <WaitWhile Condition="not GetQuestStep(68899) == 2"/>
+        </If>
+        <If Condition="GetQuestStep(68899) == 2">
+          <FlyTo XYZ="576.7067, -57.45052, -583.8928" AllowedVariance="0.5" Land="True"/>
+          <RunCode Name="68899"/>
+          <WaitWhile Condition="not GetQuestStep(68899) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(68899) == 255">
+          <FlyTo XYZ="670.4299, -41.97546, -666.0284" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
+          <TurnIn ItemId="2002623" QuestId="68899" NpcId="1027865" XYZ="669.8253, -41.97601, -668.0552"/>
+        </If>
+        <!-- I Felt Your Presents -->
+        <If Condition="not HasQuest(68900) and not IsQuestCompleted(68900)">
+          <If Condition="IsQuestAcceptQualified(68900)">
+            <PickupQuest QuestId="68900" NpcId="1027865"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68900) == 1">
+          <TalkTo NpcId="1027864" XYZ="680.9644, -48.22444, -643.9155" QuestId="68900" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68900) == 2">
+          <TalkTo NpcId="1027865" XYZ="669.8253, -41.97601, -668.0552" QuestId="68900" StepId="2"/>
+        </If>
+        <!-- Worm Food -->
+        <If Condition="GetQuestStep(68897) == 255">
+          <GetTo ZoneId="815" XYZ="191.9432, 7.155827, -275.5322"/>
+          <TurnIn QuestId="68897" NpcId="1030502" XYZ="191.9432, 7.155827, -275.5322"/>
+        </If>
+        <!-- A Shiver Down the Spine -->
+        <If Condition="GetQuestStep(68901) == 255">
+          <TurnIn QuestId="68901" NpcId="1030503" XYZ="320.5767, 1.468582, -295.3995"/>
+        </If>
+        <!-- I Felt Your Presents -->
+        <If Condition="GetQuestStep(68900) == 255">
+          <TurnIn ItemId="2002624" QuestId="68900" NpcId="1027879" XYZ="321.4617, 1.491268, -277.7906"/>
+        </If>
+        <!-- Pass the Parcel -->
+        <If Condition="GetQuestStep(68902) == 255">
+          <MoveTo ZoneId="815" XYZ="333.3816, 1.468583, -210.8906" Distance="1"/>
+          <RunCode Name="68902"/>
+          <TurnIn ItemId="2002625" QuestId="68902" NpcId="1030511" XYZ="335.6831, 1.468583, -211.3527"/>
+        </If>
+        <!-- The Most Succulent of Succulents -->
+        <If Condition="GetQuestStep(68898) == 255">
+          <TurnIn ItemId="2002621" QuestId="68898" NpcId="1027896" XYZ="316.884, 1.468583, -170.3365"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(68832)">
+        <!-- Succulent Secretions -->
+        <If Condition="not HasQuest(68903) and not IsQuestCompleted(68903)">
+          <GetTo ZoneId="815" XYZ="404.8552, -28.35781, 347.9201"/>
+          <If Condition="IsQuestAcceptQualified(68903)">
+            <PickupQuest QuestId="68903" NpcId="1027908"/>
+          </If>
+        </If>
+        <!-- From Darts till Dawn -->
+        <If Condition="not HasQuest(68904) and not IsQuestCompleted(68904)">
+          <If Condition="IsQuestAcceptQualified(68904)">
+            <PickupQuest QuestId="68904" NpcId="1030650"/>
+          </If>
+        </If>
+        <!-- Like a Tonze of Bricks -->
+        <If Condition="not HasQuest(68906) and not IsQuestCompleted(68906)">
+          <If Condition="IsQuestAcceptQualified(68906)">
+            <PickupQuest QuestId="68906" NpcId="1027911"/>
+          </If>
+        </If>
+        <!-- Absent without Leave -->
+        <If Condition="not HasQuest(68905) and not IsQuestCompleted(68905)">
+          <If Condition="IsQuestAcceptQualified(68905)">
+            <PickupQuest QuestId="68905" NpcId="1027938"/>
+          </If>
+        </If>
+        <!-- From Darts till Dawn -->
+        <If Condition="GetQuestStep(68904) == 1">
+          <FlyTo XYZ="301.2828, -49.80111, 375.9919" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1031520" XYZ="299.2141, -49.81794, 375.967" QuestId="68904" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68904) == 2">
+          <BotSettings BlockSkippingCutscenes="1"/>
+          <RunCode Name="Announce_Manual_Completion"/>
+          <WaitWhile Condition="not GetQuestStep(68904) == 255"/>
+          <BotSettings BlockSkippingCutscenes="0"/>
+        </If>
+        <!-- Absent without Leave -->
+        <If Condition="GetQuestStep(68905) == 1">
+          <FlyTo XYZ="362.6325, -65.51283, 538.1738" AllowedVariance="3.0" Land="True"/>
+          <TalkTo NpcId="1030645" XYZ="362.7832, -65.9269, 541.3137" QuestId="68905" StepId="1"/>
+        </If>
+        <!-- Succulent Secretions -->
+        <If Condition="GetQuestStep(68903) == 1">
+          <FlyTo XYZ="480.7654, -52.13139, 419.3243" AllowedVariance="1.0" Land="True"/>
+          <UseItem ItemId="2002626" NpcId="2010171" XYZ="484.1229, -50.73627, 418.1124" QuestId="68903" StepId="1"/>
+        </If>
+        <!-- Absent without Leave -->
+        <If Condition="GetQuestStep(68905) == 2">
+          <FlyTo XYZ="601.2372, -60.90039, 385.1203" Land="True"/>
+          <TalkTo NpcId="1030646" XYZ="603.8757, -61.21729, 383.4438" QuestId="68905" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68905) == 3">
+          <FlyTo XYZ="550.8674, -53.09024, 179.911" Land="True"/>
+          <UseObject NpcId="1030647" XYZ="552.3003, -53.11664, 177.5387" QuestId="68905" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(68905) == 4">
+          <FlyTo XYZ="363.69, -65.58057, 538.8051" AllowedVariance="3.0" Land="True"/>
+          <SoTalkTo NpcId="1030645" XYZ="362.7832, -65.9269, 541.3137" QuestId="68905" StepId="4"/>
+        </If>
+        <!-- Like a Tonze of Bricks -->
+        <If Condition="GetQuestStep(68906) == 1">
+          <FlyTo XYZ="244.7388, -86.29818, 451.8734" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1030648" XYZ="241.474, -86.10064, 448.6305" QuestId="68906" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68906) == 2">
+          <NoCombatMoveTo XYZ="381.4377, -28.35205, 324.1142" Distance="1"/>
+          <TalkTo NpcId="1030649" XYZ="379.9648, -28.29207, 323.3539" QuestId="68906" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68906) == 255">
+          <TurnIn QuestId="68906" NpcId="1027911" XYZ="378.7136, -28.25547, 324.9714"/>
+        </If>
+        <!-- From Darts till Dawn -->
+        <If Condition="GetQuestStep(68904) == 255">
+          <TurnIn QuestId="68904" NpcId="1030650" XYZ="379.1714, -28.36043, 340.6881"/>
+        </If>
+        <!-- Succulent Secretions -->
+        <If Condition="GetQuestStep(68903) == 255">
+          <TurnIn ItemId="2002627" QuestId="68903" NpcId="1027908" XYZ="404.5929, -28.3578, 350.3623"/>
+        </If>
+        <!-- Absent without Leave -->
+        <If Condition="GetQuestStep(68905) == 255">
+          <TurnIn QuestId="68905" NpcId="1027938" XYZ="412.5581, -28.67157, 273.64"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(69146)">
+        <!-- Water Palaver -->
+        <If Condition="not HasQuest(69024) and not IsQuestCompleted(69024)">
+          <FlyTo XYZ="-449.0294, -20.06027, -558.0058" Land="True"/>
+          <If Condition="IsQuestAcceptQualified(69024)">
+            <PickupQuest QuestId="69024" NpcId="1027917"/>
+          </If>
+        </If>
+        <!-- Shine On You Crazy Mordling -->
+        <If Condition="not HasQuest(69026) and not IsQuestCompleted(69026)">
+          <If Condition="IsQuestAcceptQualified(69026)">
+            <PickupQuest QuestId="69026" NpcId="1030654"/>
+          </If>
+        </If>
+        <!-- Assault on a Deadly Weapon -->
+        <If Condition="not HasQuest(69023) and not IsQuestCompleted(69023)">
+          <If Condition="IsQuestAcceptQualified(69023)">
+            <PickupQuest QuestId="69023" NpcId="1027920"/>
+          </If>
+        </If>
+        <!-- Shine On You Crazy Mordling -->
+        <If Condition="GetQuestStep(69026) == 1">
+          <TalkTo NpcId="1030655" XYZ="-394.6441, -20.14408, -575.7382" QuestId="69026" StepId="1"/>
+        </If>
+        <!-- Shovel or Boogie -->
+        <If Condition="not HasQuest(69025) and not IsQuestCompleted(69025)">
+          <If Condition="IsQuestAcceptQualified(69025)">
+            <PickupQuest QuestId="69025" NpcId="1027918"/>
+          </If>
+        </If>
+        <!-- And Justice Feral -->
+        <If Condition="not HasQuest(69027) and not IsQuestCompleted(69027)">
+          <If Condition="IsQuestAcceptQualified(69027)">
+            <PickupQuest QuestId="69027" NpcId="1030429"/>
+          </If>
+        </If>
+        <!-- Where There's a Well, There's a Way -->
+        <If Condition="not HasQuest(69022) and not IsQuestCompleted(69022)">
+          <FlyTo XYZ="-360.2496, 1.978778, -658.285" land="True"/>
+          <If Condition="IsQuestAcceptQualified(69022)">
+            <PickupQuest QuestId="69022" NpcId="1030284"/>
+          </If>
+        </If>
+        <!-- Shine On You Crazy Mordling -->
+        <If Condition="GetQuestStep(69026) == 2">
+          <TalkTo NpcId="1030658" XYZ="-364.6448, 0.7830874, -625.0553" QuestId="69026" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(69026) == 3">
+          <FlyTo XYZ="-387.1133, -11.61962, -577.4985" Land="True"/>
+          <UseObject NpcIds="2010196" XYZ="-385.1225, -11.6427, -576.0128" QuestId="69026" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(69026) == 255">
+          <FlyTo XYZ="-397.518, -20.14092, -568.9721" Land="True"/>
+          <TurnIn ItemId="2002652" QuestId="69026" NpcId="1030657" XYZ="-392.8741, -20.14195, -571.9845"/>
+        </If>
+        <!-- Where There's a Well, There's a Way -->
+        <If Condition="GetQuestStep(69022) == 1">
+          <TalkTo NpcId="1030436" XYZ="-395.2545, -20.13821, -566.8269" QuestId="69022" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69022) == 2">
+          <FlyTo XYZ="-426.4155, -7.010486, -660.6764" Land="True"/>
+          <Grind GrindRef="69022" PostCombatDelay="3.0" While="not GetQuestStep(69022) == 3"/>
+        </If>
+        <!-- And Justice Feral -->
+        <If Condition="GetQuestStep(69027) == 1">
+          <FlyTo XYZ="-587.7269, -7.701797, -566.447" Land="True"/>
+          <SoUseItem ItemId="2002653" NpcId="8978" XYZ="-573.6223, -10.30969, -555.2563" InCombatOnly="True" UseHealthPercent="100" LacksAuraId="1054" QuestId="69027" StepId="1"/>
+        </If>
+        <!-- Shovel or Boogie -->
+        <If Condition="GetQuestStep(69025) == 1">
+          <UseItem ItemId="2002650" NpcId="2010195" XYZ="-582.2385, -2.761902, -512.1385" QuestId="69025" StepId="1"/>
+        </If>
+        <!-- Water Palaver -->
+        <If Condition="GetQuestStep(69024) == 1">
+          <FlyTo XYZ="-295.0503, 23.48671, -455.3681" AllowedVariance="1.0" Land="True"/>
+          <UseObject NpcId="1030286" XYZ="-295.0942, 23.69802, -460.502" QuestId="69024" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69024) == 2">
+          <HandOver ItemId="2002649" NpcId="1030286" XYZ="-295.0942, 23.69802, -460.502" QuestId="69024" StepId="2"/>
+        </If>
+        <!-- Assault on a Deadly Weapon -->
+        <If Condition="GetQuestStep(69023) == 1">
+          <FlyTo XYZ="-448.3656, 1.098502, -496.045" AllowedVariance="3.0" Land="True"/>
+          <UseObject NpcId="2010194" XYZ="-446.7994, 1.144348, -496.849" QuestId="69023" StepId="1"/>
+        </If>
+        <!-- Where There's a Well, There's a Way -->
+        <If Condition="GetQuestStep(69022) == 3">
+          <FlyTo XYZ="-398.6842, -20.14143, -569.0294" Land="True"/>
+          <HandOver ItemId="2002647" NpcId="1030436" XYZ="-395.2545, -20.13821, -566.8269" QuestId="69022" StepId="3"/>
+        </If>
+        <!-- Assault on a Deadly Weapon -->
+        <If Condition="GetQuestStep(69023) == 255">
+          <TurnIn QuestId="69023" NpcId="1027920" XYZ="-397.1466, -17.85281, -551.7815"/>
+        </If>
+        <!-- Water Palaver -->
+        <If Condition="GetQuestStep(69024) == 255">
+          <TurnIn QuestId="69024" NpcId="1027917" XYZ="-448.3559, -20.01652, -554.6807"/>
+        </If>
+        <!-- And Justice Feral -->
+        <If Condition="GetQuestStep(69027) == 255">
+          <TurnIn ItemId="2002716" QuestId="69027" NpcId="1030429" XYZ="-425.9861, -18.83271, -603.6622"/>
+        </If>
+        <!-- Shovel or Boogie -->
+        <If Condition="GetQuestStep(69025) == 255">
+          <TurnIn ItemIds="2002650,2002651" QuestId="69025" NpcId="1027918" XYZ="-389.7612, -17.72484, -586.1448"/>
+        </If>
+        <!-- Where There's a Well, There's a Way -->
+        <If Condition="GetQuestStep(69022) == 255">
+          <FlyTo XYZ="-360.2496, 1.978778, -658.285" land="True"/>
+          <TurnIn ItemId="2002648" QuestId="69022" NpcId="1030284" XYZ="-359.3347, 1.909479, -656.0311"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(69151)">
+        <!-- Whistle While You Shirk -->
+        <If Condition="not HasQuest(69031) and not IsQuestCompleted(69031)">
+          <FlyTo ZoneId="815" XYZ="-443.2576, 30.45565, -197.4754" Land="True"/>
+          <If Condition="IsQuestAcceptQualified(69031)">
+            <PickupQuest QuestId="69031" NpcId="1030968"/>
+          </If>
+        </If>
+        <!-- The Yolk's on You -->
+        <If Condition="not HasQuest(69042) and not IsQuestCompleted(69042)">
+          <If Condition="IsQuestAcceptQualified(69042)">
+            <PickupQuest QuestId="69042" NpcId="1027922"/>
+          </If>
+        </If>
+        <!-- Church Warrant -->
+        <If Condition="not HasQuest(69038) and not IsQuestCompleted(69038)">
+          <If Condition="IsQuestAcceptQualified(69038)">
+            <PickupQuest QuestId="69038" NpcId="1027923"/>
+          </If>
+        </If>
+        <!-- Whistle While You Shirk -->
+        <If Condition="GetQuestStep(69031) == 1">
+          <If Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 0">
+            <MoveTo XYZ="-519.7986, 45.29705, -168.1087"/>
+            <RunCode Name="69031"/>
+            <WaitWhile Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+        </If>
+        <!-- Mystery Miners -->
+        <If Condition="not HasQuest(69046) and not IsQuestCompleted(69046)">
+          <If Condition="IsQuestAcceptQualified(69046)">
+            <PickupQuest QuestId="69046" NpcId="1027925"/>
+          </If>
+        </If>
+        <!-- A Relatively Miner Issue -->
+        <If Condition="not HasQuest(69028) and not IsQuestCompleted(69028)">
+          <If Condition="IsQuestAcceptQualified(69028)">
+            <PickupQuest QuestId="69028" NpcId="1027930"/>
+          </If>
+        </If>
+        <!-- Whistle While You Shirk -->
+        <If Condition="GetQuestStep(69031) == 1">
+          <If Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 1">
+            <MoveTo XYZ="-488.8533, 58.16113, -255.3598"/>
+            <RunCode Name="69031"/>
+            <WaitWhile Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+        </If>
+        <!-- A Tab in the Dark -->
+        <If Condition="not HasQuest(69033) and not IsQuestCompleted(69033)">
+          <If Condition="IsQuestAcceptQualified(69033)">
+            <PickupQuest QuestId="69033" NpcId="1030977"/>
+          </If>
+        </If>
+        <!-- To the Far Side -->
+        <If Condition="not HasQuest(69030) and not IsQuestCompleted(69030)">
+          <If Condition="IsQuestAcceptQualified(69030)">
+            <PickupQuest QuestId="69030" NpcId="1027881" InteractDistance="2.0"/>
+          </If>
+        </If>
+        <!-- Flower for a Friend -->
+        <If Condition="not HasQuest(69037) and not IsQuestCompleted(69037)">
+          <If Condition="IsQuestAcceptQualified(69037)">
+            <PickupQuest QuestId="69037" NpcId="1031562"/>
+          </If>
+        </If>
+        <!-- Stripe for the Picking -->
+        <If Condition="not HasQuest(69045) and not IsQuestCompleted(69045)">
+          <If Condition="IsQuestAcceptQualified(69045)">
+            <PickupQuest QuestId="69045" NpcId="1030424"/>
+          </If>
+        </If>
+        <!-- Big Sister Is Watching You -->
+        <If Condition="not HasQuest(69035) and not IsQuestCompleted(69035)">
+          <If Condition="IsQuestAcceptQualified(69035)">
+            <PickupQuest QuestId="69035" NpcId="1027929"/>
+          </If>
+        </If>
+        <!-- I Drink, Therefore I Am (in Trouble) -->
+        <If Condition="not HasQuest(69029) and not IsQuestCompleted(69029)">
+          <If Condition="IsQuestAcceptQualified(69029)">
+            <PickupQuest QuestId="69029" NpcId="1030965"/>
+          </If>
+        </If>
+        <!-- Repair for the Worst -->
+        <If Condition="not HasQuest(69044) and not IsQuestCompleted(69044)">
+          <If Condition="IsQuestAcceptQualified(69044)">
+            <PickupQuest QuestId="69044" NpcId="1030443"/>
+          </If>
+        </If>
+        <!-- Whistle While You Shirk -->
+        <If Condition="GetQuestStep(69031) == 1">
+          <If Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 2">
+            <MoveTo XYZ="-476.8292, 45.57106, -270.9545"/>
+            <RunCode Name="69031"/>
+            <WaitWhile Condition="GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 2"/>
+          </If>
+        </If>
+        <!-- The Creaky Mill Gets the Grease -->
+        <If Condition="not HasQuest(69034) and not IsQuestCompleted(69034)">
+          <If Condition="IsQuestAcceptQualified(69034)">
+            <PickupQuest QuestId="69034" NpcId="1027889"/>
+          </If>
+        </If>
+        <!-- Prankster's Paradise -->
+        <If Condition="not HasQuest(69032) and not IsQuestCompleted(69032)">
+          <If Condition="IsQuestAcceptQualified(69032)">
+            <PickupQuest QuestId="69032" NpcId="1030975"/>
+          </If>
+        </If>
+        <!-- Repair for the Worst -->
+        <If Condition="GetQuestStep(69044) &gt; 0">
+          <If Condition="GetQuestStep(69044) == 1">
+            <UseObject NpcIds="2010377, 2010378, 2010379" XYZ="-500.8189, 45.61738, -212.1243" Radius="80" QuestId="69044" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69044) == 255">
+            <TurnIn QuestId="69044" NpcId="1030443" XYZ="-490.6844, 45.64581, -267.9637"/>
+          </If>
+        </If>
+        <!-- Whistle While You Shirk -->
+        <If Condition="GetQuestStep(69031) == 255">
+          <TurnIn QuestId="69031" NpcId="1030968" XYZ="-444.8463, 30.87983, -194.3237"/>
+        </If>
+        <!-- A Tab in the Dark -->
+        <If Condition="GetQuestStep(69033) == 1">
+          <NoCombatMoveTo XYZ="-448.4234, 22.32332, -137.2603" Distance="1"/>
+          <RunCode Name="2002724"/>
+          <WaitWhile Condition="not GetQuestStep(69033) == 2"/>
+        </If>
+        <If Condition="GetQuestStep(69033) == 2">
+          <UseObject NpcId="2010435" XYZ="-446.4943, 21.9577, -137.0413" QuestId="69033" StepId="2"/>
+        </If>
+        <!-- The Creaky Mill Gets the Grease -->
+        <If Condition="GetQuestStep(69034) == 1">
+          <FlyTo XYZ="-448.4608, 22.56828, -137.2988" Land="True"/>
+          <Grind GrindRef="69034" PostCombatDelay="3.0" While="not GetQuestStep(69034) == 2"/>
+        </If>
+        <!-- I Drink, Therefore I Am (in Trouble) -->
+        <If Condition="GetQuestStep(69029) == 1">
+          <FlyTo XYZ="-517.3863, 30.45069, -137.2304" Land="True"/>
+          <TalkTo NpcId="1030967" XYZ="-519.6765, 30.63102, -137.438" QuestId="69029" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69029) == 2">
+          <TalkTo NpcId="1030966" XYZ="-526.8483, 31.24065, -136.3394" QuestId="69029" StepId="2"/>
+          <WaitWhile Condition="not GetQuestStep(69029) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(69029) == 3">
+          <TalkTo NpcId="1030967" XYZ="-519.6765, 30.63102, -137.438" QuestId="69029" StepId="3"/>
+        </If>
+        <!-- To the Far Side -->
+        <If Condition="GetQuestStep(69030) == 1">
+          <FlyTo XYZ="-258.1571, 4.552401, 66.38027" AllowedVariance="1.0" Land="True"/>
+          <HandOver ItemId="2002740" NpcId="1030998" XYZ="-257.0078, 4.148061, 69.16907" QuestId="69030" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69030) == 2">
+          <FlyTo XYZ="-27.7184, -64.53232, 240.5088" Land="True"/>
+          <TalkTo NpcId="1030999" XYZ="-26.13879, -64.67673, 242.7557" QuestId="69030" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(69030) == 3">
+          <FlyTo XYZ="-258.3941, 4.529098, 67.23316" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1030998" XYZ="-257.0078, 4.148061, 69.16907" QuestId="69030" StepId="3"/>
+        </If>
+        <!-- Church Warrant -->
+        <If Condition="GetQuestStep(69038) == 1">
+          <FlyTo XYZ="-100.7762, -9.178759, -1.623152" ArrivalTolerance="0.5" Land="True"/>
+          <TalkTo NpcId="1031564" XYZ="-103.8376, -9.178759, -2.639893" QuestId="69038" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69038) == 2">
+          <FlyTo XYZ="68.39471, -1.642326, 46.16061" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <WaitWhile Condition="not GetQuestStep(69038) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(69038) == 3">
+          <FlyTo XYZ="-100.2288, -9.178759, -1.683602" ArrivalTolerance="0.5" Land="True"/>
+          <SoHandOver ItemId="2002898" NpcId="1031564" XYZ="-103.8376, -9.178759, -2.639893" QuestId="69038" StepId="3"/>
+        </If>
+        <!-- Mystery Miners -->
+        <If Condition="GetQuestStep(69046) == 1">
+          <FlyTo XYZ="-285.9195, 20.59566, -223.646" Land="True"/>
+          <MoveTo XYZ="-285.9195, 20.59566, -223.646" Distance="1"/>
+          <RunCode Name="69046"/>
+          <WaitWhile Condition="not GetQuestStep(69046) == 255"/>
+        </If>
+        <!-- Prankster's Paradise -->
+        <If Condition="GetQuestStep(69032) == 1">
+          <SoHandOver ItemId="2002721" NpcId="1030976" DialogOption="1" XYZ="-233.7835, 20.1522, -247.6997" QuestId="69032" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69032) == 2">
+          <Grind GrindRef="69032" PostCombatDelay="3.0" While="not GetQuestStep(69032) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(69032) == 3">
+          <HandOver ItemId="2002722" NpcId="1030976" XYZ="-233.7835, 20.1522, -247.6997" QuestId="69032" StepId="3"/>
+        </If>
+        <!-- A Relatively Miner Issue -->
+        <If Condition="GetQuestStep(69028) == 1">
+          <FlyTo XYZ="-58.12506, 39.1543, -175.9577" Land="True"/>
+          <If Condition="GetQuestById(69028).GetTodoArgs(1, 0).Item1 == 0">
+            <TalkTo NpcId="1030995" XYZ="26.41333, 32.18285, -143.0228" QuestId="69028"/>
+          </If>
+          <If Condition="GetQuestById(69028).GetTodoArgs(1, 0).Item1 == 1">
+            <TalkTo NpcId="1030997" XYZ="9.933594, 32.22507, -115.6787" QuestId="69028" StepId="1"/>
+          </If>
+          <If Condition="GetQuestById(69028).GetTodoArgs(1, 0).Item1 == 2">
+            <TalkTo NpcId="1030996" XYZ="48.9967, 31.31878, -198.0775" QuestId="69028" StepId="1"/>
+          </If>
+        </If>
+        <!-- Big Sister Is Watching You -->
+        <If Condition="GetQuestStep(69035) == 1">
+          <FlyTo XYZ="-10.70587, 45.61908, -520.9014" Land="True"/>
+          <TalkTo NpcId="1031021" XYZ="-7.248047, 45.61908, -523.2472" QuestId="69035" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69035) == 2">
+          <FlyTo XYZ="-24.54233, 45.61908, -609.5526" Land="True"/>
+          <UseObject NpcId="1031022" XYZ="1.083313, 45.61908, -631.1895" QuestId="69035" StepId="2"/>
+        </If>
+        <!-- Stripe for the Picking -->
+        <If Condition="HasQuest(69045) and not IsQuestCompleted(69045) and GetQuestStep(69045) == 1">
+          <UseObject NpcId="2010380" XYZ="66.42249, 45.63965, -633.7225" QuestId="69045" StepId="1"/>
+        </If>
+        <!-- Big Sister Is Watching You -->
+        <If Condition="GetQuestStep(69035) == 255">
+          <FlyTo XYZ="-10.84099, 45.61908, -522.0845" Land="True"/>
+          <TurnIn QuestId="69035" NpcId="1031021" XYZ="-7.248047, 45.61908, -523.2472"/>
+        </If>
+        <!-- The Brother Lode -->
+        <If Condition="not HasQuest(69036) and not IsQuestCompleted(69036)">
+          <If Condition="IsQuestAcceptQualified(69036)">
+            <PickupQuest QuestId="69036" NpcId="1031021"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69036) == 1">
+          <UseObject NpcIds="2010744,2010743" XYZ="-0.6036965, 45.61908, -585.6798" Radius="65" QuestId="69036" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69036) == 2">
+          <FlyTo XYZ="-10.70002, 45.61908, -522.9159" Land="True"/>
+          <HandOver ItemId="2002897" NpcId="1031021" XYZ="-7.248047, 45.61908, -523.2472" QuestId="69036" StepId="2"/>
+        </If>
+        <!-- Flower for a Friend -->
+        <If Condition="GetQuestStep(69037) == 1">
+          <FlyTo XYZ="-179.5275, 46.19127, -331.8794" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1031563" XYZ="-179.5225, 46.19126, -328.8472" QuestId="69037" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69037) == 2">
+          <SoUseItem ItemId="2002899" NpcId="2010745" XYZ="-181.6587, 46.89087, -327.8707" DialogOption="2" QuestId="69037" StepId="2"/>
+        </If>
+        <!-- The Yolk's on You -->
+        <If Condition="GetQuestStep(69042) &gt; 0">
+          <If Condition="GetQuestStep(69042) == 1">
+            <FlyTo XYZ="-296.3514, 24.64608, -283.5547" Land="True"/>
+            <UseObject NpcId="2010376" XYZ="-302.4186, 24.24658, -290.1503" QuestId="69042" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69042) == 2">
+            <NoCombatMoveTo XYZ="-486.4316, 47.7777, -192.0509"/>
+            <TalkTo NpcId="1031035" XYZ="-486.5339, 47.7777, -190.7836" QuestId="69042" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(69042) == 255">
+            <TurnIn QuestId="69042" NpcId="1027922" XYZ="-488.5176, 47.7777, -191.3635"/>
+          </If>
+        </If>
+        <!-- Taken Down a Peck or Two -->
+        <If Condition="not HasQuest(69043) and not IsQuestCompleted(69043)">
+          <If Condition="IsQuestAcceptQualified(69043)">
+            <PickupQuest QuestId="69043" NpcId="1027922"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69043) &gt; 0">
+          <If Condition="GetQuestStep(69043) == 1">
+            <FlyTo XYZ="-121.1501, 31.62684, -383.1292" Land="True"/>
+            <UseObject NpcId="2010391" XYZ="-119.8902, 32.24219, -386.6179" QuestId="69043" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69043) == 255">
+            <GetTo ZoneId="815" XYZ="-486.425, 47.7777, -192.1031"/>
+            <TurnIn ItemId="2002739" QuestId="69043" NpcId="1027922" XYZ="-488.5176, 47.7777, -191.3635"/>
+          </If>
+        </If>
+        <!-- Church Warrant -->
+        <If Condition="GetQuestStep(69038) == 255">
+          <TurnIn QuestId="69038" NpcId="1027923" XYZ="-489.6468, 47.78909, -198.7488"/>
+        </If>
+        <!-- Mystery Miners -->
+        <If Condition="GetQuestStep(69046) == 255">
+          <TurnIn ItemId="2002732" QuestId="69046" NpcId="1027925" XYZ="-479.2401, 45.55375, -228.687"/>
+        </If>
+        <!-- A Relatively Miner Issue -->
+        <If Condition="GetQuestStep(69028) == 255">
+          <TurnIn QuestId="69028" NpcId="1027930" XYZ="-502.7695, 58.16132, -241.3215"/>
+        </If>
+        <!-- A Tab in the Dark -->
+        <If Condition="GetQuestStep(69033) == 255">
+          <TurnIn ItemIds="2002724,2002725" QuestId="69033" NpcId="1030977" XYZ="-513.6035, 58.16113, -257.618"/>
+        </If>
+        <!-- To the Far Side -->
+        <If Condition="GetQuestStep(69030) == 255">
+          <SoTurnIn ItemId="2002741" QuestId="69030" NpcId="1027881" InteractDistance="2.0" XYZ="-494.255, 45.63728, -238.5443"/>
+        </If>
+        <!-- Flower for a Friend -->
+        <If Condition="GetQuestStep(69037) == 255">
+          <TurnIn QuestId="69037" NpcId="1031562" XYZ="-515.9534, 45.73928, -235.4925"/>
+        </If>
+        <!-- Stripe for the Picking -->
+        <If Condition="GetQuestStep(69045) == 255">
+          <TurnIn ItemId="2002731" QuestId="69045" NpcId="1030424" XYZ="-531.6091, 46.6321, -257.435"/>
+        </If>
+        <!-- The Brother Lode -->
+        <If Condition="GetQuestStep(69036) == 255">
+          <TurnIn QuestId="69036" NpcId="1027929" XYZ="-522.2095, 46.49736, -275.8679"/>
+        </If>
+        <!-- I Drink, Therefore I Am (in Trouble) -->
+        <If Condition="GetQuestStep(69029) == 255">
+          <TurnIn QuestId="69029" NpcId="1030965" XYZ="-512.6879, 45.39423, -287.6478"/>
+        </If>
+        <!-- The Creaky Mill Gets the Grease -->
+        <If Condition="GetQuestStep(69034) &gt; 1">
+          <If Condition="GetQuestStep(69034) == 2">
+            <HandOver ItemId="2002742" NpcId="1027889" XYZ="-457.8165, 45.50231, -262.623" QuestId="69034" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(69034) == 3">
+            <UseTransport InteractDistance="3.0" NpcId="2010444" XYZ="-454.2458, 46.64673, -273.8842"/>
+            <UseItem ItemId="2002743" NpcId="2010443" XYZ="-450.187, 75.76099, -265.7664" QuestId="69034" StepId="3"/>
+            <UseTransport InteractDistance="3.0" NpcId="2010735" XYZ="-452.5063, 73.22803, -272.0837"/>
+          </If>
+          <If Condition="GetQuestStep(69034) == 255">
+            <TurnIn QuestId="69034" NpcId="1027889" XYZ="-457.8165, 45.50231, -262.623"/>
+          </If>
+        </If>
+        <!-- Prankster's Paradise -->
+        <If Condition="GetQuestStep(69032) == 255">
+          <SoTurnIn QuestId="69032" NpcId="1030975" DialogOption="1" XYZ="-462.3026, 45.52451, -254.2001"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(69157)">
+        <!-- Thy Well Be Done -->
+        <If Condition="not HasQuest(69067) and not IsQuestCompleted(69067)">
+          <FlyTo XYZ="-270.4354, -62.86976, 407.9884" Land="True"/>
+          <If Condition="IsQuestAcceptQualified(69067)">
+            <PickupQuest QuestId="69067" NpcId="1030957"/>
+          </If>
+        </If>
+        <!-- The Crystal Knaves -->
+        <If Condition="not HasQuest(69068) and not IsQuestCompleted(69068)">
+          <If Condition="IsQuestAcceptQualified(69068)">
+            <PickupQuest QuestId="69068" NpcId="1030958"/>
+          </If>
+        </If>
+        <!-- No Disassemble -->
+        <If Condition="not HasQuest(69066) and not IsQuestCompleted(69066)">
+          <If Condition="IsQuestAcceptQualified(69066)">
+            <PickupQuest QuestId="69066" NpcId="1030956"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69066) == 1">
+          <FlyTo XYZ="-537.43, -93.80287, 491.4567" Land="True"/>
+          <UseItem ItemId="2002738" NpcIds="2010386,2010387,2010388" XYZ="-537.43, -93.80287, 491.4567" Radius="95" QuestId="69066" StepId="1"/>
+        </If>
+        <!-- Thy Well Be Done -->
+        <If Condition="GetQuestStep(69067) == 1">
+          <FlyTo XYZ="-490.9302, -36.20276, 437.2493" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+          <UseObject NpcIds="2010389,2010390" XYZ="-490.9302, -36.20276, 437.2493" QuestId="69067" StepId="1"/>
+        </If>
+        <!-- The Crystal Knaves -->
+        <If Condition="GetQuestStep(69068) == 1">
+          <FlyTo XYZ="353.3041, -86.04444, 676.9099" Land="True"/>
+          <TalkTo NpcId="1030959" XYZ="350.6675, -85.36115, 681.2084" QuestId="69068" StepId="1"/>
+          <WaitWhile Condition="not GetQuestStep(69068) == 255"/>
+        </If>
+        <!-- No Disassemble -->
+        <If Condition="GetQuestStep(69066) == 255">
+          <FlyTo XYZ="-317.0364, -62.79966, 444.0388" Land="True"/>
+          <TurnIn ItemIds="2002736,2002737" QuestId="69066" NpcId="1030956" XYZ="-313.8934, -62.86976, 444.7242"/>
+        </If>
+        <!-- The Crystal Knaves -->
+        <If Condition="GetQuestStep(69068) == 255">
+          <TurnIn QuestId="69068" NpcId="1030958" XYZ="-267.567, -62.86976, 428.9158"/>
+        </If>
+        <!-- Thy Well Be Done -->
+        <If Condition="GetQuestStep(69067) == 255">
+          <TurnIn QuestId="69067" NpcId="1030957" XYZ="-270.4662, -62.86976, 414.9386"/>
+        </If>
+      </If>
+    </If>
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="68886">
+      <Hotspots>
+        <Hotspot XYZ="666.7825, 37.78077, 167.7211" Radius="40"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8536"/>
+        <TargetMob Id="8967" Weight="999"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="69022">
+      <Hotspots>
+        <Hotspot XYZ="-426.4155, -7.010486, -660.6764" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8549"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="69032">
+      <Hotspots>
+        <Hotspot XYZ="-209.186, 23.9368, -230.9453" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8561"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="69034">
+      <Hotspots>
+        <Hotspot XYZ="-467.4601, 27.25605, -150.4692" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8557"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "请手动完成下一个任务。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68899">
+      <![CDATA[
+        await CommonTasks.StopAndDismount();
+        InventoryManager.FilledSlots.FirstOrDefault(slot => slot.RawItemId == 2002622).UseItem();
+        await Coroutine.Wait(5000, () => Core.Me.IsCasting);
+        await Coroutine.Wait(15000, () => !Core.Me.IsCasting);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68902">
+      <![CDATA[
+        await CommonTasks.StopAndDismount();    
+        GameObjectManager.GetObjectByNPCId(1030511).Target();    
+        ChatManager.SendChat("/doubt");
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69031">
+      <![CDATA[
+        var _activeId = 0u;
+        var _emoteDict = new Dictionary<uint, string>()
+        {
+            { 1030969, "/psych" },
+            { 1030970, "/rally" },
+            { 1030971, "/comfort" },
+        };
+
+        if (ConditionParser.GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 0)
+        {
+          _activeId = 1030971;
+        }
+        else if (ConditionParser.GetQuestById(69031).GetTodoArgs(1, 0).Item1 == 1)
+        {
+          _activeId = 1030970;
+        }
+        else
+        {
+          _activeId = 1030969;
+        }
+
+        await CommonTasks.StopAndDismount();
+        GameObjectManager.GetObjectByNPCId(_activeId).Target();
+        ChatManager.SendChat(_emoteDict[_activeId]);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69046">
+      <![CDATA[
+        await CommonTasks.StopAndDismount();    
+        ChatManager.SendChat("/kneel");
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="2002724">
+      <![CDATA[
+        await CommonTasks.StopAndDismount();
+        await Coroutine.Sleep(3000);
+        InventoryManager.FilledSlots.FirstOrDefault(slot => slot.RawItemId == 2002724).UseItem();
+        await Coroutine.Wait(5000, () => Core.Me.IsCasting);
+        await Coroutine.Wait(15000, () => !Core.Me.IsCasting);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -3,7 +3,6 @@ using Clio.Utilities;
 using Clio.XmlEngine;
 using ff14bot.Behavior;
 using ff14bot.Managers;
-using ff14bot.Navigation;
 using ff14bot.Objects;
 using ff14bot.Pathing;
 using ff14bot.RemoteWindows;
@@ -20,7 +19,6 @@ using Action = TreeSharp.Action;
 namespace ff14bot.NeoProfiles.Tags
 {
     [XmlElement("SoSimpleDuty")]
-
     public class SoSimpleDuty : SimpleDutyTag
     {
         protected SoSimpleDuty()
@@ -51,6 +49,7 @@ namespace ff14bot.NeoProfiles.Tags
         private Composite _combatInteractLogic;
         private HashSet<uint> interactNpcIds;
         private HashSet<BagSlot> usedSlots;
+
         protected override void OnStart()
         {
             interactNpcIds = new HashSet<uint>();
@@ -106,8 +105,9 @@ namespace ff14bot.NeoProfiles.Tags
         private bool HasCheckpoints => Checkpoints.Count != 0;
         private Vector3 CurrentCheckpoint => HasCheckpoints ? Checkpoints.First().XYZ : Vector3.Zero;
         private GameObject InteractableTarget => GameObjectManager.GetObjectsOfType<GameObject>(true, false).Where(obj => obj.IsVisible && obj.IsTargetable && interactNpcIds.Contains(obj.NpcId)).FirstOrDefault();
-        private GameObject UseItemTarget => GameObjectManager.GetObjectByNPCId(InteractNpcId);
-        private BagSlot Item => UseItem ? InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemIds.FirstOrDefault()) : null;
+        //private GameObject UseItemTarget => GameObjectManager.GetObjectByNPCId(InteractNpcId);
+        //private BagSlot Item => UseItem ? InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == ItemIds.FirstOrDefault()) : null;
+
         protected override Composite CreateBehavior()
         {
             return new PrioritySelector(
@@ -253,11 +253,15 @@ namespace ff14bot.NeoProfiles
     [XmlElement("InteractObject")]
     public class InteractObject
     {
-        public InteractObject() { }
+        public InteractObject()
+        {
+        }
 
         public string Name { get; set; }
+
         [XmlAttribute("Name", true)]
         public string ObjectName { get; set; }
+
         [XmlAttribute("NpcId", true)]
         public int NpcId { get; set; }
     }
@@ -265,9 +269,12 @@ namespace ff14bot.NeoProfiles
     [XmlElement("CheckPoint")]
     public class CheckPoint
     {
-        public CheckPoint() { }
+        public CheckPoint()
+        {
+        }
 
         public string Name { get; set; }
+
         [XmlAttribute("XYZ", true)]
         public Vector3 XYZ { get; set; }
     }

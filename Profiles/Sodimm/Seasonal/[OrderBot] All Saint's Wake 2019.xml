@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] All Saint's Wake 2019
+Authors:  TuckMeIntoBread
+Notes:    ShinraEx routine seems to force dismounting off of the circus ahriman. Use a different CR for the duration of this profile.
+-->
+<Profile>
+  <Name>[OrderBot] All Saint's Wake 2019</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Fear and Delight -->
+    <If Condition="not HasQuest(69204) and not IsQuestCompleted(69204)">
+      <GetTo ZoneId="133" XYZ="-41.6398, 7.080279, -135.4984"/>
+      <If Condition="IsQuestAcceptQualified(69204)">
+        <PickupQuest QuestId="69204" NpcId="1031537" XYZ="-41.76398, 7.159529, -137.1024"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 1">
+      <If Condition="not IsOnMap(133)">
+        <GetTo ZoneId="133" XYZ="-49.86418, 6.499993, -91.09235"/>
+      </If>
+      <TalkTo NpcId="1031538" XYZ="-50.00385, 6.5, -89.7384" QuestId="69204" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 2">
+      <GetTo ZoneId="148" XYZ="-16.05516, 2.749887, -245.9912"/>
+      <TalkTo NpcId="1031539" XYZ="-17.80731, 2.611959, -245.3803" QuestId="69204" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 3">
+      <GetTo ZoneId="148" XYZ="-0.6524917, 0.9295911, -175.6875"/>
+      <TalkTo NpcId="1031541" XYZ="-0.9613647, 0.972337, -174.426" QuestId="69204" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 4">
+      <If Condition="GetQuestById(69204).QuestI8AH == 0">
+        <GetTo ZoneId="148" XYZ="-53.7824, -5.461173, -92.31524"/>
+        <SoUseSpell SpellId="17390" NpcId="1031543" XYZ="-55.40558, -5.127336, -92.14923" QuestId="69204" Condition="GetQuestById(69204).GetTodoArgs(4, 0).Item1 == 0"/>
+      </If>
+      <If Condition="GetQuestById(69204).QuestI8AH == 1">
+        <GetTo ZoneId="148" XYZ="139.4051, -7.1246, 36.59755"/>
+        <SoUseSpell SpellId="17390" NpcId="1031544" XYZ="141.0391, -6.862002, 35.44666" QuestId="69204" Condition="GetQuestById(69204).GetTodoArgs(4, 0).Item1 == 1"/>
+      </If>
+      <If Condition="GetQuestById(69204).QuestI8AH == 2">
+        <GetTo ZoneId="148" XYZ="242.0961, -8.207281, 30.25418"/>
+        <SoUseSpell SpellId="17390" NpcId="1031545" XYZ="241.9928, -7.786803, 32.18127" QuestId="69204" Condition="GetQuestById(69204).GetTodoArgs(4, 0).Item1 == 2"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 5">
+      <GetTo ZoneId="148" XYZ="0.4497943, 1.016865, -175.7736"/>
+      <TalkTo NpcId="1031541" XYZ="-0.9613647, 0.972337, -174.426" QuestId="69204" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 6">
+      <GetTo ZoneId="133" XYZ="-49.98381, 6.499994, -90.71084"/>
+      <TalkTo NpcId="1031538" XYZ="-50.00385, 6.5, -89.7384" QuestId="69204" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(69204) and not IsQuestCompleted(69204) and GetQuestStep(69204) == 255">
+      <GetTo ZoneId="133" XYZ="-42.01416, 7.084012, -135.5999"/>
+      <TurnIn QuestId="69204" NpcId="1031537" XYZ="-41.76398, 7.159529, -137.1024"/>
+    </If>
+    <!-- Haunting Grounds -->
+    <If Condition="not HasQuest(69206) and not IsQuestCompleted(69206) and IsQuestCompleted(69204)">
+      <GetTo ZoneId="133" XYZ="-41.8896, 7.067969, -135.2414"/>
+      <If Condition="IsQuestAcceptQualified(69206)">
+        <PickupQuest QuestId="69206" NpcId="1031537" XYZ="-41.76398, 7.159529, -137.1024"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69206) and not IsQuestCompleted(69206) and GetQuestStep(69206) == 255">
+      <GetTo ZoneId="133" XYZ="-54.41576, 6.499972, -95.60203"/>
+      <TurnIn QuestId="69206" NpcId="1031548" XYZ="-55.22247, 6.499977, -94.56018"/>
+    </If>
+  </Order>
+</Profile>

@@ -1,0 +1,961 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Dungeons
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Dungeons</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <RunCode Name="Disable_Flight"/>
+    <!-- [Halatali] Hallo Halatali -->
+    <If Condition="IsQuestCompleted(66110) and not HasQuest(66233) and not IsQuestCompleted(66233)">
+      <GetTo ZoneId="140" XYZ="-470.8401, 23.03386, -354.9803"/>
+      <If Condition="IsQuestAcceptQualified(66233)">
+        <PickupQuest QuestId="66233" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66233) and not IsQuestCompleted(66233) and GetQuestStep(66233) == 255">
+      <GetTo ZoneId="145" XYZ="-331.6911, -22.47779, 433.6165"/>
+      <TurnIn QuestId="66233" NpcId="1004582" XYZ="-331.136, -22.47656, 434.8668"/>
+    </If>
+    <!-- [The Sunken Temple of Qarn] Braving New Depths -->
+    <If Condition="IsQuestCompleted(66233) and not HasQuest(66300) and not IsQuestCompleted(66300)">
+      <GetTo ZoneId="140" XYZ="-470.8016, 23.03442, -355.1142"/>
+      <If Condition="IsQuestAcceptQualified(66300)">
+        <PickupQuest QuestId="66300" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66300) and not IsQuestCompleted(66300) and GetQuestStep(66300) == 255">
+      <GetTo ZoneId="146" XYZ="183.9238, 13.79055, -443.7859"/>
+      <TurnIn QuestId="66300" NpcId="1006220" XYZ="185.748, 13.7212, -443.1983"/>
+    </If>
+    <!-- [Cutters Cry] Dishonor Before Death -->
+    <If Condition="IsQuestCompleted(66300) and not HasQuest(66457) and not IsQuestCompleted(66457)">
+      <GetTo ZoneId="131" XYZ="139.0793, 4, -53.96544"/>
+      <If Condition="IsQuestAcceptQualified(66457)">
+        <PickupQuest QuestId="66457" NpcId="1006440" XYZ="140.3982, 4, -54.1543"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66457) and not IsQuestCompleted(66457) and GetQuestStep(66457) == 1">
+      <GetTo ZoneId="141" XYZ="-275.5146, -4.011608, -368.8465"/>
+      <UseItem ItemId="2000715" NpcId="2001019" XYZ="-276.6003, -3.799561, -368.7648" QuestId="66457" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66457) and not IsQuestCompleted(66457) and GetQuestStep(66457) == 255">
+      <GetTo ZoneId="141" XYZ="-281.0194, -5.787175, -372.8634"/>
+      <TurnIn QuestId="66457" NpcId="1007818" XYZ="-282.887, -5.987557, -372.6406"/>
+    </If>
+    <!-- [The Dzemael Darkhold] Fort of Fear -->
+    <If Condition="IsQuestCompleted(66457) and not HasQuest(66515) and not IsQuestCompleted(66515)">
+      <GetTo ZoneId="155" XYZ="165.889, 223.0354, 365.7809"/>
+      <If Condition="IsQuestAcceptQualified(66515)">
+        <PickupQuest QuestId="66515" NpcId="1006382" XYZ="165.2094, 223, 367.7272"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66515) and not IsQuestCompleted(66515) and GetQuestStep(66515) == 255">
+      <GetTo ZoneId="155" XYZ="-80.56858, 232.9374, 318.9876"/>
+      <TurnIn QuestId="66515" NpcId="1006516" XYZ="-82.68872, 233.2374, 317.1892"/>
+    </If>
+    <!-- [Aurum Vale] Going for Gold -->
+    <If Condition="IsQuestCompleted(66515) and not HasQuest(66550) and not IsQuestCompleted(66550)">
+      <GetTo ZoneId="140" XYZ="-470.3956, 23.03522, -355.3181"/>
+      <If Condition="IsQuestAcceptQualified(66550)">
+        <PickupQuest QuestId="66550" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66550) and not IsQuestCompleted(66550) and GetQuestStep(66550) == 255">
+      <GetTo ZoneId="155" XYZ="-352.5094, 214.7915, 691.0483"/>
+      <TurnIn QuestId="66550" NpcId="1007625" XYZ="-354.1772, 214.6081, 692.6528"/>
+    </If>
+    <!-- [Wanderers Palace] Trauma Queen -->
+    <If Condition="IsQuestCompleted(66550) and not HasQuest(66406) and not IsQuestCompleted(66406)">
+      <GetTo ZoneId="140" XYZ="-500.1651, 19.0513, -375.3953"/>
+      <If Condition="IsQuestAcceptQualified(66406)">
+        <PickupQuest QuestId="66406" NpcId="1006340" XYZ="-498.8327, 19.02795, -376.6995"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66406) and not IsQuestCompleted(66406) and GetQuestStep(66406) == 255">
+      <GetTo ZoneId="139" XYZ="210.0426, -2.048971, 78.49314"/>
+      <TurnIn QuestId="66406" NpcId="1006356" XYZ="208.5145, -2.048988, 78.50769"/>
+    </If>
+    <!-- [Amdapor Keep] Ghosts of Amdapor -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66406) and not HasQuest(66671) and not IsQuestCompleted(66671)">
+      <GetTo ZoneId="140" XYZ="-470.821, 23.03532, -355.408"/>
+      <If Condition="not IsQuestAcceptQualified(66671)">
+        <LogMessage Message="[OrderBot] Unlock Dungeons: You must complete Aurum Vale to proceed."/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66671)">
+        <PickupQuest QuestId="66671" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66671) and not IsQuestCompleted(66671) and GetQuestStep(66671) == 255">
+      <GetTo ZoneId="153" XYZ="160.7478, 37.67024, 174.0806"/>
+      <TurnIn QuestId="66671" NpcId="1007574" XYZ="163.4088, 37.62593, 175.0363"/>
+    </If>
+    <!-- [Pharos Sirius] Sirius Business -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66671) and not HasQuest(66744) and not IsQuestCompleted(66744)">
+      <GetTo ZoneId="138" XYZ="251.7569, -25.00004, 261.6362"/>
+      <If Condition="IsQuestAcceptQualified(66744)">
+        <PickupQuest QuestId="66744" NpcId="1005525" XYZ="251.2092, -25.00004, 262.9282"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66744) and not IsQuestCompleted(66744) and GetQuestStep(66744) == 1">
+      <GetTo ZoneId="138" XYZ="296.105, -40.425, 381.3951"/>
+      <TalkTo NpcId="1005398" XYZ="295.7656, -40.425, 382.5284" QuestId="66744" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66744) and not IsQuestCompleted(66744) and GetQuestStep(66744) == 255">
+      <GetTo ZoneId="138" XYZ="317.5742, -36.325, 351.0974"/>
+      <UseTransport InteractDistance="3.0" NpcId="1003584" DialogOption="2" XYZ="317.4333, -36.325, 352.8649"/>
+      <TurnIn QuestId="66744" NpcId="1006503" XYZ="-266.5904, -40.04039, 461.7227"/>
+    </If>
+    <!-- Why So Sirius -->
+    <If Condition="IsQuestCompleted(66744) and not HasQuest(66745) and not IsQuestCompleted(66745)">
+      <GetTo ZoneId="138" XYZ="252.0066, -25.00004, 262.0238"/>
+      <If Condition="not IsQuestAcceptQualified(66745)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66745)">
+        <PickupQuest QuestId="66745" NpcId="1005525" XYZ="251.2092, -25.00004, 262.9282"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66745) and not IsQuestCompleted(66745) and GetQuestStep(66745) == 255">
+      <GetTo ZoneId="138" XYZ="296.8596, -40.425, 380.9422"/>
+      <TurnIn QuestId="66745" NpcId="1005398" XYZ="295.7656, -40.425, 382.5284"/>
+    </If>
+    <!-- [Copperbell Mines (Hard)] Out of Sight, Out of Mine -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66745) and not HasQuest(66752) and not IsQuestCompleted(66752)">
+      <GetTo ZoneId="156" XYZ="26.82062, 21.25273, -636.9411"/>
+      <If Condition="not IsQuestAcceptQualified(66752)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66752)">
+        <PickupQuest QuestId="66752" NpcId="1005524" XYZ="27.29834, 21.2714, -635.9808"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66752) and not IsQuestCompleted(66752) and GetQuestStep(66752) == 255">
+      <GetTo ZoneId="140" XYZ="325.1208, 63, -230.628"/>
+      <TurnIn QuestId="66752" NpcId="1002285" XYZ="326.4667, 63, -231.6473"/>
+    </If>
+    <!-- [Haukke Manor (Hard)] Maniac Manor -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66752) and not HasQuest(66751) and not IsQuestCompleted(66751)">
+      <GetTo ZoneId="156" XYZ="34.59256, 21.25268, -643.4342"/>
+      <If Condition="not IsQuestAcceptQualified(66751)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66751)">
+        <PickupQuest QuestId="66751" NpcId="1005523" XYZ="35.44666, 21.25268, -643.7629"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66751) and not IsQuestCompleted(66751) and GetQuestStep(66751) == 1">
+      <GetTo ZoneId="133" XYZ="35.15276, 16.26963, -334.0671"/>
+      <TalkTo NpcId="1006263" XYZ="36.81995, 16.35147, -334.5846" QuestId="66751" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66751) and not IsQuestCompleted(66751) and GetQuestStep(66751) == 255">
+      <GetTo ZoneId="148" XYZ="-574.2791, 67.00605, 69.46893"/>
+      <TurnIn QuestId="66751" NpcId="2003023" XYZ="-576.1349, 68.13147, 69.41321"/>
+    </If>
+    <!-- [The Lost City of Amdapor] One Night in Amdapor -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66751) and not HasQuest(66925) and not IsQuestCompleted(66925)">
+      <GetTo ZoneId="133" XYZ="-257.9622, -5.774355, -26.26284"/>
+      <If Condition="IsQuestAcceptQualified(66925)">
+        <PickupQuest QuestId="66925" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 1">
+      <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
+      <RunCode Name="Camp_Tranquil_Jump"/>
+      <TalkTo NpcId="1006751" XYZ="-139.1237, 8.535714, 280.539" QuestId="67950" StepId="1"/>
+      <RunCode Name="Camp_Tranquil_Jump"/>
+    </If>
+    <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 255">
+      <GetTo ZoneId="153" XYZ="-358.264, 0.9375556, 458.9185"/>
+      <TurnIn QuestId="66925" NpcId="1008543" XYZ="-360.0062, 1.264419, 459.8306"/>
+    </If>
+    <!-- [Halatali (Hard)] This Times for Fun -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66925) and not HasQuest(66946) and not IsQuestCompleted(66946)">
+      <GetTo ZoneId="156" XYZ="26.55988, 21.25273, -637.308"/>
+      <If Condition="not IsQuestAcceptQualified(66946)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66946)">
+        <PickupQuest QuestId="66946" NpcId="1005524" XYZ="27.29834, 21.2714, -635.9808"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66946) and not IsQuestCompleted(66946) and GetQuestStep(66946) == 255">
+      <GetTo ZoneId="145" XYZ="-338.7453, -22.49743, 430.7544"/>
+      <TurnIn QuestId="66946" NpcId="1008697" XYZ="-339.1013, -22.49097, 431.3878"/>
+    </If>
+    <!-- [Brayflox's Longstop (Hard)] Curds and Slay -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66946) and not HasQuest(66947) and not IsQuestCompleted(66947)">
+      <GetTo ZoneId="156" XYZ="32.51, 21.27503, -636.2501"/>
+      <If Condition="not IsQuestAcceptQualified(66947)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(66947)">
+        <PickupQuest QuestId="66947" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 1">
+      <GetTo ZoneId="137" XYZ="559.1483, 20.75329, 455.952"/>
+      <TalkTo NpcId="1006266" XYZ="560.3571, 20.75329, 455.8937" QuestId="66947" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 255">
+      <GetTo ZoneId="137" XYZ="-332.7971, 69.24327, 155.4887"/>
+      <TurnIn QuestId="66947" NpcId="1006268" XYZ="-334.6151, 69.69995, 153.7957"/>
+    </If>
+    <!-- [Hullbreaker Isle] King of the Hull -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66947) and not HasQuest(67062) and not IsQuestCompleted(67062)">
+      <GetTo ZoneId="156" XYZ="30.67139, 21.26914, -636.8782"/>
+      <If Condition="IsQuestAcceptQualified(67062)">
+        <PickupQuest QuestId="67062" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 1">
+      <GetTo ZoneId="128" XYZ="-10.15044, 32, -39.32353"/>
+      <TalkTo NpcId="1009231" XYZ="-9.140198, 31.99998, -40.08551" QuestId="67062" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 2">
+      <GetTo ZoneId="135" XYZ="274.0709, 4.403121, 727.8066"/>
+      <TalkTo NpcId="1009382" XYZ="275.1659, 4.403121, 729.1523" QuestId="67062" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 255">
+      <GetTo ZoneId="128" XYZ="-10.35705, 32, -38.90331"/>
+      <TurnIn ItemId="2001349" QuestId="67062" NpcId="1009231" XYZ="-9.140198, 31.99998, -40.08551"/>
+    </If>
+    <!-- [The Stone Vigil (Hard)] Blood for Stone -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(67062) and not HasQuest(67061) and not IsQuestCompleted(67061)">
+      <GetTo ZoneId="156" XYZ="23.17937, 21.25273, -649.3959"/>
+      <If Condition="IsQuestAcceptQualified(67061)">
+        <PickupQuest QuestId="67061" NpcId="1006977" XYZ="23.36151, 21.25273, -650.2938"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 1">
+      <GetTo ZoneId="155" XYZ="-431.6497, 233.4727, -200.7168"/>
+      <TalkTo NpcId="1006444" XYZ="-432.9748, 233.4727, -199.6643" QuestId="67061" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 2">
+      <GetTo ZoneId="155" XYZ="-672.3635, 205.9623, -513.5798"/>
+      <TalkTo NpcId="1006490" XYZ="-673.2128, 205.9598, -515.7702" QuestId="67061" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 255">
+      <GetTo ZoneId="155" XYZ="-431.3645, 233.4727, -201.5046"/>
+      <TurnIn QuestId="67061" NpcId="1006444" XYZ="-432.9748, 233.4727, -199.6643"/>
+    </If>
+    <!-- [The Tam-Tara Deepcroft (Hard)] Corpse Groom -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(67061) and not HasQuest(67060) and not IsQuestCompleted(67060)">
+      <GetTo ZoneId="130" XYZ="51.80443, 4.099995, -151.1039"/>
+      <If Condition="IsQuestAcceptQualified(67060)">
+        <PickupQuest QuestId="67060" NpcId="1009366" XYZ="52.75037, 4.099995, -152.9107"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 1">
+      <GetTo ZoneId="145" XYZ="-410.3257, -30.96253, 37.59611"/>
+      <UseObject NpcId="2004329" XYZ="-409.0792, -30.47229, 36.75891" QuestId="67060" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 2">
+      <GetTo ZoneId="148" XYZ="-112.0547, -39.63583, 337.7899"/>
+      <TalkTo NpcId="1001173" XYZ="-113.2372, -39.73311, 338.6434" QuestId="67060" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 255">
+      <GetTo ZoneId="148" XYZ="-95.1187, -40.04695, 322.5074"/>
+      <TurnIn QuestId="67060" NpcId="1009367" XYZ="-94.52972, -40.05186, 324.5747"/>
+    </If>
+    <!-- [Sastasha (Hard)] It's Definitely Pirates -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(67060) and not HasQuest(65630) and not IsQuestCompleted(65630)">
+      <GetTo ZoneId="156" XYZ="32.08445, 21.27369, -636.3706"/>
+      <If Condition="IsQuestAcceptQualified(65630)">
+        <PickupQuest QuestId="65630" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 1">
+      <GetTo ZoneId="128" XYZ="-3.679293, 47.99985, -263.7214"/>
+      <TalkTo NpcId="1003282" XYZ="-3.03656, 48.168, -261.7075" QuestId="65630" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 2">
+      <GetTo ZoneId="138" XYZ="336.0811, 10.48328, 5.218501"/>
+      <TalkTo NpcId="1005064" XYZ="335.0117, 10.59511, 3.92157" QuestId="65630" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 4">
+      <GetTo ZoneId="138" XYZ="336.0192, 10.48926, 5.162549"/>
+      <TalkTo NpcId="1005064" XYZ="335.0117, 10.59511, 3.92157" QuestId="65630" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 255">
+      <GetTo ZoneId="138" XYZ="208.6451, -24.99569, 242.1597"/>
+      <TurnIn QuestId="65630" NpcId="1010359" XYZ="206.6833, -24.99666, 242.0538"/>
+    </If>
+    <!-- [The Sunken Temple of Qarn (Hard)] The Wrath of Qarn -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(65630) and not HasQuest(65632) and not IsQuestCompleted(65632)">
+      <GetTo ZoneId="156" XYZ="26.70581, 21.25273, -637.3229"/>
+      <If Condition="not IsQuestAcceptQualified(65632)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(65632)">
+        <PickupQuest QuestId="65632" NpcId="1005524" XYZ="27.29834, 21.2714, -635.9808"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 1">
+      <GetTo ZoneId="131" XYZ="-10.54363, 7.5, 147.9428"/>
+      <TalkTo NpcId="1010365" XYZ="-10.63556, 7.499994, 146.6849" QuestId="65632" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 2">
+      <GetTo ZoneId="146" XYZ="184.176, 13.79574, -443.5914"/>
+      <TalkTo NpcId="1006220" XYZ="185.748, 13.7212, -443.1983" QuestId="65632" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 255">
+      <GetTo ZoneId="131" XYZ="-9.669962, 7.5, 147.9098"/>
+      <TurnIn QuestId="65632" NpcId="1010365" XYZ="-10.63556, 7.499994, 146.6849"/>
+    </If>
+    <!-- [Wanderers Palace (Hard)] Not Easy Being Green -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(65632) and not HasQuest(65967) and not IsQuestCompleted(65967)">
+      <GetTo ZoneId="156" XYZ="31.75154, 21.25272, -637.0359"/>
+      <If Condition="not IsQuestAcceptQualified(65967)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(65967)">
+        <PickupQuest QuestId="65967" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65967) and not IsQuestCompleted(65967) and GetQuestStep(65967) == 1">
+      <GetTo ZoneId="139" XYZ="426.912, 4.109605, 75.42585"/>
+      <TalkTo NpcId="1011262" XYZ="426.2301, 4.109605, 73.99097" QuestId="65967" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65967) and not IsQuestCompleted(65967) and GetQuestStep(65967) == 2">
+      <GetTo ZoneId="139" XYZ="210.1707, -2.048962, 78.31591"/>
+      <TalkTo NpcId="1006356" XYZ="208.5145, -2.048988, 78.50769" QuestId="65967" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(65967) and not IsQuestCompleted(65967) and GetQuestStep(65967) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(65967) and not IsQuestCompleted(65967) and GetQuestStep(65967) == 255">
+      <GetTo ZoneId="139" XYZ="426.6912, 4.109605, 75.09431"/>
+      <TurnIn QuestId="65967" NpcId="1011262" XYZ="426.2301, 4.109605, 73.99097"/>
+    </If>
+    <!-- [Amdapor Keep (Hard)] For Keep's Sake -->
+    <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(65967) and not HasQuest(65966) and not IsQuestCompleted(65966)">
+      <GetTo ZoneId="156" XYZ="34.74507, 21.25268, -643.2819"/>
+      <If Condition="not IsQuestAcceptQualified(65966)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(65966)">
+        <PickupQuest QuestId="65966" NpcId="1005523" XYZ="35.44666, 21.25268, -643.7629"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65966) and not IsQuestCompleted(65966) and GetQuestStep(65966) == 1">
+      <GetTo ZoneId="153" XYZ="-217.8426, 20.86044, 337.2366"/>
+      <TalkTo NpcId="1002755" XYZ="-218.7076, 20.92322, 336.08" QuestId="65966" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65966) and not IsQuestCompleted(65966) and GetQuestStep(65966) == 2">
+      <GetTo ZoneId="153" XYZ="161.1711, 37.65485, 174.6615"/>
+      <TalkTo NpcId="1007574" XYZ="163.4088, 37.62593, 175.0363" QuestId="65966" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(65966) and not IsQuestCompleted(65966) and GetQuestStep(65966) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(65966) and not IsQuestCompleted(65966) and GetQuestStep(65966) == 255">
+      <GetTo ZoneId="153" XYZ="-218.5296, 20.90611, 338.529"/>
+      <TurnIn QuestId="65966" NpcId="1002755" XYZ="-218.7076, 20.92322, 336.08"/>
+    </If>
+    <!-- [Dusk Vigil] For All the Nights to Come -->
+    <If Condition="IsQuestCompleted(67142) and IsQuestCompleted(65966) and not HasQuest(67647) and not IsQuestCompleted(67647)">
+      <GetTo ZoneId="397" XYZ="-279.5605, 127.0813, 13.59576"/>
+      <If Condition="IsQuestAcceptQualified(67647)">
+        <PickupQuest QuestId="67647" NpcId="1011911" XYZ="-279.5605, 127.0813, 13.59576"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67647) and not IsQuestCompleted(67647) and GetQuestStep(67647) == 1">
+      <GetTo ZoneId="397" XYZ="-87.81573, 87.189, -735.0424"/>
+      <TalkTo NpcId="1013746" XYZ="-87.81573, 87.189, -735.0424" QuestId="67647" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67647) and not IsQuestCompleted(67647) and GetQuestStep(67647) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67647) and not IsQuestCompleted(67647) and GetQuestStep(67647) == 255">
+      <GetTo ZoneId="397" XYZ="-279.5605, 127.0813, 13.59576"/>
+      <TurnIn QuestId="67647" NpcId="1011911" ItemId="2001883" XYZ="-279.5605, 127.0813, 13.59576"/>
+    </If>
+    <!-- [Neverreap] Reap What You Sow -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67647) and not HasQuest(67648) and not IsQuestCompleted(67648)">
+      <GetTo ZoneId="401" XYZ="-537.6875, -37.09393, -383.3758"/>
+      <If Condition="IsQuestAcceptQualified(67648)">
+        <PickupQuest QuestId="67648" NpcId="1012066" XYZ="-539.6353, -37.0904, -381.7655"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67648) and not IsQuestCompleted(67648) and GetQuestStep(67648) == 1">
+      <If Condition="not IsOnMap(401)">
+        <GetTo ZoneId="401" XYZ="-625.5765, -51.05184, -421.227"/>
+      </If>
+      <If Condition="not WorldManager.CanFly">
+        <LogMessage Message="[OrderBot] Unlock Dungeons: You do not have flying unlocked for this zone, we are unable to get to the next objective."/>
+      </If>
+      <If Condition="WorldManager.CanFly">
+        <FlyTo XYZ="879.8949, -97.81962, -738.1026" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+        <TalkTo NpcId="1013745" XYZ="879.4537, -97.81962, -740.0168" QuestId="67648" StepId="1"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67648) and not IsQuestCompleted(67648) and GetQuestStep(67648) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67648) and not IsQuestCompleted(67648) and GetQuestStep(67648) == 255">
+      <GetTo ZoneId="401" XYZ="-537.2151, -37.10611, -384.6971"/>
+      <TurnIn ItemId="2001884" QuestId="67648" NpcId="1012066" XYZ="-539.6353, -37.0904, -381.7655"/>
+    </If>
+    <!-- [The Fractal Continuum] Do it for Gilly -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67648) and not HasQuest(67649) and not IsQuestCompleted(67649)">
+      <GetTo ZoneId="419" XYZ="168.0129, -14.34896, 49.06581"/>
+      <If Condition="IsQuestAcceptQualified(67649)">
+        <PickupQuest QuestId="67649" NpcId="1012153" XYZ="168.4442, -14.34896, 49.57654"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67649) and not IsQuestCompleted(67649) and GetQuestStep(67649) == 1">
+      <GetTo ZoneId="402" XYZ="-710.4073, -187.544, -589.1729"/>
+      <FlyTo XYZ="-362.6048, 255.4999, -17.99877" Land="True" Dismount="True"/>
+      <NoCombatMoveTo XYZ="-63.58441, 271.2328, -4.898254"/>
+      <TalkTo NpcId="1015104" XYZ="-63.58441, 271.2328, -4.898254" QuestId="67649" StepId="1"/>
+      <MoveTo XYZ="-88.77024, 271.2, 0.1591918"/>
+    </If>
+    <If Condition="HasQuest(67649) and not IsQuestCompleted(67649) and GetQuestStep(67649) == 2">
+      <If Condition="not IsOnMap(402)">
+        <GetTo ZoneId="402" XYZ="-710.4073, -187.544, -589.1729"/>
+      </If>
+      <FlyTo XYZ="206.9076, 21.78384, 557.7121" Land="True" Dismount="True"/>
+      <UseObject NpcId="2005561" XYZ="206.4087, 21.7746, 558.7701" Condition="HasQuest(67649) and not IsQuestCompleted(67649) and GetQuestStep(67649) == 2"/>
+    </If>
+    <If Condition="HasQuest(67649) and not IsQuestCompleted(67649) and GetQuestStep(67649) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67649) and not IsQuestCompleted(67649) and GetQuestStep(67649) == 255">
+      <GetTo ZoneId="402" XYZ="-710.4073, -187.544, -589.1729"/>
+      <FlyTo XYZ="-362.6048, 255.4999, -17.99877" Land="True" Dismount="True"/>
+      <NoCombatMoveTo XYZ="-63.58441, 271.2328, -4.898254"/>
+      <TurnIn ItemId="2001882" QuestId="67649" NpcId="1015104" XYZ="-63.58441, 271.2328, -4.898254"/>
+    </If>
+    <!-- [Saint Mocianne's Arboretum] An Overgrown Ambition -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67649) and not HasQuest(67738) and not IsQuestCompleted(67738)">
+      <GetTo ZoneId="399" XYZ="-509.4465, 153.3197, -147.8683"/>
+      <If Condition="IsQuestAcceptQualified(67738)">
+        <PickupQuest QuestId="67738" NpcId="1016112" XYZ="-510.338, 153.3074, -146.9291"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67738) and not IsQuestCompleted(67738) and GetQuestStep(67738) == 1">
+      <GetTo ZoneId="399" XYZ="-614.6782, 146.8684, 61.99205"/>
+      <TalkTo NpcId="1016109" XYZ="-617.2732, 146.8684, 62.30261" QuestId="67738" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67738) and not IsQuestCompleted(67738) and GetQuestStep(67738) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67738) and not IsQuestCompleted(67738) and GetQuestStep(67738) == 3">
+      <GetTo ZoneId="399" XYZ="-616.1173, 146.8684, 62.42121"/>
+      <TalkTo NpcId="1016109" XYZ="-617.2732, 146.8684, 62.30261" QuestId="67738" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67738) and not IsQuestCompleted(67738) and GetQuestStep(67738) == 255">
+      <GetTo ZoneId="478" XYZ="-17.42116, 206.0376, 29.98606"/>
+      <TurnIn QuestId="67738" NpcId="1016110" XYZ="-19.36377, 206.4994, 31.72351"/>
+    </If>
+    <!-- [Pharos Sirius (Hard)] Things Are Getting Sirius -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67738) and not HasQuest(67737) and not IsQuestCompleted(67737)">
+      <GetTo ZoneId="128" XYZ="74.41082, 40, 77.44663"/>
+      <If Condition="not IsQuestAcceptQualified(67737)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(67737)">
+        <PickupQuest QuestId="67737" NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67737) and not IsQuestCompleted(67737) and GetQuestStep(67737) == 1">
+      <GetTo ZoneId="128" XYZ="-21.36098, 91.99998, -10.02724"/>
+      <TalkTo NpcId="1016103" XYZ="-23.02588, 91.99998, -9.567444" QuestId="67737" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67737) and not IsQuestCompleted(67737) and GetQuestStep(67737) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67737) and not IsQuestCompleted(67737) and GetQuestStep(67737) == 3">
+      <If Condition="not IsOnSubMap(173)">
+        <GetTo ZoneId="138" XYZ="316.957, -36.325, 350.6864"/>
+        <UseTransport InteractDistance="3.0" NpcId="1003584" XYZ="317.4333, -36.325, 352.8649" DialogOption="2"/>
+      </If>
+      <TalkTo NpcId="1016105" XYZ="-267.9943, -40.89177, 443.8696" QuestId="67737" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(67737) and not IsQuestCompleted(67737) and GetQuestStep(67737) == 255">
+      <GetTo ZoneId="138" XYZ="244.372, -25.00065, 243.1409"/>
+      <TurnIn ItemId="2001900" QuestId="67737" NpcId="1016104" XYZ="241.474, -24.99944, 244.6783"/>
+    </If>
+    <!-- [The Lost City of Amdapor (Hard)] One More Night in Amdapor -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67737) and not HasQuest(67818) and not IsQuestCompleted(67818)">
+      <GetTo ZoneId="133" XYZ="-257.2414, -5.774314, -25.51525"/>
+      <If Condition="not IsQuestAcceptQualified(67818)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(67818)">
+        <PickupQuest QuestId="67818" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67818) and not IsQuestCompleted(67818) and GetQuestStep(67818) == 1">
+      <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
+      <RunCode Name="Camp_Tranquil_Jump"/>
+      <TalkTo NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="67818" StepId="1"/>
+      <RunCode Name="Camp_Tranquil_Jump"/>
+    </If>
+    <If Condition="HasQuest(67818) and not IsQuestCompleted(67818) and GetQuestStep(67818) == 2">
+      <GetTo ZoneId="153" XYZ="-358.0831, 0.8302299, 458.4081"/>
+      <TalkTo NpcId="1008543" XYZ="-360.0062, 1.264419, 459.8306" QuestId="67818" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(67818) and not IsQuestCompleted(67818) and GetQuestStep(67818) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67818) and not IsQuestCompleted(67818) and GetQuestStep(67818) == 255">
+      <GetTo ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762"/>
+      <RunCode Name="Camp_Tranquil_Jump"/>
+      <TurnIn QuestId="67818" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968"/>
+    </If>
+    <!-- [Hullbreaker Isle (Hard)] Storming the Hull -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67818) and not HasQuest(67784) and not IsQuestCompleted(67784)">
+      <GetTo ZoneId="128" XYZ="-9.946575, 31.99999, -39.49609"/>
+      <If Condition="not IsQuestAcceptQualified(67784)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(67784)">
+        <PickupQuest QuestId="67784" NpcId="1009231" XYZ="-9.140198, 31.99998, -40.08551"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67784) and not IsQuestCompleted(67784) and GetQuestStep(67784) == 1">
+      <GetTo ZoneId="135" XYZ="274.5839, 4.403121, 726.2861"/>
+      <TalkTo NpcId="1009382" XYZ="275.1659, 4.403121, 729.1523" QuestId="67784" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67784) and not IsQuestCompleted(67784) and GetQuestStep(67784) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67784) and not IsQuestCompleted(67784) and GetQuestStep(67784) == 255">
+      <GetTo ZoneId="128" XYZ="-10.44135, 32, -38.98945"/>
+      <TurnIn QuestId="67784" NpcId="1009231" XYZ="-9.140198, 31.99998, -40.08551"/>
+    </If>
+    <!-- [The Great Gubal Library (Hard)] Let Me Gubal That For You -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67784) and not HasQuest(67922) and not IsQuestCompleted(67922)">
+      <GetTo ZoneId="478" XYZ="-24.38517, 206.4994, 28.29583"/>
+      <If Condition="IsQuestAcceptQualified(67922)">
+        <PickupQuest QuestId="67922" NpcId="1012133" XYZ="-26.84064, 206.4994, 28.67163"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67922) and not IsQuestCompleted(67922) and GetQuestStep(67922) == 1">
+      <GetTo ZoneId="399" XYZ="298.9538, 232.541, 766.8824"/>
+      <TalkTo NpcId="1018367" XYZ="302.1133, 232.541, 767.1473" QuestId="67922" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67922) and not IsQuestCompleted(67922) and GetQuestStep(67922) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67922) and not IsQuestCompleted(67922) and GetQuestStep(67922) == 255">
+      <GetTo ZoneId="478" XYZ="-24.12957, 206.4994, 28.34465"/>
+      <TurnIn ItemId="2002010" QuestId="67922" NpcId="1012133" XYZ="-26.84064, 206.4994, 28.67163"/>
+    </If>
+    <!-- [Sohm Al (Hard)] The Fires of Sohm Al -->
+    <If Condition="IsQuestCompleted(67205) and IsQuestCompleted(67922) and not HasQuest(67938) and not IsQuestCompleted(67938)">
+      <GetTo ZoneId="478" XYZ="-71.56728, 195.1925, 114.3632"/>
+      <If Condition="IsQuestAcceptQualified(67938)">
+        <PickupQuest QuestId="67938" NpcId="1018427" XYZ="-72.98395, 195.2464, 115.9838"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67938) and not IsQuestCompleted(67938) and GetQuestStep(67938) == 1">
+      <GetTo ZoneId="400" XYZ="169.6929, -64.37971, 701.0945"/>
+      <TalkTo NpcId="1018429" XYZ="169.543, -64.3624, 703.7003" QuestId="67938" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67938) and not IsQuestCompleted(67938) and GetQuestStep(67938) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(67938) and not IsQuestCompleted(67938) and GetQuestStep(67938) == 255">
+      <GetTo ZoneId="400" XYZ="170.7104, -64.37064, 699.9883"/>
+      <TurnIn QuestId="67938" NpcId="1018429" XYZ="169.543, -64.3624, 703.7003"/>
+    </If>
+    <!-- [Shisui of the Violet Tides] The Palace of Lost Souls -->
+    <If Condition="IsQuestCompleted(68021) and IsQuestCompleted(67938) and not HasQuest(68168) and not IsQuestCompleted(68168)">
+      <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812"/>
+      <RunCode Name="Sui-no-Sato"/>
+      <GetTo ZoneId="613" XYZ="-63.24492, -198.9927, -65.75132"/>
+      <If Condition="IsQuestAcceptQualified(68168)">
+        <SoPickupQuest QuestId="68168" NpcId="1023280" XYZ="-63.24492, -198.9927, -65.75132"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 1">
+      <If Condition="not IsOnSubMap(2772)">
+        <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812"/>
+        <RunCode Name="Sui-no-Sato"/>
+      </If>
+      <GetTo ZoneId="613" XYZ="-10.84258, -187.0837, -94.69545"/>
+      <TalkTo NpcId="1019197" XYZ="-10.84258, -187.0837, -94.69545" QuestId="68168" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 2">
+      <GetTo ZoneId="613" XYZ="-956.4479, -0.5999966, 756.781"/>
+      <RunCode Name="Shisui_of_the_Violet_Tides"/>
+      <TalkTo NpcId="1023293" XYZ="-955.9929, -899.5684, 757.0262" QuestId="68168" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 4">
+      <If Condition="not IsOnSubMap(2778)">
+        <GetTo ZoneId="613" XYZ="-956.4479, -0.5999966, 756.781"/>
+        <RunCode Name="Shisui_of_the_Violet_Tides"/>
+      </If>
+      <TalkTo NpcId="1023293" XYZ="-955.6203, -899.6981, 757.6763" QuestId="68168" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68168) and not IsQuestCompleted(68168) and GetQuestStep(68168) == 255">
+      <GetTo ZoneId="613" XYZ="28.45275, -0.5999966, -160.0812"/>
+      <RunCode Name="Sui-no-Sato"/>
+      <GetTo ZoneId="613" XYZ="-63.24492, -198.9927, -65.75132"/>
+      <TurnIn QuestId="68168" NpcId="1023280" XYZ="-63.31102, -198.991, -65.69412"/>
+    </If>
+    <!-- [Kugane Castle] King of the Castle -->
+    <If Condition="IsQuestCompleted(68089) and IsQuestCompleted(68168) and not HasQuest(68170) and not IsQuestCompleted(68170)">
+      <GetTo ZoneId="628" XYZ="134.1561, 12, 106.1521"/>
+      <If Condition="IsQuestAcceptQualified(68170)">
+        <PickupQuest QuestId="68170" NpcId="1023612" XYZ="135.5153, 12, 107.042"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68170) and not IsQuestCompleted(68170) and GetQuestStep(68170) == 1">
+      <GetTo ZoneId="628" XYZ="71.18301, -7.849998, -249.9724"/>
+      <TalkTo NpcId="1023613" XYZ="71.12219, -7.850029, -251.6671" QuestId="68170" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68170) and not IsQuestCompleted(68170) and GetQuestStep(68170) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68170) and not IsQuestCompleted(68170) and GetQuestStep(68170) == 255">
+      <GetTo ZoneId="628" XYZ="133.7269, 12, 106.3077"/>
+      <TurnIn QuestId="68170" NpcId="1023612" XYZ="135.5153, 12, 107.042"/>
+    </If>
+    <!-- [The Temple of the Fist] To Kill a Coeurl -->
+    <If Condition="IsQuestCompleted(68089) and IsQuestCompleted(68170) and not HasQuest(68169) and not IsQuestCompleted(68169)">
+      <GetTo ZoneId="635" XYZ="84.69392, 0, 80.52811"/>
+      <If Condition="IsQuestAcceptQualified(68169)">
+        <PickupQuest QuestId="68169" NpcId="1019479" XYZ="86.22864, 0, 78.53809"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68169) and not IsQuestCompleted(68169) and GetQuestStep(68169) == 1">
+      <GetTo ZoneId="635" XYZ="49.39213, 23.64076, -283.6789"/>
+      <TalkTo NpcId="1023611" XYZ="49.60706, 23.64076, -286.5493" QuestId="68169" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68169) and not IsQuestCompleted(68169) and GetQuestStep(68169) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68169) and not IsQuestCompleted(68169) and GetQuestStep(68169) == 255">
+      <GetTo ZoneId="635" XYZ="49.39213, 23.64076, -283.6789"/>
+      <TurnIn QuestId="68169" NpcId="1023611" XYZ="49.60706, 23.64076, -286.5493"/>
+    </If>
+    <!-- [Hell's Lid / Jade Stoa] An Auspicious Encounter -->
+    <If Condition="IsQuestCompleted(68560) and IsQuestCompleted(68169) and not HasQuest(68551) and not IsQuestCompleted(68551)">
+      <GetTo ZoneId="613" XYZ="-788.8583, 11.6179, -285.5952"/>
+      <If Condition="IsQuestAcceptQualified(68551)">
+        <PickupQuest QuestId="68551" NpcId="1024836" XYZ="-788.2658, 11.70907, -283.0091"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 1">
+      <GetTo ZoneId="613" XYZ="280.0843, 16.46456, 843.4935"/>
+      <UseObject NpcId="2009398" XYZ="279.4994, 16.55597, 844.541" QuestId="68551" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 4 and GetQuestById(68551).GetTodoArgs(4, 0).Item1 == 0">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025141" XYZ="55.16125, -89.90002, -459.0982" QuestId="68551"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 4 and GetQuestById(68551).GetTodoArgs(4, 0).Item1 == 1">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025142" XYZ="51.5907, -90.00002, -492.5155" QuestId="68551"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 4 and GetQuestById(68551).GetTodoArgs(4, 0).Item1 == 2">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025143" XYZ="97.67297, -89.90002, -480.3693" QuestId="68551"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 5">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025138" XYZ="61.99731, -90.00002, -478.1415" QuestId="68551" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 6">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025144" XYZ="8.804443, -90, -470.634" QuestId="68551" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 7">
+      <GetTo ZoneId="614" XYZ="507.8775, 23.96058, -763.2465"/>
+      <TalkTo NpcId="1025148" XYZ="509.1782, 23.72771, -764.0345" QuestId="68551" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 8">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 9">
+      <GetTo ZoneId="614" XYZ="508.8135, 23.45126, -767.3998"/>
+      <TalkTo NpcId="1025469" XYZ="505.5161, 23.26506, -768.6732" QuestId="68551" StepId="9"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 10">
+      <GetTo ZoneId="613" XYZ="283.8654, 16.08962, 846.3075"/>
+      <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909" QuestId="68551" StepId="10"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 11">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025168" XYZ="75.63892, -89.90002, -503.9597" QuestId="68551" StepId="11"/>
+    </If>
+    <If Condition="HasQuest(68551) and not IsQuestCompleted(68551) and GetQuestStep(68551) == 255">
+      <GetTo ZoneId="613" XYZ="322.6022, -120.0349, -250.4394"/>
+      <TurnIn QuestId="68551" NpcId="1019178" XYZ="319.6917, -120.0349, -250.9042"/>
+    </If>
+    <!-- [The Fractal Continuum Hard] An Unwanted Truth -->
+    <If Condition="IsQuestCompleted(68089) and IsQuestCompleted(68551) and not HasQuest(68613) and not IsQuestCompleted(68613)">
+      <GetTo ZoneId="635" XYZ="97.80988, 0.6520425, 47.1202"/>
+      <If Condition="not IsQuestCompleted(67649)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68613)">
+        <PickupQuest QuestId="68613" NpcId="1025166" XYZ="99.74817, 0.6520424, 48.35571"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68613) and not IsQuestCompleted(68613) and GetQuestStep(68613) == 1">
+      <GetTo ZoneId="402" XYZ="-710.4073, -187.544, -589.1729"/>
+      <FlyTo XYZ="207.6879, 21.78384, 555.444" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025167" XYZ="206.5613, 21.78384, 556.4508" QuestId="68613" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68613) and not IsQuestCompleted(68613) and GetQuestStep(68613) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68613) and not IsQuestCompleted(68613) and GetQuestStep(68613) == 3">
+      <GetTo ZoneId="402" XYZ="198.7888, 18.45864, 547.963"/>
+      <TalkTo NpcId="1024718" XYZ="196.3988, 18.45864, 547.6005" QuestId="68613" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68613) and not IsQuestCompleted(68613) and GetQuestStep(68613) == 4">
+      <GetTo ZoneId="154" XYZ="132.6597, -13.861, 122.0399"/>
+      <TalkTo NpcId="1025169" XYZ="132.3109, -13.59994, 120.1038" QuestId="68613" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68613) and not IsQuestCompleted(68613) and GetQuestStep(68613) == 255">
+      <GetTo ZoneId="154" XYZ="132.6597, -13.861, 122.0399"/>
+      <TurnIn QuestId="68613" NpcId="1025169" XYZ="132.3109, -13.59994, 120.1038"/>
+    </If>
+    <!-- [Swallow's Compass] Tortoise in Time -->
+    <If Condition="IsQuestCompleted(68613) and not HasQuest(68552) and not IsQuestCompleted(68552)">
+      <GetTo ZoneId="613" XYZ="321.9536, -120.0349, -250.0378"/>
+      <If Condition="IsQuestAcceptQualified(68552)">
+        <PickupQuest QuestId="68552" NpcId="1019178" XYZ="319.6917, -120.0349, -250.9042"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 1">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025559" XYZ="61.75317, -90.00002, -478.111" QuestId="68552" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 2">
+      <GetTo ZoneId="614" XYZ="-483.2916, 68.82825, 274.9409"/>
+      <TalkTo NpcId="1025563" XYZ="-485.1912, 68.82959, 273.2738" QuestId="68552" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 4">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <HandOver ItemId="2002470" NpcId="1025138" XYZ="61.99731, -90.00002, -478.1415" QuestId="68552" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 5">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 7">
+      <If Condition="not IsOnMap(764)">
+        <GetTo ZoneId="613" XYZ="282.3745, 16.25714, 844.2729"/>
+        <UseTransport InteractDistance="3.0" NpcId="1025137" XYZ="281.6663, 16.35002, 846.8909"/>
+      </If>
+      <TalkTo NpcId="1025138" XYZ="61.99731, -90.00002, -478.1415" QuestId="68552" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68552) and not IsQuestCompleted(68552) and GetQuestStep(68552) == 255">
+      <GetTo ZoneId="613" XYZ="322.6186, -120.0349, -250.3524"/>
+      <TurnIn QuestId="68552" NpcId="1019178" XYZ="319.6917, -120.0349, -250.9042"/>
+    </If>
+    <!-- [Saint Mocianne's Arboretum (Hard)] Secret of the Ooze -->
+    <If Condition="IsQuestCompleted(68089) and IsQuestCompleted(68552) and not HasQuest(68678) and not IsQuestCompleted(68678)">
+      <GetTo ZoneId="635" XYZ="28.29865, 0.1826701, 37.88517"/>
+      <If Condition="not IsQuestCompleted(67738)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68678)">
+        <PickupQuest QuestId="68678" NpcId="1026200" XYZ="26.90161, 0, 36.36218"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68678) and not IsQuestCompleted(68678) and GetQuestStep(68678) == 1">
+      <GetTo ZoneId="399" XYZ="-615.8408, 146.8684, 61.80204"/>
+      <TalkTo NpcId="1026201" XYZ="-617.2427, 146.8684, 62.15002" QuestId="68678" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68678) and not IsQuestCompleted(68678) and GetQuestStep(68678) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(68678) and not IsQuestCompleted(68678) and GetQuestStep(68678) == 255">
+      <GetTo ZoneId="399" XYZ="-613.1494, 146.8684, 58.53448"/>
+      <TurnIn QuestId="68678" NpcId="1026202" XYZ="-611.6274, 146.8684, 57.87744"/>
+    </If>
+    <!-- [The Twinning] By the Time You Hear This -->
+    <If Condition="IsQuestCompleted(69190) and IsQuestCompleted(68678) and not HasQuest(69131) and IsQuestCompleted(69190) and not IsQuestCompleted(69131)">
+      <GetTo ZoneId="819" XYZ="-131.1786, 0, -13.46894"/>
+      <If Condition="IsQuestAcceptQualified(69131)">
+        <PickupQuest QuestId="69131" NpcId="1028898" XYZ="-132.5856, 0, -14.02307"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 1">
+      <GetTo ZoneId="819" XYZ="75.64196, 0.08899535, -31.31644"/>
+      <TalkTo NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455" QuestId="69131" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(69131) and not IsQuestCompleted(69131) and GetQuestStep(69131) == 255">
+      <GetTo ZoneId="819" XYZ="76.22693, 0.0889954, -30.40345"/>
+      <TurnIn QuestId="69131" NpcId="1028899" XYZ="77.04285, 0.0889954, -31.78455"/>
+    </If>
+    <!-- [Akadaemia Anyder] Akadaemia Anyder -->
+    <If Condition="IsQuestCompleted(69131) and not HasQuest(69132) and IsQuestCompleted(69190) and not IsQuestCompleted(69132)">
+      <GetTo ZoneId="820" XYZ="82.65393, -10.36872, 59.46068"/>
+      <If Condition="IsQuestAcceptQualified(69132)">
+        <PickupQuest QuestId="69132" NpcId="1031144" XYZ="84.33655, -10.49067, 59.49487"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 1">
+      <GetTo ZoneId="818" XYZ="-0.01491685, -276.906, 269.5677"/>
+      <TalkTo NpcId="1027772" XYZ="-0.01491685, -276.906, 269.5677" InteractDistance="7.0" QuestId="69132" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 2">
+      <GetTo ZoneId="818" XYZ="-70.46259, -274.3316, 584.2511"/>
+      <TalkTo NpcId="1028056" XYZ="-70.46259, -274.3316, 584.2511" QuestId="69132" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 3">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 4">
+      <If Condition="not IsOnMap(818)">
+        <GetTo ZoneId="818" XYZ="-70.46259, -274.3316, 584.2511"/>
+      </If>
+      <TalkTo NpcId="1028056" XYZ="-70.46259, -274.3316, 584.2511" InteractDistance="7.0" QuestId="69132" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(69132) and not IsQuestCompleted(69132) and GetQuestStep(69132) == 255">
+      <GetTo ZoneId="820" XYZ="81.08707, -10.321, 59.02909"/>
+      <TurnIn QuestId="69132" NpcId="1031144" XYZ="84.33655, -10.49067, 59.49487"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Unlock_Normal_Mode">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "You must complete the Normal Mode version of this dungeon to proceed.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Camp_Tranquil_Jump">
+      <![CDATA[ 
+        if (Core.Player.IsMounted)
+        {
+          await CommonTasks.StopAndDismount();
+          await Coroutine.Wait(3000, () => !Core.Player.IsMounted);
+        }
+    
+        MovementManager.SetFacing(0.8310049f);
+        MovementManager.MoveForwardStart();
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        await Coroutine.Sleep(1500);
+        MovementManager.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Disable_Flight">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
+        {
+          try
+          {
+            if (!plugin.Enabled)  {  break;  }
+            else {  plugin.Enabled = false; }
+          }
+          catch (Exception ex) { }
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Sui-no-Sato">
+      <![CDATA[
+        if (MovementManager.IsSwimming)
+        {
+          MovementManager.StartDescending();
+          await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        }
+
+        MovementManager.StopDescending();
+        await Coroutine.Sleep(2000);
+
+        if (MovementManager.IsDiving)
+        {    
+          if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+
+          await CommonTasks.DescendTo(-196f);
+          MovementManager.SetFacing(5.3f);
+          MovementManager.MoveForwardStart();
+          await Coroutine.Wait(30000, () => !MovementManager.IsDiving);
+        }
+
+        MovementManager.MoveForwardStop();
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Shisui_of_the_Violet_Tides">
+      <![CDATA[
+        if (MovementManager.IsSwimming)
+        {
+          MovementManager.StartDescending();
+          await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        }
+
+        MovementManager.StopDescending();
+        await Coroutine.Sleep(2000);
+
+        if (MovementManager.IsDiving)
+        {    
+          if (!Core.Player.IsMounted)  {  await CommonTasks.SummonFlyingMount();  }
+
+          await CommonTasks.DescendTo(-897f);
+        }
+
+        await Coroutine.Sleep(2000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

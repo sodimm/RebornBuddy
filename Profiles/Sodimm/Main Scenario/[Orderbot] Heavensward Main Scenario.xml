@@ -1066,14 +1066,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
    <SoTalkTo NpcId="1012667" XYZ="369.1614, -73.9486, 660.151" QuestId="67155" StepId="4"/>
   </If>
   <If Condition="HasQuest(67155) and not IsQuestCompleted(67155) and GetQuestStep(67155) == 255">
-   <GetTo ZoneId="400" XYZ="381.7043, -66.84979, 700.8619"/>
+   <GetTo ZoneId="400" XYZ="379.7316, -69.42947, 694.9561"/>
    <TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619"/>
   </If>
   <!-- Moghan's Trial (Level 54) -->
   <If Condition="IsQuestCompleted(67155) and not HasQuest(67156) and not IsQuestCompleted(67156)">
-   <GetTo ZoneId="400" XYZ="375.3567, -69.42934, 693.5072"/>
+   <GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
    <If Condition="IsQuestAcceptQualified(67156)">
-    <PickupQuest NpcId="1012078" QuestId="67156" XYZ="375.3567, -69.42934, 693.5072"/>
+    <PickupQuest NpcId="1012078" QuestId="67156" XYZ="379.9618, -69.53804, 696.1188"/>
    </If>
   </If>
   <If Condition="HasQuest(67156) and not IsQuestCompleted(67156) and GetQuestStep(67156) == 1">
@@ -1087,8 +1087,8 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
    </UseObject>
   </If>
   <If Condition="HasQuest(67156) and not IsQuestCompleted(67156) and GetQuestStep(67156) == 255">
-   <GetTo ZoneId="400" XYZ="375.3567, -69.42934, 693.5072"/>
-   <TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="375.3567, -69.42934, 693.5072"/>
+   <GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
+   <TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188"/>
   </If>
   <!-- Mogmug's Trial (Level 54) -->
   <If Condition="IsQuestCompleted(67156) and not HasQuest(67157) and not IsQuestCompleted(67157)">
@@ -1138,7 +1138,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   </If>
   <!-- Moglin's Judgment (Level 54) -->
   <If Condition="IsQuestCompleted(67158) and not HasQuest(67159) and not IsQuestCompleted(67159)">
-   <GetTo ZoneId="400" XYZ="381.7043, -66.84979, 700.8619"/>
+   <GetTo ZoneId="400" XYZ="379.7316, -69.42947, 694.9561"/>
    <If Condition="IsQuestAcceptQualified(67159)">
     <PickupQuest NpcId="1012077" QuestId="67159" XYZ="381.7043, -66.84979, 700.8619"/>
    </If>
@@ -1164,18 +1164,18 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
    <TalkTo NpcId="1013587" XYZ="337.7279, -74.33926, 648.0048" QuestId="67159"/>
   </If>
   <If Condition="HasQuest(67159) and not IsQuestCompleted(67159) and GetQuestStep(67159) == 2">
-   <GetTo ZoneId="400" XYZ="381.7043, -66.84979, 700.8619"/>
+   <GetTo ZoneId="400" XYZ="379.7316, -69.42947, 694.9561"/>
    <SoTalkTo NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" QuestId="67159" StepId="2"/>
   </If>
   <If Condition="HasQuest(67159) and not IsQuestCompleted(67159) and GetQuestStep(67159) == 255">
-   <GetTo ZoneId="400" XYZ="375.3567, -69.42934, 693.5072"/>
-   <TurnIn QuestId="67159" NpcId="1012078" XYZ="375.3567, -69.42934, 693.5072"/>
+   <GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
+   <TurnIn QuestId="67159" NpcId="1012078" XYZ="379.9618, -69.53804, 696.1188"/>
   </If>
   <!-- Leaving Moghome (Level 54) -->
   <If Condition="IsQuestCompleted(67159) and not HasQuest(67160) and not IsQuestCompleted(67160)">
-   <GetTo ZoneId="400" XYZ="375.3567, -69.42934, 693.5072"/>
+   <GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
    <If Condition="IsQuestAcceptQualified(67160)">
-    <PickupQuest NpcId="1012078" QuestId="67160" XYZ="375.3567, -69.42934, 693.5072"/>
+    <PickupQuest NpcId="1012078" QuestId="67160" XYZ="379.9618, -69.53804, 696.1188"/>
    </If>
   </If>
   <If Condition="HasQuest(67160) and not IsQuestCompleted(67160) and GetQuestStep(67160) == 1">
@@ -1677,12 +1677,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   <If Condition="HasQuest(67179) and not IsQuestCompleted(67179) and GetQuestStep(67179) == 2">
    <GetTo ZoneId="419" XYZ="148.6075, -12.63491, -13.44324"/>
    <SoTalkTo NpcId="1013125" XYZ="148.6075, -12.63491, -13.44324" QuestId="67179" StepId="2"/>
-  </If>
-  <If Condition="HasQuest(67179) and not IsQuestCompleted(67179) and GetQuestStep(67179) == 3">
-   <GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
-   <UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
    <WaitWhile Condition="HasQuest(67179) and not IsQuestCompleted(67179) and not GetQuestStep(67179) == 255"/>
-   <WaitWhile Condition="not IsOnMap(401)"/>
   </If>
   <If Condition="HasQuest(67179) and not IsQuestCompleted(67179) and GetQuestStep(67179) == 255">
    <If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2112,6 +2107,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
    <GetTo ZoneId="399" XYZ="-476.585, 137.4297, 702.6931"/>
    <TurnIn QuestId="67195" NpcId="1012423" XYZ="-476.585, 137.4297, 702.6931"/>
    <WaitWhile Condition="not IsOnMap(463)"/>
+   <WaitTimer WaitTime="5"/>
   </If>
   <!-- Forbidden Knowledge (Level 59) -->
   <If Condition="IsQuestCompleted(67195) and not HasQuest(67196) and not IsQuestCompleted(67196)">
@@ -2334,6 +2330,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
    <GetTo ZoneId="402" XYZ="-145.6169, -154.8333, -503.4715"/>
    <UseObject NpcId="2006363" XYZ="-145.6169, -154.8333, -503.4715" QuestId="67201" StepId="3"/>
    <WaitWhile Condition="HasQuest(67201) and not IsQuestCompleted(67201) and not GetQuestStep(67201) == 255"/>
+   <WaitTimer WaitTime="5"/>
   </If>
   <If Condition="HasQuest(67201) and not IsQuestCompleted(67201) and GetQuestStep(67201) == 255">
    <If Condition="not IsOnMap(402)">

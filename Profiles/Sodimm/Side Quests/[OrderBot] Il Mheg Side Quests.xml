@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Il Mheg Side Quests
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Il Mheg Side Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="IsAetherCurrentZoneComplete(816)">
+      <If Condition="IsQuestCompleted(68847)">
+        <!-- Counting Pixies -->
+        <If Condition="not HasQuest(68938) and not IsQuestCompleted(68938)">
+          <GetTo ZoneId="816" XYZ="-351.1515, 45.25297, 410.8435"/>
+          <If Condition="IsQuestAcceptQualified(68938)">
+            <PickupQuest QuestId="68938" NpcId="1030262"/>
+          </If>
+        </If>
+        <!-- An Artist's Tale -->
+        <If Condition="not HasQuest(68937) and not IsQuestCompleted(68937)">
+          <GetTo ZoneId="816" XYZ="-280.0911, 32.1142, 432.9437"/>
+          <If Condition="IsQuestAcceptQualified(68937)">
+            <PickupQuest QuestId="68937" NpcId="1030418"/>
+          </If>
+        </If>
+        <!-- What's in a Name -->
+        <If Condition="not HasQuest(68928) and not IsQuestCompleted(68928)">
+          <GetTo ZoneId="816" XYZ="-282.6232, 68.18963, 534.4992"/>
+          <If Condition="IsQuestAcceptQualified(68928)">
+            <PickupQuest QuestId="68928" NpcId="1028051"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68928) == 1">
+          <If Condition="GetQuestById(68928).GetTodoArgs(1, 0).Item1 == 0">
+            <TalkTo NpcId="1028053" XYZ="-241.413, 49.83786, 587.4874" QuestId="68928"/>
+          </If>
+        </If>
+        <!-- A Rosy Problem -->
+        <If Condition="not HasQuest(68939) and not IsQuestCompleted(68939)">
+          <GetTo ZoneId="816" XYZ="-245.6641, 50.65611, 583.9096"/>
+          <If Condition="IsQuestAcceptQualified(68939)">
+            <PickupQuest QuestId="68939" NpcId="1027657"/>
+          </If>
+        </If>
+        <!-- What's in a Name -->
+        <If Condition="GetQuestStep(68928) == 1">
+          <If Condition="GetQuestById(68928).GetTodoArgs(1, 0).Item1 == 1">
+            <TalkTo NpcId="1028054" XYZ="-304.8295, 70.86284, 574.9751" QuestId="68928"/>
+          </If>
+        </If>
+        <!-- Flowers of Fury -->
+        <If Condition="not HasQuest(68930) and not IsQuestCompleted(68930)">
+          <GetTo ZoneId="816" XYZ="-326.8483, 68.63499, 579.9862"/>
+          <If Condition="IsQuestAcceptQualified(68930)">
+            <PickupQuest QuestId="68930" NpcId="1030619"/>
+          </If>
+        </If>
+        <!-- A Hairy Request -->
+        <If Condition="not HasQuest(68929) and not IsQuestCompleted(68929)">
+          <GetTo ZoneId="816" XYZ="-340.9909, 74.38087, 557.1029"/>
+          <If Condition="IsQuestAcceptQualified(68929)">
+            <SoPickupQuest QuestId="68929" NpcId="1031347"/>
+          </If>
+        </If>
+        <!-- What's in a Name -->
+        <If Condition="GetQuestStep(68928) == 1">
+          <If Condition="GetQuestById(68928).GetTodoArgs(1, 0).Item1 == 2">
+            <TalkTo NpcId="1028052" XYZ="-381.0941, 58.71793, 554.2534" QuestId="68928"/>
+          </If>
+        </If>
+        <!-- Counting Pixies -->
+        <If Condition="GetQuestStep(68938) == 1">
+          <FlyTo XYZ="-548.1178, 48.47148, 201.6543" AllowedVariance="1.0" Land="True"/>
+          <TalkTo NpcId="1030271" XYZ="-549.8284, 48.51715, 201.3123" QuestId="68938" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68938) == 2">
+          <UseObject NpcId="2010157" XYZ="-546.5323, 48.38635, 202.5635" QuestId="68938" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68938) == 3">
+          <SoTalkTo NpcId="1030271" DialogOption="2" XYZ="-549.8284, 48.51715, 201.3123" QuestId="68938" StepId="3"/>
+        </If>
+        <!-- An Artist's Tale -->
+        <If Condition="GetQuestStep(68937) == 1">
+          <If Condition="not IsTodoChecked(68937, 1, 1)">
+            <FlyTo XYZ="-706.1345, 39.63541, 178.8098" Land="True"/>
+            <MoveTo XYZ="-708.8589, 39.09905, 150.3596" Distance="1"/>
+            <WaitWhile Condition="not IsTodoChecked(68937, 1, 1)"/>
+          </If>
+          <If Condition="not IsTodoChecked(68937, 1, 0)">
+            <FlyTo XYZ="-309.0107, 2.264442, 181.3935" Land="True"/>
+            <MoveTo XYZ="-301.967, 0.4547, 160.792" Distance="1"/>
+            <WaitWhile Condition="not IsTodoChecked(68937, 1, 0)"/>
+          </If>
+        </If>
+        <!-- Flowers of Fury -->
+        <If Condition="GetQuestStep(68930) == 1">
+          <If Condition="GetQuestById(68930).GetTodoArgs(1, 0).Item1 == 0">
+            <FlyTo XYZ="-426.8524, 122.7538, 726.8213" Land="True"/>
+            <TalkTo NpcId="1030621" XYZ="-428.6718, 122.7153, 728.5725" QuestId="68930"/>
+            <WaitWhile Condition="GetQuestById(68930).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+        </If>
+        <!-- A Hairy Request -->
+        <If Condition="GetQuestStep(68929) == 1">
+          <FlyTo XYZ="-460.2892, 124.83, 750.8995" Land="True"/>
+          <Grind GrindRef="68929" PostCombatDelay="3.0" While="not GetQuestStep(68929) == 2"/>
+        </If>
+        <!-- Flowers of Fury -->
+        <If Condition="GetQuestStep(68930) == 1">
+          <If Condition="GetQuestById(68930).GetTodoArgs(1, 0).Item1 == 1">
+            <FlyTo XYZ="-680.0033, 132.1837, 622.7748" Land="True"/>
+            <TalkTo NpcId="1030620" XYZ="-679.6826, 132.2009, 626.0013" QuestId="68930"/>
+            <WaitWhile Condition="GetQuestById(68930).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68930) == 2">
+          <FlyTo XYZ="-564.0752, 89.10279, 602.7939" Land="True"/>
+          <TalkTo NpcId="1030651" XYZ="-562.0966, 88.35045, 601.5564" QuestId="68930" StepId="2"/>
+        </If>
+        <!-- A Rosy Problem -->
+        <If Condition="GetQuestStep(68939) == 1">
+          <FlyTo XYZ="-95.73682, 22.07411, 526.5126" Land="True"/>
+          <Grind GrindRef="68939" PostCombatDelay="3.0" While="not GetQuestStep(68939) == 255"/>
+        </If>
+        <If Condition="GetQuestStep(68939) == 255">
+          <GetTo ZoneId="816" XYZ="-246.6316, 50.84182, 583.7948"/>
+          <TurnIn QuestId="68939" NpcId="1027657" XYZ="-246.6316, 50.84182, 583.7948"/>
+        </If>
+        <!-- A Hairy Request -->
+        <If Condition="GetQuestStep(68929) == 2">
+          <HandOver ItemId="2002858" NpcId="1031347" XYZ="-340.8102, 74.42241, 557.3052" QuestId="68929" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68929) == 3">
+          <HandOver ItemId="2002867" NpcId="1027657" XYZ="-246.6316, 50.84182, 583.7948" QuestId="68929" StepId="3"/>
+        </If>
+        <!-- What's in a Name -->
+        <If Condition="GetQuestStep(68928) == 255">
+          <GetTo ZoneId="816" XYZ="-283.1617, 68.29691, 533.8368"/>
+          <SoTurnIn QuestId="68928" NpcId="1028051" DialogOption="0,1" XYZ="-283.1617, 68.29691, 533.8368"/>
+        </If>
+        <!-- Flowers of Fury -->
+        <If Condition="GetQuestStep(68930) == 255">
+          <GetTo ZoneId="816" XYZ="-326.772, 68.13059, 582.0248"/>
+          <TurnIn QuestId="68930" NpcId="1030619" XYZ="-326.772, 68.13059, 582.0248"/>
+        </If>
+        <!-- A Hairy Request -->
+        <If Condition="GetQuestStep(68929) == 255">
+          <GetTo ZoneId="816" XYZ="-340.8102, 74.42241, 557.3052"/>
+          <TurnIn QuestId="68929" NpcId="1031347" XYZ="-340.8102, 74.42241, 557.3052"/>
+        </If>
+        <!-- Counting Pixies -->
+        <If Condition="GetQuestStep(68938) == 255">
+          <GetTo ZoneId="816" XYZ="-350.6066, 45.05355, 408.835"/>
+          <TurnIn QuestId="68938" NpcId="1030262" XYZ="-350.6066, 45.05355, 408.835"/>
+        </If>
+        <!-- An Artist's Tale -->
+        <If Condition="GetQuestStep(68937) == 255">
+          <GetTo ZoneId="816" XYZ="-278.8587, 32.17025, 433.2189"/>
+          <TurnIn QuestId="68937" NpcId="1030418" XYZ="-278.8587, 32.17025, 433.2189"/>
+        </If>
+        <!-- Revolting Refreshments  -->
+        <If Condition="not HasQuest(68936) and not IsQuestCompleted(68936)">
+          <FlyTo XYZ="-612.7422, 37.14296, -240.9621" AllowedVariance="1.0" Land="True"/>
+          <If Condition="IsQuestAcceptQualified(68936)">
+            <PickupQuest QuestId="68936" NpcId="1029882"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68936) &gt; 0">
+          <If Condition="GetQuestStep(68936) == 1">
+            <FlyTo XYZ="-813.9286, 25.10179, -155.4678" Land="True"/>
+            <TalkTo NpcId="1030415" XYZ="-816.495, 24.88758, -155.1995" QuestId="68936" StepId="1"/>
+            <WaitWhile Condition="not Core.Me.HasAura(404)"/>
+          </If>
+          <If Condition="GetQuestStep(68936) == 2">
+            <If Condition="not Core.Me.HasAura(404)">
+              <FlyTo XYZ="-813.9286, 25.10179, -155.4678" Land="True"/>
+              <TalkTo NpcId="1030415" XYZ="-816.495, 24.88758, -155.1995"/>
+            </If>
+            <NoCombatMoveTo XYZ="-612.5574, 37.15806, -241.2577" Distance="1"/>
+            <TalkTo NpcId="1029882" XYZ="-613.8552, 37.07336, -242.7863" QuestId="68936" StepId="2"/>
+          </If>
+          <If Condition="GetQuestStep(68936) == 3">
+            <UseObject NpcId="2010101" XYZ="-649.9581, 38.22375, -245.8381" QuestId="68936" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(68936) == 4">
+            <HandOver ItemId="2002591" NpcId="1029882" XYZ="-613.8552, 37.07336, -242.7863" QuestId="68936" StepId="4"/>
+          </If>
+          <If Condition="GetQuestStep(68936) == 255">
+            <GetTo ZoneId="816" XYZ="-606.0121, 31.64781, -181.9028"/>
+            <TurnIn QuestId="68936" NpcId="1030416" XYZ="-606.0121, 31.64781, -181.9028"/>
+          </If>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(68852)">
+        <!-- The Mushroom Menace -->
+        <If Condition="not HasQuest(68946) and not IsQuestCompleted(68946)">
+          <GetTo ZoneId="816" XYZ="-222.342, 79.68999, -784.5881"/>
+          <If Condition="IsQuestAcceptQualified(68946)">
+            <PickupQuest QuestId="68946" NpcId="1030698"/>
+          </If>
+        </If>
+        <!-- Magic Is Love, Magic Is Life -->
+        <If Condition="not HasQuest(68952) and not IsQuestCompleted(68952)">
+          <GetTo ZoneId="816" XYZ="-105.7798, 101.6013, -848.0443"/>
+          <RunCode Name="Ose_Sigun"/>
+          <If Condition="IsQuestAcceptQualified(68952)">
+            <PickupQuest QuestId="68952" NpcId="1027673"/>
+          </If>
+        </If>
+        <!-- Growing Pla Enni -->
+        <If Condition="not HasQuest(68947) and not IsQuestCompleted(68947)">
+          <If Condition="IsQuestAcceptQualified(68947)">
+            <PickupQuest QuestId="68947" NpcId="1027673"/>
+          </If>
+          <MoveTo XYZ="-100.5647, 101.6749, -844.3474" UseMesh="False"/>
+        </If>
+        <!-- A Stranger Fuath -->
+        <If Condition="not HasQuest(68954) and not IsQuestCompleted(68954)">
+          <GetTo ZoneId="816" XYZ="-100.6662, 101.8601, -840.9252"/>
+          <If Condition="IsQuestAcceptQualified(68954)">
+            <PickupQuest QuestId="68954" NpcId="1027672"/>
+          </If>
+        </If>
+        <!-- Much Ado About Giving -->
+        <If Condition="not HasQuest(68948) and not IsQuestCompleted(68948)">
+          <GetTo ZoneId="816" XYZ="-58.69896, 104.0832, -873.8259"/>
+          <If Condition="IsQuestAcceptQualified(68948)">
+            <PickupQuest QuestId="68948" NpcId="1030273"/>
+          </If>
+        </If>
+        <!-- Help My Porxie -->
+        <If Condition="not HasQuest(68949) and not IsQuestCompleted(68949)">
+          <GetTo ZoneId="816" XYZ="-47.7467, 104.7491, -858.8129"/>
+          <RunCode Name="Caring_Nu_Mou"/>
+          <If Condition="IsQuestAcceptQualified(68949)">
+            <PickupQuest QuestId="68949" NpcId="1030274"/>
+          </If>
+          <MoveTo XYZ="-42.73763, 105.1454, -861.5356" UseMesh="False"/>
+        </If>
+        <!-- A Leafman and a Hero -->
+        <If Condition="not HasQuest(68951) and not IsQuestCompleted(68951)">
+          <GetTo ZoneId="816" XYZ="-16.68144, 106.2743, -887.4877"/>
+          <If Condition="IsQuestAcceptQualified(68951)">
+            <PickupQuest QuestId="68951" NpcId="1030699"/>
+          </If>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="not HasQuest(68953) and not IsQuestCompleted(68953)">
+          <GetTo ZoneId="816" XYZ="-3.544116, 100.7048, -887.8701"/>
+          <If Condition="IsQuestAcceptQualified(68953)">
+            <PickupQuest QuestId="68953" NpcId="1030702"/>
+          </If>
+        </If>
+        <!-- One Good Trick Deserves Another -->
+        <If Condition="not HasQuest(68950) and not IsQuestCompleted(68950)">
+          <GetTo ZoneId="816" XYZ="4.006278, 104.8494, -852.9503"/>
+          <If Condition="IsQuestAcceptQualified(68950)">
+            <PickupQuest QuestId="68950" NpcId="1030700"/>
+          </If>
+        </If>
+        <!-- Much Ado About Giving -->
+        <If Condition="GetQuestStep(68948) == 1">
+          <If Condition="GetQuestById(68948).GetTodoArgs(1, 0).Item1 == 0">
+            <TalkTo NpcId="1027670" XYZ="32.02869, 101.9007, -857.8774" QuestId="68948"/>
+          </If>
+        </If>
+        <!-- Scents of Security  -->
+        <If Condition="not HasQuest(68944) and not IsQuestCompleted(68944)">
+          <GetTo ZoneId="816" XYZ="32.02869, 101.9007, -857.8774"/>
+          <If Condition="IsQuestAcceptQualified(68944)">
+            <PickupQuest QuestId="68944" NpcId="1027670"/>
+          </If>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="GetQuestStep(68953) == 1">
+          <If Condition="GetQuestById(68953).GetTodoArgs(1, 0).Item1 == 0">
+            <TalkTo NpcId="1028044" XYZ="69.7489, 110.6929, -883.6957" QuestId="68953"/>
+          </If>
+        </If>
+        <!-- Much Ado About Giving -->
+        <If Condition="GetQuestStep(68948) == 1">
+          <If Condition="GetQuestById(68948).GetTodoArgs(1, 0).Item1 == 1">
+            <TalkTo NpcId="1028044" XYZ="69.7489, 110.6929, -883.6957" QuestId="68948"/>
+          </If>
+        </If>
+        <!-- A Lawful Trade -->
+        <If Condition="not HasQuest(68945) and not IsQuestCompleted(68945)">
+          <GetTo ZoneId="816" XYZ="69.7489, 110.6929, -883.6957"/>
+          <If Condition="IsQuestAcceptQualified(68945)">
+            <PickupQuest QuestId="68945" NpcId="1028044"/>
+          </If>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="GetQuestStep(68953) == 1">
+          <If Condition="GetQuestById(68953).GetTodoArgs(1, 0).Item1 == 1">
+            <TalkTo NpcId="1027671" XYZ="-33.12738, 105.6853, -879.9115" QuestId="68953"/>
+          </If>
+          <If Condition="GetQuestById(68953).GetTodoArgs(1, 0).Item1 == 2">
+            <MoveTo XYZ="-105.7798, 101.6013, -848.0443"/>
+            <RunCode Name="Ose_Sigun"/>
+            <TalkTo NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639" QuestId="68953"/>
+          </If>
+        </If>
+        <!-- Much Ado About Giving -->
+        <If Condition="GetQuestStep(68948) == 1">
+          <If Condition="GetQuestById(68948).GetTodoArgs(1, 0).Item1 == 2">
+            <TalkTo NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639" QuestId="68948"/>
+            <MoveTo XYZ="-100.5647, 101.6749, -844.3474" UseMesh="False"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68948) == 255">
+          <GetTo ZoneId="816" XYZ="-58.09113, 104.1849, -875.5169"/>
+          <TurnIn QuestId="68948" NpcId="1030273" XYZ="-58.09113, 104.1849, -875.5169"/>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="GetQuestStep(68953) == 2">
+          <TalkTo NpcId="1030702" XYZ="-1.815857, 100.4684, -889.3416" QuestId="68953" StepId="2"/>
+        </If>
+        <!-- Magic Is Love, Magic Is Life -->
+        <If Condition="GetQuestStep(68952) == 1">
+          <MoveTo XYZ="-133.276, 58.41854, -676.6911"/>
+          <FlyTo XYZ="-18.9665, 55.73268, -667.4501" Land="True"/>
+          <Grind GrindRef="68952" PostCombatDelay="3.0" While="not GetQuestStep(68952) == 2"/>
+        </If>
+        <!-- A Stranger Fuath -->
+        <If Condition="GetQuestStep(68954) == 1">
+          <FlyTo XYZ="63.77378, 11.25723, -544.9803" Land="True"/>
+          <SoHandOver ItemId="2002870" NpcId="1031498" XYZ="64.34729, 11.20204, -543.7552" QuestId="68954" StepId="1"/>
+        </If>
+        <!-- The Mushroom Menace -->
+        <If Condition="GetQuestStep(68946) == 1">
+          <FlyTo XYZ="5.225615, 26.73292, -508.2534" Land="True"/>
+          <UseItem ItemId="2002655" NpcId="2010102" XYZ="3.707886, 26.99316, -507.4083" QuestId="68946" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68946) == 2">
+          <UseObject NpcId="2010216" XYZ="-6.118958, 29.25146, -512.047" QuestId="68946" StepId="2"/>
+        </If>
+        <!-- Scents of Security  -->
+        <If Condition="GetQuestStep(68944) == 1">
+          <FlyTo XYZ="-245.129, 52.84791, -508.2247" AllowedVariance="1.0" Land="True"/>
+          <RunCode Name="68944"/>
+          <UseObject NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68944) == 2">
+          <UseObject NpcId="1030272" XYZ="-247.3336, 54.02106, -508.9342" QuestId="68944" StepId="2"/>
+        </If>
+        <!-- One Good Trick Deserves Another -->
+        <If Condition="GetQuestStep(68950) == 1">
+          <If Condition="GetQuestById(68950).GetTodoArgs(1, 0).Item1 == 0">
+            <FlyTo XYZ="-467.3039, 76.01917, -377.4" Land="True"/>
+            <HandOver ItemId="2002645" NpcId="1030276" XYZ="-468.6808, 75.95398, -376.3943" QuestId="68950"/>
+          </If>
+          <If Condition="GetQuestById(68950).GetTodoArgs(1, 0).Item1 == 1">
+            <FlyTo XYZ="-543.0581, 72.79016, -407.4279" Land="True"/>
+            <HandOver ItemId="2002645" NpcId="1030277" XYZ="-544.4877, 72.54534, -407.0039" QuestId="68950"/>
+          </If>
+        </If>
+        <!-- A Leafman and a Hero -->
+        <If Condition="GetQuestStep(68951) == 1">
+          <FlyTo XYZ="-168.991, 1.405617, -220.0175" Land="True"/>
+          <UseItem ItemId="2002646" NpcId="2010193" XYZ="-166.0945, 2.334595, -220.1724" QuestId="68951" StepId="1"/>
+        </If>
+        <!-- Growing Pla Enni -->
+        <If Condition="GetQuestStep(68947) == 1">
+          <If Condition="not IsTodoChecked(68947, 1, 1)">
+            <FlyTo XYZ="-18.66691, 57.51033, -136.1011" Land="True"/>
+            <Grind GrindRef="8575" PostCombatDelay="3.0" While="not IsTodoChecked(68947, 1, 1)"/>
+          </If>
+        </If>
+        <!-- Help My Porxie -->
+        <If Condition="GetQuestStep(68949) == 1">
+          <FlyTo XYZ="56.83088, -0.6, -281.8421"/>
+          <UseObject NpcIds="2010190, 2010191, 2010192" XYZ="63.55383, -0.1679077, -289.4179" QuestId="68949" StepId="1"/>
+        </If>
+        <!-- Growing Pla Enni -->
+        <If Condition="GetQuestStep(68947) == 1">
+          <If Condition="not IsTodoChecked(68947, 1, 0)">
+            <FlyTo XYZ="-25.92451, 6.193386, 350.622" Land="True"/>
+            <Grind GrindRef="8592" PostCombatDelay="3.0" While="not IsTodoChecked(68947, 1, 0)"/>
+          </If>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="GetQuestStep(68953) == 3">
+          <FlyTo XYZ="-229.2892, 52.82237, 650.1168" Land="True"/>
+          <SoUseItem ItemId="2002661" NpcId="8569" XYZ="-233.3563, 54.95978, 657.0076" InCombatOnly="True" UseHealthPercent="25" QuestId="68953" StepId="3"/>
+        </If>
+        <!-- A Lawful Trade -->
+        <If Condition="GetQuestStep(68945) == 1">
+          <FlyTo XYZ="-386.8107, 58.61605, 553.244" Land="True"/>
+          <SoHandOver ItemId="2002640" NpcId="1028052" XYZ="-381.0941, 58.71793, 554.2534" QuestId="68945" StepId="1"/>
+        </If>
+        <!-- Growing Pla Enni -->
+        <If Condition="GetQuestStep(68947) == 1">
+          <If Condition="not IsTodoChecked(68947, 1, 2)">
+            <FlyTo XYZ="-700.5947, 99.72228, 595.7372" Land="True"/>
+            <Grind GrindRef="8589" PostCombatDelay="3.0" While="not IsTodoChecked(68947, 1, 2)"/>
+          </If>
+        </If>
+        <!-- A Lawful Trade -->
+        <If Condition="GetQuestStep(68945) == 2">
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 0">
+            <FlyTo XYZ="-426.646, 36.90612, 333.9671" Land="True"/>
+            <UseObject NpcId="2010189" XYZ="-426.7796, 36.48425, 331.8074" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 0"/>
+          </If>
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 1">
+            <FlyTo XYZ="-431.6333, 21.85194, 209.7045" Land="True"/>
+            <UseObject NpcId="2010185" XYZ="-428.4276, 21.16418, 207.2023" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 1"/>
+          </If>
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 2">
+            <UseObject NpcId="2010186" XYZ="-411.0018, 18.60071, 209.1859" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 2"/>
+          </If>
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 3">
+            <FlyTo XYZ="-448.8018, 12.63356, 29.41727" Land="True"/>
+            <UseObject NpcId="2010184" XYZ="-450.6142, 12.92438, 27.72559" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 3"/>
+          </If>
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 4">
+            <UseObject NpcId="2010187" XYZ="-468.4672, 15.67102, 8.743347" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 4"/>
+          </If>
+          <If Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 5">
+            <UseObject NpcId="2010188" XYZ="-460.1968, 7.370056, -21.89673" Condition="GetQuestById(68945).GetTodoArgs(2, 0).Item1 == 5"/>
+          </If>
+        </If>
+        <!-- Magic Is Love, Magic Is Life -->
+        <If Condition="GetQuestStep(68952) == 2">
+          <GetTo ZoneId="816" XYZ="-183.9475, 80.33522, -745.449"/>
+          <HandOver ItemIds="2002659, 2002660" NpcId="1030701" XYZ="-183.9475, 80.33522, -745.449" QuestId="68952" StepId="2"/>
+        </If>
+        <!-- The Mushroom Menace -->
+        <If Condition="GetQuestStep(68946) == 255">
+          <GetTo ZoneId="816" XYZ="-224.8417, 79.61796, -786.3432"/>
+          <TurnIn QuestId="68946" NpcId="1030698" XYZ="-224.8417, 79.61796, -786.3432"/>
+        </If>
+        <!-- Magic Is Love, Magic Is Life -->
+        <If Condition="GetQuestStep(68952) == 255">
+          <GetTo ZoneId="816" XYZ="-105.7798, 101.6013, -848.0443"/>
+          <RunCode Name="Ose_Sigun"/>
+          <TurnIn QuestId="68952" NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639"/>
+        </If>
+        <!-- Growing Pla Enni -->
+        <If Condition="GetQuestStep(68947) == 255">
+          <TurnIn ItemIds="2002656,2002657,2002658" QuestId="68947" NpcId="1027673" XYZ="-106.0655, 108.4, -841.7639"/>
+          <MoveTo XYZ="-100.5647, 101.6749, -844.3474" UseMesh="False"/>
+        </If>
+        <!-- A Stranger Fuath -->
+        <If Condition="GetQuestStep(68954) == 255">
+          <GetTo ZoneId="816" XYZ="-101.5183, 101.8601, -838.4985"/>
+          <TurnIn ItemId="2002871" QuestId="68954" NpcId="1027672" XYZ="-101.5183, 101.8601, -838.4985"/>
+        </If>
+        <!-- Help My Porxie -->
+        <If Condition="GetQuestStep(68949) == 255">
+          <GetTo ZoneId="816" XYZ="-47.7467, 104.7491, -858.8129"/>
+          <RunCode Name="Caring_Nu_Mou"/>
+          <TurnIn ItemId="2002642" QuestId="68949" NpcId="1030274" XYZ="-46.12805, 110.9305, -851.9265"/>
+          <MoveTo XYZ="-42.73763, 105.1454, -861.5356" UseMesh="False"/>
+        </If>
+        <!-- A Leafman and a Hero -->
+        <If Condition="GetQuestStep(68951) == 255">
+          <GetTo ZoneId="816" XYZ="-15.61005, 106.4605, -889.8298"/>
+          <TurnIn QuestId="68951" NpcId="1030699" XYZ="-15.61005, 106.4605, -889.8298"/>
+        </If>
+        <!-- Are You Being Served -->
+        <If Condition="GetQuestStep(68953) == 255">
+          <GetTo ZoneId="816" XYZ="-1.815857, 100.4684, -889.3416"/>
+          <TurnIn ItemId="2002662" QuestId="68953" NpcId="1030702" XYZ="-1.815857, 100.4684, -889.3416"/>
+        </If>
+        <!-- One Good Trick Deserves Another -->
+        <If Condition="GetQuestStep(68950) == 255">
+          <GetTo ZoneId="816" XYZ="4.592957, 105.698, -849.4545"/>
+          <TurnIn QuestId="68950" NpcId="1030700" XYZ="4.592957, 105.698, -849.4545"/>
+        </If>
+        <!-- Scents of Security  -->
+        <If Condition="GetQuestStep(68944) == 255">
+          <GetTo ZoneId="816" XYZ="32.02869, 101.9007, -857.8774"/>
+          <TurnIn ItemId="2002654" QuestId="68944" NpcId="1027670" XYZ="32.02869, 101.9007, -857.8774"/>
+        </If>
+        <!-- A Lawful Trade -->
+        <If Condition="GetQuestStep(68945) == 255">
+          <GetTo ZoneId="816" XYZ="69.7489, 110.6929, -883.6957"/>
+          <TurnIn ItemId="2002641" QuestId="68945" NpcId="1028044" XYZ="69.7489, 110.6929, -883.6957"/>
+          <MoveTo XYZ="-134.3879, 58.97334, -682.8563"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(68854)">
+        <!-- Duplicity in the Depths -->
+        <If Condition="not HasQuest(68968) and not IsQuestCompleted(68968)">
+          <GetTo ZoneId="816" XYZ="355.5797, 86.6162, -692.138"/>
+          <If Condition="IsQuestAcceptQualified(68968)">
+            <PickupQuest QuestId="68968" NpcId="1031179"/>
+          </If>
+        </If>
+        <!-- In His Mistress’s Memory -->
+        <If Condition="not HasQuest(68956) and not IsQuestCompleted(68956)">
+          <GetTo ZoneId="816" XYZ="362.848, 87.11109, -712.8243"/>
+          <If Condition="IsQuestAcceptQualified(68956)">
+            <PickupQuest QuestId="68956" NpcId="1027693"/>
+          </If>
+        </If>
+        <!-- Marks of the Monarch -->
+        <If Condition="not HasQuest(68969) and not IsQuestCompleted(68969)">
+          <GetTo ZoneId="816" XYZ="366.1464, 86.46317, -751.6489"/>
+          <If Condition="IsQuestAcceptQualified(68969)">
+            <PickupQuest QuestId="68969" NpcId="1031500"/>
+          </If>
+        </If>
+        <!-- An Eggshell a Day -->
+        <If Condition="not HasQuest(68970) and not IsQuestCompleted(68970)">
+          <GetTo ZoneId="816" XYZ="415.163, 87.80208, -750.1952"/>
+          <If Condition="IsQuestAcceptQualified(68970)">
+            <SoPickupQuest QuestId="68970" NpcId="1027691" DialogOption="1"/>
+          </If>
+        </If>
+        <!-- A Tale of a Tail -->
+        <If Condition="not HasQuest(68958) and not IsQuestCompleted(68958)">
+          <GetTo ZoneId="816" XYZ="456.2611, 89.43494, -741.6868"/>
+          <If Condition="IsQuestAcceptQualified(68958)">
+            <PickupQuest QuestId="68958" NpcId="1027694"/>
+          </If>
+        </If>
+        <!-- Not All Pixies -->
+        <If Condition="not HasQuest(68959) and not IsQuestCompleted(68959)">
+          <GetTo ZoneId="816" XYZ="489.2537, 89.4742, -703.663"/>
+          <If Condition="IsQuestAcceptQualified(68959)">
+            <PickupQuest QuestId="68959" NpcId="1031203"/>
+          </If>
+        </If>
+        <!-- A Gift in Advance -->
+        <If Condition="not HasQuest(68960) and not IsQuestCompleted(68960)">
+          <GetTo ZoneId="816" XYZ="479.1492, 90.1367, -659.0151"/>
+          <If Condition="IsQuestAcceptQualified(68960)">
+            <PickupQuest QuestId="68960" NpcId="1031204"/>
+          </If>
+        </If>
+        <!-- Lurkers in the Lake -->
+        <If Condition="not HasQuest(68957) and not IsQuestCompleted(68957)">
+          <GetTo ZoneId="816" XYZ="397.8056, 89.33418, -634.4561"/>
+          <If Condition="IsQuestAcceptQualified(68957)">
+            <PickupQuest QuestId="68957" NpcId="1031499"/>
+          </If>
+        </If>
+        <!-- Pushy for Patronage -->
+        <If Condition="not HasQuest(68955) and not IsQuestCompleted(68955)">
+          <GetTo ZoneId="816" XYZ="383.8445, 86.69839, -619.4583"/>
+          <If Condition="IsQuestAcceptQualified(68955)">
+            <PickupQuest QuestId="68955" NpcId="1027692"/>
+          </If>
+        </If>
+        <!-- Marks of the Monarch -->
+        <If Condition="GetQuestStep(68969) == 1">
+          <If Condition="GetQuestById(68969).GetTodoArgs(1, 0).Item1 == 0">
+            <FlyTo XYZ="668.0188, 106.908, -898.9804" Land="True"/>
+            <MoveTo XYZ="671.2595, 107.0725, -900.8774" Distance="1"/>
+            <RunCode Name="68969"/>
+            <WaitWhile Condition="GetQuestById(68969).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+        </If>
+        <!-- An Eggshell a Day -->
+        <If Condition="GetQuestStep(68970) == 1">
+          <If Condition="GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 0">
+            <UseObject NpcIds="2010718" XYZ="620.2639, 109.1477, -871.1223" Condition="GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 0"/>
+          </If>
+          <If Condition="GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 1">
+            <MoveTo XYZ="613.1399, 109.9594, -848.8727" Distance="1"/>
+            <RunCode Name="68970"/>
+            <UseObject NpcIds="2010721" XYZ="600.4271, 111.2839, -857.8469" Condition="GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 1"/>
+            <MoveTo XYZ="609.6016, 109.9505, -846.958" Distance="1"/>
+            <RunCode Name="68970"/>
+          </If>
+          <If Condition="GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 2">
+            <UseObject NpcIds="2010719, 2010720" QuestId="68970" StepId="1">
+              <HotSpots>
+                <HotSpot XYZ="625.4824, 109.6971, -824.9485" Radius="10"/>
+                <HotSpot XYZ="642.7557, 109.9413, -827.4815" Radius="10"/>
+              </HotSpots>
+            </UseObject>
+          </If>
+        </If>
+        <!-- A Gift in Advance -->
+        <If Condition="GetQuestStep(68960) == 1">
+          <FlyTo XYZ="575.8145, 97.40387, -531.9496" Land="True"/>
+          <Grind GrindRef="68960" PostCombatDelay="3.0" While="not GetQuestStep(68960) == 255"/>
+        </If>
+        <!-- A Tale of a Tail -->
+        <If Condition="GetQuestStep(68958) == 1">
+          <FlyTo XYZ="554.0773, 94.68934, -445.9799" Land="True"/>
+          <Grind GrindRef="68958" PostCombatDelay="3.0" While="not GetQuestStep(68958) == 255"/>
+        </If>
+        <!-- Lurkers in the Lake -->
+        <If Condition="GetQuestStep(68957) == 1">
+          <FlyTo XYZ="239.8504, 26.15308, -473.7643" Land="True"/>
+          <UseObject NpcId="2010701" XYZ="237.9949, 25.98608, -473.1365" QuestId="68957" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68957) == 2">
+          <TalkTo NpcId="1031506" XYZ="229.6024, 24.33311, -458.9761" QuestId="68957" StepId="2"/>
+        </If>
+        <!-- In His Mistress’s Memory -->
+        <If Condition="GetQuestStep(68956) == 1">
+          <FlyTo XYZ="54.17983, -0.5999999, -275.7131"/>
+          <SoTalkTo NpcId="2010700" XYZ="52.14001, 0.3203735, -270.4357" InteractDistance="3.0" QuestId="68956" StepId="1"/>
+        </If>
+        <!-- Not All Pixies -->
+        <If Condition="GetQuestStep(68959) == 1">
+          <FlyTo XYZ="-56.32034, 88.37476, -180.6724" Land="True"/>
+          <TalkTo NpcId="1031507" XYZ="-52.0791, 87.9948, -180.3159" QuestId="68959" StepId="1"/>
+        </If>
+        <!-- Duplicity in the Depths -->
+        <If Condition="GetQuestStep(68968) == 1">
+          <FlyTo XYZ="-83.64249, -87.05578, -54.08413" ArrivalTolerance="0.5" AllowedVariance="1.0"/>
+          <UseObject NpcId="2010715" XYZ="-84.00098, -86.56445, -55.86328" QuestId="68968" StepId="1"/>
+        </If>
+        <!-- Marks of the Monarch -->
+        <If Condition="GetQuestStep(68969) == 1">
+          <If Condition="GetQuestById(68969).GetTodoArgs(1, 0).Item1 == 1">
+            <FlyTo XYZ="262.3758, 28.29562, -43.50124" Land="True"/>
+            <MoveTo XYZ="264.8507, 27.72559, -41.94714" Distance="1"/>
+            <RunCode Name="68969"/>
+            <WaitWhile Condition="GetQuestById(68969).GetTodoArgs(1, 0).Item1 == 1"/>
+          </If>
+        </If>
+        <!-- Not All Pixies -->
+        <If Condition="GetQuestStep(68959) == 2">
+          <GetTo ZoneId="816" XYZ="-34.76954, 105.6435, -878.3833"/>
+          <TalkTo NpcId="1027671" XYZ="-33.12738, 105.6853, -879.9115" QuestId="68959" StepId="2"/>
+        </If>
+        <!-- Pushy for Patronage -->
+        <If Condition="GetQuestStep(68955) == 1">
+          <GetTo ZoneId="816" XYZ="29.60102, 101.8612, -858.5615"/>
+          <TalkTo NpcId="1027670" XYZ="32.02869, 101.9007, -857.8774" QuestId="68955" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68955) == 2">
+          <GetTo ZoneId="816" XYZ="155.0436, 84.55858, -736.3997"/>
+          <FlyTo XYZ="137.2829, 71.05473, -662.2399" Land="True"/>
+          <UseObject NpcIds="2010694, 2010695, 2010696, 2010697" QuestId="68955" StepId="2">
+            <HotSpots>
+              <HotSpot XYZ="131.7616, 71.48853, -662.3179" Radius="10"/>
+              <HotSpot XYZ="103.8987, 49.39343, -630.335" Radius="10"/>
+              <HotSpot XYZ="137.4989, 21.68304, -551.6899" Radius="10"/>
+              <HotSpot XYZ="108.2017, 15.48785, -540.1542" Radius="10"/>
+            </HotSpots>
+          </UseObject>
+        </If>
+        <!-- Not All Pixies -->
+        <If Condition="GetQuestStep(68959) == 3">
+          <FlyTo XYZ="-56.3885, 88.17123, -178.2684" Land="True"/>
+          <HandOver ItemId="2002877" NpcId="1031507" XYZ="-52.0791, 87.9948, -180.3159" QuestId="68959" StepId="3"/>
+        </If>
+        <!-- Pushy for Patronage -->
+        <If Condition="GetQuestStep(68955) == 3">
+          <GetTo ZoneId="816" XYZ="29.38281, 101.9149, -858.2913"/>
+          <HandOver ItemId="2002872" NpcId="1027670" XYZ="32.02869, 101.9007, -857.8774" QuestId="68955" StepId="3"/>
+        </If>
+        <!-- Duplicity in the Depths -->
+        <If Condition="GetQuestStep(68968) == 255">
+          <GetTo ZoneId="816" XYZ="353.8414, 86.52624, -691.2795"/>
+          <TurnIn ItemId="2002886" QuestId="68968" NpcId="1031179" XYZ="353.8414, 86.52624, -691.2795"/>
+        </If>
+        <!-- In His Mistress’s Memory -->
+        <If Condition="GetQuestStep(68956) == 255">
+          <GetTo ZoneId="816" XYZ="364.2786, 87.00109, -715.4193"/>
+          <TurnIn QuestId="68956" NpcId="1027693" XYZ="364.2786, 87.00109, -715.4193"/>
+        </If>
+        <!-- Marks of the Monarch -->
+        <If Condition="GetQuestStep(68969) == 255">
+          <GetTo ZoneId="816" XYZ="366.9031, 86.37964, -753.2616"/>
+          <SoTurnIn QuestId="68969" NpcId="1031500" DialogOption="1" XYZ="366.9031, 86.37964, -753.2616"/>
+        </If>
+        <!-- An Eggshell a Day -->
+        <If Condition="GetQuestStep(68970) == 255">
+          <GetTo ZoneId="816" XYZ="416.8002, 87.94778, -751.0948"/>
+          <TurnIn ItemId="2002882" QuestId="68970" NpcId="1027691" XYZ="416.8002, 87.94778, -751.0948"/>
+        </If>
+        <!-- A Tale of a Tail -->
+        <If Condition="GetQuestStep(68958) == 255">
+          <GetTo ZoneId="816" XYZ="457.8774, 89.41441, -742.5193"/>
+          <TurnIn ItemId="2002876" QuestId="68958" NpcId="1027694" XYZ="457.8774, 89.41441, -742.5193"/>
+        </If>
+        <!-- Not All Pixies -->
+        <If Condition="GetQuestStep(68959) == 255">
+          <GetTo ZoneId="816" XYZ="490.2876, 90.00258, -700.6486"/>
+          <TurnIn QuestId="68959" NpcId="1031203" XYZ="490.2876, 90.00258, -700.6486"/>
+        </If>
+        <!-- A Gift in Advance -->
+        <If Condition="GetQuestStep(68960) == 255">
+          <GetTo ZoneId="816" XYZ="481.9561, 90.43779, -656.0922"/>
+          <TurnIn QuestId="68960" NpcId="1031204" XYZ="481.9561, 90.43779, -656.0922"/>
+        </If>
+        <!-- Lurkers in the Lake -->
+        <If Condition="GetQuestStep(68957) == 255">
+          <GetTo ZoneId="816" XYZ="394.0031, 88.9884, -634.4854"/>
+          <TurnIn QuestId="68957" NpcId="1031499" XYZ="394.0031, 88.9884, -634.4854"/>
+        </If>
+        <!-- Pushy for Patronage -->
+        <If Condition="GetQuestStep(68955) == 255">
+          <GetTo ZoneId="816" XYZ="382.1317, 86.55059, -617.0901"/>
+          <TurnIn QuestId="68955" NpcId="1027692" XYZ="382.1317, 86.55059, -617.0901"/>
+        </If>
+      </If>
+      <If Condition="IsQuestCompleted(68856)">
+        <!-- In His Mistress’s Name -->
+        <If Condition="not HasQuest(68961) and not IsQuestCompleted(68961)">
+          <GetTo ZoneId="816" XYZ="-295.0324, 40.32404, 456.1457"/>
+          <If Condition="IsQuestAcceptQualified(68961)">
+            <PickupQuest QuestId="68961" NpcId="1027656"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68961) &gt; 0">
+          <If Condition="GetQuestStep(68961) == 1">
+            <GetTo ZoneId="816" XYZ="365.0328, 87.00592, -712.5899"/>
+            <HandOver ItemId="2002881" NpcId="1027693" XYZ="364.2786, 87.00109, -715.4193" QuestId="68961" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68961) == 255">
+            <GetTo ZoneId="816" XYZ="-295.053, 40.32404, 458.0529"/>
+            <TurnIn QuestId="68961" NpcId="1027656" XYZ="-291.6152, 40.32404, 456.6567"/>
+          </If>
+        </If>
+        <!-- Hide and Seek -->
+        <If Condition="not HasQuest(68962) and not IsQuestCompleted(68962)">
+          <FlyTo XYZ="-417.9952, 59.82654, 497.8369" Land="True"/>
+          <If Condition="IsQuestAcceptQualified(68962)">
+            <PickupQuest QuestId="68962" NpcId="1031521"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68962) &gt; 0">
+          <If Condition="GetQuestStep(68962) == 1">
+            <FlyTo XYZ="673.1028, 186.387, 322.7804" Land="True"/>
+            <TalkTo NpcId="1031522" XYZ="676.2949, 186.372, 323.5066" QuestId="68962" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(68962) == 2">
+            <FlyTo XYZ="489.3782, 151.2486, 60.59783" Land="True"/>
+            <MoveTo XYZ="536.1256, 149.6494, 13.56519"/>
+            <RunCode Name="68962"/>
+            <WaitWhile Condition="not GetQuestStep(68962) == 3"/>
+            <MoveTo XYZ="492.4138, 147.6576, 71.60354"/>
+          </If>
+          <If Condition="GetQuestStep(68962) == 3">
+            <FlyTo XYZ="675.7948, 186.3691, 322.8789" Land="True"/>
+            <TalkTo NpcId="1031522" XYZ="676.2949, 186.372, 323.5066" QuestId="68962" StepId="3"/>
+          </If>
+          <If Condition="GetQuestStep(68962) == 255">
+            <GetTo ZoneId="816" XYZ="-418.8033, 60.18718, 497.7566"/>
+            <TurnIn QuestId="68962" NpcId="1031521" XYZ="-419.3027, 60.30626, 498.1613"/>
+          </If>
+        </If>
+      </If>
+    </If>
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="8575">
+      <Hotspots>
+        <Hotspot XYZ="-18.66691, 57.51033, -136.1011" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8575"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="8589">
+      <Hotspots>
+        <Hotspot XYZ="-700.5947, 99.72228, 595.7372" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8589"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="8592">
+      <Hotspots>
+        <Hotspot XYZ="-25.92451, 6.193386, 350.622" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8592"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68929">
+      <Hotspots>
+        <Hotspot XYZ="-460.2892, 124.83, 750.8995" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8589"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68939">
+      <Hotspots>
+        <Hotspot XYZ="-95.73682, 22.07411, 526.5126" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9019" Weight="999"/>
+        <TargetMob Id="8585"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68952">
+      <Hotspots>
+        <Hotspot XYZ="-18.9665, 55.73268, -667.4501" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8578"/>
+        <TargetMob Id="8588"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68958">
+      <Hotspots>
+        <Hotspot XYZ="554.0773, 94.68934, -445.9799" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8577"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="68960">
+      <Hotspots>
+        <Hotspot XYZ="575.8145, 97.40387, -531.9496" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8583"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Ose_Sigun">
+      <![CDATA[
+        var _points = new Vector3[]
+        {
+          new Vector3("-105.7798, 101.6013, -848.0443"),
+          new Vector3("-114.2832, 106.3189, -842.7415"),
+          new Vector3("-114.6769, 108.4288, -839.9341"),
+          new Vector3("-108.2562, 108.4, -841.5468"),
+        };
+
+        await CommonTasks.StopAndDismount();
+        foreach (var _loc in _points)
+        {
+          Navigator.PlayerMover.MoveTowards(_loc);
+          while (Core.Me.Distance(_loc) > 0.5f)
+          {
+            await Coroutine.Yield();
+          }
+        }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Caring_Nu_Mou">
+      <![CDATA[
+        var _points = new Vector3[]
+        {
+          new Vector3("-47.7467, 104.7491, -858.8129"),
+          new Vector3("-52.73621, 109.7839, -848.7183"),
+          new Vector3("-50.82963, 110.9446, -846.9501"),
+          new Vector3("-47.52011, 110.9394, -850.632"),
+        };
+
+        await CommonTasks.StopAndDismount();
+        foreach (var _loc in _points)
+        {
+          Navigator.PlayerMover.MoveTowards(_loc);
+          while (Core.Me.Distance(_loc) > 0.5f)
+          {
+            await Coroutine.Yield();
+          }
+        }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68944">
+      <![CDATA[
+        await CommonTasks.StopAndDismount();        
+        await Coroutine.Sleep(1000);
+        InventoryManager.FilledSlots.FirstOrDefault(slot => slot.RawItemId == 2002608).UseItem();
+        await Coroutine.Wait(5000, () => Core.Me.IsCasting);
+        await Coroutine.Wait(15000, () => !Core.Me.IsCasting);  
+        await Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68962">
+      <![CDATA[
+        var _say = String.Empty;
+#if RB_CN
+        _say = "/s 河狸！";
+#else
+        _say = "/s Beaver";
+#endif    
+        await CommonTasks.StopAndDismount();        
+        GameObjectManager.GetObjectByNPCId(1031526).Target();    
+        ChatManager.SendChat(_say);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68969">
+      <![CDATA[
+        var _objIds = new uint[] { 2010716, 2010717 };
+        await CommonTasks.StopAndDismount();		
+        GameObjectManager.GameObjects.Where(obj => _objIds.Contains(obj.NpcId)).OrderBy(r => Core.Me.Distance(r.Location)).FirstOrDefault().Target(); 
+        ChatManager.SendChat("/lookout");
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="68970">
+      <![CDATA[
+        var _to = new Vector3("609.6016, 109.9505, -846.958");
+        var _from = new Vector3("613.1399, 109.9594, -848.8727");
+        var _loc = ConditionParser.GetQuestById(68970).GetTodoArgs(1, 0).Item1 == 2 ? _from : _to;
+
+        await CommonTasks.StopAndDismount();
+        while (Core.Me.Distance(_loc) > 1f)
+        {
+          Navigator.PlayerMover.MoveTowards(_loc);
+          await Coroutine.Sleep(250);
+          MovementManager.Jump();
+        }    
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

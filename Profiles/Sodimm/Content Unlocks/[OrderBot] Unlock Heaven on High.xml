@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [OrderBot] Unlock Heaven on High
+Authors:  Sodimm
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Heaven on High</Name>
+  <Order>
+    <!-- Knocking on Heaven's Door -->
+    <If Condition="IsQuestCompleted(68026) and IsQuestCompleted(67092) and not HasQuest(68667) and not IsQuestCompleted(68667)">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-759.5798, 4.763457, -486.2462" Land="True" Dismount="True"/>
+      <If Condition="IsQuestAcceptQualified(68667)">
+        <PickupQuest QuestId="68667" NpcId="1019239" XYZ="-761.8982, 4.763457, -485.2217"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68667) and not IsQuestCompleted(68667) and GetQuestStep(68667) == 1">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-2.905581, 3.03396, -610.1859" Land="True" Dismount="True"/>
+      <TalkTo NpcId="1025846" XYZ="-2.02948, 3.005981, -611.3528" QuestId="68667" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68667) and not IsQuestCompleted(68667) and GetQuestStep(68667) == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-12.74324, 61.34498, -677.2379" Land="True" Dismount="True"/>
+      <UseObject NpcId="2009514" XYZ="-14.54187, 61.32605, -676.3867" QuestId="68667" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68667) and not IsQuestCompleted(68667) and GetQuestStep(68667) == 255">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-2.395536, 3.00764, -609.1843" Land="True" Dismount="True"/>
+      <TurnIn QuestId="68667" NpcId="1025846" XYZ="-2.02948, 3.005981, -611.3528"/>
+    </If>
+    <!-- On the Shoulders of Giants (Unlocks Heaven's-on-high Apex)-->
+    <If Condition="not HasQuest(68668) and not IsQuestCompleted(68668)">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+        <FlyTo XYZ="-2.14724, 3.051275, -610.2201" Land="True" Dismount="True"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(68668)">
+        <PickupQuest QuestId="68668" NpcId="1025846" XYZ="-2.02948, 3.005981, -611.3528"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68668) and not IsQuestCompleted(68668) and GetQuestStep(68668) == 1">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="122.4771, 4.71012, -737.0606" Land="True" Dismount="True"/>
+      <UseObject NpcId="2009515" XYZ="123.5522, 4.53186, -738.6435" QuestId="68668" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68668) and not IsQuestCompleted(68668) and GetQuestStep(68668) == 2">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-211.1559, 29.45499, -848.516" Land="True" Dismount="True"/>
+      <UseObject NpcId="2009516" XYZ="-214.2825, 31.72351, -850.4006" QuestId="68668" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68668) and not IsQuestCompleted(68668) and GetQuestStep(68668) == 255">
+      <If Condition="not IsOnMap(613)">
+        <GetTo ZoneId="613" XYZ="92.03217, 3.033221, -577.6348"/>
+      </If>
+      <FlyTo XYZ="-2.250914, 3.047573, -610.1794" Land="True" Dismount="True"/>
+      <TurnIn QuestId="68668" NpcId="1025846" XYZ="-2.02948, 3.005981, -611.3528"/>
+    </If>
+  </Order>
+</Profile>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Dark Knight Class Quests.
+Authors:  TuckMeIntoBread, Sodimm.
+-->
+<Profile>
+  <Name>[OrderBot] Dark Knight Class Quests.</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- In Memories We Walked (Level 60) -->
+    <If Condition="IsQuestCompleted(67600) and not HasQuest(68451) and not IsQuestCompleted(68451) and IsQuestCompleted(67600) and Core.Player.ClassLevel &gt; 59">
+      <GetTo ZoneId="418" XYZ="102.5152, 15.00001, 40.56231"/>
+      <If Condition="IsQuestAcceptQualified(68451)">
+        <SoPickupQuest QuestId="68451" NpcId="1013969" XYZ="102.5152, 15.00001, 40.56231"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 1">
+      <GetTo ZoneId="419" XYZ="3.21935, 11.96504, 36.22222"/>
+      <UseObject NpcId="2008659" XYZ="3.21935, 11.96504, 36.22222" QuestId="68451" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 2">
+      <GetTo ZoneId="418" XYZ="74.11627, 24.07172, -13.20993"/>
+      <TalkTo NpcId="1022855" XYZ="74.11627, 24.07172, -13.20993" QuestId="68451" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 3">
+      <GetTo ZoneId="418" XYZ="3.185358, 5.471314, 25.78015"/>
+      <TalkTo NpcId="1022859" XYZ="3.185358, 5.471314, 25.78015" QuestId="68451" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 4">
+      <GetTo ZoneId="418" XYZ="74.18632, 24.07172, -13.11968"/>
+      <TalkTo NpcId="1022855" XYZ="74.18632, 24.07172, -13.11968" QuestId="68451" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 5">
+      <GetTo ZoneId="419" XYZ="32.49171, 15.96506, -65.80395"/>
+      <UseObject NpcId="2008660" XYZ="32.49171, 15.96506, -65.80395" QuestId="68451" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 6">
+      <GetTo ZoneId="397" XYZ="482.9088, 203.4332, 682.7995"/>
+      <TalkTo NpcId="1022862" XYZ="482.9088, 203.4332, 682.7995" QuestId="68451" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 7">
+      <GetTo ZoneId="397" XYZ="385.4764, 170.03, 419.3906"/>
+      <TalkTo NpcId="1022863" XYZ="385.4764, 170.03, 419.3906" QuestId="68451" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 8">
+      <GetTo ZoneId="397" XYZ="382.5618, 169.8876, 417.6109"/>
+      <SoUseSpell SpellId="3632" NpcIds="2008661" XYZ="382.5618, 169.8876, 417.6109" QuestId="68451" StepId="8"/>
+    </If>
+    <If Condition="HasQuest(68451) and not IsQuestCompleted(68451) and GetQuestStep(68451) == 255">
+      <GetTo ZoneId="397" XYZ="483.2981, 203.4332, 680.4833"/>
+      <TurnIn QuestId="68451" NpcId="1022866" XYZ="483.2981, 203.4332, 680.4833"/>
+    </If>
+    <!-- The Widow and Her Love (Level 63) -->
+    <If Condition="IsQuestCompleted(68451) and not HasQuest(68452) and not IsQuestCompleted(68452) and Core.Player.ClassLevel &gt; 62">
+      <GetTo ZoneId="397" XYZ="483.2981, 203.4332, 680.4833"/>
+      <If Condition="IsQuestAcceptQualified(68452)">
+        <PickupQuest QuestId="68452" NpcId="1022866" XYZ="483.2981, 203.4332, 680.4833"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 1">
+      <GetTo ZoneId="398" XYZ="465.6271, -51.1414, 45.22415"/>
+      <TalkTo NpcId="1022870" XYZ="465.6271, -51.1414, 45.22415" QuestId="68452" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 2">
+      <GetTo ZoneId="398" XYZ="437.6535, -51.1414, 98.39015"/>
+      <UseObject NpcId="2008662" XYZ="437.6535, -51.1414, 98.39015" QuestId="68452" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 3">
+      <GetTo ZoneId="398" XYZ="505.8394, -44.52309, -116.5288"/>
+      <TalkTo NpcId="1022879" XYZ="505.8394, -44.52309, -116.5288" QuestId="68452" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 4">
+      <GetTo ZoneId="398" XYZ="612.1694, -26.29338, -436.1063"/>
+      <TalkTo NpcId="1022880" XYZ="612.1694, -26.29338, -436.1063" QuestId="68452" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 5">
+      <GetTo ZoneId="398" XYZ="621.9706, -25.4467, -446.9751"/>
+      <SoUseSpell SpellId="3632" NpcIds="2008663" XYZ="621.9706, -25.4467, -446.9751" QuestId="68452" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 6">
+      <GetTo ZoneId="398" XYZ="619.136, -25.52859, -446.8855"/>
+      <TalkTo NpcId="1023414" XYZ="619.136, -25.52859, -446.8855" QuestId="68452" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68452) and not IsQuestCompleted(68452) and GetQuestStep(68452) == 255">
+      <GetTo ZoneId="398" XYZ="462.9265, -51.1414, 42.91224"/>
+      <TurnIn QuestId="68452" NpcId="1022885" XYZ="462.9265, -51.1414, 42.91224"/>
+    </If>
+    <!-- The Orphans and the Broken Blade (Level 65) -->
+    <If Condition="IsQuestCompleted(68452) and not HasQuest(68453) and not IsQuestCompleted(68453) and Core.Player.ClassLevel &gt; 64">
+      <GetTo ZoneId="398" XYZ="462.9265, -51.1414, 42.91224"/>
+      <If Condition="IsQuestAcceptQualified(68453)">
+        <PickupQuest QuestId="68453" NpcId="1022885" XYZ="462.9265, -51.1414, 42.91224"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 1">
+      <GetTo ZoneId="400" XYZ="252.9763, -43.09745, 626.1471"/>
+      <TalkTo NpcId="1022888" XYZ="252.9763, -43.09745, 626.1471" QuestId="68453" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 2">
+      <GetTo ZoneId="400" XYZ="155.505, -64.28929, 678.6102"/>
+      <SoTalkTo NpcId="1022891" XYZ="155.505, -64.28929, 678.6102" QuestId="68453" StepId="2" DialogOption="0"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 3">
+      <GetTo ZoneId="400" XYZ="251.4009, -43.08496, 627.3571"/>
+      <TalkTo NpcId="1022888" XYZ="251.4009, -43.08496, 627.3571" QuestId="68453" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 4">
+      <GetTo ZoneId="400" XYZ="418.1284, -29.08345, 90.75925"/>
+      <TalkTo NpcId="1022893" XYZ="418.1284, -29.08345, 90.75925" QuestId="68453" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 5">
+      <GetTo ZoneId="400" XYZ="-164.9753, -22.89298, 289.3004"/>
+      <SimpleDuty InteractNpcId="1022897" XYZ="-164.9753, -22.89298, 289.3004" QuestId="68453" StepId="5">
+        <HotSpots>
+          <HotSpot XYZ="-164.9753, -22.89298, 289.3004" Radius="90"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="6300" Weight="1000"/>
+          <TargetMob Id="6302" Weight="4000"/>
+          <TargetMob Id="6301" Weight="9000"/>
+        </TargetMobs>
+      </SimpleDuty>
+      <WaitWhile Condition="HasQuest(68453) and not IsQuestCompleted(68453) and not GetQuestStep(68453) == 7"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 7">
+      <GetTo ZoneId="400" XYZ="-160.6728, -22.95549, 284.6316"/>
+      <SoUseSpell SpellId="3632" NpcIds="2008665" XYZ="-160.6728, -22.95549, 284.6316" QuestId="68453" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 8">
+      <GetTo ZoneId="400" XYZ="-163.7086, -22.89995, 286.714"/>
+      <TalkTo NpcId="1022900" XYZ="-163.7086, -22.89995, 286.714" QuestId="68453" StepId="8"/>
+    </If>
+    <If Condition="HasQuest(68453) and not IsQuestCompleted(68453) and GetQuestStep(68453) == 255">
+      <GetTo ZoneId="400" XYZ="253.6251, -43.10489, 625.6974"/>
+      <TurnIn QuestId="68453" NpcId="1022953" XYZ="253.6251, -43.10489, 625.6974"/>
+    </If>
+    <!-- We Can Never Go Home (Level 68) -->
+    <If Condition="IsQuestCompleted(68453) and not HasQuest(68454) and not IsQuestCompleted(68454) and Core.Player.ClassLevel &gt; 67">
+      <GetTo ZoneId="400" XYZ="253.6251, -43.10489, 625.6974"/>
+      <If Condition="IsQuestAcceptQualified(68454)">
+        <PickupQuest QuestId="68454" NpcId="1022892" XYZ="253.6251, -43.10489, 625.6974"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 1">
+      <GetTo ZoneId="612" XYZ="-620.8846, 130, -526.5853"/>
+      <TalkTo NpcId="1022890" XYZ="-620.8846, 130, -526.5853" QuestId="68454" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 2">
+      <GetTo ZoneId="612" XYZ="-621.9822, 130.0232, -500.1014"/>
+      <NoCombatMoveTo XYZ="-237.7092, 60.08292, -650.6895"/>
+      <NoCombatMoveTo XYZ="-285.1599, 73.91454, -693.4563"/>
+      <NoCombatMoveTo XYZ="-358.2802, 63.44955, -727.2344" UseMesh="False"/>
+      <TalkTo NpcId="1022902" XYZ="-358.2802, 63.44955, -727.2344" QuestId="68454" StepId="2"/>
+      <NoCombatMoveTo XYZ="-285.1599, 73.91454, -693.4563" UseMesh="False"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 3">
+      <GetTo ZoneId="612" XYZ="-278.4935, 74.57551, -694.4377"/>
+      <TalkTo NpcId="1022904" XYZ="-278.4935, 74.57551, -694.4377" QuestId="68454" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 4">
+      <GetTo ZoneId="612" XYZ="24.05706, 54.9854, -533.4133"/>
+      <TalkTo NpcId="1022905" XYZ="24.05706, 54.9854, -533.4133" QuestId="68454" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 5">
+      <GetTo ZoneId="612" XYZ="183.0115, 54.44376, -492.7902"/>
+      <TalkTo NpcId="1022908" XYZ="183.0115, 54.44376, -492.7902" QuestId="68454" StepId="5"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 6">
+      <GetTo ZoneId="612" XYZ="300.8202, 56.23291, -469.4166"/>
+      <TalkTo NpcId="1022910" XYZ="300.8202, 56.23291, -469.4166" QuestId="68454" StepId="6"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 7">
+      <GetTo ZoneId="612" XYZ="383.0529, 65.4362, -538.4774"/>
+      <TalkTo NpcId="1022911" XYZ="383.6575, 65.51434, -539.4217" QuestId="68454" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 8">
+      <GetTo ZoneId="612" XYZ="385.7098, 65.4419, -539.5209"/>
+      <SoUseSpell SpellId="3632" NpcIds="2008667" XYZ="385.7098, 65.4419, -539.5209" QuestId="68454" StepId="8"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 9">
+      <GetTo ZoneId="635" XYZ="-0.02643364, 3.87704, -75.69375"/>
+      <EmoteNPC Emote="respect" NpcId="2008668" XYZ="-0.02643364, 3.87704, -75.69375" QuestId="68454" StepId="9"/>
+    </If>
+    <If Condition="HasQuest(68454) and not IsQuestCompleted(68454) and GetQuestStep(68454) == 255">
+      <GetTo ZoneId="418" XYZ="102.3385, 15.00001, 40.28291"/>
+      <TurnIn QuestId="68454" NpcId="1013969" XYZ="102.3385, 15.00001, 40.28291"/>
+    </If>
+    <!-- Our Compromise (Level 70) -->
+    <If Condition="IsQuestCompleted(68454) and not HasQuest(68455) and not IsQuestCompleted(68455) and Core.Player.ClassLevel &gt; 69">
+      <GetTo ZoneId="418" XYZ="102.3385, 15.00001, 40.28291"/>
+      <If Condition="IsQuestAcceptQualified(68455)">
+        <PickupQuest QuestId="68455" NpcId="1013969" XYZ="102.3385, 15.00001, 40.28291"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 1 and GetQuestById(68455).GetTodoArgs(1, 0).Item1 == 0">
+      <GetTo ZoneId="635" XYZ="-38.32596, 18.92601, 145.8124"/>
+      <TalkTo NpcId="1022915" XYZ="-38.32596, 18.92601, 145.8124" QuestId="68455"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 1 and GetQuestById(68455).GetTodoArgs(1, 0).Item1 == 1">
+      <GetTo ZoneId="635" XYZ="-57.04675, -0.07576662, -39.44879"/>
+      <TalkTo NpcId="1022916" XYZ="-57.04675, -0.07576662, -39.44879" QuestId="68455"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 1 and GetQuestById(68455).GetTodoArgs(1, 0).Item1 == 2">
+      <GetTo ZoneId="635" XYZ="-117.1038, 0.6342249, -57.17844"/>
+      <TalkTo NpcId="1019486" XYZ="-117.1038, 0.6342249, -57.17844" QuestId="68455"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 2">
+      <GetTo ZoneId="635" XYZ="112.0663, 0.6520417, -9.608109"/>
+      <TalkTo NpcId="1022914" XYZ="112.0663, 0.6520417, -9.608109" QuestId="68455" StepId="2"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 3">
+      <GetTo ZoneId="620" XYZ="-553.9552, 46.71317, -671.3226"/>
+      <TalkTo NpcId="1022922" XYZ="-553.9552, 46.71317, -671.3226" QuestId="68455" StepId="3"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 4">
+      <GetTo ZoneId="620" XYZ="-386.49, 52.01633, -628.2368"/>
+      <UseObject NpcId="2008669" XYZ="-388.3241, 51.80392, -626.6034" QuestId="68455" StepId="4"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 5">
+      <GetTo ZoneId="620" XYZ="-623.5624, 58.29826, -484.6513"/>
+      <SimpleDuty InteractNpcId="1023073" XYZ="-623.5624, 58.29826, -484.6513" QuestId="68455" StepId="5">
+        <HotSpots>
+          <HotSpot XYZ="-622.3629, 58.32111, -483.9116" Radius="90"/>
+        </HotSpots>
+        <TargetMobs>
+          <TargetMob Id="4332" Weight="1000"/>
+          <TargetMob Id="6304" Weight="1500"/>
+          <TargetMob Id="5241" Weight="3000"/>
+          <TargetMob Id="5243" Weight="4000"/>
+          <TargetMob Id="3849" Weight="2000"/>
+          <TargetMob Id="6313" Weight="2000"/>
+          <TargetMob Id="4142" Weight="2000"/>
+          <TargetMob Id="6315" Weight="2000"/>
+          <TargetMob Id="6314" Weight="2000"/>
+          <TargetMob Id="4131" Weight="2000"/>
+          <TargetMob Id="6317" Weight="2000"/>
+          <TargetMob Id="6316" Weight="2000"/>
+          <TargetMob Id="6319" Weight="2000"/>
+          <TargetMob Id="6318" Weight="2000"/>
+          <TargetMob Id="5242" Weight="2000"/>
+          <TargetMob Id="3850" Weight="2000"/>
+          <TargetMob Id="5244" Weight="2000"/>
+          <TargetMob Id="5240" Weight="1000"/>
+          <TargetMob Id="6320" Weight="1800"/>
+          <TargetMob Id="6306" Weight="100"/>
+        </TargetMobs>
+      </SimpleDuty>
+      <WaitWhile Condition="HasQuest(68455) and not IsQuestCompleted(68455) and not GetQuestStep(68455) == 7"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 7">
+      <GetTo ZoneId="418" XYZ="102.4118, 15.00001, 40.52204"/>
+      <TalkTo NpcId="1013969" XYZ="102.4118, 15.00001, 40.52204" QuestId="68455" StepId="7"/>
+    </If>
+    <If Condition="HasQuest(68455) and not IsQuestCompleted(68455) and GetQuestStep(68455) == 255">
+      <GetTo ZoneId="419" XYZ="3.349561, 11.96505, 37.45831"/>
+      <TurnIn QuestId="68455" NpcId="2008885" XYZ="3.349561, 11.96505, 37.45831"/>
+    </If>
+  </Order>
+</Profile>

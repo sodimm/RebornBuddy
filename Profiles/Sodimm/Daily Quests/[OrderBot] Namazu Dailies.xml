@@ -100,7 +100,7 @@ Authors:  Sodimm, TuckMeIntoBread
     <If Condition="GetQuestStep(68286) &gt; 0">
       <If Condition="GetQuestStep(68286) == 1">
         <GetTo ZoneId="614" XYZ="146.7893, -0.2994347, 246.4543"/>
-        <Grind GrindRef="68286" PostCombatDelay="3.0" While="not GetQuestStep68286) == 2"/>
+        <Grind GrindRef="68286" PostCombatDelay="3.0" While="not GetQuestStep(68286) == 2"/>
       </If>
       <If Condition="GetQuestStep(68286) == 2">
         <GetTo ZoneId="614" XYZ="-235.5547, 17.70399, 487.1412"/>

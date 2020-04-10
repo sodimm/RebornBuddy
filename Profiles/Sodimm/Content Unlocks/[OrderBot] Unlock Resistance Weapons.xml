@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Resistance Relics Unlock</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Hail to the Queen -->
+    <If Condition="not HasQuest(69370) and not IsQuestCompleted(69370)">
+      <GetTo ZoneId="628" XYZ="48.52979, 4.05, 57.37687"/>
+      <If Condition="IsQuestAcceptQualified(69370)">
+        <PickupQuest QuestId="69370" NpcId="1018994"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69370) == 1">
+	<GetTo ZoneId="628" XYZ="148.499, 14.77572, 93.98687"/>
+	  <UseTransport NpcId="1019070" InteractDistance="3.0" XYZ="151.2017, 14.77572, 95.78088"/>
+      <TalkTo NpcId="1020622" XYZ="0.04577637, 0, -2.304138" QuestId="69370" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69370) == 2">
+      <GetTo ZoneId="614" XYZ="272.0012, 7.701005, -408.6007"/>
+      <TalkTo NpcId="1032866" XYZ="274.1283, 8.18297, -409.8421" QuestId="69370" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69370) == 3">
+      <FlyTo XYZ="-257.9786, 53.2175, -645.0977" Land="True"/>
+      <TalkTo NpcId="1032867" XYZ="-258.5336, 53.21751, -644.8921" QuestId="69370" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69370) == 255">
+      <TurnIn QuestId="69370" NpcId="1032868" XYZ="-258.5947, 53.21751, -644.8616"/>
+    </If>
+    <!-- Path to the Past -->
+    <If Condition="not HasQuest(69371) and not IsQuestCompleted(69371)">
+      <If Condition="IsQuestAcceptQualified(69371)">
+        <PickupQuest QuestId="69371" NpcId="1032868"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69371) == 1">
+	  <GetTo ZoneId="759" XYZ="125.3378, -4.178713, 98.71044"/>
+	  <UseTransport NpcId="1032869" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+    </If>
+    <If Condition="GetQuestStep(69371) == 2">
+      <WaitWhile Condition="GetQuestStep(69371) == 2"/>
+    </If>
+	<If Condition="GetQuestStep(69371) == 3">
+      <TalkTo NpcId="1032874" XYZ="13.16852, -0.2375169, 8.377136" QuestId="69371" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69371) == 4">
+      <TalkTo NpcId="1032871" XYZ="22.32391, 0.09971012, -14.69446" QuestId="69371" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69371) == 5">
+      <GetTo ZoneId="635" XYZ="31.55178, 0, 33.0794"/>
+      <TalkTo NpcId="1032877" XYZ="29.43457, 7.450581E-09, 30.3501" QuestId="69371" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69371) == 255">
+      <TurnIn QuestId="69371" NpcId="1032877" XYZ="29.43457, 7.450581E-09, 30.3501"/>
+    </If>
+    <!-- The Bozja Incident -->
+    <If Condition="not HasQuest(69372) and not IsQuestCompleted(69372)">
+      <GetTo ZoneId="635" XYZ="30.92965, 0, 31.34991"/>
+      <If Condition="IsQuestAcceptQualified(69372)">
+        <PickupQuest QuestId="69372" NpcId="1032877"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69372) == 1">
+      <TalkTo NpcId="1032869" XYZ="127.2754, -4.178713, 98.68005" QuestId="69372" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69372) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(69372) == 255">
+      <TurnIn QuestId="69372" NpcId="1032872" XYZ="16.67804, 0.03006095, -17.86841"/>
+    </If>
+  </Order>
+  <GrindAreas/>
+  <CodeChunks/>
+</Profile>
+

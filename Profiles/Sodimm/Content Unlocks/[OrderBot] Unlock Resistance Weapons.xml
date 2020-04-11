@@ -11,8 +11,8 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69370) == 1">
-	<GetTo ZoneId="628" XYZ="148.499, 14.77572, 93.98687"/>
-	  <UseTransport NpcId="1019070" InteractDistance="3.0" XYZ="151.2017, 14.77572, 95.78088"/>
+      <GetTo ZoneId="628" XYZ="148.499, 14.77572, 93.98687"/>
+      <UseTransport NpcId="1019070" InteractDistance="3.0" XYZ="151.2017, 14.77572, 95.78088"/>
       <TalkTo NpcId="1020622" XYZ="0.04577637, 0, -2.304138" QuestId="69370" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69370) == 2">
@@ -33,13 +33,13 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69371) == 1">
-	  <GetTo ZoneId="759" XYZ="125.3378, -4.178713, 98.71044"/>
-	  <UseTransport NpcId="1032869" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+      <GetTo ZoneId="759" XYZ="125.3378, -4.178713, 98.71044"/>
+      <UseTransport NpcId="1032869" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
     </If>
     <If Condition="GetQuestStep(69371) == 2">
       <WaitWhile Condition="GetQuestStep(69371) == 2"/>
     </If>
-	<If Condition="GetQuestStep(69371) == 3">
+    <If Condition="GetQuestStep(69371) == 3">
       <TalkTo NpcId="1032874" XYZ="13.16852, -0.2375169, 8.377136" QuestId="69371" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69371) == 4">
@@ -60,6 +60,7 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69372) == 1">
+      <GetTo ZoneId="759" XYZ="125.3115, -4.178713, 98.25292"/>
       <TalkTo NpcId="1032869" XYZ="127.2754, -4.178713, 98.68005" QuestId="69372" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69372) == 2">
@@ -69,7 +70,13 @@
       <TurnIn QuestId="69372" NpcId="1032872" XYZ="16.67804, 0.03006095, -17.86841"/>
     </If>
   </Order>
-  <GrindAreas/>
-  <CodeChunks/>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
 </Profile>
 

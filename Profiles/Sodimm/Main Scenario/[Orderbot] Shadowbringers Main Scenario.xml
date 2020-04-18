@@ -182,7 +182,12 @@ Authors:  Sodimm
       </If>
       <If Condition="GetQuestStep(68819) == 3">
         <GetTo ZoneId="814" XYZ="665.1811, 53.04622, 58.60866"/>
-        <UseObject NpcIds="2009957,2009958" XYZ="665.1811, 53.04622, 58.60866" QuestId="68819" StepId="3"/>
+        <If Condition="GetQuestById(68819).GetTodoArgs(3, 0).Item1 == 0">
+          <UseObject NpcId="2009957" XYZ="665.1811, 53.04622, 58.60866" QuestId="68819" StepId="3" Condition="GetQuestById(68819).GetTodoArgs(3, 0).Item1 == 0"/>
+        </If>
+        <If Condition="GetQuestById(68819).GetTodoArgs(3, 0).Item1 == 1">
+          <UseObject NpcId="2009958" XYZ="694.026, 53.75745, 12.92438" QuestId="68819" StepId="3" Condition="GetQuestById(68819).GetTodoArgs(3, 0).Item1 == 1"/>
+        </If>
       </If>
       <If Condition="GetQuestStep(68819) == 4">
         <If Condition="not IsOnMap(814)">
@@ -412,8 +417,9 @@ Authors:  Sodimm
           <GetTo ZoneId="820" XYZ="57.75255, 83.00106, -70.54283"/>
         </If>
         <BotSettings BlockSkippingCutscenes="1"/>
-        <RunCode Name="Announce_Manual_Completion"/>
-        <WaitWhile Condition="not GetQuestStep(68824) == 3"/>
+        <!-- <RunCode Name="Announce_Manual_Completion"/>
+        <WaitWhile Condition="not GetQuestStep(68824) == 3"/> -->
+        <SoTalkTo NpcId="1027575" XYZ="59.12866, 83.00108, -70.08472" QuestId="68824" StepId="2"/>
         <BotSettings BlockSkippingCutscenes="0"/>
       </If>
       <If Condition="GetQuestStep(68824) == 3">
@@ -421,8 +427,9 @@ Authors:  Sodimm
           <GetTo ZoneId="820" XYZ="57.75255, 83.00106, -70.54283"/>
         </If>
         <BotSettings BlockSkippingCutscenes="1"/>
-        <RunCode Name="Announce_Manual_Completion"/>
-        <WaitWhile Condition="not GetQuestStep(68824) == 4"/>
+        <!-- <RunCode Name="Announce_Manual_Completion"/>
+        <WaitWhile Condition="not GetQuestStep(68824) == 4"/> -->
+        <SoTalkTo NpcId="1027575" XYZ="59.12866, 83.00108, -70.08472" QuestId="68824" StepId="3"/>
         <BotSettings BlockSkippingCutscenes="0"/>
       </If>
       <If Condition="GetQuestStep(68824) == 4">
@@ -3443,7 +3450,7 @@ Authors:  Sodimm
           <GetTo ZoneId="814" XYZ="612.955, 278.2874, -514.5513"/>
         </If>
         <TurnIn QuestId="69175" NpcId="1030375" XYZ="611.9325, 278.146, -512.4437"/>
-		<WaitWhile Condition="HasQuest(69175)"/>
+        <WaitWhile Condition="HasQuest(69175)"/>
       </If>
     </If>
     <!-- Rich Veins of Hope (Level 78) -->
@@ -4722,7 +4729,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68822">
       <![CDATA[
-        await Coroutine.Sleep(3000);
+        await Coroutine.Sleep(6000);
         InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002575).UseItem();
         await Coroutine.Wait(5000, () => Core.Me.IsCasting);
         await Coroutine.Wait(15000, () => !Core.Me.IsCasting);
@@ -4892,11 +4899,11 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68852">
       <![CDATA[
-        var _loc = new Vector3("533.7747, 109.4174, -154.8044");
-        var _loc1 = new Vector3("537.673, 111.6291, -155.7962");
-        var _loc2 = new Vector3("540.9753, 113.3808, -155.477");
-        var _loc3 = new Vector3("544.9641, 114.9403, -155.3116");
-        var _loc4 = new Vector3("549.6824, 117.2716, -154.7098");
+        var _loc = new Vector3("534.9706, 110.0431, -156.1286");
+        var _loc1 = new Vector3("537.6138, 111.6233, -155.7955");
+        var _loc2 = new Vector3("540.9705, 113.3802, -155.476");
+        var _loc3 = new Vector3("544.9383, 114.9442, -155.3082");
+        var _loc4 = new Vector3("549.4981, 117.2502, -154.7078");
 
         if (Core.Me.InCombat)
         {
@@ -4904,7 +4911,7 @@ Authors:  Sodimm
         }
     
         Navigator.PlayerMover.MoveTowards(_loc);
-        while (Core.Me.Location.Distance2D(_loc) > 0.5f)
+        while (Core.Me.Location.Distance2D(_loc) > 1)
         {
           await Coroutine.Yield();
         }
@@ -4936,10 +4943,7 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveTowards(_loc4);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(_loc4) > 1)
-        {
-          await Coroutine.Yield();
-        }
+		await Coroutine.Sleep(800);
 
         Navigator.PlayerMover.MoveStop();
       ]]>

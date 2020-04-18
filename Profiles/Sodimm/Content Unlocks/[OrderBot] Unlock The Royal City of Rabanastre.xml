@@ -83,7 +83,11 @@
     <If Condition="GetQuestStep(68625) == 1">
       <UseTransport NpcId="1019043" InteractDistance="3.0" XYZ="-43.65613, 15, 46.52478"/>
       <UseTransport InteractDistance="2.0" NpcId="1024157" XYZ="-59.09821, 79.05602, 45.30396"/>
+      <WaitTimer WaitTime="3"/>
       <TalkTo NpcId="1024157" XYZ="-59.09821, 79.05602, 45.30396" QuestId="68625" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68625) == 2">
+      <WaitWhile Condition="GetQuestStep(68625) == 2"/>
     </If>
     <If Condition="GetQuestStep(68625) == 3">
       <TalkTo NpcId="1025590" XYZ="-8.98761, 0.05124537, -3.768982" QuestId="68625" StepId="3"/>
@@ -96,8 +100,10 @@
       <TalkTo NpcId="1025591" XYZ="-116.167, -7.000112, -68.16211" QuestId="68625" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(68625) == 6">
-      <FlyTo ZoneId="614" XYZ="-396.0529, 10.18719, 548.2055"/>
-      <RunCode Name="Announce_Manual_Completion"/>
+      <GetTo ZoneId="614" XYZ="442.0916, 68.01306, -90.751"/>
+      <FlyTo ZoneId="614" XYZ="-389.5509, 10.45355, 543.266"/>
+      <MoveTo XYZ="-399.649, 9.982385, 551.7814"/>
+      <WaitWhile Condition="GetQuestStep(68625) == 6"/>
     </If>
     <If Condition="GetQuestStep(68625) == 7">
       <GetTo ZoneId="614" XYZ="-399.5179, 9.928009, 550.5253"/>
@@ -107,6 +113,7 @@
       <GetTo ZoneId="628" XYZ="-42.36504, 15, 45.68888"/>
       <UseTransport NpcId="1019043" InteractDistance="3.0" XYZ="-43.65613, 15, 46.52478"/>
       <UseTransport NpcId="1024156" InteractDistance="3.0" XYZ="-59.09821, 79.05602, 45.30396"/>
+      <WaitWhile Condition="GetQuestStep(68625) == 8"/>
     </If>
     <If Condition="GetQuestStep(68625) == 255">
       <TurnIn QuestId="68625" NpcId="1025729" XYZ="-12.22253, 0.04687073, -3.219727"/>
@@ -157,8 +164,6 @@
       <GetTo ZoneId="628" XYZ="-42.18414, 15, 46.01564"/>
       <UseTransport NpcId="1019043" InteractDistance="3.0" XYZ="-43.65613, 15, 46.52478"/>
       <UseTransport NpcId="1024156" InteractDistance="3.0" XYZ="-59.09821, 79.05602, 45.30396"/>
-    </If>
-    <If Condition="GetQuestStep(68626) == 11">
       <HandOver ItemId="2002172" NpcId="1026000" XYZ="1.327454, 0.05124623, 1.968323" QuestId="68626" StepId="11"/>
     </If>
     <If Condition="GetQuestStep(68626) == 255">
@@ -174,9 +179,11 @@
       <TalkTo NpcId="1025652" XYZ="-10.8797, 0.04687084, -4.379395" QuestId="68627" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(68627) == 2">
-      <RunCode Name="Announce_Manual_Completion"/>
+      <WaitWhile Condition="GetQuestStep(68627) == 2"/>
     </If>
     <If Condition="GetQuestStep(68627) == 3">
+      <MoveTo XYZ="-189.6718, 15.23887, 211.2021" UseMesh="False"/>
+      <MoveTo XYZ="-197.0149, 17.5075, 208.4357" UseMesh="False"/>
       <RunCode Name="Announce_Manual_Completion"/>
     </If>
     <If Condition="GetQuestStep(68627) == 255">
@@ -251,6 +258,7 @@
       <GetTo ZoneId="628" XYZ="-42.12892, 15, 46.02512"/>
       <UseTransport NpcId="1019043" InteractDistance="3.0" XYZ="-43.65613, 15, 46.52478"/>
       <UseTransport NpcId="1024156" InteractDistance="3.0" XYZ="-59.09821, 79.05602, 45.30396"/>
+      <WaitWhile Condition="GetQuestStep(68724) == 5"/>
     </If>
     <If Condition="GetQuestStep(68724) == 6">
       <TalkTo NpcId="1026977" XYZ="-4.379395, -2.508454E-06, -6.33252" QuestId="68724" StepId="6"/>

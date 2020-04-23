@@ -471,6 +471,28 @@ Requires: ExBuddy.
 					<TeleportTo Name="Slitherbough" AetheryteId="142" Force="True"/>
 				</If>
 				<!-- Slitherbough -->
+
+
+
+				<!--  Eggspotting -->
+				<If Condition="GetQuestStep(69365) &gt; 0">
+					<If Condition="GetQuestStep(69365) == 1">
+						<TalkTo InteractDistance="3.0" QuestId="69365" StepId="1" NpcId="1032830" XYZ="-134.02, -18.46058, 303.5476" />
+					</If>
+					<If Condition="GetQuestStep(69365) == 2">
+						<UseItem ItemId="2002980" NpcIds="1032830,1032831" XYZ="-54.79517, 0.7328947, 217.0901"  Radius="25"  QuestId="69365" StepId="2"/>	
+					</If>
+					<If Condition="GetQuestStep(69365) == 3">
+						<HandOver ItemId="2002981" QuestId="69365" StepId="3" NpcId="1032830" XYZ="-134.02, -18.46058, 303.5476" />
+					</If>
+
+
+				</If>
+
+
+
+
+
 				<!-- Power to the Vegetables -->
 				<If Condition="GetQuestStep(69346) == 1">
 					<GetTo ZoneId="817" XYZ="-75.46133, -19.44594, 295.7319"/>
@@ -1108,6 +1130,12 @@ Requires: ExBuddy.
 					<TeleportTo Name="Fanow" AetheryteId="143" Force="True"/>
 					<FlyTo XYZ="791.0349, -45.83972, -202.5477" Land="True"/>
 				</If>
+
+
+				<!--  Eggspotting -->
+				<If Condition="GetQuestStep(69365) == 255">
+					<TurnIn QuestId="69365" NpcId="1032643" ItemId="2002982" XYZ="787.0145, -45.82774, -218.555" />
+				</If> 
 
 				<!-- Power to the Vegetables -->
 				<If Condition="GetQuestStep(69346) == 255">

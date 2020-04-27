@@ -1659,6 +1659,62 @@ Requires: ExBuddy.
           <TurnIn QuestId="69341" NpcId="1032659" XYZ="802.7924, -45.91779, -218.5856"/>
         </If>-->
 			</If>
+
+
+
+
+			<!--  What Ails the Forest -->
+			<If Condition="GetQuestStep(69334) &gt; 0">
+				<If Condition="GetQuestStep(69334) == 1">
+					<TalkTo InteractDistance="3.0" QuestId="69334" StepId="1" NpcId="1032659" XYZ="802.7924, -45.91779, -218.5856" />
+				</If>
+
+
+
+				<If Condition="GetQuestStep(69334) == 2">
+					<GetTo ZoneId="817" XYZ="495.8055, -6.555339, -226.6944" />
+					<TalkTo InteractDistance="3.0" QuestId="69334" StepId="2" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333" />
+				</If>
+
+				<If Condition="GetQuestStep(69334) == 3">	
+					<FlyTo XYZ="791.0349, -45.83972, -202.5477" Land="True"/>
+					<HandOver ItemId="2002990" QuestId="69334" StepId="3" NpcId="1032967" XYZ="774.8989, -45.74954, -205.5237" />
+				</If>
+
+
+				<If Condition="GetQuestStep(69334) == 4">
+					<TalkTo InteractDistance="3.0" QuestId="69334" StepId="4" NpcId="1032967" XYZ="774.8989, -45.74954, -205.5237" />
+				</If>
+
+				<If Condition="GetQuestStep(69334) == 5">
+					<If Condition="ClassName == ClassJobType.Fisher">
+						<If Condition="not HasItem(29568)">
+							<TeleportTo Name="Slitherbough" AetheryteId="142" Force="True"/>
+							<FlyTo XYZ="-586.3536, -0.6, -21.45126" Land="True"/>
+							<Fish BaitId="27582" Condition="not HasItem(29568)">
+								<FishSpots>
+									<FishSpot XYZ="-586.3536, -0.6, -21.45126" Heading="4.815977"/>
+								</FishSpots>
+							</Fish>
+							<TeleportTo Name="Fanow" AetheryteId="143" Force="True"/>
+							<FlyTo XYZ="791.0349, -45.83972, -202.5477" Land="True"/>
+						</If>
+
+						<HandOver ItemId="29568" QuestId="69334" StepId="5" NpcId="1032967" XYZ="774.8989, -45.74954, -205.5237" />
+					</If>
+				</If>
+
+
+				<If Condition="GetQuestStep(69334) == 255">
+					<TurnIn QuestId="69334" NpcId="1032660" ItemId="2001976" XYZ="804.4098, -45.9255, -216.4188" />
+				</If> 
+
+			</If>
+
+
+
+
+
 		</If>
 	</Order>
 	<GrindAreas/>

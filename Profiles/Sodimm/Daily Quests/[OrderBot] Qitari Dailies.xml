@@ -1614,7 +1614,7 @@ Requires: ExBuddy.
 				</If>
 				<!-- Glory Be to the Scree -->
 				<If Condition="IsQuestAcceptQualified(69335)">
-					<PickupQuest QuestId="69335" NpcId="1032735"/>
+					<PickupQuest QuestId="69335" NpcId="1032659"/>
 				</If>
 				<!-- The First Stela: Of Ronkan Might -->
 				<If Condition="IsQuestAcceptQualified(69336)">
@@ -1716,6 +1716,44 @@ Requires: ExBuddy.
 
 
 		</If>
+
+
+		<!--  Glory Be to the Scree -->
+		<If Condition="GetQuestStep(69335) &gt; 0">
+			<If Condition="GetQuestStep(69335) == 1">
+				<TeleportTo Name="Fanow" AetheryteId="143" Force="True"/>
+				<FlyTo XYZ="495.8444,-6.594435,-232.0278" />
+				<TalkTo InteractDistance="3.0" QuestId="69335" StepId="1" NpcId="1027716" XYZ="494.9873, -6.555339, -224.9333" />
+			</If>
+
+			<If Condition="GetQuestStep(69335) == 2">
+				<TeleportTo Name="Slitherbough" AetheryteId="142" Force="True"/>
+				<TalkTo InteractDistance="3.0" QuestId="69335" StepId="2" NpcId="1032732" XYZ="-26.93219, -24.63856, 319.3561" />
+			</If>
+
+			<If Condition="GetQuestStep(69335) == 3">
+
+				<If Condition="IsOnSubMap(3170)">	
+					<MoveTo XYZ="-85.57233,-19.01986,304.8951" />
+				</If>
+				<FlyTo XYZ="-522.0703,0.3572204,229.9104" />
+				<TalkTo InteractDistance="3.0" QuestId="69335" StepId="3" NpcId="1032750" XYZ="-523.827, 0.143766, 227.5577" />
+			</If>
+
+			<If Condition="GetQuestStep(69335) == 4">
+				<TalkTo InteractDistance="3.0" QuestId="69335" StepId="4" NpcId="1032750" XYZ="-523.827, 0.143766, 227.5577" />
+			</If>
+
+			<If Condition="GetQuestStep(69335) == 255">
+				<If Condition="not IsOnSubMap(3472)">	
+					<TeleportTo Name="Fanow" AetheryteId="143" Force="True"/>
+					<FlyTo XYZ="791.0349, -45.83972, -202.5477" Land="True"/>
+				</If>
+				<TurnIn QuestId="69335" NpcId="1032660" ItemId="2001976" XYZ="804.4098, -45.9255, -216.4188" />
+			</If>
+
+		</If>
+
 	</Order>
 	<GrindAreas/>
 	<CodeChunks>

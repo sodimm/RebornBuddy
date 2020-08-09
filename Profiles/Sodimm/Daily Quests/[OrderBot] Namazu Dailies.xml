@@ -3903,7 +3903,7 @@ Authors:  Sodimm, TuckMeIntoBread
 #else
         _say = "/s his whiskers";
 #endif     
-        ChatManager.SendChat("/say his whiskers");
+        ChatManager.SendChat(_say);
         await Coroutine.Sleep(2000);
 
         while (Talk.ConvoLock || MovementManager.IsOccupied)

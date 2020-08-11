@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [OrderBot] Unlock Ruby Weapon
+Authors:  TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Ruby Weapon</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <If Condition="not IsQuestCompleted(69297)">
+      <LogMessage Message="You need to progress further in the MSQ before you can unlock Ruby Weapon."/>
+    </If>
+    <!-- Ruby Doomsday -->
+    <If Condition="not HasQuest(69319) and not IsQuestCompleted(69319) and IsQuestCompleted(69297)">
+      <GetTo ZoneId="621" XYZ="748.6875, 69.99992, 518.9996"/>
+      <If Condition="IsQuestAcceptQualified(69319)">
+        <PickupQuest QuestId="69319" NpcId="1032581"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69319) == 1">
+      <FlyTo ZoneId="621" XYZ="-524.5594, 8.698304, -15.48798"/>
+      <UseTransport NpcId="1026804" InteractDistance="3.0" XYZ="-524.5594, 8.698304, -15.48798"/>
+      <WaitWhile Condition="GetQuestStep(69319) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 2">
+      <TalkTo NpcId="1032582" XYZ="-482.0478, 107.63, 121.9348" QuestId="69319" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 3">
+      <TalkTo NpcId="1032585" XYZ="-465.5375, 107.63, 130.3578" QuestId="69319" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 4">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 5">
+      <WaitWhile Condition="GetQuestStep(69319) == 5"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 6">
+      <TalkTo NpcId="1032861" XYZ="-473.8995, 107.63, 132.8602" QuestId="69319" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 7">
+      <TalkTo NpcId="1032851" XYZ="-481.3764, 107.63, 122.7893" QuestId="69319" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(69319) == 255">
+      <GetTo ZoneId="621" XYZ="-506.0686, 7.671772, 50.32627"/>
+      <TurnIn QuestId="69319" NpcId="1032586" XYZ="-505.4246, 7.68313, 51.62122"/>
+      <!-- Actually unlock EX -->
+      <GetTo ZoneId="621" XYZ="-498.3188, 7.660173, 52.70883"/>
+      <SoTalkTo NpcId="1032764" XYZ="-496.5133, 7.681107, 53.14709"/>
+      <WaitTimer WaitTime="5"/>
+      <SoTalkTo NpcId="1032764" XYZ="-496.5133, 7.681107, 53.14709"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "请手动完成下一个任务。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

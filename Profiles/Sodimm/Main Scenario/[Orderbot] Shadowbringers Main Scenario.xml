@@ -2690,7 +2690,15 @@ Authors:  Sodimm
         <If Condition="not IsOnMap(815)">
           <GetTo ZoneId="815" XYZ="-3.106345, 45.61908, -582.3674"/>
         </If>
-        <UseObject NpcIds="2009904,2009905,2009906" XYZ="-3.106345, 45.61908, -582.3674" QuestId="69147" StepId="3"/>
+        <If Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 0">
+          <UseObject NpcId="2009904" XYZ="-3.106345, 45.61908, -582.3674" QuestId="69147" StepId="3" Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 0"/>
+        </If>
+        <If Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 1">
+          <UseObject NpcId="2009905" XYZ="-3.106345, 45.61908, -582.3674" QuestId="69147" StepId="3" Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 1"/>
+        </If>
+        <If Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 2">
+          <UseObject NpcId="2009906" XYZ="-3.007016, 47.86063, -532.1017" QuestId="69147" StepId="3" Condition="GetQuestById(69147).GetTodoArgs(3, 0).Item1 == 2"/>
+        </If>
       </If>
       <If Condition="GetQuestStep(69147) == 4">
         <GetTo ZoneId="815" XYZ="81.10422, 45.65749, -638.9812"/>
@@ -3372,15 +3380,11 @@ Authors:  Sodimm
         <TalkTo NpcId="1027296" XYZ="-469.7795, 417.2296, -649.2561" QuestId="69173" StepId="2"/>
       </If>
       <If Condition="GetQuestStep(69173) == 3">
-        <If Condition="not IsOnMap(814)">
-          <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
-        </If>
+        <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
         <RunCode Name="Announce_Manual_Completion"/>
       </If>
       <If Condition="GetQuestStep(69173) == 4">
-        <If Condition="not IsOnMap(814)">
-          <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
-        </If>
+        <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
         <RunCode Name="Announce_Manual_Completion"/>
       </If>
       <If Condition="GetQuestStep(69173) == 255">
@@ -3447,17 +3451,18 @@ Authors:  Sodimm
       </If>
       <If Condition="GetQuestStep(69175) == 255">
         <If Condition="not IsOnMap(814)">
-          <GetTo ZoneId="814" XYZ="612.955, 278.2874, -514.5513"/>
+          <GetTo ZoneId="814" XYZ="616.7777, 277.7269, -512.6447"/>
         </If>
         <TurnIn QuestId="69175" NpcId="1030375" XYZ="611.9325, 278.146, -512.4437"/>
-        <WaitWhile Condition="HasQuest(69175)"/>
       </If>
     </If>
     <!-- Rich Veins of Hope (Level 78) -->
     <If Condition="IsQuestCompleted(69175) and not HasQuest(69176) and not IsQuestCompleted(69176)">
-      <GetTo ZoneId="814" XYZ="612.955, 278.2874, -514.5513"/>
+      <If Condition="not IsOnMap(814)">
+        <GetTo ZoneId="814" XYZ="616.7777, 277.7269, -512.6447"/>
+      </If>
       <If Condition="IsQuestAcceptQualified(69176)">
-        <PickupQuest QuestId="69176" NpcId="1030375"/>
+        <PickupQuest QuestId="69176" NpcId="1030375" XYZ="616.7777, 277.7269, -512.6447"/>
       </If>
     </If>
     <If Condition="GetQuestStep(69176) &gt; 0">
@@ -4943,7 +4948,7 @@ Authors:  Sodimm
         Navigator.PlayerMover.MoveTowards(_loc4);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
-		await Coroutine.Sleep(800);
+        await Coroutine.Sleep(800);
 
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -5325,7 +5330,7 @@ Authors:  Sodimm
         var _loc3 = new Vector3("-607.604, -29.31727, 769.5297");
         var _loc4 = new Vector3("-632.1794, -32.72908, 745.6896");
         var _loc5 = new Vector3("-687.5753, -42.37305, 729.6492");
-        var _loc6 = new Vector3("-638.1636, -1.974393, 729.1807");
+        var _loc6 = new Vector3("-687.6169, -41.50587, 729.0164");
  
         Navigator.PlayerMover.MoveTowards(_loc1);
         while (Core.Me.Location.Distance2D(_loc1) > 1)

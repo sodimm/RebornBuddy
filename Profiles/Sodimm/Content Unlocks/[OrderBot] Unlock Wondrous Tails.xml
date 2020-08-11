@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Unlock Wondrous Tails
+  Authors: TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Wondrous Tails</Name>
+  <Order>
+    <!-- Keeping Up with the Aliapohs -->
+    <If Condition="not HasQuest(67928) and not IsQuestCompleted(67928)">
+      <GetTo ZoneId="478" XYZ="45.06268, 206.965, -9.407904"/>
+      <If Condition="IsQuestAcceptQualified(67928)">
+        <PickupQuest QuestId="67928" NpcId="1018317"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67928) == 255">
+      <GetTo ZoneId="478" XYZ="-20.02911, 211, -0.5915952"/>
+      <TurnIn QuestId="67928" NpcId="1017653" XYZ="-17.95996, 211.4722, -1.480164"/>
+    </If>
+  </Order>
+</Profile>

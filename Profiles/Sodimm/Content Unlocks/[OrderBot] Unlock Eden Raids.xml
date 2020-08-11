@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Unlock Eden Raids
+Authors:  TuckMeIntoBread
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Eden Raids</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- In the Middle of Nowhere -->
+    <If Condition="not HasQuest(68791) and not IsQuestCompleted(68791)">
+      <GetTo ZoneId="819" XYZ="-72.05762, 0, 55.06018"/>
+      <If Condition="IsQuestAcceptQualified(68791)">
+        <PickupQuest QuestId="68791" NpcId="1030090"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68791) == 1">
+      <GetTo ZoneId="815" XYZ="380.9088, -64.3302, 510.0111"/>
+      <TalkTo NpcId="1030091" XYZ="380.972, -64.31066, 511.2229" QuestId="68791" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68791) == 2">
+      <SoTalkTo NpcId="1030091" XYZ="380.972, -64.31066, 511.2229" QuestId="68791" StepId="2"/>
+	  <WaitWhile Condition="not GetQuestStep(68791) == 255"/>
+	  <WaitTimer WaitTime="3"/>
+    </If>
+    <If Condition="GetQuestStep(68791) == 255">
+      <TurnIn QuestId="68791" NpcId="1030095" XYZ="-0.5646362, -2.028786, -17.80731"/>
+    </If>
+    <!-- Deploy the Core -->
+    <If Condition="not HasQuest(68792) and not IsQuestCompleted(68792)">
+      <If Condition="IsQuestAcceptQualified(68792)">
+        <PickupQuest QuestId="68792" NpcId="1030095"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68791) == 1">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(68792) == 2">
+      <TalkTo NpcId="1030101" XYZ="-8.712891, -2.498, 13.13794" QuestId="68792" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68792) == 255">
+      <UseTransport NpcId="2009981" InteractDistance="3.0" XYZ="-14.66394, -2.609314, 23.81927"/>
+      <TurnIn QuestId="68792" NpcId="1030104" XYZ="101.5792, 7.450581E-09, 94.34644"/>
+    </If>
+    <!-- One Fell Swoop -->
+    <If Condition="not HasQuest(68793) and not IsQuestCompleted(68793)">
+      <If Condition="IsQuestAcceptQualified(68793)">
+        <PickupQuest QuestId="68793" NpcId="1030110"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68793) == 1">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(68793) == 255">
+      <TurnIn QuestId="68793" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+    </If>
+    <!-- Nor Any Drop to Drink -->
+    <If Condition="not HasQuest(68794) and not IsQuestCompleted(68794)">
+      <If Condition="IsQuestAcceptQualified(68794)">
+        <PickupQuest QuestId="68794" NpcId="1030110"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68794) == 1">
+      <TalkTo NpcId="1030117" XYZ="-1.358093, -2.030891, -16.64758" QuestId="68794" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68794) == 2">
+      <UseTransport NpcId="2010135" InteractDistance="3.0" XYZ="-14.66394, -2.578857, 23.81927"/>
+      <TalkTo NpcId="1030110" XYZ="99.99231, 0, 92.51538" QuestId="68794" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68794) == 255">
+      <TurnIn QuestId="68794" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+    </If>
+    <!-- Super Seismic -->
+    <If Condition="not HasQuest(68795) and not IsQuestCompleted(68795)">
+      <If Condition="IsQuestAcceptQualified(68795)">
+        <PickupQuest QuestId="68795" NpcId="1030113"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68795) == 1">
+      <UseTransport NpcId="2010135" InteractDistance="3.0" XYZ="-14.66394, -2.578857, 23.81927"/>
+      <TalkTo NpcId="1030110" XYZ="99.99231, 0, 92.51538" QuestId="68795" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68795) == 255">
+      <SoTurnIn QuestId="68795" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+    </If>
+    <!-- The Next Piece of the Puzzle -->
+    <If Condition="not HasQuest(68796) and not IsQuestCompleted(68796)">
+      <If Condition="IsQuestAcceptQualified(68796)">
+        <PickupQuest QuestId="68796" NpcId="1030118"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68796) == 1">
+      <TalkTo NpcId="1030387" XYZ="31.96765, 4.929005, -9.10968" QuestId="68796" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68796) == 2">
+      <GetTo ZoneId="815" XYZ="383.0101, -64.43189, 513.879"/>
+      <TalkTo NpcId="1030091" XYZ="380.972, -64.31066, 511.2229" QuestId="68796" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68796) == 255">
+      <GetTo ZoneId="815" XYZ="269.9362, 7.155827, -232.9683"/>
+      <TurnIn QuestId="68796" NpcId="1030121" XYZ="268.8181, 7.155827, -233.6614"/>
+	  <WaitWhile Condition="GetQuestStep(68796) == 255"/>
+	  <WaitTimer WaitTime="5"/>
+    </If>
+    <!-- Away with the Faerie -->
+    <If Condition="not HasQuest(69323) and not IsQuestCompleted(69323) and IsQuestCompleted(68796)">
+      <GetTo ZoneId="815" XYZ="266.8997, 7.155827, -236.978"/>
+      <If Condition="IsQuestAcceptQualified(69323)">
+        <PickupQuest QuestId="69323" NpcId="1032715"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69323) == 1">
+      <GetTo ZoneId="815" XYZ="316.2953, 1.468583, -226.0185"/>
+      <TalkTo NpcId="1032606" XYZ="318.2268, 1.541138, -225.6352" QuestId="69323" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69323) == 2">
+      <GetTo ZoneId="815" XYZ="486.1291, -26.49748, -21.15317"/>
+      <UseObject NpcId="2010957" XYZ="485.4047, -26.29132, -20.85919" QuestId="69323" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69323) == 3">
+      <GetTo ZoneId="815" XYZ="483.9494, -41.78599, 80.95108"/>
+      <TalkTo NpcId="1032591" XYZ="482.4445, -41.81235, 81.55945" QuestId="69323" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69323) == 4">
+      <GetTo ZoneId="815" XYZ="383.2431, -64.40525, 510.4731"/>
+      <SoTalkTo NpcId="1030092" XYZ="382.864, -64.40495, 512.0164" QuestId="69323" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69323) == 255">
+      <TurnIn QuestId="69323" NpcId="1032596" XYZ="-6.027344, -2.531234, 21.62201"/>
+    </If>
+    <!-- Blood and Thunder -->
+    <If Condition="not HasQuest(69324) and not IsQuestCompleted(69324)">
+      <If Condition="IsQuestAcceptQualified(69324)">
+        <PickupQuest QuestId="69324" NpcId="1032596"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69324) == 1">
+      <UseTransport NpcId="2010135" InteractDistance="3.0" XYZ="-14.63562, -2.573818, 23.84757"/>
+      <TalkTo NpcId="1030112" XYZ="101.5487, 7.450581E-09, 93.21729" QuestId="69324" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69324) == 2">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(69324) == 255">
+      <TurnIn QuestId="69324" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+	  <WaitWhile Condition="GetQuestStep(69324) == 255"/>
+	  <WaitTimer WaitTime="5"/>
+    </If>
+    <!-- Into the Firestorm -->
+    <If Condition="not HasQuest(69325) and not IsQuestCompleted(69325)">
+      <If Condition="IsQuestAcceptQualified(69325)">
+        <PickupQuest QuestId="69325" NpcId="1032605"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69325) == 1">
+      <TalkTo NpcId="1032602" XYZ="-6.759766, -2.100892, -8.560364" QuestId="69325" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69325) == 2">
+      <EmoteNPC Emote="rally" NpcId="1032602" XYZ="-6.759766, -2.100892, -8.560364" QuestId="69325" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69325) == 3">
+      <UseObject NpcId="2010959" XYZ="-7.461731, -2.273621, -5.844238" QuestId="69325" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69325) == 4">
+      <UseTransport NpcId="2010135" InteractDistance="3.0" XYZ="-14.66394, -2.578857, 23.81927"/>
+      <TalkTo NpcId="1030112" XYZ="101.5487, 7.450581E-09, 93.21729" QuestId="69325" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69325) == 255">
+      <TurnIn QuestId="69325" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+    </If>
+    <!-- Heart of Darkness -->
+    <If Condition="not HasQuest(69326) and not IsQuestCompleted(69326)">
+      <If Condition="IsQuestAcceptQualified(69326)">
+        <PickupQuest QuestId="69326" NpcId="1032604"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69326) == 1">
+      <UseTransport NpcId="2010135" InteractDistance="3.0" XYZ="-14.66394, -2.578857, 23.81927"/>
+      <TalkTo NpcId="1030112" XYZ="101.5487, 7.450581E-09, 93.21729" QuestId="69326" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69326) == 2">
+      <TalkTo NpcId="1032610" XYZ="101.8234, 7.450581E-09, 94.13281" QuestId="69326" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69326) == 255">
+      <TurnIn QuestId="69326" NpcId="1032610" XYZ="101.8234, 7.450581E-09, 94.13281"/>
+    </If>
+    <!-- On Thin Ice -->
+    <If Condition="not HasQuest(69327) and not IsQuestCompleted(69327)">
+      <If Condition="IsQuestAcceptQualified(69327)">
+        <PickupQuest QuestId="69327" NpcId="1032611"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69327) == 1">
+      <RunCode Name="Announce_Manual_Completion"/>
+    </If>
+    <If Condition="GetQuestStep(69327) == 255">
+      <TurnIn QuestId="69327" NpcId="1030110" XYZ="99.99231, 0, 92.51538"/>
+	  <WaitWhile Condition="GetQuestStep(69327) == 255"/>
+	  <WaitTimer WaitTime="5"/>
+    </If>
+    <!-- Life Finds a Way -->
+    <If Condition="not HasQuest(69328) and not IsQuestCompleted(69328)">
+      <If Condition="IsQuestAcceptQualified(69328)">
+        <PickupQuest QuestId="69328" NpcId="1032602"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69328) == 1">
+      <GetTo ZoneId="815" XYZ="381.8577, -64.36958, 512.9478"/>
+      <TalkTo NpcId="1030091" XYZ="380.972, -64.31066, 511.2229" QuestId="69328" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69328) == 255">
+      <GetTo ZoneId="815" XYZ="264.6443, 7.155827, -239.4928"/>
+      <TurnIn QuestId="69328" NpcId="1032590" XYZ="265.3086, 7.155827, -237.7814"/>
+    </If>
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[
+        var _msg = String.Empty;
+#if RB_CN
+        _msg = "请手动完成下一个任务。";
+#else
+        _msg = "Complete the next objective manually.";
+#endif
+        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

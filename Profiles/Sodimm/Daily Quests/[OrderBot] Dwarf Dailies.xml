@@ -4,7 +4,8 @@
 ]>
 <!--
   Profile: [OrderBot] Dwarf Dailies
-  Authors: TuckMeIntoBread, Zamphire, Sodimm.
+  Authors: TuckMeIntoBread, Zamphire.
+  Code Credit: Sodimm, Angles24.
 -->
 <!-- Todo:
 Friendly:
@@ -271,28 +272,28 @@ Honored:
         <If Condition="GetQuestStep(69432) == 255">
           <If Condition="not HasItem(31137)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31137,'Group': 0,'Amount': 1,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -439,28 +440,28 @@ Honored:
           </If>
           <If Condition="GetQuestStep(69440) == 255 and not HasAtLeast(31151,4)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31151,'Group': 0,'Amount': 4,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -476,28 +477,28 @@ Honored:
           <If Condition="GetQuestStep(69438) == 2">
             <If Condition="not HasAtLeast(31147,3)">
               <If Condition="ClassName == ClassJobType.Carpenter">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Blacksmith">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Armorer">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Goldsmith">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Leatherworker">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Weaver">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Alchemist">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Culinarian">
-                <Lisbeth Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31147,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="not IsOnMap(813)">
                 <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -516,28 +517,28 @@ Honored:
           </If>
           <If Condition="GetQuestStep(69439) == 255 and not HasAtLeast(31149,2)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31149,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -552,28 +553,28 @@ Honored:
           <If Condition="GetQuestStep(69442) == 2">
             <If Condition="not HasAtLeast(31153,3)">
               <If Condition="ClassName == ClassJobType.Carpenter">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Blacksmith">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Armorer">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Goldsmith">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Leatherworker">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Weaver">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Alchemist">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="ClassName == ClassJobType.Culinarian">
-                <Lisbeth Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+                <Lisbeth IgnoreHome="True" Json="[{'Item': 31153,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
               </If>
               <If Condition="not IsOnMap(813)">
                 <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -596,28 +597,28 @@ Honored:
           </If>
           <If Condition="GetQuestStep(69444) == 255 and not HasAtLeast(31157,3)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31157,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -632,28 +633,28 @@ Honored:
           </If>
           <If Condition="GetQuestStep(69443) == 255 and not HasAtLeast(31155,2)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Carpenter','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Blacksmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Armorer','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Goldsmith','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Leatherworker','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Weaver','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Alchemist','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item': 31155,'Group': 0,'Amount': 2,'Collectable': false,'QuickSynth': true,'SuborderQuickSynth': false,'Hq': false,'Food': 0,'Primary': true,'Type': 'Culinarian','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -696,28 +697,28 @@ Honored:
           </If>
           <If Condition="GetQuestStep(69451) == 2 and not HasHqItem(31167)">
             <If Condition="ClassName == ClassJobType.Carpenter">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Blacksmith">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Armorer">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Goldsmith">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Leatherworker">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Weaver">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Alchemist">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
             </If>
             <If Condition="ClassName == ClassJobType.Culinarian">
-              <Lisbeth Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+              <Lisbeth IgnoreHome="True" Json="[{'Item':31167,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
             </If>
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -801,15 +802,15 @@ Honored:
     </CodeChunk>
     <CodeChunk Name="SwitchDoWMJob">
       <![CDATA[ 
-        var DoWM = Enumerable.Range(19, 20);
-        var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoWM.Contains((int)i.Class) && Core.Player.Levels[i.Class] == 80);
+        var Combat = Enumerable.Range(8, 11).Append(0).Append(36);
+        var gearSets = GearsetManager.GearSets.Where(i => i.InUse && !Combat.Contains((int)i.Class)).ToList().OrderByDescending(i=> i.Gear.First().Item.ItemLevel);
 
         if (gearSets.Any())
         {
           gearSets.First().Activate();
           await Coroutine.Sleep(2000);
         }
-      ]]>
+            ]]>
     </CodeChunk>
     <CodeChunk Name="69094">
       <![CDATA[

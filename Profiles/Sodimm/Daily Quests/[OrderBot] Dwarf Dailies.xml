@@ -18,7 +18,7 @@ Friendly:
   Foundations of Steel X
   7/7 100%
 Trusted:
-  How Do You Do, Fellow Dwarves
+  How Do You Do, Fellow Dwarves X
   Wood for What Ales You
   The Heart of Tankiness
   Boom and Dust
@@ -236,7 +236,7 @@ Honored:
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
-      </If>	
+      </If> 
       <!-- Unlock Tribe -->
       <If Condition="IsQuestCompleted(69096) and not IsQuestCompleted(69432)">
         <!-- It's Dwarfin' Time -->
@@ -732,6 +732,17 @@ Honored:
             <SoHandOver ItemId="31167" QuestId="69451" StepId="2" NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109" />
           </If>
         </If>
+        <!-- How Do You Do, Fellow Dwarves -->
+        <If Condition="HasQuest(69445)">
+          <If Condition="GetQuestStep(69445) ==1 ">
+            <If Condition="not IsOnMap(813)">
+              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+            </If>
+            <FlyTo XYZ="-402.7253, 90.90563, -440.9308" Land="True"/>
+            <MoveTo XYZ="-402.7253, 90.90563, -440.9308" Distance="1.0"/>
+            <RunCode Name="69445"/>
+          </If>
+        </If>
         <!-- Turn-ins -->
         <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
           <If Condition="not IsOnMap(813)">
@@ -764,7 +775,7 @@ Honored:
           </If>
           <!-- What's in a Locket -->
           <If Condition="GetQuestStep(69451) == 255">
-            <NoCombatMoveTo XYZ="-588.0301, 71.99973, -446.9445"/>			
+            <NoCombatMoveTo XYZ="-588.0301, 71.99973, -446.9445"/>      
             <FlyTo XYZ="-587.139, 79.29454, -448.7002"/>
             <FlyTo XYZ="-604.5778, 74.07151, -420.7491"/>
             <FlyTo XYZ="-612.6292, 65.60091, -422.1439" Land="true"/>
@@ -773,6 +784,10 @@ Honored:
           <!-- The New Batch -->
           <If Condition="GetQuestStep(69441) == 255">
             <TurnIn ItemId="2002023" QuestId="69441" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537" />    
+          </If>
+          <!-- How Do You Do, Fellow Dwarves-->
+          <If Condition="GetQuestStep(69445) == 255">
+            <TurnIn  QuestId="69445" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537" />
           </If>
         </If>
       </If>
@@ -783,7 +798,6 @@ Honored:
       <![CDATA[ 
         var DoH = Enumerable.Range(8, 7);
         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69 && Core.Player.Levels[i.Class] < 80);
-
         if (gearSets.Any())
         {
           gearSets.First().Activate();
@@ -804,7 +818,6 @@ Honored:
       <![CDATA[ 
         var Combat = Enumerable.Range(8, 11).Append(0).Append(36);
         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && !Combat.Contains((int)i.Class)).ToList().OrderByDescending(i=> i.Gear.First().Item.ItemLevel);
-
         if (gearSets.Any())
         {
           gearSets.First().Activate();
@@ -817,6 +830,46 @@ Honored:
         await CommonTasks.StopAndDismount();
         GameObjectManager.GetObjectByNPCId(1030786).Target();
         ChatManager.SendChat("/rally");
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69445">
+      <![CDATA[
+        var _say =  String.Empty;
+#if RB_CN
+        _say = "/e NEED CN TRANSLATION";
+#else
+        _say = "/s lali-ho";
+#endif        
+        var positionDictionary = new Dictionary<uint,Vector3>()
+        {
+          {1033772,new Vector3("-401.3504,91.1077,-441.056")},
+          {1033771,new Vector3("-396.8323,93.46553,-420.1291")},
+          {1033770,new Vector3("-412.6243,91.58401,-428.5279")}
+        };
+
+        await CommonTasks.StopAndDismount();
+
+                var activeId = 0u;
+        foreach(var id in positionDictionary.Keys)
+        {
+          var gameobj = GameObjectManager.GetObjectByNPCId(id);
+          if (gameobj != null && gameobj.IsTargetable)
+          {
+            activeId = id;
+            break;
+          }
+        }
+        while (Core.Me.Distance(positionDictionary[activeId]) > 3f)
+        {
+          await CommonTasks.MoveTo(positionDictionary[activeId]);
+          await Coroutine.Yield();
+        }
+        if (GameObjectManager.GetObjectByNPCId(activeId).IsVisible)  {  ChatManager.SendChat(_say);  }
+        while (ConditionParser.GetQuestStep(69445) != 255)
+        {
+          if (Talk.DialogOpen)  {  Talk.Next();  }
+          await Coroutine.Yield();
+        }
       ]]>
     </CodeChunk>
   </CodeChunks>

@@ -16,16 +16,16 @@ Friendly:
   The Telltale Axles X
   A Blueprint a Day X
   Foundations of Steel X
-  7/7 100%
+  7/7
 Trusted:
   How Do You Do, Fellow Dwarves X
   Wood for What Ales You
   The Heart of Tankiness
-  Boom and Dust
-  One Hundred Tankards of Solitude
-  Cooler Tanks Prevail
+  Boom and Dust X
+  One Hundred Tankards of Solitude X
+  Cooler Tanks Prevail X
   What's in a Locket X
-  1/7 14%
+  5/7
 Respected:
   Wayward 'Tons
   Taking the Heat
@@ -34,7 +34,7 @@ Respected:
   Targets Required
   Unbreakable Plate
   Close to Clearmeltdown
-  0/7 0%
+  0/7
 Honored:
   Demolition Demo
   A Crude Awakening
@@ -43,7 +43,7 @@ Honored:
   Remote Repairs
   Tip-top Gear
   Substitute Tester
-  0/7 0%
+  0/7
 -->
 <Profile>
   <Name>[OrderBot] Dwarf Dailies</Name>
@@ -236,7 +236,7 @@ Honored:
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
-      </If> 
+      </If>
       <!-- Unlock Tribe -->
       <If Condition="IsQuestCompleted(69096) and not IsQuestCompleted(69432)">
         <!-- It's Dwarfin' Time -->
@@ -313,7 +313,7 @@ Honored:
         <!-- Pick Up Dailies -->
         <If Condition="not HasQuest(69433) and not HasQuest(69434) and not HasQuest(69435) and not HasQuest(69436) and not HasQuest(69437) and not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
           <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-          <FlyTo XYZ="-615.0983, 65.60088, -423.8844"/>
+          <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/>
           <!-- Lakeland Neighbors -->
           <If Condition="IsQuestAcceptQualified(69438)">
             <PickupQuest QuestId="69438" NpcId="1033712" InteractDistance="5.0"/>
@@ -678,9 +678,9 @@ Honored:
               </UseObject>
             </If>
             <If Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1">
-              <GetTo ZoneId="813" XYZ="-267.5365, 14.38922, -191.6381" />
-              <UseObject NpcIds="2011177" XYZ="-236.1334, 21.04218, -223.0412"  Radius="25"  QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True"/>  
-            </If>          
+              <GetTo ZoneId="813" XYZ="-267.5365, 14.38922, -191.6381"/>
+              <UseObject NpcIds="2011177" XYZ="-236.1334, 21.04218, -223.0412"  Radius="25"  QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True"/>
+            </If>
           </If>
         </If>
         <!-- What's in a Locket -->
@@ -693,7 +693,7 @@ Honored:
             <FlyTo XYZ="-587.139, 79.29454, -448.7002"/>
             <FlyTo XYZ="-586.6123, 75.16434, -479.9616" Land="true"/>
             <NoCombatMoveTo XYZ="-588.0301, 71.99973, -446.9445"/>
-            <TalkTo InteractDistance="3.0"  NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109" />
+            <TalkTo InteractDistance="3.0"  NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109"/>
           </If>
           <If Condition="GetQuestStep(69451) == 2 and not HasHqItem(31167)">
             <If Condition="ClassName == ClassJobType.Carpenter">
@@ -729,7 +729,7 @@ Honored:
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
             <FlyTo XYZ="-588.0301, 71.99973, -446.9445" Land="true"/>
-            <SoHandOver ItemId="31167" QuestId="69451" StepId="2" NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109" />
+            <SoHandOver ItemId="31167" QuestId="69451" StepId="2" NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109"/>
           </If>
         </If>
         <!-- How Do You Do, Fellow Dwarves -->
@@ -743,51 +743,157 @@ Honored:
             <RunCode Name="69445"/>
           </If>
         </If>
-        <!-- Turn-ins -->
-        <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
+        <!-- One Hundred Tankards of Solitude -->
+        <If Condition="GetQuestStep(69449) == 1">
           <If Condition="not IsOnMap(813)">
             <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/>
-          <!-- Lakeland Neighbors -->
-          <If Condition="GetQuestStep(69438) == 255">
-            <TurnIn QuestId="69438" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          <FlyTo XYZ="-605.7614, 65.60075, -422.1045"/>
+          <TalkTo InteractDistance="3.0" QuestId="69449" StepId="1" NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151"/>
+        </If>
+        <If Condition="GetQuestStep(69449) == 2">
+          <If Condition="GetQuestStep(69449) == 2 and not HasAtLeast(31163,3)">
+            <If Condition="ClassName == ClassJobType.Carpenter">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Carpenter'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Blacksmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Blacksmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Armorer">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Armorer'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Goldsmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Goldsmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Leatherworker">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Leatherworker'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Weaver">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Weaver'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Alchemist">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Alchemist'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Culinarian">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
+            </If>
           </If>
-          <!-- Clean Beard, Clear Mind -->
-          <If Condition="GetQuestStep(69439) == 255">
-            <TurnIn ItemId="31149" QuestId="69439" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          <If Condition="GetQuestStep(69449) == 2 and HasAtLeast(31163,3)">
+            <If Condition="not IsOnMap(813)">
+              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+            </If>
+            <FlyTo XYZ="-349.2834, 100.1054, -632.7975"/>
+            <SoHandOver ItemId="31163" QuestId="69449" StepId="2" NpcId="1034061" XYZ="-355.9777, 100.1054, -636.5302"/>
           </If>
-          <!-- Quality Parts, Guaranteed -->
-          <If Condition="GetQuestStep(69440) == 255">
-            <TurnIn ItemId="31151" QuestId="69440" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+        </If>
+        <!-- Boom and Dust -->
+        <If Condition="GetQuestStep(69448) == 1">
+          <If Condition="not IsOnMap(813)">
+            <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <!-- The Telltale Axles -->
-          <If Condition="GetQuestStep(69442) == 255">
-            <TurnIn QuestId="69442" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          <FlyTo XYZ="-717.8965, 68.84299, 2.516846"/>
+          <SoSendChat QuestItem="2003030" XYZ="-724.7578, 68.83337, 1.052795" QuestId="69448" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69448) == 2">
+          <If Condition="not IsOnMap(813)">
+            <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <!-- A Blueprint a Day -->
-          <If Condition="GetQuestStep(69443) == 255">
-            <TurnIn ItemId="31155" QuestId="69443" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          <FlyTo XYZ="-717.8965, 68.84299, 2.516846"/>
+          <TalkTo InteractDistance="3.0" QuestId="69448" StepId="2" NpcId="1034059" XYZ="-725.7039, 68.86053, 2.212463"/>
+        </If>
+        <!-- Cooler Tanks Prevail -->
+        <If Condition="GetQuestStep(69450) == 1">
+          <If Condition="not IsOnMap(813)">
+            <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <!-- Foundations of Steel -->
-          <If Condition="GetQuestStep(69444) == 255">
-            <TurnIn ItemId="31157" QuestId="69444" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          <FlyTo XYZ="219.1052, 141.0037, -564.8529"/>
+          <TalkTo InteractDistance="3.0" QuestId="69450" StepId="1" NpcId="1034062" XYZ="214.9232, 140.9316, -570.0923"/>
+        </If>
+        <If Condition="GetQuestStep(69450) == 255">
+          <If Condition="GetQuestStep(69450) == 255 and not HasAtLeast(31165,2)">
+            <If Condition="ClassName == ClassJobType.Carpenter">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Carpenter'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Blacksmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Blacksmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Armorer">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Armorer'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Goldsmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Goldsmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Leatherworker">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Leatherworker'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Weaver">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Weaver'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Alchemist">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Alchemist'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Culinarian">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
+            </If>
           </If>
-          <!-- What's in a Locket -->
-          <If Condition="GetQuestStep(69451) == 255">
-            <NoCombatMoveTo XYZ="-588.0301, 71.99973, -446.9445"/>      
-            <FlyTo XYZ="-587.139, 79.29454, -448.7002"/>
-            <FlyTo XYZ="-604.5778, 74.07151, -420.7491"/>
-            <FlyTo XYZ="-612.6292, 65.60091, -422.1439" Land="true"/>
-            <TurnIn QuestId="69451" NpcId="1033712" ItemId="2002023" XYZ="-617.1206, 65.60089, -425.2537" />
-          </If>
-          <!-- The New Batch -->
-          <If Condition="GetQuestStep(69441) == 255">
-            <TurnIn ItemId="2002023" QuestId="69441" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537" />    
-          </If>
-          <!-- How Do You Do, Fellow Dwarves-->
-          <If Condition="GetQuestStep(69445) == 255">
-            <TurnIn  QuestId="69445" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537" />
+          <!-- Turn-ins -->
+          <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
+            <If Condition="not IsOnMap(813)">
+              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+            </If>
+            <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/>
+            <!-- Lakeland Neighbors -->
+            <If Condition="GetQuestStep(69438) == 255">
+              <TurnIn QuestId="69438" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- Clean Beard, Clear Mind -->
+            <If Condition="GetQuestStep(69439) == 255">
+              <TurnIn ItemId="31149" QuestId="69439" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- Quality Parts, Guaranteed -->
+            <If Condition="GetQuestStep(69440) == 255">
+              <TurnIn ItemId="31151" QuestId="69440" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- The Telltale Axles -->
+            <If Condition="GetQuestStep(69442) == 255">
+              <TurnIn QuestId="69442" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- A Blueprint a Day -->
+            <If Condition="GetQuestStep(69443) == 255">
+              <TurnIn ItemId="31155" QuestId="69443" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- Foundations of Steel -->
+            <If Condition="GetQuestStep(69444) == 255">
+              <TurnIn ItemId="31157" QuestId="69444" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
+            <!-- What's in a Locket -->
+            <If Condition="GetQuestStep(69451) == 255">
+              <NoCombatMoveTo XYZ="-588.0301, 71.99973, -446.9445"/>
+              <FlyTo XYZ="-587.139, 79.29454, -448.7002"/>
+              <FlyTo XYZ="-604.5778, 74.07151, -420.7491"/>
+              <FlyTo XYZ="-612.6292, 65.60091, -422.1439" Land="true"/>
+              <TurnIn QuestId="69451" NpcId="1033712" ItemId="2002023" XYZ="-617.1206, 65.60089, -425.2537"/>
+            </If>
+            <!-- The New Batch -->
+            <If Condition="GetQuestStep(69441) == 255">
+              <TurnIn ItemId="2002023" QuestId="69441" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537"/>
+            </If>
+            <!-- How Do You Do, Fellow Dwarves-->
+            <If Condition="GetQuestStep(69445) == 255">
+              <TurnIn  QuestId="69445" StepId="255" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537" />
+            </If>
+            <!--  One Hundred Tankards of Solitude -->
+            <If Condition="GetQuestStep(69449) == 255">
+              <TurnIn QuestId="69449" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537"/>
+            </If>
+            <!-- Boom and Dust -->
+            <If Condition="GetQuestStep(69448) == 255">
+              <TurnIn QuestId="69448" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537"/>
+            </If>
+            <!-- Cooler Tanks Prevail -->
+            <If Condition="GetQuestStep(69450) == 255 and HasAtLeast(31165,2)">
+              <TurnIn ItemId="31165" QuestId="69450" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+            </If>
           </If>
         </If>
       </If>
@@ -795,7 +901,7 @@ Honored:
   </Order>
   <CodeChunks>
     <CodeChunk Name="SwitchDoHJob">
-      <![CDATA[ 
+      <![CDATA[
         var DoH = Enumerable.Range(8, 7);
         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69 && Core.Player.Levels[i.Class] < 80);
         if (gearSets.Any())
@@ -815,7 +921,7 @@ Honored:
       ]]>
     </CodeChunk>
     <CodeChunk Name="SwitchDoWMJob">
-      <![CDATA[ 
+      <![CDATA[
         var Combat = Enumerable.Range(8, 11).Append(0).Append(36);
         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && !Combat.Contains((int)i.Class)).ToList().OrderByDescending(i=> i.Gear.First().Item.ItemLevel);
         if (gearSets.Any())
@@ -846,9 +952,7 @@ Honored:
           {1033771,new Vector3("-396.8323,93.46553,-420.1291")},
           {1033770,new Vector3("-412.6243,91.58401,-428.5279")}
         };
-
         await CommonTasks.StopAndDismount();
-
                 var activeId = 0u;
         foreach(var id in positionDictionary.Keys)
         {

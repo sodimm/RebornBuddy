@@ -946,7 +946,7 @@ Honored:
           </If>
         </If>
         <!-- Cooler Tanks Prevail -->
-        <If Condition="HasQuest(69448)">
+        <If Condition="HasQuest(69450)">
           <If Condition="GetQuestStep(69450) == 1">
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
@@ -1077,20 +1077,22 @@ Honored:
     <LisbethTravel Area="Lakeland" Position="-85.75334, 2.279475, 31.05903"/>
     -->
             <If Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 0">
-              <UseObject NpcIds="2011169, 2011171, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 0" BlacklistAfter="True">
+              <UseObject NpcIds="2011169, 2011171, 2011172, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 0" BlacklistAfter="True">
                 <HotSpots>
                   <HotSpot XYZ="-95.90302,1.632629,41.245" Radius="20"/>
                   <HotSpot XYZ="-68.55884,2.5177,38.04065" Radius="20"/>
                   <HotSpot XYZ="-84.9165,2.39563,36.85046" Radius="20"/>
+                  <HotSpot XYZ="-70.2984,1.449585,62.21094" Radius="20"/>
                 </HotSpots>
               </UseObject>
             </If>
             <If Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 1">
-              <UseObject NpcIds="2011169, 2011171, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True">
+              <UseObject NpcIds="2011169, 2011171, 2011172, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True">
                 <HotSpots>
                   <HotSpot XYZ="-95.90302,1.632629,41.245" Radius="20"/>
                   <HotSpot XYZ="-68.55884,2.5177,38.04065" Radius="20"/>
                   <HotSpot XYZ="-84.9165,2.39563,36.85046" Radius="20"/>
+                  <HotSpot XYZ="-70.2984,1.449585,62.21094" Radius="20"/>
                 </HotSpots>
               </UseObject>
             </If>

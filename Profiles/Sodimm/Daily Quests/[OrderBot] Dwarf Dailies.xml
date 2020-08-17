@@ -19,13 +19,13 @@ Friendly:
   7/7
 Trusted:
   How Do You Do, Fellow Dwarves X
-  Wood for What Ales You
-  The Heart of Tankiness
+  Wood for What Ales You X
+  The Heart of Tankiness X
   Boom and Dust X
   One Hundred Tankards of Solitude X
   Cooler Tanks Prevail X
   What's in a Locket X
-  5/7
+  7/7
 Respected:
   Wayward 'Tons X
   Taking the Heat X
@@ -1096,6 +1096,76 @@ Honored:
             </If>
           </If>
         </If>
+        <!-- The Heart of Tankiness -->
+        <If Condition="HasQuest(69447)">
+          <If Condition="GetQuestStep(69447) == 1">
+            <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151" QuestId="69447" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69447) == 255 and not HasHqItem(31161)">
+            <If Condition="ClassName == ClassJobType.Carpenter">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Carpenter'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Blacksmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Blacksmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Armorer">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Armorer'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Goldsmith">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Goldsmith'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Leatherworker">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Leatherworker'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Weaver">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Weaver'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Alchemist">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Alchemist'}]"/>
+            </If>
+            <If Condition="ClassName == ClassJobType.Culinarian">
+              <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Culinarian'}]"/>
+            </If>
+          </If>
+        </If>
+        <!-- Wood for What Ales You -->
+        <If Condition="HasQuest(69446)">
+          <If Condition="GetQuestStep(69446) == 1">
+            <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151" QuestId="69446" StepId="1"/>
+          </If>
+          <If Condition="GetQuestStep(69446) == 2">
+            <If Condition="not HasAtLeast(31159,3)">
+              <If Condition="ClassName == ClassJobType.Carpenter">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Carpenter'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Blacksmith">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Blacksmith'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Armorer">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Armorer'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Goldsmith">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Goldsmith'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Leatherworker">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Leatherworker'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Weaver">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Weaver'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Alchemist">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Alchemist'}]"/>
+              </If>
+              <If Condition="ClassName == ClassJobType.Culinarian">
+                <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
+              </If>
+            </If>
+            <If Condition="HasAtLeast(31159,3)">
+              <LisbethTravel Area="Lakeland" Position="-630.3345, 56.20171, -140.6357"/>
+              <HandOver ItemId="31159" NpcId="1033773" XYZ="-629.3279, 56.20171, -139.2996" QuestId="69446" StepId="2"/>
+            </If>
+          </If>
+        </If>
         <!-- Turn-ins -->
         <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
           <If Condition="not IsOnMap(813)">
@@ -1162,6 +1232,14 @@ Honored:
           <!-- Taking the Heat -->
           <If Condition="GetQuestStep(69453) == 255">
             <TurnIn QuestId="69453" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
+          </If>
+          <!-- Wood for What Ales You -->
+          <If Condition="GetQuestStep(69446) == 255">
+            <TurnIn QuestId="69446" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537"/>
+          </If>
+          <!-- The Heart of Tankiness -->
+          <If Condition="GetQuestStep(69447) == 255">
+            <TurnIn ItemId="31161" QuestId="69447" NpcId="1033712" XYZ="-617.1206, 65.60089, -425.2537"/>
           </If>
         </If>
       </If>

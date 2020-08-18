@@ -820,16 +820,28 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-243.6948, 68.17365, -198.0382" Land="False"/>
-            <FlyTo XYZ="-298.0375, 15.50304, -197.1377" Land="True"/>
-            <While Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69441) == 1">
-              <UseObject NpcIds="2011178, 2011179" QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69441) == 1" BlacklistAfter="True">
+            <If Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 0">
+              <FlyTo XYZ="-263.8764, 79.85086, -202.9258" Land="False"/>
+              <RunCode Name="The_New_Batch"/>
+              <!-- <UseObject NpcIds="2011178, 2011179" QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 0" BlacklistAfter="True">
                 <HotSpots>
                   <HotSpot XYZ="-267.5365, 14.38922, -191.6381" Radius="20"/>
                   <HotSpot XYZ="-304.036, 19.76038, -244.1596" Radius="20"/>
+                  <HotSpot XYZ="-235.5255, 20.66327, -221.3276" Radius="20"/>
                 </HotSpots>
-              </UseObject>
-            </While>
+              </UseObject> -->
+            </If>
+            <If Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1">
+              <FlyTo XYZ="-263.8764, 79.85086, -202.9258" Land="False"/>
+			  <RunCode Name="The_New_Batch"/>
+              <!-- <UseObject NpcIds="2011178, 2011179" QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True">
+                <HotSpots>
+                  <HotSpot XYZ="-267.5365, 14.38922, -191.6381" Radius="20"/>
+                  <HotSpot XYZ="-304.036, 19.76038, -244.1596" Radius="20"/>
+                  <HotSpot XYZ="-235.5255, 20.66327, -221.3276" Radius="20"/>
+                </HotSpots>
+              </UseObject> -->
+            </If>
           </If>
         </If>
         <!-- What's in a Locket -->
@@ -1316,6 +1328,34 @@ Honored:
         {
           if (Talk.DialogOpen)  {  Talk.Next();  }
           await Coroutine.Yield();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="The_New_Batch">
+      <![CDATA[
+        foreach (var x in GameObjectManager.GetObjectsOfType<EventObject>(true).Where(x => x.IsTargetable))
+        {
+          if (x.NpcId >= 2011177 && x.NpcId <= 2011179)
+          {
+            var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+			var uppos = new Vector3(x.Location.X, x.Location.Y + 30, x.Location.Z);
+            uint id = x.NpcId;
+			while (Core.Player.Location.Distance(uppos) > 3f)
+            {
+              ff14bot.Pathing.Flightor.MoveTo(pos);
+              await Coroutine.Yield();
+            }
+			while (Core.Player.Location.Distance(pos) > 3f)
+            {
+              ff14bot.Pathing.Flightor.MoveTo(pos);
+              await Coroutine.Yield();
+            }
+          await CommonTasks.StopAndDismount();
+          ff14bot.Managers.GameObjectManager.GetObjectByNPCId(id).Interact();
+		  await Coroutine.Sleep(2000);
+		  ff14bot.RemoteWindows.Talk.Next();
+		  break;
+          }
         }
       ]]>
     </CodeChunk>

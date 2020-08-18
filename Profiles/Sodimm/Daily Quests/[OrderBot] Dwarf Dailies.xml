@@ -1342,7 +1342,7 @@ Honored:
             uint id = x.NpcId;
 			while (Core.Player.Location.Distance(uppos) > 3f)
             {
-              ff14bot.Pathing.Flightor.MoveTo(pos);
+              ff14bot.Pathing.Flightor.MoveTo(uppos);
               await Coroutine.Yield();
             }
 			while (Core.Player.Location.Distance(pos) > 3f)

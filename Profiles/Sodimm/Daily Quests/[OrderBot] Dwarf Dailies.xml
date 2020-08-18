@@ -319,11 +319,13 @@ Honored:
         </If>
       </If>
       <If Condition="GetQuestStep(69433) == 1">
-        <FlyTo XYZ="-592.0494, 71.99991, -446.1262" Land="True"/>
+        <!-- <FlyTo XYZ="-592.0494, 71.99991, -446.1262" Land="True"/> -->
+        <LisbethTravel Area="Lakeland (Dwarves Middle Area)" Position="-592.0494, 71.99991, -446.1262"/>
         <TalkTo NpcId="1033730" XYZ="-593.9269, 71.99991, -444.9989" QuestId="69433" StepId="1"/>
       </If>
       <If Condition="GetQuestStep(69433) == 2">
-        <FlyTo XYZ="-626.7277, 65.6009, -414.4639" Land="True"/>
+        <!-- <FlyTo XYZ="-626.7277, 65.6009, -414.4639" Land="True"/> -->
+        <LisbethTravel Area="Lakeland  (Dwarves Middle Area)" Position="-626.7277, 65.6009, -414.4639"/>
         <TalkTo NpcId="1033749" XYZ="-628.0461, 65.60091, -414.6639" QuestId="69433" StepId="2"/>
       </If>
       <If Condition="GetQuestStep(69433) == 3">
@@ -357,12 +359,14 @@ Honored:
           <If Condition="not IsOnMap(813)">
             <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <FlyTo XYZ="-626.7277, 65.6009, -414.4639" Land="True"/>
+          <!-- <FlyTo XYZ="-626.7277, 65.6009, -414.4639" Land="True"/> -->
+          <LisbethTravel Area="Lakeland  (Dwarves Middle Area)" Position="-626.7277, 65.6009, -414.4639"/>
           <SoHandOver ItemId="31139" NpcId="1033730" XYZ="-593.9269, 71.99991, -444.9989" QuestId="69433" StepId="3"/>
         </If>
       </If>
       <If Condition="GetQuestStep(69433) == 255">
-        <FlyTo XYZ="-592.0594, 71.98904, -443.8024" Land="True"/>
+        <!-- <FlyTo XYZ="-592.0594, 71.98904, -443.8024" Land="True"/> -->
+        <LisbethTravel Area="Lakeland  (Dwarves Middle Area)" Position="-592.0594, 71.98904, -443.8024"/>
         <TurnIn QuestId="69433" NpcId="1033730" XYZ="-593.9269, 71.99991, -444.9989"/>
       </If>
       <!-- I Heard You Like Tanks -->
@@ -456,7 +460,8 @@ Honored:
         <!-- Pick Up Dailies -->
         <If Condition="not HasQuest(69433) and not HasQuest(69434) and not HasQuest(69435) and not HasQuest(69436) and not HasQuest(69437) and not HasAtLeastOneQuest(Array[int]([&dailyIds;]))">
           <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-          <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/>
+          <!-- <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/> -->
+          <LisbethTravel Area="Lakeland" Position="-612.8174, 65.60093, -420.7993"/>
           <!-- Lakeland Neighbors -->
           <If Condition="IsQuestAcceptQualified(69438)">
             <PickupQuest QuestId="69438" NpcId="1033712" InteractDistance="5.0"/>
@@ -614,7 +619,8 @@ Honored:
         <!-- Lakeland Neighbors -->
         <If Condition="HasQuest(69438)">
           <If Condition="GetQuestStep(69438) == 1">
-            <FlyTo XYZ="-674.7692, 52.60457, -148.0583" Land="true"/>
+            <!-- <FlyTo XYZ="-674.7692, 52.60457, -148.0583" Land="true"/> -->
+            <LisbethTravel Area="Lakeland" Position="-674.7692, 52.60457, -148.0583"/>
             <TalkTo NpcId="1034103" XYZ="-674.7692, 52.60457, -148.0583" QuestId="69438" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69438) == 2">
@@ -655,7 +661,8 @@ Honored:
         <!-- Clean Beard, Clean Mind -->
         <If Condition="HasQuest(69439)">
           <If Condition="GetQuestStep(69439) == 1">
-            <FlyTo XYZ="774.8156, 21.32572, 20.36805" Land="True"/>
+            <!-- <FlyTo XYZ="774.8156, 21.32572, 20.36805" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="774.8156, 21.32572, 20.36805"/>
             <TalkTo NpcId="1034105" XYZ="775.9059, 21.32572, 21.28632" QuestId="69439" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69439) == 255 and not HasAtLeast(31149,2)">
@@ -727,7 +734,8 @@ Honored:
               <If Condition="not IsOnMap(813)">
                 <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
               </If>
-              <FlyTo XYZ="114.5749, 106.6603, -550.8495" Land="True"/>
+              <!-- <FlyTo XYZ="114.5749, 106.6603, -550.8495" Land="True"/> -->
+              <LisbethTravel Area="Lakeland" Position="114.5749, 106.6603, -550.8495"/>
               <HandOver ItemId="31153" NpcId="1034112" XYZ="115.9838, 106.7327, -551.7815" QuestId="69442" StepId="2"/>
             </If>
           </If>
@@ -735,7 +743,8 @@ Honored:
         <!-- Foundations of Steel -->
         <If Condition="HasQuest(69444)">
           <If Condition="GetQuestStep(69444) == 1">
-            <FlyTo XYZ="-55.7919, 97.95292, -624.0143" Land="True"/>
+            <!-- <FlyTo XYZ="-55.7919, 97.95292, -624.0143" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="-55.7919, 97.95292, -624.0143"/>
             <TalkTo NpcId="1034118" XYZ="-55.49713, 98.10251, -624.7501" QuestId="69444" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69444) == 255 and not HasAtLeast(31157,3)">
@@ -771,7 +780,8 @@ Honored:
         <!-- A Blueprint a Day -->
         <If Condition="HasQuest(69443)">
           <If Condition="GetQuestStep(69443) == 1">
-            <FlyTo XYZ="733.6764, 21.79854, -77.6895" Land="True"/>
+            <!-- <FlyTo XYZ="733.6764, 21.79854, -77.6895" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="733.6764, 21.79854, -77.6895"/>
             <TalkTo NpcId="1034115" XYZ="732.3567, 21.79854, -77.62268" QuestId="69443" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69443) == 255 and not HasAtLeast(31155,2)">
@@ -810,20 +820,16 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <If Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 0">
-              <FlyTo XYZ="-243.6948, 68.17365, -198.0382" Land="False"/>
-              <FlyTo XYZ="-238.7899, 13.9439, -193.2986" Land="True"/>
-              <UseObject NpcIds="2011178, 2011179" QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 0" BlacklistAfter="True">
+            <FlyTo XYZ="-243.6948, 68.17365, -198.0382" Land="False"/>
+            <FlyTo XYZ="-298.0375, 15.50304, -197.1377" Land="True"/>
+            <While Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69441) == 1">
+              <UseObject NpcIds="2011178, 2011179" QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69441) == 1" BlacklistAfter="True">
                 <HotSpots>
                   <HotSpot XYZ="-267.5365, 14.38922, -191.6381" Radius="20"/>
                   <HotSpot XYZ="-304.036, 19.76038, -244.1596" Radius="20"/>
                 </HotSpots>
               </UseObject>
-            </If>
-            <If Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1">
-              <GetTo ZoneId="813" XYZ="-267.5365, 14.38922, -191.6381"/>
-              <UseObject NpcIds="2011177" XYZ="-236.1334, 21.04218, -223.0412"  Radius="25"  QuestId="69441" StepId="1" Condition="GetQuestById(69441).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True"/>
-            </If>
+            </While>
           </If>
         </If>
         <!-- What's in a Locket -->
@@ -832,7 +838,8 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-588.0301, 71.99973, -446.9445" Land="true"/>
+            <!-- <FlyTo XYZ="-588.0301, 71.99973, -446.9445" Land="true"/> -->
+            <LisbethTravel Area="Lakeland" Position="-588.0301, 71.99973, -446.9445"/>
             <TalkTo InteractDistance="3.0"  NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109"/>
           </If>
           <If Condition="GetQuestStep(69451) == 2 and not HasHqItem(31167)">
@@ -868,7 +875,8 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-588.0301, 71.99973, -446.9445" Land="true"/>
+            <!-- <FlyTo XYZ="-588.0301, 71.99973, -446.9445" Land="true"/> -->
+            <LisbethTravel Area="Lakeland" Position="-588.0301, 71.99973, -446.9445"/>
             <SoHandOver ItemId="31167" QuestId="69451" StepId="2" NpcId="1033750" XYZ="-591.3329, 71.99975, -451.0109"/>
           </If>
         </If>
@@ -878,7 +886,8 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-402.7253, 90.90563, -440.9308" Land="True"/>
+            <!-- <FlyTo XYZ="-402.7253, 90.90563, -440.9308" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="-402.7253, 90.90563, -440.9308"/>
             <MoveTo XYZ="-402.7253, 90.90563, -440.9308" Distance="1.0"/>
             <RunCode Name="69445"/>
           </If>
@@ -889,7 +898,8 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-605.7614, 65.60075, -422.1045"/>
+            <!-- <FlyTo XYZ="-605.7614, 65.60075, -422.1045"/> -->
+            <LisbethTravel Area="Lakeland" Position="-605.7614, 65.60075, -422.1045"/>
             <TalkTo InteractDistance="3.0" QuestId="69449" StepId="1" NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151"/>
           </If>
           <If Condition="GetQuestStep(69449) == 2">
@@ -923,7 +933,8 @@ Honored:
               <If Condition="not IsOnMap(813)">
                 <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
               </If>
-              <FlyTo XYZ="-349.2834, 100.1054, -632.7975"/>
+              <!-- <FlyTo XYZ="-349.2834, 100.1054, -632.7975"/> -->
+              <LisbethTravel Area="Lakeland" Position="-349.2834, 100.1054, -632.7975"/>
               <SoHandOver ItemId="31163" QuestId="69449" StepId="2" NpcId="1034061" XYZ="-355.9777, 100.1054, -636.5302"/>
             </If>
           </If>
@@ -934,14 +945,16 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="-717.8965, 68.84299, 2.516846"/>
-            <SoSendChat QuestItem="2003030" XYZ="-724.7578, 68.83337, 1.052795" QuestId="69448" StepId="1"/>
+            <!-- <FlyTo XYZ="-717.8965, 68.84299, 2.516846"/> -->
+            <LisbethTravel Area="Lakeland" Position="-717.8965, 68.84299, 2.516846"/>
+            <SoSendChat QuestItem="2003030" XYZ="-721.7059, 68.86389, -1.510742" QuestId="69448" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69448) == 2">
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
             <FlyTo XYZ="-717.8965, 68.84299, 2.516846"/>
+            <!-- <LisbethTravel Area="Lakeland" Position="-717.8965, 68.84299, 2.516846"/> -->
             <TalkTo InteractDistance="3.0" QuestId="69448" StepId="2" NpcId="1034059" XYZ="-725.7039, 68.86053, 2.212463"/>
           </If>
         </If>
@@ -951,7 +964,8 @@ Honored:
             <If Condition="not IsOnMap(813)">
               <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
             </If>
-            <FlyTo XYZ="219.1052, 141.0037, -564.8529"/>
+            <!-- <FlyTo XYZ="219.1052, 141.0037, -564.8529"/> -->
+            <LisbethTravel Area="Lakeland" Position="219.1052, 141.0037, -564.8529"/>
             <TalkTo InteractDistance="3.0" QuestId="69450" StepId="1" NpcId="1034062" XYZ="214.9232, 140.9316, -570.0923"/>
           </If>
           <If Condition="GetQuestStep(69450) == 255 and not HasAtLeast(31165,2)">
@@ -984,10 +998,8 @@ Honored:
         <!-- Taking the Heat -->
         <If Condition="HasQuest(69453)">
           <If Condition="GetQuestStep(69453) == 1">
-            <FlyTo XYZ="-607.8267, 65.60219, -429.5863" Land="True"/>
-            <!--
-    <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-607.8267, 65.60219, -429.5863"/>
-    -->
+            <!-- <FlyTo XYZ="-607.8267, 65.60219, -429.5863" Land="True"/> -->
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-607.8267, 65.60219, -429.5863"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151" QuestId="69453" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69453) == 2">
@@ -1018,19 +1030,15 @@ Honored:
               </If>
             </If>
             <If Condition="GetQuestStep(69453) == 2 and HasAtLeast(31169,3)">
-              <FlyTo XYZ="593.1943, 5.898177, 704.86" Land="True"/>
-              <!--
-      <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="593.1943, 5.898177, 704.86"/>
-      -->
+              <!-- <FlyTo XYZ="593.1943, 5.898177, 704.86" Land="True"/> -->
+              <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="593.1943, 5.898177, 704.86"/>
               <SoHandOver ItemId="31169" NpcId="1033694" XYZ="593.1943, 5.898177, 704.86" QuestId="69453" StepId="2"/>
             </If>
           </If>
           <!-- Sealing the Deal -->
           <If Condition="GetQuestStep(69454) == 1">
-            <FlyTo XYZ="116.5933, 7.084089, 665.053" Land="True"/>
-            <!--
-      <LisbethTravel Area="Lakeland" Position="116.5933, 7.084089, 665.053"/>
-    -->
+            <!-- <FlyTo XYZ="116.5933, 7.084089, 665.053" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="116.5933, 7.084089, 665.053"/>
             <TalkTo NpcId="1033695" XYZ="117.0519, 7.07016, 667.3837" QuestId="69454" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69454) == 2">
@@ -1061,10 +1069,8 @@ Honored:
               </If>
             </If>
             <If Condition="GetQuestStep(69454) == 2 and HasHqItem(31171)">
-              <FlyTo XYZ="119.0356, 7.096028, 667.5974" Land="True"/>
-              <!--
-      <LisbethTravel Area="Lakeland" Position="119.0356, 7.096028, 667.5974"/>
-      -->
+              <!-- <FlyTo XYZ="119.0356, 7.096028, 667.5974" Land="True"/> -->
+              <LisbethTravel Area="Lakeland" Position="119.0356, 7.096028, 667.5974"/>
               <SoHandOver ItemId="31171" NpcId="1033696" XYZ="119.0356, 7.096028, 667.5974" QuestId="69454" StepId="2"/>
             </If>
           </If>
@@ -1072,12 +1078,10 @@ Honored:
         <!-- Wayward 'Tons -->
         <If Condition="HasQuest(69452)">
           <If Condition="GetQuestStep(69452) == 1">
-            <FlyTo XYZ="-85.75334, 2.279475, 31.05903" Land="True"/>
-            <!--
-    <LisbethTravel Area="Lakeland" Position="-85.75334, 2.279475, 31.05903"/>
-    -->
-            <If Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 0">
-              <UseObject NpcIds="2011169, 2011171, 2011172, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 0" BlacklistAfter="True">
+            <!-- <FlyTo XYZ="-85.75334, 2.279475, 31.05903" Land="True"/> -->
+            <LisbethTravel Area="Lakeland" Position="-85.75334, 2.279475, 31.05903"/>
+            <While Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69452) == 1">
+              <UseObject NpcIds="2011169, 2011170, 2011171, 2011172" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 &lt; 1 and GetQuestStep(69452) == 1" BlacklistAfter="True">
                 <HotSpots>
                   <HotSpot XYZ="-95.90302,1.632629,41.245" Radius="20"/>
                   <HotSpot XYZ="-68.55884,2.5177,38.04065" Radius="20"/>
@@ -1085,22 +1089,13 @@ Honored:
                   <HotSpot XYZ="-70.2984,1.449585,62.21094" Radius="20"/>
                 </HotSpots>
               </UseObject>
-            </If>
-            <If Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 1">
-              <UseObject NpcIds="2011169, 2011171, 2011172, 2011170" QuestId="69452" StepId="1" Condition="GetQuestById(69452).GetTodoArgs(1, 0).Item1 == 1" BlacklistAfter="True">
-                <HotSpots>
-                  <HotSpot XYZ="-95.90302,1.632629,41.245" Radius="20"/>
-                  <HotSpot XYZ="-68.55884,2.5177,38.04065" Radius="20"/>
-                  <HotSpot XYZ="-84.9165,2.39563,36.85046" Radius="20"/>
-                  <HotSpot XYZ="-70.2984,1.449585,62.21094" Radius="20"/>
-                </HotSpots>
-              </UseObject>
-            </If>
+            </While>
           </If>
         </If>
         <!-- The Heart of Tankiness -->
         <If Condition="HasQuest(69447)">
           <If Condition="GetQuestStep(69447) == 1">
+            <LisbethTravel Area="Lakeland" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151" QuestId="69447" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69447) == 255 and not HasHqItem(31161)">
@@ -1173,7 +1168,8 @@ Honored:
           <If Condition="not IsOnMap(813)">
             <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
           </If>
-          <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/>
+          <!-- <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/> -->
+          <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
           <!-- Lakeland Neighbors -->
           <If Condition="GetQuestStep(69438) == 255">
             <TurnIn QuestId="69438" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
@@ -1200,7 +1196,6 @@ Honored:
           </If>
           <!-- What's in a Locket -->
           <If Condition="GetQuestStep(69451) == 255">
-            <FlyTo XYZ="-617.1206, 65.60089, -425.2537" Land="true"/>
             <TurnIn QuestId="69451" NpcId="1033712" ItemId="2002023" XYZ="-617.1206, 65.60089, -425.2537"/>
           </If>
           <!-- The New Batch -->

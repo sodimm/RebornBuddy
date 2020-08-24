@@ -1407,6 +1407,8 @@ Honored:
           <If Condition="GetQuestStep(69455) == 2">
             <SoEmoteNpc Emote="psych" NpcId="1033697" XYZ="705.2262, 20.93061, 29.00732" QuestId="69455" StepId="2"/>
           </If>
+        </If>
+        <If Condition="HasQuest(69465)">
           <!-- Substitute Tester -->
           <If Condition="GetQuestStep(69465) == 1">
             <FlyTo ZoneId="813" XYZ="-613.7352, 65.60239, -407.8618"/>
@@ -1540,6 +1542,7 @@ Honored:
           <If Condition="GetQuestStep(69465) == 255">
             <TurnIn QuestId="69465" NpcId="1033712" XYZ="-617.1206, 65.60088, -425.2537"/>
           </If>
+          <RunCode Name="Finish_Talking"/>
         </If>
       </If>
     </If>
@@ -1663,6 +1666,12 @@ Honored:
             break;
           }
         }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Finish_Talking">
+      <![CDATA[
+        await Coroutine.Sleep(1000);
+        ff14bot.RemoteWindows.Talk.Next();
       ]]>
     </CodeChunk>
   </CodeChunks>

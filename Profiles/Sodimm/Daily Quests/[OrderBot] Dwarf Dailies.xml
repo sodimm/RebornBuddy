@@ -12,7 +12,7 @@ Friendly:
   Lakeland Neighbors X
   Clean Beard, Clear Mind X
   Quality Parts, Guaranteed X
-  The New Batch X (Partial? Might need more objectids/hotspots)
+  The New Batch X
   The Telltale Axles X
   A Blueprint a Day X
   Foundations of Steel X
@@ -594,6 +594,7 @@ Honored:
         <!-- Quality Parts, Guaranteed -->
         <If Condition="HasQuest(69440)">
           <If Condition="GetQuestStep(69440) == 1">
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60087, -431.8151" QuestId="69440" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69440) == 255 and not HasAtLeast(31151,4)">
@@ -708,6 +709,7 @@ Honored:
         <!-- The Telltale Axles -->
         <If Condition="HasQuest(69442)">
           <If Condition="GetQuestStep(69442) == 1">
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60087, -431.8151" QuestId="69442" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69442) == 2">
@@ -950,6 +952,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31163,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
             <If Condition="GetQuestStep(69449) == 2 and HasAtLeast(31163,3)">
               <If Condition="not IsOnMap(813)">
@@ -1015,6 +1020,9 @@ Honored:
             <If Condition="ClassName == ClassJobType.Culinarian">
               <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31165,'Amount':2,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
             </If>
+            <If Condition="not IsOnMap(813)">
+              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+            </If>
           </If>
         </If>
         <!-- Taking the Heat -->
@@ -1050,6 +1058,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31169,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
             <If Condition="GetQuestStep(69453) == 2 and HasAtLeast(31169,3)">
               <!-- <FlyTo XYZ="593.1943, 5.898177, 704.86" Land="True"/> -->
@@ -1057,7 +1068,9 @@ Honored:
               <SoHandOver ItemId="31169" NpcId="1033694" XYZ="593.1943, 5.898177, 704.86" QuestId="69453" StepId="2"/>
             </If>
           </If>
-          <!-- Sealing the Deal -->
+        </If>
+        <!-- Sealing the Deal -->
+        <If Condition="HasQuest(69454)">
           <If Condition="GetQuestStep(69454) == 1">
             <!-- <FlyTo XYZ="116.5933, 7.084089, 665.053" Land="True"/> -->
             <LisbethTravel Area="Lakeland" Position="116.5933, 7.084089, 665.053"/>
@@ -1088,6 +1101,9 @@ Honored:
               </If>
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Item':31171,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+              </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
               </If>
             </If>
             <If Condition="GetQuestStep(69454) == 2 and HasHqItem(31171)">
@@ -1145,11 +1161,15 @@ Honored:
             <If Condition="ClassName == ClassJobType.Culinarian">
               <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31161,'Amount':1,'QuickSynth':false,'Enabled':true,'Type':'Culinarian'}]"/>
             </If>
+            <If Condition="not IsOnMap(813)">
+              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+            </If>
           </If>
         </If>
         <!-- Wood for What Ales You -->
         <If Condition="HasQuest(69446)">
           <If Condition="GetQuestStep(69446) == 1">
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60085, -431.8151" QuestId="69446" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69446) == 2">
@@ -1178,6 +1198,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31159,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
             <If Condition="HasAtLeast(31159,3)">
               <LisbethTravel Area="Lakeland" Position="-630.3345, 56.20171, -140.6357"/>
@@ -1188,6 +1211,7 @@ Honored:
         <!-- Targets Required -->
         <If Condition="HasQuest(69456)">
           <If Condition="GetQuestStep(69456) == 1">
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033767" XYZ="-608.6061, 65.60223, -431.8151" QuestId="69456" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69456) == 2">
@@ -1215,6 +1239,9 @@ Honored:
               </If>
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31173,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
+              </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
               </If>
             </If>
             <If Condition="GetQuestStep(69456) == 2 and HasAtLeast(31173,3)">
@@ -1274,6 +1301,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Item':31175,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
           </If>
         </If>
@@ -1288,10 +1318,10 @@ Honored:
             </If>
           </If>
           <If Condition="GetQuestStep(69435) == 1">
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69435" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69435) == 2">
-            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-626.2377, 65.60227, -414.3816"/>
             <TalkTo NpcId="1033749" XYZ="-628.0461, 65.60229, -414.6639" QuestId="69435" StepId="2"/>
           </If>
           <If Condition="GetQuestStep(69435) == 3">
@@ -1319,6 +1349,9 @@ Honored:
               </If>
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+              </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
               </If>
             </If>
             <If Condition="GetQuestStep(69435) == 3 and HasHqItem(31143)">
@@ -1363,6 +1396,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Item':31181,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
             <If Condition="GetQuestStep(69463) == 2 and HasHqItem(31181)">
               <If Condition="not IsOnMap(813)">
@@ -1405,6 +1441,9 @@ Honored:
               <If Condition="ClassName == ClassJobType.Culinarian">
                 <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':31183,'Amount':3,'QuickSynth':true,'Enabled':true,'Type':'Culinarian'}]"/>
               </If>
+              <If Condition="not IsOnMap(813)">
+                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+              </If>
             </If>
           </If>
         </If>
@@ -1419,29 +1458,20 @@ Honored:
             <SoEmoteNpc Emote="psych" NpcId="1033697" XYZ="705.2262, 20.93061, 29.00732" QuestId="69455" StepId="2"/>
           </If>
         </If>
+        <!-- Substitute Tester -->
         <If Condition="HasQuest(69465)">
-          <!-- Substitute Tester -->
           <If Condition="GetQuestStep(69465) == 1">
-            <FlyTo ZoneId="813" XYZ="-613.7352, 65.60239, -407.8618"/>
+            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
             <TalkTo NpcId="1033715" XYZ="-614.4961, 65.60228, -405.5696" QuestId="69465" StepId="1"/>
           </If>
           <If Condition="GetQuestStep(69465) == 2">
             <While Condition="GetQuestById(69465).GetTodoArgs(1, 0).Item1 &lt; 3 and GetQuestStep(69465) == 2">
               <If Condition="not IsOnMap(813)">
-                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-                <FlyTo XYZ="-614.4961, 65.60228, -405.5696" Land="True"/>
+                <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
                 <TalkTo NpcId="1033715" XYZ="-614.4961, 65.60228, -405.5696"/>
               </If>
               <FlyTo XYZ="-198.8364, 85.43746, -487.6061" ArrivalTolerance="0.5" AllowedVariance="1.0" IgnoreIndoors="True" Land="True"/>
-              <SoUseSpell SpellId="20121" NpcId="2011130, 2011131, 2011133, 2011129, 2011132" UseDistance="5.0" Condition="HasQuest(69465) and GetQuestStep(69465) == 2 and GetQuestById(69465).GetTodoArgs(2, 0).Item1 &lt; 3">
-                <HotSpots>
-                  <HotSpot XYZ="-245.7771,101.4266,-433.98198" Radius="20"/>
-                  <HotSpot XYZ="-193.1335,86.04565,-502.7695" Radius="20"/>
-                  <HotSpot XYZ="-145.6169,85.34363,-494.8654" Radius="20"/>
-                  <HotSpot XYZ="-126.8788,103.1967,-442.649" Radius="20"/>
-                  <HotSpot XYZ="-199.4202,100.389,-450.7973" Radius="20"/>
-                </HotSpots>
-              </SoUseSpell>
+              <RunCode Name="Substitute_Tester"/>
             </While>
             <Dismount/>
           </If>
@@ -1658,7 +1688,7 @@ Honored:
             ff14bot.Managers.GameObjectManager.GetObjectByNPCId(id).Interact();
             await Coroutine.Sleep(3000);
             ff14bot.RemoteWindows.Talk.Next();
-			await Coroutine.Sleep(8000);
+      await Coroutine.Sleep(8000);
             break;
           }
         }
@@ -1680,6 +1710,30 @@ Honored:
         }
       ]]>
     </CodeChunk>
+    <CodeChunk Name="Substitute_Tester">
+      <![CDATA[
+        foreach (var x in GameObjectManager.GetObjectsOfType<EventObject>(true))
+        {
+          if (x.IsTargetable && x.NpcId >= 2011129 && x.NpcId <= 2011133)
+          {
+            var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+            while (Core.Player.Location.Distance(pos) > 5f)
+            {
+              ff14bot.Pathing.Flightor.MoveTo(pos);
+              await Coroutine.Yield();
+            }
+            await CommonTasks.Land();
+            MovementManager.MoveStop();
+            await Coroutine.Sleep(1000);
+            MovementManager.SetFacing(x.Location);
+            await Coroutine.Sleep(1000);
+            ActionManager.DoAction(20121, x);
+            await Coroutine.Sleep(3000);
+            break;
+          }
+        }
+      ]]>  
+    </CodeChunk>  
     <CodeChunk Name="Finish_Talking">
       <![CDATA[
         await Coroutine.Sleep(1000);

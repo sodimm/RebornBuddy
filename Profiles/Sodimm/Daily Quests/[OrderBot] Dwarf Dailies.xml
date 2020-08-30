@@ -5,7 +5,7 @@
 <!--
   Profile: [OrderBot] Dwarf Dailies
   Authors: TuckMeIntoBread, Zamphire.
-  Code Credit: Sodimm, Angles24.
+  Code Credit: Sodimm, Angles24, Kayla.
 -->
 <!-- Todo:
 Friendly:
@@ -311,10 +311,7 @@ Honored:
       <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
       <!-- <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/> -->
       <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
-      <!-- Todo:
-        Tanking Is Hard
-        Chief Concerns
-        Tanks for the Memory -->
+      <!-- Todo: Tanks for the Memory -->
       <!-- A Piss-up in a Brewery -->
       <If Condition="not HasQuest(69433) and not IsQuestCompleted(69433)">
         <If Condition="IsQuestAcceptQualified(69433)">
@@ -464,6 +461,143 @@ Honored:
           <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-606.4296, 65.60101, -410.1307"/>
           <TurnIn ItemId="31141" QuestId="69434" NpcId="1033710" XYZ="-607.7211, 65.60101, -412.7108"/>
         </If>
+      </If>
+      <!-- Tanking Is Hard -->
+      <If Condition="IsQuestCompleted(69434) and not HasQuest(69435) and not IsQuestCompleted(69435)">
+        <If Condition="not IsOnMap(813)">
+          <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+        </If>
+        <If Condition="IsQuestAcceptQualified(69435)">
+          <PickupQuest QuestId="69435" NpcId="1033710"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69435) == 1">
+        <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
+        <TalkTo NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69435" StepId="1"/>
+      </If>
+      <If Condition="GetQuestStep(69435) == 2">
+        <TalkTo NpcId="1033749" XYZ="-628.0461, 65.60229, -414.6639" QuestId="69435" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(69435) == 3">
+        <If Condition="GetQuestStep(69435) == 3 and not HasHqItem(31143)">
+          <If Condition="ClassName == ClassJobType.Carpenter">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Blacksmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Armorer">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Goldsmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Leatherworker">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Weaver">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Alchemist">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Culinarian">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+          </If>
+          <If Condition="not IsOnMap(813)">
+            <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69435) == 3 and HasHqItem(31143)">
+          <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-607.2025, 65.60239, -414.3623"/>
+          <HandOver ItemId="31143" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69435" StepId="3"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69435) == 4">
+        <LisbethTravel Area="Lakeland" Position="-249.1781, 18.8426, -162.7948"/>
+        <TalkTo NpcId="1033737" XYZ="-250.1718, 18.8426, -161.12" QuestId="69435" StepId="4"/>
+      </If>
+      <If Condition="GetQuestStep(69435) == 255">
+        <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-606.4296, 65.60101, -410.1307"/>
+        <TurnIn QuestId="69435" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108"/>
+      </If>
+      <!-- Chief Concerns -->
+      <If Condition="IsQuestCompleted(69435) and not HasQuest(69436) and not IsQuestCompleted(69436)">
+        <If Condition="IsQuestAcceptQualified(69436)">
+          <PickupQuest QuestId="69436" NpcId="1033710"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69436) == 1">
+        <FlyTo ZoneId="813" XYZ="-616.2021, -0.2831078, 301.9518"/>
+        <TalkTo NpcId="1033738" XYZ="-616.2966, -0.2847129, 303.9445" QuestId="69436" StepId="1"/>
+      </If>
+      <If Condition="GetQuestStep(69436) == 2">
+        <FlyTo ZoneId="813" XYZ="-605.1178, 65.60239, -411.2054"/>
+        <TalkTo NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69436" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(69436) == 3">
+        <TalkTo NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69436" StepId="3"/>
+      </If>
+      <If Condition="GetQuestStep(69436) == 4">
+        <GetTo ZoneId="813" XYZ="-628.1119, 65.60229, -414.3897"/>
+        <TalkTo NpcId="1033749" XYZ="-628.0461, 65.60229, -414.6639" QuestId="69436" StepId="4"/>
+      </If>
+      <If Condition="GetQuestStep(69436) == 5">
+        <If Condition="GetQuestStep(69436) == 5 and not HasHqItem(31145)">
+          <If Condition="ClassName == ClassJobType.Carpenter">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Blacksmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Armorer">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Goldsmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Leatherworker">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Weaver">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Alchemist">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Culinarian">
+            <Lisbeth IgnoreHome="True" Json="[{'Item':31145,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+          </If>
+          <If Condition="not IsOnMap(813)">
+            <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69436) == 5 and HasHqItem(31145)">
+          <GetTo ZoneId="813" XYZ="-607.7855, 65.60239, -409.9381"/>
+          <HandOver ItemId="31145" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69436" StepId="5"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69436) == 6">
+        <FlyTo XYZ="-372.0746, 5.742939, -93.97025" Land="True"/>
+        <TalkTo NpcId="1033743" XYZ="-369.8329, 5.626235, -94.80432" QuestId="69436" StepId="6"/>
+      </If>
+      <If Condition="GetQuestStep(69436) == 7">
+        <FlyTo XYZ="-245.2888, 3.463745, -116.6858" />
+        <UseObject ItemId="2003027" NpcIds="2011067, 2011068, 2011069" Radius="25"  QuestId="69436" StepId="7" Condition="GetQuestStep(69436) == 7 and GetQuestById(69436).GetTodoArgs(2, 0).Item1 &lt; 3">
+          <HotSpots>
+            <HotSpot XYZ="-236.7743,3.829956,-115.5872" Radius="20"/>
+            <HotSpot XYZ="-245.2888,3.463745,-116.6858" Radius="20"/>
+            <HotSpot XYZ="-254.1085,3.280701,-114.5496" Radius="20"/>
+          </HotSpots>
+        </UseObject>	
+      </If>
+      <If Condition="GetQuestStep(69436) == 8">
+        <TalkTo NpcId="1033743" XYZ="-369.8329, 5.626235, -94.80432" QuestId="69436" StepId="8"/>
+      </If>
+      <!-- Turn in Chief Concerns -->
+      <If Condition="GetQuestStep(69436) == 255">
+        <FlyTo XYZ="-605.1074, 65.60239, -413.4124" Land="True"/>
+        <TurnIn QuestId="69436" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108"/>
       </If>
       <If Condition="IsQuestCompleted(69432)">
         <!-- Pick Up Dailies -->
@@ -1307,63 +1441,6 @@ Honored:
             </If>
           </If>
         </If>
-        <!-- Tanking Is Hard -->
-        <If Condition="HasQuest(69435)">
-          <If Condition="not HasQuest(69435) and not IsQuestCompleted(69435)">
-            <If Condition="not IsOnMap(813)">
-              <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-            </If>
-            <If Condition="IsQuestAcceptQualified(69435)">
-              <PickupQuest QuestId="69435" NpcId="1033710"/>
-            </If>
-          </If>
-          <If Condition="GetQuestStep(69435) == 1">
-            <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
-            <TalkTo NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69435" StepId="1"/>
-          </If>
-          <If Condition="GetQuestStep(69435) == 2">
-            <TalkTo NpcId="1033749" XYZ="-628.0461, 65.60229, -414.6639" QuestId="69435" StepId="2"/>
-          </If>
-          <If Condition="GetQuestStep(69435) == 3">
-            <If Condition="GetQuestStep(69435) == 3 and not HasHqItem(31143)">
-              <If Condition="ClassName == ClassJobType.Carpenter">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Blacksmith">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Armorer">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Goldsmith">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Leatherworker">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Weaver">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Alchemist">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
-              </If>
-              <If Condition="ClassName == ClassJobType.Culinarian">
-                <Lisbeth IgnoreHome="True" Json="[{'Item':31143,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
-              </If>
-              <If Condition="not IsOnMap(813)">
-                <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-              </If>
-            </If>
-            <If Condition="GetQuestStep(69435) == 3 and HasHqItem(31143)">
-              <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-607.2025, 65.60239, -414.3623"/>
-              <HandOver ItemId="31143" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108" QuestId="69435" StepId="3"/>
-            </If>
-          </If>
-          <If Condition="GetQuestStep(69435) == 4">
-            <LisbethTravel Area="Lakeland" Position="-249.1781, 18.8426, -162.7948"/>
-            <TalkTo NpcId="1033737" XYZ="-250.1718, 18.8426, -161.12" QuestId="69435" StepId="4"/>
-          </If>
-        </If>
         <!-- Remote Repairs -->
         <If Condition="HasQuest(69463)">
           <If Condition="GetQuestStep(69463) == 1">
@@ -1559,10 +1636,6 @@ Honored:
           <If Condition="GetQuestStep(69458) == 255">
             <SoTurnIn QuestId="69458" NpcId="1033712" XYZ="-617.1206, 65.60226, -425.2537"/>
           </If>
-          <!-- Tanking Is Hard -->
-          <If Condition="GetQuestStep(69435) == 255">
-            <TurnIn QuestId="69435" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108"/>
-          </If>
           <!-- Remote Repairs -->
           <If Condition="GetQuestStep(69463) == 255">
             <TurnIn QuestId="69463" NpcId="1033712" XYZ="-617.1206, 65.60226, -425.2537"/>
@@ -1591,22 +1664,13 @@ Honored:
   <CodeChunks>
     <CodeChunk Name="SwitchDoHJob">
       <![CDATA[
-        var DoH = Enumerable.Range(8, 7);
-        var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69 && Core.Player.Levels[i.Class] < 80);
-        if (gearSets.Any())
-        {
-          gearSets.First().Activate();
-          await Coroutine.Sleep(2000);
-        }
-        else
-        {
-          gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69);
-          if (gearSets.Any())
-          {
-            gearSets.First().Activate();
-            await Coroutine.Sleep(2000);
-          }
-        }
+         var DoH = Enumerable.Range(8, 7);
+         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69).ToList().OrderBy(y => Core.Player.Levels[y.Class]);
+         if (gearSets.Any())
+         {
+           gearSets.First().Activate();
+           await Coroutine.Sleep(2000);
+         }
       ]]>
     </CodeChunk>
     <CodeChunk Name="SwitchDoWMJob">
@@ -1688,7 +1752,7 @@ Honored:
             ff14bot.Managers.GameObjectManager.GetObjectByNPCId(id).Interact();
             await Coroutine.Sleep(3000);
             ff14bot.RemoteWindows.Talk.Next();
-      await Coroutine.Sleep(8000);
+            await Coroutine.Sleep(8000);
             break;
           }
         }
@@ -1732,8 +1796,8 @@ Honored:
             break;
           }
         }
-      ]]>  
-    </CodeChunk>  
+      ]]>
+    </CodeChunk>
     <CodeChunk Name="Finish_Talking">
       <![CDATA[
         await Coroutine.Sleep(1000);

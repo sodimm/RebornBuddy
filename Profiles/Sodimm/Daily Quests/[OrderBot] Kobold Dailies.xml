@@ -8,6 +8,74 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <RegisterDailies QuestIds="66900,66901,66902,66903,66904,66905,66906,66907,66908,66909,66871,66872,66873,66874,66875,66876,66877,66878,66879,66880,66861,66862,66863,66864,66865,66866,66867,66868,66869,66870"/>
+	<!-- Unlock Quests -->
+    <!-- Highway Robbery -->
+    <If Condition="not HasQuest(66856) and not IsQuestCompleted(66856)">
+	  <GetTo ZoneId="128" XYZ="76.85962, 39.99632, 78.99597" />
+      <If Condition="IsQuestAcceptQualified(66856)">
+        <PickupQuest QuestId="66856" NpcId="1003550"/>
+      </If>
+    </If>
+     <If Condition="GetQuestStep(66856) == 1">
+      <GetTo ZoneId="138" XYZ="651.8837, 9.531651, 487.4698"/>
+      <TalkTo NpcId="1005964" XYZ="651.1177, 9.597839, 484.7333" QuestId="66856" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66856) == 2">
+      <GetTo ZoneId="138" XYZ="629.2203, 9.692917, 494.8289"/>
+      <UseObject NpcIds="2003711" XYZ="629.0836, 9.719971, 496.3301"  Radius="25"  QuestId="66856" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66856) == 3">
+      <SoHandOver ItemId="2001232" NpcId="1005964" XYZ="651.1177, 9.597839, 484.7333" QuestId="66856" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66856) == 4">
+      <GetTo ZoneId="180" XYZ="-140.2726, 64.54332, -212.5867"/>
+      <TalkTo NpcId="1006325" XYZ="-141.558, 64.59769, -212.2683" QuestId="66856" StepId="4"/>
+    </If>
+	<If Condition="GetQuestStep(66856) == 5">
+	  <GetTo ZoneId="180" XYZ="19.48578, 16.1593, -196.4294" />		
+	</If>    
+	<If Condition="GetQuestStep(66856) == 6">
+      <GetTo ZoneId="180" XYZ="18.45732, 16.25303, -198.7673"/>
+      <TalkTo NpcId="1007950" XYZ="19.48578, 16.1593, -196.4294" QuestId="66856" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(66856) == 255">
+      <GetTo ZoneId="180" XYZ="-0.2465663, 16.18168, -172.6829"/>
+      <TurnIn QuestId="66856" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033"/>
+    </If> 
+    <!-- How Low Can You Go -->
+    <If Condition="not HasQuest(66857) and not IsQuestCompleted(66857)">
+        <If Condition="not IsOnMap(180 )">
+			<TeleportTo Name="Camp Overlook" AetheryteId="16"/>
+		</If>	
+	  <FlyTo ZoneId="180" XYZ="-2.853455, 16.03717, -172.5033" />
+      <If Condition="IsQuestAcceptQualified(66857)">
+        <PickupQuest QuestId="66857" NpcId="1005927"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66857) == 1 and GetQuestById(66857).GetTodoArgs(2, 0).Item1 &lt; 4">
+      <FlyTo XYZ="181.0929, 64.31417, -265.9938" Land="True"/>
+      <UseObject NpcIds="2003713, 2003714, 2003715, 2003716"   Radius="25"  QuestId="66857" StepId="1">
+		<HotSpots>
+			<HotSpot XYZ="154.4976, 69.047, -254.3221" Radius="20"/>
+			<HotSpot XYZ="180.2853,64.62195,-255.1766" Radius="20"/>
+			<HotSpot XYZ="197.0092,64.04211,-225.6047" Radius="20"/>
+			<HotSpot XYZ="181.4755,64.59143,-282.4293" Radius="20"/>
+		</HotSpots>
+	  </UseObject>	
+    </If>
+    <If Condition="GetQuestStep(66857) == 2">
+	  <FlyTo XYZ="-2.853455, 16.03717, -172.5033" />
+      <HandOver ItemId="2001233" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66857" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66857) == 3">
+      <UseObject NpcIds="2003717" XYZ="0.3814697, 16.4339, -177.4778"  Radius="25"  QuestId="66857" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66857) == 4">
+      <TalkTo NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66857" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(66857) == 255">
+      <TurnIn QuestId="66857" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033"/>
+    </If>
     <If Condition="not HasAtLeastOneQuest(Array[int]([66900,66901,66902,66903,66904,66905,66906,66907,66908,66909,66871,66872,66873,66874,66875,66876,66877,66878,66879,66880,66861,66862,66863,66864,66865,66866,66867,66868,66869,66870]))">
       <!-- Rank 3 -->
       <!-- A Coblyn Catastrophe -->

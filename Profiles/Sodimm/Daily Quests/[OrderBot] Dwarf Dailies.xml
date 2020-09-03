@@ -1860,6 +1860,8 @@ Honored:
     <CodeChunk Name="Boom_and_Dust">
       <![CDATA[
         var explosive = InventoryManager.FilledSlots.FirstOrDefault(x => x.RawItemId == 2003030);
+        await CommonTasks.StopAndDismount();
+        await Coroutine.Sleep(2000);
         foreach (var x in GameObjectManager.GetObjectsOfType<EventObject>(true))
         {
           if (x.IsTargetable && (x.NpcId == 2011166 || x.NpcId == 2011167))

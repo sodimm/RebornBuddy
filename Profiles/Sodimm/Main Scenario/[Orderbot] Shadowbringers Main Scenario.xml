@@ -4734,7 +4734,7 @@ Authors:  Sodimm
     </CodeChunk>
     <CodeChunk Name="68822">
       <![CDATA[
-        await Coroutine.Sleep(6000);
+        await Coroutine.Sleep(10000);
         InventoryManager.FilledSlots.FirstOrDefault(r => r.RawItemId == 2002575).UseItem();
         await Coroutine.Wait(5000, () => Core.Me.IsCasting);
         await Coroutine.Wait(15000, () => !Core.Me.IsCasting);

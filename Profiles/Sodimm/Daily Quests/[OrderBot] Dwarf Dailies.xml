@@ -36,14 +36,14 @@ Respected:
   Close to Clearmeltdown X
   7/7
 Honored:
-  Demolition Demo
-  A Crude Awakening
-  Fast and Loud
-  Not for Drinking
+  Demolition Demo X
+  A Crude Awakening X
+  Fast and Loud X
+  Not for Drinking X
   Remote Repairs X
   Tip-top Gear X
   Substitute Tester X
-  3/7
+  7/7
 -->
 <Profile>
   <Name>[OrderBot] Dwarf Dailies</Name>
@@ -1638,8 +1638,13 @@ Honored:
 			</If>
 			<If Condition="not IsOnMap(813)">
 				<TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
-			</If>
-		</If>		
+			</If>	   						   										   																																									   
+		</If>
+		<!-- Not for Drinking -->
+		<If Condition="GetQuestStep(69462) == 1">
+		  <LisbethTravel Area="Lakeland" Position="-25.76056, 1.245678, 661.9236"/>
+		  <HandOver ItemId="2003034" NpcId="1034072" XYZ="-25.92511, 1.390427, 662.8976" QuestId="69462" StepId="1"/>
+		</If>			
         <!-- Turn-ins -->
         <If Condition="HasAtLeastOneDailyQuestCompleted(Array[int]([&dailyIds;]))">
           <If Condition="not IsOnMap(813)">
@@ -1755,6 +1760,11 @@ Honored:
 		  <If Condition="GetQuestStep(69461) == 255 and HasAtLeast(31179,3)">
 				<TurnIn ItemId="31179" QuestId="69461" NpcId="1033712" XYZ="-617.1206, 65.60226, -425.2537"/>
 		  </If>			  
+		  <!-- Not for Drinking -->
+		  <If Condition="GetQuestStep(69462) == 255">
+				<LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-615.1105, 65.60226, -423.9669"/>
+				<TurnIn ItemId="2003031" QuestId="69462" NpcId="1033712" XYZ="-617.1206, 65.60226, -425.2537"/>
+		  </If>									 											   																									 																										 
           <RunCode Name="Finish_Talking"/>
         </If>
       </If>

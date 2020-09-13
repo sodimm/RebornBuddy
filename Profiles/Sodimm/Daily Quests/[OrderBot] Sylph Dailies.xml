@@ -8,7 +8,50 @@ Authors:  Sodimm.
   <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
   <Order>
     <RegisterDailies QuestIds="66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822"/>
-    <If Condition="not HasAtLeastOneQuest(Array[int]([66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
+   <!-- Unlock Quests -->
+   <!-- Seeking Solace -->
+    <If Condition="not HasQuest(66788) and not IsQuestCompleted(66788)">
+      <GetTo ZoneId="132" XYZ="-73.71434, -0.5021191, -3.508236"/>
+      <If Condition="IsQuestAcceptQualified(66788)">
+        <PickupQuest QuestId="66788" NpcId="1000168"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66788) == 1">
+      <GetTo ZoneId="152" XYZ="46.84616, 6.073428, 248.4487"/>
+      <TalkTo NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913" QuestId="66788" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66788) == 2">
+      <GetTo ZoneId="152" XYZ="29.09242, -3.672713, 212.5659"/>
+      <TalkTo NpcId="1005577" XYZ="28.48853, -3.631957, 210.6202" QuestId="66788" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66788) == 255">
+      <GetTo ZoneId="152" XYZ="46.84676, 6.073428, 249.6407"/>
+      <TurnIn QuestId="66788" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+    </If>
+    <!-- Voyce of Concern -->
+    <If Condition="not HasQuest(66789) and not IsQuestCompleted(66789)">
+      <GetTo ZoneId="152" XYZ="46.47898, 6.073428, 248.8699"/>
+      <If Condition="IsQuestAcceptQualified(66789)">
+        <PickupQuest QuestId="66789" NpcId="1005564"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66789) == 1">
+      <GetTo ZoneId="152" XYZ="269.2935, -0.3461928, 167.9926"/>
+      <UseObject NpcIds="2002864" XYZ="270.283, -0.2594604, 168.5359"  Radius="25"  QuestId="66789" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66789) == 2">
+      <GetTo ZoneId="152" XYZ="290.5685, -1.066378, 145.9555"/>
+      <TalkTo NpcId="1005570" XYZ="292.7748, -0.001533151, 145.1285" QuestId="66789" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66789) == 3">
+      <GetTo ZoneId="152" XYZ="21.76985, -6.233342, 252.2077"/>
+      <TalkTo NpcId="1005565" XYZ="22.47644, -6.21051, 252.552" QuestId="66789" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66789) == 255">
+      <GetTo ZoneId="152" XYZ="46.3531, 6.073428, 249.0289"/>
+      <TurnIn QuestId="66789" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+    </If>    
+	<If Condition="not HasAtLeastOneQuest(Array[int]([66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
       <!-- Rank 3 -->
       <!-- Ripe for the Picking -->
       <If Condition="not HasQuest(66813)">

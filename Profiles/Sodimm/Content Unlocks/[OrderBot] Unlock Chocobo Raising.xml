@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Unlock Chocobo Raising
+  Authors: 
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Chocobo Raising</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Bird in Hand -->
+    <If Condition="not HasQuest(67096) and not IsQuestCompleted(67096)">
+	  <GetTo ZoneId="148" XYZ="-59.26443, 0.2, 7.68372"/>
+      <If Condition="IsQuestAcceptQualified(67096)">
+        <PickupQuest QuestId="67096" NpcId="1000471"/>
+      </If>
+    </If>
+	<If Condition="GetQuestStep(67096) == 1 and GetQuestById(67096).GetTodoArgs(2, 0).Item1 &lt; 5">
+		<UseObject NpcIds="2004432,2004433,2004434,2004435,2004436" QuestId="67096" Condition="GetQuestStep(67096) == 1 and GetQuestById(67096).GetTodoArgs(2, 0).Item1 &lt; 5">
+			<HotSpots>
+				<HotSpot XYZ="-58.06067, 0.1983643, 5.355835" Radius="25"/>
+				<HotSpot XYZ="-64.62195, -0.01531982, -5.233948" Radius="25"/>
+				<HotSpot XYZ="-47.28778, -0.01531982, -4.013123" Radius="25"/>
+				<HotSpot XYZ="-51.77393, 0.1983643, 16.12872" Radius="25"/>
+				<HotSpot XYZ="-63.30969, 0.1983643, 16.03717" Radius="25"/>
+			</HotSpots>
+		</UseObject>	
+	</If> 
+    <If Condition="GetQuestStep(67096) == 2">
+	  <GetTo ZoneId="148" XYZ="-58.70805, 0.2, 7.191894"/>
+      <HandOver ItemId="2001360" NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941" QuestId="67096" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 3">
+      <GetTo ZoneId="148" XYZ="-45.96358, 0.6667265, -31.13389"/>
+      <TalkTo NpcId="1000473" XYZ="-44.14441, 0.7438907, -32.88324" QuestId="67096" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 4">
+	  <GetTo ZoneId="148" XYZ="-59.14105, 0.2, 7.841123"/>	
+      <HandOver ItemId="2001359" NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941" QuestId="67096" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 5">
+	  <GetTo ZoneId="148" XYZ="-57.06621, -0.008645535, 25.92573"/>	
+      <TalkTo NpcId="1000470" XYZ="-59.00665, -0.01083579, 26.41333" QuestId="67096" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 6">
+      <GetTo ZoneId="148" XYZ="-57.06621, -0.008645475, 25.92573"/>
+      <TalkTo NpcId="1009569" XYZ="-56.10742, -0.02042469, 28.54956" QuestId="67096" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 7">
+      <GetTo ZoneId="148" XYZ="-57.06621, -0.008645475, 25.92573"/>
+      <TalkTo NpcId="1000470" XYZ="-59.00665, -0.01083579, 26.41333" QuestId="67096" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(67096) == 255">
+	  <GetTo ZoneId="148" XYZ="-59.32345, 0.2, 7.755546"/>	
+      <TurnIn QuestId="67096" NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941"/>
+    </If> 	
+	</Order>
+  <GrindAreas/>
+  <CodeChunks/>
+</Profile>
+

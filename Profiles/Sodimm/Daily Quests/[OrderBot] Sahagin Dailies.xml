@@ -9,6 +9,61 @@ Authors:  Sodimm.
   <Order>
     <!-- Register Dailies -->
     <RegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945"/>
+    <!-- They Came from the Deep -->
+    <If Condition="not HasQuest(66910) and not IsQuestCompleted(66910)">
+	  <GetTo ZoneId="128" XYZ="97.52039, 40.24854, 81.1322" />	
+      <If Condition="IsQuestAcceptQualified(66910)">
+        <PickupQuest QuestId="66910" NpcId="1003281"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66910) == 1">
+      <GetTo ZoneId="137" XYZ="506.6425, 10.03491, 254.3862"/>
+      <TalkTo NpcId="1008826" XYZ="508.2322, 9.926134, 251.4534" QuestId="66910" StepId="1"/>
+	</If>  
+	<If Condition="GetQuestStep(66910) == 2">
+		<TalkTo NpcId="1008832" XYZ="510.9789,8.979649,259.3881" Radius="25" condition="GetQuestStep(66910) == 2 and GetQuestById(66910).GetTodoArgs(2, 0).Item2 == 0"/>
+		<TalkTo NpcId="1008831" XYZ="514.4274,8.931801,254.322" Radius="25" condition="GetQuestStep(66910) == 2 and GetQuestById(66910).GetTodoArgs(2, 0).Item2 == 1"/>
+		<UseItem ItemId="2001288" NpcIds="1008830" XYZ="519.2491,8.867149,245.8075" Radius="25" condition="GetQuestStep(66910) == 2 and GetQuestById(66910).GetTodoArgs(2, 0).Item1 == 0"/>
+		<UseItem ItemId="2001288" NpcIds="1008829" XYZ="497.1542,12.65078,245.0751" Radius="25" condition="GetQuestStep(66910) == 2 and GetQuestById(66910).GetTodoArgs(2, 0).Item1 == 1"/>	
+	</If>
+    <If Condition="GetQuestStep(66910) == 3">
+      <GetTo ZoneId="137" XYZ="505.3362, 10.58446, 252.6701"/>
+      <TalkTo NpcId="1008826" XYZ="508.2322, 9.926134, 251.4534" QuestId="66910" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66910) == 4">
+      <GetTo ZoneId="137" XYZ="507.5957, 9.995538, 252.0905"/>
+      <TalkTo NpcId="1008827" XYZ="508.3541, 9.910819, 250.2632" QuestId="66910" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(66910) == 5">
+      <GetTo ZoneId="138" XYZ="-205.2702, -41.8487, 21.2491"/>
+      <HandOver ItemId="2001289" NpcId="1008916" XYZ="-207.4464, -42.06953, 22.14075" QuestId="66910" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(66910) == 255">
+      <GetTo ZoneId="138" XYZ="-237.8191, -40.88364, 65.56162"/>
+      <TurnIn QuestId="66910" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+    </If>
+    <!-- Clutch and Kin -->
+    <If Condition="not HasQuest(66911) and not IsQuestCompleted(66911)">
+      <GetTo ZoneId="138" XYZ="-238.6843, -40.93711, 66.2347"/>
+      <If Condition="IsQuestAcceptQualified(66911)">
+        <PickupQuest QuestId="66911" NpcId="1005937"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66911) == 1">
+      <GetTo ZoneId="138" XYZ="-228.5934, -40.48583, 56.90594"/>
+      <TalkTo NpcId="1005940" XYZ="-226.1235, -40.48583, 57.08398" QuestId="66911" StepId="1"/>
+    </If>
+	<If Condition="GetQuestStep(66911) == 2">
+	  <GetTo ZoneId="138" XYZ="-38.31543, -23.03621, -88.85327" /> 
+	</If>	
+	<If Condition="GetQuestStep(66911) == 3">
+	  <GetTo ZoneId="138" XYZ="-38.31543, -23.03621, -88.85327" /> 
+	  <TalkTo InteractDistance="3.0" QuestId="66911" StepId="3" NpcId="1008897" XYZ="-38.31543, -23.03621, -88.85327" />
+	</If>	
+    <If Condition="GetQuestStep(66911) == 255">
+      <GetTo ZoneId="138" XYZ="-238.9635, -40.99921, 64.81894"/>
+      <TurnIn QuestId="66911" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+    </If>
     <!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945]))">
       <!-- Rank 3 -->

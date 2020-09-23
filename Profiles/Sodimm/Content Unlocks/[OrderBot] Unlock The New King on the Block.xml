@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Unlock The New King on the Block
+  Authors:
+-->
+<Profile>
+  <Name>[OrderBot] Unlock The New King on the Block</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- The New King on the Block -->
+    <If Condition="not HasQuest(67090) and not IsQuestCompleted(67090)">
+	  <LisbethTravel Area="Kugane" Position="-77.78518, 11.80004, -118.1502"/>	
+      <If Condition="IsQuestAcceptQualified(67090)">
+        <PickupQuest QuestId="67090" NpcId="1025721"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(2, 0).Item1 == 0">
+      <LisbethTravel Area="The Azim Steppe" Position="540.0819, -19.50564, 323.4227"/>
+      <TalkTo NpcId="1025723" XYZ="538.1094, -19.50565, 324.3915" QuestId="67090" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(2, 0).Item1 == 1">
+      <LisbethTravel Area="The Azim Steppe" Position="538.3735, -19.30217, 270.0387"/>
+      <TalkTo InteractDistance="3.0" QuestId="67090" StepId="1" NpcId="1025725" XYZ="537.4075, -19.2849, 268.9402" />
+    </If>
+    <If Condition="GetQuestStep(67090) == 1 and GetQuestById(67090).GetTodoArgs(2, 0).Item1 == 2">
+      <LisbethTravel Area="The Azim Steppe" Position="578.0042, -19.50383, 280.7292"/>
+      <TalkTo InteractDistance="3.0" QuestId="67090" StepId="1" NpcId="1025724" XYZ="579.1256, -19.50358, 280.3234" />
+    </If>	    
+	<If Condition="GetQuestStep(67090) == 2">
+      <LisbethTravel Area="The Azim Steppe" Position="512.5363, -19.74387, 293.2649"/>
+      <TalkTo NpcId="1025726" XYZ="513.6339, -19.6877, 290.3943" QuestId="67090" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67090) == 3">
+      <LisbethTravel Area="The Azim Steppe" Position="315.1053, -25.54331, 569.7058"/>
+      <UseObject NpcIds="2009489" XYZ="315.0834, -25.65051, 571.9844"  Radius="25"  QuestId="67090" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67090) == 4">
+      <LisbethTravel Area="The Azim Steppe" Position="-482.5615, 71.62364, -514.2825"/>
+      <TalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="4"/>
+    </If>
+	<If Condition="GetQuestStep(67090) == 5">
+		<RunCode name="Announce_Manual_Completion"/>
+	</If>
+    <If Condition="GetQuestStep(67090) == 6">
+      <LisbethTravel Area="The Azim Steppe" Position="-481.6174, 71.5571, -511.1165"/>
+      <SoTalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(67090) == 255">
+      <LisbethTravel Area="Kugane" Position="-77.07628, 11.80004, -117.0236"/>
+      <TurnIn QuestId="67090" NpcId="1025721" XYZ="-75.94415, 11.80004, -115.6177"/>
+    </If>	
+  </Order>
+  <GrindAreas/>
+  <CodeChunks>
+      <CodeChunk Name="Announce_Manual_Completion">
+	  <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete the next step manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+	  </CodeChunk> 
+  </CodeChunks>
+</Profile>
+
+

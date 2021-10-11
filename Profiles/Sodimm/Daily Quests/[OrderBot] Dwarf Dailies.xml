@@ -311,7 +311,28 @@ Honored:
       <TeleportTo Name="The Ostall Imperative" AetheryteId="136"/>
       <!-- <FlyTo XYZ="-612.8174, 65.60093, -420.7993" Land="True"/> -->
       <LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-612.8174, 65.60093, -420.7993"/>
-      <!-- Todo: Tanks for the Memory -->
+      <!-- Tanks for the Memory -->    
+      <If Condition="not HasQuest(69437) and not IsQuestCompleted(69437)">
+        <If Condition="IsQuestAcceptQualified(69437)">
+          <LLPickupQuest QuestId="69437" NpcId="1033710"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69437) == 1">
+        <LisbethTravel Zone="813" Subzone="3051" Position="-357.0026, 100.1054, -603.2878"/>
+        <LLTalkTo NpcId="1033744" XYZ="-354.5434, 100.1054, -603.7537" QuestId="69437" StepId="1"/>
+      </If>
+      <If Condition="GetQuestStep(69437) == 2">
+        <LLTalkTo NpcId="1033746" XYZ="-351.3696, 100.1054, -603.6011" QuestId="69437" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(69437) == 3">
+        <LLTalkTo NpcId="1033729" XYZ="-355.6115, 100.1054, -603.2045" QuestId="69437" StepId="3"/>
+      </If>
+      <If Condition="GetQuestStep(69437) == 255">
+        <LisbethTravel Zone="813" Subzone="3574" Position="-606.1673, 65.60239, -414.1663"/>
+        <LLTurnIn QuestId="69437" NpcId="1033710" XYZ="-607.7211, 65.60239, -412.7108"/>
+        <LLSmallTalk/>
+      </If>
       <!-- A Piss-up in a Brewery -->
       <If Condition="not HasQuest(69433) and not IsQuestCompleted(69433)">
         <If Condition="IsQuestAcceptQualified(69433)">

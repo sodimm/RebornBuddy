@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  [Orderbot] Little Ladies' Day 2020
+Authors:  Comfy Echo
+Version:  1.0.0
+-->
+<Profile>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Pretty in Peaches -->
+    <!-- Pickup Quest -->
+    <If Condition="not HasQuest(69386) and not IsQuestCompleted(69386)">
+      <GetTo ZoneId="130" XYZ="-35.11102, 5.000001, -130.3578" />
+      <If Condition="IsQuestAcceptQualified(69386)">
+        <SoPickupQuest QuestId="69386" NpcId="1032981" XYZ="-35.11102, 5.000001, -130.3578"/>
+      </If>
+    </If>
+    <!-- Question Residents 1 -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 1">
+      <GetTo ZoneId="130" XYZ="38.34583, 4, -137.9874" />
+      <SoTalkTo NpcId="1032983" XYZ="38.34583, 4, -137.9874" QuestId="69386" StepId="1"/>
+    </If>
+    <!-- Question Residents 2 -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 2">
+      <GetTo ZoneId="131" XYZ="97.42883, 8, -29.77039" />
+      <SoTalkTo NpcId="1032984" XYZ="97.42883, 8, -29.77039" QuestId="69386" StepId="2"/>
+    </If>
+    <!-- Question Residents 3 -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 3">
+      <GetTo ZoneId="131" XYZ="61.60059, 13, 37.0946" />
+      <SoTalkTo NpcId="1032985" XYZ="61.60059, 13, 37.0946" QuestId="69386" StepId="3"/>
+    </If>
+    <!-- Search for the girl -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 4">
+      <GetTo ZoneId="131" XYZ="-88.12085, 41, 81.89514" />
+      <SoTalkTo NpcId="1032986" XYZ="-88.12085, 41, 81.89514" QuestId="69386" StepId="4"/>
+    </If>
+    <!-- Children's Ward -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 5">
+      <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+      <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256" QuestId="69386" StepId="5"/>
+    </If>
+    <!-- Speak with Damielliot -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 6">
+      <If Condition="not IsOnMap(611)">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+      </If>
+      <SoTalkTo NpcId="1033005" XYZ="7.309021, 0.005500421, 1.724182" QuestId="69386" StepId="6"/>
+    </If>
+    <!-- Speak with the three children -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 7">
+      <If Condition="not IsOnMap(611)">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+      </If>
+      <SoTalkTo NpcId="1033537" XYZ="-0.2594604, 7.688999E-06, -4.867676" QuestId="69386" StepId="7"/>
+      <SoTalkTo NpcId="1033539" XYZ="-7.980469, 0.005499996, -0.3510132" QuestId="69386" StepId="7"/>
+      <SoTalkTo NpcId="1033538" XYZ="-7.950012, 0.005499989, 5.935669" QuestId="69386" StepId="7"/>
+    </If>
+    <!-- Speak with Momoru -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 8">
+      <If Condition="not IsOnMap(611)">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+      </If>
+      <SoTalkTo NpcId="1032994" XYZ="6.027222, 0.003999993, 4.348816" QuestId="69386" StepId="8"/>
+    </If>
+    <!-- Speak with Redolent Rose -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 9">
+      <GetTo ZoneId="131" XYZ="157.3662, 7.792007, 98.92419" />
+      <SoTalkTo NpcId="1003818" DialogOption="0" XYZ="157.3662, 7.792007, 98.92419" QuestId="69386" StepId="9"/>
+    </If>
+    <!-- Return to Frondale -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 10">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+        <WaitWhile Condition="not GetQuestStep(69386) == 12"/>
+    </If>
+    <!-- Speak with Aldiytha and the others -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 12">
+      <If Condition="not IsOnMap(611)">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+      </If>
+      <SoTalkTo NpcId="1032978" XYZ="4.501404, 4.589558E-06, 8.346619" QuestId="69386" StepId="12"/>
+      <SoTalkTo NpcId="1032997" XYZ="-7.126038, 0.005499996, -0.9613647" QuestId="69386" StepId="12"/>
+      <WaitWhile Condition="not GetQuestStep(69386) == 255"/>
+    </If>
+    <!-- Turn quest in -->
+    <If Condition="HasQuest(69386) and not IsQuestCompleted(69386) and GetQuestStep(69386) == 255">
+      <If Condition="not IsOnMap(611)">
+        <GetTo ZoneId="131" XYZ="-83.11597, 40, 109.0256" />
+        <SoTalkTo DialogOption="0" NpcId="1033006" XYZ="-83.11597, 40, 109.0256"/>
+      </If>
+      <TurnIn QuestId="69386" NpcId="1032996" XYZ="7.309021, 0.005500421, 1.724182"/>
+    </If>
+  </Order>
+</Profile>

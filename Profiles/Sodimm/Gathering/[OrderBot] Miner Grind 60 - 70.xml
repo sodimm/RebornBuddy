@@ -117,8 +117,8 @@ Required Botbases:  Lisbeth.
       <TalkTo NpcId="1019864" XYZ="80.87506, 214.1, -90.63407" QuestId="68091" StepId="3"/>
     </If>
     <If Condition="HasQuest(68091) and not IsQuestCompleted(68091) and GetQuestStep(68091) == 4">
-      <While Condition="not HqHasAtLeast(17941,3)">
-        <Lisbeth Json="[{'Item': 17941,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      <While Condition="not NqHasAtLeast(17941,20)">
+        <Lisbeth Json="[{'Item': 17941,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
       <If Condition="not IsOnMap(478)">
@@ -208,8 +208,8 @@ Required Botbases:  Lisbeth.
       <TalkTo NpcId="1019866" XYZ="-63.21496, 206.5002, 22.57584" QuestId="68092" StepId="4"/>
     </If>
     <If Condition="HasQuest(68092) and not IsQuestCompleted(68092) and GetQuestStep(68092) == 5">
-      <While Condition="not HqHasAtLeast(17942,5)">
-        <Lisbeth Json="[{'Item': 17942,'Group': 0,'Amount': 5,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      <While Condition="not NqHasAtLeast(17942,20)">
+        <Lisbeth Json="[{'Item': 17942,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
       <If Condition="not IsOnMap(478)">
@@ -276,8 +276,8 @@ Required Botbases:  Lisbeth.
       <TalkTo NpcId="1013713" XYZ="-18.99101, 211.2449, -29.65191" QuestId="68093" StepId="1"/>
     </If>
     <If Condition="HasQuest(68093) and not IsQuestCompleted(68093) and GetQuestStep(68093) == 2">
-      <While Condition="not HqHasAtLeast(17943,8)">
-        <Lisbeth Json="[{'Item': 17943,'Group': 0,'Amount': 8,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+      <While Condition="not NqHasAtLeast(17943,20)">
+        <Lisbeth Json="[{'Item': 17943,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
       <If Condition="not IsOnMap(478)">
@@ -351,22 +351,7 @@ Required Botbases:  Lisbeth.
         <If Condition="not IsOnMap(620)">
           <GetTo ZoneId="620" XYZ="119.5055, 118.1558, -753.5763"/>
         </If>
-        <ExMoveTo XYZ="283.588, 140.9948, -461.9317"/>
-        <WaitWhile Condition="Condition.IsTimeBetween(22,8.1) or Condition.IsTimeBetween(10,20.1)"/>
-        <If Condition="IsTimeBetween(8,10) or IsTimeBetween(20,22)">
-          <ExGather loops="1" SpawnTimeout="5" While="not HasAtLeast(17994,5)">
-            <GatherObjects>
-              <GatherObject>Unspoiled Mineral Deposit</GatherObject>
-            </GatherObjects>
-            <ItemNames>
-              <ItemName>Pummelite</ItemName>
-            </ItemNames>
-            <GatherRotation>Yield</GatherRotation>
-            <HotSpots>
-              <HotSpot XYZ="283.588, 140.9948, -461.9317" Radius="200"/>
-            </HotSpots>
-          </ExGather>
-        </If>
+			<Lisbeth Json="[{'Item': 17944,'Group': 0,'Amount': 5,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/> 
       </If>
       <If Condition="HasAtLeast(17944,5)">
         <If Condition="not IsOnMap(478)">

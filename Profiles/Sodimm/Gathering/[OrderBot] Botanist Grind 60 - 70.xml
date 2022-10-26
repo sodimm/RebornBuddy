@@ -72,13 +72,13 @@ Required Botbases:  Lisbeth.
       <GetTo ZoneId="612" XYZ="-445.9644, 52.73912, 32.5323"/>
       <TalkTo NpcId="1021352" XYZ="-445.9644, 52.73912, 32.5323" QuestId="68157" StepId="3"/>
     </If>
-    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 4 and not HqHasAtLeast(17945, 3)">
-      <While Condition="not HqHasAtLeast(17945,3)">
-        <Lisbeth Json="[{'Item': 17945,'Group': 0,'Amount': 3,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 4 and not NqHasAtLeast(17945, 20)">
+      <While Condition="not NqHasAtLeast(17945,20)">
+        <Lisbeth Json="[{'Item': 17945,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
     </If>
-    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 4 and HqHasAtLeast(17945, 3)">
+    <If Condition="HasQuest(68157) and not IsQuestCompleted(68157) and GetQuestStep(68157) == 4 and NqHasAtLeast(17945, 20)">
       <GetTo ZoneId="612" XYZ="-445.4772, 52.69365, 32.55148"/>
       <HandOver ItemId="17945" RequiresHq="True" NpcId="1021352" XYZ="-445.4772, 52.69365, 32.55148" QuestId="68157" StepId="4"/>
     </If>
@@ -143,13 +143,13 @@ Required Botbases:  Lisbeth.
       <GetTo ZoneId="613" XYZ="-732.6594, 1.960285, -610.0832"/>
       <TalkTo NpcId="1019233" XYZ="-732.6594, 1.960285, -610.0832" QuestId="68158" StepId="5"/>
     </If>
-    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 255 and not HqHasAtLeast(17946, 5)">
-      <While Condition="not HqHasAtLeast(17946,5)">
-        <Lisbeth Json="[{'Item': 17946,'Group': 0,'Amount': 5,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 255 and not NqHasAtLeast(17946, 5)">
+      <While Condition="not NqHasAtLeast(17946,20)">
+        <Lisbeth Json="[{'Item': 17946,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
     </If>
-    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 255 and HqHasAtLeast(17946, 5)">
+    <If Condition="HasQuest(68158) and not IsQuestCompleted(68158) and GetQuestStep(68158) == 255 and NqHasAtLeast(17946, 20)">
       <GetTo ZoneId="478" XYZ="-44.67389, 209.2242, -90.67441"/>
       <TurnIn ItemId="17946" RequiresHq="True" QuestId="68158" NpcId="1021349" XYZ="-44.67389, 209.2242, -90.67441"/>
     </If>
@@ -204,13 +204,13 @@ Required Botbases:  Lisbeth.
       <GetTo ZoneId="478" XYZ="74.81849, 214.12, -91.51659"/>
       <HandOver ItemId="2002167" NpcId="1017106" XYZ="74.81849, 214.12, -91.51659" QuestId="68159" StepId="5"/>
     </If>
-    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and not HqHasAtLeast(17947, 8)">
-      <While Condition="not HqHasAtLeast(17947,8)">
-        <Lisbeth Json="[{'Item': 17947,'Group': 0,'Amount': 8,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': true,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and not NqHasAtLeast(17947, 20)">
+      <While Condition="not NqHasAtLeast(17947,20)">
+        <Lisbeth Json="[{'Item': 17947,'Group': 0,'Amount': 20,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 0,'Medicine': 0}]"/>
         <!-- Wild Popotoes -->
       </While>
     </If>
-    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and HqHasAtLeast(17947, 8)">
+    <If Condition="HasQuest(68159) and not IsQuestCompleted(68159) and GetQuestStep(68159) == 6 and NqHasAtLeast(17947, 20)">
       <GetTo ZoneId="478" XYZ="74.53394, 214.12, -91.56881"/>
       <HandOver ItemId="17947" RequiresHq="True" NpcId="1017106" XYZ="74.53394, 214.12, -91.56881" QuestId="68159" StepId="6"/>
     </If>
@@ -264,22 +264,7 @@ Required Botbases:  Lisbeth.
     <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and not HasAtLeast(17948, 5)">
       <GetTo ZoneId="621" XYZ="-651.8341, 50.00002, -5.081966"/>
       <While Condition="not HasAtLeast(17948,5)">
-        <ExMoveTo XYZ="-739.371, 112.4997, -634.7165"/>
-        <WaitWhile Condition="Condition.IsTimeBetween(18,4.1) or Condition.IsTimeBetween(6,16.1)"/>
-        <If Condition="Condition.IsTimeBetween(4,6) or Condition.IsTimeBetween(16,18)">
-          <ExGather loops="1" SpawnTimeout="5" While="not HasAtLeast(17948,5)">
-            <GatherObjects>
-              <GatherObject>Unspoiled Lush Vegetation Patch</GatherObject>
-            </GatherObjects>
-            <ItemNames>
-              <ItemName>Rhalgr's Streak</ItemName>
-            </ItemNames>
-            <GatherRotation>Yield</GatherRotation>
-            <HotSpots>
-              <HotSpot XYZ="-739.371, 112.4997, -634.7165" Radius="120"/>
-            </HotSpots>
-          </ExGather>
-        </If>
+      <Lisbeth Json="[{'Item': 17948,'Group': 0,'Amount': 5,'Collectable': false,'QuickSynth': false,'SuborderQuickSynth': false,'Hq': false,'Rotation': '','Food': 0,'Primary': true,'Type': 'Gather','Enabled': true,'Manual': 12668,'Medicine': 0}]"/> 
       </While>
     </If>
     <If Condition="HasQuest(68160) and not IsQuestCompleted(68160) and GetQuestStep(68160) == 255 and HasAtLeast(17948, 5)">
